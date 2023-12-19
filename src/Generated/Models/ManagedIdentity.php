@@ -101,18 +101,18 @@ class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable
             'associatedResourceId' => fn(ParseNode $n) => $o->setAssociatedResourceId($n->getStringValue()),
             'federatedTokenId' => fn(ParseNode $n) => $o->setFederatedTokenId($n->getStringValue()),
             'federatedTokenIssuer' => fn(ParseNode $n) => $o->setFederatedTokenIssuer($n->getStringValue()),
-            'msiType' => fn(ParseNode $n) => $o->setMsiType($n->getEnumValue(MsiType::class)),
+            'msiType' => fn(ParseNode $n) => $o->setMsiType($n->getEnumValue(ManagedIdentity_msiType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
      * Gets the msiType property value. The possible values are: none, userAssigned, systemAssigned, unknownFutureValue.
-     * @return MsiType|null
+     * @return ManagedIdentity_msiType|null
     */
-    public function getMsiType(): ?MsiType {
+    public function getMsiType(): ?ManagedIdentity_msiType {
         $val = $this->getBackingStore()->get('msiType');
-        if (is_null($val) || $val instanceof MsiType) {
+        if (is_null($val) || $val instanceof ManagedIdentity_msiType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'msiType'");
@@ -185,9 +185,9 @@ class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the msiType property value. The possible values are: none, userAssigned, systemAssigned, unknownFutureValue.
-     * @param MsiType|null $value Value to set for the msiType property.
+     * @param ManagedIdentity_msiType|null $value Value to set for the msiType property.
     */
-    public function setMsiType(?MsiType $value): void {
+    public function setMsiType(?ManagedIdentity_msiType $value): void {
         $this->getBackingStore()->set('msiType', $value);
     }
 

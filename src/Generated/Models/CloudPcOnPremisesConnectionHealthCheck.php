@@ -49,6 +49,18 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
+     * Gets the additionalDetail property value. The additionalDetail property
+     * @return string|null
+    */
+    public function getAdditionalDetail(): ?string {
+        $val = $this->getBackingStore()->get('additionalDetail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalDetail'");
+    }
+
+    /**
      * Gets the additionalDetails property value. More details about the health check or the recommended action.
      * @return string|null
     */
@@ -106,11 +118,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
 
     /**
      * Gets the errorType property value. The type of error that occurred during this health check.
-     * @return CloudPcOnPremisesConnectionHealthCheckErrorType|null
+     * @return CloudPcOnPremisesConnectionHealthCheck_errorType|null
     */
-    public function getErrorType(): ?CloudPcOnPremisesConnectionHealthCheckErrorType {
+    public function getErrorType(): ?CloudPcOnPremisesConnectionHealthCheck_errorType {
         $val = $this->getBackingStore()->get('errorType');
-        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionHealthCheckErrorType) {
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionHealthCheck_errorType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'errorType'");
@@ -123,11 +135,12 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'additionalDetail' => fn(ParseNode $n) => $o->setAdditionalDetail($n->getStringValue()),
             'additionalDetails' => fn(ParseNode $n) => $o->setAdditionalDetails($n->getStringValue()),
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
-            'errorType' => fn(ParseNode $n) => $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheckErrorType::class)),
+            'errorType' => fn(ParseNode $n) => $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheck_errorType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'recommendedAction' => fn(ParseNode $n) => $o->setRecommendedAction($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
@@ -188,6 +201,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('additionalDetail', $this->getAdditionalDetail());
         $writer->writeStringValue('additionalDetails', $this->getAdditionalDetails());
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -206,6 +220,14 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the additionalDetail property value. The additionalDetail property
+     * @param string|null $value Value to set for the additionalDetail property.
+    */
+    public function setAdditionalDetail(?string $value): void {
+        $this->getBackingStore()->set('additionalDetail', $value);
     }
 
     /**
@@ -250,9 +272,9 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
 
     /**
      * Sets the errorType property value. The type of error that occurred during this health check.
-     * @param CloudPcOnPremisesConnectionHealthCheckErrorType|null $value Value to set for the errorType property.
+     * @param CloudPcOnPremisesConnectionHealthCheck_errorType|null $value Value to set for the errorType property.
     */
-    public function setErrorType(?CloudPcOnPremisesConnectionHealthCheckErrorType $value): void {
+    public function setErrorType(?CloudPcOnPremisesConnectionHealthCheck_errorType $value): void {
         $this->getBackingStore()->set('errorType', $value);
     }
 

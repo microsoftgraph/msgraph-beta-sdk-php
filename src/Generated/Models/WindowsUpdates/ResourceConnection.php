@@ -39,17 +39,17 @@ class ResourceConnection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ResourceConnectionState::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ResourceConnection_state::class)),
         ]);
     }
 
     /**
      * Gets the state property value. The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.
-     * @return ResourceConnectionState|null
+     * @return ResourceConnection_state|null
     */
-    public function getState(): ?ResourceConnectionState {
+    public function getState(): ?ResourceConnection_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof ResourceConnectionState) {
+        if (is_null($val) || $val instanceof ResourceConnection_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -66,9 +66,9 @@ class ResourceConnection extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.
-     * @param ResourceConnectionState|null $value Value to set for the state property.
+     * @param ResourceConnection_state|null $value Value to set for the state property.
     */
-    public function setState(?ResourceConnectionState $value): void {
+    public function setState(?ResourceConnection_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

@@ -79,7 +79,7 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
         return  [
             'exploitedCves' => fn(ParseNode $n) => $o->setExploitedCves($n->getCollectionOfObjectValues([CveInformation::class, 'createFromDiscriminatorValue'])),
             'maxBaseScore' => fn(ParseNode $n) => $o->setMaxBaseScore($n->getFloatValue()),
-            'maxSeverity' => fn(ParseNode $n) => $o->setMaxSeverity($n->getEnumValue(CveSeverityLevel::class)),
+            'maxSeverity' => fn(ParseNode $n) => $o->setMaxSeverity($n->getEnumValue(QualityUpdateCveSeverityInformation_maxSeverity::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -98,11 +98,11 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
 
     /**
      * Gets the maxSeverity property value. The maxSeverity property
-     * @return CveSeverityLevel|null
+     * @return QualityUpdateCveSeverityInformation_maxSeverity|null
     */
-    public function getMaxSeverity(): ?CveSeverityLevel {
+    public function getMaxSeverity(): ?QualityUpdateCveSeverityInformation_maxSeverity {
         $val = $this->getBackingStore()->get('maxSeverity');
-        if (is_null($val) || $val instanceof CveSeverityLevel) {
+        if (is_null($val) || $val instanceof QualityUpdateCveSeverityInformation_maxSeverity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'maxSeverity'");
@@ -166,9 +166,9 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
 
     /**
      * Sets the maxSeverity property value. The maxSeverity property
-     * @param CveSeverityLevel|null $value Value to set for the maxSeverity property.
+     * @param QualityUpdateCveSeverityInformation_maxSeverity|null $value Value to set for the maxSeverity property.
     */
-    public function setMaxSeverity(?CveSeverityLevel $value): void {
+    public function setMaxSeverity(?QualityUpdateCveSeverityInformation_maxSeverity $value): void {
         $this->getBackingStore()->set('maxSeverity', $value);
     }
 

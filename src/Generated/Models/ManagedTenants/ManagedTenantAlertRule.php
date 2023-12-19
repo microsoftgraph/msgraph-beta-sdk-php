@@ -130,9 +130,9 @@ class ManagedTenantAlertRule extends Entity implements Parsable
             'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'lastRunDateTime' => fn(ParseNode $n) => $o->setLastRunDateTime($n->getDateTimeValue()),
-            'notificationFinalDestinations' => fn(ParseNode $n) => $o->setNotificationFinalDestinations($n->getEnumValue(NotificationDestination::class)),
+            'notificationFinalDestinations' => fn(ParseNode $n) => $o->setNotificationFinalDestinations($n->getEnumValue(ManagedTenantAlertRule_notificationFinalDestinations::class)),
             'ruleDefinition' => fn(ParseNode $n) => $o->setRuleDefinition($n->getObjectValue([ManagedTenantAlertRuleDefinition::class, 'createFromDiscriminatorValue'])),
-            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(ManagedTenantAlertRule_severity::class)),
             'targets' => fn(ParseNode $n) => $o->setTargets($n->getCollectionOfObjectValues([NotificationTarget::class, 'createFromDiscriminatorValue'])),
             'tenantIds' => fn(ParseNode $n) => $o->setTenantIds($n->getCollectionOfObjectValues([TenantInfo::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -176,11 +176,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Gets the notificationFinalDestinations property value. The notificationFinalDestinations property
-     * @return NotificationDestination|null
+     * @return ManagedTenantAlertRule_notificationFinalDestinations|null
     */
-    public function getNotificationFinalDestinations(): ?NotificationDestination {
+    public function getNotificationFinalDestinations(): ?ManagedTenantAlertRule_notificationFinalDestinations {
         $val = $this->getBackingStore()->get('notificationFinalDestinations');
-        if (is_null($val) || $val instanceof NotificationDestination) {
+        if (is_null($val) || $val instanceof ManagedTenantAlertRule_notificationFinalDestinations) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationFinalDestinations'");
@@ -200,11 +200,11 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Gets the severity property value. The severity property
-     * @return AlertSeverity|null
+     * @return ManagedTenantAlertRule_severity|null
     */
-    public function getSeverity(): ?AlertSeverity {
+    public function getSeverity(): ?ManagedTenantAlertRule_severity {
         $val = $this->getBackingStore()->get('severity');
-        if (is_null($val) || $val instanceof AlertSeverity) {
+        if (is_null($val) || $val instanceof ManagedTenantAlertRule_severity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
@@ -343,9 +343,9 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the notificationFinalDestinations property value. The notificationFinalDestinations property
-     * @param NotificationDestination|null $value Value to set for the notificationFinalDestinations property.
+     * @param ManagedTenantAlertRule_notificationFinalDestinations|null $value Value to set for the notificationFinalDestinations property.
     */
-    public function setNotificationFinalDestinations(?NotificationDestination $value): void {
+    public function setNotificationFinalDestinations(?ManagedTenantAlertRule_notificationFinalDestinations $value): void {
         $this->getBackingStore()->set('notificationFinalDestinations', $value);
     }
 
@@ -359,9 +359,9 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity property
-     * @param AlertSeverity|null $value Value to set for the severity property.
+     * @param ManagedTenantAlertRule_severity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?AlertSeverity $value): void {
+    public function setSeverity(?ManagedTenantAlertRule_severity $value): void {
         $this->getBackingStore()->set('severity', $value);
     }
 

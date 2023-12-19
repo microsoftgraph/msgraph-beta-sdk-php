@@ -64,7 +64,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
         return  [
             'kerberosSignOnSettings' => fn(ParseNode $n) => $o->setKerberosSignOnSettings($n->getObjectValue([KerberosSignOnSettings::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'singleSignOnMode' => fn(ParseNode $n) => $o->setSingleSignOnMode($n->getEnumValue(SingleSignOnMode::class)),
+            'singleSignOnMode' => fn(ParseNode $n) => $o->setSingleSignOnMode($n->getEnumValue(OnPremisesPublishingSingleSignOn_singleSignOnMode::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
 
     /**
      * Gets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
-     * @return SingleSignOnMode|null
+     * @return OnPremisesPublishingSingleSignOn_singleSignOnMode|null
     */
-    public function getSingleSignOnMode(): ?SingleSignOnMode {
+    public function getSingleSignOnMode(): ?OnPremisesPublishingSingleSignOn_singleSignOnMode {
         $val = $this->getBackingStore()->get('singleSignOnMode');
-        if (is_null($val) || $val instanceof SingleSignOnMode) {
+        if (is_null($val) || $val instanceof OnPremisesPublishingSingleSignOn_singleSignOnMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'singleSignOnMode'");
@@ -149,9 +149,9 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
-     * @param SingleSignOnMode|null $value Value to set for the singleSignOnMode property.
+     * @param OnPremisesPublishingSingleSignOn_singleSignOnMode|null $value Value to set for the singleSignOnMode property.
     */
-    public function setSingleSignOnMode(?SingleSignOnMode $value): void {
+    public function setSingleSignOnMode(?OnPremisesPublishingSingleSignOn_singleSignOnMode $value): void {
         $this->getBackingStore()->set('singleSignOnMode', $value);
     }
 

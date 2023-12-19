@@ -58,11 +58,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the colorMode property value. The default color mode to use when printing the document. Valid values are described in the following table.
-     * @return PrintColorMode|null
+     * @return PrinterDefaults_colorMode|null
     */
-    public function getColorMode(): ?PrintColorMode {
+    public function getColorMode(): ?PrinterDefaults_colorMode {
         $val = $this->getBackingStore()->get('colorMode');
-        if (is_null($val) || $val instanceof PrintColorMode) {
+        if (is_null($val) || $val instanceof PrinterDefaults_colorMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'colorMode'");
@@ -118,11 +118,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the duplexConfiguration property value. The duplexConfiguration property
-     * @return PrintDuplexConfiguration|null
+     * @return PrinterDefaults_duplexConfiguration|null
     */
-    public function getDuplexConfiguration(): ?PrintDuplexConfiguration {
+    public function getDuplexConfiguration(): ?PrinterDefaults_duplexConfiguration {
         $val = $this->getBackingStore()->get('duplexConfiguration');
-        if (is_null($val) || $val instanceof PrintDuplexConfiguration) {
+        if (is_null($val) || $val instanceof PrinterDefaults_duplexConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'duplexConfiguration'");
@@ -130,11 +130,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the duplexMode property value. The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.
-     * @return PrintDuplexMode|null
+     * @return PrinterDefaults_duplexMode|null
     */
-    public function getDuplexMode(): ?PrintDuplexMode {
+    public function getDuplexMode(): ?PrinterDefaults_duplexMode {
         $val = $this->getBackingStore()->get('duplexMode');
-        if (is_null($val) || $val instanceof PrintDuplexMode) {
+        if (is_null($val) || $val instanceof PrinterDefaults_duplexMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'duplexMode'");
@@ -147,42 +147,42 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'colorMode' => fn(ParseNode $n) => $o->setColorMode($n->getEnumValue(PrintColorMode::class)),
+            'colorMode' => fn(ParseNode $n) => $o->setColorMode($n->getEnumValue(PrinterDefaults_colorMode::class)),
             'contentType' => fn(ParseNode $n) => $o->setContentType($n->getStringValue()),
             'copiesPerJob' => fn(ParseNode $n) => $o->setCopiesPerJob($n->getIntegerValue()),
             'documentMimeType' => fn(ParseNode $n) => $o->setDocumentMimeType($n->getStringValue()),
             'dpi' => fn(ParseNode $n) => $o->setDpi($n->getIntegerValue()),
-            'duplexConfiguration' => fn(ParseNode $n) => $o->setDuplexConfiguration($n->getEnumValue(PrintDuplexConfiguration::class)),
-            'duplexMode' => fn(ParseNode $n) => $o->setDuplexMode($n->getEnumValue(PrintDuplexMode::class)),
-            'finishings' => fn(ParseNode $n) => $o->setFinishings($n->getCollectionOfEnumValues(PrintFinishing::class)),
+            'duplexConfiguration' => fn(ParseNode $n) => $o->setDuplexConfiguration($n->getEnumValue(PrinterDefaults_duplexConfiguration::class)),
+            'duplexMode' => fn(ParseNode $n) => $o->setDuplexMode($n->getEnumValue(PrinterDefaults_duplexMode::class)),
+            'finishings' => fn(ParseNode $n) => $o->setFinishings($n->getCollectionOfEnumValues(PrinterDefaults_finishings::class)),
             'fitPdfToPage' => fn(ParseNode $n) => $o->setFitPdfToPage($n->getBooleanValue()),
             'inputBin' => fn(ParseNode $n) => $o->setInputBin($n->getStringValue()),
             'mediaColor' => fn(ParseNode $n) => $o->setMediaColor($n->getStringValue()),
             'mediaSize' => fn(ParseNode $n) => $o->setMediaSize($n->getStringValue()),
             'mediaType' => fn(ParseNode $n) => $o->setMediaType($n->getStringValue()),
-            'multipageLayout' => fn(ParseNode $n) => $o->setMultipageLayout($n->getEnumValue(PrintMultipageLayout::class)),
+            'multipageLayout' => fn(ParseNode $n) => $o->setMultipageLayout($n->getEnumValue(PrinterDefaults_multipageLayout::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'orientation' => fn(ParseNode $n) => $o->setOrientation($n->getEnumValue(PrintOrientation::class)),
+            'orientation' => fn(ParseNode $n) => $o->setOrientation($n->getEnumValue(PrinterDefaults_orientation::class)),
             'outputBin' => fn(ParseNode $n) => $o->setOutputBin($n->getStringValue()),
             'pagesPerSheet' => fn(ParseNode $n) => $o->setPagesPerSheet($n->getIntegerValue()),
             'pdfFitToPage' => fn(ParseNode $n) => $o->setPdfFitToPage($n->getBooleanValue()),
-            'presentationDirection' => fn(ParseNode $n) => $o->setPresentationDirection($n->getEnumValue(PrintPresentationDirection::class)),
-            'printColorConfiguration' => fn(ParseNode $n) => $o->setPrintColorConfiguration($n->getEnumValue(PrintColorConfiguration::class)),
-            'printQuality' => fn(ParseNode $n) => $o->setPrintQuality($n->getEnumValue(PrintQuality::class)),
-            'quality' => fn(ParseNode $n) => $o->setQuality($n->getEnumValue(PrintQuality::class)),
-            'scaling' => fn(ParseNode $n) => $o->setScaling($n->getEnumValue(PrintScaling::class)),
+            'presentationDirection' => fn(ParseNode $n) => $o->setPresentationDirection($n->getEnumValue(PrinterDefaults_presentationDirection::class)),
+            'printColorConfiguration' => fn(ParseNode $n) => $o->setPrintColorConfiguration($n->getEnumValue(PrinterDefaults_printColorConfiguration::class)),
+            'printQuality' => fn(ParseNode $n) => $o->setPrintQuality($n->getEnumValue(PrinterDefaults_printQuality::class)),
+            'quality' => fn(ParseNode $n) => $o->setQuality($n->getEnumValue(PrinterDefaults_quality::class)),
+            'scaling' => fn(ParseNode $n) => $o->setScaling($n->getEnumValue(PrinterDefaults_scaling::class)),
         ];
     }
 
     /**
      * Gets the finishings property value. The default set of finishings to apply to print jobs. Valid values are described in the following table.
-     * @return array<PrintFinishing>|null
+     * @return array<PrinterDefaults_finishings>|null
     */
     public function getFinishings(): ?array {
         $val = $this->getBackingStore()->get('finishings');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, PrintFinishing::class);
-            /** @var array<PrintFinishing>|null $val */
+            TypeUtils::validateCollectionValues($val, PrinterDefaults_finishings::class);
+            /** @var array<PrinterDefaults_finishings>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'finishings'");
@@ -250,11 +250,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the multipageLayout property value. The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
-     * @return PrintMultipageLayout|null
+     * @return PrinterDefaults_multipageLayout|null
     */
-    public function getMultipageLayout(): ?PrintMultipageLayout {
+    public function getMultipageLayout(): ?PrinterDefaults_multipageLayout {
         $val = $this->getBackingStore()->get('multipageLayout');
-        if (is_null($val) || $val instanceof PrintMultipageLayout) {
+        if (is_null($val) || $val instanceof PrinterDefaults_multipageLayout) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'multipageLayout'");
@@ -274,11 +274,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the orientation property value. The default orientation to use when printing the document. Valid values are described in the following table.
-     * @return PrintOrientation|null
+     * @return PrinterDefaults_orientation|null
     */
-    public function getOrientation(): ?PrintOrientation {
+    public function getOrientation(): ?PrinterDefaults_orientation {
         $val = $this->getBackingStore()->get('orientation');
-        if (is_null($val) || $val instanceof PrintOrientation) {
+        if (is_null($val) || $val instanceof PrinterDefaults_orientation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'orientation'");
@@ -322,11 +322,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the presentationDirection property value. The presentationDirection property
-     * @return PrintPresentationDirection|null
+     * @return PrinterDefaults_presentationDirection|null
     */
-    public function getPresentationDirection(): ?PrintPresentationDirection {
+    public function getPresentationDirection(): ?PrinterDefaults_presentationDirection {
         $val = $this->getBackingStore()->get('presentationDirection');
-        if (is_null($val) || $val instanceof PrintPresentationDirection) {
+        if (is_null($val) || $val instanceof PrinterDefaults_presentationDirection) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'presentationDirection'");
@@ -334,11 +334,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the printColorConfiguration property value. The printColorConfiguration property
-     * @return PrintColorConfiguration|null
+     * @return PrinterDefaults_printColorConfiguration|null
     */
-    public function getPrintColorConfiguration(): ?PrintColorConfiguration {
+    public function getPrintColorConfiguration(): ?PrinterDefaults_printColorConfiguration {
         $val = $this->getBackingStore()->get('printColorConfiguration');
-        if (is_null($val) || $val instanceof PrintColorConfiguration) {
+        if (is_null($val) || $val instanceof PrinterDefaults_printColorConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'printColorConfiguration'");
@@ -346,11 +346,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the printQuality property value. The printQuality property
-     * @return PrintQuality|null
+     * @return PrinterDefaults_printQuality|null
     */
-    public function getPrintQuality(): ?PrintQuality {
+    public function getPrintQuality(): ?PrinterDefaults_printQuality {
         $val = $this->getBackingStore()->get('printQuality');
-        if (is_null($val) || $val instanceof PrintQuality) {
+        if (is_null($val) || $val instanceof PrinterDefaults_printQuality) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'printQuality'");
@@ -358,11 +358,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the quality property value. The default quality to use when printing the document. Valid values are described in the following table.
-     * @return PrintQuality|null
+     * @return PrinterDefaults_quality|null
     */
-    public function getQuality(): ?PrintQuality {
+    public function getQuality(): ?PrinterDefaults_quality {
         $val = $this->getBackingStore()->get('quality');
-        if (is_null($val) || $val instanceof PrintQuality) {
+        if (is_null($val) || $val instanceof PrinterDefaults_quality) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'quality'");
@@ -370,11 +370,11 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the scaling property value. Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.
-     * @return PrintScaling|null
+     * @return PrinterDefaults_scaling|null
     */
-    public function getScaling(): ?PrintScaling {
+    public function getScaling(): ?PrinterDefaults_scaling {
         $val = $this->getBackingStore()->get('scaling');
-        if (is_null($val) || $val instanceof PrintScaling) {
+        if (is_null($val) || $val instanceof PrinterDefaults_scaling) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'scaling'");
@@ -430,9 +430,9 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the colorMode property value. The default color mode to use when printing the document. Valid values are described in the following table.
-     * @param PrintColorMode|null $value Value to set for the colorMode property.
+     * @param PrinterDefaults_colorMode|null $value Value to set for the colorMode property.
     */
-    public function setColorMode(?PrintColorMode $value): void {
+    public function setColorMode(?PrinterDefaults_colorMode $value): void {
         $this->getBackingStore()->set('colorMode', $value);
     }
 
@@ -470,23 +470,23 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the duplexConfiguration property value. The duplexConfiguration property
-     * @param PrintDuplexConfiguration|null $value Value to set for the duplexConfiguration property.
+     * @param PrinterDefaults_duplexConfiguration|null $value Value to set for the duplexConfiguration property.
     */
-    public function setDuplexConfiguration(?PrintDuplexConfiguration $value): void {
+    public function setDuplexConfiguration(?PrinterDefaults_duplexConfiguration $value): void {
         $this->getBackingStore()->set('duplexConfiguration', $value);
     }
 
     /**
      * Sets the duplexMode property value. The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.
-     * @param PrintDuplexMode|null $value Value to set for the duplexMode property.
+     * @param PrinterDefaults_duplexMode|null $value Value to set for the duplexMode property.
     */
-    public function setDuplexMode(?PrintDuplexMode $value): void {
+    public function setDuplexMode(?PrinterDefaults_duplexMode $value): void {
         $this->getBackingStore()->set('duplexMode', $value);
     }
 
     /**
      * Sets the finishings property value. The default set of finishings to apply to print jobs. Valid values are described in the following table.
-     * @param array<PrintFinishing>|null $value Value to set for the finishings property.
+     * @param array<PrinterDefaults_finishings>|null $value Value to set for the finishings property.
     */
     public function setFinishings(?array $value): void {
         $this->getBackingStore()->set('finishings', $value);
@@ -534,9 +534,9 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the multipageLayout property value. The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
-     * @param PrintMultipageLayout|null $value Value to set for the multipageLayout property.
+     * @param PrinterDefaults_multipageLayout|null $value Value to set for the multipageLayout property.
     */
-    public function setMultipageLayout(?PrintMultipageLayout $value): void {
+    public function setMultipageLayout(?PrinterDefaults_multipageLayout $value): void {
         $this->getBackingStore()->set('multipageLayout', $value);
     }
 
@@ -550,9 +550,9 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the orientation property value. The default orientation to use when printing the document. Valid values are described in the following table.
-     * @param PrintOrientation|null $value Value to set for the orientation property.
+     * @param PrinterDefaults_orientation|null $value Value to set for the orientation property.
     */
-    public function setOrientation(?PrintOrientation $value): void {
+    public function setOrientation(?PrinterDefaults_orientation $value): void {
         $this->getBackingStore()->set('orientation', $value);
     }
 
@@ -582,41 +582,41 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the presentationDirection property value. The presentationDirection property
-     * @param PrintPresentationDirection|null $value Value to set for the presentationDirection property.
+     * @param PrinterDefaults_presentationDirection|null $value Value to set for the presentationDirection property.
     */
-    public function setPresentationDirection(?PrintPresentationDirection $value): void {
+    public function setPresentationDirection(?PrinterDefaults_presentationDirection $value): void {
         $this->getBackingStore()->set('presentationDirection', $value);
     }
 
     /**
      * Sets the printColorConfiguration property value. The printColorConfiguration property
-     * @param PrintColorConfiguration|null $value Value to set for the printColorConfiguration property.
+     * @param PrinterDefaults_printColorConfiguration|null $value Value to set for the printColorConfiguration property.
     */
-    public function setPrintColorConfiguration(?PrintColorConfiguration $value): void {
+    public function setPrintColorConfiguration(?PrinterDefaults_printColorConfiguration $value): void {
         $this->getBackingStore()->set('printColorConfiguration', $value);
     }
 
     /**
      * Sets the printQuality property value. The printQuality property
-     * @param PrintQuality|null $value Value to set for the printQuality property.
+     * @param PrinterDefaults_printQuality|null $value Value to set for the printQuality property.
     */
-    public function setPrintQuality(?PrintQuality $value): void {
+    public function setPrintQuality(?PrinterDefaults_printQuality $value): void {
         $this->getBackingStore()->set('printQuality', $value);
     }
 
     /**
      * Sets the quality property value. The default quality to use when printing the document. Valid values are described in the following table.
-     * @param PrintQuality|null $value Value to set for the quality property.
+     * @param PrinterDefaults_quality|null $value Value to set for the quality property.
     */
-    public function setQuality(?PrintQuality $value): void {
+    public function setQuality(?PrinterDefaults_quality $value): void {
         $this->getBackingStore()->set('quality', $value);
     }
 
     /**
      * Sets the scaling property value. Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.
-     * @param PrintScaling|null $value Value to set for the scaling property.
+     * @param PrinterDefaults_scaling|null $value Value to set for the scaling property.
     */
-    public function setScaling(?PrintScaling $value): void {
+    public function setScaling(?PrinterDefaults_scaling $value): void {
         $this->getBackingStore()->set('scaling', $value);
     }
 

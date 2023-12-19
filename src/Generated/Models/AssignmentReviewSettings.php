@@ -38,11 +38,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the accessReviewTimeoutBehavior property value. The default decision to apply if the request isn't reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
-     * @return AccessReviewTimeoutBehavior|null
+     * @return AssignmentReviewSettings_accessReviewTimeoutBehavior|null
     */
-    public function getAccessReviewTimeoutBehavior(): ?AccessReviewTimeoutBehavior {
+    public function getAccessReviewTimeoutBehavior(): ?AssignmentReviewSettings_accessReviewTimeoutBehavior {
         $val = $this->getBackingStore()->get('accessReviewTimeoutBehavior');
-        if (is_null($val) || $val instanceof AccessReviewTimeoutBehavior) {
+        if (is_null($val) || $val instanceof AssignmentReviewSettings_accessReviewTimeoutBehavior) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'accessReviewTimeoutBehavior'");
@@ -88,7 +88,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessReviewTimeoutBehavior' => fn(ParseNode $n) => $o->setAccessReviewTimeoutBehavior($n->getEnumValue(AccessReviewTimeoutBehavior::class)),
+            'accessReviewTimeoutBehavior' => fn(ParseNode $n) => $o->setAccessReviewTimeoutBehavior($n->getEnumValue(AssignmentReviewSettings_accessReviewTimeoutBehavior::class)),
             'durationInDays' => fn(ParseNode $n) => $o->setDurationInDays($n->getIntegerValue()),
             'isAccessRecommendationEnabled' => fn(ParseNode $n) => $o->setIsAccessRecommendationEnabled($n->getBooleanValue()),
             'isApprovalJustificationRequired' => fn(ParseNode $n) => $o->setIsApprovalJustificationRequired($n->getBooleanValue()),
@@ -219,9 +219,9 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the accessReviewTimeoutBehavior property value. The default decision to apply if the request isn't reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
-     * @param AccessReviewTimeoutBehavior|null $value Value to set for the accessReviewTimeoutBehavior property.
+     * @param AssignmentReviewSettings_accessReviewTimeoutBehavior|null $value Value to set for the accessReviewTimeoutBehavior property.
     */
-    public function setAccessReviewTimeoutBehavior(?AccessReviewTimeoutBehavior $value): void {
+    public function setAccessReviewTimeoutBehavior(?AssignmentReviewSettings_accessReviewTimeoutBehavior $value): void {
         $this->getBackingStore()->set('accessReviewTimeoutBehavior', $value);
     }
 

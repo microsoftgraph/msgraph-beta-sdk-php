@@ -64,11 +64,11 @@ class PlannerPlanCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the creationSourceKind property value. Specifies what kind of creation source the plan is created with. The possible values are: external, publication and unknownFutureValue.
-     * @return PlannerCreationSourceKind|null
+     * @return PlannerPlanCreation_creationSourceKind|null
     */
-    public function getCreationSourceKind(): ?PlannerCreationSourceKind {
+    public function getCreationSourceKind(): ?PlannerPlanCreation_creationSourceKind {
         $val = $this->getBackingStore()->get('creationSourceKind');
-        if (is_null($val) || $val instanceof PlannerCreationSourceKind) {
+        if (is_null($val) || $val instanceof PlannerPlanCreation_creationSourceKind) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'creationSourceKind'");
@@ -81,7 +81,7 @@ class PlannerPlanCreation implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'creationSourceKind' => fn(ParseNode $n) => $o->setCreationSourceKind($n->getEnumValue(PlannerCreationSourceKind::class)),
+            'creationSourceKind' => fn(ParseNode $n) => $o->setCreationSourceKind($n->getEnumValue(PlannerPlanCreation_creationSourceKind::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -126,9 +126,9 @@ class PlannerPlanCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the creationSourceKind property value. Specifies what kind of creation source the plan is created with. The possible values are: external, publication and unknownFutureValue.
-     * @param PlannerCreationSourceKind|null $value Value to set for the creationSourceKind property.
+     * @param PlannerPlanCreation_creationSourceKind|null $value Value to set for the creationSourceKind property.
     */
-    public function setCreationSourceKind(?PlannerCreationSourceKind $value): void {
+    public function setCreationSourceKind(?PlannerPlanCreation_creationSourceKind $value): void {
         $this->getBackingStore()->set('creationSourceKind', $value);
     }
 

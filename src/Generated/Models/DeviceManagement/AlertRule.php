@@ -28,14 +28,28 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Gets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, cloudPcInGracePeriodScenario, cloudPcFrontlineInsufficientLicensesScenario, cloudPcInaccessibleScenario. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: cloudPcInGracePeriodScenario.
-     * @return AlertRuleTemplate|null
+     * @return AlertRule_alertRuleTemplate|null
     */
-    public function getAlertRuleTemplate(): ?AlertRuleTemplate {
+    public function getAlertRuleTemplate(): ?AlertRule_alertRuleTemplate {
         $val = $this->getBackingStore()->get('alertRuleTemplate');
-        if (is_null($val) || $val instanceof AlertRuleTemplate) {
+        if (is_null($val) || $val instanceof AlertRule_alertRuleTemplate) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRuleTemplate'");
+    }
+
+    /**
+     * Gets the conditions property value. The conditions that determine when to send alerts. For example, you can configure a condition to send an alert when provisioning fails for six or more Cloud PCs.
+     * @return array<RuleCondition>|null
+    */
+    public function getConditions(): ?array {
+        $val = $this->getBackingStore()->get('conditions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RuleCondition::class);
+            /** @var array<RuleCondition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditions'");
     }
 
     /**
@@ -81,13 +95,14 @@ class AlertRule extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)),
+            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRule_alertRuleTemplate::class)),
+            'conditions' => fn(ParseNode $n) => $o->setConditions($n->getCollectionOfObjectValues([RuleCondition::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
             'isSystemRule' => fn(ParseNode $n) => $o->setIsSystemRule($n->getBooleanValue()),
             'notificationChannels' => fn(ParseNode $n) => $o->setNotificationChannels($n->getCollectionOfObjectValues([NotificationChannel::class, 'createFromDiscriminatorValue'])),
-            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(RuleSeverityType::class)),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertRule_severity::class)),
             'threshold' => fn(ParseNode $n) => $o->setThreshold($n->getObjectValue([RuleThreshold::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -120,11 +135,11 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Gets the severity property value. The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     * @return RuleSeverityType|null
+     * @return AlertRule_severity|null
     */
-    public function getSeverity(): ?RuleSeverityType {
+    public function getSeverity(): ?AlertRule_severity {
         $val = $this->getBackingStore()->get('severity');
-        if (is_null($val) || $val instanceof RuleSeverityType) {
+        if (is_null($val) || $val instanceof AlertRule_severity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
@@ -149,6 +164,7 @@ class AlertRule extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('alertRuleTemplate', $this->getAlertRuleTemplate());
+        $writer->writeCollectionOfObjectValues('conditions', $this->getConditions());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
@@ -160,10 +176,18 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, cloudPcInGracePeriodScenario, cloudPcFrontlineInsufficientLicensesScenario, cloudPcInaccessibleScenario. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: cloudPcInGracePeriodScenario.
-     * @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
+     * @param AlertRule_alertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
-    public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
+    public function setAlertRuleTemplate(?AlertRule_alertRuleTemplate $value): void {
         $this->getBackingStore()->set('alertRuleTemplate', $value);
+    }
+
+    /**
+     * Sets the conditions property value. The conditions that determine when to send alerts. For example, you can configure a condition to send an alert when provisioning fails for six or more Cloud PCs.
+     * @param array<RuleCondition>|null $value Value to set for the conditions property.
+    */
+    public function setConditions(?array $value): void {
+        $this->getBackingStore()->set('conditions', $value);
     }
 
     /**
@@ -208,9 +232,9 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     * @param RuleSeverityType|null $value Value to set for the severity property.
+     * @param AlertRule_severity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?RuleSeverityType $value): void {
+    public function setSeverity(?AlertRule_severity $value): void {
         $this->getBackingStore()->set('severity', $value);
     }
 

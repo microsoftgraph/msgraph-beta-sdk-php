@@ -73,8 +73,8 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
             'addedDateTime' => fn(ParseNode $n) => $o->setAddedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'joinedDateTime' => fn(ParseNode $n) => $o->setJoinedDateTime($n->getDateTimeValue()),
-            'role' => fn(ParseNode $n) => $o->setRole($n->getEnumValue(MultiTenantOrganizationMemberRole::class)),
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(MultiTenantOrganizationMemberState::class)),
+            'role' => fn(ParseNode $n) => $o->setRole($n->getEnumValue(MultiTenantOrganizationMember_role::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(MultiTenantOrganizationMember_state::class)),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'transitionDetails' => fn(ParseNode $n) => $o->setTransitionDetails($n->getObjectValue([MultiTenantOrganizationMemberTransitionDetails::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -94,11 +94,11 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
 
     /**
      * Gets the role property value. Role of the tenant in the multitenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multitenant organization but tenants with the member role can only participate in a multitenant organization. There can be multiple tenants with the owner role in a multitenant organization.
-     * @return MultiTenantOrganizationMemberRole|null
+     * @return MultiTenantOrganizationMember_role|null
     */
-    public function getRole(): ?MultiTenantOrganizationMemberRole {
+    public function getRole(): ?MultiTenantOrganizationMember_role {
         $val = $this->getBackingStore()->get('role');
-        if (is_null($val) || $val instanceof MultiTenantOrganizationMemberRole) {
+        if (is_null($val) || $val instanceof MultiTenantOrganizationMember_role) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'role'");
@@ -106,11 +106,11 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
 
     /**
      * Gets the state property value. State of the tenant in the multitenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multitenant organization to participate in the multitenant organization. Tenants in the active state can participate in the multitenant organization. Tenants in the removed state are in the process of being removed from the multitenant organization. Read-only.
-     * @return MultiTenantOrganizationMemberState|null
+     * @return MultiTenantOrganizationMember_state|null
     */
-    public function getState(): ?MultiTenantOrganizationMemberState {
+    public function getState(): ?MultiTenantOrganizationMember_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof MultiTenantOrganizationMemberState) {
+        if (is_null($val) || $val instanceof MultiTenantOrganizationMember_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -190,17 +190,17 @@ class MultiTenantOrganizationMember extends DirectoryObject implements Parsable
 
     /**
      * Sets the role property value. Role of the tenant in the multitenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multitenant organization but tenants with the member role can only participate in a multitenant organization. There can be multiple tenants with the owner role in a multitenant organization.
-     * @param MultiTenantOrganizationMemberRole|null $value Value to set for the role property.
+     * @param MultiTenantOrganizationMember_role|null $value Value to set for the role property.
     */
-    public function setRole(?MultiTenantOrganizationMemberRole $value): void {
+    public function setRole(?MultiTenantOrganizationMember_role $value): void {
         $this->getBackingStore()->set('role', $value);
     }
 
     /**
      * Sets the state property value. State of the tenant in the multitenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multitenant organization to participate in the multitenant organization. Tenants in the active state can participate in the multitenant organization. Tenants in the removed state are in the process of being removed from the multitenant organization. Read-only.
-     * @param MultiTenantOrganizationMemberState|null $value Value to set for the state property.
+     * @param MultiTenantOrganizationMember_state|null $value Value to set for the state property.
     */
-    public function setState(?MultiTenantOrganizationMemberState $value): void {
+    public function setState(?MultiTenantOrganizationMember_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

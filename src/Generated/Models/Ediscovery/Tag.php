@@ -30,11 +30,11 @@ class Tag extends Entity implements Parsable
 
     /**
      * Gets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
-     * @return ChildSelectability|null
+     * @return Tag_childSelectability|null
     */
-    public function getChildSelectability(): ?ChildSelectability {
+    public function getChildSelectability(): ?Tag_childSelectability {
         $val = $this->getBackingStore()->get('childSelectability');
-        if (is_null($val) || $val instanceof ChildSelectability) {
+        if (is_null($val) || $val instanceof Tag_childSelectability) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'childSelectability'");
@@ -97,7 +97,7 @@ class Tag extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'childSelectability' => fn(ParseNode $n) => $o->setChildSelectability($n->getEnumValue(ChildSelectability::class)),
+            'childSelectability' => fn(ParseNode $n) => $o->setChildSelectability($n->getEnumValue(Tag_childSelectability::class)),
             'childTags' => fn(ParseNode $n) => $o->setChildTags($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -148,9 +148,9 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
-     * @param ChildSelectability|null $value Value to set for the childSelectability property.
+     * @param Tag_childSelectability|null $value Value to set for the childSelectability property.
     */
-    public function setChildSelectability(?ChildSelectability $value): void {
+    public function setChildSelectability(?Tag_childSelectability $value): void {
         $this->getBackingStore()->set('childSelectability', $value);
     }
 

@@ -26,11 +26,11 @@ class RecordOperation extends CommsOperation implements Parsable
 
     /**
      * Gets the completionReason property value. Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
-     * @return RecordCompletionReason|null
+     * @return RecordOperation_completionReason|null
     */
-    public function getCompletionReason(): ?RecordCompletionReason {
+    public function getCompletionReason(): ?RecordOperation_completionReason {
         $val = $this->getBackingStore()->get('completionReason');
-        if (is_null($val) || $val instanceof RecordCompletionReason) {
+        if (is_null($val) || $val instanceof RecordOperation_completionReason) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'completionReason'");
@@ -43,7 +43,7 @@ class RecordOperation extends CommsOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(RecordCompletionReason::class)),
+            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(RecordOperation_completionReason::class)),
             'recordingAccessToken' => fn(ParseNode $n) => $o->setRecordingAccessToken($n->getStringValue()),
             'recordingLocation' => fn(ParseNode $n) => $o->setRecordingLocation($n->getStringValue()),
         ]);
@@ -86,9 +86,9 @@ class RecordOperation extends CommsOperation implements Parsable
 
     /**
      * Sets the completionReason property value. Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
-     * @param RecordCompletionReason|null $value Value to set for the completionReason property.
+     * @param RecordOperation_completionReason|null $value Value to set for the completionReason property.
     */
-    public function setCompletionReason(?RecordCompletionReason $value): void {
+    public function setCompletionReason(?RecordOperation_completionReason $value): void {
         $this->getBackingStore()->set('completionReason', $value);
     }
 

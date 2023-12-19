@@ -64,7 +64,7 @@ class X509CertificateUserBinding implements AdditionalDataHolder, BackedModel, P
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
-            'trustAffinityLevel' => fn(ParseNode $n) => $o->setTrustAffinityLevel($n->getEnumValue(X509CertificateAffinityLevel::class)),
+            'trustAffinityLevel' => fn(ParseNode $n) => $o->setTrustAffinityLevel($n->getEnumValue(X509CertificateUserBinding_trustAffinityLevel::class)),
             'userProperty' => fn(ParseNode $n) => $o->setUserProperty($n->getStringValue()),
             'x509CertificateField' => fn(ParseNode $n) => $o->setX509CertificateField($n->getStringValue()),
         ];
@@ -96,11 +96,11 @@ class X509CertificateUserBinding implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the trustAffinityLevel property value. The affinity level of the username binding rule. The possible values are: low, high, unknownFutureValue.
-     * @return X509CertificateAffinityLevel|null
+     * @return X509CertificateUserBinding_trustAffinityLevel|null
     */
-    public function getTrustAffinityLevel(): ?X509CertificateAffinityLevel {
+    public function getTrustAffinityLevel(): ?X509CertificateUserBinding_trustAffinityLevel {
         $val = $this->getBackingStore()->get('trustAffinityLevel');
-        if (is_null($val) || $val instanceof X509CertificateAffinityLevel) {
+        if (is_null($val) || $val instanceof X509CertificateUserBinding_trustAffinityLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'trustAffinityLevel'");
@@ -177,9 +177,9 @@ class X509CertificateUserBinding implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the trustAffinityLevel property value. The affinity level of the username binding rule. The possible values are: low, high, unknownFutureValue.
-     * @param X509CertificateAffinityLevel|null $value Value to set for the trustAffinityLevel property.
+     * @param X509CertificateUserBinding_trustAffinityLevel|null $value Value to set for the trustAffinityLevel property.
     */
-    public function setTrustAffinityLevel(?X509CertificateAffinityLevel $value): void {
+    public function setTrustAffinityLevel(?X509CertificateUserBinding_trustAffinityLevel $value): void {
         $this->getBackingStore()->set('trustAffinityLevel', $value);
     }
 

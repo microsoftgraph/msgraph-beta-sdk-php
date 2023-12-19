@@ -101,17 +101,17 @@ class OutlookTask extends OutlookItem implements Parsable
             'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'hasAttachments' => fn(ParseNode $n) => $o->setHasAttachments($n->getBooleanValue()),
-            'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(Importance::class)),
+            'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(OutlookTask_importance::class)),
             'isReminderOn' => fn(ParseNode $n) => $o->setIsReminderOn($n->getBooleanValue()),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
             'parentFolderId' => fn(ParseNode $n) => $o->setParentFolderId($n->getStringValue()),
             'recurrence' => fn(ParseNode $n) => $o->setRecurrence($n->getObjectValue([PatternedRecurrence::class, 'createFromDiscriminatorValue'])),
             'reminderDateTime' => fn(ParseNode $n) => $o->setReminderDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
-            'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getEnumValue(Sensitivity::class)),
+            'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getEnumValue(OutlookTask_sensitivity::class)),
             'singleValueExtendedProperties' => fn(ParseNode $n) => $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues([SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(TaskStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(OutlookTask_status::class)),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
     }
@@ -130,11 +130,11 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Gets the importance property value. The importance property
-     * @return Importance|null
+     * @return OutlookTask_importance|null
     */
-    public function getImportance(): ?Importance {
+    public function getImportance(): ?OutlookTask_importance {
         $val = $this->getBackingStore()->get('importance');
-        if (is_null($val) || $val instanceof Importance) {
+        if (is_null($val) || $val instanceof OutlookTask_importance) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'importance'");
@@ -216,11 +216,11 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Gets the sensitivity property value. The sensitivity property
-     * @return Sensitivity|null
+     * @return OutlookTask_sensitivity|null
     */
-    public function getSensitivity(): ?Sensitivity {
+    public function getSensitivity(): ?OutlookTask_sensitivity {
         $val = $this->getBackingStore()->get('sensitivity');
-        if (is_null($val) || $val instanceof Sensitivity) {
+        if (is_null($val) || $val instanceof OutlookTask_sensitivity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivity'");
@@ -254,11 +254,11 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Gets the status property value. The status property
-     * @return TaskStatus|null
+     * @return OutlookTask_status|null
     */
-    public function getStatus(): ?TaskStatus {
+    public function getStatus(): ?OutlookTask_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof TaskStatus) {
+        if (is_null($val) || $val instanceof OutlookTask_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -352,9 +352,9 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the importance property value. The importance property
-     * @param Importance|null $value Value to set for the importance property.
+     * @param OutlookTask_importance|null $value Value to set for the importance property.
     */
-    public function setImportance(?Importance $value): void {
+    public function setImportance(?OutlookTask_importance $value): void {
         $this->getBackingStore()->set('importance', $value);
     }
 
@@ -408,9 +408,9 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the sensitivity property value. The sensitivity property
-     * @param Sensitivity|null $value Value to set for the sensitivity property.
+     * @param OutlookTask_sensitivity|null $value Value to set for the sensitivity property.
     */
-    public function setSensitivity(?Sensitivity $value): void {
+    public function setSensitivity(?OutlookTask_sensitivity $value): void {
         $this->getBackingStore()->set('sensitivity', $value);
     }
 
@@ -432,9 +432,9 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the status property value. The status property
-     * @param TaskStatus|null $value Value to set for the status property.
+     * @param OutlookTask_status|null $value Value to set for the status property.
     */
-    public function setStatus(?TaskStatus $value): void {
+    public function setStatus(?OutlookTask_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

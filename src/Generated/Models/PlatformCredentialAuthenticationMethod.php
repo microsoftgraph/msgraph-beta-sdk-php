@@ -72,18 +72,18 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'device' => fn(ParseNode $n) => $o->setDevice($n->getObjectValue([Device::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'keyStrength' => fn(ParseNode $n) => $o->setKeyStrength($n->getEnumValue(AuthenticationMethodKeyStrength::class)),
-            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(AuthenticationMethodPlatform::class)),
+            'keyStrength' => fn(ParseNode $n) => $o->setKeyStrength($n->getEnumValue(PlatformCredentialAuthenticationMethod_keyStrength::class)),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(PlatformCredentialAuthenticationMethod_platform::class)),
         ]);
     }
 
     /**
      * Gets the keyStrength property value. Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.
-     * @return AuthenticationMethodKeyStrength|null
+     * @return PlatformCredentialAuthenticationMethod_keyStrength|null
     */
-    public function getKeyStrength(): ?AuthenticationMethodKeyStrength {
+    public function getKeyStrength(): ?PlatformCredentialAuthenticationMethod_keyStrength {
         $val = $this->getBackingStore()->get('keyStrength');
-        if (is_null($val) || $val instanceof AuthenticationMethodKeyStrength) {
+        if (is_null($val) || $val instanceof PlatformCredentialAuthenticationMethod_keyStrength) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'keyStrength'");
@@ -91,11 +91,11 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
 
     /**
      * Gets the platform property value. Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.
-     * @return AuthenticationMethodPlatform|null
+     * @return PlatformCredentialAuthenticationMethod_platform|null
     */
-    public function getPlatform(): ?AuthenticationMethodPlatform {
+    public function getPlatform(): ?PlatformCredentialAuthenticationMethod_platform {
         $val = $this->getBackingStore()->get('platform');
-        if (is_null($val) || $val instanceof AuthenticationMethodPlatform) {
+        if (is_null($val) || $val instanceof PlatformCredentialAuthenticationMethod_platform) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
@@ -140,17 +140,17 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
 
     /**
      * Sets the keyStrength property value. Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.
-     * @param AuthenticationMethodKeyStrength|null $value Value to set for the keyStrength property.
+     * @param PlatformCredentialAuthenticationMethod_keyStrength|null $value Value to set for the keyStrength property.
     */
-    public function setKeyStrength(?AuthenticationMethodKeyStrength $value): void {
+    public function setKeyStrength(?PlatformCredentialAuthenticationMethod_keyStrength $value): void {
         $this->getBackingStore()->set('keyStrength', $value);
     }
 
     /**
      * Sets the platform property value. Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.
-     * @param AuthenticationMethodPlatform|null $value Value to set for the platform property.
+     * @param PlatformCredentialAuthenticationMethod_platform|null $value Value to set for the platform property.
     */
-    public function setPlatform(?AuthenticationMethodPlatform $value): void {
+    public function setPlatform(?PlatformCredentialAuthenticationMethod_platform $value): void {
         $this->getBackingStore()->set('platform', $value);
     }
 

@@ -58,11 +58,11 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the errorCode property value. The errorCode property
-     * @return HuntingRuleErrorCode|null
+     * @return RunDetails_errorCode|null
     */
-    public function getErrorCode(): ?HuntingRuleErrorCode {
+    public function getErrorCode(): ?RunDetails_errorCode {
         $val = $this->getBackingStore()->get('errorCode');
-        if (is_null($val) || $val instanceof HuntingRuleErrorCode) {
+        if (is_null($val) || $val instanceof RunDetails_errorCode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
@@ -87,11 +87,11 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getEnumValue(HuntingRuleErrorCode::class)),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getEnumValue(RunDetails_errorCode::class)),
             'failureReason' => fn(ParseNode $n) => $o->setFailureReason($n->getStringValue()),
             'lastRunDateTime' => fn(ParseNode $n) => $o->setLastRunDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(HuntingRuleRunStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RunDetails_status::class)),
         ];
     }
 
@@ -121,11 +121,11 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the status property value. The status property
-     * @return HuntingRuleRunStatus|null
+     * @return RunDetails_status|null
     */
-    public function getStatus(): ?HuntingRuleRunStatus {
+    public function getStatus(): ?RunDetails_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof HuntingRuleRunStatus) {
+        if (is_null($val) || $val instanceof RunDetails_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -162,9 +162,9 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the errorCode property value. The errorCode property
-     * @param HuntingRuleErrorCode|null $value Value to set for the errorCode property.
+     * @param RunDetails_errorCode|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?HuntingRuleErrorCode $value): void {
+    public function setErrorCode(?RunDetails_errorCode $value): void {
         $this->getBackingStore()->set('errorCode', $value);
     }
 
@@ -194,9 +194,9 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the status property value. The status property
-     * @param HuntingRuleRunStatus|null $value Value to set for the status property.
+     * @param RunDetails_status|null $value Value to set for the status property.
     */
-    public function setStatus(?HuntingRuleRunStatus $value): void {
+    public function setStatus(?RunDetails_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

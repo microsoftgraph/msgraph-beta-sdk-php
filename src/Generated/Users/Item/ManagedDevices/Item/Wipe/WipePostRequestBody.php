@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Wipe;
 
-use Microsoft\Graph\Beta\Generated\Models\ObliterationBehavior;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -66,7 +65,7 @@ class WipePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
             'keepEnrollmentData' => fn(ParseNode $n) => $o->setKeepEnrollmentData($n->getBooleanValue()),
             'keepUserData' => fn(ParseNode $n) => $o->setKeepUserData($n->getBooleanValue()),
             'macOsUnlockCode' => fn(ParseNode $n) => $o->setMacOsUnlockCode($n->getStringValue()),
-            'obliterationBehavior' => fn(ParseNode $n) => $o->setObliterationBehavior($n->getEnumValue(ObliterationBehavior::class)),
+            'obliterationBehavior' => fn(ParseNode $n) => $o->setObliterationBehavior($n->getEnumValue(WipePostRequestBody_obliterationBehavior::class)),
             'persistEsimDataPlan' => fn(ParseNode $n) => $o->setPersistEsimDataPlan($n->getBooleanValue()),
             'useProtectedWipe' => fn(ParseNode $n) => $o->setUseProtectedWipe($n->getBooleanValue()),
         ];
@@ -110,11 +109,11 @@ class WipePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the obliterationBehavior property value. The obliterationBehavior property
-     * @return ObliterationBehavior|null
+     * @return WipePostRequestBody_obliterationBehavior|null
     */
-    public function getObliterationBehavior(): ?ObliterationBehavior {
+    public function getObliterationBehavior(): ?WipePostRequestBody_obliterationBehavior {
         $val = $this->getBackingStore()->get('obliterationBehavior');
-        if (is_null($val) || $val instanceof ObliterationBehavior) {
+        if (is_null($val) || $val instanceof WipePostRequestBody_obliterationBehavior) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'obliterationBehavior'");
@@ -200,9 +199,9 @@ class WipePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the obliterationBehavior property value. The obliterationBehavior property
-     * @param ObliterationBehavior|null $value Value to set for the obliterationBehavior property.
+     * @param WipePostRequestBody_obliterationBehavior|null $value Value to set for the obliterationBehavior property.
     */
-    public function setObliterationBehavior(?ObliterationBehavior $value): void {
+    public function setObliterationBehavior(?WipePostRequestBody_obliterationBehavior $value): void {
         $this->getBackingStore()->set('obliterationBehavior', $value);
     }
 

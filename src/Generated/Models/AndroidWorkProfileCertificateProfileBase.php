@@ -87,7 +87,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
             'extendedKeyUsages' => fn(ParseNode $n) => $o->setExtendedKeyUsages($n->getCollectionOfObjectValues([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
             'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
             'rootCertificate' => fn(ParseNode $n) => $o->setRootCertificate($n->getObjectValue([AndroidWorkProfileTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)),
+            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(AndroidWorkProfileCertificateProfileBase_subjectAlternativeNameType::class)),
             'subjectNameFormat' => fn(ParseNode $n) => $o->setSubjectNameFormat($n->getEnumValue(SubjectNameFormat::class)),
         ]);
     }
@@ -118,11 +118,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
 
     /**
      * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @return SubjectAlternativeNameType|null
+     * @return AndroidWorkProfileCertificateProfileBase_subjectAlternativeNameType|null
     */
-    public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
+    public function getSubjectAlternativeNameType(): ?AndroidWorkProfileCertificateProfileBase_subjectAlternativeNameType {
         $val = $this->getBackingStore()->get('subjectAlternativeNameType');
-        if (is_null($val) || $val instanceof SubjectAlternativeNameType) {
+        if (is_null($val) || $val instanceof AndroidWorkProfileCertificateProfileBase_subjectAlternativeNameType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameType'");
@@ -197,9 +197,9 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
+     * @param AndroidWorkProfileCertificateProfileBase_subjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
-    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
+    public function setSubjectAlternativeNameType(?AndroidWorkProfileCertificateProfileBase_subjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameType', $value);
     }
 

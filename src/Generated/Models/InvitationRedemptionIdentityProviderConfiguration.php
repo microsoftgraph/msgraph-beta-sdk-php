@@ -65,11 +65,11 @@ class InvitationRedemptionIdentityProviderConfiguration implements AdditionalDat
 
     /**
      * Gets the fallbackIdentityProvider property value. The fallback identity provider to be used in case no primary identity provider can be used for guest invitation redemption. Possible values are: defaultConfiguredIdp, emailOneTimePasscode, or microsoftAccount.
-     * @return B2bIdentityProvidersType|null
+     * @return InvitationRedemptionIdentityProviderConfiguration_fallbackIdentityProvider|null
     */
-    public function getFallbackIdentityProvider(): ?B2bIdentityProvidersType {
+    public function getFallbackIdentityProvider(): ?InvitationRedemptionIdentityProviderConfiguration_fallbackIdentityProvider {
         $val = $this->getBackingStore()->get('fallbackIdentityProvider');
-        if (is_null($val) || $val instanceof B2bIdentityProvidersType) {
+        if (is_null($val) || $val instanceof InvitationRedemptionIdentityProviderConfiguration_fallbackIdentityProvider) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fallbackIdentityProvider'");
@@ -82,9 +82,9 @@ class InvitationRedemptionIdentityProviderConfiguration implements AdditionalDat
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'fallbackIdentityProvider' => fn(ParseNode $n) => $o->setFallbackIdentityProvider($n->getEnumValue(B2bIdentityProvidersType::class)),
+            'fallbackIdentityProvider' => fn(ParseNode $n) => $o->setFallbackIdentityProvider($n->getEnumValue(InvitationRedemptionIdentityProviderConfiguration_fallbackIdentityProvider::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'primaryIdentityProviderPrecedenceOrder' => fn(ParseNode $n) => $o->setPrimaryIdentityProviderPrecedenceOrder($n->getCollectionOfEnumValues(B2bIdentityProvidersType::class)),
+            'primaryIdentityProviderPrecedenceOrder' => fn(ParseNode $n) => $o->setPrimaryIdentityProviderPrecedenceOrder($n->getCollectionOfEnumValues(InvitationRedemptionIdentityProviderConfiguration_primaryIdentityProviderPrecedenceOrder::class)),
         ];
     }
 
@@ -102,13 +102,13 @@ class InvitationRedemptionIdentityProviderConfiguration implements AdditionalDat
 
     /**
      * Gets the primaryIdentityProviderPrecedenceOrder property value. Collection of identity providers in priority order of preference to be used for guest invitation redemption. Possible values are: azureActiveDirectory, externalFederation, or socialIdentityProviders.
-     * @return array<B2bIdentityProvidersType>|null
+     * @return array<InvitationRedemptionIdentityProviderConfiguration_primaryIdentityProviderPrecedenceOrder>|null
     */
     public function getPrimaryIdentityProviderPrecedenceOrder(): ?array {
         $val = $this->getBackingStore()->get('primaryIdentityProviderPrecedenceOrder');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, B2bIdentityProvidersType::class);
-            /** @var array<B2bIdentityProvidersType>|null $val */
+            TypeUtils::validateCollectionValues($val, InvitationRedemptionIdentityProviderConfiguration_primaryIdentityProviderPrecedenceOrder::class);
+            /** @var array<InvitationRedemptionIdentityProviderConfiguration_primaryIdentityProviderPrecedenceOrder>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryIdentityProviderPrecedenceOrder'");
@@ -143,9 +143,9 @@ class InvitationRedemptionIdentityProviderConfiguration implements AdditionalDat
 
     /**
      * Sets the fallbackIdentityProvider property value. The fallback identity provider to be used in case no primary identity provider can be used for guest invitation redemption. Possible values are: defaultConfiguredIdp, emailOneTimePasscode, or microsoftAccount.
-     * @param B2bIdentityProvidersType|null $value Value to set for the fallbackIdentityProvider property.
+     * @param InvitationRedemptionIdentityProviderConfiguration_fallbackIdentityProvider|null $value Value to set for the fallbackIdentityProvider property.
     */
-    public function setFallbackIdentityProvider(?B2bIdentityProvidersType $value): void {
+    public function setFallbackIdentityProvider(?InvitationRedemptionIdentityProviderConfiguration_fallbackIdentityProvider $value): void {
         $this->getBackingStore()->set('fallbackIdentityProvider', $value);
     }
 
@@ -159,7 +159,7 @@ class InvitationRedemptionIdentityProviderConfiguration implements AdditionalDat
 
     /**
      * Sets the primaryIdentityProviderPrecedenceOrder property value. Collection of identity providers in priority order of preference to be used for guest invitation redemption. Possible values are: azureActiveDirectory, externalFederation, or socialIdentityProviders.
-     * @param array<B2bIdentityProvidersType>|null $value Value to set for the primaryIdentityProviderPrecedenceOrder property.
+     * @param array<InvitationRedemptionIdentityProviderConfiguration_primaryIdentityProviderPrecedenceOrder>|null $value Value to set for the primaryIdentityProviderPrecedenceOrder property.
     */
     public function setPrimaryIdentityProviderPrecedenceOrder(?array $value): void {
         $this->getBackingStore()->set('primaryIdentityProviderPrecedenceOrder', $value);

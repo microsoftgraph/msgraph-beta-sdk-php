@@ -53,11 +53,11 @@ class BranchSite extends Entity implements Parsable
 
     /**
      * Gets the connectivityState property value. Determines the branch site status. The possible values are: pending, connected, inactive, error.
-     * @return ConnectivityState|null
+     * @return BranchSite_connectivityState|null
     */
-    public function getConnectivityState(): ?ConnectivityState {
+    public function getConnectivityState(): ?BranchSite_connectivityState {
         $val = $this->getBackingStore()->get('connectivityState');
-        if (is_null($val) || $val instanceof ConnectivityState) {
+        if (is_null($val) || $val instanceof BranchSite_connectivityState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'connectivityState'");
@@ -98,7 +98,7 @@ class BranchSite extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'bandwidthCapacity' => fn(ParseNode $n) => $o->setBandwidthCapacity($n->getIntegerValue()),
             'connectivityConfiguration' => fn(ParseNode $n) => $o->setConnectivityConfiguration($n->getObjectValue([BranchConnectivityConfiguration::class, 'createFromDiscriminatorValue'])),
-            'connectivityState' => fn(ParseNode $n) => $o->setConnectivityState($n->getEnumValue(ConnectivityState::class)),
+            'connectivityState' => fn(ParseNode $n) => $o->setConnectivityState($n->getEnumValue(BranchSite_connectivityState::class)),
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'deviceLinks' => fn(ParseNode $n) => $o->setDeviceLinks($n->getCollectionOfObjectValues([DeviceLink::class, 'createFromDiscriminatorValue'])),
             'forwardingProfiles' => fn(ParseNode $n) => $o->setForwardingProfiles($n->getCollectionOfObjectValues([ForwardingProfile::class, 'createFromDiscriminatorValue'])),
@@ -207,9 +207,9 @@ class BranchSite extends Entity implements Parsable
 
     /**
      * Sets the connectivityState property value. Determines the branch site status. The possible values are: pending, connected, inactive, error.
-     * @param ConnectivityState|null $value Value to set for the connectivityState property.
+     * @param BranchSite_connectivityState|null $value Value to set for the connectivityState property.
     */
-    public function setConnectivityState(?ConnectivityState $value): void {
+    public function setConnectivityState(?BranchSite_connectivityState $value): void {
         $this->getBackingStore()->set('connectivityState', $value);
     }
 

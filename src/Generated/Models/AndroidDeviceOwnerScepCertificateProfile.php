@@ -31,11 +31,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
 
     /**
      * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     * @return AndroidDeviceOwnerCertificateAccessType|null
+     * @return AndroidDeviceOwnerScepCertificateProfile_certificateAccessType|null
     */
-    public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
+    public function getCertificateAccessType(): ?AndroidDeviceOwnerScepCertificateProfile_certificateAccessType {
         $val = $this->getBackingStore()->get('certificateAccessType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerCertificateAccessType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerScepCertificateProfile_certificateAccessType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateAccessType'");
@@ -43,11 +43,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
 
     /**
      * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @return CertificateStore|null
+     * @return AndroidDeviceOwnerScepCertificateProfile_certificateStore|null
     */
-    public function getCertificateStore(): ?CertificateStore {
+    public function getCertificateStore(): ?AndroidDeviceOwnerScepCertificateProfile_certificateStore {
         $val = $this->getBackingStore()->get('certificateStore');
-        if (is_null($val) || $val instanceof CertificateStore) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerScepCertificateProfile_certificateStore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
@@ -74,8 +74,8 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateAccessType' => fn(ParseNode $n) => $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerCertificateAccessType::class)),
-            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(CertificateStore::class)),
+            'certificateAccessType' => fn(ParseNode $n) => $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerScepCertificateProfile_certificateAccessType::class)),
+            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(AndroidDeviceOwnerScepCertificateProfile_certificateStore::class)),
             'customSubjectAlternativeNames' => fn(ParseNode $n) => $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues([CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
             'hashAlgorithm' => fn(ParseNode $n) => $o->setHashAlgorithm($n->getEnumValue(HashAlgorithms::class)),
             'keySize' => fn(ParseNode $n) => $o->setKeySize($n->getEnumValue(KeySize::class)),
@@ -218,17 +218,17 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
 
     /**
      * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     * @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+     * @param AndroidDeviceOwnerScepCertificateProfile_certificateAccessType|null $value Value to set for the certificateAccessType property.
     */
-    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
+    public function setCertificateAccessType(?AndroidDeviceOwnerScepCertificateProfile_certificateAccessType $value): void {
         $this->getBackingStore()->set('certificateAccessType', $value);
     }
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param AndroidDeviceOwnerScepCertificateProfile_certificateStore|null $value Value to set for the certificateStore property.
     */
-    public function setCertificateStore(?CertificateStore $value): void {
+    public function setCertificateStore(?AndroidDeviceOwnerScepCertificateProfile_certificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
     }
 

@@ -90,7 +90,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
             'isRefinable' => fn(ParseNode $n) => $o->setIsRefinable($n->getBooleanValue()),
             'isRetrievable' => fn(ParseNode $n) => $o->setIsRetrievable($n->getBooleanValue()),
             'isSearchable' => fn(ParseNode $n) => $o->setIsSearchable($n->getBooleanValue()),
-            'labels' => fn(ParseNode $n) => $o->setLabels($n->getCollectionOfEnumValues(Label::class)),
+            'labels' => fn(ParseNode $n) => $o->setLabels($n->getCollectionOfEnumValues(Property_labels::class)),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rankingHint' => fn(ParseNode $n) => $o->setRankingHint($n->getObjectValue([RankingHint::class, 'createFromDiscriminatorValue'])),
@@ -160,13 +160,13 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the labels property value. Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (for example, better relevance). Optional.The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue, containerName, containerUrl, iconUrl. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: containerName, containerUrl, iconUrl.
-     * @return array<Label>|null
+     * @return array<Property_labels>|null
     */
     public function getLabels(): ?array {
         $val = $this->getBackingStore()->get('labels');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, Label::class);
-            /** @var array<Label>|null $val */
+            TypeUtils::validateCollectionValues($val, Property_labels::class);
+            /** @var array<Property_labels>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'labels'");
@@ -305,7 +305,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the labels property value. Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (for example, better relevance). Optional.The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue, containerName, containerUrl, iconUrl. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: containerName, containerUrl, iconUrl.
-     * @param array<Label>|null $value Value to set for the labels property.
+     * @param array<Property_labels>|null $value Value to set for the labels property.
     */
     public function setLabels(?array $value): void {
         $this->getBackingStore()->set('labels', $value);

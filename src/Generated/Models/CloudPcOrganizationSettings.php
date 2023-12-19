@@ -57,19 +57,19 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'enableMEMAutoEnroll' => fn(ParseNode $n) => $o->setEnableMEMAutoEnroll($n->getBooleanValue()),
             'enableSingleSignOn' => fn(ParseNode $n) => $o->setEnableSingleSignOn($n->getBooleanValue()),
-            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
-            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOrganizationSettings_osVersion::class)),
+            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcOrganizationSettings_userAccountType::class)),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
-     * @return CloudPcOperatingSystem|null
+     * @return CloudPcOrganizationSettings_osVersion|null
     */
-    public function getOsVersion(): ?CloudPcOperatingSystem {
+    public function getOsVersion(): ?CloudPcOrganizationSettings_osVersion {
         $val = $this->getBackingStore()->get('osVersion');
-        if (is_null($val) || $val instanceof CloudPcOperatingSystem) {
+        if (is_null($val) || $val instanceof CloudPcOrganizationSettings_osVersion) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
@@ -77,11 +77,11 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
 
     /**
      * Gets the userAccountType property value. The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
-     * @return CloudPcUserAccountType|null
+     * @return CloudPcOrganizationSettings_userAccountType|null
     */
-    public function getUserAccountType(): ?CloudPcUserAccountType {
+    public function getUserAccountType(): ?CloudPcOrganizationSettings_userAccountType {
         $val = $this->getBackingStore()->get('userAccountType');
-        if (is_null($val) || $val instanceof CloudPcUserAccountType) {
+        if (is_null($val) || $val instanceof CloudPcOrganizationSettings_userAccountType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccountType'");
@@ -130,17 +130,17 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
-     * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
+     * @param CloudPcOrganizationSettings_osVersion|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?CloudPcOperatingSystem $value): void {
+    public function setOsVersion(?CloudPcOrganizationSettings_osVersion $value): void {
         $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
-     * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
+     * @param CloudPcOrganizationSettings_userAccountType|null $value Value to set for the userAccountType property.
     */
-    public function setUserAccountType(?CloudPcUserAccountType $value): void {
+    public function setUserAccountType(?CloudPcOrganizationSettings_userAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
     }
 

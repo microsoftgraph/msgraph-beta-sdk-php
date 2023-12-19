@@ -113,7 +113,7 @@ class AccessPackageSubject extends Entity implements Parsable
             'objectId' => fn(ParseNode $n) => $o->setObjectId($n->getStringValue()),
             'onPremisesSecurityIdentifier' => fn(ParseNode $n) => $o->setOnPremisesSecurityIdentifier($n->getStringValue()),
             'principalName' => fn(ParseNode $n) => $o->setPrincipalName($n->getStringValue()),
-            'subjectLifecycle' => fn(ParseNode $n) => $o->setSubjectLifecycle($n->getEnumValue(AccessPackageSubjectLifecycle::class)),
+            'subjectLifecycle' => fn(ParseNode $n) => $o->setSubjectLifecycle($n->getEnumValue(AccessPackageSubject_subjectLifecycle::class)),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
     }
@@ -156,11 +156,11 @@ class AccessPackageSubject extends Entity implements Parsable
 
     /**
      * Gets the subjectLifecycle property value. The lifecycle of the subject user, if a guest. The possible values are: notDefined, notGoverned, governed, unknownFutureValue.
-     * @return AccessPackageSubjectLifecycle|null
+     * @return AccessPackageSubject_subjectLifecycle|null
     */
-    public function getSubjectLifecycle(): ?AccessPackageSubjectLifecycle {
+    public function getSubjectLifecycle(): ?AccessPackageSubject_subjectLifecycle {
         $val = $this->getBackingStore()->get('subjectLifecycle');
-        if (is_null($val) || $val instanceof AccessPackageSubjectLifecycle) {
+        if (is_null($val) || $val instanceof AccessPackageSubject_subjectLifecycle) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectLifecycle'");
@@ -271,9 +271,9 @@ class AccessPackageSubject extends Entity implements Parsable
 
     /**
      * Sets the subjectLifecycle property value. The lifecycle of the subject user, if a guest. The possible values are: notDefined, notGoverned, governed, unknownFutureValue.
-     * @param AccessPackageSubjectLifecycle|null $value Value to set for the subjectLifecycle property.
+     * @param AccessPackageSubject_subjectLifecycle|null $value Value to set for the subjectLifecycle property.
     */
-    public function setSubjectLifecycle(?AccessPackageSubjectLifecycle $value): void {
+    public function setSubjectLifecycle(?AccessPackageSubject_subjectLifecycle $value): void {
         $this->getBackingStore()->set('subjectLifecycle', $value);
     }
 

@@ -26,11 +26,11 @@ class SensitivityPolicySettings extends Entity implements Parsable
 
     /**
      * Gets the applicableTo property value. The applicableTo property
-     * @return SensitivityLabelTarget|null
+     * @return SensitivityPolicySettings_applicableTo|null
     */
-    public function getApplicableTo(): ?SensitivityLabelTarget {
+    public function getApplicableTo(): ?SensitivityPolicySettings_applicableTo {
         $val = $this->getBackingStore()->get('applicableTo');
-        if (is_null($val) || $val instanceof SensitivityLabelTarget) {
+        if (is_null($val) || $val instanceof SensitivityPolicySettings_applicableTo) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableTo'");
@@ -55,7 +55,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableTo' => fn(ParseNode $n) => $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)),
+            'applicableTo' => fn(ParseNode $n) => $o->setApplicableTo($n->getEnumValue(SensitivityPolicySettings_applicableTo::class)),
             'downgradeSensitivityRequiresJustification' => fn(ParseNode $n) => $o->setDowngradeSensitivityRequiresJustification($n->getBooleanValue()),
             'helpWebUrl' => fn(ParseNode $n) => $o->setHelpWebUrl($n->getStringValue()),
             'isMandatory' => fn(ParseNode $n) => $o->setIsMandatory($n->getBooleanValue()),
@@ -100,9 +100,9 @@ class SensitivityPolicySettings extends Entity implements Parsable
 
     /**
      * Sets the applicableTo property value. The applicableTo property
-     * @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
+     * @param SensitivityPolicySettings_applicableTo|null $value Value to set for the applicableTo property.
     */
-    public function setApplicableTo(?SensitivityLabelTarget $value): void {
+    public function setApplicableTo(?SensitivityPolicySettings_applicableTo $value): void {
         $this->getBackingStore()->set('applicableTo', $value);
     }
 

@@ -64,11 +64,11 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Gets the diskEncryptionState property value. The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.
-     * @return CloudPcDiskEncryptionState|null
+     * @return CloudPC_diskEncryptionState|null
     */
-    public function getDiskEncryptionState(): ?CloudPcDiskEncryptionState {
+    public function getDiskEncryptionState(): ?CloudPC_diskEncryptionState {
         $val = $this->getBackingStore()->get('diskEncryptionState');
-        if (is_null($val) || $val instanceof CloudPcDiskEncryptionState) {
+        if (is_null($val) || $val instanceof CloudPC_diskEncryptionState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'diskEncryptionState'");
@@ -96,7 +96,7 @@ class CloudPC extends Entity implements Parsable
             'aadDeviceId' => fn(ParseNode $n) => $o->setAadDeviceId($n->getStringValue()),
             'connectionSettings' => fn(ParseNode $n) => $o->setConnectionSettings($n->getObjectValue([CloudPcConnectionSettings::class, 'createFromDiscriminatorValue'])),
             'connectivityResult' => fn(ParseNode $n) => $o->setConnectivityResult($n->getObjectValue([CloudPcConnectivityResult::class, 'createFromDiscriminatorValue'])),
-            'diskEncryptionState' => fn(ParseNode $n) => $o->setDiskEncryptionState($n->getEnumValue(CloudPcDiskEncryptionState::class)),
+            'diskEncryptionState' => fn(ParseNode $n) => $o->setDiskEncryptionState($n->getEnumValue(CloudPC_diskEncryptionState::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'gracePeriodEndDateTime' => fn(ParseNode $n) => $o->setGracePeriodEndDateTime($n->getDateTimeValue()),
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
@@ -106,12 +106,12 @@ class CloudPC extends Entity implements Parsable
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
             'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
             'onPremisesConnectionName' => fn(ParseNode $n) => $o->setOnPremisesConnectionName($n->getStringValue()),
-            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPC_osVersion::class)),
             'partnerAgentInstallResults' => fn(ParseNode $n) => $o->setPartnerAgentInstallResults($n->getCollectionOfObjectValues([CloudPcPartnerAgentInstallResult::class, 'createFromDiscriminatorValue'])),
-            'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPcPowerState::class)),
+            'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPC_powerState::class)),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
-            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
+            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPC_provisioningType::class)),
             'scopeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -122,10 +122,10 @@ class CloudPC extends Entity implements Parsable
             },
             'servicePlanId' => fn(ParseNode $n) => $o->setServicePlanId($n->getStringValue()),
             'servicePlanName' => fn(ParseNode $n) => $o->setServicePlanName($n->getStringValue()),
-            'servicePlanType' => fn(ParseNode $n) => $o->setServicePlanType($n->getEnumValue(CloudPcServicePlanType::class)),
+            'servicePlanType' => fn(ParseNode $n) => $o->setServicePlanType($n->getEnumValue(CloudPC_servicePlanType::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcStatus::class)),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getObjectValue([CloudPcStatusDetails::class, 'createFromDiscriminatorValue'])),
-            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
+            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPC_userAccountType::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
@@ -228,11 +228,11 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Gets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue.
-     * @return CloudPcOperatingSystem|null
+     * @return CloudPC_osVersion|null
     */
-    public function getOsVersion(): ?CloudPcOperatingSystem {
+    public function getOsVersion(): ?CloudPC_osVersion {
         $val = $this->getBackingStore()->get('osVersion');
-        if (is_null($val) || $val instanceof CloudPcOperatingSystem) {
+        if (is_null($val) || $val instanceof CloudPC_osVersion) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
@@ -254,11 +254,11 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Gets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff and unknown. This property only supports shift work Cloud PCs.
-     * @return CloudPcPowerState|null
+     * @return CloudPC_powerState|null
     */
-    public function getPowerState(): ?CloudPcPowerState {
+    public function getPowerState(): ?CloudPC_powerState {
         $val = $this->getBackingStore()->get('powerState');
-        if (is_null($val) || $val instanceof CloudPcPowerState) {
+        if (is_null($val) || $val instanceof CloudPC_powerState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'powerState'");
@@ -290,11 +290,11 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
-     * @return CloudPcProvisioningType|null
+     * @return CloudPC_provisioningType|null
     */
-    public function getProvisioningType(): ?CloudPcProvisioningType {
+    public function getProvisioningType(): ?CloudPC_provisioningType {
         $val = $this->getBackingStore()->get('provisioningType');
-        if (is_null($val) || $val instanceof CloudPcProvisioningType) {
+        if (is_null($val) || $val instanceof CloudPC_provisioningType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningType'");
@@ -340,11 +340,11 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Gets the servicePlanType property value. The service plan type of the Cloud PC.
-     * @return CloudPcServicePlanType|null
+     * @return CloudPC_servicePlanType|null
     */
-    public function getServicePlanType(): ?CloudPcServicePlanType {
+    public function getServicePlanType(): ?CloudPC_servicePlanType {
         $val = $this->getBackingStore()->get('servicePlanType');
-        if (is_null($val) || $val instanceof CloudPcServicePlanType) {
+        if (is_null($val) || $val instanceof CloudPC_servicePlanType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePlanType'");
@@ -376,11 +376,11 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Gets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue.
-     * @return CloudPcUserAccountType|null
+     * @return CloudPC_userAccountType|null
     */
-    public function getUserAccountType(): ?CloudPcUserAccountType {
+    public function getUserAccountType(): ?CloudPC_userAccountType {
         $val = $this->getBackingStore()->get('userAccountType');
-        if (is_null($val) || $val instanceof CloudPcUserAccountType) {
+        if (is_null($val) || $val instanceof CloudPC_userAccountType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccountType'");
@@ -459,9 +459,9 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the diskEncryptionState property value. The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.
-     * @param CloudPcDiskEncryptionState|null $value Value to set for the diskEncryptionState property.
+     * @param CloudPC_diskEncryptionState|null $value Value to set for the diskEncryptionState property.
     */
-    public function setDiskEncryptionState(?CloudPcDiskEncryptionState $value): void {
+    public function setDiskEncryptionState(?CloudPC_diskEncryptionState $value): void {
         $this->getBackingStore()->set('diskEncryptionState', $value);
     }
 
@@ -539,9 +539,9 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue.
-     * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
+     * @param CloudPC_osVersion|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?CloudPcOperatingSystem $value): void {
+    public function setOsVersion(?CloudPC_osVersion $value): void {
         $this->getBackingStore()->set('osVersion', $value);
     }
 
@@ -555,9 +555,9 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff and unknown. This property only supports shift work Cloud PCs.
-     * @param CloudPcPowerState|null $value Value to set for the powerState property.
+     * @param CloudPC_powerState|null $value Value to set for the powerState property.
     */
-    public function setPowerState(?CloudPcPowerState $value): void {
+    public function setPowerState(?CloudPC_powerState $value): void {
         $this->getBackingStore()->set('powerState', $value);
     }
 
@@ -579,9 +579,9 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
-     * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
+     * @param CloudPC_provisioningType|null $value Value to set for the provisioningType property.
     */
-    public function setProvisioningType(?CloudPcProvisioningType $value): void {
+    public function setProvisioningType(?CloudPC_provisioningType $value): void {
         $this->getBackingStore()->set('provisioningType', $value);
     }
 
@@ -611,9 +611,9 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the servicePlanType property value. The service plan type of the Cloud PC.
-     * @param CloudPcServicePlanType|null $value Value to set for the servicePlanType property.
+     * @param CloudPC_servicePlanType|null $value Value to set for the servicePlanType property.
     */
-    public function setServicePlanType(?CloudPcServicePlanType $value): void {
+    public function setServicePlanType(?CloudPC_servicePlanType $value): void {
         $this->getBackingStore()->set('servicePlanType', $value);
     }
 
@@ -635,9 +635,9 @@ class CloudPC extends Entity implements Parsable
 
     /**
      * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue.
-     * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
+     * @param CloudPC_userAccountType|null $value Value to set for the userAccountType property.
     */
-    public function setUserAccountType(?CloudPcUserAccountType $value): void {
+    public function setUserAccountType(?CloudPC_userAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
     }
 

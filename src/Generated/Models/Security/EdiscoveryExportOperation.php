@@ -77,11 +77,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Gets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30, 2023. Going forward, the summary and load file are always included.
-     * @return ExportOptions|null
+     * @return EdiscoveryExportOperation_exportOptions|null
     */
-    public function getExportOptions(): ?ExportOptions {
+    public function getExportOptions(): ?EdiscoveryExportOperation_exportOptions {
         $val = $this->getBackingStore()->get('exportOptions');
-        if (is_null($val) || $val instanceof ExportOptions) {
+        if (is_null($val) || $val instanceof EdiscoveryExportOperation_exportOptions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportOptions'");
@@ -89,11 +89,11 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Gets the exportStructure property value. The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.
-     * @return ExportFileStructure|null
+     * @return EdiscoveryExportOperation_exportStructure|null
     */
-    public function getExportStructure(): ?ExportFileStructure {
+    public function getExportStructure(): ?EdiscoveryExportOperation_exportStructure {
         $val = $this->getBackingStore()->get('exportStructure');
-        if (is_null($val) || $val instanceof ExportFileStructure) {
+        if (is_null($val) || $val instanceof EdiscoveryExportOperation_exportStructure) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportStructure'");
@@ -110,8 +110,8 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
             'azureBlobToken' => fn(ParseNode $n) => $o->setAzureBlobToken($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'exportFileMetadata' => fn(ParseNode $n) => $o->setExportFileMetadata($n->getCollectionOfObjectValues([ExportFileMetadata::class, 'createFromDiscriminatorValue'])),
-            'exportOptions' => fn(ParseNode $n) => $o->setExportOptions($n->getEnumValue(ExportOptions::class)),
-            'exportStructure' => fn(ParseNode $n) => $o->setExportStructure($n->getEnumValue(ExportFileStructure::class)),
+            'exportOptions' => fn(ParseNode $n) => $o->setExportOptions($n->getEnumValue(EdiscoveryExportOperation_exportOptions::class)),
+            'exportStructure' => fn(ParseNode $n) => $o->setExportStructure($n->getEnumValue(EdiscoveryExportOperation_exportStructure::class)),
             'outputFolderId' => fn(ParseNode $n) => $o->setOutputFolderId($n->getStringValue()),
             'outputName' => fn(ParseNode $n) => $o->setOutputName($n->getStringValue()),
             'reviewSet' => fn(ParseNode $n) => $o->setReviewSet($n->getObjectValue([EdiscoveryReviewSet::class, 'createFromDiscriminatorValue'])),
@@ -219,17 +219,17 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30, 2023. Going forward, the summary and load file are always included.
-     * @param ExportOptions|null $value Value to set for the exportOptions property.
+     * @param EdiscoveryExportOperation_exportOptions|null $value Value to set for the exportOptions property.
     */
-    public function setExportOptions(?ExportOptions $value): void {
+    public function setExportOptions(?EdiscoveryExportOperation_exportOptions $value): void {
         $this->getBackingStore()->set('exportOptions', $value);
     }
 
     /**
      * Sets the exportStructure property value. The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.
-     * @param ExportFileStructure|null $value Value to set for the exportStructure property.
+     * @param EdiscoveryExportOperation_exportStructure|null $value Value to set for the exportStructure property.
     */
-    public function setExportStructure(?ExportFileStructure $value): void {
+    public function setExportStructure(?EdiscoveryExportOperation_exportStructure $value): void {
         $this->getBackingStore()->set('exportStructure', $value);
     }
 

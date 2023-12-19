@@ -49,11 +49,11 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the aggregation property value. Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
-     * @return AggregationType|null
+     * @return RuleThreshold_aggregation|null
     */
-    public function getAggregation(): ?AggregationType {
+    public function getAggregation(): ?RuleThreshold_aggregation {
         $val = $this->getBackingStore()->get('aggregation');
-        if (is_null($val) || $val instanceof AggregationType) {
+        if (is_null($val) || $val instanceof RuleThreshold_aggregation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'aggregation'");
@@ -74,9 +74,9 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aggregation' => fn(ParseNode $n) => $o->setAggregation($n->getEnumValue(AggregationType::class)),
+            'aggregation' => fn(ParseNode $n) => $o->setAggregation($n->getEnumValue(RuleThreshold_aggregation::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(OperatorType::class)),
+            'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(RuleThreshold_operator::class)),
             'target' => fn(ParseNode $n) => $o->setTarget($n->getIntegerValue()),
         ];
     }
@@ -95,11 +95,11 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the operator property value. Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
-     * @return OperatorType|null
+     * @return RuleThreshold_operator|null
     */
-    public function getOperator(): ?OperatorType {
+    public function getOperator(): ?RuleThreshold_operator {
         $val = $this->getBackingStore()->get('operator');
-        if (is_null($val) || $val instanceof OperatorType) {
+        if (is_null($val) || $val instanceof RuleThreshold_operator) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operator'");
@@ -139,9 +139,9 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the aggregation property value. Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
-     * @param AggregationType|null $value Value to set for the aggregation property.
+     * @param RuleThreshold_aggregation|null $value Value to set for the aggregation property.
     */
-    public function setAggregation(?AggregationType $value): void {
+    public function setAggregation(?RuleThreshold_aggregation $value): void {
         $this->getBackingStore()->set('aggregation', $value);
     }
 
@@ -163,9 +163,9 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operator property value. Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
-     * @param OperatorType|null $value Value to set for the operator property.
+     * @param RuleThreshold_operator|null $value Value to set for the operator property.
     */
-    public function setOperator(?OperatorType $value): void {
+    public function setOperator(?RuleThreshold_operator $value): void {
         $this->getBackingStore()->set('operator', $value);
     }
 

@@ -2,10 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\MicrosoftGraphSecurityExportResult;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\AdditionalOptions;
-use Microsoft\Graph\Beta\Generated\Models\Security\ExportCriteria;
-use Microsoft\Graph\Beta\Generated\Models\Security\ExportFormat;
-use Microsoft\Graph\Beta\Generated\Models\Security\ExportLocation;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -53,11 +49,11 @@ class ExportResultPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalOptions property value. The additionalOptions property
-     * @return AdditionalOptions|null
+     * @return ExportResultPostRequestBody_additionalOptions|null
     */
-    public function getAdditionalOptions(): ?AdditionalOptions {
+    public function getAdditionalOptions(): ?ExportResultPostRequestBody_additionalOptions {
         $val = $this->getBackingStore()->get('additionalOptions');
-        if (is_null($val) || $val instanceof AdditionalOptions) {
+        if (is_null($val) || $val instanceof ExportResultPostRequestBody_additionalOptions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalOptions'");
@@ -97,11 +93,11 @@ class ExportResultPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the exportCriteria property value. The exportCriteria property
-     * @return ExportCriteria|null
+     * @return ExportResultPostRequestBody_exportCriteria|null
     */
-    public function getExportCriteria(): ?ExportCriteria {
+    public function getExportCriteria(): ?ExportResultPostRequestBody_exportCriteria {
         $val = $this->getBackingStore()->get('exportCriteria');
-        if (is_null($val) || $val instanceof ExportCriteria) {
+        if (is_null($val) || $val instanceof ExportResultPostRequestBody_exportCriteria) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportCriteria'");
@@ -109,11 +105,11 @@ class ExportResultPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the exportFormat property value. The exportFormat property
-     * @return ExportFormat|null
+     * @return ExportResultPostRequestBody_exportFormat|null
     */
-    public function getExportFormat(): ?ExportFormat {
+    public function getExportFormat(): ?ExportResultPostRequestBody_exportFormat {
         $val = $this->getBackingStore()->get('exportFormat');
-        if (is_null($val) || $val instanceof ExportFormat) {
+        if (is_null($val) || $val instanceof ExportResultPostRequestBody_exportFormat) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportFormat'");
@@ -121,11 +117,11 @@ class ExportResultPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the exportLocation property value. The exportLocation property
-     * @return ExportLocation|null
+     * @return ExportResultPostRequestBody_exportLocation|null
     */
-    public function getExportLocation(): ?ExportLocation {
+    public function getExportLocation(): ?ExportResultPostRequestBody_exportLocation {
         $val = $this->getBackingStore()->get('exportLocation');
-        if (is_null($val) || $val instanceof ExportLocation) {
+        if (is_null($val) || $val instanceof ExportResultPostRequestBody_exportLocation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportLocation'");
@@ -150,12 +146,12 @@ class ExportResultPostRequestBody implements AdditionalDataHolder, BackedModel, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalOptions' => fn(ParseNode $n) => $o->setAdditionalOptions($n->getEnumValue(AdditionalOptions::class)),
+            'additionalOptions' => fn(ParseNode $n) => $o->setAdditionalOptions($n->getEnumValue(ExportResultPostRequestBody_additionalOptions::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'exportCriteria' => fn(ParseNode $n) => $o->setExportCriteria($n->getEnumValue(ExportCriteria::class)),
-            'exportFormat' => fn(ParseNode $n) => $o->setExportFormat($n->getEnumValue(ExportFormat::class)),
-            'exportLocation' => fn(ParseNode $n) => $o->setExportLocation($n->getEnumValue(ExportLocation::class)),
+            'exportCriteria' => fn(ParseNode $n) => $o->setExportCriteria($n->getEnumValue(ExportResultPostRequestBody_exportCriteria::class)),
+            'exportFormat' => fn(ParseNode $n) => $o->setExportFormat($n->getEnumValue(ExportResultPostRequestBody_exportFormat::class)),
+            'exportLocation' => fn(ParseNode $n) => $o->setExportLocation($n->getEnumValue(ExportResultPostRequestBody_exportLocation::class)),
             'exportSingleItems' => fn(ParseNode $n) => $o->setExportSingleItems($n->getBooleanValue()),
         ];
     }
@@ -185,9 +181,9 @@ class ExportResultPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalOptions property value. The additionalOptions property
-     * @param AdditionalOptions|null $value Value to set for the additionalOptions property.
+     * @param ExportResultPostRequestBody_additionalOptions|null $value Value to set for the additionalOptions property.
     */
-    public function setAdditionalOptions(?AdditionalOptions $value): void {
+    public function setAdditionalOptions(?ExportResultPostRequestBody_additionalOptions $value): void {
         $this->getBackingStore()->set('additionalOptions', $value);
     }
 
@@ -217,25 +213,25 @@ class ExportResultPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the exportCriteria property value. The exportCriteria property
-     * @param ExportCriteria|null $value Value to set for the exportCriteria property.
+     * @param ExportResultPostRequestBody_exportCriteria|null $value Value to set for the exportCriteria property.
     */
-    public function setExportCriteria(?ExportCriteria $value): void {
+    public function setExportCriteria(?ExportResultPostRequestBody_exportCriteria $value): void {
         $this->getBackingStore()->set('exportCriteria', $value);
     }
 
     /**
      * Sets the exportFormat property value. The exportFormat property
-     * @param ExportFormat|null $value Value to set for the exportFormat property.
+     * @param ExportResultPostRequestBody_exportFormat|null $value Value to set for the exportFormat property.
     */
-    public function setExportFormat(?ExportFormat $value): void {
+    public function setExportFormat(?ExportResultPostRequestBody_exportFormat $value): void {
         $this->getBackingStore()->set('exportFormat', $value);
     }
 
     /**
      * Sets the exportLocation property value. The exportLocation property
-     * @param ExportLocation|null $value Value to set for the exportLocation property.
+     * @param ExportResultPostRequestBody_exportLocation|null $value Value to set for the exportLocation property.
     */
-    public function setExportLocation(?ExportLocation $value): void {
+    public function setExportLocation(?ExportResultPostRequestBody_exportLocation $value): void {
         $this->getBackingStore()->set('exportLocation', $value);
     }
 

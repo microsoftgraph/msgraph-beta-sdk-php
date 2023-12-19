@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Apply;
 
-use Microsoft\Graph\Beta\Generated\Models\CloudPcPolicySettingType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -63,17 +62,17 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'policySettings' => fn(ParseNode $n) => $o->setPolicySettings($n->getEnumValue(CloudPcPolicySettingType::class)),
+            'policySettings' => fn(ParseNode $n) => $o->setPolicySettings($n->getEnumValue(ApplyPostRequestBody_policySettings::class)),
         ];
     }
 
     /**
      * Gets the policySettings property value. The policySettings property
-     * @return CloudPcPolicySettingType|null
+     * @return ApplyPostRequestBody_policySettings|null
     */
-    public function getPolicySettings(): ?CloudPcPolicySettingType {
+    public function getPolicySettings(): ?ApplyPostRequestBody_policySettings {
         $val = $this->getBackingStore()->get('policySettings');
-        if (is_null($val) || $val instanceof CloudPcPolicySettingType) {
+        if (is_null($val) || $val instanceof ApplyPostRequestBody_policySettings) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'policySettings'");
@@ -106,9 +105,9 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the policySettings property value. The policySettings property
-     * @param CloudPcPolicySettingType|null $value Value to set for the policySettings property.
+     * @param ApplyPostRequestBody_policySettings|null $value Value to set for the policySettings property.
     */
-    public function setPolicySettings(?CloudPcPolicySettingType $value): void {
+    public function setPolicySettings(?ApplyPostRequestBody_policySettings $value): void {
         $this->getBackingStore()->set('policySettings', $value);
     }
 

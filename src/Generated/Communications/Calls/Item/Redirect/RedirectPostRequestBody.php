@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Redirect;
 
-use Microsoft\Graph\Beta\Generated\Models\CallDisposition;
 use Microsoft\Graph\Beta\Generated\Models\InvitationParticipantInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -80,7 +79,7 @@ class RedirectPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
             'callbackUri' => fn(ParseNode $n) => $o->setCallbackUri($n->getStringValue()),
             'maskCallee' => fn(ParseNode $n) => $o->setMaskCallee($n->getBooleanValue()),
             'maskCaller' => fn(ParseNode $n) => $o->setMaskCaller($n->getBooleanValue()),
-            'targetDisposition' => fn(ParseNode $n) => $o->setTargetDisposition($n->getEnumValue(CallDisposition::class)),
+            'targetDisposition' => fn(ParseNode $n) => $o->setTargetDisposition($n->getEnumValue(RedirectPostRequestBody_targetDisposition::class)),
             'targets' => fn(ParseNode $n) => $o->setTargets($n->getCollectionOfObjectValues([InvitationParticipantInfo::class, 'createFromDiscriminatorValue'])),
             'timeout' => fn(ParseNode $n) => $o->setTimeout($n->getIntegerValue()),
         ];
@@ -112,11 +111,11 @@ class RedirectPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the targetDisposition property value. The targetDisposition property
-     * @return CallDisposition|null
+     * @return RedirectPostRequestBody_targetDisposition|null
     */
-    public function getTargetDisposition(): ?CallDisposition {
+    public function getTargetDisposition(): ?RedirectPostRequestBody_targetDisposition {
         $val = $this->getBackingStore()->get('targetDisposition');
-        if (is_null($val) || $val instanceof CallDisposition) {
+        if (is_null($val) || $val instanceof RedirectPostRequestBody_targetDisposition) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'targetDisposition'");
@@ -204,9 +203,9 @@ class RedirectPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the targetDisposition property value. The targetDisposition property
-     * @param CallDisposition|null $value Value to set for the targetDisposition property.
+     * @param RedirectPostRequestBody_targetDisposition|null $value Value to set for the targetDisposition property.
     */
-    public function setTargetDisposition(?CallDisposition $value): void {
+    public function setTargetDisposition(?RedirectPostRequestBody_targetDisposition $value): void {
         $this->getBackingStore()->set('targetDisposition', $value);
     }
 

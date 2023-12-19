@@ -2,8 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Reprovision;
 
-use Microsoft\Graph\Beta\Generated\Models\CloudPcOperatingSystem;
-use Microsoft\Graph\Beta\Generated\Models\CloudPcUserAccountType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -64,18 +62,18 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
-            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(ReprovisionPostRequestBody_osVersion::class)),
+            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(ReprovisionPostRequestBody_userAccountType::class)),
         ];
     }
 
     /**
      * Gets the osVersion property value. The osVersion property
-     * @return CloudPcOperatingSystem|null
+     * @return ReprovisionPostRequestBody_osVersion|null
     */
-    public function getOsVersion(): ?CloudPcOperatingSystem {
+    public function getOsVersion(): ?ReprovisionPostRequestBody_osVersion {
         $val = $this->getBackingStore()->get('osVersion');
-        if (is_null($val) || $val instanceof CloudPcOperatingSystem) {
+        if (is_null($val) || $val instanceof ReprovisionPostRequestBody_osVersion) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersion'");
@@ -83,11 +81,11 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the userAccountType property value. The userAccountType property
-     * @return CloudPcUserAccountType|null
+     * @return ReprovisionPostRequestBody_userAccountType|null
     */
-    public function getUserAccountType(): ?CloudPcUserAccountType {
+    public function getUserAccountType(): ?ReprovisionPostRequestBody_userAccountType {
         $val = $this->getBackingStore()->get('userAccountType');
-        if (is_null($val) || $val instanceof CloudPcUserAccountType) {
+        if (is_null($val) || $val instanceof ReprovisionPostRequestBody_userAccountType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccountType'");
@@ -121,17 +119,17 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the osVersion property value. The osVersion property
-     * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
+     * @param ReprovisionPostRequestBody_osVersion|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?CloudPcOperatingSystem $value): void {
+    public function setOsVersion(?ReprovisionPostRequestBody_osVersion $value): void {
         $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the userAccountType property value. The userAccountType property
-     * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
+     * @param ReprovisionPostRequestBody_userAccountType|null $value Value to set for the userAccountType property.
     */
-    public function setUserAccountType(?CloudPcUserAccountType $value): void {
+    public function setUserAccountType(?ReprovisionPostRequestBody_userAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
     }
 

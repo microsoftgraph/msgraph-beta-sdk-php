@@ -75,7 +75,7 @@ class Acl implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'accessType' => fn(ParseNode $n) => $o->setAccessType($n->getEnumValue(AccessType::class)),
-            'identitySource' => fn(ParseNode $n) => $o->setIdentitySource($n->getEnumValue(IdentitySourceType::class)),
+            'identitySource' => fn(ParseNode $n) => $o->setIdentitySource($n->getEnumValue(Acl_identitySource::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(AclType::class)),
             'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
@@ -84,11 +84,11 @@ class Acl implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the identitySource property value. The identitySource property
-     * @return IdentitySourceType|null
+     * @return Acl_identitySource|null
     */
-    public function getIdentitySource(): ?IdentitySourceType {
+    public function getIdentitySource(): ?Acl_identitySource {
         $val = $this->getBackingStore()->get('identitySource');
-        if (is_null($val) || $val instanceof IdentitySourceType) {
+        if (is_null($val) || $val instanceof Acl_identitySource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identitySource'");
@@ -169,9 +169,9 @@ class Acl implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the identitySource property value. The identitySource property
-     * @param IdentitySourceType|null $value Value to set for the identitySource property.
+     * @param Acl_identitySource|null $value Value to set for the identitySource property.
     */
-    public function setIdentitySource(?IdentitySourceType $value): void {
+    public function setIdentitySource(?Acl_identitySource $value): void {
         $this->getBackingStore()->set('identitySource', $value);
     }
 

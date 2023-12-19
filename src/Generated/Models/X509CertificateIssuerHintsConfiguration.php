@@ -63,7 +63,7 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(X509CertificateIssuerHintsState::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(X509CertificateIssuerHintsConfiguration_state::class)),
         ];
     }
 
@@ -81,11 +81,11 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
 
     /**
      * Gets the state property value. The possible values are: disabled, enabled, unknownFutureValue.
-     * @return X509CertificateIssuerHintsState|null
+     * @return X509CertificateIssuerHintsConfiguration_state|null
     */
-    public function getState(): ?X509CertificateIssuerHintsState {
+    public function getState(): ?X509CertificateIssuerHintsConfiguration_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof X509CertificateIssuerHintsState) {
+        if (is_null($val) || $val instanceof X509CertificateIssuerHintsConfiguration_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -127,9 +127,9 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
 
     /**
      * Sets the state property value. The possible values are: disabled, enabled, unknownFutureValue.
-     * @param X509CertificateIssuerHintsState|null $value Value to set for the state property.
+     * @param X509CertificateIssuerHintsConfiguration_state|null $value Value to set for the state property.
     */
-    public function setState(?X509CertificateIssuerHintsState $value): void {
+    public function setState(?X509CertificateIssuerHintsConfiguration_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

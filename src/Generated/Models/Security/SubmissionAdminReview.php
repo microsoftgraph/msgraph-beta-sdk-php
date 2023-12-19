@@ -66,7 +66,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reviewBy' => fn(ParseNode $n) => $o->setReviewBy($n->getStringValue()),
             'reviewDateTime' => fn(ParseNode $n) => $o->setReviewDateTime($n->getDateTimeValue()),
-            'reviewResult' => fn(ParseNode $n) => $o->setReviewResult($n->getEnumValue(SubmissionResultCategory::class)),
+            'reviewResult' => fn(ParseNode $n) => $o->setReviewResult($n->getEnumValue(SubmissionAdminReview_reviewResult::class)),
         ];
     }
 
@@ -108,11 +108,11 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the reviewResult property value. Specifies what the review result was. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable, and unknownFutureValue.
-     * @return SubmissionResultCategory|null
+     * @return SubmissionAdminReview_reviewResult|null
     */
-    public function getReviewResult(): ?SubmissionResultCategory {
+    public function getReviewResult(): ?SubmissionAdminReview_reviewResult {
         $val = $this->getBackingStore()->get('reviewResult');
-        if (is_null($val) || $val instanceof SubmissionResultCategory) {
+        if (is_null($val) || $val instanceof SubmissionAdminReview_reviewResult) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewResult'");
@@ -172,9 +172,9 @@ class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the reviewResult property value. Specifies what the review result was. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable, and unknownFutureValue.
-     * @param SubmissionResultCategory|null $value Value to set for the reviewResult property.
+     * @param SubmissionAdminReview_reviewResult|null $value Value to set for the reviewResult property.
     */
-    public function setReviewResult(?SubmissionResultCategory $value): void {
+    public function setReviewResult(?SubmissionAdminReview_reviewResult $value): void {
         $this->getBackingStore()->set('reviewResult', $value);
     }
 

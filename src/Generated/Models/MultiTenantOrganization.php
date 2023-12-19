@@ -73,7 +73,7 @@ class MultiTenantOrganization extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'joinRequest' => fn(ParseNode $n) => $o->setJoinRequest($n->getObjectValue([MultiTenantOrganizationJoinRequestRecord::class, 'createFromDiscriminatorValue'])),
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(MultiTenantOrganizationState::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(MultiTenantOrganization_state::class)),
             'tenants' => fn(ParseNode $n) => $o->setTenants($n->getCollectionOfObjectValues([MultiTenantOrganizationMember::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -92,11 +92,11 @@ class MultiTenantOrganization extends Entity implements Parsable
 
     /**
      * Gets the state property value. State of the multitenant organization. The possible values are: active, inactive, unknownFutureValue. active indicates the multitenant organization is created. inactive indicates the multitenant organization isn't created. Read-only.
-     * @return MultiTenantOrganizationState|null
+     * @return MultiTenantOrganization_state|null
     */
-    public function getState(): ?MultiTenantOrganizationState {
+    public function getState(): ?MultiTenantOrganization_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof MultiTenantOrganizationState) {
+        if (is_null($val) || $val instanceof MultiTenantOrganization_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -164,9 +164,9 @@ class MultiTenantOrganization extends Entity implements Parsable
 
     /**
      * Sets the state property value. State of the multitenant organization. The possible values are: active, inactive, unknownFutureValue. active indicates the multitenant organization is created. inactive indicates the multitenant organization isn't created. Read-only.
-     * @param MultiTenantOrganizationState|null $value Value to set for the state property.
+     * @param MultiTenantOrganization_state|null $value Value to set for the state property.
     */
-    public function setState(?MultiTenantOrganizationState $value): void {
+    public function setState(?MultiTenantOrganization_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

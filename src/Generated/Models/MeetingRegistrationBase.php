@@ -35,11 +35,11 @@ class MeetingRegistrationBase extends Entity implements Parsable
 
     /**
      * Gets the allowedRegistrant property value. Specifies who can register for the meeting.
-     * @return MeetingAudience|null
+     * @return MeetingRegistrationBase_allowedRegistrant|null
     */
-    public function getAllowedRegistrant(): ?MeetingAudience {
+    public function getAllowedRegistrant(): ?MeetingRegistrationBase_allowedRegistrant {
         $val = $this->getBackingStore()->get('allowedRegistrant');
-        if (is_null($val) || $val instanceof MeetingAudience) {
+        if (is_null($val) || $val instanceof MeetingRegistrationBase_allowedRegistrant) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedRegistrant'");
@@ -52,7 +52,7 @@ class MeetingRegistrationBase extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedRegistrant' => fn(ParseNode $n) => $o->setAllowedRegistrant($n->getEnumValue(MeetingAudience::class)),
+            'allowedRegistrant' => fn(ParseNode $n) => $o->setAllowedRegistrant($n->getEnumValue(MeetingRegistrationBase_allowedRegistrant::class)),
             'registrants' => fn(ParseNode $n) => $o->setRegistrants($n->getCollectionOfObjectValues([MeetingRegistrantBase::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -83,9 +83,9 @@ class MeetingRegistrationBase extends Entity implements Parsable
 
     /**
      * Sets the allowedRegistrant property value. Specifies who can register for the meeting.
-     * @param MeetingAudience|null $value Value to set for the allowedRegistrant property.
+     * @param MeetingRegistrationBase_allowedRegistrant|null $value Value to set for the allowedRegistrant property.
     */
-    public function setAllowedRegistrant(?MeetingAudience $value): void {
+    public function setAllowedRegistrant(?MeetingRegistrationBase_allowedRegistrant $value): void {
         $this->getBackingStore()->set('allowedRegistrant', $value);
     }
 

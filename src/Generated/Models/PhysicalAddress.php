@@ -93,7 +93,7 @@ class PhysicalAddress implements AdditionalDataHolder, BackedModel, Parsable
             'postOfficeBox' => fn(ParseNode $n) => $o->setPostOfficeBox($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
             'street' => fn(ParseNode $n) => $o->setStreet($n->getStringValue()),
-            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PhysicalAddressType::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PhysicalAddress_type::class)),
         ];
     }
 
@@ -159,11 +159,11 @@ class PhysicalAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the type property value. The type of address. Possible values are: unknown, home, business, other.
-     * @return PhysicalAddressType|null
+     * @return PhysicalAddress_type|null
     */
-    public function getType(): ?PhysicalAddressType {
+    public function getType(): ?PhysicalAddress_type {
         $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || $val instanceof PhysicalAddressType) {
+        if (is_null($val) || $val instanceof PhysicalAddress_type) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
@@ -259,9 +259,9 @@ class PhysicalAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. The type of address. Possible values are: unknown, home, business, other.
-     * @param PhysicalAddressType|null $value Value to set for the type property.
+     * @param PhysicalAddress_type|null $value Value to set for the type property.
     */
-    public function setType(?PhysicalAddressType $value): void {
+    public function setType(?PhysicalAddress_type $value): void {
         $this->getBackingStore()->set('type', $value);
     }
 

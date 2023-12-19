@@ -89,7 +89,7 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
             'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
             'destination' => fn(ParseNode $n) => $o->setDestination($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
+            'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(DestinationSummary_trafficType::class)),
         ];
     }
 
@@ -107,11 +107,11 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the trafficType property value. The traffic classification. The allowed values are internet, private, microsoft365, all, and unknownFutureValue.
-     * @return TrafficType|null
+     * @return DestinationSummary_trafficType|null
     */
-    public function getTrafficType(): ?TrafficType {
+    public function getTrafficType(): ?DestinationSummary_trafficType {
         $val = $this->getBackingStore()->get('trafficType');
-        if (is_null($val) || $val instanceof TrafficType) {
+        if (is_null($val) || $val instanceof DestinationSummary_trafficType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficType'");
@@ -171,9 +171,9 @@ class DestinationSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the trafficType property value. The traffic classification. The allowed values are internet, private, microsoft365, all, and unknownFutureValue.
-     * @param TrafficType|null $value Value to set for the trafficType property.
+     * @param DestinationSummary_trafficType|null $value Value to set for the trafficType property.
     */
-    public function setTrafficType(?TrafficType $value): void {
+    public function setTrafficType(?DestinationSummary_trafficType $value): void {
         $this->getBackingStore()->set('trafficType', $value);
     }
 

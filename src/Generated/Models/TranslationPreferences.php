@@ -65,7 +65,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
         return  [
             'languageOverrides' => fn(ParseNode $n) => $o->setLanguageOverrides($n->getCollectionOfObjectValues([TranslationLanguageOverride::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'translationBehavior' => fn(ParseNode $n) => $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)),
+            'translationBehavior' => fn(ParseNode $n) => $o->setTranslationBehavior($n->getEnumValue(TranslationPreferences_translationBehavior::class)),
             'untranslatedLanguages' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -105,11 +105,11 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the translationBehavior property value. The user's preferred translation behavior.Returned by default. Not nullable.
-     * @return TranslationBehavior|null
+     * @return TranslationPreferences_translationBehavior|null
     */
-    public function getTranslationBehavior(): ?TranslationBehavior {
+    public function getTranslationBehavior(): ?TranslationPreferences_translationBehavior {
         $val = $this->getBackingStore()->get('translationBehavior');
-        if (is_null($val) || $val instanceof TranslationBehavior) {
+        if (is_null($val) || $val instanceof TranslationPreferences_translationBehavior) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'translationBehavior'");
@@ -175,9 +175,9 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the translationBehavior property value. The user's preferred translation behavior.Returned by default. Not nullable.
-     * @param TranslationBehavior|null $value Value to set for the translationBehavior property.
+     * @param TranslationPreferences_translationBehavior|null $value Value to set for the translationBehavior property.
     */
-    public function setTranslationBehavior(?TranslationBehavior $value): void {
+    public function setTranslationBehavior(?TranslationPreferences_translationBehavior $value): void {
         $this->getBackingStore()->set('translationBehavior', $value);
     }
 

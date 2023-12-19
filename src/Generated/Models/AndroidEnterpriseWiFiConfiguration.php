@@ -31,11 +31,11 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implem
 
     /**
      * Gets the authenticationMethod property value. Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @return WiFiAuthenticationMethod|null
+     * @return AndroidEnterpriseWiFiConfiguration_authenticationMethod|null
     */
-    public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
+    public function getAuthenticationMethod(): ?AndroidEnterpriseWiFiConfiguration_authenticationMethod {
         $val = $this->getBackingStore()->get('authenticationMethod');
-        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+        if (is_null($val) || $val instanceof AndroidEnterpriseWiFiConfiguration_authenticationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
@@ -60,11 +60,11 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)),
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(AndroidEnterpriseWiFiConfiguration_authenticationMethod::class)),
             'eapType' => fn(ParseNode $n) => $o->setEapType($n->getEnumValue(AndroidEapType::class)),
             'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([AndroidCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
-            'innerAuthenticationProtocolForEapTtls' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
-            'innerAuthenticationProtocolForPeap' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForPeap($n->getEnumValue(NonEapAuthenticationMethodForPeap::class)),
+            'innerAuthenticationProtocolForEapTtls' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEapTtls($n->getEnumValue(AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls::class)),
+            'innerAuthenticationProtocolForPeap' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForPeap($n->getEnumValue(AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForPeap::class)),
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
             'passwordFormatString' => fn(ParseNode $n) => $o->setPasswordFormatString($n->getStringValue()),
             'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
@@ -95,11 +95,11 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implem
 
     /**
      * Gets the innerAuthenticationProtocolForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @return NonEapAuthenticationMethodForEapTtlsType|null
+     * @return AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls|null
     */
-    public function getInnerAuthenticationProtocolForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
+    public function getInnerAuthenticationProtocolForEapTtls(): ?AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls {
         $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
-        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+        if (is_null($val) || $val instanceof AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEapTtls'");
@@ -107,11 +107,11 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implem
 
     /**
      * Gets the innerAuthenticationProtocolForPeap property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password. Possible values are: none, microsoftChapVersionTwo.
-     * @return NonEapAuthenticationMethodForPeap|null
+     * @return AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForPeap|null
     */
-    public function getInnerAuthenticationProtocolForPeap(): ?NonEapAuthenticationMethodForPeap {
+    public function getInnerAuthenticationProtocolForPeap(): ?AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForPeap {
         $val = $this->getBackingStore()->get('innerAuthenticationProtocolForPeap');
-        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForPeap) {
+        if (is_null($val) || $val instanceof AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForPeap) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForPeap'");
@@ -212,9 +212,9 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implem
 
     /**
      * Sets the authenticationMethod property value. Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param AndroidEnterpriseWiFiConfiguration_authenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
+    public function setAuthenticationMethod(?AndroidEnterpriseWiFiConfiguration_authenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
@@ -236,17 +236,17 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implem
 
     /**
      * Sets the innerAuthenticationProtocolForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
+     * @param AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
     */
-    public function setInnerAuthenticationProtocolForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {
+    public function setInnerAuthenticationProtocolForEapTtls(?AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEapTtls', $value);
     }
 
     /**
      * Sets the innerAuthenticationProtocolForPeap property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password. Possible values are: none, microsoftChapVersionTwo.
-     * @param NonEapAuthenticationMethodForPeap|null $value Value to set for the innerAuthenticationProtocolForPeap property.
+     * @param AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForPeap|null $value Value to set for the innerAuthenticationProtocolForPeap property.
     */
-    public function setInnerAuthenticationProtocolForPeap(?NonEapAuthenticationMethodForPeap $value): void {
+    public function setInnerAuthenticationProtocolForPeap(?AndroidEnterpriseWiFiConfiguration_innerAuthenticationProtocolForPeap $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForPeap', $value);
     }
 

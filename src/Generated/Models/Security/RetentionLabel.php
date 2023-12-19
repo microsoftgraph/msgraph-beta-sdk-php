@@ -30,11 +30,11 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Gets the actionAfterRetentionPeriod property value. Specifies the action to take on a document with this label applied during the retention period. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
-     * @return ActionAfterRetentionPeriod|null
+     * @return RetentionLabel_actionAfterRetentionPeriod|null
     */
-    public function getActionAfterRetentionPeriod(): ?ActionAfterRetentionPeriod {
+    public function getActionAfterRetentionPeriod(): ?RetentionLabel_actionAfterRetentionPeriod {
         $val = $this->getBackingStore()->get('actionAfterRetentionPeriod');
-        if (is_null($val) || $val instanceof ActionAfterRetentionPeriod) {
+        if (is_null($val) || $val instanceof RetentionLabel_actionAfterRetentionPeriod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'actionAfterRetentionPeriod'");
@@ -42,11 +42,11 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Gets the behaviorDuringRetentionPeriod property value. Specifies how the behavior of a document with this label should be during the retention period. The possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue.
-     * @return BehaviorDuringRetentionPeriod|null
+     * @return RetentionLabel_behaviorDuringRetentionPeriod|null
     */
-    public function getBehaviorDuringRetentionPeriod(): ?BehaviorDuringRetentionPeriod {
+    public function getBehaviorDuringRetentionPeriod(): ?RetentionLabel_behaviorDuringRetentionPeriod {
         $val = $this->getBackingStore()->get('behaviorDuringRetentionPeriod');
-        if (is_null($val) || $val instanceof BehaviorDuringRetentionPeriod) {
+        if (is_null($val) || $val instanceof RetentionLabel_behaviorDuringRetentionPeriod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'behaviorDuringRetentionPeriod'");
@@ -78,11 +78,11 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Gets the defaultRecordBehavior property value. Specifies the locked or unlocked state of a record label when it is created.The possible values are: startLocked, startUnlocked, unknownFutureValue.
-     * @return DefaultRecordBehavior|null
+     * @return RetentionLabel_defaultRecordBehavior|null
     */
-    public function getDefaultRecordBehavior(): ?DefaultRecordBehavior {
+    public function getDefaultRecordBehavior(): ?RetentionLabel_defaultRecordBehavior {
         $val = $this->getBackingStore()->get('defaultRecordBehavior');
-        if (is_null($val) || $val instanceof DefaultRecordBehavior) {
+        if (is_null($val) || $val instanceof RetentionLabel_defaultRecordBehavior) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultRecordBehavior'");
@@ -157,11 +157,11 @@ class RetentionLabel extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionAfterRetentionPeriod' => fn(ParseNode $n) => $o->setActionAfterRetentionPeriod($n->getEnumValue(ActionAfterRetentionPeriod::class)),
-            'behaviorDuringRetentionPeriod' => fn(ParseNode $n) => $o->setBehaviorDuringRetentionPeriod($n->getEnumValue(BehaviorDuringRetentionPeriod::class)),
+            'actionAfterRetentionPeriod' => fn(ParseNode $n) => $o->setActionAfterRetentionPeriod($n->getEnumValue(RetentionLabel_actionAfterRetentionPeriod::class)),
+            'behaviorDuringRetentionPeriod' => fn(ParseNode $n) => $o->setBehaviorDuringRetentionPeriod($n->getEnumValue(RetentionLabel_behaviorDuringRetentionPeriod::class)),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'defaultRecordBehavior' => fn(ParseNode $n) => $o->setDefaultRecordBehavior($n->getEnumValue(DefaultRecordBehavior::class)),
+            'defaultRecordBehavior' => fn(ParseNode $n) => $o->setDefaultRecordBehavior($n->getEnumValue(RetentionLabel_defaultRecordBehavior::class)),
             'descriptionForAdmins' => fn(ParseNode $n) => $o->setDescriptionForAdmins($n->getStringValue()),
             'descriptionForUsers' => fn(ParseNode $n) => $o->setDescriptionForUsers($n->getStringValue()),
             'descriptors' => fn(ParseNode $n) => $o->setDescriptors($n->getObjectValue([FilePlanDescriptor::class, 'createFromDiscriminatorValue'])),
@@ -173,7 +173,7 @@ class RetentionLabel extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'retentionDuration' => fn(ParseNode $n) => $o->setRetentionDuration($n->getObjectValue([RetentionDuration::class, 'createFromDiscriminatorValue'])),
             'retentionEventType' => fn(ParseNode $n) => $o->setRetentionEventType($n->getObjectValue([RetentionEventType::class, 'createFromDiscriminatorValue'])),
-            'retentionTrigger' => fn(ParseNode $n) => $o->setRetentionTrigger($n->getEnumValue(RetentionTrigger::class)),
+            'retentionTrigger' => fn(ParseNode $n) => $o->setRetentionTrigger($n->getEnumValue(RetentionLabel_retentionTrigger::class)),
         ]);
     }
 
@@ -251,11 +251,11 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Gets the retentionTrigger property value. Specifies whether the retention duration is calculated from the content creation date, labeled date, or last modification date. The possible values are: dateLabeled, dateCreated, dateModified, dateOfEvent, unknownFutureValue.
-     * @return RetentionTrigger|null
+     * @return RetentionLabel_retentionTrigger|null
     */
-    public function getRetentionTrigger(): ?RetentionTrigger {
+    public function getRetentionTrigger(): ?RetentionLabel_retentionTrigger {
         $val = $this->getBackingStore()->get('retentionTrigger');
-        if (is_null($val) || $val instanceof RetentionTrigger) {
+        if (is_null($val) || $val instanceof RetentionLabel_retentionTrigger) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'retentionTrigger'");
@@ -288,17 +288,17 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the actionAfterRetentionPeriod property value. Specifies the action to take on a document with this label applied during the retention period. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
-     * @param ActionAfterRetentionPeriod|null $value Value to set for the actionAfterRetentionPeriod property.
+     * @param RetentionLabel_actionAfterRetentionPeriod|null $value Value to set for the actionAfterRetentionPeriod property.
     */
-    public function setActionAfterRetentionPeriod(?ActionAfterRetentionPeriod $value): void {
+    public function setActionAfterRetentionPeriod(?RetentionLabel_actionAfterRetentionPeriod $value): void {
         $this->getBackingStore()->set('actionAfterRetentionPeriod', $value);
     }
 
     /**
      * Sets the behaviorDuringRetentionPeriod property value. Specifies how the behavior of a document with this label should be during the retention period. The possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue.
-     * @param BehaviorDuringRetentionPeriod|null $value Value to set for the behaviorDuringRetentionPeriod property.
+     * @param RetentionLabel_behaviorDuringRetentionPeriod|null $value Value to set for the behaviorDuringRetentionPeriod property.
     */
-    public function setBehaviorDuringRetentionPeriod(?BehaviorDuringRetentionPeriod $value): void {
+    public function setBehaviorDuringRetentionPeriod(?RetentionLabel_behaviorDuringRetentionPeriod $value): void {
         $this->getBackingStore()->set('behaviorDuringRetentionPeriod', $value);
     }
 
@@ -320,9 +320,9 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the defaultRecordBehavior property value. Specifies the locked or unlocked state of a record label when it is created.The possible values are: startLocked, startUnlocked, unknownFutureValue.
-     * @param DefaultRecordBehavior|null $value Value to set for the defaultRecordBehavior property.
+     * @param RetentionLabel_defaultRecordBehavior|null $value Value to set for the defaultRecordBehavior property.
     */
-    public function setDefaultRecordBehavior(?DefaultRecordBehavior $value): void {
+    public function setDefaultRecordBehavior(?RetentionLabel_defaultRecordBehavior $value): void {
         $this->getBackingStore()->set('defaultRecordBehavior', $value);
     }
 
@@ -416,9 +416,9 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the retentionTrigger property value. Specifies whether the retention duration is calculated from the content creation date, labeled date, or last modification date. The possible values are: dateLabeled, dateCreated, dateModified, dateOfEvent, unknownFutureValue.
-     * @param RetentionTrigger|null $value Value to set for the retentionTrigger property.
+     * @param RetentionLabel_retentionTrigger|null $value Value to set for the retentionTrigger property.
     */
-    public function setRetentionTrigger(?RetentionTrigger $value): void {
+    public function setRetentionTrigger(?RetentionLabel_retentionTrigger $value): void {
         $this->getBackingStore()->set('retentionTrigger', $value);
     }
 

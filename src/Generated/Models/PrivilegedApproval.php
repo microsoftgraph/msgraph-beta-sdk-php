@@ -40,11 +40,11 @@ class PrivilegedApproval extends Entity implements Parsable
 
     /**
      * Gets the approvalState property value. The approvalState property
-     * @return ApprovalState|null
+     * @return PrivilegedApproval_approvalState|null
     */
-    public function getApprovalState(): ?ApprovalState {
+    public function getApprovalState(): ?PrivilegedApproval_approvalState {
         $val = $this->getBackingStore()->get('approvalState');
-        if (is_null($val) || $val instanceof ApprovalState) {
+        if (is_null($val) || $val instanceof PrivilegedApproval_approvalState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalState'");
@@ -94,7 +94,7 @@ class PrivilegedApproval extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'approvalDuration' => fn(ParseNode $n) => $o->setApprovalDuration($n->getDateIntervalValue()),
-            'approvalState' => fn(ParseNode $n) => $o->setApprovalState($n->getEnumValue(ApprovalState::class)),
+            'approvalState' => fn(ParseNode $n) => $o->setApprovalState($n->getEnumValue(PrivilegedApproval_approvalState::class)),
             'approvalType' => fn(ParseNode $n) => $o->setApprovalType($n->getStringValue()),
             'approverReason' => fn(ParseNode $n) => $o->setApproverReason($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
@@ -208,9 +208,9 @@ class PrivilegedApproval extends Entity implements Parsable
 
     /**
      * Sets the approvalState property value. The approvalState property
-     * @param ApprovalState|null $value Value to set for the approvalState property.
+     * @param PrivilegedApproval_approvalState|null $value Value to set for the approvalState property.
     */
-    public function setApprovalState(?ApprovalState $value): void {
+    public function setApprovalState(?PrivilegedApproval_approvalState $value): void {
         $this->getBackingStore()->set('approvalState', $value);
     }
 

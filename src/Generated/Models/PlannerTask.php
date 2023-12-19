@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\Date;
 
 class PlannerTask extends PlannerDelta implements Parsable 
 {
@@ -54,6 +55,18 @@ class PlannerTask extends PlannerDelta implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appliedCategories'");
+    }
+
+    /**
+     * Gets the archivalInfo property value. The archivalInfo property
+     * @return PlannerArchivalInfo|null
+    */
+    public function getArchivalInfo(): ?PlannerArchivalInfo {
+        $val = $this->getBackingStore()->get('archivalInfo');
+        if (is_null($val) || $val instanceof PlannerArchivalInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'archivalInfo'");
     }
 
     /**
@@ -233,6 +246,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'activeChecklistItemCount' => fn(ParseNode $n) => $o->setActiveChecklistItemCount($n->getIntegerValue()),
             'appliedCategories' => fn(ParseNode $n) => $o->setAppliedCategories($n->getObjectValue([PlannerAppliedCategories::class, 'createFromDiscriminatorValue'])),
+            'archivalInfo' => fn(ParseNode $n) => $o->setArchivalInfo($n->getObjectValue([PlannerArchivalInfo::class, 'createFromDiscriminatorValue'])),
             'assignedToTaskBoardFormat' => fn(ParseNode $n) => $o->setAssignedToTaskBoardFormat($n->getObjectValue([PlannerAssignedToTaskBoardTaskFormat::class, 'createFromDiscriminatorValue'])),
             'assigneePriority' => fn(ParseNode $n) => $o->setAssigneePriority($n->getStringValue()),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getObjectValue([PlannerAssignments::class, 'createFromDiscriminatorValue'])),
@@ -248,15 +262,18 @@ class PlannerTask extends PlannerDelta implements Parsable
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerTaskDetails::class, 'createFromDiscriminatorValue'])),
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
             'hasDescription' => fn(ParseNode $n) => $o->setHasDescription($n->getBooleanValue()),
+            'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
+            'isOnMyDay' => fn(ParseNode $n) => $o->setIsOnMyDay($n->getBooleanValue()),
+            'isOnMyDayLastModifiedDate' => fn(ParseNode $n) => $o->setIsOnMyDayLastModifiedDate($n->getDateValue()),
             'orderHint' => fn(ParseNode $n) => $o->setOrderHint($n->getStringValue()),
             'percentComplete' => fn(ParseNode $n) => $o->setPercentComplete($n->getIntegerValue()),
             'planId' => fn(ParseNode $n) => $o->setPlanId($n->getStringValue()),
-            'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)),
+            'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getEnumValue(PlannerTask_previewType::class)),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
             'progressTaskBoardFormat' => fn(ParseNode $n) => $o->setProgressTaskBoardFormat($n->getObjectValue([PlannerProgressTaskBoardTaskFormat::class, 'createFromDiscriminatorValue'])),
             'recurrence' => fn(ParseNode $n) => $o->setRecurrence($n->getObjectValue([PlannerTaskRecurrence::class, 'createFromDiscriminatorValue'])),
             'referenceCount' => fn(ParseNode $n) => $o->setReferenceCount($n->getIntegerValue()),
-            'specifiedCompletionRequirements' => fn(ParseNode $n) => $o->setSpecifiedCompletionRequirements($n->getEnumValue(PlannerTaskCompletionRequirements::class)),
+            'specifiedCompletionRequirements' => fn(ParseNode $n) => $o->setSpecifiedCompletionRequirements($n->getEnumValue(PlannerTask_specifiedCompletionRequirements::class)),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
@@ -272,6 +289,42 @@ class PlannerTask extends PlannerDelta implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hasDescription'");
+    }
+
+    /**
+     * Gets the isArchived property value. The isArchived property
+     * @return bool|null
+    */
+    public function getIsArchived(): ?bool {
+        $val = $this->getBackingStore()->get('isArchived');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isArchived'");
+    }
+
+    /**
+     * Gets the isOnMyDay property value. The isOnMyDay property
+     * @return bool|null
+    */
+    public function getIsOnMyDay(): ?bool {
+        $val = $this->getBackingStore()->get('isOnMyDay');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOnMyDay'");
+    }
+
+    /**
+     * Gets the isOnMyDayLastModifiedDate property value. The isOnMyDayLastModifiedDate property
+     * @return Date|null
+    */
+    public function getIsOnMyDayLastModifiedDate(): ?Date {
+        $val = $this->getBackingStore()->get('isOnMyDayLastModifiedDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOnMyDayLastModifiedDate'");
     }
 
     /**
@@ -312,11 +365,11 @@ class PlannerTask extends PlannerDelta implements Parsable
 
     /**
      * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
-     * @return PlannerPreviewType|null
+     * @return PlannerTask_previewType|null
     */
-    public function getPreviewType(): ?PlannerPreviewType {
+    public function getPreviewType(): ?PlannerTask_previewType {
         $val = $this->getBackingStore()->get('previewType');
-        if (is_null($val) || $val instanceof PlannerPreviewType) {
+        if (is_null($val) || $val instanceof PlannerTask_previewType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'previewType'");
@@ -372,11 +425,11 @@ class PlannerTask extends PlannerDelta implements Parsable
 
     /**
      * Gets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue. Read-only. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
-     * @return PlannerTaskCompletionRequirements|null
+     * @return PlannerTask_specifiedCompletionRequirements|null
     */
-    public function getSpecifiedCompletionRequirements(): ?PlannerTaskCompletionRequirements {
+    public function getSpecifiedCompletionRequirements(): ?PlannerTask_specifiedCompletionRequirements {
         $val = $this->getBackingStore()->get('specifiedCompletionRequirements');
-        if (is_null($val) || $val instanceof PlannerTaskCompletionRequirements) {
+        if (is_null($val) || $val instanceof PlannerTask_specifiedCompletionRequirements) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'specifiedCompletionRequirements'");
@@ -414,6 +467,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('activeChecklistItemCount', $this->getActiveChecklistItemCount());
         $writer->writeObjectValue('appliedCategories', $this->getAppliedCategories());
+        $writer->writeObjectValue('archivalInfo', $this->getArchivalInfo());
         $writer->writeObjectValue('assignedToTaskBoardFormat', $this->getAssignedToTaskBoardFormat());
         $writer->writeStringValue('assigneePriority', $this->getAssigneePriority());
         $writer->writeObjectValue('assignments', $this->getAssignments());
@@ -429,6 +483,9 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
         $writer->writeBooleanValue('hasDescription', $this->getHasDescription());
+        $writer->writeBooleanValue('isArchived', $this->getIsArchived());
+        $writer->writeBooleanValue('isOnMyDay', $this->getIsOnMyDay());
+        $writer->writeDateValue('isOnMyDayLastModifiedDate', $this->getIsOnMyDayLastModifiedDate());
         $writer->writeStringValue('orderHint', $this->getOrderHint());
         $writer->writeIntegerValue('percentComplete', $this->getPercentComplete());
         $writer->writeStringValue('planId', $this->getPlanId());
@@ -456,6 +513,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setAppliedCategories(?PlannerAppliedCategories $value): void {
         $this->getBackingStore()->set('appliedCategories', $value);
+    }
+
+    /**
+     * Sets the archivalInfo property value. The archivalInfo property
+     * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
+    */
+    public function setArchivalInfo(?PlannerArchivalInfo $value): void {
+        $this->getBackingStore()->set('archivalInfo', $value);
     }
 
     /**
@@ -579,6 +644,30 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
+     * Sets the isArchived property value. The isArchived property
+     * @param bool|null $value Value to set for the isArchived property.
+    */
+    public function setIsArchived(?bool $value): void {
+        $this->getBackingStore()->set('isArchived', $value);
+    }
+
+    /**
+     * Sets the isOnMyDay property value. The isOnMyDay property
+     * @param bool|null $value Value to set for the isOnMyDay property.
+    */
+    public function setIsOnMyDay(?bool $value): void {
+        $this->getBackingStore()->set('isOnMyDay', $value);
+    }
+
+    /**
+     * Sets the isOnMyDayLastModifiedDate property value. The isOnMyDayLastModifiedDate property
+     * @param Date|null $value Value to set for the isOnMyDayLastModifiedDate property.
+    */
+    public function setIsOnMyDayLastModifiedDate(?Date $value): void {
+        $this->getBackingStore()->set('isOnMyDayLastModifiedDate', $value);
+    }
+
+    /**
      * Sets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
      * @param string|null $value Value to set for the orderHint property.
     */
@@ -604,9 +693,9 @@ class PlannerTask extends PlannerDelta implements Parsable
 
     /**
      * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
-     * @param PlannerPreviewType|null $value Value to set for the previewType property.
+     * @param PlannerTask_previewType|null $value Value to set for the previewType property.
     */
-    public function setPreviewType(?PlannerPreviewType $value): void {
+    public function setPreviewType(?PlannerTask_previewType $value): void {
         $this->getBackingStore()->set('previewType', $value);
     }
 
@@ -644,9 +733,9 @@ class PlannerTask extends PlannerDelta implements Parsable
 
     /**
      * Sets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue. Read-only. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
-     * @param PlannerTaskCompletionRequirements|null $value Value to set for the specifiedCompletionRequirements property.
+     * @param PlannerTask_specifiedCompletionRequirements|null $value Value to set for the specifiedCompletionRequirements property.
     */
-    public function setSpecifiedCompletionRequirements(?PlannerTaskCompletionRequirements $value): void {
+    public function setSpecifiedCompletionRequirements(?PlannerTask_specifiedCompletionRequirements $value): void {
         $this->getBackingStore()->set('specifiedCompletionRequirements', $value);
     }
 

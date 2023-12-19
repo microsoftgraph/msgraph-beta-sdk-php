@@ -65,11 +65,11 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Gets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.
-     * @return SubmissionClientSource|null
+     * @return ThreatSubmission_clientSource|null
     */
-    public function getClientSource(): ?SubmissionClientSource {
+    public function getClientSource(): ?ThreatSubmission_clientSource {
         $val = $this->getBackingStore()->get('clientSource');
-        if (is_null($val) || $val instanceof SubmissionClientSource) {
+        if (is_null($val) || $val instanceof ThreatSubmission_clientSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'clientSource'");
@@ -77,11 +77,11 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Gets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.
-     * @return SubmissionContentType|null
+     * @return ThreatSubmission_contentType|null
     */
-    public function getContentType(): ?SubmissionContentType {
+    public function getContentType(): ?ThreatSubmission_contentType {
         $val = $this->getBackingStore()->get('contentType');
-        if (is_null($val) || $val instanceof SubmissionContentType) {
+        if (is_null($val) || $val instanceof ThreatSubmission_contentType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'contentType'");
@@ -120,13 +120,13 @@ class ThreatSubmission extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'adminReview' => fn(ParseNode $n) => $o->setAdminReview($n->getObjectValue([SubmissionAdminReview::class, 'createFromDiscriminatorValue'])),
             'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SubmissionCategory::class)),
-            'clientSource' => fn(ParseNode $n) => $o->setClientSource($n->getEnumValue(SubmissionClientSource::class)),
-            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getEnumValue(SubmissionContentType::class)),
+            'clientSource' => fn(ParseNode $n) => $o->setClientSource($n->getEnumValue(ThreatSubmission_clientSource::class)),
+            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getEnumValue(ThreatSubmission_contentType::class)),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([SubmissionUserIdentity::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'result' => fn(ParseNode $n) => $o->setResult($n->getObjectValue([SubmissionResult::class, 'createFromDiscriminatorValue'])),
-            'source' => fn(ParseNode $n) => $o->setSource($n->getEnumValue(SubmissionSource::class)),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getEnumValue(ThreatSubmission_source::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ThreatSubmission_status::class)),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
@@ -145,11 +145,11 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Gets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user and unkownFutureValue.
-     * @return SubmissionSource|null
+     * @return ThreatSubmission_source|null
     */
-    public function getSource(): ?SubmissionSource {
+    public function getSource(): ?ThreatSubmission_source {
         $val = $this->getBackingStore()->get('source');
-        if (is_null($val) || $val instanceof SubmissionSource) {
+        if (is_null($val) || $val instanceof ThreatSubmission_source) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
@@ -157,11 +157,11 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Gets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
-     * @return LongRunningOperationStatus|null
+     * @return ThreatSubmission_status|null
     */
-    public function getStatus(): ?LongRunningOperationStatus {
+    public function getStatus(): ?ThreatSubmission_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof LongRunningOperationStatus) {
+        if (is_null($val) || $val instanceof ThreatSubmission_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -215,17 +215,17 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.
-     * @param SubmissionClientSource|null $value Value to set for the clientSource property.
+     * @param ThreatSubmission_clientSource|null $value Value to set for the clientSource property.
     */
-    public function setClientSource(?SubmissionClientSource $value): void {
+    public function setClientSource(?ThreatSubmission_clientSource $value): void {
         $this->getBackingStore()->set('clientSource', $value);
     }
 
     /**
      * Sets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.
-     * @param SubmissionContentType|null $value Value to set for the contentType property.
+     * @param ThreatSubmission_contentType|null $value Value to set for the contentType property.
     */
-    public function setContentType(?SubmissionContentType $value): void {
+    public function setContentType(?ThreatSubmission_contentType $value): void {
         $this->getBackingStore()->set('contentType', $value);
     }
 
@@ -255,17 +255,17 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user and unkownFutureValue.
-     * @param SubmissionSource|null $value Value to set for the source property.
+     * @param ThreatSubmission_source|null $value Value to set for the source property.
     */
-    public function setSource(?SubmissionSource $value): void {
+    public function setSource(?ThreatSubmission_source $value): void {
         $this->getBackingStore()->set('source', $value);
     }
 
     /**
      * Sets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
-     * @param LongRunningOperationStatus|null $value Value to set for the status property.
+     * @param ThreatSubmission_status|null $value Value to set for the status property.
     */
-    public function setStatus(?LongRunningOperationStatus $value): void {
+    public function setStatus(?ThreatSubmission_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

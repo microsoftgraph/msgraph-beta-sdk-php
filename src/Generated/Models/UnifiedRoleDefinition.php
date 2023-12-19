@@ -27,11 +27,11 @@ class UnifiedRoleDefinition extends Entity implements Parsable
 
     /**
      * Gets the allowedPrincipalTypes property value. Types of principals that can be assigned the role. Read-only. The possible values are: user, servicePrincipal, group, unknownFutureValue. This is a multi-valued enumeration that can contain up to three values as a comma-separated string. For example, user, group. Supports $filter (eq).
-     * @return AllowedRolePrincipalTypes|null
+     * @return UnifiedRoleDefinition_allowedPrincipalTypes|null
     */
-    public function getAllowedPrincipalTypes(): ?AllowedRolePrincipalTypes {
+    public function getAllowedPrincipalTypes(): ?UnifiedRoleDefinition_allowedPrincipalTypes {
         $val = $this->getBackingStore()->get('allowedPrincipalTypes');
-        if (is_null($val) || $val instanceof AllowedRolePrincipalTypes) {
+        if (is_null($val) || $val instanceof UnifiedRoleDefinition_allowedPrincipalTypes) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedPrincipalTypes'");
@@ -68,7 +68,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedPrincipalTypes' => fn(ParseNode $n) => $o->setAllowedPrincipalTypes($n->getEnumValue(AllowedRolePrincipalTypes::class)),
+            'allowedPrincipalTypes' => fn(ParseNode $n) => $o->setAllowedPrincipalTypes($n->getEnumValue(UnifiedRoleDefinition_allowedPrincipalTypes::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'inheritsPermissionsFrom' => fn(ParseNode $n) => $o->setInheritsPermissionsFrom($n->getCollectionOfObjectValues([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
@@ -212,9 +212,9 @@ class UnifiedRoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the allowedPrincipalTypes property value. Types of principals that can be assigned the role. Read-only. The possible values are: user, servicePrincipal, group, unknownFutureValue. This is a multi-valued enumeration that can contain up to three values as a comma-separated string. For example, user, group. Supports $filter (eq).
-     * @param AllowedRolePrincipalTypes|null $value Value to set for the allowedPrincipalTypes property.
+     * @param UnifiedRoleDefinition_allowedPrincipalTypes|null $value Value to set for the allowedPrincipalTypes property.
     */
-    public function setAllowedPrincipalTypes(?AllowedRolePrincipalTypes $value): void {
+    public function setAllowedPrincipalTypes(?UnifiedRoleDefinition_allowedPrincipalTypes $value): void {
         $this->getBackingStore()->set('allowedPrincipalTypes', $value);
     }
 

@@ -1,0 +1,8 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Enum;
+
+class LogonUser_logonTypes extends Enum {
+}

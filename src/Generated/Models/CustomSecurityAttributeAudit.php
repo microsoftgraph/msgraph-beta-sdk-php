@@ -103,7 +103,7 @@ class CustomSecurityAttributeAudit extends Entity implements Parsable
             'initiatedBy' => fn(ParseNode $n) => $o->setInitiatedBy($n->getObjectValue([AuditActivityInitiator::class, 'createFromDiscriminatorValue'])),
             'loggedByService' => fn(ParseNode $n) => $o->setLoggedByService($n->getStringValue()),
             'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getStringValue()),
-            'result' => fn(ParseNode $n) => $o->setResult($n->getEnumValue(OperationResult::class)),
+            'result' => fn(ParseNode $n) => $o->setResult($n->getEnumValue(CustomSecurityAttributeAudit_result::class)),
             'resultReason' => fn(ParseNode $n) => $o->setResultReason($n->getStringValue()),
             'targetResources' => fn(ParseNode $n) => $o->setTargetResources($n->getCollectionOfObjectValues([TargetResource::class, 'createFromDiscriminatorValue'])),
             'userAgent' => fn(ParseNode $n) => $o->setUserAgent($n->getStringValue()),
@@ -148,11 +148,11 @@ class CustomSecurityAttributeAudit extends Entity implements Parsable
 
     /**
      * Gets the result property value. The result property
-     * @return OperationResult|null
+     * @return CustomSecurityAttributeAudit_result|null
     */
-    public function getResult(): ?OperationResult {
+    public function getResult(): ?CustomSecurityAttributeAudit_result {
         $val = $this->getBackingStore()->get('result');
-        if (is_null($val) || $val instanceof OperationResult) {
+        if (is_null($val) || $val instanceof CustomSecurityAttributeAudit_result) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'result'");
@@ -282,9 +282,9 @@ class CustomSecurityAttributeAudit extends Entity implements Parsable
 
     /**
      * Sets the result property value. The result property
-     * @param OperationResult|null $value Value to set for the result property.
+     * @param CustomSecurityAttributeAudit_result|null $value Value to set for the result property.
     */
-    public function setResult(?OperationResult $value): void {
+    public function setResult(?CustomSecurityAttributeAudit_result $value): void {
         $this->getBackingStore()->set('result', $value);
     }
 

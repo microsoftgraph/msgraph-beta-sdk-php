@@ -102,7 +102,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'manifest' => fn(ParseNode $n) => $o->setManifest($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
-            'permissionsRequired' => fn(ParseNode $n) => $o->setPermissionsRequired($n->getEnumValue(ApplicationPermissionsRequired::class)),
+            'permissionsRequired' => fn(ParseNode $n) => $o->setPermissionsRequired($n->getEnumValue(CloudAppSecurityProfile_permissionsRequired::class)),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getStringValue()),
             'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
@@ -170,11 +170,11 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Gets the permissionsRequired property value. The permissionsRequired property
-     * @return ApplicationPermissionsRequired|null
+     * @return CloudAppSecurityProfile_permissionsRequired|null
     */
-    public function getPermissionsRequired(): ?ApplicationPermissionsRequired {
+    public function getPermissionsRequired(): ?CloudAppSecurityProfile_permissionsRequired {
         $val = $this->getBackingStore()->get('permissionsRequired');
-        if (is_null($val) || $val instanceof ApplicationPermissionsRequired) {
+        if (is_null($val) || $val instanceof CloudAppSecurityProfile_permissionsRequired) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionsRequired'");
@@ -365,9 +365,9 @@ class CloudAppSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the permissionsRequired property value. The permissionsRequired property
-     * @param ApplicationPermissionsRequired|null $value Value to set for the permissionsRequired property.
+     * @param CloudAppSecurityProfile_permissionsRequired|null $value Value to set for the permissionsRequired property.
     */
-    public function setPermissionsRequired(?ApplicationPermissionsRequired $value): void {
+    public function setPermissionsRequired(?CloudAppSecurityProfile_permissionsRequired $value): void {
         $this->getBackingStore()->set('permissionsRequired', $value);
     }
 

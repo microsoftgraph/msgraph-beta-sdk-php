@@ -61,11 +61,11 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the authenticationStrengthResult property value. The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
-     * @return AuthenticationStrengthResult|null
+     * @return AuthenticationStrength_authenticationStrengthResult|null
     */
-    public function getAuthenticationStrengthResult(): ?AuthenticationStrengthResult {
+    public function getAuthenticationStrengthResult(): ?AuthenticationStrength_authenticationStrengthResult {
         $val = $this->getBackingStore()->get('authenticationStrengthResult');
-        if (is_null($val) || $val instanceof AuthenticationStrengthResult) {
+        if (is_null($val) || $val instanceof AuthenticationStrength_authenticationStrengthResult) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationStrengthResult'");
@@ -99,7 +99,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
         $o = $this;
         return  [
             'authenticationStrengthId' => fn(ParseNode $n) => $o->setAuthenticationStrengthId($n->getStringValue()),
-            'authenticationStrengthResult' => fn(ParseNode $n) => $o->setAuthenticationStrengthResult($n->getEnumValue(AuthenticationStrengthResult::class)),
+            'authenticationStrengthResult' => fn(ParseNode $n) => $o->setAuthenticationStrengthResult($n->getEnumValue(AuthenticationStrength_authenticationStrengthResult::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -147,9 +147,9 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the authenticationStrengthResult property value. The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
-     * @param AuthenticationStrengthResult|null $value Value to set for the authenticationStrengthResult property.
+     * @param AuthenticationStrength_authenticationStrengthResult|null $value Value to set for the authenticationStrengthResult property.
     */
-    public function setAuthenticationStrengthResult(?AuthenticationStrengthResult $value): void {
+    public function setAuthenticationStrengthResult(?AuthenticationStrength_authenticationStrengthResult $value): void {
         $this->getBackingStore()->set('authenticationStrengthResult', $value);
     }
 

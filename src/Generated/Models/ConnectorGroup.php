@@ -63,7 +63,7 @@ class ConnectorGroup extends Entity implements Parsable
             'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([Connector::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
-            'region' => fn(ParseNode $n) => $o->setRegion($n->getEnumValue(ConnectorGroupRegion::class)),
+            'region' => fn(ParseNode $n) => $o->setRegion($n->getEnumValue(ConnectorGroup_region::class)),
         ]);
     }
 
@@ -107,11 +107,11 @@ class ConnectorGroup extends Entity implements Parsable
 
     /**
      * Gets the region property value. The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.
-     * @return ConnectorGroupRegion|null
+     * @return ConnectorGroup_region|null
     */
-    public function getRegion(): ?ConnectorGroupRegion {
+    public function getRegion(): ?ConnectorGroup_region {
         $val = $this->getBackingStore()->get('region');
-        if (is_null($val) || $val instanceof ConnectorGroupRegion) {
+        if (is_null($val) || $val instanceof ConnectorGroup_region) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'region'");
@@ -173,9 +173,9 @@ class ConnectorGroup extends Entity implements Parsable
 
     /**
      * Sets the region property value. The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.
-     * @param ConnectorGroupRegion|null $value Value to set for the region property.
+     * @param ConnectorGroup_region|null $value Value to set for the region property.
     */
-    public function setRegion(?ConnectorGroupRegion $value): void {
+    public function setRegion(?ConnectorGroup_region $value): void {
         $this->getBackingStore()->set('region', $value);
     }
 

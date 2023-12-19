@@ -94,11 +94,11 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. Possible values are: passthru, aadPreAuthentication.
-     * @return ExternalAuthenticationType|null
+     * @return OnPremisesPublishing_externalAuthenticationType|null
     */
-    public function getExternalAuthenticationType(): ?ExternalAuthenticationType {
+    public function getExternalAuthenticationType(): ?OnPremisesPublishing_externalAuthenticationType {
         $val = $this->getBackingStore()->get('externalAuthenticationType');
-        if (is_null($val) || $val instanceof ExternalAuthenticationType) {
+        if (is_null($val) || $val instanceof OnPremisesPublishing_externalAuthenticationType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'externalAuthenticationType'");
@@ -126,7 +126,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             'alternateUrl' => fn(ParseNode $n) => $o->setAlternateUrl($n->getStringValue()),
             'applicationServerTimeout' => fn(ParseNode $n) => $o->setApplicationServerTimeout($n->getStringValue()),
             'applicationType' => fn(ParseNode $n) => $o->setApplicationType($n->getStringValue()),
-            'externalAuthenticationType' => fn(ParseNode $n) => $o->setExternalAuthenticationType($n->getEnumValue(ExternalAuthenticationType::class)),
+            'externalAuthenticationType' => fn(ParseNode $n) => $o->setExternalAuthenticationType($n->getEnumValue(OnPremisesPublishing_externalAuthenticationType::class)),
             'externalUrl' => fn(ParseNode $n) => $o->setExternalUrl($n->getStringValue()),
             'internalUrl' => fn(ParseNode $n) => $o->setInternalUrl($n->getStringValue()),
             'isAccessibleViaZTNAClient' => fn(ParseNode $n) => $o->setIsAccessibleViaZTNAClient($n->getBooleanValue()),
@@ -454,9 +454,9 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. Possible values are: passthru, aadPreAuthentication.
-     * @param ExternalAuthenticationType|null $value Value to set for the externalAuthenticationType property.
+     * @param OnPremisesPublishing_externalAuthenticationType|null $value Value to set for the externalAuthenticationType property.
     */
-    public function setExternalAuthenticationType(?ExternalAuthenticationType $value): void {
+    public function setExternalAuthenticationType(?OnPremisesPublishing_externalAuthenticationType $value): void {
         $this->getBackingStore()->set('externalAuthenticationType', $value);
     }
 

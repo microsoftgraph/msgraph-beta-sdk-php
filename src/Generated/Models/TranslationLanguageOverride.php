@@ -64,7 +64,7 @@ class TranslationLanguageOverride implements AdditionalDataHolder, BackedModel, 
         return  [
             'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'translationBehavior' => fn(ParseNode $n) => $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)),
+            'translationBehavior' => fn(ParseNode $n) => $o->setTranslationBehavior($n->getEnumValue(TranslationLanguageOverride_translationBehavior::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class TranslationLanguageOverride implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the translationBehavior property value. The translation override behavior for the language, if any.Returned by default. Not nullable.
-     * @return TranslationBehavior|null
+     * @return TranslationLanguageOverride_translationBehavior|null
     */
-    public function getTranslationBehavior(): ?TranslationBehavior {
+    public function getTranslationBehavior(): ?TranslationLanguageOverride_translationBehavior {
         $val = $this->getBackingStore()->get('translationBehavior');
-        if (is_null($val) || $val instanceof TranslationBehavior) {
+        if (is_null($val) || $val instanceof TranslationLanguageOverride_translationBehavior) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'translationBehavior'");
@@ -149,9 +149,9 @@ class TranslationLanguageOverride implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the translationBehavior property value. The translation override behavior for the language, if any.Returned by default. Not nullable.
-     * @param TranslationBehavior|null $value Value to set for the translationBehavior property.
+     * @param TranslationLanguageOverride_translationBehavior|null $value Value to set for the translationBehavior property.
     */
-    public function setTranslationBehavior(?TranslationBehavior $value): void {
+    public function setTranslationBehavior(?TranslationLanguageOverride_translationBehavior $value): void {
         $this->getBackingStore()->set('translationBehavior', $value);
     }
 

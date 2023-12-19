@@ -58,11 +58,11 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the category property value. The submission result category. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable and unkownFutureValue.
-     * @return SubmissionResultCategory|null
+     * @return SubmissionResult_category|null
     */
-    public function getCategory(): ?SubmissionResultCategory {
+    public function getCategory(): ?SubmissionResult_category {
         $val = $this->getBackingStore()->get('category');
-        if (is_null($val) || $val instanceof SubmissionResultCategory) {
+        if (is_null($val) || $val instanceof SubmissionResult_category) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
@@ -70,11 +70,11 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the detail property value. Specifies the extra details provided by Microsoft to substantiate their analysis result.
-     * @return SubmissionResultDetail|null
+     * @return SubmissionResult_detail|null
     */
-    public function getDetail(): ?SubmissionResultDetail {
+    public function getDetail(): ?SubmissionResult_detail {
         $val = $this->getBackingStore()->get('detail');
-        if (is_null($val) || $val instanceof SubmissionResultDetail) {
+        if (is_null($val) || $val instanceof SubmissionResult_detail) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'detail'");
@@ -115,8 +115,8 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SubmissionResultCategory::class)),
-            'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(SubmissionResultDetail::class)),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SubmissionResult_category::class)),
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(SubmissionResult_detail::class)),
             'detectedFiles' => fn(ParseNode $n) => $o->setDetectedFiles($n->getCollectionOfObjectValues([SubmissionDetectedFile::class, 'createFromDiscriminatorValue'])),
             'detectedUrls' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -127,7 +127,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
                 $this->setDetectedUrls($val);
             },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'userMailboxSetting' => fn(ParseNode $n) => $o->setUserMailboxSetting($n->getEnumValue(UserMailboxSetting::class)),
+            'userMailboxSetting' => fn(ParseNode $n) => $o->setUserMailboxSetting($n->getEnumValue(SubmissionResult_userMailboxSetting::class)),
         ];
     }
 
@@ -145,11 +145,11 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the userMailboxSetting property value. Specifies the setting for user mailbox denoted by a comma-separated string.
-     * @return UserMailboxSetting|null
+     * @return SubmissionResult_userMailboxSetting|null
     */
-    public function getUserMailboxSetting(): ?UserMailboxSetting {
+    public function getUserMailboxSetting(): ?SubmissionResult_userMailboxSetting {
         $val = $this->getBackingStore()->get('userMailboxSetting');
-        if (is_null($val) || $val instanceof UserMailboxSetting) {
+        if (is_null($val) || $val instanceof SubmissionResult_userMailboxSetting) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userMailboxSetting'");
@@ -187,17 +187,17 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the category property value. The submission result category. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable and unkownFutureValue.
-     * @param SubmissionResultCategory|null $value Value to set for the category property.
+     * @param SubmissionResult_category|null $value Value to set for the category property.
     */
-    public function setCategory(?SubmissionResultCategory $value): void {
+    public function setCategory(?SubmissionResult_category $value): void {
         $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the detail property value. Specifies the extra details provided by Microsoft to substantiate their analysis result.
-     * @param SubmissionResultDetail|null $value Value to set for the detail property.
+     * @param SubmissionResult_detail|null $value Value to set for the detail property.
     */
-    public function setDetail(?SubmissionResultDetail $value): void {
+    public function setDetail(?SubmissionResult_detail $value): void {
         $this->getBackingStore()->set('detail', $value);
     }
 
@@ -227,9 +227,9 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userMailboxSetting property value. Specifies the setting for user mailbox denoted by a comma-separated string.
-     * @param UserMailboxSetting|null $value Value to set for the userMailboxSetting property.
+     * @param SubmissionResult_userMailboxSetting|null $value Value to set for the userMailboxSetting property.
     */
-    public function setUserMailboxSetting(?UserMailboxSetting $value): void {
+    public function setUserMailboxSetting(?SubmissionResult_userMailboxSetting $value): void {
         $this->getBackingStore()->set('userMailboxSetting', $value);
     }
 

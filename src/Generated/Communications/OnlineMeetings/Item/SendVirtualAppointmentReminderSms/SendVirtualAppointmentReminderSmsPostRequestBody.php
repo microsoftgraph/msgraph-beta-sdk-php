@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\SendVirtualAppointmentReminderSms;
 
-use Microsoft\Graph\Beta\Generated\Models\RemindBeforeTimeInMinutesType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -72,7 +71,7 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
                 /** @var array<string>|null $val */
                 $this->setPhoneNumbers($val);
             },
-            'remindBeforeTimeInMinutesType' => fn(ParseNode $n) => $o->setRemindBeforeTimeInMinutesType($n->getEnumValue(RemindBeforeTimeInMinutesType::class)),
+            'remindBeforeTimeInMinutesType' => fn(ParseNode $n) => $o->setRemindBeforeTimeInMinutesType($n->getEnumValue(SendVirtualAppointmentReminderSmsPostRequestBody_remindBeforeTimeInMinutesType::class)),
         ];
     }
 
@@ -92,11 +91,11 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
 
     /**
      * Gets the remindBeforeTimeInMinutesType property value. The remindBeforeTimeInMinutesType property
-     * @return RemindBeforeTimeInMinutesType|null
+     * @return SendVirtualAppointmentReminderSmsPostRequestBody_remindBeforeTimeInMinutesType|null
     */
-    public function getRemindBeforeTimeInMinutesType(): ?RemindBeforeTimeInMinutesType {
+    public function getRemindBeforeTimeInMinutesType(): ?SendVirtualAppointmentReminderSmsPostRequestBody_remindBeforeTimeInMinutesType {
         $val = $this->getBackingStore()->get('remindBeforeTimeInMinutesType');
-        if (is_null($val) || $val instanceof RemindBeforeTimeInMinutesType) {
+        if (is_null($val) || $val instanceof SendVirtualAppointmentReminderSmsPostRequestBody_remindBeforeTimeInMinutesType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'remindBeforeTimeInMinutesType'");
@@ -138,9 +137,9 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
 
     /**
      * Sets the remindBeforeTimeInMinutesType property value. The remindBeforeTimeInMinutesType property
-     * @param RemindBeforeTimeInMinutesType|null $value Value to set for the remindBeforeTimeInMinutesType property.
+     * @param SendVirtualAppointmentReminderSmsPostRequestBody_remindBeforeTimeInMinutesType|null $value Value to set for the remindBeforeTimeInMinutesType property.
     */
-    public function setRemindBeforeTimeInMinutesType(?RemindBeforeTimeInMinutesType $value): void {
+    public function setRemindBeforeTimeInMinutesType(?SendVirtualAppointmentReminderSmsPostRequestBody_remindBeforeTimeInMinutesType $value): void {
         $this->getBackingStore()->set('remindBeforeTimeInMinutesType', $value);
     }
 

@@ -57,11 +57,11 @@ class MediaSource implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the contentCategory property value. Enumeration value that indicates the media content category.
-     * @return MediaSourceContentCategory|null
+     * @return MediaSource_contentCategory|null
     */
-    public function getContentCategory(): ?MediaSourceContentCategory {
+    public function getContentCategory(): ?MediaSource_contentCategory {
         $val = $this->getBackingStore()->get('contentCategory');
-        if (is_null($val) || $val instanceof MediaSourceContentCategory) {
+        if (is_null($val) || $val instanceof MediaSource_contentCategory) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'contentCategory'");
@@ -74,7 +74,7 @@ class MediaSource implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contentCategory' => fn(ParseNode $n) => $o->setContentCategory($n->getEnumValue(MediaSourceContentCategory::class)),
+            'contentCategory' => fn(ParseNode $n) => $o->setContentCategory($n->getEnumValue(MediaSource_contentCategory::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -119,9 +119,9 @@ class MediaSource implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contentCategory property value. Enumeration value that indicates the media content category.
-     * @param MediaSourceContentCategory|null $value Value to set for the contentCategory property.
+     * @param MediaSource_contentCategory|null $value Value to set for the contentCategory property.
     */
-    public function setContentCategory(?MediaSourceContentCategory $value): void {
+    public function setContentCategory(?MediaSource_contentCategory $value): void {
         $this->getBackingStore()->set('contentCategory', $value);
     }
 

@@ -65,8 +65,8 @@ class X509CertificateAuthenticationModeConfiguration implements AdditionalDataHo
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rules' => fn(ParseNode $n) => $o->setRules($n->getCollectionOfObjectValues([X509CertificateRule::class, 'createFromDiscriminatorValue'])),
-            'x509CertificateAuthenticationDefaultMode' => fn(ParseNode $n) => $o->setX509CertificateAuthenticationDefaultMode($n->getEnumValue(X509CertificateAuthenticationMode::class)),
-            'x509CertificateDefaultRequiredAffinityLevel' => fn(ParseNode $n) => $o->setX509CertificateDefaultRequiredAffinityLevel($n->getEnumValue(X509CertificateAffinityLevel::class)),
+            'x509CertificateAuthenticationDefaultMode' => fn(ParseNode $n) => $o->setX509CertificateAuthenticationDefaultMode($n->getEnumValue(X509CertificateAuthenticationModeConfiguration_x509CertificateAuthenticationDefaultMode::class)),
+            'x509CertificateDefaultRequiredAffinityLevel' => fn(ParseNode $n) => $o->setX509CertificateDefaultRequiredAffinityLevel($n->getEnumValue(X509CertificateAuthenticationModeConfiguration_x509CertificateDefaultRequiredAffinityLevel::class)),
         ];
     }
 
@@ -98,11 +98,11 @@ class X509CertificateAuthenticationModeConfiguration implements AdditionalDataHo
 
     /**
      * Gets the x509CertificateAuthenticationDefaultMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.
-     * @return X509CertificateAuthenticationMode|null
+     * @return X509CertificateAuthenticationModeConfiguration_x509CertificateAuthenticationDefaultMode|null
     */
-    public function getX509CertificateAuthenticationDefaultMode(): ?X509CertificateAuthenticationMode {
+    public function getX509CertificateAuthenticationDefaultMode(): ?X509CertificateAuthenticationModeConfiguration_x509CertificateAuthenticationDefaultMode {
         $val = $this->getBackingStore()->get('x509CertificateAuthenticationDefaultMode');
-        if (is_null($val) || $val instanceof X509CertificateAuthenticationMode) {
+        if (is_null($val) || $val instanceof X509CertificateAuthenticationModeConfiguration_x509CertificateAuthenticationDefaultMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'x509CertificateAuthenticationDefaultMode'");
@@ -110,11 +110,11 @@ class X509CertificateAuthenticationModeConfiguration implements AdditionalDataHo
 
     /**
      * Gets the x509CertificateDefaultRequiredAffinityLevel property value. Determines the default value for the tenant affinity binding level. The possible values are: low, high, unknownFutureValue.
-     * @return X509CertificateAffinityLevel|null
+     * @return X509CertificateAuthenticationModeConfiguration_x509CertificateDefaultRequiredAffinityLevel|null
     */
-    public function getX509CertificateDefaultRequiredAffinityLevel(): ?X509CertificateAffinityLevel {
+    public function getX509CertificateDefaultRequiredAffinityLevel(): ?X509CertificateAuthenticationModeConfiguration_x509CertificateDefaultRequiredAffinityLevel {
         $val = $this->getBackingStore()->get('x509CertificateDefaultRequiredAffinityLevel');
-        if (is_null($val) || $val instanceof X509CertificateAffinityLevel) {
+        if (is_null($val) || $val instanceof X509CertificateAuthenticationModeConfiguration_x509CertificateDefaultRequiredAffinityLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'x509CertificateDefaultRequiredAffinityLevel'");
@@ -166,17 +166,17 @@ class X509CertificateAuthenticationModeConfiguration implements AdditionalDataHo
 
     /**
      * Sets the x509CertificateAuthenticationDefaultMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.
-     * @param X509CertificateAuthenticationMode|null $value Value to set for the x509CertificateAuthenticationDefaultMode property.
+     * @param X509CertificateAuthenticationModeConfiguration_x509CertificateAuthenticationDefaultMode|null $value Value to set for the x509CertificateAuthenticationDefaultMode property.
     */
-    public function setX509CertificateAuthenticationDefaultMode(?X509CertificateAuthenticationMode $value): void {
+    public function setX509CertificateAuthenticationDefaultMode(?X509CertificateAuthenticationModeConfiguration_x509CertificateAuthenticationDefaultMode $value): void {
         $this->getBackingStore()->set('x509CertificateAuthenticationDefaultMode', $value);
     }
 
     /**
      * Sets the x509CertificateDefaultRequiredAffinityLevel property value. Determines the default value for the tenant affinity binding level. The possible values are: low, high, unknownFutureValue.
-     * @param X509CertificateAffinityLevel|null $value Value to set for the x509CertificateDefaultRequiredAffinityLevel property.
+     * @param X509CertificateAuthenticationModeConfiguration_x509CertificateDefaultRequiredAffinityLevel|null $value Value to set for the x509CertificateDefaultRequiredAffinityLevel property.
     */
-    public function setX509CertificateDefaultRequiredAffinityLevel(?X509CertificateAffinityLevel $value): void {
+    public function setX509CertificateDefaultRequiredAffinityLevel(?X509CertificateAuthenticationModeConfiguration_x509CertificateDefaultRequiredAffinityLevel $value): void {
         $this->getBackingStore()->set('x509CertificateDefaultRequiredAffinityLevel', $value);
     }
 

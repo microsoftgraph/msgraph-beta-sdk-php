@@ -27,11 +27,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Gets the appliesTo property value. Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.
-     * @return PolicyScope|null
+     * @return MobilityManagementPolicy_appliesTo|null
     */
-    public function getAppliesTo(): ?PolicyScope {
+    public function getAppliesTo(): ?MobilityManagementPolicy_appliesTo {
         $val = $this->getBackingStore()->get('appliesTo');
-        if (is_null($val) || $val instanceof PolicyScope) {
+        if (is_null($val) || $val instanceof MobilityManagementPolicy_appliesTo) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appliesTo'");
@@ -92,7 +92,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(PolicyScope::class)),
+            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(MobilityManagementPolicy_appliesTo::class)),
             'complianceUrl' => fn(ParseNode $n) => $o->setComplianceUrl($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'discoveryUrl' => fn(ParseNode $n) => $o->setDiscoveryUrl($n->getStringValue()),
@@ -159,9 +159,9 @@ class MobilityManagementPolicy extends Entity implements Parsable
 
     /**
      * Sets the appliesTo property value. Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.
-     * @param PolicyScope|null $value Value to set for the appliesTo property.
+     * @param MobilityManagementPolicy_appliesTo|null $value Value to set for the appliesTo property.
     */
-    public function setAppliesTo(?PolicyScope $value): void {
+    public function setAppliesTo(?MobilityManagementPolicy_appliesTo $value): void {
         $this->getBackingStore()->set('appliesTo', $value);
     }
 

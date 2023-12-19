@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\SendVirtualAppointmentSms;
 
-use Microsoft\Graph\Beta\Generated\Models\VirtualAppointmentSmsType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -72,7 +71,7 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
                 /** @var array<string>|null $val */
                 $this->setPhoneNumbers($val);
             },
-            'smsType' => fn(ParseNode $n) => $o->setSmsType($n->getEnumValue(VirtualAppointmentSmsType::class)),
+            'smsType' => fn(ParseNode $n) => $o->setSmsType($n->getEnumValue(SendVirtualAppointmentSmsPostRequestBody_smsType::class)),
         ];
     }
 
@@ -92,11 +91,11 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
 
     /**
      * Gets the smsType property value. The smsType property
-     * @return VirtualAppointmentSmsType|null
+     * @return SendVirtualAppointmentSmsPostRequestBody_smsType|null
     */
-    public function getSmsType(): ?VirtualAppointmentSmsType {
+    public function getSmsType(): ?SendVirtualAppointmentSmsPostRequestBody_smsType {
         $val = $this->getBackingStore()->get('smsType');
-        if (is_null($val) || $val instanceof VirtualAppointmentSmsType) {
+        if (is_null($val) || $val instanceof SendVirtualAppointmentSmsPostRequestBody_smsType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'smsType'");
@@ -138,9 +137,9 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
 
     /**
      * Sets the smsType property value. The smsType property
-     * @param VirtualAppointmentSmsType|null $value Value to set for the smsType property.
+     * @param SendVirtualAppointmentSmsPostRequestBody_smsType|null $value Value to set for the smsType property.
     */
-    public function setSmsType(?VirtualAppointmentSmsType $value): void {
+    public function setSmsType(?SendVirtualAppointmentSmsPostRequestBody_smsType $value): void {
         $this->getBackingStore()->set('smsType', $value);
     }
 

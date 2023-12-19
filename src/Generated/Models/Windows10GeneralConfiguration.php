@@ -533,11 +533,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Gets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.
-     * @return DefenderPotentiallyUnwantedAppAction|null
+     * @return Windows10GeneralConfiguration_defenderPotentiallyUnwantedAppAction|null
     */
-    public function getDefenderPotentiallyUnwantedAppAction(): ?DefenderPotentiallyUnwantedAppAction {
+    public function getDefenderPotentiallyUnwantedAppAction(): ?Windows10GeneralConfiguration_defenderPotentiallyUnwantedAppAction {
         $val = $this->getBackingStore()->get('defenderPotentiallyUnwantedAppAction');
-        if (is_null($val) || $val instanceof DefenderPotentiallyUnwantedAppAction) {
+        if (is_null($val) || $val instanceof Windows10GeneralConfiguration_defenderPotentiallyUnwantedAppAction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderPotentiallyUnwantedAppAction'");
@@ -787,11 +787,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Gets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
-     * @return DefenderSubmitSamplesConsentType|null
+     * @return Windows10GeneralConfiguration_defenderSubmitSamplesConsentType|null
     */
-    public function getDefenderSubmitSamplesConsentType(): ?DefenderSubmitSamplesConsentType {
+    public function getDefenderSubmitSamplesConsentType(): ?Windows10GeneralConfiguration_defenderSubmitSamplesConsentType {
         $val = $this->getBackingStore()->get('defenderSubmitSamplesConsentType');
-        if (is_null($val) || $val instanceof DefenderSubmitSamplesConsentType) {
+        if (is_null($val) || $val instanceof Windows10GeneralConfiguration_defenderSubmitSamplesConsentType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSubmitSamplesConsentType'");
@@ -1685,7 +1685,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
                 $this->setDefenderFilesAndFoldersToExclude($val);
             },
             'defenderMonitorFileActivity' => fn(ParseNode $n) => $o->setDefenderMonitorFileActivity($n->getEnumValue(DefenderMonitorFileActivity::class)),
-            'defenderPotentiallyUnwantedAppAction' => fn(ParseNode $n) => $o->setDefenderPotentiallyUnwantedAppAction($n->getEnumValue(DefenderPotentiallyUnwantedAppAction::class)),
+            'defenderPotentiallyUnwantedAppAction' => fn(ParseNode $n) => $o->setDefenderPotentiallyUnwantedAppAction($n->getEnumValue(Windows10GeneralConfiguration_defenderPotentiallyUnwantedAppAction::class)),
             'defenderPotentiallyUnwantedAppActionSetting' => fn(ParseNode $n) => $o->setDefenderPotentiallyUnwantedAppActionSetting($n->getEnumValue(DefenderProtectionType::class)),
             'defenderProcessesToExclude' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -1713,7 +1713,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
             'defenderScheduledScanTime' => fn(ParseNode $n) => $o->setDefenderScheduledScanTime($n->getTimeValue()),
             'defenderScheduleScanEnableLowCpuPriority' => fn(ParseNode $n) => $o->setDefenderScheduleScanEnableLowCpuPriority($n->getBooleanValue()),
             'defenderSignatureUpdateIntervalInHours' => fn(ParseNode $n) => $o->setDefenderSignatureUpdateIntervalInHours($n->getIntegerValue()),
-            'defenderSubmitSamplesConsentType' => fn(ParseNode $n) => $o->setDefenderSubmitSamplesConsentType($n->getEnumValue(DefenderSubmitSamplesConsentType::class)),
+            'defenderSubmitSamplesConsentType' => fn(ParseNode $n) => $o->setDefenderSubmitSamplesConsentType($n->getEnumValue(Windows10GeneralConfiguration_defenderSubmitSamplesConsentType::class)),
             'defenderSystemScanSchedule' => fn(ParseNode $n) => $o->setDefenderSystemScanSchedule($n->getEnumValue(WeeklySchedule::class)),
             'developerUnlockSetting' => fn(ParseNode $n) => $o->setDeveloperUnlockSetting($n->getEnumValue(StateManagementSetting::class)),
             'deviceManagementBlockFactoryResetOnMobile' => fn(ParseNode $n) => $o->setDeviceManagementBlockFactoryResetOnMobile($n->getBooleanValue()),
@@ -4433,9 +4433,9 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.
-     * @param DefenderPotentiallyUnwantedAppAction|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
+     * @param Windows10GeneralConfiguration_defenderPotentiallyUnwantedAppAction|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
     */
-    public function setDefenderPotentiallyUnwantedAppAction(?DefenderPotentiallyUnwantedAppAction $value): void {
+    public function setDefenderPotentiallyUnwantedAppAction(?Windows10GeneralConfiguration_defenderPotentiallyUnwantedAppAction $value): void {
         $this->getBackingStore()->set('defenderPotentiallyUnwantedAppAction', $value);
     }
 
@@ -4601,9 +4601,9 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
-     * @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
+     * @param Windows10GeneralConfiguration_defenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
     */
-    public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value): void {
+    public function setDefenderSubmitSamplesConsentType(?Windows10GeneralConfiguration_defenderSubmitSamplesConsentType $value): void {
         $this->getBackingStore()->set('defenderSubmitSamplesConsentType', $value);
     }
 

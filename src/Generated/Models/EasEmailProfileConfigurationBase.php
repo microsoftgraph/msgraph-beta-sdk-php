@@ -57,19 +57,19 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'customDomainName' => fn(ParseNode $n) => $o->setCustomDomainName($n->getStringValue()),
-            'userDomainNameSource' => fn(ParseNode $n) => $o->setUserDomainNameSource($n->getEnumValue(DomainNameSource::class)),
-            'usernameAADSource' => fn(ParseNode $n) => $o->setUsernameAADSource($n->getEnumValue(UsernameSource::class)),
+            'userDomainNameSource' => fn(ParseNode $n) => $o->setUserDomainNameSource($n->getEnumValue(EasEmailProfileConfigurationBase_userDomainNameSource::class)),
+            'usernameAADSource' => fn(ParseNode $n) => $o->setUsernameAADSource($n->getEnumValue(EasEmailProfileConfigurationBase_usernameAADSource::class)),
             'usernameSource' => fn(ParseNode $n) => $o->setUsernameSource($n->getEnumValue(UserEmailSource::class)),
         ]);
     }
 
     /**
      * Gets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
-     * @return DomainNameSource|null
+     * @return EasEmailProfileConfigurationBase_userDomainNameSource|null
     */
-    public function getUserDomainNameSource(): ?DomainNameSource {
+    public function getUserDomainNameSource(): ?EasEmailProfileConfigurationBase_userDomainNameSource {
         $val = $this->getBackingStore()->get('userDomainNameSource');
-        if (is_null($val) || $val instanceof DomainNameSource) {
+        if (is_null($val) || $val instanceof EasEmailProfileConfigurationBase_userDomainNameSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userDomainNameSource'");
@@ -77,11 +77,11 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
 
     /**
      * Gets the usernameAADSource property value. Name of the AAD field, that will be used to retrieve UserName for email profile. Possible values are: userPrincipalName, primarySmtpAddress, samAccountName.
-     * @return UsernameSource|null
+     * @return EasEmailProfileConfigurationBase_usernameAADSource|null
     */
-    public function getUsernameAADSource(): ?UsernameSource {
+    public function getUsernameAADSource(): ?EasEmailProfileConfigurationBase_usernameAADSource {
         $val = $this->getBackingStore()->get('usernameAADSource');
-        if (is_null($val) || $val instanceof UsernameSource) {
+        if (is_null($val) || $val instanceof EasEmailProfileConfigurationBase_usernameAADSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'usernameAADSource'");
@@ -121,17 +121,17 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
 
     /**
      * Sets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
-     * @param DomainNameSource|null $value Value to set for the userDomainNameSource property.
+     * @param EasEmailProfileConfigurationBase_userDomainNameSource|null $value Value to set for the userDomainNameSource property.
     */
-    public function setUserDomainNameSource(?DomainNameSource $value): void {
+    public function setUserDomainNameSource(?EasEmailProfileConfigurationBase_userDomainNameSource $value): void {
         $this->getBackingStore()->set('userDomainNameSource', $value);
     }
 
     /**
      * Sets the usernameAADSource property value. Name of the AAD field, that will be used to retrieve UserName for email profile. Possible values are: userPrincipalName, primarySmtpAddress, samAccountName.
-     * @param UsernameSource|null $value Value to set for the usernameAADSource property.
+     * @param EasEmailProfileConfigurationBase_usernameAADSource|null $value Value to set for the usernameAADSource property.
     */
-    public function setUsernameAADSource(?UsernameSource $value): void {
+    public function setUsernameAADSource(?EasEmailProfileConfigurationBase_usernameAADSource $value): void {
         $this->getBackingStore()->set('usernameAADSource', $value);
     }
 

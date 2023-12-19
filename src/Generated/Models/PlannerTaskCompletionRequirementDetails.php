@@ -75,8 +75,21 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
         $o = $this;
         return  [
             'checklistRequirement' => fn(ParseNode $n) => $o->setChecklistRequirement($n->getObjectValue([PlannerChecklistRequirement::class, 'createFromDiscriminatorValue'])),
+            'formsRequirement' => fn(ParseNode $n) => $o->setFormsRequirement($n->getObjectValue([PlannerFormsRequirement::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the formsRequirement property value. The formsRequirement property
+     * @return PlannerFormsRequirement|null
+    */
+    public function getFormsRequirement(): ?PlannerFormsRequirement {
+        $val = $this->getBackingStore()->get('formsRequirement');
+        if (is_null($val) || $val instanceof PlannerFormsRequirement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'formsRequirement'");
     }
 
     /**
@@ -97,6 +110,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('checklistRequirement', $this->getChecklistRequirement());
+        $writer->writeObjectValue('formsRequirement', $this->getFormsRequirement());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -123,6 +137,14 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     */
     public function setChecklistRequirement(?PlannerChecklistRequirement $value): void {
         $this->getBackingStore()->set('checklistRequirement', $value);
+    }
+
+    /**
+     * Sets the formsRequirement property value. The formsRequirement property
+     * @param PlannerFormsRequirement|null $value Value to set for the formsRequirement property.
+    */
+    public function setFormsRequirement(?PlannerFormsRequirement $value): void {
+        $this->getBackingStore()->set('formsRequirement', $value);
     }
 
     /**

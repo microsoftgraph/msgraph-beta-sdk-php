@@ -126,7 +126,7 @@ class LegalHold extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([SiteSource::class, 'createFromDiscriminatorValue'])),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LegalHoldStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LegalHold_status::class)),
             'unifiedGroupSources' => fn(ParseNode $n) => $o->setUnifiedGroupSources($n->getCollectionOfObjectValues([UnifiedGroupSource::class, 'createFromDiscriminatorValue'])),
             'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([UserSource::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -184,11 +184,11 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.
-     * @return LegalHoldStatus|null
+     * @return LegalHold_status|null
     */
-    public function getStatus(): ?LegalHoldStatus {
+    public function getStatus(): ?LegalHold_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof LegalHoldStatus) {
+        if (is_null($val) || $val instanceof LegalHold_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -325,9 +325,9 @@ class LegalHold extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.
-     * @param LegalHoldStatus|null $value Value to set for the status property.
+     * @param LegalHold_status|null $value Value to set for the status property.
     */
-    public function setStatus(?LegalHoldStatus $value): void {
+    public function setStatus(?LegalHold_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

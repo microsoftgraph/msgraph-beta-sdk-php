@@ -44,7 +44,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
                 /** @var array<string>|null $val */
                 $this->setFileTypes($val);
             },
-            'format' => fn(ParseNode $n) => $o->setFormat($n->getEnumValue(DeviceManagementConfigurationStringFormat::class)),
+            'format' => fn(ParseNode $n) => $o->setFormat($n->getEnumValue(DeviceManagementConfigurationStringSettingValueDefinition_format::class)),
             'inputValidationSchema' => fn(ParseNode $n) => $o->setInputValidationSchema($n->getStringValue()),
             'isSecret' => fn(ParseNode $n) => $o->setIsSecret($n->getBooleanValue()),
             'maximumLength' => fn(ParseNode $n) => $o->setMaximumLength($n->getIntegerValue()),
@@ -67,12 +67,12 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
-     * @return DeviceManagementConfigurationStringFormat|null
+     * Gets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
+     * @return DeviceManagementConfigurationStringSettingValueDefinition_format|null
     */
-    public function getFormat(): ?DeviceManagementConfigurationStringFormat {
+    public function getFormat(): ?DeviceManagementConfigurationStringSettingValueDefinition_format {
         $val = $this->getBackingStore()->get('format');
-        if (is_null($val) || $val instanceof DeviceManagementConfigurationStringFormat) {
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationStringSettingValueDefinition_format) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'format'");
@@ -103,7 +103,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the maximumLength property value. Maximum length of string
+     * Gets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
      * @return int|null
     */
     public function getMaximumLength(): ?int {
@@ -115,7 +115,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the minimumLength property value. Minimum length of string
+     * Gets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
      * @return int|null
     */
     public function getMinimumLength(): ?int {
@@ -149,10 +149,10 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
-     * @param DeviceManagementConfigurationStringFormat|null $value Value to set for the format property.
+     * Sets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
+     * @param DeviceManagementConfigurationStringSettingValueDefinition_format|null $value Value to set for the format property.
     */
-    public function setFormat(?DeviceManagementConfigurationStringFormat $value): void {
+    public function setFormat(?DeviceManagementConfigurationStringSettingValueDefinition_format $value): void {
         $this->getBackingStore()->set('format', $value);
     }
 
@@ -173,7 +173,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the maximumLength property value. Maximum length of string
+     * Sets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
      * @param int|null $value Value to set for the maximumLength property.
     */
     public function setMaximumLength(?int $value): void {
@@ -181,7 +181,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the minimumLength property value. Minimum length of string
+     * Sets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
      * @param int|null $value Value to set for the minimumLength property.
     */
     public function setMinimumLength(?int $value): void {

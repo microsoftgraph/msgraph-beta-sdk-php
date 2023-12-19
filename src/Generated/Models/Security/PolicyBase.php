@@ -95,7 +95,7 @@ class PolicyBase extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(PolicyStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(PolicyBase_status::class)),
         ]);
     }
 
@@ -125,11 +125,11 @@ class PolicyBase extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status property
-     * @return PolicyStatus|null
+     * @return PolicyBase_status|null
     */
-    public function getStatus(): ?PolicyStatus {
+    public function getStatus(): ?PolicyBase_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof PolicyStatus) {
+        if (is_null($val) || $val instanceof PolicyBase_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -200,9 +200,9 @@ class PolicyBase extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     * @param PolicyStatus|null $value Value to set for the status property.
+     * @param PolicyBase_status|null $value Value to set for the status property.
     */
-    public function setStatus(?PolicyStatus $value): void {
+    public function setStatus(?PolicyBase_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

@@ -32,17 +32,17 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp extends OnUserCreateStartH
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userTypeToCreate' => fn(ParseNode $n) => $o->setUserTypeToCreate($n->getEnumValue(UserType::class)),
+            'userTypeToCreate' => fn(ParseNode $n) => $o->setUserTypeToCreate($n->getEnumValue(OnUserCreateStartExternalUsersSelfServiceSignUp_userTypeToCreate::class)),
         ]);
     }
 
     /**
      * Gets the userTypeToCreate property value. The type of user object to create. The possible values are: member, guest, unknownFutureValue.
-     * @return UserType|null
+     * @return OnUserCreateStartExternalUsersSelfServiceSignUp_userTypeToCreate|null
     */
-    public function getUserTypeToCreate(): ?UserType {
+    public function getUserTypeToCreate(): ?OnUserCreateStartExternalUsersSelfServiceSignUp_userTypeToCreate {
         $val = $this->getBackingStore()->get('userTypeToCreate');
-        if (is_null($val) || $val instanceof UserType) {
+        if (is_null($val) || $val instanceof OnUserCreateStartExternalUsersSelfServiceSignUp_userTypeToCreate) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userTypeToCreate'");
@@ -59,9 +59,9 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp extends OnUserCreateStartH
 
     /**
      * Sets the userTypeToCreate property value. The type of user object to create. The possible values are: member, guest, unknownFutureValue.
-     * @param UserType|null $value Value to set for the userTypeToCreate property.
+     * @param OnUserCreateStartExternalUsersSelfServiceSignUp_userTypeToCreate|null $value Value to set for the userTypeToCreate property.
     */
-    public function setUserTypeToCreate(?UserType $value): void {
+    public function setUserTypeToCreate(?OnUserCreateStartExternalUsersSelfServiceSignUp_userTypeToCreate $value): void {
         $this->getBackingStore()->set('userTypeToCreate', $value);
     }
 

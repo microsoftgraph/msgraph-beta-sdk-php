@@ -40,11 +40,11 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Gets the destinationType property value. The destinationType property
-     * @return PrivateNetworkDestinationType|null
+     * @return IpApplicationSegment_destinationType|null
     */
-    public function getDestinationType(): ?PrivateNetworkDestinationType {
+    public function getDestinationType(): ?IpApplicationSegment_destinationType {
         $val = $this->getBackingStore()->get('destinationType');
-        if (is_null($val) || $val instanceof PrivateNetworkDestinationType) {
+        if (is_null($val) || $val instanceof IpApplicationSegment_destinationType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationType'");
@@ -58,7 +58,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'destinationHost' => fn(ParseNode $n) => $o->setDestinationHost($n->getStringValue()),
-            'destinationType' => fn(ParseNode $n) => $o->setDestinationType($n->getEnumValue(PrivateNetworkDestinationType::class)),
+            'destinationType' => fn(ParseNode $n) => $o->setDestinationType($n->getEnumValue(IpApplicationSegment_destinationType::class)),
             'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
             'ports' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -68,7 +68,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
                 /** @var array<string>|null $val */
                 $this->setPorts($val);
             },
-            'protocol' => fn(ParseNode $n) => $o->setProtocol($n->getEnumValue(PrivateNetworkProtocol::class)),
+            'protocol' => fn(ParseNode $n) => $o->setProtocol($n->getEnumValue(IpApplicationSegment_protocol::class)),
         ]);
     }
 
@@ -100,11 +100,11 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Gets the protocol property value. The protocol property
-     * @return PrivateNetworkProtocol|null
+     * @return IpApplicationSegment_protocol|null
     */
-    public function getProtocol(): ?PrivateNetworkProtocol {
+    public function getProtocol(): ?IpApplicationSegment_protocol {
         $val = $this->getBackingStore()->get('protocol');
-        if (is_null($val) || $val instanceof PrivateNetworkProtocol) {
+        if (is_null($val) || $val instanceof IpApplicationSegment_protocol) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'protocol'");
@@ -133,9 +133,9 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the destinationType property value. The destinationType property
-     * @param PrivateNetworkDestinationType|null $value Value to set for the destinationType property.
+     * @param IpApplicationSegment_destinationType|null $value Value to set for the destinationType property.
     */
-    public function setDestinationType(?PrivateNetworkDestinationType $value): void {
+    public function setDestinationType(?IpApplicationSegment_destinationType $value): void {
         $this->getBackingStore()->set('destinationType', $value);
     }
 
@@ -157,9 +157,9 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the protocol property value. The protocol property
-     * @param PrivateNetworkProtocol|null $value Value to set for the protocol property.
+     * @param IpApplicationSegment_protocol|null $value Value to set for the protocol property.
     */
-    public function setProtocol(?PrivateNetworkProtocol $value): void {
+    public function setProtocol(?IpApplicationSegment_protocol $value): void {
         $this->getBackingStore()->set('protocol', $value);
     }
 

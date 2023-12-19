@@ -40,11 +40,11 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Gets the exportJobStatus property value. The status of the export job. The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
-     * @return CloudPcExportJobStatus|null
+     * @return CloudPcExportJob_exportJobStatus|null
     */
-    public function getExportJobStatus(): ?CloudPcExportJobStatus {
+    public function getExportJobStatus(): ?CloudPcExportJob_exportJobStatus {
         $val = $this->getBackingStore()->get('exportJobStatus');
-        if (is_null($val) || $val instanceof CloudPcExportJobStatus) {
+        if (is_null($val) || $val instanceof CloudPcExportJob_exportJobStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportJobStatus'");
@@ -70,11 +70,11 @@ class CloudPcExportJob extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
-            'exportJobStatus' => fn(ParseNode $n) => $o->setExportJobStatus($n->getEnumValue(CloudPcExportJobStatus::class)),
+            'exportJobStatus' => fn(ParseNode $n) => $o->setExportJobStatus($n->getEnumValue(CloudPcExportJob_exportJobStatus::class)),
             'exportUrl' => fn(ParseNode $n) => $o->setExportUrl($n->getStringValue()),
             'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
             'format' => fn(ParseNode $n) => $o->setFormat($n->getStringValue()),
-            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(CloudPcReportName::class)),
+            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(CloudPcExportJob_reportName::class)),
             'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
             'select' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -113,11 +113,11 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Gets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport, unknownFutureValue,  noLicenseAvailableConnectivityFailureReport, frontlineLicenseUsageReport, frontlineLicenseUsageRealTimeReport,  remoteConnectionQualityReports, inaccessibleCloudPcReports, rawRemoteConnectionReports. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: noLicenseAvailableConnectivityFailureReport, frontlineLicenseUsageReport, frontlineLicenseUsageRealTimeReport, remoteConnectionQualityReports, inaccessibleCloudPcReports, rawRemoteConnectionReports.
-     * @return CloudPcReportName|null
+     * @return CloudPcExportJob_reportName|null
     */
-    public function getReportName(): ?CloudPcReportName {
+    public function getReportName(): ?CloudPcExportJob_reportName {
         $val = $this->getBackingStore()->get('reportName');
-        if (is_null($val) || $val instanceof CloudPcReportName) {
+        if (is_null($val) || $val instanceof CloudPcExportJob_reportName) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'reportName'");
@@ -175,9 +175,9 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the exportJobStatus property value. The status of the export job. The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
-     * @param CloudPcExportJobStatus|null $value Value to set for the exportJobStatus property.
+     * @param CloudPcExportJob_exportJobStatus|null $value Value to set for the exportJobStatus property.
     */
-    public function setExportJobStatus(?CloudPcExportJobStatus $value): void {
+    public function setExportJobStatus(?CloudPcExportJob_exportJobStatus $value): void {
         $this->getBackingStore()->set('exportJobStatus', $value);
     }
 
@@ -207,9 +207,9 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport, unknownFutureValue,  noLicenseAvailableConnectivityFailureReport, frontlineLicenseUsageReport, frontlineLicenseUsageRealTimeReport,  remoteConnectionQualityReports, inaccessibleCloudPcReports, rawRemoteConnectionReports. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: noLicenseAvailableConnectivityFailureReport, frontlineLicenseUsageReport, frontlineLicenseUsageRealTimeReport, remoteConnectionQualityReports, inaccessibleCloudPcReports, rawRemoteConnectionReports.
-     * @param CloudPcReportName|null $value Value to set for the reportName property.
+     * @param CloudPcExportJob_reportName|null $value Value to set for the reportName property.
     */
-    public function setReportName(?CloudPcReportName $value): void {
+    public function setReportName(?CloudPcExportJob_reportName $value): void {
         $this->getBackingStore()->set('reportName', $value);
     }
 

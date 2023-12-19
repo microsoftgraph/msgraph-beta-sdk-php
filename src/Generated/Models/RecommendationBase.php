@@ -109,13 +109,13 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Gets the featureAreas property value. The directory feature that the recommendation is related to.
-     * @return array<RecommendationFeatureAreas>|null
+     * @return array<RecommendationBase_featureAreas>|null
     */
     public function getFeatureAreas(): ?array {
         $val = $this->getBackingStore()->get('featureAreas');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, RecommendationFeatureAreas::class);
-            /** @var array<RecommendationFeatureAreas>|null $val */
+            TypeUtils::validateCollectionValues($val, RecommendationBase_featureAreas::class);
+            /** @var array<RecommendationBase_featureAreas>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'featureAreas'");
@@ -134,7 +134,7 @@ class RecommendationBase extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getFloatValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'featureAreas' => fn(ParseNode $n) => $o->setFeatureAreas($n->getCollectionOfEnumValues(RecommendationFeatureAreas::class)),
+            'featureAreas' => fn(ParseNode $n) => $o->setFeatureAreas($n->getCollectionOfEnumValues(RecommendationBase_featureAreas::class)),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'impactStartDateTime' => fn(ParseNode $n) => $o->setImpactStartDateTime($n->getDateTimeValue()),
             'impactType' => fn(ParseNode $n) => $o->setImpactType($n->getStringValue()),
@@ -145,7 +145,7 @@ class RecommendationBase extends Entity implements Parsable
             'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getFloatValue()),
             'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(RecommendationPriority::class)),
-            'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationType::class)),
+            'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationBase_recommendationType::class)),
             'releaseType' => fn(ParseNode $n) => $o->setReleaseType($n->getStringValue()),
             'remediationImpact' => fn(ParseNode $n) => $o->setRemediationImpact($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
@@ -276,11 +276,11 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Gets the recommendationType property value. Friendly shortname to identify the recommendation. The possible values are: adfsAppsMigration, enableDesktopSSO, enablePHS, enableProvisioning, switchFromPerUserMFA, tenantMFA, thirdPartyApps, turnOffPerUserMFA, useAuthenticatorApp, useMyApps, staleApps, staleAppCreds, applicationCredentialExpiry, servicePrincipalKeyExpiry, adminMFAV2, blockLegacyAuthentication, integratedApps, mfaRegistrationV2, pwagePolicyNew, passwordHashSync, oneAdmin, roleOverlap, selfServicePasswordReset, signinRiskPolicy, userRiskPolicy, verifyAppPublisher, privateLinkForAAD, appRoleAssignmentsGroups, appRoleAssignmentsUsers, managedIdentity, overprivilegedApps, unknownFutureValue, longLivedCredentials, aadConnectDeprecated, adalToMsalMigration, ownerlessApps, inactiveGuests. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: longLivedCredentials, aadConnectDeprecated, adalToMsalMigration, ownerlessApps, inactiveGuests.
-     * @return RecommendationType|null
+     * @return RecommendationBase_recommendationType|null
     */
-    public function getRecommendationType(): ?RecommendationType {
+    public function getRecommendationType(): ?RecommendationBase_recommendationType {
         $val = $this->getBackingStore()->get('recommendationType');
-        if (is_null($val) || $val instanceof RecommendationType) {
+        if (is_null($val) || $val instanceof RecommendationBase_recommendationType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendationType'");
@@ -401,7 +401,7 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Sets the featureAreas property value. The directory feature that the recommendation is related to.
-     * @param array<RecommendationFeatureAreas>|null $value Value to set for the featureAreas property.
+     * @param array<RecommendationBase_featureAreas>|null $value Value to set for the featureAreas property.
     */
     public function setFeatureAreas(?array $value): void {
         $this->getBackingStore()->set('featureAreas', $value);
@@ -489,9 +489,9 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Sets the recommendationType property value. Friendly shortname to identify the recommendation. The possible values are: adfsAppsMigration, enableDesktopSSO, enablePHS, enableProvisioning, switchFromPerUserMFA, tenantMFA, thirdPartyApps, turnOffPerUserMFA, useAuthenticatorApp, useMyApps, staleApps, staleAppCreds, applicationCredentialExpiry, servicePrincipalKeyExpiry, adminMFAV2, blockLegacyAuthentication, integratedApps, mfaRegistrationV2, pwagePolicyNew, passwordHashSync, oneAdmin, roleOverlap, selfServicePasswordReset, signinRiskPolicy, userRiskPolicy, verifyAppPublisher, privateLinkForAAD, appRoleAssignmentsGroups, appRoleAssignmentsUsers, managedIdentity, overprivilegedApps, unknownFutureValue, longLivedCredentials, aadConnectDeprecated, adalToMsalMigration, ownerlessApps, inactiveGuests. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: longLivedCredentials, aadConnectDeprecated, adalToMsalMigration, ownerlessApps, inactiveGuests.
-     * @param RecommendationType|null $value Value to set for the recommendationType property.
+     * @param RecommendationBase_recommendationType|null $value Value to set for the recommendationType property.
     */
-    public function setRecommendationType(?RecommendationType $value): void {
+    public function setRecommendationType(?RecommendationBase_recommendationType $value): void {
         $this->getBackingStore()->set('recommendationType', $value);
     }
 

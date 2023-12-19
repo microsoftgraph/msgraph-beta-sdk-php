@@ -59,11 +59,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
-     * @return DelegatedPrivilegeStatus|null
+     * @return TenantStatusInformation_delegatedPrivilegeStatus|null
     */
-    public function getDelegatedPrivilegeStatus(): ?DelegatedPrivilegeStatus {
+    public function getDelegatedPrivilegeStatus(): ?TenantStatusInformation_delegatedPrivilegeStatus {
         $val = $this->getBackingStore()->get('delegatedPrivilegeStatus');
-        if (is_null($val) || $val instanceof DelegatedPrivilegeStatus) {
+        if (is_null($val) || $val instanceof TenantStatusInformation_delegatedPrivilegeStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedPrivilegeStatus'");
@@ -76,15 +76,15 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'delegatedPrivilegeStatus' => fn(ParseNode $n) => $o->setDelegatedPrivilegeStatus($n->getEnumValue(DelegatedPrivilegeStatus::class)),
+            'delegatedPrivilegeStatus' => fn(ParseNode $n) => $o->setDelegatedPrivilegeStatus($n->getEnumValue(TenantStatusInformation_delegatedPrivilegeStatus::class)),
             'lastDelegatedPrivilegeRefreshDateTime' => fn(ParseNode $n) => $o->setLastDelegatedPrivilegeRefreshDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'offboardedByUserId' => fn(ParseNode $n) => $o->setOffboardedByUserId($n->getStringValue()),
             'offboardedDateTime' => fn(ParseNode $n) => $o->setOffboardedDateTime($n->getDateTimeValue()),
             'onboardedByUserId' => fn(ParseNode $n) => $o->setOnboardedByUserId($n->getStringValue()),
             'onboardedDateTime' => fn(ParseNode $n) => $o->setOnboardedDateTime($n->getDateTimeValue()),
-            'onboardingStatus' => fn(ParseNode $n) => $o->setOnboardingStatus($n->getEnumValue(TenantOnboardingStatus::class)),
-            'tenantOnboardingEligibilityReason' => fn(ParseNode $n) => $o->setTenantOnboardingEligibilityReason($n->getEnumValue(TenantOnboardingEligibilityReason::class)),
+            'onboardingStatus' => fn(ParseNode $n) => $o->setOnboardingStatus($n->getEnumValue(TenantStatusInformation_onboardingStatus::class)),
+            'tenantOnboardingEligibilityReason' => fn(ParseNode $n) => $o->setTenantOnboardingEligibilityReason($n->getEnumValue(TenantStatusInformation_tenantOnboardingEligibilityReason::class)),
             'workloadStatuses' => fn(ParseNode $n) => $o->setWorkloadStatuses($n->getCollectionOfObjectValues([WorkloadStatus::class, 'createFromDiscriminatorValue'])),
         ];
     }
@@ -163,11 +163,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the onboardingStatus property value. The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
-     * @return TenantOnboardingStatus|null
+     * @return TenantStatusInformation_onboardingStatus|null
     */
-    public function getOnboardingStatus(): ?TenantOnboardingStatus {
+    public function getOnboardingStatus(): ?TenantStatusInformation_onboardingStatus {
         $val = $this->getBackingStore()->get('onboardingStatus');
-        if (is_null($val) || $val instanceof TenantOnboardingStatus) {
+        if (is_null($val) || $val instanceof TenantStatusInformation_onboardingStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardingStatus'");
@@ -175,11 +175,11 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the tenantOnboardingEligibilityReason property value. Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
-     * @return TenantOnboardingEligibilityReason|null
+     * @return TenantStatusInformation_tenantOnboardingEligibilityReason|null
     */
-    public function getTenantOnboardingEligibilityReason(): ?TenantOnboardingEligibilityReason {
+    public function getTenantOnboardingEligibilityReason(): ?TenantStatusInformation_tenantOnboardingEligibilityReason {
         $val = $this->getBackingStore()->get('tenantOnboardingEligibilityReason');
-        if (is_null($val) || $val instanceof TenantOnboardingEligibilityReason) {
+        if (is_null($val) || $val instanceof TenantStatusInformation_tenantOnboardingEligibilityReason) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantOnboardingEligibilityReason'");
@@ -235,9 +235,9 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
-     * @param DelegatedPrivilegeStatus|null $value Value to set for the delegatedPrivilegeStatus property.
+     * @param TenantStatusInformation_delegatedPrivilegeStatus|null $value Value to set for the delegatedPrivilegeStatus property.
     */
-    public function setDelegatedPrivilegeStatus(?DelegatedPrivilegeStatus $value): void {
+    public function setDelegatedPrivilegeStatus(?TenantStatusInformation_delegatedPrivilegeStatus $value): void {
         $this->getBackingStore()->set('delegatedPrivilegeStatus', $value);
     }
 
@@ -291,17 +291,17 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the onboardingStatus property value. The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
-     * @param TenantOnboardingStatus|null $value Value to set for the onboardingStatus property.
+     * @param TenantStatusInformation_onboardingStatus|null $value Value to set for the onboardingStatus property.
     */
-    public function setOnboardingStatus(?TenantOnboardingStatus $value): void {
+    public function setOnboardingStatus(?TenantStatusInformation_onboardingStatus $value): void {
         $this->getBackingStore()->set('onboardingStatus', $value);
     }
 
     /**
      * Sets the tenantOnboardingEligibilityReason property value. Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
-     * @param TenantOnboardingEligibilityReason|null $value Value to set for the tenantOnboardingEligibilityReason property.
+     * @param TenantStatusInformation_tenantOnboardingEligibilityReason|null $value Value to set for the tenantOnboardingEligibilityReason property.
     */
-    public function setTenantOnboardingEligibilityReason(?TenantOnboardingEligibilityReason $value): void {
+    public function setTenantOnboardingEligibilityReason(?TenantStatusInformation_tenantOnboardingEligibilityReason $value): void {
         $this->getBackingStore()->set('tenantOnboardingEligibilityReason', $value);
     }
 

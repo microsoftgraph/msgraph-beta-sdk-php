@@ -59,11 +59,11 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
-     * @return OnlineMeetingPresenters|null
+     * @return OnlineMeetingBase_allowedPresenters|null
     */
-    public function getAllowedPresenters(): ?OnlineMeetingPresenters {
+    public function getAllowedPresenters(): ?OnlineMeetingBase_allowedPresenters {
         $val = $this->getBackingStore()->get('allowedPresenters');
-        if (is_null($val) || $val instanceof OnlineMeetingPresenters) {
+        if (is_null($val) || $val instanceof OnlineMeetingBase_allowedPresenters) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedPresenters'");
@@ -71,11 +71,11 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Gets the allowMeetingChat property value. Specifies the mode of meeting chat.
-     * @return MeetingChatMode|null
+     * @return OnlineMeetingBase_allowMeetingChat|null
     */
-    public function getAllowMeetingChat(): ?MeetingChatMode {
+    public function getAllowMeetingChat(): ?OnlineMeetingBase_allowMeetingChat {
         $val = $this->getBackingStore()->get('allowMeetingChat');
-        if (is_null($val) || $val instanceof MeetingChatMode) {
+        if (is_null($val) || $val instanceof OnlineMeetingBase_allowMeetingChat) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowMeetingChat'");
@@ -131,13 +131,13 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Gets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. Possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
-     * @return array<OnlineMeetingRole>|null
+     * @return array<OnlineMeetingBase_anonymizeIdentityForRoles>|null
     */
     public function getAnonymizeIdentityForRoles(): ?array {
         $val = $this->getBackingStore()->get('anonymizeIdentityForRoles');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, OnlineMeetingRole::class);
-            /** @var array<OnlineMeetingRole>|null $val */
+            TypeUtils::validateCollectionValues($val, OnlineMeetingBase_anonymizeIdentityForRoles::class);
+            /** @var array<OnlineMeetingBase_anonymizeIdentityForRoles>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'anonymizeIdentityForRoles'");
@@ -202,13 +202,13 @@ class OnlineMeetingBase extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allowAttendeeToEnableCamera' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableCamera($n->getBooleanValue()),
             'allowAttendeeToEnableMic' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableMic($n->getBooleanValue()),
-            'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
-            'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)),
+            'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingBase_allowedPresenters::class)),
+            'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(OnlineMeetingBase_allowMeetingChat::class)),
             'allowParticipantsToChangeName' => fn(ParseNode $n) => $o->setAllowParticipantsToChangeName($n->getBooleanValue()),
             'allowRecording' => fn(ParseNode $n) => $o->setAllowRecording($n->getBooleanValue()),
             'allowTeamworkReactions' => fn(ParseNode $n) => $o->setAllowTeamworkReactions($n->getBooleanValue()),
             'allowTranscription' => fn(ParseNode $n) => $o->setAllowTranscription($n->getBooleanValue()),
-            'anonymizeIdentityForRoles' => fn(ParseNode $n) => $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingRole::class)),
+            'anonymizeIdentityForRoles' => fn(ParseNode $n) => $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingBase_anonymizeIdentityForRoles::class)),
             'attendanceReports' => fn(ParseNode $n) => $o->setAttendanceReports($n->getCollectionOfObjectValues([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
             'audioConferencing' => fn(ParseNode $n) => $o->setAudioConferencing($n->getObjectValue([AudioConferencing::class, 'createFromDiscriminatorValue'])),
             'chatInfo' => fn(ParseNode $n) => $o->setChatInfo($n->getObjectValue([ChatInfo::class, 'createFromDiscriminatorValue'])),
@@ -220,7 +220,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'joinWebUrl' => fn(ParseNode $n) => $o->setJoinWebUrl($n->getStringValue()),
             'lobbyBypassSettings' => fn(ParseNode $n) => $o->setLobbyBypassSettings($n->getObjectValue([LobbyBypassSettings::class, 'createFromDiscriminatorValue'])),
             'recordAutomatically' => fn(ParseNode $n) => $o->setRecordAutomatically($n->getBooleanValue()),
-            'shareMeetingChatHistoryDefault' => fn(ParseNode $n) => $o->setShareMeetingChatHistoryDefault($n->getEnumValue(MeetingChatHistoryDefaultMode::class)),
+            'shareMeetingChatHistoryDefault' => fn(ParseNode $n) => $o->setShareMeetingChatHistoryDefault($n->getEnumValue(OnlineMeetingBase_shareMeetingChatHistoryDefault::class)),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
             'videoTeleconferenceId' => fn(ParseNode $n) => $o->setVideoTeleconferenceId($n->getStringValue()),
             'watermarkProtection' => fn(ParseNode $n) => $o->setWatermarkProtection($n->getObjectValue([WatermarkProtectionValues::class, 'createFromDiscriminatorValue'])),
@@ -313,11 +313,11 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Gets the shareMeetingChatHistoryDefault property value. The shareMeetingChatHistoryDefault property
-     * @return MeetingChatHistoryDefaultMode|null
+     * @return OnlineMeetingBase_shareMeetingChatHistoryDefault|null
     */
-    public function getShareMeetingChatHistoryDefault(): ?MeetingChatHistoryDefaultMode {
+    public function getShareMeetingChatHistoryDefault(): ?OnlineMeetingBase_shareMeetingChatHistoryDefault {
         $val = $this->getBackingStore()->get('shareMeetingChatHistoryDefault');
-        if (is_null($val) || $val instanceof MeetingChatHistoryDefaultMode) {
+        if (is_null($val) || $val instanceof OnlineMeetingBase_shareMeetingChatHistoryDefault) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'shareMeetingChatHistoryDefault'");
@@ -409,17 +409,17 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
-     * @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
+     * @param OnlineMeetingBase_allowedPresenters|null $value Value to set for the allowedPresenters property.
     */
-    public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
+    public function setAllowedPresenters(?OnlineMeetingBase_allowedPresenters $value): void {
         $this->getBackingStore()->set('allowedPresenters', $value);
     }
 
     /**
      * Sets the allowMeetingChat property value. Specifies the mode of meeting chat.
-     * @param MeetingChatMode|null $value Value to set for the allowMeetingChat property.
+     * @param OnlineMeetingBase_allowMeetingChat|null $value Value to set for the allowMeetingChat property.
     */
-    public function setAllowMeetingChat(?MeetingChatMode $value): void {
+    public function setAllowMeetingChat(?OnlineMeetingBase_allowMeetingChat $value): void {
         $this->getBackingStore()->set('allowMeetingChat', $value);
     }
 
@@ -457,7 +457,7 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Sets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. Possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
-     * @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
+     * @param array<OnlineMeetingBase_anonymizeIdentityForRoles>|null $value Value to set for the anonymizeIdentityForRoles property.
     */
     public function setAnonymizeIdentityForRoles(?array $value): void {
         $this->getBackingStore()->set('anonymizeIdentityForRoles', $value);
@@ -553,9 +553,9 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Sets the shareMeetingChatHistoryDefault property value. The shareMeetingChatHistoryDefault property
-     * @param MeetingChatHistoryDefaultMode|null $value Value to set for the shareMeetingChatHistoryDefault property.
+     * @param OnlineMeetingBase_shareMeetingChatHistoryDefault|null $value Value to set for the shareMeetingChatHistoryDefault property.
     */
-    public function setShareMeetingChatHistoryDefault(?MeetingChatHistoryDefaultMode $value): void {
+    public function setShareMeetingChatHistoryDefault(?OnlineMeetingBase_shareMeetingChatHistoryDefault $value): void {
         $this->getBackingStore()->set('shareMeetingChatHistoryDefault', $value);
     }
 

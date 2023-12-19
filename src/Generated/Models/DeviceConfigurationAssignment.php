@@ -34,7 +34,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'intent' => fn(ParseNode $n) => $o->setIntent($n->getEnumValue(DeviceConfigAssignmentIntent::class)),
+            'intent' => fn(ParseNode $n) => $o->setIntent($n->getEnumValue(DeviceConfigurationAssignment_intent::class)),
             'source' => fn(ParseNode $n) => $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)),
             'sourceId' => fn(ParseNode $n) => $o->setSourceId($n->getStringValue()),
             'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
@@ -43,11 +43,11 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
 
     /**
      * Gets the intent property value. The admin intent to apply or remove the profile. Possible values are: apply, remove.
-     * @return DeviceConfigAssignmentIntent|null
+     * @return DeviceConfigurationAssignment_intent|null
     */
-    public function getIntent(): ?DeviceConfigAssignmentIntent {
+    public function getIntent(): ?DeviceConfigurationAssignment_intent {
         $val = $this->getBackingStore()->get('intent');
-        if (is_null($val) || $val instanceof DeviceConfigAssignmentIntent) {
+        if (is_null($val) || $val instanceof DeviceConfigurationAssignment_intent) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'intent'");
@@ -102,9 +102,9 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
 
     /**
      * Sets the intent property value. The admin intent to apply or remove the profile. Possible values are: apply, remove.
-     * @param DeviceConfigAssignmentIntent|null $value Value to set for the intent property.
+     * @param DeviceConfigurationAssignment_intent|null $value Value to set for the intent property.
     */
-    public function setIntent(?DeviceConfigAssignmentIntent $value): void {
+    public function setIntent(?DeviceConfigurationAssignment_intent $value): void {
         $this->getBackingStore()->set('intent', $value);
     }
 

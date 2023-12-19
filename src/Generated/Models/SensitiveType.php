@@ -26,11 +26,11 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Gets the classificationMethod property value. The classificationMethod property
-     * @return ClassificationMethod|null
+     * @return SensitiveType_classificationMethod|null
     */
-    public function getClassificationMethod(): ?ClassificationMethod {
+    public function getClassificationMethod(): ?SensitiveType_classificationMethod {
         $val = $this->getBackingStore()->get('classificationMethod');
-        if (is_null($val) || $val instanceof ClassificationMethod) {
+        if (is_null($val) || $val instanceof SensitiveType_classificationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'classificationMethod'");
@@ -55,14 +55,14 @@ class SensitiveType extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)),
+            'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(SensitiveType_classificationMethod::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
             'rulePackageId' => fn(ParseNode $n) => $o->setRulePackageId($n->getStringValue()),
             'rulePackageType' => fn(ParseNode $n) => $o->setRulePackageType($n->getStringValue()),
-            'scope' => fn(ParseNode $n) => $o->setScope($n->getEnumValue(SensitiveTypeScope::class)),
-            'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)),
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getEnumValue(SensitiveType_scope::class)),
+            'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(SensitiveType_sensitiveTypeSource::class)),
             'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
         ]);
     }
@@ -117,11 +117,11 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Gets the scope property value. The scope property
-     * @return SensitiveTypeScope|null
+     * @return SensitiveType_scope|null
     */
-    public function getScope(): ?SensitiveTypeScope {
+    public function getScope(): ?SensitiveType_scope {
         $val = $this->getBackingStore()->get('scope');
-        if (is_null($val) || $val instanceof SensitiveTypeScope) {
+        if (is_null($val) || $val instanceof SensitiveType_scope) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
@@ -129,11 +129,11 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Gets the sensitiveTypeSource property value. The sensitiveTypeSource property
-     * @return SensitiveTypeSource|null
+     * @return SensitiveType_sensitiveTypeSource|null
     */
-    public function getSensitiveTypeSource(): ?SensitiveTypeSource {
+    public function getSensitiveTypeSource(): ?SensitiveType_sensitiveTypeSource {
         $val = $this->getBackingStore()->get('sensitiveTypeSource');
-        if (is_null($val) || $val instanceof SensitiveTypeSource) {
+        if (is_null($val) || $val instanceof SensitiveType_sensitiveTypeSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeSource'");
@@ -170,9 +170,9 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the classificationMethod property value. The classificationMethod property
-     * @param ClassificationMethod|null $value Value to set for the classificationMethod property.
+     * @param SensitiveType_classificationMethod|null $value Value to set for the classificationMethod property.
     */
-    public function setClassificationMethod(?ClassificationMethod $value): void {
+    public function setClassificationMethod(?SensitiveType_classificationMethod $value): void {
         $this->getBackingStore()->set('classificationMethod', $value);
     }
 
@@ -218,17 +218,17 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the scope property value. The scope property
-     * @param SensitiveTypeScope|null $value Value to set for the scope property.
+     * @param SensitiveType_scope|null $value Value to set for the scope property.
     */
-    public function setScope(?SensitiveTypeScope $value): void {
+    public function setScope(?SensitiveType_scope $value): void {
         $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the sensitiveTypeSource property value. The sensitiveTypeSource property
-     * @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
+     * @param SensitiveType_sensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
     */
-    public function setSensitiveTypeSource(?SensitiveTypeSource $value): void {
+    public function setSensitiveTypeSource(?SensitiveType_sensitiveTypeSource $value): void {
         $this->getBackingStore()->set('sensitiveTypeSource', $value);
     }
 

@@ -78,7 +78,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
             'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
             'lastMembershipUpdated' => fn(ParseNode $n) => $o->setLastMembershipUpdated($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MembershipRuleProcessingStatusDetails::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MembershipRuleProcessingStatus_status::class)),
         ];
     }
 
@@ -108,11 +108,11 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the status property value. Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
-     * @return MembershipRuleProcessingStatusDetails|null
+     * @return MembershipRuleProcessingStatus_status|null
     */
-    public function getStatus(): ?MembershipRuleProcessingStatusDetails {
+    public function getStatus(): ?MembershipRuleProcessingStatus_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof MembershipRuleProcessingStatusDetails) {
+        if (is_null($val) || $val instanceof MembershipRuleProcessingStatus_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -172,9 +172,9 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the status property value. Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
-     * @param MembershipRuleProcessingStatusDetails|null $value Value to set for the status property.
+     * @param MembershipRuleProcessingStatus_status|null $value Value to set for the status property.
     */
-    public function setStatus(?MembershipRuleProcessingStatusDetails $value): void {
+    public function setStatus(?MembershipRuleProcessingStatus_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

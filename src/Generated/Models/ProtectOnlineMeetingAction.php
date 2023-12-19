@@ -27,11 +27,11 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Gets the allowedForwarders property value. The allowedForwarders property
-     * @return OnlineMeetingForwarders|null
+     * @return ProtectOnlineMeetingAction_allowedForwarders|null
     */
-    public function getAllowedForwarders(): ?OnlineMeetingForwarders {
+    public function getAllowedForwarders(): ?ProtectOnlineMeetingAction_allowedForwarders {
         $val = $this->getBackingStore()->get('allowedForwarders');
-        if (is_null($val) || $val instanceof OnlineMeetingForwarders) {
+        if (is_null($val) || $val instanceof ProtectOnlineMeetingAction_allowedForwarders) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedForwarders'");
@@ -39,11 +39,11 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Gets the allowedPresenters property value. The allowedPresenters property
-     * @return OnlineMeetingPresenters|null
+     * @return ProtectOnlineMeetingAction_allowedPresenters|null
     */
-    public function getAllowedPresenters(): ?OnlineMeetingPresenters {
+    public function getAllowedPresenters(): ?ProtectOnlineMeetingAction_allowedPresenters {
         $val = $this->getBackingStore()->get('allowedPresenters');
-        if (is_null($val) || $val instanceof OnlineMeetingPresenters) {
+        if (is_null($val) || $val instanceof ProtectOnlineMeetingAction_allowedPresenters) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedPresenters'");
@@ -56,8 +56,8 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedForwarders' => fn(ParseNode $n) => $o->setAllowedForwarders($n->getEnumValue(OnlineMeetingForwarders::class)),
-            'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
+            'allowedForwarders' => fn(ParseNode $n) => $o->setAllowedForwarders($n->getEnumValue(ProtectOnlineMeetingAction_allowedForwarders::class)),
+            'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(ProtectOnlineMeetingAction_allowedPresenters::class)),
             'isCopyToClipboardEnabled' => fn(ParseNode $n) => $o->setIsCopyToClipboardEnabled($n->getBooleanValue()),
             'isLobbyEnabled' => fn(ParseNode $n) => $o->setIsLobbyEnabled($n->getBooleanValue()),
             'lobbyBypassSettings' => fn(ParseNode $n) => $o->setLobbyBypassSettings($n->getObjectValue([LobbyBypassSettings::class, 'createFromDiscriminatorValue'])),
@@ -115,17 +115,17 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Sets the allowedForwarders property value. The allowedForwarders property
-     * @param OnlineMeetingForwarders|null $value Value to set for the allowedForwarders property.
+     * @param ProtectOnlineMeetingAction_allowedForwarders|null $value Value to set for the allowedForwarders property.
     */
-    public function setAllowedForwarders(?OnlineMeetingForwarders $value): void {
+    public function setAllowedForwarders(?ProtectOnlineMeetingAction_allowedForwarders $value): void {
         $this->getBackingStore()->set('allowedForwarders', $value);
     }
 
     /**
      * Sets the allowedPresenters property value. The allowedPresenters property
-     * @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
+     * @param ProtectOnlineMeetingAction_allowedPresenters|null $value Value to set for the allowedPresenters property.
     */
-    public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
+    public function setAllowedPresenters(?ProtectOnlineMeetingAction_allowedPresenters $value): void {
         $this->getBackingStore()->set('allowedPresenters', $value);
     }
 

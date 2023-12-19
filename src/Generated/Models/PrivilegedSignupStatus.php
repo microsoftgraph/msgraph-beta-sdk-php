@@ -32,7 +32,7 @@ class PrivilegedSignupStatus extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'isRegistered' => fn(ParseNode $n) => $o->setIsRegistered($n->getBooleanValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(SetupStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(PrivilegedSignupStatus_status::class)),
         ]);
     }
 
@@ -50,11 +50,11 @@ class PrivilegedSignupStatus extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status property
-     * @return SetupStatus|null
+     * @return PrivilegedSignupStatus_status|null
     */
-    public function getStatus(): ?SetupStatus {
+    public function getStatus(): ?PrivilegedSignupStatus_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof SetupStatus) {
+        if (is_null($val) || $val instanceof PrivilegedSignupStatus_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -80,9 +80,9 @@ class PrivilegedSignupStatus extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     * @param SetupStatus|null $value Value to set for the status property.
+     * @param PrivilegedSignupStatus_status|null $value Value to set for the status property.
     */
-    public function setStatus(?SetupStatus $value): void {
+    public function setStatus(?PrivilegedSignupStatus_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

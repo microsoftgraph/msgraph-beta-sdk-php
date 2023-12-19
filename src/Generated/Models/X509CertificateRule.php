@@ -66,9 +66,9 @@ class X509CertificateRule implements AdditionalDataHolder, BackedModel, Parsable
             'issuerSubjectIdentifier' => fn(ParseNode $n) => $o->setIssuerSubjectIdentifier($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyOidIdentifier' => fn(ParseNode $n) => $o->setPolicyOidIdentifier($n->getStringValue()),
-            'x509CertificateAuthenticationMode' => fn(ParseNode $n) => $o->setX509CertificateAuthenticationMode($n->getEnumValue(X509CertificateAuthenticationMode::class)),
-            'x509CertificateRequiredAffinityLevel' => fn(ParseNode $n) => $o->setX509CertificateRequiredAffinityLevel($n->getEnumValue(X509CertificateAffinityLevel::class)),
-            'x509CertificateRuleType' => fn(ParseNode $n) => $o->setX509CertificateRuleType($n->getEnumValue(X509CertificateRuleType::class)),
+            'x509CertificateAuthenticationMode' => fn(ParseNode $n) => $o->setX509CertificateAuthenticationMode($n->getEnumValue(X509CertificateRule_x509CertificateAuthenticationMode::class)),
+            'x509CertificateRequiredAffinityLevel' => fn(ParseNode $n) => $o->setX509CertificateRequiredAffinityLevel($n->getEnumValue(X509CertificateRule_x509CertificateRequiredAffinityLevel::class)),
+            'x509CertificateRuleType' => fn(ParseNode $n) => $o->setX509CertificateRuleType($n->getEnumValue(X509CertificateRule_x509CertificateRuleType::class)),
         ];
     }
 
@@ -122,11 +122,11 @@ class X509CertificateRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the x509CertificateAuthenticationMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
-     * @return X509CertificateAuthenticationMode|null
+     * @return X509CertificateRule_x509CertificateAuthenticationMode|null
     */
-    public function getX509CertificateAuthenticationMode(): ?X509CertificateAuthenticationMode {
+    public function getX509CertificateAuthenticationMode(): ?X509CertificateRule_x509CertificateAuthenticationMode {
         $val = $this->getBackingStore()->get('x509CertificateAuthenticationMode');
-        if (is_null($val) || $val instanceof X509CertificateAuthenticationMode) {
+        if (is_null($val) || $val instanceof X509CertificateRule_x509CertificateAuthenticationMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'x509CertificateAuthenticationMode'");
@@ -134,11 +134,11 @@ class X509CertificateRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the x509CertificateRequiredAffinityLevel property value. The possible values are: low, high, unknownFutureValue.
-     * @return X509CertificateAffinityLevel|null
+     * @return X509CertificateRule_x509CertificateRequiredAffinityLevel|null
     */
-    public function getX509CertificateRequiredAffinityLevel(): ?X509CertificateAffinityLevel {
+    public function getX509CertificateRequiredAffinityLevel(): ?X509CertificateRule_x509CertificateRequiredAffinityLevel {
         $val = $this->getBackingStore()->get('x509CertificateRequiredAffinityLevel');
-        if (is_null($val) || $val instanceof X509CertificateAffinityLevel) {
+        if (is_null($val) || $val instanceof X509CertificateRule_x509CertificateRequiredAffinityLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'x509CertificateRequiredAffinityLevel'");
@@ -146,11 +146,11 @@ class X509CertificateRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue, issuerSubjectAndPolicyOID. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: issuerSubjectAndPolicyOID. Required.
-     * @return X509CertificateRuleType|null
+     * @return X509CertificateRule_x509CertificateRuleType|null
     */
-    public function getX509CertificateRuleType(): ?X509CertificateRuleType {
+    public function getX509CertificateRuleType(): ?X509CertificateRule_x509CertificateRuleType {
         $val = $this->getBackingStore()->get('x509CertificateRuleType');
-        if (is_null($val) || $val instanceof X509CertificateRuleType) {
+        if (is_null($val) || $val instanceof X509CertificateRule_x509CertificateRuleType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'x509CertificateRuleType'");
@@ -221,25 +221,25 @@ class X509CertificateRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the x509CertificateAuthenticationMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
-     * @param X509CertificateAuthenticationMode|null $value Value to set for the x509CertificateAuthenticationMode property.
+     * @param X509CertificateRule_x509CertificateAuthenticationMode|null $value Value to set for the x509CertificateAuthenticationMode property.
     */
-    public function setX509CertificateAuthenticationMode(?X509CertificateAuthenticationMode $value): void {
+    public function setX509CertificateAuthenticationMode(?X509CertificateRule_x509CertificateAuthenticationMode $value): void {
         $this->getBackingStore()->set('x509CertificateAuthenticationMode', $value);
     }
 
     /**
      * Sets the x509CertificateRequiredAffinityLevel property value. The possible values are: low, high, unknownFutureValue.
-     * @param X509CertificateAffinityLevel|null $value Value to set for the x509CertificateRequiredAffinityLevel property.
+     * @param X509CertificateRule_x509CertificateRequiredAffinityLevel|null $value Value to set for the x509CertificateRequiredAffinityLevel property.
     */
-    public function setX509CertificateRequiredAffinityLevel(?X509CertificateAffinityLevel $value): void {
+    public function setX509CertificateRequiredAffinityLevel(?X509CertificateRule_x509CertificateRequiredAffinityLevel $value): void {
         $this->getBackingStore()->set('x509CertificateRequiredAffinityLevel', $value);
     }
 
     /**
      * Sets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue, issuerSubjectAndPolicyOID. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: issuerSubjectAndPolicyOID. Required.
-     * @param X509CertificateRuleType|null $value Value to set for the x509CertificateRuleType property.
+     * @param X509CertificateRule_x509CertificateRuleType|null $value Value to set for the x509CertificateRuleType property.
     */
-    public function setX509CertificateRuleType(?X509CertificateRuleType $value): void {
+    public function setX509CertificateRuleType(?X509CertificateRule_x509CertificateRuleType $value): void {
         $this->getBackingStore()->set('x509CertificateRuleType', $value);
     }
 

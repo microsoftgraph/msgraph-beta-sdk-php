@@ -65,11 +65,11 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the creationSourceKind property value. Specifies what kind of creation source the task is created with. The possible values are: external, publication and unknownFutureValue.
-     * @return PlannerCreationSourceKind|null
+     * @return PlannerTaskCreation_creationSourceKind|null
     */
-    public function getCreationSourceKind(): ?PlannerCreationSourceKind {
+    public function getCreationSourceKind(): ?PlannerTaskCreation_creationSourceKind {
         $val = $this->getBackingStore()->get('creationSourceKind');
-        if (is_null($val) || $val instanceof PlannerCreationSourceKind) {
+        if (is_null($val) || $val instanceof PlannerTaskCreation_creationSourceKind) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'creationSourceKind'");
@@ -82,7 +82,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'creationSourceKind' => fn(ParseNode $n) => $o->setCreationSourceKind($n->getEnumValue(PlannerCreationSourceKind::class)),
+            'creationSourceKind' => fn(ParseNode $n) => $o->setCreationSourceKind($n->getEnumValue(PlannerTaskCreation_creationSourceKind::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'teamsPublicationInfo' => fn(ParseNode $n) => $o->setTeamsPublicationInfo($n->getObjectValue([PlannerTeamsPublicationInfo::class, 'createFromDiscriminatorValue'])),
         ];
@@ -141,9 +141,9 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the creationSourceKind property value. Specifies what kind of creation source the task is created with. The possible values are: external, publication and unknownFutureValue.
-     * @param PlannerCreationSourceKind|null $value Value to set for the creationSourceKind property.
+     * @param PlannerTaskCreation_creationSourceKind|null $value Value to set for the creationSourceKind property.
     */
-    public function setCreationSourceKind(?PlannerCreationSourceKind $value): void {
+    public function setCreationSourceKind(?PlannerTaskCreation_creationSourceKind $value): void {
         $this->getBackingStore()->set('creationSourceKind', $value);
     }
 

@@ -89,7 +89,7 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
             'availableVersion' => fn(ParseNode $n) => $o->setAvailableVersion($n->getStringValue()),
             'currentVersion' => fn(ParseNode $n) => $o->setCurrentVersion($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'softwareFreshness' => fn(ParseNode $n) => $o->setSoftwareFreshness($n->getEnumValue(TeamworkSoftwareFreshness::class)),
+            'softwareFreshness' => fn(ParseNode $n) => $o->setSoftwareFreshness($n->getEnumValue(TeamworkSoftwareUpdateStatus_softwareFreshness::class)),
         ];
     }
 
@@ -107,11 +107,11 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the softwareFreshness property value. The update status of the software. The possible values are: unknown, latest, updateAvailable, unknownFutureValue.
-     * @return TeamworkSoftwareFreshness|null
+     * @return TeamworkSoftwareUpdateStatus_softwareFreshness|null
     */
-    public function getSoftwareFreshness(): ?TeamworkSoftwareFreshness {
+    public function getSoftwareFreshness(): ?TeamworkSoftwareUpdateStatus_softwareFreshness {
         $val = $this->getBackingStore()->get('softwareFreshness');
-        if (is_null($val) || $val instanceof TeamworkSoftwareFreshness) {
+        if (is_null($val) || $val instanceof TeamworkSoftwareUpdateStatus_softwareFreshness) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'softwareFreshness'");
@@ -171,9 +171,9 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the softwareFreshness property value. The update status of the software. The possible values are: unknown, latest, updateAvailable, unknownFutureValue.
-     * @param TeamworkSoftwareFreshness|null $value Value to set for the softwareFreshness property.
+     * @param TeamworkSoftwareUpdateStatus_softwareFreshness|null $value Value to set for the softwareFreshness property.
     */
-    public function setSoftwareFreshness(?TeamworkSoftwareFreshness $value): void {
+    public function setSoftwareFreshness(?TeamworkSoftwareUpdateStatus_softwareFreshness $value): void {
         $this->getBackingStore()->set('softwareFreshness', $value);
     }
 

@@ -91,7 +91,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
             'identitySynchronizationConfiguration' => fn(ParseNode $n) => $o->setIdentitySynchronizationConfiguration($n->getObjectValue([EducationIdentitySynchronizationConfiguration::class, 'createFromDiscriminatorValue'])),
             'licensesToAssign' => fn(ParseNode $n) => $o->setLicensesToAssign($n->getCollectionOfObjectValues([EducationSynchronizationLicenseAssignment::class, 'createFromDiscriminatorValue'])),
             'profileStatus' => fn(ParseNode $n) => $o->setProfileStatus($n->getObjectValue([EducationSynchronizationProfileStatus::class, 'createFromDiscriminatorValue'])),
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(EducationSynchronizationProfileState::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(EducationSynchronizationProfile_state::class)),
         ]);
     }
 
@@ -147,11 +147,11 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Gets the state property value. The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
-     * @return EducationSynchronizationProfileState|null
+     * @return EducationSynchronizationProfile_state|null
     */
-    public function getState(): ?EducationSynchronizationProfileState {
+    public function getState(): ?EducationSynchronizationProfile_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof EducationSynchronizationProfileState) {
+        if (is_null($val) || $val instanceof EducationSynchronizationProfile_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -240,9 +240,9 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
-     * @param EducationSynchronizationProfileState|null $value Value to set for the state property.
+     * @param EducationSynchronizationProfile_state|null $value Value to set for the state property.
     */
-    public function setState(?EducationSynchronizationProfileState $value): void {
+    public function setState(?EducationSynchronizationProfile_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

@@ -27,11 +27,11 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Gets the activity property value. Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
-     * @return ActivityType|null
+     * @return RiskDetection_activity|null
     */
-    public function getActivity(): ?ActivityType {
+    public function getActivity(): ?RiskDetection_activity {
         $val = $this->getBackingStore()->get('activity');
-        if (is_null($val) || $val instanceof ActivityType) {
+        if (is_null($val) || $val instanceof RiskDetection_activity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
@@ -87,11 +87,11 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Gets the detectionTimingType property value. Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue.
-     * @return RiskDetectionTimingType|null
+     * @return RiskDetection_detectionTimingType|null
     */
-    public function getDetectionTimingType(): ?RiskDetectionTimingType {
+    public function getDetectionTimingType(): ?RiskDetection_detectionTimingType {
         $val = $this->getBackingStore()->get('detectionTimingType');
-        if (is_null($val) || $val instanceof RiskDetectionTimingType) {
+        if (is_null($val) || $val instanceof RiskDetection_detectionTimingType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionTimingType'");
@@ -104,24 +104,24 @@ class RiskDetection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(ActivityType::class)),
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(RiskDetection_activity::class)),
             'activityDateTime' => fn(ParseNode $n) => $o->setActivityDateTime($n->getDateTimeValue()),
             'additionalInfo' => fn(ParseNode $n) => $o->setAdditionalInfo($n->getStringValue()),
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'detectedDateTime' => fn(ParseNode $n) => $o->setDetectedDateTime($n->getDateTimeValue()),
-            'detectionTimingType' => fn(ParseNode $n) => $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)),
+            'detectionTimingType' => fn(ParseNode $n) => $o->setDetectionTimingType($n->getEnumValue(RiskDetection_detectionTimingType::class)),
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([SignInLocation::class, 'createFromDiscriminatorValue'])),
             'mitreTechniqueId' => fn(ParseNode $n) => $o->setMitreTechniqueId($n->getStringValue()),
             'requestId' => fn(ParseNode $n) => $o->setRequestId($n->getStringValue()),
-            'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
+            'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetection_riskDetail::class)),
             'riskEventType' => fn(ParseNode $n) => $o->setRiskEventType($n->getStringValue()),
-            'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
-            'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
-            'riskType' => fn(ParseNode $n) => $o->setRiskType($n->getEnumValue(RiskEventType::class)),
+            'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskDetection_riskLevel::class)),
+            'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskDetection_riskState::class)),
+            'riskType' => fn(ParseNode $n) => $o->setRiskType($n->getEnumValue(RiskDetection_riskType::class)),
             'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
-            'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)),
+            'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(RiskDetection_tokenIssuerType::class)),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -190,11 +190,11 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Gets the riskDetail property value. Details of the detected risk. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection. Note that you must use the Prefer: include - unknown -enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal , m365DAdminDismissedDetection. Note: Details for this property are only available for Microsoft Entra ID P2 customers. P1 customers will be returned hidden.
-     * @return RiskDetail|null
+     * @return RiskDetection_riskDetail|null
     */
-    public function getRiskDetail(): ?RiskDetail {
+    public function getRiskDetail(): ?RiskDetection_riskDetail {
         $val = $this->getBackingStore()->get('riskDetail');
-        if (is_null($val) || $val instanceof RiskDetail) {
+        if (is_null($val) || $val instanceof RiskDetection_riskDetail) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskDetail'");
@@ -214,11 +214,11 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Gets the riskLevel property value. Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Microsoft Entra ID P2 customers. P1 customers will be returned hidden.
-     * @return RiskLevel|null
+     * @return RiskDetection_riskLevel|null
     */
-    public function getRiskLevel(): ?RiskLevel {
+    public function getRiskLevel(): ?RiskDetection_riskLevel {
         $val = $this->getBackingStore()->get('riskLevel');
-        if (is_null($val) || $val instanceof RiskLevel) {
+        if (is_null($val) || $val instanceof RiskDetection_riskLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskLevel'");
@@ -226,11 +226,11 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Gets the riskState property value. The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.
-     * @return RiskState|null
+     * @return RiskDetection_riskState|null
     */
-    public function getRiskState(): ?RiskState {
+    public function getRiskState(): ?RiskDetection_riskState {
         $val = $this->getBackingStore()->get('riskState');
-        if (is_null($val) || $val instanceof RiskState) {
+        if (is_null($val) || $val instanceof RiskDetection_riskState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskState'");
@@ -238,11 +238,11 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Gets the riskType property value. The riskType property
-     * @return RiskEventType|null
+     * @return RiskDetection_riskType|null
     */
-    public function getRiskType(): ?RiskEventType {
+    public function getRiskType(): ?RiskDetection_riskType {
         $val = $this->getBackingStore()->get('riskType');
-        if (is_null($val) || $val instanceof RiskEventType) {
+        if (is_null($val) || $val instanceof RiskDetection_riskType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskType'");
@@ -262,11 +262,11 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Gets the tokenIssuerType property value. Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue.
-     * @return TokenIssuerType|null
+     * @return RiskDetection_tokenIssuerType|null
     */
-    public function getTokenIssuerType(): ?TokenIssuerType {
+    public function getTokenIssuerType(): ?RiskDetection_tokenIssuerType {
         $val = $this->getBackingStore()->get('tokenIssuerType');
-        if (is_null($val) || $val instanceof TokenIssuerType) {
+        if (is_null($val) || $val instanceof RiskDetection_tokenIssuerType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenIssuerType'");
@@ -339,9 +339,9 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Sets the activity property value. Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
-     * @param ActivityType|null $value Value to set for the activity property.
+     * @param RiskDetection_activity|null $value Value to set for the activity property.
     */
-    public function setActivity(?ActivityType $value): void {
+    public function setActivity(?RiskDetection_activity $value): void {
         $this->getBackingStore()->set('activity', $value);
     }
 
@@ -379,9 +379,9 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Sets the detectionTimingType property value. Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue.
-     * @param RiskDetectionTimingType|null $value Value to set for the detectionTimingType property.
+     * @param RiskDetection_detectionTimingType|null $value Value to set for the detectionTimingType property.
     */
-    public function setDetectionTimingType(?RiskDetectionTimingType $value): void {
+    public function setDetectionTimingType(?RiskDetection_detectionTimingType $value): void {
         $this->getBackingStore()->set('detectionTimingType', $value);
     }
 
@@ -427,9 +427,9 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Sets the riskDetail property value. Details of the detected risk. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection. Note that you must use the Prefer: include - unknown -enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal , m365DAdminDismissedDetection. Note: Details for this property are only available for Microsoft Entra ID P2 customers. P1 customers will be returned hidden.
-     * @param RiskDetail|null $value Value to set for the riskDetail property.
+     * @param RiskDetection_riskDetail|null $value Value to set for the riskDetail property.
     */
-    public function setRiskDetail(?RiskDetail $value): void {
+    public function setRiskDetail(?RiskDetection_riskDetail $value): void {
         $this->getBackingStore()->set('riskDetail', $value);
     }
 
@@ -443,25 +443,25 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Sets the riskLevel property value. Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Microsoft Entra ID P2 customers. P1 customers will be returned hidden.
-     * @param RiskLevel|null $value Value to set for the riskLevel property.
+     * @param RiskDetection_riskLevel|null $value Value to set for the riskLevel property.
     */
-    public function setRiskLevel(?RiskLevel $value): void {
+    public function setRiskLevel(?RiskDetection_riskLevel $value): void {
         $this->getBackingStore()->set('riskLevel', $value);
     }
 
     /**
      * Sets the riskState property value. The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.
-     * @param RiskState|null $value Value to set for the riskState property.
+     * @param RiskDetection_riskState|null $value Value to set for the riskState property.
     */
-    public function setRiskState(?RiskState $value): void {
+    public function setRiskState(?RiskDetection_riskState $value): void {
         $this->getBackingStore()->set('riskState', $value);
     }
 
     /**
      * Sets the riskType property value. The riskType property
-     * @param RiskEventType|null $value Value to set for the riskType property.
+     * @param RiskDetection_riskType|null $value Value to set for the riskType property.
     */
-    public function setRiskType(?RiskEventType $value): void {
+    public function setRiskType(?RiskDetection_riskType $value): void {
         $this->getBackingStore()->set('riskType', $value);
     }
 
@@ -475,9 +475,9 @@ class RiskDetection extends Entity implements Parsable
 
     /**
      * Sets the tokenIssuerType property value. Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue.
-     * @param TokenIssuerType|null $value Value to set for the tokenIssuerType property.
+     * @param RiskDetection_tokenIssuerType|null $value Value to set for the tokenIssuerType property.
     */
-    public function setTokenIssuerType(?TokenIssuerType $value): void {
+    public function setTokenIssuerType(?RiskDetection_tokenIssuerType $value): void {
         $this->getBackingStore()->set('tokenIssuerType', $value);
     }
 

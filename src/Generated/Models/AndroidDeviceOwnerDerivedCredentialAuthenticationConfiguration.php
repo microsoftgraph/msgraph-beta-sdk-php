@@ -31,11 +31,11 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
 
     /**
      * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     * @return AndroidDeviceOwnerCertificateAccessType|null
+     * @return AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration_certificateAccessType|null
     */
-    public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
+    public function getCertificateAccessType(): ?AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration_certificateAccessType {
         $val = $this->getBackingStore()->get('certificateAccessType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerCertificateAccessType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration_certificateAccessType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateAccessType'");
@@ -60,7 +60,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateAccessType' => fn(ParseNode $n) => $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerCertificateAccessType::class)),
+            'certificateAccessType' => fn(ParseNode $n) => $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration_certificateAccessType::class)),
             'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
             'silentCertificateAccessDetails' => fn(ParseNode $n) => $o->setSilentCertificateAccessDetails($n->getCollectionOfObjectValues([AndroidDeviceOwnerSilentCertificateAccess::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -93,9 +93,9 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
 
     /**
      * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     * @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+     * @param AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration_certificateAccessType|null $value Value to set for the certificateAccessType property.
     */
-    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
+    public function setCertificateAccessType(?AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration_certificateAccessType $value): void {
         $this->getBackingStore()->set('certificateAccessType', $value);
     }
 

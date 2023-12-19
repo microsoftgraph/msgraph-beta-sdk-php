@@ -128,7 +128,7 @@ class SecurityAction extends Entity implements Parsable
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'states' => fn(ParseNode $n) => $o->setStates($n->getCollectionOfObjectValues([SecurityActionState::class, 'createFromDiscriminatorValue'])),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(OperationStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(SecurityAction_status::class)),
             'user' => fn(ParseNode $n) => $o->setUser($n->getStringValue()),
             'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -188,11 +188,11 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Gets the status property value. Status of the action. Possible values are: NotStarted, Running, Completed, Failed.
-     * @return OperationStatus|null
+     * @return SecurityAction_status|null
     */
-    public function getStatus(): ?OperationStatus {
+    public function getStatus(): ?SecurityAction_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof OperationStatus) {
+        if (is_null($val) || $val instanceof SecurityAction_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -334,9 +334,9 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the status property value. Status of the action. Possible values are: NotStarted, Running, Completed, Failed.
-     * @param OperationStatus|null $value Value to set for the status property.
+     * @param SecurityAction_status|null $value Value to set for the status property.
     */
-    public function setStatus(?OperationStatus $value): void {
+    public function setStatus(?SecurityAction_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

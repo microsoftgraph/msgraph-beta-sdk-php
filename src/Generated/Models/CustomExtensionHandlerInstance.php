@@ -89,8 +89,8 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
             'customExtensionId' => fn(ParseNode $n) => $o->setCustomExtensionId($n->getStringValue()),
             'externalCorrelationId' => fn(ParseNode $n) => $o->setExternalCorrelationId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'stage' => fn(ParseNode $n) => $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AccessPackageCustomExtensionHandlerStatus::class)),
+            'stage' => fn(ParseNode $n) => $o->setStage($n->getEnumValue(CustomExtensionHandlerInstance_stage::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CustomExtensionHandlerInstance_status::class)),
         ];
     }
 
@@ -108,11 +108,11 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the stage property value. Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-     * @return AccessPackageCustomExtensionStage|null
+     * @return CustomExtensionHandlerInstance_stage|null
     */
-    public function getStage(): ?AccessPackageCustomExtensionStage {
+    public function getStage(): ?CustomExtensionHandlerInstance_stage {
         $val = $this->getBackingStore()->get('stage');
-        if (is_null($val) || $val instanceof AccessPackageCustomExtensionStage) {
+        if (is_null($val) || $val instanceof CustomExtensionHandlerInstance_stage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'stage'");
@@ -120,11 +120,11 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the status property value. Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue.
-     * @return AccessPackageCustomExtensionHandlerStatus|null
+     * @return CustomExtensionHandlerInstance_status|null
     */
-    public function getStatus(): ?AccessPackageCustomExtensionHandlerStatus {
+    public function getStatus(): ?CustomExtensionHandlerInstance_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof AccessPackageCustomExtensionHandlerStatus) {
+        if (is_null($val) || $val instanceof CustomExtensionHandlerInstance_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -185,17 +185,17 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the stage property value. Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-     * @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
+     * @param CustomExtensionHandlerInstance_stage|null $value Value to set for the stage property.
     */
-    public function setStage(?AccessPackageCustomExtensionStage $value): void {
+    public function setStage(?CustomExtensionHandlerInstance_stage $value): void {
         $this->getBackingStore()->set('stage', $value);
     }
 
     /**
      * Sets the status property value. Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue.
-     * @param AccessPackageCustomExtensionHandlerStatus|null $value Value to set for the status property.
+     * @param CustomExtensionHandlerInstance_status|null $value Value to set for the status property.
     */
-    public function setStatus(?AccessPackageCustomExtensionHandlerStatus $value): void {
+    public function setStatus(?CustomExtensionHandlerInstance_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

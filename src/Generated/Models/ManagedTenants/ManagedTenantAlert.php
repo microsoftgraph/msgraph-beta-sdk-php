@@ -201,8 +201,8 @@ class ManagedTenantAlert extends Entity implements Parsable
             'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
-            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AlertStatus::class)),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(ManagedTenantAlert_severity::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ManagedTenantAlert_status::class)),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
@@ -246,11 +246,11 @@ class ManagedTenantAlert extends Entity implements Parsable
 
     /**
      * Gets the severity property value. The severity property
-     * @return AlertSeverity|null
+     * @return ManagedTenantAlert_severity|null
     */
-    public function getSeverity(): ?AlertSeverity {
+    public function getSeverity(): ?ManagedTenantAlert_severity {
         $val = $this->getBackingStore()->get('severity');
-        if (is_null($val) || $val instanceof AlertSeverity) {
+        if (is_null($val) || $val instanceof ManagedTenantAlert_severity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
@@ -258,11 +258,11 @@ class ManagedTenantAlert extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status property
-     * @return AlertStatus|null
+     * @return ManagedTenantAlert_status|null
     */
-    public function getStatus(): ?AlertStatus {
+    public function getStatus(): ?ManagedTenantAlert_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof AlertStatus) {
+        if (is_null($val) || $val instanceof ManagedTenantAlert_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -441,17 +441,17 @@ class ManagedTenantAlert extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity property
-     * @param AlertSeverity|null $value Value to set for the severity property.
+     * @param ManagedTenantAlert_severity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?AlertSeverity $value): void {
+    public function setSeverity(?ManagedTenantAlert_severity $value): void {
         $this->getBackingStore()->set('severity', $value);
     }
 
     /**
      * Sets the status property value. The status property
-     * @param AlertStatus|null $value Value to set for the status property.
+     * @param ManagedTenantAlert_status|null $value Value to set for the status property.
     */
-    public function setStatus(?AlertStatus $value): void {
+    public function setStatus(?ManagedTenantAlert_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

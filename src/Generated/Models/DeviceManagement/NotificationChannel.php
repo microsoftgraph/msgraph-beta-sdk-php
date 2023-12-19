@@ -63,7 +63,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'notificationChannelType' => fn(ParseNode $n) => $o->setNotificationChannelType($n->getEnumValue(NotificationChannelType::class)),
+            'notificationChannelType' => fn(ParseNode $n) => $o->setNotificationChannelType($n->getEnumValue(NotificationChannel_notificationChannelType::class)),
             'notificationReceivers' => fn(ParseNode $n) => $o->setNotificationReceivers($n->getCollectionOfObjectValues([NotificationReceiver::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -71,11 +71,11 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the notificationChannelType property value. The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
-     * @return NotificationChannelType|null
+     * @return NotificationChannel_notificationChannelType|null
     */
-    public function getNotificationChannelType(): ?NotificationChannelType {
+    public function getNotificationChannelType(): ?NotificationChannel_notificationChannelType {
         $val = $this->getBackingStore()->get('notificationChannelType');
-        if (is_null($val) || $val instanceof NotificationChannelType) {
+        if (is_null($val) || $val instanceof NotificationChannel_notificationChannelType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationChannelType'");
@@ -136,9 +136,9 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the notificationChannelType property value. The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
-     * @param NotificationChannelType|null $value Value to set for the notificationChannelType property.
+     * @param NotificationChannel_notificationChannelType|null $value Value to set for the notificationChannelType property.
     */
-    public function setNotificationChannelType(?NotificationChannelType $value): void {
+    public function setNotificationChannelType(?NotificationChannel_notificationChannelType $value): void {
         $this->getBackingStore()->set('notificationChannelType', $value);
     }
 

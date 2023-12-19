@@ -57,11 +57,11 @@ class SafeguardProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the category property value. Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue.
-     * @return SafeguardCategory|null
+     * @return SafeguardProfile_category|null
     */
-    public function getCategory(): ?SafeguardCategory {
+    public function getCategory(): ?SafeguardProfile_category {
         $val = $this->getBackingStore()->get('category');
-        if (is_null($val) || $val instanceof SafeguardCategory) {
+        if (is_null($val) || $val instanceof SafeguardProfile_category) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
@@ -74,7 +74,7 @@ class SafeguardProfile implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SafeguardCategory::class)),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SafeguardProfile_category::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -119,9 +119,9 @@ class SafeguardProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the category property value. Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue.
-     * @param SafeguardCategory|null $value Value to set for the category property.
+     * @param SafeguardProfile_category|null $value Value to set for the category property.
     */
-    public function setCategory(?SafeguardCategory $value): void {
+    public function setCategory(?SafeguardProfile_category $value): void {
         $this->getBackingStore()->set('category', $value);
     }
 

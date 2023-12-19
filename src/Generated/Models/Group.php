@@ -43,11 +43,11 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Gets the accessType property value. The accessType property
-     * @return GroupAccessType|null
+     * @return Group_accessType|null
     */
-    public function getAccessType(): ?GroupAccessType {
+    public function getAccessType(): ?Group_accessType {
         $val = $this->getBackingStore()->get('accessType');
-        if (is_null($val) || $val instanceof GroupAccessType) {
+        if (is_null($val) || $val instanceof Group_accessType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'accessType'");
@@ -319,7 +319,7 @@ class Group extends DirectoryObject implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'acceptedSenders' => fn(ParseNode $n) => $o->setAcceptedSenders($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
-            'accessType' => fn(ParseNode $n) => $o->setAccessType($n->getEnumValue(GroupAccessType::class)),
+            'accessType' => fn(ParseNode $n) => $o->setAccessType($n->getEnumValue(Group_accessType::class)),
             'allowExternalSenders' => fn(ParseNode $n) => $o->setAllowExternalSenders($n->getBooleanValue()),
             'appRoleAssignments' => fn(ParseNode $n) => $o->setAppRoleAssignments($n->getCollectionOfObjectValues([AppRoleAssignment::class, 'createFromDiscriminatorValue'])),
             'assignedLabels' => fn(ParseNode $n) => $o->setAssignedLabels($n->getCollectionOfObjectValues([AssignedLabel::class, 'createFromDiscriminatorValue'])),
@@ -1270,9 +1270,9 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the accessType property value. The accessType property
-     * @param GroupAccessType|null $value Value to set for the accessType property.
+     * @param Group_accessType|null $value Value to set for the accessType property.
     */
-    public function setAccessType(?GroupAccessType $value): void {
+    public function setAccessType(?Group_accessType $value): void {
         $this->getBackingStore()->set('accessType', $value);
     }
 

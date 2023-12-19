@@ -33,9 +33,9 @@ class ReferenceAttachment extends Attachment implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'isFolder' => fn(ParseNode $n) => $o->setIsFolder($n->getBooleanValue()),
-            'permission' => fn(ParseNode $n) => $o->setPermission($n->getEnumValue(ReferenceAttachmentPermission::class)),
+            'permission' => fn(ParseNode $n) => $o->setPermission($n->getEnumValue(ReferenceAttachment_permission::class)),
             'previewUrl' => fn(ParseNode $n) => $o->setPreviewUrl($n->getStringValue()),
-            'providerType' => fn(ParseNode $n) => $o->setProviderType($n->getEnumValue(ReferenceAttachmentProvider::class)),
+            'providerType' => fn(ParseNode $n) => $o->setProviderType($n->getEnumValue(ReferenceAttachment_providerType::class)),
             'sourceUrl' => fn(ParseNode $n) => $o->setSourceUrl($n->getStringValue()),
             'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
         ]);
@@ -55,11 +55,11 @@ class ReferenceAttachment extends Attachment implements Parsable
 
     /**
      * Gets the permission property value. Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
-     * @return ReferenceAttachmentPermission|null
+     * @return ReferenceAttachment_permission|null
     */
-    public function getPermission(): ?ReferenceAttachmentPermission {
+    public function getPermission(): ?ReferenceAttachment_permission {
         $val = $this->getBackingStore()->get('permission');
-        if (is_null($val) || $val instanceof ReferenceAttachmentPermission) {
+        if (is_null($val) || $val instanceof ReferenceAttachment_permission) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'permission'");
@@ -79,11 +79,11 @@ class ReferenceAttachment extends Attachment implements Parsable
 
     /**
      * Gets the providerType property value. The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
-     * @return ReferenceAttachmentProvider|null
+     * @return ReferenceAttachment_providerType|null
     */
-    public function getProviderType(): ?ReferenceAttachmentProvider {
+    public function getProviderType(): ?ReferenceAttachment_providerType {
         $val = $this->getBackingStore()->get('providerType');
-        if (is_null($val) || $val instanceof ReferenceAttachmentProvider) {
+        if (is_null($val) || $val instanceof ReferenceAttachment_providerType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'providerType'");
@@ -137,9 +137,9 @@ class ReferenceAttachment extends Attachment implements Parsable
 
     /**
      * Sets the permission property value. Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
-     * @param ReferenceAttachmentPermission|null $value Value to set for the permission property.
+     * @param ReferenceAttachment_permission|null $value Value to set for the permission property.
     */
-    public function setPermission(?ReferenceAttachmentPermission $value): void {
+    public function setPermission(?ReferenceAttachment_permission $value): void {
         $this->getBackingStore()->set('permission', $value);
     }
 
@@ -153,9 +153,9 @@ class ReferenceAttachment extends Attachment implements Parsable
 
     /**
      * Sets the providerType property value. The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
-     * @param ReferenceAttachmentProvider|null $value Value to set for the providerType property.
+     * @param ReferenceAttachment_providerType|null $value Value to set for the providerType property.
     */
-    public function setProviderType(?ReferenceAttachmentProvider $value): void {
+    public function setProviderType(?ReferenceAttachment_providerType $value): void {
         $this->getBackingStore()->set('providerType', $value);
     }
 

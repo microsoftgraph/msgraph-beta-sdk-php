@@ -92,7 +92,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
             'customUpdateTimeWindows' => fn(ParseNode $n) => $o->setCustomUpdateTimeWindows($n->getCollectionOfObjectValues([CustomUpdateTimeWindow::class, 'createFromDiscriminatorValue'])),
             'firmwareUpdateBehavior' => fn(ParseNode $n) => $o->setFirmwareUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
             'maxUserDeferralsCount' => fn(ParseNode $n) => $o->setMaxUserDeferralsCount($n->getIntegerValue()),
-            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(MacOSPriority::class)),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(MacOSSoftwareUpdateConfiguration_priority::class)),
             'updateScheduleType' => fn(ParseNode $n) => $o->setUpdateScheduleType($n->getEnumValue(MacOSSoftwareUpdateScheduleType::class)),
             'updateTimeWindowUtcOffsetInMinutes' => fn(ParseNode $n) => $o->setUpdateTimeWindowUtcOffsetInMinutes($n->getIntegerValue()),
         ]);
@@ -124,11 +124,11 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Gets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
-     * @return MacOSPriority|null
+     * @return MacOSSoftwareUpdateConfiguration_priority|null
     */
-    public function getPriority(): ?MacOSPriority {
+    public function getPriority(): ?MacOSSoftwareUpdateConfiguration_priority {
         $val = $this->getBackingStore()->get('priority');
-        if (is_null($val) || $val instanceof MacOSPriority) {
+        if (is_null($val) || $val instanceof MacOSSoftwareUpdateConfiguration_priority) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
@@ -225,9 +225,9 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
-     * @param MacOSPriority|null $value Value to set for the priority property.
+     * @param MacOSSoftwareUpdateConfiguration_priority|null $value Value to set for the priority property.
     */
-    public function setPriority(?MacOSPriority $value): void {
+    public function setPriority(?MacOSSoftwareUpdateConfiguration_priority $value): void {
         $this->getBackingStore()->set('priority', $value);
     }
 

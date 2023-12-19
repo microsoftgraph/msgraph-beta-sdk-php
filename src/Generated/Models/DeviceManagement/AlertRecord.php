@@ -52,11 +52,11 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Gets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue, cloudPcInGracePeriodScenario. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: cloudPcInGracePeriodScenario.
-     * @return AlertRuleTemplate|null
+     * @return AlertRecord_alertRuleTemplate|null
     */
-    public function getAlertRuleTemplate(): ?AlertRuleTemplate {
+    public function getAlertRuleTemplate(): ?AlertRecord_alertRuleTemplate {
         $val = $this->getBackingStore()->get('alertRuleTemplate');
-        if (is_null($val) || $val instanceof AlertRuleTemplate) {
+        if (is_null($val) || $val instanceof AlertRecord_alertRuleTemplate) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRuleTemplate'");
@@ -95,13 +95,13 @@ class AlertRecord extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'alertImpact' => fn(ParseNode $n) => $o->setAlertImpact($n->getObjectValue([AlertImpact::class, 'createFromDiscriminatorValue'])),
             'alertRuleId' => fn(ParseNode $n) => $o->setAlertRuleId($n->getStringValue()),
-            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)),
+            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRecord_alertRuleTemplate::class)),
             'detectedDateTime' => fn(ParseNode $n) => $o->setDetectedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'resolvedDateTime' => fn(ParseNode $n) => $o->setResolvedDateTime($n->getDateTimeValue()),
-            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(RuleSeverityType::class)),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AlertStatusType::class)),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertRecord_severity::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AlertRecord_status::class)),
         ]);
     }
 
@@ -131,11 +131,11 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Gets the severity property value. The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     * @return RuleSeverityType|null
+     * @return AlertRecord_severity|null
     */
-    public function getSeverity(): ?RuleSeverityType {
+    public function getSeverity(): ?AlertRecord_severity {
         $val = $this->getBackingStore()->get('severity');
-        if (is_null($val) || $val instanceof RuleSeverityType) {
+        if (is_null($val) || $val instanceof AlertRecord_severity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
@@ -143,11 +143,11 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
-     * @return AlertStatusType|null
+     * @return AlertRecord_status|null
     */
-    public function getStatus(): ?AlertStatusType {
+    public function getStatus(): ?AlertRecord_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof AlertStatusType) {
+        if (is_null($val) || $val instanceof AlertRecord_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -188,9 +188,9 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue, cloudPcInGracePeriodScenario. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: cloudPcInGracePeriodScenario.
-     * @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
+     * @param AlertRecord_alertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
-    public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
+    public function setAlertRuleTemplate(?AlertRecord_alertRuleTemplate $value): void {
         $this->getBackingStore()->set('alertRuleTemplate', $value);
     }
 
@@ -228,17 +228,17 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     * @param RuleSeverityType|null $value Value to set for the severity property.
+     * @param AlertRecord_severity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?RuleSeverityType $value): void {
+    public function setSeverity(?AlertRecord_severity $value): void {
         $this->getBackingStore()->set('severity', $value);
     }
 
     /**
      * Sets the status property value. The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
-     * @param AlertStatusType|null $value Value to set for the status property.
+     * @param AlertRecord_status|null $value Value to set for the status property.
     */
-    public function setStatus(?AlertStatusType $value): void {
+    public function setStatus(?AlertRecord_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

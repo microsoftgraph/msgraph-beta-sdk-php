@@ -30,11 +30,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Gets the advancedBitLockerStates property value. Advanced BitLocker State. Possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.
-     * @return AdvancedBitLockerState|null
+     * @return ManagedDeviceEncryptionState_advancedBitLockerStates|null
     */
-    public function getAdvancedBitLockerStates(): ?AdvancedBitLockerState {
+    public function getAdvancedBitLockerStates(): ?ManagedDeviceEncryptionState_advancedBitLockerStates {
         $val = $this->getBackingStore()->get('advancedBitLockerStates');
-        if (is_null($val) || $val instanceof AdvancedBitLockerState) {
+        if (is_null($val) || $val instanceof ManagedDeviceEncryptionState_advancedBitLockerStates) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedBitLockerStates'");
@@ -107,13 +107,13 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedBitLockerStates' => fn(ParseNode $n) => $o->setAdvancedBitLockerStates($n->getEnumValue(AdvancedBitLockerState::class)),
+            'advancedBitLockerStates' => fn(ParseNode $n) => $o->setAdvancedBitLockerStates($n->getEnumValue(ManagedDeviceEncryptionState_advancedBitLockerStates::class)),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(DeviceTypes::class)),
             'encryptionPolicySettingState' => fn(ParseNode $n) => $o->setEncryptionPolicySettingState($n->getEnumValue(ComplianceStatus::class)),
             'encryptionReadinessState' => fn(ParseNode $n) => $o->setEncryptionReadinessState($n->getEnumValue(EncryptionReadinessState::class)),
             'encryptionState' => fn(ParseNode $n) => $o->setEncryptionState($n->getEnumValue(EncryptionState::class)),
-            'fileVaultStates' => fn(ParseNode $n) => $o->setFileVaultStates($n->getEnumValue(FileVaultState::class)),
+            'fileVaultStates' => fn(ParseNode $n) => $o->setFileVaultStates($n->getEnumValue(ManagedDeviceEncryptionState_fileVaultStates::class)),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'policyDetails' => fn(ParseNode $n) => $o->setPolicyDetails($n->getCollectionOfObjectValues([EncryptionReportPolicyDetails::class, 'createFromDiscriminatorValue'])),
             'tpmSpecificationVersion' => fn(ParseNode $n) => $o->setTpmSpecificationVersion($n->getStringValue()),
@@ -123,11 +123,11 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Gets the fileVaultStates property value. FileVault State. Possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.
-     * @return FileVaultState|null
+     * @return ManagedDeviceEncryptionState_fileVaultStates|null
     */
-    public function getFileVaultStates(): ?FileVaultState {
+    public function getFileVaultStates(): ?ManagedDeviceEncryptionState_fileVaultStates {
         $val = $this->getBackingStore()->get('fileVaultStates');
-        if (is_null($val) || $val instanceof FileVaultState) {
+        if (is_null($val) || $val instanceof ManagedDeviceEncryptionState_fileVaultStates) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fileVaultStates'");
@@ -204,9 +204,9 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the advancedBitLockerStates property value. Advanced BitLocker State. Possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.
-     * @param AdvancedBitLockerState|null $value Value to set for the advancedBitLockerStates property.
+     * @param ManagedDeviceEncryptionState_advancedBitLockerStates|null $value Value to set for the advancedBitLockerStates property.
     */
-    public function setAdvancedBitLockerStates(?AdvancedBitLockerState $value): void {
+    public function setAdvancedBitLockerStates(?ManagedDeviceEncryptionState_advancedBitLockerStates $value): void {
         $this->getBackingStore()->set('advancedBitLockerStates', $value);
     }
 
@@ -252,9 +252,9 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the fileVaultStates property value. FileVault State. Possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.
-     * @param FileVaultState|null $value Value to set for the fileVaultStates property.
+     * @param ManagedDeviceEncryptionState_fileVaultStates|null $value Value to set for the fileVaultStates property.
     */
-    public function setFileVaultStates(?FileVaultState $value): void {
+    public function setFileVaultStates(?ManagedDeviceEncryptionState_fileVaultStates $value): void {
         $this->getBackingStore()->set('fileVaultStates', $value);
     }
 

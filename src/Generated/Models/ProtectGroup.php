@@ -58,17 +58,17 @@ class ProtectGroup extends LabelActionBase implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allowEmailFromGuestUsers' => fn(ParseNode $n) => $o->setAllowEmailFromGuestUsers($n->getBooleanValue()),
             'allowGuestUsers' => fn(ParseNode $n) => $o->setAllowGuestUsers($n->getBooleanValue()),
-            'privacy' => fn(ParseNode $n) => $o->setPrivacy($n->getEnumValue(GroupPrivacy::class)),
+            'privacy' => fn(ParseNode $n) => $o->setPrivacy($n->getEnumValue(ProtectGroup_privacy::class)),
         ]);
     }
 
     /**
      * Gets the privacy property value. The privacy property
-     * @return GroupPrivacy|null
+     * @return ProtectGroup_privacy|null
     */
-    public function getPrivacy(): ?GroupPrivacy {
+    public function getPrivacy(): ?ProtectGroup_privacy {
         $val = $this->getBackingStore()->get('privacy');
-        if (is_null($val) || $val instanceof GroupPrivacy) {
+        if (is_null($val) || $val instanceof ProtectGroup_privacy) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'privacy'");
@@ -103,9 +103,9 @@ class ProtectGroup extends LabelActionBase implements Parsable
 
     /**
      * Sets the privacy property value. The privacy property
-     * @param GroupPrivacy|null $value Value to set for the privacy property.
+     * @param ProtectGroup_privacy|null $value Value to set for the privacy property.
     */
-    public function setPrivacy(?GroupPrivacy $value): void {
+    public function setPrivacy(?ProtectGroup_privacy $value): void {
         $this->getBackingStore()->set('privacy', $value);
     }
 

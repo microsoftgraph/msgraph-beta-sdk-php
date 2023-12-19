@@ -36,11 +36,11 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
 
     /**
      * Gets the actionType property value. The type of action allowed in the authorization system's service. The possible values are: delete, read, unknownFutureValue. Supports $filter and (eq).
-     * @return AuthorizationSystemActionType|null
+     * @return AuthorizationSystemTypeAction_actionType|null
     */
-    public function getActionType(): ?AuthorizationSystemActionType {
+    public function getActionType(): ?AuthorizationSystemTypeAction_actionType {
         $val = $this->getBackingStore()->get('actionType');
-        if (is_null($val) || $val instanceof AuthorizationSystemActionType) {
+        if (is_null($val) || $val instanceof AuthorizationSystemTypeAction_actionType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'actionType'");
@@ -65,7 +65,7 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionType' => fn(ParseNode $n) => $o->setActionType($n->getEnumValue(AuthorizationSystemActionType::class)),
+            'actionType' => fn(ParseNode $n) => $o->setActionType($n->getEnumValue(AuthorizationSystemTypeAction_actionType::class)),
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
             'resourceTypes' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -119,9 +119,9 @@ class AuthorizationSystemTypeAction extends Entity implements Parsable
 
     /**
      * Sets the actionType property value. The type of action allowed in the authorization system's service. The possible values are: delete, read, unknownFutureValue. Supports $filter and (eq).
-     * @param AuthorizationSystemActionType|null $value Value to set for the actionType property.
+     * @param AuthorizationSystemTypeAction_actionType|null $value Value to set for the actionType property.
     */
-    public function setActionType(?AuthorizationSystemActionType $value): void {
+    public function setActionType(?AuthorizationSystemTypeAction_actionType $value): void {
         $this->getBackingStore()->set('actionType', $value);
     }
 

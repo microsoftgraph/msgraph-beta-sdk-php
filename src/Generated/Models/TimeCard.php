@@ -66,11 +66,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Gets the confirmedBy property value. Indicates whether this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
-     * @return ConfirmedBy|null
+     * @return TimeCard_confirmedBy|null
     */
-    public function getConfirmedBy(): ?ConfirmedBy {
+    public function getConfirmedBy(): ?TimeCard_confirmedBy {
         $val = $this->getBackingStore()->get('confirmedBy');
-        if (is_null($val) || $val instanceof ConfirmedBy) {
+        if (is_null($val) || $val instanceof TimeCard_confirmedBy) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'confirmedBy'");
@@ -86,10 +86,10 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
             'breaks' => fn(ParseNode $n) => $o->setBreaks($n->getCollectionOfObjectValues([TimeCardBreak::class, 'createFromDiscriminatorValue'])),
             'clockInEvent' => fn(ParseNode $n) => $o->setClockInEvent($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
             'clockOutEvent' => fn(ParseNode $n) => $o->setClockOutEvent($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
-            'confirmedBy' => fn(ParseNode $n) => $o->setConfirmedBy($n->getEnumValue(ConfirmedBy::class)),
+            'confirmedBy' => fn(ParseNode $n) => $o->setConfirmedBy($n->getEnumValue(TimeCard_confirmedBy::class)),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             'originalEntry' => fn(ParseNode $n) => $o->setOriginalEntry($n->getObjectValue([TimeCardEntry::class, 'createFromDiscriminatorValue'])),
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(TimeCardState::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(TimeCard_state::class)),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
@@ -120,11 +120,11 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Gets the state property value. The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
-     * @return TimeCardState|null
+     * @return TimeCard_state|null
     */
-    public function getState(): ?TimeCardState {
+    public function getState(): ?TimeCard_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof TimeCardState) {
+        if (is_null($val) || $val instanceof TimeCard_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -184,9 +184,9 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the confirmedBy property value. Indicates whether this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
-     * @param ConfirmedBy|null $value Value to set for the confirmedBy property.
+     * @param TimeCard_confirmedBy|null $value Value to set for the confirmedBy property.
     */
-    public function setConfirmedBy(?ConfirmedBy $value): void {
+    public function setConfirmedBy(?TimeCard_confirmedBy $value): void {
         $this->getBackingStore()->set('confirmedBy', $value);
     }
 
@@ -208,9 +208,9 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the state property value. The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
-     * @param TimeCardState|null $value Value to set for the state property.
+     * @param TimeCard_state|null $value Value to set for the state property.
     */
-    public function setState(?TimeCardState $value): void {
+    public function setState(?TimeCard_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

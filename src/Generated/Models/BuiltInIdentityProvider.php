@@ -33,7 +33,7 @@ class BuiltInIdentityProvider extends IdentityProviderBase implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'identityProviderType' => fn(ParseNode $n) => $o->setIdentityProviderType($n->getStringValue()),
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(IdentityProviderState::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(BuiltInIdentityProvider_state::class)),
         ]);
     }
 
@@ -51,11 +51,11 @@ class BuiltInIdentityProvider extends IdentityProviderBase implements Parsable
 
     /**
      * Gets the state property value. The state property
-     * @return IdentityProviderState|null
+     * @return BuiltInIdentityProvider_state|null
     */
-    public function getState(): ?IdentityProviderState {
+    public function getState(): ?BuiltInIdentityProvider_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof IdentityProviderState) {
+        if (is_null($val) || $val instanceof BuiltInIdentityProvider_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -81,9 +81,9 @@ class BuiltInIdentityProvider extends IdentityProviderBase implements Parsable
 
     /**
      * Sets the state property value. The state property
-     * @param IdentityProviderState|null $value Value to set for the state property.
+     * @param BuiltInIdentityProvider_state|null $value Value to set for the state property.
     */
-    public function setState(?IdentityProviderState $value): void {
+    public function setState(?BuiltInIdentityProvider_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

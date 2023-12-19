@@ -70,11 +70,11 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the category property value. The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
-     * @return WorkloadActionCategory|null
+     * @return WorkloadAction_category|null
     */
-    public function getCategory(): ?WorkloadActionCategory {
+    public function getCategory(): ?WorkloadAction_category {
         $val = $this->getBackingStore()->get('category');
-        if (is_null($val) || $val instanceof WorkloadActionCategory) {
+        if (is_null($val) || $val instanceof WorkloadAction_category) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
@@ -112,7 +112,7 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'actionId' => fn(ParseNode $n) => $o->setActionId($n->getStringValue()),
-            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(WorkloadActionCategory::class)),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(WorkloadAction_category::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'licenses' => function (ParseNode $n) {
@@ -223,9 +223,9 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the category property value. The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
-     * @param WorkloadActionCategory|null $value Value to set for the category property.
+     * @param WorkloadAction_category|null $value Value to set for the category property.
     */
-    public function setCategory(?WorkloadActionCategory $value): void {
+    public function setCategory(?WorkloadAction_category $value): void {
         $this->getBackingStore()->set('category', $value);
     }
 

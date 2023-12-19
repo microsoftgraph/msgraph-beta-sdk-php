@@ -27,11 +27,11 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
 
     /**
      * Gets the additionalOptions property value. The additionalOptions property
-     * @return AdditionalOptions|null
+     * @return EdiscoverySearchExportOperation_additionalOptions|null
     */
-    public function getAdditionalOptions(): ?AdditionalOptions {
+    public function getAdditionalOptions(): ?EdiscoverySearchExportOperation_additionalOptions {
         $val = $this->getBackingStore()->get('additionalOptions');
-        if (is_null($val) || $val instanceof AdditionalOptions) {
+        if (is_null($val) || $val instanceof EdiscoverySearchExportOperation_additionalOptions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalOptions'");
@@ -63,11 +63,11 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
 
     /**
      * Gets the exportCriteria property value. The exportCriteria property
-     * @return ExportCriteria|null
+     * @return EdiscoverySearchExportOperation_exportCriteria|null
     */
-    public function getExportCriteria(): ?ExportCriteria {
+    public function getExportCriteria(): ?EdiscoverySearchExportOperation_exportCriteria {
         $val = $this->getBackingStore()->get('exportCriteria');
-        if (is_null($val) || $val instanceof ExportCriteria) {
+        if (is_null($val) || $val instanceof EdiscoverySearchExportOperation_exportCriteria) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportCriteria'");
@@ -89,11 +89,11 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
 
     /**
      * Gets the exportFormat property value. The exportFormat property
-     * @return ExportFormat|null
+     * @return EdiscoverySearchExportOperation_exportFormat|null
     */
-    public function getExportFormat(): ?ExportFormat {
+    public function getExportFormat(): ?EdiscoverySearchExportOperation_exportFormat {
         $val = $this->getBackingStore()->get('exportFormat');
-        if (is_null($val) || $val instanceof ExportFormat) {
+        if (is_null($val) || $val instanceof EdiscoverySearchExportOperation_exportFormat) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportFormat'");
@@ -101,11 +101,11 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
 
     /**
      * Gets the exportLocation property value. The exportLocation property
-     * @return ExportLocation|null
+     * @return EdiscoverySearchExportOperation_exportLocation|null
     */
-    public function getExportLocation(): ?ExportLocation {
+    public function getExportLocation(): ?EdiscoverySearchExportOperation_exportLocation {
         $val = $this->getBackingStore()->get('exportLocation');
-        if (is_null($val) || $val instanceof ExportLocation) {
+        if (is_null($val) || $val instanceof EdiscoverySearchExportOperation_exportLocation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportLocation'");
@@ -130,13 +130,13 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalOptions' => fn(ParseNode $n) => $o->setAdditionalOptions($n->getEnumValue(AdditionalOptions::class)),
+            'additionalOptions' => fn(ParseNode $n) => $o->setAdditionalOptions($n->getEnumValue(EdiscoverySearchExportOperation_additionalOptions::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'exportCriteria' => fn(ParseNode $n) => $o->setExportCriteria($n->getEnumValue(ExportCriteria::class)),
+            'exportCriteria' => fn(ParseNode $n) => $o->setExportCriteria($n->getEnumValue(EdiscoverySearchExportOperation_exportCriteria::class)),
             'exportFileMetadata' => fn(ParseNode $n) => $o->setExportFileMetadata($n->getCollectionOfObjectValues([ExportFileMetadata::class, 'createFromDiscriminatorValue'])),
-            'exportFormat' => fn(ParseNode $n) => $o->setExportFormat($n->getEnumValue(ExportFormat::class)),
-            'exportLocation' => fn(ParseNode $n) => $o->setExportLocation($n->getEnumValue(ExportLocation::class)),
+            'exportFormat' => fn(ParseNode $n) => $o->setExportFormat($n->getEnumValue(EdiscoverySearchExportOperation_exportFormat::class)),
+            'exportLocation' => fn(ParseNode $n) => $o->setExportLocation($n->getEnumValue(EdiscoverySearchExportOperation_exportLocation::class)),
             'exportSingleItems' => fn(ParseNode $n) => $o->setExportSingleItems($n->getBooleanValue()),
             'search' => fn(ParseNode $n) => $o->setSearch($n->getObjectValue([EdiscoverySearch::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -173,9 +173,9 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the additionalOptions property value. The additionalOptions property
-     * @param AdditionalOptions|null $value Value to set for the additionalOptions property.
+     * @param EdiscoverySearchExportOperation_additionalOptions|null $value Value to set for the additionalOptions property.
     */
-    public function setAdditionalOptions(?AdditionalOptions $value): void {
+    public function setAdditionalOptions(?EdiscoverySearchExportOperation_additionalOptions $value): void {
         $this->getBackingStore()->set('additionalOptions', $value);
     }
 
@@ -197,9 +197,9 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the exportCriteria property value. The exportCriteria property
-     * @param ExportCriteria|null $value Value to set for the exportCriteria property.
+     * @param EdiscoverySearchExportOperation_exportCriteria|null $value Value to set for the exportCriteria property.
     */
-    public function setExportCriteria(?ExportCriteria $value): void {
+    public function setExportCriteria(?EdiscoverySearchExportOperation_exportCriteria $value): void {
         $this->getBackingStore()->set('exportCriteria', $value);
     }
 
@@ -213,17 +213,17 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the exportFormat property value. The exportFormat property
-     * @param ExportFormat|null $value Value to set for the exportFormat property.
+     * @param EdiscoverySearchExportOperation_exportFormat|null $value Value to set for the exportFormat property.
     */
-    public function setExportFormat(?ExportFormat $value): void {
+    public function setExportFormat(?EdiscoverySearchExportOperation_exportFormat $value): void {
         $this->getBackingStore()->set('exportFormat', $value);
     }
 
     /**
      * Sets the exportLocation property value. The exportLocation property
-     * @param ExportLocation|null $value Value to set for the exportLocation property.
+     * @param EdiscoverySearchExportOperation_exportLocation|null $value Value to set for the exportLocation property.
     */
-    public function setExportLocation(?ExportLocation $value): void {
+    public function setExportLocation(?EdiscoverySearchExportOperation_exportLocation $value): void {
         $this->getBackingStore()->set('exportLocation', $value);
     }
 

@@ -71,7 +71,7 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
             'certificateValidityPeriodScale' => fn(ParseNode $n) => $o->setCertificateValidityPeriodScale($n->getEnumValue(CertificateValidityPeriodScale::class)),
             'certificateValidityPeriodValue' => fn(ParseNode $n) => $o->setCertificateValidityPeriodValue($n->getIntegerValue()),
             'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
-            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)),
+            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(MacOSCertificateProfileBase_subjectAlternativeNameType::class)),
             'subjectNameFormat' => fn(ParseNode $n) => $o->setSubjectNameFormat($n->getEnumValue(AppleSubjectNameFormat::class)),
         ]);
     }
@@ -90,11 +90,11 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
 
     /**
      * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @return SubjectAlternativeNameType|null
+     * @return MacOSCertificateProfileBase_subjectAlternativeNameType|null
     */
-    public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
+    public function getSubjectAlternativeNameType(): ?MacOSCertificateProfileBase_subjectAlternativeNameType {
         $val = $this->getBackingStore()->get('subjectAlternativeNameType');
-        if (is_null($val) || $val instanceof SubjectAlternativeNameType) {
+        if (is_null($val) || $val instanceof MacOSCertificateProfileBase_subjectAlternativeNameType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameType'");
@@ -151,9 +151,9 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
+     * @param MacOSCertificateProfileBase_subjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
-    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
+    public function setSubjectAlternativeNameType(?MacOSCertificateProfileBase_subjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameType', $value);
     }
 

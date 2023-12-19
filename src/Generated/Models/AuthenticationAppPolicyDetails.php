@@ -49,11 +49,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the adminConfiguration property value. The admin configuration of the policy on the user's authentication app. For a policy that does not impact the success/failure of the authentication, the evaluation defaults to notApplicable. The possible values are: notApplicable, enabled, disabled, unknownFutureValue.
-     * @return AuthenticationAppAdminConfiguration|null
+     * @return AuthenticationAppPolicyDetails_adminConfiguration|null
     */
-    public function getAdminConfiguration(): ?AuthenticationAppAdminConfiguration {
+    public function getAdminConfiguration(): ?AuthenticationAppPolicyDetails_adminConfiguration {
         $val = $this->getBackingStore()->get('adminConfiguration');
-        if (is_null($val) || $val instanceof AuthenticationAppAdminConfiguration) {
+        if (is_null($val) || $val instanceof AuthenticationAppPolicyDetails_adminConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'adminConfiguration'");
@@ -61,11 +61,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the authenticationEvaluation property value. Evaluates the success/failure of the authentication based on the admin configuration of the policy on the user's client authentication app. The possible values are: success, failure, unknownFutureValue.
-     * @return AuthenticationAppEvaluation|null
+     * @return AuthenticationAppPolicyDetails_authenticationEvaluation|null
     */
-    public function getAuthenticationEvaluation(): ?AuthenticationAppEvaluation {
+    public function getAuthenticationEvaluation(): ?AuthenticationAppPolicyDetails_authenticationEvaluation {
         $val = $this->getBackingStore()->get('authenticationEvaluation');
-        if (is_null($val) || $val instanceof AuthenticationAppEvaluation) {
+        if (is_null($val) || $val instanceof AuthenticationAppPolicyDetails_authenticationEvaluation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationEvaluation'");
@@ -86,11 +86,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'adminConfiguration' => fn(ParseNode $n) => $o->setAdminConfiguration($n->getEnumValue(AuthenticationAppAdminConfiguration::class)),
-            'authenticationEvaluation' => fn(ParseNode $n) => $o->setAuthenticationEvaluation($n->getEnumValue(AuthenticationAppEvaluation::class)),
+            'adminConfiguration' => fn(ParseNode $n) => $o->setAdminConfiguration($n->getEnumValue(AuthenticationAppPolicyDetails_adminConfiguration::class)),
+            'authenticationEvaluation' => fn(ParseNode $n) => $o->setAuthenticationEvaluation($n->getEnumValue(AuthenticationAppPolicyDetails_authenticationEvaluation::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AuthenticationAppPolicyStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AuthenticationAppPolicyDetails_status::class)),
         ];
     }
 
@@ -120,11 +120,11 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the status property value. Refers to whether the policy executed as expected on the user's client authentication app. The possible values are: unknown, appLockOutOfDate, appLockEnabled, appLockDisabled, appContextOutOfDate, appContextShown, appContextNotShown, locationContextOutOfDate, locationContextShown, locationContextNotShown, numberMatchOutOfDate, numberMatchCorrectNumberEntered, numberMatchIncorrectNumberEntered, numberMatchDeny, tamperResistantHardwareOutOfDate, tamperResistantHardwareUsed, tamperResistantHardwareNotUsed, unknownFutureValue.
-     * @return AuthenticationAppPolicyStatus|null
+     * @return AuthenticationAppPolicyDetails_status|null
     */
-    public function getStatus(): ?AuthenticationAppPolicyStatus {
+    public function getStatus(): ?AuthenticationAppPolicyDetails_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof AuthenticationAppPolicyStatus) {
+        if (is_null($val) || $val instanceof AuthenticationAppPolicyDetails_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -153,17 +153,17 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the adminConfiguration property value. The admin configuration of the policy on the user's authentication app. For a policy that does not impact the success/failure of the authentication, the evaluation defaults to notApplicable. The possible values are: notApplicable, enabled, disabled, unknownFutureValue.
-     * @param AuthenticationAppAdminConfiguration|null $value Value to set for the adminConfiguration property.
+     * @param AuthenticationAppPolicyDetails_adminConfiguration|null $value Value to set for the adminConfiguration property.
     */
-    public function setAdminConfiguration(?AuthenticationAppAdminConfiguration $value): void {
+    public function setAdminConfiguration(?AuthenticationAppPolicyDetails_adminConfiguration $value): void {
         $this->getBackingStore()->set('adminConfiguration', $value);
     }
 
     /**
      * Sets the authenticationEvaluation property value. Evaluates the success/failure of the authentication based on the admin configuration of the policy on the user's client authentication app. The possible values are: success, failure, unknownFutureValue.
-     * @param AuthenticationAppEvaluation|null $value Value to set for the authenticationEvaluation property.
+     * @param AuthenticationAppPolicyDetails_authenticationEvaluation|null $value Value to set for the authenticationEvaluation property.
     */
-    public function setAuthenticationEvaluation(?AuthenticationAppEvaluation $value): void {
+    public function setAuthenticationEvaluation(?AuthenticationAppPolicyDetails_authenticationEvaluation $value): void {
         $this->getBackingStore()->set('authenticationEvaluation', $value);
     }
 
@@ -193,9 +193,9 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the status property value. Refers to whether the policy executed as expected on the user's client authentication app. The possible values are: unknown, appLockOutOfDate, appLockEnabled, appLockDisabled, appContextOutOfDate, appContextShown, appContextNotShown, locationContextOutOfDate, locationContextShown, locationContextNotShown, numberMatchOutOfDate, numberMatchCorrectNumberEntered, numberMatchIncorrectNumberEntered, numberMatchDeny, tamperResistantHardwareOutOfDate, tamperResistantHardwareUsed, tamperResistantHardwareNotUsed, unknownFutureValue.
-     * @param AuthenticationAppPolicyStatus|null $value Value to set for the status property.
+     * @param AuthenticationAppPolicyDetails_status|null $value Value to set for the status property.
     */
-    public function setStatus(?AuthenticationAppPolicyStatus $value): void {
+    public function setStatus(?AuthenticationAppPolicyDetails_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

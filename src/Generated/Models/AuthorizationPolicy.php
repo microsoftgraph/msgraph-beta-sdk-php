@@ -64,11 +64,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Gets the allowInvitesFrom property value. Indicates who can invite guests to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
-     * @return AllowInvitesFrom|null
+     * @return AuthorizationPolicy_allowInvitesFrom|null
     */
-    public function getAllowInvitesFrom(): ?AllowInvitesFrom {
+    public function getAllowInvitesFrom(): ?AuthorizationPolicy_allowInvitesFrom {
         $val = $this->getBackingStore()->get('allowInvitesFrom');
-        if (is_null($val) || $val instanceof AllowInvitesFrom) {
+        if (is_null($val) || $val instanceof AuthorizationPolicy_allowInvitesFrom) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowInvitesFrom'");
@@ -148,7 +148,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
             'allowedToSignUpEmailBasedSubscriptions' => fn(ParseNode $n) => $o->setAllowedToSignUpEmailBasedSubscriptions($n->getBooleanValue()),
             'allowedToUseSSPR' => fn(ParseNode $n) => $o->setAllowedToUseSSPR($n->getBooleanValue()),
             'allowEmailVerifiedUsersToJoinOrganization' => fn(ParseNode $n) => $o->setAllowEmailVerifiedUsersToJoinOrganization($n->getBooleanValue()),
-            'allowInvitesFrom' => fn(ParseNode $n) => $o->setAllowInvitesFrom($n->getEnumValue(AllowInvitesFrom::class)),
+            'allowInvitesFrom' => fn(ParseNode $n) => $o->setAllowInvitesFrom($n->getEnumValue(AuthorizationPolicy_allowInvitesFrom::class)),
             'allowUserConsentForRiskyApps' => fn(ParseNode $n) => $o->setAllowUserConsentForRiskyApps($n->getBooleanValue()),
             'blockMsolPowerShell' => fn(ParseNode $n) => $o->setBlockMsolPowerShell($n->getBooleanValue()),
             'defaultUserRoleOverrides' => fn(ParseNode $n) => $o->setDefaultUserRoleOverrides($n->getCollectionOfObjectValues([DefaultUserRoleOverride::class, 'createFromDiscriminatorValue'])),
@@ -244,9 +244,9 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowInvitesFrom property value. Indicates who can invite guests to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
-     * @param AllowInvitesFrom|null $value Value to set for the allowInvitesFrom property.
+     * @param AuthorizationPolicy_allowInvitesFrom|null $value Value to set for the allowInvitesFrom property.
     */
-    public function setAllowInvitesFrom(?AllowInvitesFrom $value): void {
+    public function setAllowInvitesFrom(?AuthorizationPolicy_allowInvitesFrom $value): void {
         $this->getBackingStore()->set('allowInvitesFrom', $value);
     }
 

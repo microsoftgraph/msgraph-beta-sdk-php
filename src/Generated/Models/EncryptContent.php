@@ -35,11 +35,11 @@ class EncryptContent extends LabelActionBase implements Parsable
 
     /**
      * Gets the encryptWith property value. The encryptWith property
-     * @return EncryptWith|null
+     * @return EncryptContent_encryptWith|null
     */
-    public function getEncryptWith(): ?EncryptWith {
+    public function getEncryptWith(): ?EncryptContent_encryptWith {
         $val = $this->getBackingStore()->get('encryptWith');
-        if (is_null($val) || $val instanceof EncryptWith) {
+        if (is_null($val) || $val instanceof EncryptContent_encryptWith) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptWith'");
@@ -52,7 +52,7 @@ class EncryptContent extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'encryptWith' => fn(ParseNode $n) => $o->setEncryptWith($n->getEnumValue(EncryptWith::class)),
+            'encryptWith' => fn(ParseNode $n) => $o->setEncryptWith($n->getEnumValue(EncryptContent_encryptWith::class)),
         ]);
     }
 
@@ -67,9 +67,9 @@ class EncryptContent extends LabelActionBase implements Parsable
 
     /**
      * Sets the encryptWith property value. The encryptWith property
-     * @param EncryptWith|null $value Value to set for the encryptWith property.
+     * @param EncryptContent_encryptWith|null $value Value to set for the encryptWith property.
     */
-    public function setEncryptWith(?EncryptWith $value): void {
+    public function setEncryptWith(?EncryptContent_encryptWith $value): void {
         $this->getBackingStore()->set('encryptWith', $value);
     }
 

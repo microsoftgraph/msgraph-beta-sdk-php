@@ -55,7 +55,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'attackSimulationInfo' => fn(ParseNode $n) => $o->setAttackSimulationInfo($n->getObjectValue([AttackSimulationInfo::class, 'createFromDiscriminatorValue'])),
             'internetMessageId' => fn(ParseNode $n) => $o->setInternetMessageId($n->getStringValue()),
-            'originalCategory' => fn(ParseNode $n) => $o->setOriginalCategory($n->getEnumValue(SubmissionCategory::class)),
+            'originalCategory' => fn(ParseNode $n) => $o->setOriginalCategory($n->getEnumValue(EmailThreatSubmission_originalCategory::class)),
             'receivedDateTime' => fn(ParseNode $n) => $o->setReceivedDateTime($n->getDateTimeValue()),
             'recipientEmailAddress' => fn(ParseNode $n) => $o->setRecipientEmailAddress($n->getStringValue()),
             'sender' => fn(ParseNode $n) => $o->setSender($n->getStringValue()),
@@ -79,11 +79,11 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Gets the originalCategory property value. The original category of the submission. The possible values are: notJunk, spam, phishing, malware and unkownFutureValue.
-     * @return SubmissionCategory|null
+     * @return EmailThreatSubmission_originalCategory|null
     */
-    public function getOriginalCategory(): ?SubmissionCategory {
+    public function getOriginalCategory(): ?EmailThreatSubmission_originalCategory {
         $val = $this->getBackingStore()->get('originalCategory');
-        if (is_null($val) || $val instanceof SubmissionCategory) {
+        if (is_null($val) || $val instanceof EmailThreatSubmission_originalCategory) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'originalCategory'");
@@ -196,9 +196,9 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the originalCategory property value. The original category of the submission. The possible values are: notJunk, spam, phishing, malware and unkownFutureValue.
-     * @param SubmissionCategory|null $value Value to set for the originalCategory property.
+     * @param EmailThreatSubmission_originalCategory|null $value Value to set for the originalCategory property.
     */
-    public function setOriginalCategory(?SubmissionCategory $value): void {
+    public function setOriginalCategory(?EmailThreatSubmission_originalCategory $value): void {
         $this->getBackingStore()->set('originalCategory', $value);
     }
 

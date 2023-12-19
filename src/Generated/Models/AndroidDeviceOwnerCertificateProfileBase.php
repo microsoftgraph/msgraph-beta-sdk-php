@@ -88,8 +88,8 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
             'extendedKeyUsages' => fn(ParseNode $n) => $o->setExtendedKeyUsages($n->getCollectionOfObjectValues([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
             'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
             'rootCertificate' => fn(ParseNode $n) => $o->setRootCertificate($n->getObjectValue([AndroidDeviceOwnerTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)),
-            'subjectNameFormat' => fn(ParseNode $n) => $o->setSubjectNameFormat($n->getEnumValue(SubjectNameFormat::class)),
+            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(AndroidDeviceOwnerCertificateProfileBase_subjectAlternativeNameType::class)),
+            'subjectNameFormat' => fn(ParseNode $n) => $o->setSubjectNameFormat($n->getEnumValue(AndroidDeviceOwnerCertificateProfileBase_subjectNameFormat::class)),
         ]);
     }
 
@@ -119,11 +119,11 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
 
     /**
      * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @return SubjectAlternativeNameType|null
+     * @return AndroidDeviceOwnerCertificateProfileBase_subjectAlternativeNameType|null
     */
-    public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
+    public function getSubjectAlternativeNameType(): ?AndroidDeviceOwnerCertificateProfileBase_subjectAlternativeNameType {
         $val = $this->getBackingStore()->get('subjectAlternativeNameType');
-        if (is_null($val) || $val instanceof SubjectAlternativeNameType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerCertificateProfileBase_subjectAlternativeNameType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameType'");
@@ -131,11 +131,11 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
 
     /**
      * Gets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
-     * @return SubjectNameFormat|null
+     * @return AndroidDeviceOwnerCertificateProfileBase_subjectNameFormat|null
     */
-    public function getSubjectNameFormat(): ?SubjectNameFormat {
+    public function getSubjectNameFormat(): ?AndroidDeviceOwnerCertificateProfileBase_subjectNameFormat {
         $val = $this->getBackingStore()->get('subjectNameFormat');
-        if (is_null($val) || $val instanceof SubjectNameFormat) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerCertificateProfileBase_subjectNameFormat) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectNameFormat'");
@@ -198,17 +198,17 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
+     * @param AndroidDeviceOwnerCertificateProfileBase_subjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
-    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
+    public function setSubjectAlternativeNameType(?AndroidDeviceOwnerCertificateProfileBase_subjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameType', $value);
     }
 
     /**
      * Sets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
-     * @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
+     * @param AndroidDeviceOwnerCertificateProfileBase_subjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
-    public function setSubjectNameFormat(?SubjectNameFormat $value): void {
+    public function setSubjectNameFormat(?AndroidDeviceOwnerCertificateProfileBase_subjectNameFormat $value): void {
         $this->getBackingStore()->set('subjectNameFormat', $value);
     }
 

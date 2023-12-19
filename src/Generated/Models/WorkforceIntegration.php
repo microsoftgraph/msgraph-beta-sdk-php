@@ -51,11 +51,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Gets the eligibilityFilteringEnabledEntities property value. The eligibilityFilteringEnabledEntities property
-     * @return EligibilityFilteringEnabledEntities|null
+     * @return WorkforceIntegration_eligibilityFilteringEnabledEntities|null
     */
-    public function getEligibilityFilteringEnabledEntities(): ?EligibilityFilteringEnabledEntities {
+    public function getEligibilityFilteringEnabledEntities(): ?WorkforceIntegration_eligibilityFilteringEnabledEntities {
         $val = $this->getBackingStore()->get('eligibilityFilteringEnabledEntities');
-        if (is_null($val) || $val instanceof EligibilityFilteringEnabledEntities) {
+        if (is_null($val) || $val instanceof WorkforceIntegration_eligibilityFilteringEnabledEntities) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'eligibilityFilteringEnabledEntities'");
@@ -82,11 +82,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'apiVersion' => fn(ParseNode $n) => $o->setApiVersion($n->getIntegerValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'eligibilityFilteringEnabledEntities' => fn(ParseNode $n) => $o->setEligibilityFilteringEnabledEntities($n->getEnumValue(EligibilityFilteringEnabledEntities::class)),
+            'eligibilityFilteringEnabledEntities' => fn(ParseNode $n) => $o->setEligibilityFilteringEnabledEntities($n->getEnumValue(WorkforceIntegration_eligibilityFilteringEnabledEntities::class)),
             'encryption' => fn(ParseNode $n) => $o->setEncryption($n->getObjectValue([WorkforceIntegrationEncryption::class, 'createFromDiscriminatorValue'])),
             'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
-            'supportedEntities' => fn(ParseNode $n) => $o->setSupportedEntities($n->getEnumValue(WorkforceIntegrationSupportedEntities::class)),
-            'supports' => fn(ParseNode $n) => $o->setSupports($n->getEnumValue(WorkforceIntegrationSupportedEntities::class)),
+            'supportedEntities' => fn(ParseNode $n) => $o->setSupportedEntities($n->getEnumValue(WorkforceIntegration_supportedEntities::class)),
+            'supports' => fn(ParseNode $n) => $o->setSupports($n->getEnumValue(WorkforceIntegration_supports::class)),
             'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ]);
     }
@@ -105,11 +105,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Gets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-     * @return WorkforceIntegrationSupportedEntities|null
+     * @return WorkforceIntegration_supportedEntities|null
     */
-    public function getSupportedEntities(): ?WorkforceIntegrationSupportedEntities {
+    public function getSupportedEntities(): ?WorkforceIntegration_supportedEntities {
         $val = $this->getBackingStore()->get('supportedEntities');
-        if (is_null($val) || $val instanceof WorkforceIntegrationSupportedEntities) {
+        if (is_null($val) || $val instanceof WorkforceIntegration_supportedEntities) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedEntities'");
@@ -117,11 +117,11 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Gets the supports property value. The Shifts entities supported for synchronous change notifications. Shifts make a callback to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-     * @return WorkforceIntegrationSupportedEntities|null
+     * @return WorkforceIntegration_supports|null
     */
-    public function getSupports(): ?WorkforceIntegrationSupportedEntities {
+    public function getSupports(): ?WorkforceIntegration_supports {
         $val = $this->getBackingStore()->get('supports');
-        if (is_null($val) || $val instanceof WorkforceIntegrationSupportedEntities) {
+        if (is_null($val) || $val instanceof WorkforceIntegration_supports) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'supports'");
@@ -173,9 +173,9 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the eligibilityFilteringEnabledEntities property value. The eligibilityFilteringEnabledEntities property
-     * @param EligibilityFilteringEnabledEntities|null $value Value to set for the eligibilityFilteringEnabledEntities property.
+     * @param WorkforceIntegration_eligibilityFilteringEnabledEntities|null $value Value to set for the eligibilityFilteringEnabledEntities property.
     */
-    public function setEligibilityFilteringEnabledEntities(?EligibilityFilteringEnabledEntities $value): void {
+    public function setEligibilityFilteringEnabledEntities(?WorkforceIntegration_eligibilityFilteringEnabledEntities $value): void {
         $this->getBackingStore()->set('eligibilityFilteringEnabledEntities', $value);
     }
 
@@ -197,17 +197,17 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-     * @param WorkforceIntegrationSupportedEntities|null $value Value to set for the supportedEntities property.
+     * @param WorkforceIntegration_supportedEntities|null $value Value to set for the supportedEntities property.
     */
-    public function setSupportedEntities(?WorkforceIntegrationSupportedEntities $value): void {
+    public function setSupportedEntities(?WorkforceIntegration_supportedEntities $value): void {
         $this->getBackingStore()->set('supportedEntities', $value);
     }
 
     /**
      * Sets the supports property value. The Shifts entities supported for synchronous change notifications. Shifts make a callback to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-     * @param WorkforceIntegrationSupportedEntities|null $value Value to set for the supports property.
+     * @param WorkforceIntegration_supports|null $value Value to set for the supports property.
     */
-    public function setSupports(?WorkforceIntegrationSupportedEntities $value): void {
+    public function setSupports(?WorkforceIntegration_supports $value): void {
         $this->getBackingStore()->set('supports', $value);
     }
 

@@ -88,11 +88,11 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Gets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search.
-     * @return ContentExperienceType|null
+     * @return ExternalConnection_enabledContentExperiences|null
     */
-    public function getEnabledContentExperiences(): ?ContentExperienceType {
+    public function getEnabledContentExperiences(): ?ExternalConnection_enabledContentExperiences {
         $val = $this->getBackingStore()->get('enabledContentExperiences');
-        if (is_null($val) || $val instanceof ContentExperienceType) {
+        if (is_null($val) || $val instanceof ExternalConnection_enabledContentExperiences) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'enabledContentExperiences'");
@@ -110,7 +110,7 @@ class ExternalConnection extends Entity implements Parsable
             'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([Configuration::class, 'createFromDiscriminatorValue'])),
             'connectorId' => fn(ParseNode $n) => $o->setConnectorId($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'enabledContentExperiences' => fn(ParseNode $n) => $o->setEnabledContentExperiences($n->getEnumValue(ContentExperienceType::class)),
+            'enabledContentExperiences' => fn(ParseNode $n) => $o->setEnabledContentExperiences($n->getEnumValue(ExternalConnection_enabledContentExperiences::class)),
             'groups' => fn(ParseNode $n) => $o->setGroups($n->getCollectionOfObjectValues([ExternalGroup::class, 'createFromDiscriminatorValue'])),
             'ingestedItemsCount' => fn(ParseNode $n) => $o->setIngestedItemsCount($n->getIntegerValue()),
             'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([ExternalItem::class, 'createFromDiscriminatorValue'])),
@@ -119,7 +119,7 @@ class ExternalConnection extends Entity implements Parsable
             'quota' => fn(ParseNode $n) => $o->setQuota($n->getObjectValue([ConnectionQuota::class, 'createFromDiscriminatorValue'])),
             'schema' => fn(ParseNode $n) => $o->setSchema($n->getObjectValue([Schema::class, 'createFromDiscriminatorValue'])),
             'searchSettings' => fn(ParseNode $n) => $o->setSearchSettings($n->getObjectValue([SearchSettings::class, 'createFromDiscriminatorValue'])),
-            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ConnectionState::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ExternalConnection_state::class)),
         ]);
     }
 
@@ -227,11 +227,11 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Gets the state property value. Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
-     * @return ConnectionState|null
+     * @return ExternalConnection_state|null
     */
-    public function getState(): ?ConnectionState {
+    public function getState(): ?ExternalConnection_state {
         $val = $this->getBackingStore()->get('state');
-        if (is_null($val) || $val instanceof ConnectionState) {
+        if (is_null($val) || $val instanceof ExternalConnection_state) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
@@ -301,9 +301,9 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search.
-     * @param ContentExperienceType|null $value Value to set for the enabledContentExperiences property.
+     * @param ExternalConnection_enabledContentExperiences|null $value Value to set for the enabledContentExperiences property.
     */
-    public function setEnabledContentExperiences(?ContentExperienceType $value): void {
+    public function setEnabledContentExperiences(?ExternalConnection_enabledContentExperiences $value): void {
         $this->getBackingStore()->set('enabledContentExperiences', $value);
     }
 
@@ -373,9 +373,9 @@ class ExternalConnection extends Entity implements Parsable
 
     /**
      * Sets the state property value. Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
-     * @param ConnectionState|null $value Value to set for the state property.
+     * @param ExternalConnection_state|null $value Value to set for the state property.
     */
-    public function setState(?ConnectionState $value): void {
+    public function setState(?ExternalConnection_state $value): void {
         $this->getBackingStore()->set('state', $value);
     }
 

@@ -51,11 +51,11 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the aggregationType property value. The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
-     * @return AggregationType|null
+     * @return AlertImpact_aggregationType|null
     */
-    public function getAggregationType(): ?AggregationType {
+    public function getAggregationType(): ?AlertImpact_aggregationType {
         $val = $this->getBackingStore()->get('aggregationType');
-        if (is_null($val) || $val instanceof AggregationType) {
+        if (is_null($val) || $val instanceof AlertImpact_aggregationType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'aggregationType'");
@@ -90,7 +90,7 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aggregationType' => fn(ParseNode $n) => $o->setAggregationType($n->getEnumValue(AggregationType::class)),
+            'aggregationType' => fn(ParseNode $n) => $o->setAggregationType($n->getEnumValue(AlertImpact_aggregationType::class)),
             'alertImpactDetails' => fn(ParseNode $n) => $o->setAlertImpactDetails($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'value' => fn(ParseNode $n) => $o->setValue($n->getIntegerValue()),
@@ -143,9 +143,9 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the aggregationType property value. The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
-     * @param AggregationType|null $value Value to set for the aggregationType property.
+     * @param AlertImpact_aggregationType|null $value Value to set for the aggregationType property.
     */
-    public function setAggregationType(?AggregationType $value): void {
+    public function setAggregationType(?AlertImpact_aggregationType $value): void {
         $this->getBackingStore()->set('aggregationType', $value);
     }
 

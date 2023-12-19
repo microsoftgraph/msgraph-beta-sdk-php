@@ -84,7 +84,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
             'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
             'ruleId' => fn(ParseNode $n) => $o->setRuleId($n->getStringValue()),
-            'ruleMode' => fn(ParseNode $n) => $o->setRuleMode($n->getEnumValue(RuleMode::class)),
+            'ruleMode' => fn(ParseNode $n) => $o->setRuleMode($n->getEnumValue(MatchingDlpRule_ruleMode::class)),
             'ruleName' => fn(ParseNode $n) => $o->setRuleName($n->getStringValue()),
         ];
     }
@@ -163,11 +163,11 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the ruleMode property value. The ruleMode property
-     * @return RuleMode|null
+     * @return MatchingDlpRule_ruleMode|null
     */
-    public function getRuleMode(): ?RuleMode {
+    public function getRuleMode(): ?MatchingDlpRule_ruleMode {
         $val = $this->getBackingStore()->get('ruleMode');
-        if (is_null($val) || $val instanceof RuleMode) {
+        if (is_null($val) || $val instanceof MatchingDlpRule_ruleMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleMode'");
@@ -276,9 +276,9 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ruleMode property value. The ruleMode property
-     * @param RuleMode|null $value Value to set for the ruleMode property.
+     * @param MatchingDlpRule_ruleMode|null $value Value to set for the ruleMode property.
     */
-    public function setRuleMode(?RuleMode $value): void {
+    public function setRuleMode(?MatchingDlpRule_ruleMode $value): void {
         $this->getBackingStore()->set('ruleMode', $value);
     }
 

@@ -105,7 +105,7 @@ class Post extends OutlookItem implements Parsable
             'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
             'from' => fn(ParseNode $n) => $o->setFrom($n->getObjectValue([Recipient::class, 'createFromDiscriminatorValue'])),
             'hasAttachments' => fn(ParseNode $n) => $o->setHasAttachments($n->getBooleanValue()),
-            'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(Importance::class)),
+            'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(Post_importance::class)),
             'inReplyTo' => fn(ParseNode $n) => $o->setInReplyTo($n->getObjectValue([Post::class, 'createFromDiscriminatorValue'])),
             'mentions' => fn(ParseNode $n) => $o->setMentions($n->getCollectionOfObjectValues([Mention::class, 'createFromDiscriminatorValue'])),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
@@ -142,11 +142,11 @@ class Post extends OutlookItem implements Parsable
 
     /**
      * Gets the importance property value. The importance of a group post: low, normal, high.
-     * @return Importance|null
+     * @return Post_importance|null
     */
-    public function getImportance(): ?Importance {
+    public function getImportance(): ?Post_importance {
         $val = $this->getBackingStore()->get('importance');
-        if (is_null($val) || $val instanceof Importance) {
+        if (is_null($val) || $val instanceof Post_importance) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'importance'");
@@ -325,9 +325,9 @@ class Post extends OutlookItem implements Parsable
 
     /**
      * Sets the importance property value. The importance of a group post: low, normal, high.
-     * @param Importance|null $value Value to set for the importance property.
+     * @param Post_importance|null $value Value to set for the importance property.
     */
-    public function setImportance(?Importance $value): void {
+    public function setImportance(?Post_importance $value): void {
         $this->getBackingStore()->set('importance', $value);
     }
 

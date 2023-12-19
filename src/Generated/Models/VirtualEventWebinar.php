@@ -27,11 +27,11 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
 
     /**
      * Gets the audience property value. To whom the webinar is visible.
-     * @return MeetingAudience|null
+     * @return VirtualEventWebinar_audience|null
     */
-    public function getAudience(): ?MeetingAudience {
+    public function getAudience(): ?VirtualEventWebinar_audience {
         $val = $this->getBackingStore()->get('audience');
-        if (is_null($val) || $val instanceof MeetingAudience) {
+        if (is_null($val) || $val instanceof VirtualEventWebinar_audience) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'audience'");
@@ -58,7 +58,7 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(MeetingAudience::class)),
+            'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(VirtualEventWebinar_audience::class)),
             'coOrganizers' => fn(ParseNode $n) => $o->setCoOrganizers($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
             'registrationConfiguration' => fn(ParseNode $n) => $o->setRegistrationConfiguration($n->getObjectValue([VirtualEventWebinarRegistrationConfiguration::class, 'createFromDiscriminatorValue'])),
             'registrations' => fn(ParseNode $n) => $o->setRegistrations($n->getCollectionOfObjectValues([VirtualEventRegistration::class, 'createFromDiscriminatorValue'])),
@@ -105,9 +105,9 @@ class VirtualEventWebinar extends VirtualEvent implements Parsable
 
     /**
      * Sets the audience property value. To whom the webinar is visible.
-     * @param MeetingAudience|null $value Value to set for the audience property.
+     * @param VirtualEventWebinar_audience|null $value Value to set for the audience property.
     */
-    public function setAudience(?MeetingAudience $value): void {
+    public function setAudience(?VirtualEventWebinar_audience $value): void {
         $this->getBackingStore()->set('audience', $value);
     }
 

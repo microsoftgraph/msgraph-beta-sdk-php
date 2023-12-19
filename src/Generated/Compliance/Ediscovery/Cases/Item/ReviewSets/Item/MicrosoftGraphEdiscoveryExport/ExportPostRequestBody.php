@@ -3,7 +3,6 @@
 namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\ReviewSets\Item\MicrosoftGraphEdiscoveryExport;
 
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ExportFileStructure;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\ExportOptions;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -95,11 +94,11 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the exportOptions property value. The exportOptions property
-     * @return ExportOptions|null
+     * @return ExportPostRequestBody_exportOptions|null
     */
-    public function getExportOptions(): ?ExportOptions {
+    public function getExportOptions(): ?ExportPostRequestBody_exportOptions {
         $val = $this->getBackingStore()->get('exportOptions');
-        if (is_null($val) || $val instanceof ExportOptions) {
+        if (is_null($val) || $val instanceof ExportPostRequestBody_exportOptions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'exportOptions'");
@@ -127,7 +126,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
             'azureBlobContainer' => fn(ParseNode $n) => $o->setAzureBlobContainer($n->getStringValue()),
             'azureBlobToken' => fn(ParseNode $n) => $o->setAzureBlobToken($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'exportOptions' => fn(ParseNode $n) => $o->setExportOptions($n->getEnumValue(ExportOptions::class)),
+            'exportOptions' => fn(ParseNode $n) => $o->setExportOptions($n->getEnumValue(ExportPostRequestBody_exportOptions::class)),
             'exportStructure' => fn(ParseNode $n) => $o->setExportStructure($n->getEnumValue(ExportFileStructure::class)),
             'outputName' => fn(ParseNode $n) => $o->setOutputName($n->getStringValue()),
         ];
@@ -201,9 +200,9 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the exportOptions property value. The exportOptions property
-     * @param ExportOptions|null $value Value to set for the exportOptions property.
+     * @param ExportPostRequestBody_exportOptions|null $value Value to set for the exportOptions property.
     */
-    public function setExportOptions(?ExportOptions $value): void {
+    public function setExportOptions(?ExportPostRequestBody_exportOptions $value): void {
         $this->getBackingStore()->set('exportOptions', $value);
     }
 

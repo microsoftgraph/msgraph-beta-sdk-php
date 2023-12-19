@@ -31,18 +31,18 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'matchTolerance' => fn(ParseNode $n) => $o->setMatchTolerance($n->getEnumValue(MlClassificationMatchTolerance::class)),
+            'matchTolerance' => fn(ParseNode $n) => $o->setMatchTolerance($n->getEnumValue(MachineLearningDetectedSensitiveContent_matchTolerance::class)),
             'modelVersion' => fn(ParseNode $n) => $o->setModelVersion($n->getStringValue()),
         ]);
     }
 
     /**
      * Gets the matchTolerance property value. The matchTolerance property
-     * @return MlClassificationMatchTolerance|null
+     * @return MachineLearningDetectedSensitiveContent_matchTolerance|null
     */
-    public function getMatchTolerance(): ?MlClassificationMatchTolerance {
+    public function getMatchTolerance(): ?MachineLearningDetectedSensitiveContent_matchTolerance {
         $val = $this->getBackingStore()->get('matchTolerance');
-        if (is_null($val) || $val instanceof MlClassificationMatchTolerance) {
+        if (is_null($val) || $val instanceof MachineLearningDetectedSensitiveContent_matchTolerance) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'matchTolerance'");
@@ -72,9 +72,9 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
 
     /**
      * Sets the matchTolerance property value. The matchTolerance property
-     * @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerance property.
+     * @param MachineLearningDetectedSensitiveContent_matchTolerance|null $value Value to set for the matchTolerance property.
     */
-    public function setMatchTolerance(?MlClassificationMatchTolerance $value): void {
+    public function setMatchTolerance(?MachineLearningDetectedSensitiveContent_matchTolerance $value): void {
         $this->getBackingStore()->set('matchTolerance', $value);
     }
 

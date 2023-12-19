@@ -62,10 +62,23 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'managedType' => fn(ParseNode $n) => $o->setManagedType($n->getEnumValue(MicrosoftManagedDesktop_managedType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'profile' => fn(ParseNode $n) => $o->setProfile($n->getStringValue()),
-            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(MicrosoftManagedDesktopType::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(MicrosoftManagedDesktop_type::class)),
         ];
+    }
+
+    /**
+     * Gets the managedType property value. The managedType property
+     * @return MicrosoftManagedDesktop_managedType|null
+    */
+    public function getManagedType(): ?MicrosoftManagedDesktop_managedType {
+        $val = $this->getBackingStore()->get('managedType');
+        if (is_null($val) || $val instanceof MicrosoftManagedDesktop_managedType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedType'");
     }
 
     /**
@@ -94,11 +107,11 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the type property value. Indicates whether the provisioning policy enables Microsoft Managed Desktop. It indicates the type of plan under which the device is managed if the provisioning policy is enabled. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue.
-     * @return MicrosoftManagedDesktopType|null
+     * @return MicrosoftManagedDesktop_type|null
     */
-    public function getType(): ?MicrosoftManagedDesktopType {
+    public function getType(): ?MicrosoftManagedDesktop_type {
         $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || $val instanceof MicrosoftManagedDesktopType) {
+        if (is_null($val) || $val instanceof MicrosoftManagedDesktop_type) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
@@ -109,6 +122,7 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('managedType', $this->getManagedType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('profile', $this->getProfile());
         $writer->writeEnumValue('type', $this->getType());
@@ -132,6 +146,14 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
+     * Sets the managedType property value. The managedType property
+     * @param MicrosoftManagedDesktop_managedType|null $value Value to set for the managedType property.
+    */
+    public function setManagedType(?MicrosoftManagedDesktop_managedType $value): void {
+        $this->getBackingStore()->set('managedType', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
      * @param string|null $value Value to set for the @odata.type property.
     */
@@ -149,9 +171,9 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the type property value. Indicates whether the provisioning policy enables Microsoft Managed Desktop. It indicates the type of plan under which the device is managed if the provisioning policy is enabled. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue.
-     * @param MicrosoftManagedDesktopType|null $value Value to set for the type property.
+     * @param MicrosoftManagedDesktop_type|null $value Value to set for the type property.
     */
-    public function setType(?MicrosoftManagedDesktopType $value): void {
+    public function setType(?MicrosoftManagedDesktop_type $value): void {
         $this->getBackingStore()->set('type', $value);
     }
 

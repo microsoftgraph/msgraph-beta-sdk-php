@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FrontlineCloudPcAccessState;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -33,7 +32,7 @@ class GetFrontlineCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke function getFrontlineCloudPcAccessState
      * @param GetFrontlineCloudPcAccessStateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<FrontlineCloudPcAccessState|null>
+     * @return Promise<GetFrontlineCloudPcAccessStateGetResponse|null>
      * @throws Exception
     */
     public function get(?GetFrontlineCloudPcAccessStateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -42,8 +41,8 @@ class GetFrontlineCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
                 '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        /** @var Promise<FrontlineCloudPcAccessState|null> $result */
-        $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, FrontlineCloudPcAccessState::class, $errorMappings);
+        /** @var Promise<GetFrontlineCloudPcAccessStateGetResponse|null> $result */
+        $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, GetFrontlineCloudPcAccessStateGetResponse::class, $errorMappings);
         return $result;
     }
 

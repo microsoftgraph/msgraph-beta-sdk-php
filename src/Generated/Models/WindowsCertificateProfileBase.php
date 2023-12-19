@@ -75,7 +75,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
             'certificateValidityPeriodValue' => fn(ParseNode $n) => $o->setCertificateValidityPeriodValue($n->getIntegerValue()),
             'keyStorageProvider' => fn(ParseNode $n) => $o->setKeyStorageProvider($n->getEnumValue(KeyStorageProviderOption::class)),
             'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
-            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)),
+            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(WindowsCertificateProfileBase_subjectAlternativeNameType::class)),
             'subjectNameFormat' => fn(ParseNode $n) => $o->setSubjectNameFormat($n->getEnumValue(SubjectNameFormat::class)),
         ]);
     }
@@ -106,11 +106,11 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @return SubjectAlternativeNameType|null
+     * @return WindowsCertificateProfileBase_subjectAlternativeNameType|null
     */
-    public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
+    public function getSubjectAlternativeNameType(): ?WindowsCertificateProfileBase_subjectAlternativeNameType {
         $val = $this->getBackingStore()->get('subjectAlternativeNameType');
-        if (is_null($val) || $val instanceof SubjectAlternativeNameType) {
+        if (is_null($val) || $val instanceof WindowsCertificateProfileBase_subjectAlternativeNameType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectAlternativeNameType'");
@@ -176,9 +176,9 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
+     * @param WindowsCertificateProfileBase_subjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
-    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
+    public function setSubjectAlternativeNameType(?WindowsCertificateProfileBase_subjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameType', $value);
     }
 

@@ -27,11 +27,11 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
 
     /**
      * Gets the answerInputType property value. Answer input type of the custom registration question.
-     * @return AnswerInputType|null
+     * @return MeetingRegistrationQuestion_answerInputType|null
     */
-    public function getAnswerInputType(): ?AnswerInputType {
+    public function getAnswerInputType(): ?MeetingRegistrationQuestion_answerInputType {
         $val = $this->getBackingStore()->get('answerInputType');
-        if (is_null($val) || $val instanceof AnswerInputType) {
+        if (is_null($val) || $val instanceof MeetingRegistrationQuestion_answerInputType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'answerInputType'");
@@ -70,7 +70,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'answerInputType' => fn(ParseNode $n) => $o->setAnswerInputType($n->getEnumValue(AnswerInputType::class)),
+            'answerInputType' => fn(ParseNode $n) => $o->setAnswerInputType($n->getEnumValue(MeetingRegistrationQuestion_answerInputType::class)),
             'answerOptions' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -110,9 +110,9 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
 
     /**
      * Sets the answerInputType property value. Answer input type of the custom registration question.
-     * @param AnswerInputType|null $value Value to set for the answerInputType property.
+     * @param MeetingRegistrationQuestion_answerInputType|null $value Value to set for the answerInputType property.
     */
-    public function setAnswerInputType(?AnswerInputType $value): void {
+    public function setAnswerInputType(?MeetingRegistrationQuestion_answerInputType $value): void {
         $this->getBackingStore()->set('answerInputType', $value);
     }
 

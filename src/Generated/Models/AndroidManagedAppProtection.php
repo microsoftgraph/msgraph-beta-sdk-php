@@ -57,11 +57,11 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
 
     /**
      * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
-     * @return ManagedAppRemediationAction|null
+     * @return AndroidManagedAppProtection_appActionIfAccountIsClockedOut|null
     */
-    public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
+    public function getAppActionIfAccountIsClockedOut(): ?AndroidManagedAppProtection_appActionIfAccountIsClockedOut {
         $val = $this->getBackingStore()->get('appActionIfAccountIsClockedOut');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof AndroidManagedAppProtection_appActionIfAccountIsClockedOut) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAccountIsClockedOut'");
@@ -129,11 +129,11 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
 
     /**
      * Gets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action.
-     * @return ManagedAppRemediationAction|null
+     * @return AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh|null
     */
-    public function getAppActionIfDevicePasscodeComplexityLessThanHigh(): ?ManagedAppRemediationAction {
+    public function getAppActionIfDevicePasscodeComplexityLessThanHigh(): ?AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh {
         $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanHigh');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanHigh'");
@@ -141,11 +141,11 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
 
     /**
      * Gets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action.
-     * @return ManagedAppRemediationAction|null
+     * @return AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow|null
     */
-    public function getAppActionIfDevicePasscodeComplexityLessThanLow(): ?ManagedAppRemediationAction {
+    public function getAppActionIfDevicePasscodeComplexityLessThanLow(): ?AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow {
         $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanLow');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanLow'");
@@ -153,11 +153,11 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
 
     /**
      * Gets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action.
-     * @return ManagedAppRemediationAction|null
+     * @return AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium|null
     */
-    public function getAppActionIfDevicePasscodeComplexityLessThanMedium(): ?ManagedAppRemediationAction {
+    public function getAppActionIfDevicePasscodeComplexityLessThanMedium(): ?AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium {
         $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanMedium');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanMedium'");
@@ -165,11 +165,11 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
 
     /**
      * Gets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured.
-     * @return ManagedAppRemediationAction|null
+     * @return AndroidManagedAppProtection_appActionIfSamsungKnoxAttestationRequired|null
     */
-    public function getAppActionIfSamsungKnoxAttestationRequired(): ?ManagedAppRemediationAction {
+    public function getAppActionIfSamsungKnoxAttestationRequired(): ?AndroidManagedAppProtection_appActionIfSamsungKnoxAttestationRequired {
         $val = $this->getBackingStore()->get('appActionIfSamsungKnoxAttestationRequired');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof AndroidManagedAppProtection_appActionIfSamsungKnoxAttestationRequired) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfSamsungKnoxAttestationRequired'");
@@ -377,16 +377,16 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
                 /** @var array<string>|null $val */
                 $this->setAllowedAndroidDeviceModels($val);
             },
-            'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(AndroidManagedAppProtection_appActionIfAccountIsClockedOut::class)),
             'appActionIfAndroidDeviceManufacturerNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceManufacturerNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidSafetyNetAppsVerificationFailed' => fn(ParseNode $n) => $o->setAppActionIfAndroidSafetyNetAppsVerificationFailed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidSafetyNetDeviceAttestationFailed' => fn(ParseNode $n) => $o->setAppActionIfAndroidSafetyNetDeviceAttestationFailed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfDeviceLockNotSet' => fn(ParseNode $n) => $o->setAppActionIfDeviceLockNotSet($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfDevicePasscodeComplexityLessThanHigh' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanHigh($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfDevicePasscodeComplexityLessThanLow' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanLow($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfDevicePasscodeComplexityLessThanMedium' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanMedium($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfSamsungKnoxAttestationRequired' => fn(ParseNode $n) => $o->setAppActionIfSamsungKnoxAttestationRequired($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfDevicePasscodeComplexityLessThanHigh' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanHigh($n->getEnumValue(AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh::class)),
+            'appActionIfDevicePasscodeComplexityLessThanLow' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanLow($n->getEnumValue(AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow::class)),
+            'appActionIfDevicePasscodeComplexityLessThanMedium' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanMedium($n->getEnumValue(AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium::class)),
+            'appActionIfSamsungKnoxAttestationRequired' => fn(ParseNode $n) => $o->setAppActionIfSamsungKnoxAttestationRequired($n->getEnumValue(AndroidManagedAppProtection_appActionIfSamsungKnoxAttestationRequired::class)),
             'approvedKeyboards' => fn(ParseNode $n) => $o->setApprovedKeyboards($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([ManagedMobileApp::class, 'createFromDiscriminatorValue'])),
             'biometricAuthenticationBlocked' => fn(ParseNode $n) => $o->setBiometricAuthenticationBlocked($n->getBooleanValue()),
@@ -710,9 +710,9 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
 
     /**
      * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
+     * @param AndroidManagedAppProtection_appActionIfAccountIsClockedOut|null $value Value to set for the appActionIfAccountIsClockedOut property.
     */
-    public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfAccountIsClockedOut(?AndroidManagedAppProtection_appActionIfAccountIsClockedOut $value): void {
         $this->getBackingStore()->set('appActionIfAccountIsClockedOut', $value);
     }
 
@@ -758,33 +758,33 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
+     * @param AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanHigh', $value);
     }
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
+     * @param AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanLow(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfDevicePasscodeComplexityLessThanLow(?AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanLow', $value);
     }
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
+     * @param AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?AndroidManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanMedium', $value);
     }
 
     /**
      * Sets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfSamsungKnoxAttestationRequired property.
+     * @param AndroidManagedAppProtection_appActionIfSamsungKnoxAttestationRequired|null $value Value to set for the appActionIfSamsungKnoxAttestationRequired property.
     */
-    public function setAppActionIfSamsungKnoxAttestationRequired(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfSamsungKnoxAttestationRequired(?AndroidManagedAppProtection_appActionIfSamsungKnoxAttestationRequired $value): void {
         $this->getBackingStore()->set('appActionIfSamsungKnoxAttestationRequired', $value);
     }
 

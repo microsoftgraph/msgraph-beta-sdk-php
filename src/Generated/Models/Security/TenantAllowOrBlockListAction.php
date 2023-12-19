@@ -38,11 +38,11 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the action property value. Specifies whether the tenant allow-or-block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.
-     * @return TenantAllowBlockListAction|null
+     * @return TenantAllowOrBlockListAction_action|null
     */
-    public function getAction(): ?TenantAllowBlockListAction {
+    public function getAction(): ?TenantAllowOrBlockListAction_action {
         $val = $this->getBackingStore()->get('action');
-        if (is_null($val) || $val instanceof TenantAllowBlockListAction) {
+        if (is_null($val) || $val instanceof TenantAllowOrBlockListAction_action) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
@@ -88,7 +88,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(TenantAllowBlockListAction::class)),
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(TenantAllowOrBlockListAction_action::class)),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'note' => fn(ParseNode $n) => $o->setNote($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -149,9 +149,9 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the action property value. Specifies whether the tenant allow-or-block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.
-     * @param TenantAllowBlockListAction|null $value Value to set for the action property.
+     * @param TenantAllowOrBlockListAction_action|null $value Value to set for the action property.
     */
-    public function setAction(?TenantAllowBlockListAction $value): void {
+    public function setAction(?TenantAllowOrBlockListAction_action $value): void {
         $this->getBackingStore()->set('action', $value);
     }
 

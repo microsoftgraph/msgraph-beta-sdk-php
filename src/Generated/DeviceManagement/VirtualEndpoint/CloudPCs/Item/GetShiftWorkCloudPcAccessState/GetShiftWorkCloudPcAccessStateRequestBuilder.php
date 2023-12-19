@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ShiftWorkCloudPcAccessState;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -33,7 +32,7 @@ class GetShiftWorkCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke function getShiftWorkCloudPcAccessState
      * @param GetShiftWorkCloudPcAccessStateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<ShiftWorkCloudPcAccessState|null>
+     * @return Promise<GetShiftWorkCloudPcAccessStateGetResponse|null>
      * @throws Exception
     */
     public function get(?GetShiftWorkCloudPcAccessStateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -42,8 +41,8 @@ class GetShiftWorkCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
                 '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        /** @var Promise<ShiftWorkCloudPcAccessState|null> $result */
-        $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, ShiftWorkCloudPcAccessState::class, $errorMappings);
+        /** @var Promise<GetShiftWorkCloudPcAccessStateGetResponse|null> $result */
+        $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, GetShiftWorkCloudPcAccessStateGetResponse::class, $errorMappings);
         return $result;
     }
 

@@ -62,18 +62,18 @@ class ContinuousAccessEvaluationSessionControl implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'mode' => fn(ParseNode $n) => $o->setMode($n->getEnumValue(ContinuousAccessEvaluationMode::class)),
+            'mode' => fn(ParseNode $n) => $o->setMode($n->getEnumValue(ContinuousAccessEvaluationSessionControl_mode::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
      * Gets the mode property value. Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue, strictLocation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: strictLocation.
-     * @return ContinuousAccessEvaluationMode|null
+     * @return ContinuousAccessEvaluationSessionControl_mode|null
     */
-    public function getMode(): ?ContinuousAccessEvaluationMode {
+    public function getMode(): ?ContinuousAccessEvaluationSessionControl_mode {
         $val = $this->getBackingStore()->get('mode');
-        if (is_null($val) || $val instanceof ContinuousAccessEvaluationMode) {
+        if (is_null($val) || $val instanceof ContinuousAccessEvaluationSessionControl_mode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mode'");
@@ -119,9 +119,9 @@ class ContinuousAccessEvaluationSessionControl implements AdditionalDataHolder, 
 
     /**
      * Sets the mode property value. Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue, strictLocation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: strictLocation.
-     * @param ContinuousAccessEvaluationMode|null $value Value to set for the mode property.
+     * @param ContinuousAccessEvaluationSessionControl_mode|null $value Value to set for the mode property.
     */
-    public function setMode(?ContinuousAccessEvaluationMode $value): void {
+    public function setMode(?ContinuousAccessEvaluationSessionControl_mode $value): void {
         $this->getBackingStore()->set('mode', $value);
     }
 

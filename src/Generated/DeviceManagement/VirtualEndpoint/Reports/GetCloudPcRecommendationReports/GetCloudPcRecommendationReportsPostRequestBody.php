@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetCloudPcRecommendationReports;
 
-use Microsoft\Graph\Beta\Generated\Models\CloudPcReportName;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -81,7 +80,7 @@ class GetCloudPcRecommendationReportsPostRequestBody implements AdditionalDataHo
                 /** @var array<string>|null $val */
                 $this->setOrderBy($val);
             },
-            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(CloudPcReportName::class)),
+            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(GetCloudPcRecommendationReportsPostRequestBody_reportName::class)),
             'search' => fn(ParseNode $n) => $o->setSearch($n->getStringValue()),
             'select' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -138,11 +137,11 @@ class GetCloudPcRecommendationReportsPostRequestBody implements AdditionalDataHo
 
     /**
      * Gets the reportName property value. The reportName property
-     * @return CloudPcReportName|null
+     * @return GetCloudPcRecommendationReportsPostRequestBody_reportName|null
     */
-    public function getReportName(): ?CloudPcReportName {
+    public function getReportName(): ?GetCloudPcRecommendationReportsPostRequestBody_reportName {
         $val = $this->getBackingStore()->get('reportName');
-        if (is_null($val) || $val instanceof CloudPcReportName) {
+        if (is_null($val) || $val instanceof GetCloudPcRecommendationReportsPostRequestBody_reportName) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'reportName'");
@@ -256,9 +255,9 @@ class GetCloudPcRecommendationReportsPostRequestBody implements AdditionalDataHo
 
     /**
      * Sets the reportName property value. The reportName property
-     * @param CloudPcReportName|null $value Value to set for the reportName property.
+     * @param GetCloudPcRecommendationReportsPostRequestBody_reportName|null $value Value to set for the reportName property.
     */
-    public function setReportName(?CloudPcReportName $value): void {
+    public function setReportName(?GetCloudPcRecommendationReportsPostRequestBody_reportName $value): void {
         $this->getBackingStore()->set('reportName', $value);
     }
 

@@ -31,11 +31,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Gets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @return WiFiAuthenticationMethod|null
+     * @return WindowsWifiEnterpriseEAPConfiguration_authenticationMethod|null
     */
-    public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
+    public function getAuthenticationMethod(): ?WindowsWifiEnterpriseEAPConfiguration_authenticationMethod {
         $val = $this->getBackingStore()->get('authenticationMethod');
-        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+        if (is_null($val) || $val instanceof WindowsWifiEnterpriseEAPConfiguration_authenticationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
@@ -67,11 +67,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Gets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest.
-     * @return WifiAuthenticationType|null
+     * @return WindowsWifiEnterpriseEAPConfiguration_authenticationType|null
     */
-    public function getAuthenticationType(): ?WifiAuthenticationType {
+    public function getAuthenticationType(): ?WindowsWifiEnterpriseEAPConfiguration_authenticationType {
         $val = $this->getBackingStore()->get('authenticationType');
-        if (is_null($val) || $val instanceof WifiAuthenticationType) {
+        if (is_null($val) || $val instanceof WindowsWifiEnterpriseEAPConfiguration_authenticationType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationType'");
@@ -156,10 +156,10 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)),
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WindowsWifiEnterpriseEAPConfiguration_authenticationMethod::class)),
             'authenticationPeriodInSeconds' => fn(ParseNode $n) => $o->setAuthenticationPeriodInSeconds($n->getIntegerValue()),
             'authenticationRetryDelayPeriodInSeconds' => fn(ParseNode $n) => $o->setAuthenticationRetryDelayPeriodInSeconds($n->getIntegerValue()),
-            'authenticationType' => fn(ParseNode $n) => $o->setAuthenticationType($n->getEnumValue(WifiAuthenticationType::class)),
+            'authenticationType' => fn(ParseNode $n) => $o->setAuthenticationType($n->getEnumValue(WindowsWifiEnterpriseEAPConfiguration_authenticationType::class)),
             'cacheCredentials' => fn(ParseNode $n) => $o->setCacheCredentials($n->getBooleanValue()),
             'disableUserPromptForServerValidation' => fn(ParseNode $n) => $o->setDisableUserPromptForServerValidation($n->getBooleanValue()),
             'eapolStartPeriodInSeconds' => fn(ParseNode $n) => $o->setEapolStartPeriodInSeconds($n->getIntegerValue()),
@@ -167,14 +167,14 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
             'enablePairwiseMasterKeyCaching' => fn(ParseNode $n) => $o->setEnablePairwiseMasterKeyCaching($n->getBooleanValue()),
             'enablePreAuthentication' => fn(ParseNode $n) => $o->setEnablePreAuthentication($n->getBooleanValue()),
             'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([WindowsCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
-            'innerAuthenticationProtocolForEAPTTLS' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEAPTTLS($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
+            'innerAuthenticationProtocolForEAPTTLS' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEAPTTLS($n->getEnumValue(WindowsWifiEnterpriseEAPConfiguration_innerAuthenticationProtocolForEAPTTLS::class)),
             'maximumAuthenticationFailures' => fn(ParseNode $n) => $o->setMaximumAuthenticationFailures($n->getIntegerValue()),
             'maximumAuthenticationTimeoutInSeconds' => fn(ParseNode $n) => $o->setMaximumAuthenticationTimeoutInSeconds($n->getIntegerValue()),
             'maximumEAPOLStartMessages' => fn(ParseNode $n) => $o->setMaximumEAPOLStartMessages($n->getIntegerValue()),
             'maximumNumberOfPairwiseMasterKeysInCache' => fn(ParseNode $n) => $o->setMaximumNumberOfPairwiseMasterKeysInCache($n->getIntegerValue()),
             'maximumPairwiseMasterKeyCacheTimeInMinutes' => fn(ParseNode $n) => $o->setMaximumPairwiseMasterKeyCacheTimeInMinutes($n->getIntegerValue()),
             'maximumPreAuthenticationAttempts' => fn(ParseNode $n) => $o->setMaximumPreAuthenticationAttempts($n->getIntegerValue()),
-            'networkSingleSignOn' => fn(ParseNode $n) => $o->setNetworkSingleSignOn($n->getEnumValue(NetworkSingleSignOnType::class)),
+            'networkSingleSignOn' => fn(ParseNode $n) => $o->setNetworkSingleSignOn($n->getEnumValue(WindowsWifiEnterpriseEAPConfiguration_networkSingleSignOn::class)),
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
             'performServerValidation' => fn(ParseNode $n) => $o->setPerformServerValidation($n->getBooleanValue()),
             'promptForAdditionalAuthenticationCredentials' => fn(ParseNode $n) => $o->setPromptForAdditionalAuthenticationCredentials($n->getBooleanValue()),
@@ -207,11 +207,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Gets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @return NonEapAuthenticationMethodForEapTtlsType|null
+     * @return WindowsWifiEnterpriseEAPConfiguration_innerAuthenticationProtocolForEAPTTLS|null
     */
-    public function getInnerAuthenticationProtocolForEAPTTLS(): ?NonEapAuthenticationMethodForEapTtlsType {
+    public function getInnerAuthenticationProtocolForEAPTTLS(): ?WindowsWifiEnterpriseEAPConfiguration_innerAuthenticationProtocolForEAPTTLS {
         $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEAPTTLS');
-        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+        if (is_null($val) || $val instanceof WindowsWifiEnterpriseEAPConfiguration_innerAuthenticationProtocolForEAPTTLS) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEAPTTLS'");
@@ -291,11 +291,11 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Gets the networkSingleSignOn property value. Specify the network single sign on type. Possible values are: disabled, prelogon, postlogon.
-     * @return NetworkSingleSignOnType|null
+     * @return WindowsWifiEnterpriseEAPConfiguration_networkSingleSignOn|null
     */
-    public function getNetworkSingleSignOn(): ?NetworkSingleSignOnType {
+    public function getNetworkSingleSignOn(): ?WindowsWifiEnterpriseEAPConfiguration_networkSingleSignOn {
         $val = $this->getBackingStore()->get('networkSingleSignOn');
-        if (is_null($val) || $val instanceof NetworkSingleSignOnType) {
+        if (is_null($val) || $val instanceof WindowsWifiEnterpriseEAPConfiguration_networkSingleSignOn) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'networkSingleSignOn'");
@@ -438,9 +438,9 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param WindowsWifiEnterpriseEAPConfiguration_authenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
+    public function setAuthenticationMethod(?WindowsWifiEnterpriseEAPConfiguration_authenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
@@ -462,9 +462,9 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest.
-     * @param WifiAuthenticationType|null $value Value to set for the authenticationType property.
+     * @param WindowsWifiEnterpriseEAPConfiguration_authenticationType|null $value Value to set for the authenticationType property.
     */
-    public function setAuthenticationType(?WifiAuthenticationType $value): void {
+    public function setAuthenticationType(?WindowsWifiEnterpriseEAPConfiguration_authenticationType $value): void {
         $this->getBackingStore()->set('authenticationType', $value);
     }
 
@@ -526,9 +526,9 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
+     * @param WindowsWifiEnterpriseEAPConfiguration_innerAuthenticationProtocolForEAPTTLS|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
     */
-    public function setInnerAuthenticationProtocolForEAPTTLS(?NonEapAuthenticationMethodForEapTtlsType $value): void {
+    public function setInnerAuthenticationProtocolForEAPTTLS(?WindowsWifiEnterpriseEAPConfiguration_innerAuthenticationProtocolForEAPTTLS $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEAPTTLS', $value);
     }
 
@@ -582,9 +582,9 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the networkSingleSignOn property value. Specify the network single sign on type. Possible values are: disabled, prelogon, postlogon.
-     * @param NetworkSingleSignOnType|null $value Value to set for the networkSingleSignOn property.
+     * @param WindowsWifiEnterpriseEAPConfiguration_networkSingleSignOn|null $value Value to set for the networkSingleSignOn property.
     */
-    public function setNetworkSingleSignOn(?NetworkSingleSignOnType $value): void {
+    public function setNetworkSingleSignOn(?WindowsWifiEnterpriseEAPConfiguration_networkSingleSignOn $value): void {
         $this->getBackingStore()->set('networkSingleSignOn', $value);
     }
 

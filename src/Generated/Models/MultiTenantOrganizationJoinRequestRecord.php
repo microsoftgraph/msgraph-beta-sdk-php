@@ -44,19 +44,19 @@ class MultiTenantOrganizationJoinRequestRecord extends Entity implements Parsabl
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'addedByTenantId' => fn(ParseNode $n) => $o->setAddedByTenantId($n->getStringValue()),
-            'memberState' => fn(ParseNode $n) => $o->setMemberState($n->getEnumValue(MultiTenantOrganizationMemberState::class)),
-            'role' => fn(ParseNode $n) => $o->setRole($n->getEnumValue(MultiTenantOrganizationMemberRole::class)),
+            'memberState' => fn(ParseNode $n) => $o->setMemberState($n->getEnumValue(MultiTenantOrganizationJoinRequestRecord_memberState::class)),
+            'role' => fn(ParseNode $n) => $o->setRole($n->getEnumValue(MultiTenantOrganizationJoinRequestRecord_role::class)),
             'transitionDetails' => fn(ParseNode $n) => $o->setTransitionDetails($n->getObjectValue([MultiTenantOrganizationJoinRequestTransitionDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the memberState property value. State of the tenant in the multi-tenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multi-tenant organization to participate in the multi-tenant organization. Tenants in the active state can participate in the multi-tenant organization. Tenants in the removed state are in the process of being removed from the multi-tenant organization. Read-only.
-     * @return MultiTenantOrganizationMemberState|null
+     * @return MultiTenantOrganizationJoinRequestRecord_memberState|null
     */
-    public function getMemberState(): ?MultiTenantOrganizationMemberState {
+    public function getMemberState(): ?MultiTenantOrganizationJoinRequestRecord_memberState {
         $val = $this->getBackingStore()->get('memberState');
-        if (is_null($val) || $val instanceof MultiTenantOrganizationMemberState) {
+        if (is_null($val) || $val instanceof MultiTenantOrganizationJoinRequestRecord_memberState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'memberState'");
@@ -64,11 +64,11 @@ class MultiTenantOrganizationJoinRequestRecord extends Entity implements Parsabl
 
     /**
      * Gets the role property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multi-tenant organization. There can be multiple tenants with the owner role in a multi-tenant organization. Tenants with the member role can participate in a multi-tenant organization.
-     * @return MultiTenantOrganizationMemberRole|null
+     * @return MultiTenantOrganizationJoinRequestRecord_role|null
     */
-    public function getRole(): ?MultiTenantOrganizationMemberRole {
+    public function getRole(): ?MultiTenantOrganizationJoinRequestRecord_role {
         $val = $this->getBackingStore()->get('role');
-        if (is_null($val) || $val instanceof MultiTenantOrganizationMemberRole) {
+        if (is_null($val) || $val instanceof MultiTenantOrganizationJoinRequestRecord_role) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'role'");
@@ -108,17 +108,17 @@ class MultiTenantOrganizationJoinRequestRecord extends Entity implements Parsabl
 
     /**
      * Sets the memberState property value. State of the tenant in the multi-tenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multi-tenant organization to participate in the multi-tenant organization. Tenants in the active state can participate in the multi-tenant organization. Tenants in the removed state are in the process of being removed from the multi-tenant organization. Read-only.
-     * @param MultiTenantOrganizationMemberState|null $value Value to set for the memberState property.
+     * @param MultiTenantOrganizationJoinRequestRecord_memberState|null $value Value to set for the memberState property.
     */
-    public function setMemberState(?MultiTenantOrganizationMemberState $value): void {
+    public function setMemberState(?MultiTenantOrganizationJoinRequestRecord_memberState $value): void {
         $this->getBackingStore()->set('memberState', $value);
     }
 
     /**
      * Sets the role property value. Role of the tenant in the multi-tenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multi-tenant organization. There can be multiple tenants with the owner role in a multi-tenant organization. Tenants with the member role can participate in a multi-tenant organization.
-     * @param MultiTenantOrganizationMemberRole|null $value Value to set for the role property.
+     * @param MultiTenantOrganizationJoinRequestRecord_role|null $value Value to set for the role property.
     */
-    public function setRole(?MultiTenantOrganizationMemberRole $value): void {
+    public function setRole(?MultiTenantOrganizationJoinRequestRecord_role $value): void {
         $this->getBackingStore()->set('role', $value);
     }
 

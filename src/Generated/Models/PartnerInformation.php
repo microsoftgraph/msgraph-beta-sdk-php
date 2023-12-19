@@ -82,11 +82,11 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the companyType property value. The companyType property
-     * @return PartnerTenantType|null
+     * @return PartnerInformation_companyType|null
     */
-    public function getCompanyType(): ?PartnerTenantType {
+    public function getCompanyType(): ?PartnerInformation_companyType {
         $val = $this->getBackingStore()->get('companyType');
-        if (is_null($val) || $val instanceof PartnerTenantType) {
+        if (is_null($val) || $val instanceof PartnerInformation_companyType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'companyType'");
@@ -101,7 +101,7 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'commerceUrl' => fn(ParseNode $n) => $o->setCommerceUrl($n->getStringValue()),
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
-            'companyType' => fn(ParseNode $n) => $o->setCompanyType($n->getEnumValue(PartnerTenantType::class)),
+            'companyType' => fn(ParseNode $n) => $o->setCompanyType($n->getEnumValue(PartnerInformation_companyType::class)),
             'helpUrl' => fn(ParseNode $n) => $o->setHelpUrl($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'partnerTenantId' => fn(ParseNode $n) => $o->setPartnerTenantId($n->getStringValue()),
@@ -252,9 +252,9 @@ class PartnerInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the companyType property value. The companyType property
-     * @param PartnerTenantType|null $value Value to set for the companyType property.
+     * @param PartnerInformation_companyType|null $value Value to set for the companyType property.
     */
-    public function setCompanyType(?PartnerTenantType $value): void {
+    public function setCompanyType(?PartnerInformation_companyType $value): void {
         $this->getBackingStore()->set('companyType', $value);
     }
 

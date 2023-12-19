@@ -27,11 +27,11 @@ class AddFooter extends MarkContent implements Parsable
 
     /**
      * Gets the alignment property value. The alignment property
-     * @return Alignment|null
+     * @return AddFooter_alignment|null
     */
-    public function getAlignment(): ?Alignment {
+    public function getAlignment(): ?AddFooter_alignment {
         $val = $this->getBackingStore()->get('alignment');
-        if (is_null($val) || $val instanceof Alignment) {
+        if (is_null($val) || $val instanceof AddFooter_alignment) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'alignment'");
@@ -44,7 +44,7 @@ class AddFooter extends MarkContent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alignment' => fn(ParseNode $n) => $o->setAlignment($n->getEnumValue(Alignment::class)),
+            'alignment' => fn(ParseNode $n) => $o->setAlignment($n->getEnumValue(AddFooter_alignment::class)),
             'margin' => fn(ParseNode $n) => $o->setMargin($n->getIntegerValue()),
         ]);
     }
@@ -73,9 +73,9 @@ class AddFooter extends MarkContent implements Parsable
 
     /**
      * Sets the alignment property value. The alignment property
-     * @param Alignment|null $value Value to set for the alignment property.
+     * @param AddFooter_alignment|null $value Value to set for the alignment property.
     */
-    public function setAlignment(?Alignment $value): void {
+    public function setAlignment(?AddFooter_alignment $value): void {
         $this->getBackingStore()->set('alignment', $value);
     }
 

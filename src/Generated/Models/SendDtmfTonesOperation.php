@@ -26,11 +26,11 @@ class SendDtmfTonesOperation extends CommsOperation implements Parsable
 
     /**
      * Gets the completionReason property value. The results of the action. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled, unknownfutureValue.
-     * @return SendDtmfCompletionReason|null
+     * @return SendDtmfTonesOperation_completionReason|null
     */
-    public function getCompletionReason(): ?SendDtmfCompletionReason {
+    public function getCompletionReason(): ?SendDtmfTonesOperation_completionReason {
         $val = $this->getBackingStore()->get('completionReason');
-        if (is_null($val) || $val instanceof SendDtmfCompletionReason) {
+        if (is_null($val) || $val instanceof SendDtmfTonesOperation_completionReason) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'completionReason'");
@@ -43,7 +43,7 @@ class SendDtmfTonesOperation extends CommsOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(SendDtmfCompletionReason::class)),
+            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(SendDtmfTonesOperation_completionReason::class)),
         ]);
     }
 
@@ -58,9 +58,9 @@ class SendDtmfTonesOperation extends CommsOperation implements Parsable
 
     /**
      * Sets the completionReason property value. The results of the action. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled, unknownfutureValue.
-     * @param SendDtmfCompletionReason|null $value Value to set for the completionReason property.
+     * @param SendDtmfTonesOperation_completionReason|null $value Value to set for the completionReason property.
     */
-    public function setCompletionReason(?SendDtmfCompletionReason $value): void {
+    public function setCompletionReason(?SendDtmfTonesOperation_completionReason $value): void {
         $this->getBackingStore()->set('completionReason', $value);
     }
 

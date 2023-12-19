@@ -58,11 +58,11 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the entryType property value. The tenant allow-block list entry type. The possible values are: url, fileHash, sender, recipient and unkownFutureValue.
-     * @return TenantAllowBlockListEntryType|null
+     * @return TenantAllowBlockListEntryResult_entryType|null
     */
-    public function getEntryType(): ?TenantAllowBlockListEntryType {
+    public function getEntryType(): ?TenantAllowBlockListEntryResult_entryType {
         $val = $this->getBackingStore()->get('entryType');
-        if (is_null($val) || $val instanceof TenantAllowBlockListEntryType) {
+        if (is_null($val) || $val instanceof TenantAllowBlockListEntryResult_entryType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'entryType'");
@@ -87,11 +87,11 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'entryType' => fn(ParseNode $n) => $o->setEntryType($n->getEnumValue(TenantAllowBlockListEntryType::class)),
+            'entryType' => fn(ParseNode $n) => $o->setEntryType($n->getEnumValue(TenantAllowBlockListEntryResult_entryType::class)),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'identity' => fn(ParseNode $n) => $o->setIdentity($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(TenantAllowBlockListEntryResult_status::class)),
             'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ];
     }
@@ -122,11 +122,11 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the status property value. Specifies whether the tenant allow block list entry creation operation was successful. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
-     * @return LongRunningOperationStatus|null
+     * @return TenantAllowBlockListEntryResult_status|null
     */
-    public function getStatus(): ?LongRunningOperationStatus {
+    public function getStatus(): ?TenantAllowBlockListEntryResult_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof LongRunningOperationStatus) {
+        if (is_null($val) || $val instanceof TenantAllowBlockListEntryResult_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -176,9 +176,9 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the entryType property value. The tenant allow-block list entry type. The possible values are: url, fileHash, sender, recipient and unkownFutureValue.
-     * @param TenantAllowBlockListEntryType|null $value Value to set for the entryType property.
+     * @param TenantAllowBlockListEntryResult_entryType|null $value Value to set for the entryType property.
     */
-    public function setEntryType(?TenantAllowBlockListEntryType $value): void {
+    public function setEntryType(?TenantAllowBlockListEntryResult_entryType $value): void {
         $this->getBackingStore()->set('entryType', $value);
     }
 
@@ -208,9 +208,9 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the status property value. Specifies whether the tenant allow block list entry creation operation was successful. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
-     * @param LongRunningOperationStatus|null $value Value to set for the status property.
+     * @param TenantAllowBlockListEntryResult_status|null $value Value to set for the status property.
     */
-    public function setStatus(?LongRunningOperationStatus $value): void {
+    public function setStatus(?TenantAllowBlockListEntryResult_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

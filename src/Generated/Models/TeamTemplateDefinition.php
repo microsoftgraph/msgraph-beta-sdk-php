@@ -28,11 +28,11 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Gets the audience property value. Describes the audience the team template is available to. The possible values are: organization, user, public, unknownFutureValue.
-     * @return TeamTemplateAudience|null
+     * @return TeamTemplateDefinition_audience|null
     */
-    public function getAudience(): ?TeamTemplateAudience {
+    public function getAudience(): ?TeamTemplateDefinition_audience {
         $val = $this->getBackingStore()->get('audience');
-        if (is_null($val) || $val instanceof TeamTemplateAudience) {
+        if (is_null($val) || $val instanceof TeamTemplateDefinition_audience) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'audience'");
@@ -83,7 +83,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(TeamTemplateAudience::class)),
+            'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(TeamTemplateDefinition_audience::class)),
             'categories' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -223,9 +223,9 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the audience property value. Describes the audience the team template is available to. The possible values are: organization, user, public, unknownFutureValue.
-     * @param TeamTemplateAudience|null $value Value to set for the audience property.
+     * @param TeamTemplateDefinition_audience|null $value Value to set for the audience property.
     */
-    public function setAudience(?TeamTemplateAudience $value): void {
+    public function setAudience(?TeamTemplateDefinition_audience $value): void {
         $this->getBackingStore()->set('audience', $value);
     }
 

@@ -68,8 +68,8 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
             'lifetimeInMinutes' => fn(ParseNode $n) => $o->setLifetimeInMinutes($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'securityDiffieHellmanGroup' => fn(ParseNode $n) => $o->setSecurityDiffieHellmanGroup($n->getIntegerValue()),
-            'securityEncryptionAlgorithm' => fn(ParseNode $n) => $o->setSecurityEncryptionAlgorithm($n->getEnumValue(VpnEncryptionAlgorithmType::class)),
-            'securityIntegrityAlgorithm' => fn(ParseNode $n) => $o->setSecurityIntegrityAlgorithm($n->getEnumValue(VpnIntegrityAlgorithmType::class)),
+            'securityEncryptionAlgorithm' => fn(ParseNode $n) => $o->setSecurityEncryptionAlgorithm($n->getEnumValue(IosVpnSecurityAssociationParameters_securityEncryptionAlgorithm::class)),
+            'securityIntegrityAlgorithm' => fn(ParseNode $n) => $o->setSecurityIntegrityAlgorithm($n->getEnumValue(IosVpnSecurityAssociationParameters_securityIntegrityAlgorithm::class)),
         ];
     }
 
@@ -111,11 +111,11 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Gets the securityEncryptionAlgorithm property value. Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     * @return VpnEncryptionAlgorithmType|null
+     * @return IosVpnSecurityAssociationParameters_securityEncryptionAlgorithm|null
     */
-    public function getSecurityEncryptionAlgorithm(): ?VpnEncryptionAlgorithmType {
+    public function getSecurityEncryptionAlgorithm(): ?IosVpnSecurityAssociationParameters_securityEncryptionAlgorithm {
         $val = $this->getBackingStore()->get('securityEncryptionAlgorithm');
-        if (is_null($val) || $val instanceof VpnEncryptionAlgorithmType) {
+        if (is_null($val) || $val instanceof IosVpnSecurityAssociationParameters_securityEncryptionAlgorithm) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'securityEncryptionAlgorithm'");
@@ -123,11 +123,11 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Gets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
-     * @return VpnIntegrityAlgorithmType|null
+     * @return IosVpnSecurityAssociationParameters_securityIntegrityAlgorithm|null
     */
-    public function getSecurityIntegrityAlgorithm(): ?VpnIntegrityAlgorithmType {
+    public function getSecurityIntegrityAlgorithm(): ?IosVpnSecurityAssociationParameters_securityIntegrityAlgorithm {
         $val = $this->getBackingStore()->get('securityIntegrityAlgorithm');
-        if (is_null($val) || $val instanceof VpnIntegrityAlgorithmType) {
+        if (is_null($val) || $val instanceof IosVpnSecurityAssociationParameters_securityIntegrityAlgorithm) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'securityIntegrityAlgorithm'");
@@ -188,17 +188,17 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the securityEncryptionAlgorithm property value. Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     * @param VpnEncryptionAlgorithmType|null $value Value to set for the securityEncryptionAlgorithm property.
+     * @param IosVpnSecurityAssociationParameters_securityEncryptionAlgorithm|null $value Value to set for the securityEncryptionAlgorithm property.
     */
-    public function setSecurityEncryptionAlgorithm(?VpnEncryptionAlgorithmType $value): void {
+    public function setSecurityEncryptionAlgorithm(?IosVpnSecurityAssociationParameters_securityEncryptionAlgorithm $value): void {
         $this->getBackingStore()->set('securityEncryptionAlgorithm', $value);
     }
 
     /**
      * Sets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
-     * @param VpnIntegrityAlgorithmType|null $value Value to set for the securityIntegrityAlgorithm property.
+     * @param IosVpnSecurityAssociationParameters_securityIntegrityAlgorithm|null $value Value to set for the securityIntegrityAlgorithm property.
     */
-    public function setSecurityIntegrityAlgorithm(?VpnIntegrityAlgorithmType $value): void {
+    public function setSecurityIntegrityAlgorithm(?IosVpnSecurityAssociationParameters_securityIntegrityAlgorithm $value): void {
         $this->getBackingStore()->set('securityIntegrityAlgorithm', $value);
     }
 

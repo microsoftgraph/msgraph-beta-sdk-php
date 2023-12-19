@@ -28,11 +28,11 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Gets the action property value. The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required.
-     * @return TiAction|null
+     * @return TiIndicator_action|null
     */
-    public function getAction(): ?TiAction {
+    public function getAction(): ?TiIndicator_action {
         $val = $this->getBackingStore()->get('action');
-        if (is_null($val) || $val instanceof TiAction) {
+        if (is_null($val) || $val instanceof TiIndicator_action) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
@@ -102,11 +102,11 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Gets the diamondModel property value. The area of the Diamond Model in which this indicator exists. Possible values are: unknown, adversary, capability, infrastructure, victim.
-     * @return DiamondModel|null
+     * @return TiIndicator_diamondModel|null
     */
-    public function getDiamondModel(): ?DiamondModel {
+    public function getDiamondModel(): ?TiIndicator_diamondModel {
         $val = $this->getBackingStore()->get('diamondModel');
-        if (is_null($val) || $val instanceof DiamondModel) {
+        if (is_null($val) || $val instanceof TiIndicator_diamondModel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'diamondModel'");
@@ -263,7 +263,7 @@ class TiIndicator extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(TiAction::class)),
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(TiIndicator_action::class)),
             'activityGroupNames' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -276,7 +276,7 @@ class TiIndicator extends Entity implements Parsable
             'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
             'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'diamondModel' => fn(ParseNode $n) => $o->setDiamondModel($n->getEnumValue(DiamondModel::class)),
+            'diamondModel' => fn(ParseNode $n) => $o->setDiamondModel($n->getEnumValue(TiIndicator_diamondModel::class)),
             'domainName' => fn(ParseNode $n) => $o->setDomainName($n->getStringValue()),
             'emailEncoding' => fn(ParseNode $n) => $o->setEmailEncoding($n->getStringValue()),
             'emailLanguage' => fn(ParseNode $n) => $o->setEmailLanguage($n->getStringValue()),
@@ -291,7 +291,7 @@ class TiIndicator extends Entity implements Parsable
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
             'fileCompileDateTime' => fn(ParseNode $n) => $o->setFileCompileDateTime($n->getDateTimeValue()),
             'fileCreatedDateTime' => fn(ParseNode $n) => $o->setFileCreatedDateTime($n->getDateTimeValue()),
-            'fileHashType' => fn(ParseNode $n) => $o->setFileHashType($n->getEnumValue(FileHashType::class)),
+            'fileHashType' => fn(ParseNode $n) => $o->setFileHashType($n->getEnumValue(TiIndicator_fileHashType::class)),
             'fileHashValue' => fn(ParseNode $n) => $o->setFileHashValue($n->getStringValue()),
             'fileMutexName' => fn(ParseNode $n) => $o->setFileMutexName($n->getStringValue()),
             'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
@@ -346,7 +346,7 @@ class TiIndicator extends Entity implements Parsable
             },
             'targetProduct' => fn(ParseNode $n) => $o->setTargetProduct($n->getStringValue()),
             'threatType' => fn(ParseNode $n) => $o->setThreatType($n->getStringValue()),
-            'tlpLevel' => fn(ParseNode $n) => $o->setTlpLevel($n->getEnumValue(TlpLevel::class)),
+            'tlpLevel' => fn(ParseNode $n) => $o->setTlpLevel($n->getEnumValue(TiIndicator_tlpLevel::class)),
             'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
             'userAgent' => fn(ParseNode $n) => $o->setUserAgent($n->getStringValue()),
         ]);
@@ -378,11 +378,11 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Gets the fileHashType property value. The fileHashType property
-     * @return FileHashType|null
+     * @return TiIndicator_fileHashType|null
     */
-    public function getFileHashType(): ?FileHashType {
+    public function getFileHashType(): ?TiIndicator_fileHashType {
         $val = $this->getBackingStore()->get('fileHashType');
-        if (is_null($val) || $val instanceof FileHashType) {
+        if (is_null($val) || $val instanceof TiIndicator_fileHashType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fileHashType'");
@@ -792,11 +792,11 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Gets the tlpLevel property value. Traffic Light Protocol value for the indicator. Possible values are: unknown, white, green, amber, red. Required.
-     * @return TlpLevel|null
+     * @return TiIndicator_tlpLevel|null
     */
-    public function getTlpLevel(): ?TlpLevel {
+    public function getTlpLevel(): ?TiIndicator_tlpLevel {
         $val = $this->getBackingStore()->get('tlpLevel');
-        if (is_null($val) || $val instanceof TlpLevel) {
+        if (is_null($val) || $val instanceof TiIndicator_tlpLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tlpLevel'");
@@ -894,9 +894,9 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the action property value. The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required.
-     * @param TiAction|null $value Value to set for the action property.
+     * @param TiIndicator_action|null $value Value to set for the action property.
     */
-    public function setAction(?TiAction $value): void {
+    public function setAction(?TiIndicator_action $value): void {
         $this->getBackingStore()->set('action', $value);
     }
 
@@ -942,9 +942,9 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the diamondModel property value. The area of the Diamond Model in which this indicator exists. Possible values are: unknown, adversary, capability, infrastructure, victim.
-     * @param DiamondModel|null $value Value to set for the diamondModel property.
+     * @param TiIndicator_diamondModel|null $value Value to set for the diamondModel property.
     */
-    public function setDiamondModel(?DiamondModel $value): void {
+    public function setDiamondModel(?TiIndicator_diamondModel $value): void {
         $this->getBackingStore()->set('diamondModel', $value);
     }
 
@@ -1062,9 +1062,9 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the fileHashType property value. The fileHashType property
-     * @param FileHashType|null $value Value to set for the fileHashType property.
+     * @param TiIndicator_fileHashType|null $value Value to set for the fileHashType property.
     */
-    public function setFileHashType(?FileHashType $value): void {
+    public function setFileHashType(?TiIndicator_fileHashType $value): void {
         $this->getBackingStore()->set('fileHashType', $value);
     }
 
@@ -1334,9 +1334,9 @@ class TiIndicator extends Entity implements Parsable
 
     /**
      * Sets the tlpLevel property value. Traffic Light Protocol value for the indicator. Possible values are: unknown, white, green, amber, red. Required.
-     * @param TlpLevel|null $value Value to set for the tlpLevel property.
+     * @param TiIndicator_tlpLevel|null $value Value to set for the tlpLevel property.
     */
-    public function setTlpLevel(?TlpLevel $value): void {
+    public function setTlpLevel(?TiIndicator_tlpLevel $value): void {
         $this->getBackingStore()->set('tlpLevel', $value);
     }
 

@@ -80,11 +80,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the appTokenProtectionStatus property value. The appTokenProtectionStatus property
-     * @return TokenProtectionStatus|null
+     * @return SignIn_appTokenProtectionStatus|null
     */
-    public function getAppTokenProtectionStatus(): ?TokenProtectionStatus {
+    public function getAppTokenProtectionStatus(): ?SignIn_appTokenProtectionStatus {
         $val = $this->getBackingStore()->get('appTokenProtectionStatus');
-        if (is_null($val) || $val instanceof TokenProtectionStatus) {
+        if (is_null($val) || $val instanceof SignIn_appTokenProtectionStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appTokenProtectionStatus'");
@@ -174,11 +174,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the authenticationProtocol property value. Lists the protocol type or grant type used in the authentication. The possible values are: oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, and none. Use none for all authentications that don't have a specific value in that list.
-     * @return ProtocolType|null
+     * @return SignIn_authenticationProtocol|null
     */
-    public function getAuthenticationProtocol(): ?ProtocolType {
+    public function getAuthenticationProtocol(): ?SignIn_authenticationProtocol {
         $val = $this->getBackingStore()->get('authenticationProtocol');
-        if (is_null($val) || $val instanceof ProtocolType) {
+        if (is_null($val) || $val instanceof SignIn_authenticationProtocol) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationProtocol'");
@@ -248,11 +248,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the clientCredentialType property value. Describes the credential type that a user client or service principal provided to Microsoft Entra ID to authenticate itself. You can review this property to track and eliminate less secure credential types or to watch for clients and service principals using anomalous credential types. The possible values are: none, clientSecret, clientAssertion, federatedIdentityCredential, managedIdentity, certificate, unknownFutureValue.
-     * @return ClientCredentialType|null
+     * @return SignIn_clientCredentialType|null
     */
-    public function getClientCredentialType(): ?ClientCredentialType {
+    public function getClientCredentialType(): ?SignIn_clientCredentialType {
         $val = $this->getBackingStore()->get('clientCredentialType');
-        if (is_null($val) || $val instanceof ClientCredentialType) {
+        if (is_null($val) || $val instanceof SignIn_clientCredentialType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'clientCredentialType'");
@@ -260,11 +260,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the conditionalAccessStatus property value. The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).
-     * @return ConditionalAccessStatus|null
+     * @return SignIn_conditionalAccessStatus|null
     */
-    public function getConditionalAccessStatus(): ?ConditionalAccessStatus {
+    public function getConditionalAccessStatus(): ?SignIn_conditionalAccessStatus {
         $val = $this->getBackingStore()->get('conditionalAccessStatus');
-        if (is_null($val) || $val instanceof ConditionalAccessStatus) {
+        if (is_null($val) || $val instanceof SignIn_conditionalAccessStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessStatus'");
@@ -296,11 +296,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the crossTenantAccessType property value. Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.
-     * @return SignInAccessType|null
+     * @return SignIn_crossTenantAccessType|null
     */
-    public function getCrossTenantAccessType(): ?SignInAccessType {
+    public function getCrossTenantAccessType(): ?SignIn_crossTenantAccessType {
         $val = $this->getBackingStore()->get('crossTenantAccessType');
-        if (is_null($val) || $val instanceof SignInAccessType) {
+        if (is_null($val) || $val instanceof SignIn_crossTenantAccessType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'crossTenantAccessType'");
@@ -341,7 +341,7 @@ class SignIn extends Entity implements Parsable
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'appliedConditionalAccessPolicies' => fn(ParseNode $n) => $o->setAppliedConditionalAccessPolicies($n->getCollectionOfObjectValues([AppliedConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'appliedEventListeners' => fn(ParseNode $n) => $o->setAppliedEventListeners($n->getCollectionOfObjectValues([AppliedAuthenticationEventListener::class, 'createFromDiscriminatorValue'])),
-            'appTokenProtectionStatus' => fn(ParseNode $n) => $o->setAppTokenProtectionStatus($n->getEnumValue(TokenProtectionStatus::class)),
+            'appTokenProtectionStatus' => fn(ParseNode $n) => $o->setAppTokenProtectionStatus($n->getEnumValue(SignIn_appTokenProtectionStatus::class)),
             'authenticationAppDeviceDetails' => fn(ParseNode $n) => $o->setAuthenticationAppDeviceDetails($n->getObjectValue([AuthenticationAppDeviceDetails::class, 'createFromDiscriminatorValue'])),
             'authenticationAppPolicyEvaluationDetails' => fn(ParseNode $n) => $o->setAuthenticationAppPolicyEvaluationDetails($n->getCollectionOfObjectValues([AuthenticationAppPolicyDetails::class, 'createFromDiscriminatorValue'])),
             'authenticationContextClassReferences' => fn(ParseNode $n) => $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues([AuthenticationContext::class, 'createFromDiscriminatorValue'])),
@@ -355,23 +355,23 @@ class SignIn extends Entity implements Parsable
                 $this->setAuthenticationMethodsUsed($val);
             },
             'authenticationProcessingDetails' => fn(ParseNode $n) => $o->setAuthenticationProcessingDetails($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
-            'authenticationProtocol' => fn(ParseNode $n) => $o->setAuthenticationProtocol($n->getEnumValue(ProtocolType::class)),
+            'authenticationProtocol' => fn(ParseNode $n) => $o->setAuthenticationProtocol($n->getEnumValue(SignIn_authenticationProtocol::class)),
             'authenticationRequirement' => fn(ParseNode $n) => $o->setAuthenticationRequirement($n->getStringValue()),
             'authenticationRequirementPolicies' => fn(ParseNode $n) => $o->setAuthenticationRequirementPolicies($n->getCollectionOfObjectValues([AuthenticationRequirementPolicy::class, 'createFromDiscriminatorValue'])),
             'autonomousSystemNumber' => fn(ParseNode $n) => $o->setAutonomousSystemNumber($n->getIntegerValue()),
             'azureResourceId' => fn(ParseNode $n) => $o->setAzureResourceId($n->getStringValue()),
             'clientAppUsed' => fn(ParseNode $n) => $o->setClientAppUsed($n->getStringValue()),
-            'clientCredentialType' => fn(ParseNode $n) => $o->setClientCredentialType($n->getEnumValue(ClientCredentialType::class)),
-            'conditionalAccessStatus' => fn(ParseNode $n) => $o->setConditionalAccessStatus($n->getEnumValue(ConditionalAccessStatus::class)),
+            'clientCredentialType' => fn(ParseNode $n) => $o->setClientCredentialType($n->getEnumValue(SignIn_clientCredentialType::class)),
+            'conditionalAccessStatus' => fn(ParseNode $n) => $o->setConditionalAccessStatus($n->getEnumValue(SignIn_conditionalAccessStatus::class)),
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'crossTenantAccessType' => fn(ParseNode $n) => $o->setCrossTenantAccessType($n->getEnumValue(SignInAccessType::class)),
+            'crossTenantAccessType' => fn(ParseNode $n) => $o->setCrossTenantAccessType($n->getEnumValue(SignIn_crossTenantAccessType::class)),
             'deviceDetail' => fn(ParseNode $n) => $o->setDeviceDetail($n->getObjectValue([DeviceDetail::class, 'createFromDiscriminatorValue'])),
             'federatedCredentialId' => fn(ParseNode $n) => $o->setFederatedCredentialId($n->getStringValue()),
             'flaggedForReview' => fn(ParseNode $n) => $o->setFlaggedForReview($n->getBooleanValue()),
             'homeTenantId' => fn(ParseNode $n) => $o->setHomeTenantId($n->getStringValue()),
             'homeTenantName' => fn(ParseNode $n) => $o->setHomeTenantName($n->getStringValue()),
-            'incomingTokenType' => fn(ParseNode $n) => $o->setIncomingTokenType($n->getEnumValue(IncomingTokenType::class)),
+            'incomingTokenType' => fn(ParseNode $n) => $o->setIncomingTokenType($n->getEnumValue(SignIn_incomingTokenType::class)),
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
             'ipAddressFromResourceProvider' => fn(ParseNode $n) => $o->setIpAddressFromResourceProvider($n->getStringValue()),
             'isInteractive' => fn(ParseNode $n) => $o->setIsInteractive($n->getBooleanValue()),
@@ -381,14 +381,14 @@ class SignIn extends Entity implements Parsable
             'mfaDetail' => fn(ParseNode $n) => $o->setMfaDetail($n->getObjectValue([MfaDetail::class, 'createFromDiscriminatorValue'])),
             'networkLocationDetails' => fn(ParseNode $n) => $o->setNetworkLocationDetails($n->getCollectionOfObjectValues([NetworkLocationDetail::class, 'createFromDiscriminatorValue'])),
             'originalRequestId' => fn(ParseNode $n) => $o->setOriginalRequestId($n->getStringValue()),
-            'originalTransferMethod' => fn(ParseNode $n) => $o->setOriginalTransferMethod($n->getEnumValue(OriginalTransferMethods::class)),
+            'originalTransferMethod' => fn(ParseNode $n) => $o->setOriginalTransferMethod($n->getEnumValue(SignIn_originalTransferMethod::class)),
             'privateLinkDetails' => fn(ParseNode $n) => $o->setPrivateLinkDetails($n->getObjectValue([PrivateLinkDetails::class, 'createFromDiscriminatorValue'])),
             'processingTimeInMilliseconds' => fn(ParseNode $n) => $o->setProcessingTimeInMilliseconds($n->getIntegerValue()),
             'resourceDisplayName' => fn(ParseNode $n) => $o->setResourceDisplayName($n->getStringValue()),
             'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
             'resourceServicePrincipalId' => fn(ParseNode $n) => $o->setResourceServicePrincipalId($n->getStringValue()),
             'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
-            'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
+            'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(SignIn_riskDetail::class)),
             'riskEventTypes_v2' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -397,9 +397,9 @@ class SignIn extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setRiskEventTypesV2($val);
             },
-            'riskLevelAggregated' => fn(ParseNode $n) => $o->setRiskLevelAggregated($n->getEnumValue(RiskLevel::class)),
-            'riskLevelDuringSignIn' => fn(ParseNode $n) => $o->setRiskLevelDuringSignIn($n->getEnumValue(RiskLevel::class)),
-            'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
+            'riskLevelAggregated' => fn(ParseNode $n) => $o->setRiskLevelAggregated($n->getEnumValue(SignIn_riskLevelAggregated::class)),
+            'riskLevelDuringSignIn' => fn(ParseNode $n) => $o->setRiskLevelDuringSignIn($n->getEnumValue(SignIn_riskLevelDuringSignIn::class)),
+            'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(SignIn_riskState::class)),
             'servicePrincipalCredentialKeyId' => fn(ParseNode $n) => $o->setServicePrincipalCredentialKeyId($n->getStringValue()),
             'servicePrincipalCredentialThumbprint' => fn(ParseNode $n) => $o->setServicePrincipalCredentialThumbprint($n->getStringValue()),
             'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
@@ -414,17 +414,17 @@ class SignIn extends Entity implements Parsable
                 $this->setSignInEventTypes($val);
             },
             'signInIdentifier' => fn(ParseNode $n) => $o->setSignInIdentifier($n->getStringValue()),
-            'signInIdentifierType' => fn(ParseNode $n) => $o->setSignInIdentifierType($n->getEnumValue(SignInIdentifierType::class)),
-            'signInTokenProtectionStatus' => fn(ParseNode $n) => $o->setSignInTokenProtectionStatus($n->getEnumValue(TokenProtectionStatus::class)),
+            'signInIdentifierType' => fn(ParseNode $n) => $o->setSignInIdentifierType($n->getEnumValue(SignIn_signInIdentifierType::class)),
+            'signInTokenProtectionStatus' => fn(ParseNode $n) => $o->setSignInTokenProtectionStatus($n->getEnumValue(SignIn_signInTokenProtectionStatus::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignInStatus::class, 'createFromDiscriminatorValue'])),
             'tokenIssuerName' => fn(ParseNode $n) => $o->setTokenIssuerName($n->getStringValue()),
-            'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)),
+            'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(SignIn_tokenIssuerType::class)),
             'uniqueTokenIdentifier' => fn(ParseNode $n) => $o->setUniqueTokenIdentifier($n->getStringValue()),
             'userAgent' => fn(ParseNode $n) => $o->setUserAgent($n->getStringValue()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
-            'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(SignInUserType::class)),
+            'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(SignIn_userType::class)),
         ]);
     }
 
@@ -466,11 +466,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: remoteDesktopToken.
-     * @return IncomingTokenType|null
+     * @return SignIn_incomingTokenType|null
     */
-    public function getIncomingTokenType(): ?IncomingTokenType {
+    public function getIncomingTokenType(): ?SignIn_incomingTokenType {
         $val = $this->getBackingStore()->get('incomingTokenType');
-        if (is_null($val) || $val instanceof IncomingTokenType) {
+        if (is_null($val) || $val instanceof SignIn_incomingTokenType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'incomingTokenType'");
@@ -588,11 +588,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the originalTransferMethod property value. Transfer method used to initiate a session throughout all subsequent request. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
-     * @return OriginalTransferMethods|null
+     * @return SignIn_originalTransferMethod|null
     */
-    public function getOriginalTransferMethod(): ?OriginalTransferMethods {
+    public function getOriginalTransferMethod(): ?SignIn_originalTransferMethod {
         $val = $this->getBackingStore()->get('originalTransferMethod');
-        if (is_null($val) || $val instanceof OriginalTransferMethods) {
+        if (is_null($val) || $val instanceof SignIn_originalTransferMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'originalTransferMethod'");
@@ -672,11 +672,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that Microsoft Entra risk detection has not flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
-     * @return RiskDetail|null
+     * @return SignIn_riskDetail|null
     */
-    public function getRiskDetail(): ?RiskDetail {
+    public function getRiskDetail(): ?SignIn_riskDetail {
         $val = $this->getBackingStore()->get('riskDetail');
-        if (is_null($val) || $val instanceof RiskDetail) {
+        if (is_null($val) || $val instanceof SignIn_riskDetail) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskDetail'");
@@ -698,11 +698,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the riskLevelAggregated property value. The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Microsoft Entra ID Protection.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
-     * @return RiskLevel|null
+     * @return SignIn_riskLevelAggregated|null
     */
-    public function getRiskLevelAggregated(): ?RiskLevel {
+    public function getRiskLevelAggregated(): ?SignIn_riskLevelAggregated {
         $val = $this->getBackingStore()->get('riskLevelAggregated');
-        if (is_null($val) || $val instanceof RiskLevel) {
+        if (is_null($val) || $val instanceof SignIn_riskLevelAggregated) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskLevelAggregated'");
@@ -710,11 +710,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the riskLevelDuringSignIn property value. The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Microsoft Entra ID Protection.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
-     * @return RiskLevel|null
+     * @return SignIn_riskLevelDuringSignIn|null
     */
-    public function getRiskLevelDuringSignIn(): ?RiskLevel {
+    public function getRiskLevelDuringSignIn(): ?SignIn_riskLevelDuringSignIn {
         $val = $this->getBackingStore()->get('riskLevelDuringSignIn');
-        if (is_null($val) || $val instanceof RiskLevel) {
+        if (is_null($val) || $val instanceof SignIn_riskLevelDuringSignIn) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskLevelDuringSignIn'");
@@ -722,11 +722,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the riskState property value. The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue.  Supports $filter (eq).
-     * @return RiskState|null
+     * @return SignIn_riskState|null
     */
-    public function getRiskState(): ?RiskState {
+    public function getRiskState(): ?SignIn_riskState {
         $val = $this->getBackingStore()->get('riskState');
-        if (is_null($val) || $val instanceof RiskState) {
+        if (is_null($val) || $val instanceof SignIn_riskState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskState'");
@@ -822,11 +822,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the signInIdentifierType property value. The type of sign in identifier. Possible values are: userPrincipalName, phoneNumber, proxyAddress, qrCode, onPremisesUserPrincipalName, unknownFutureValue.
-     * @return SignInIdentifierType|null
+     * @return SignIn_signInIdentifierType|null
     */
-    public function getSignInIdentifierType(): ?SignInIdentifierType {
+    public function getSignInIdentifierType(): ?SignIn_signInIdentifierType {
         $val = $this->getBackingStore()->get('signInIdentifierType');
-        if (is_null($val) || $val instanceof SignInIdentifierType) {
+        if (is_null($val) || $val instanceof SignIn_signInIdentifierType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'signInIdentifierType'");
@@ -834,11 +834,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the signInTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it is issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
-     * @return TokenProtectionStatus|null
+     * @return SignIn_signInTokenProtectionStatus|null
     */
-    public function getSignInTokenProtectionStatus(): ?TokenProtectionStatus {
+    public function getSignInTokenProtectionStatus(): ?SignIn_signInTokenProtectionStatus {
         $val = $this->getBackingStore()->get('signInTokenProtectionStatus');
-        if (is_null($val) || $val instanceof TokenProtectionStatus) {
+        if (is_null($val) || $val instanceof SignIn_signInTokenProtectionStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'signInTokenProtectionStatus'");
@@ -870,11 +870,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the tokenIssuerType property value. The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
-     * @return TokenIssuerType|null
+     * @return SignIn_tokenIssuerType|null
     */
-    public function getTokenIssuerType(): ?TokenIssuerType {
+    public function getTokenIssuerType(): ?SignIn_tokenIssuerType {
         $val = $this->getBackingStore()->get('tokenIssuerType');
-        if (is_null($val) || $val instanceof TokenIssuerType) {
+        if (is_null($val) || $val instanceof SignIn_tokenIssuerType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenIssuerType'");
@@ -942,11 +942,11 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the userType property value. Identifies whether the user is a member or guest in the tenant. Possible values are: member, guest, unknownFutureValue.
-     * @return SignInUserType|null
+     * @return SignIn_userType|null
     */
-    public function getUserType(): ?SignInUserType {
+    public function getUserType(): ?SignIn_userType {
         $val = $this->getBackingStore()->get('userType');
-        if (is_null($val) || $val instanceof SignInUserType) {
+        if (is_null($val) || $val instanceof SignIn_userType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userType'");
@@ -1061,9 +1061,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the appTokenProtectionStatus property value. The appTokenProtectionStatus property
-     * @param TokenProtectionStatus|null $value Value to set for the appTokenProtectionStatus property.
+     * @param SignIn_appTokenProtectionStatus|null $value Value to set for the appTokenProtectionStatus property.
     */
-    public function setAppTokenProtectionStatus(?TokenProtectionStatus $value): void {
+    public function setAppTokenProtectionStatus(?SignIn_appTokenProtectionStatus $value): void {
         $this->getBackingStore()->set('appTokenProtectionStatus', $value);
     }
 
@@ -1117,9 +1117,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the authenticationProtocol property value. Lists the protocol type or grant type used in the authentication. The possible values are: oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, and none. Use none for all authentications that don't have a specific value in that list.
-     * @param ProtocolType|null $value Value to set for the authenticationProtocol property.
+     * @param SignIn_authenticationProtocol|null $value Value to set for the authenticationProtocol property.
     */
-    public function setAuthenticationProtocol(?ProtocolType $value): void {
+    public function setAuthenticationProtocol(?SignIn_authenticationProtocol $value): void {
         $this->getBackingStore()->set('authenticationProtocol', $value);
     }
 
@@ -1165,17 +1165,17 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the clientCredentialType property value. Describes the credential type that a user client or service principal provided to Microsoft Entra ID to authenticate itself. You can review this property to track and eliminate less secure credential types or to watch for clients and service principals using anomalous credential types. The possible values are: none, clientSecret, clientAssertion, federatedIdentityCredential, managedIdentity, certificate, unknownFutureValue.
-     * @param ClientCredentialType|null $value Value to set for the clientCredentialType property.
+     * @param SignIn_clientCredentialType|null $value Value to set for the clientCredentialType property.
     */
-    public function setClientCredentialType(?ClientCredentialType $value): void {
+    public function setClientCredentialType(?SignIn_clientCredentialType $value): void {
         $this->getBackingStore()->set('clientCredentialType', $value);
     }
 
     /**
      * Sets the conditionalAccessStatus property value. The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).
-     * @param ConditionalAccessStatus|null $value Value to set for the conditionalAccessStatus property.
+     * @param SignIn_conditionalAccessStatus|null $value Value to set for the conditionalAccessStatus property.
     */
-    public function setConditionalAccessStatus(?ConditionalAccessStatus $value): void {
+    public function setConditionalAccessStatus(?SignIn_conditionalAccessStatus $value): void {
         $this->getBackingStore()->set('conditionalAccessStatus', $value);
     }
 
@@ -1197,9 +1197,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the crossTenantAccessType property value. Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.
-     * @param SignInAccessType|null $value Value to set for the crossTenantAccessType property.
+     * @param SignIn_crossTenantAccessType|null $value Value to set for the crossTenantAccessType property.
     */
-    public function setCrossTenantAccessType(?SignInAccessType $value): void {
+    public function setCrossTenantAccessType(?SignIn_crossTenantAccessType $value): void {
         $this->getBackingStore()->set('crossTenantAccessType', $value);
     }
 
@@ -1245,9 +1245,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: remoteDesktopToken.
-     * @param IncomingTokenType|null $value Value to set for the incomingTokenType property.
+     * @param SignIn_incomingTokenType|null $value Value to set for the incomingTokenType property.
     */
-    public function setIncomingTokenType(?IncomingTokenType $value): void {
+    public function setIncomingTokenType(?SignIn_incomingTokenType $value): void {
         $this->getBackingStore()->set('incomingTokenType', $value);
     }
 
@@ -1325,9 +1325,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the originalTransferMethod property value. Transfer method used to initiate a session throughout all subsequent request. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
-     * @param OriginalTransferMethods|null $value Value to set for the originalTransferMethod property.
+     * @param SignIn_originalTransferMethod|null $value Value to set for the originalTransferMethod property.
     */
-    public function setOriginalTransferMethod(?OriginalTransferMethods $value): void {
+    public function setOriginalTransferMethod(?SignIn_originalTransferMethod $value): void {
         $this->getBackingStore()->set('originalTransferMethod', $value);
     }
 
@@ -1381,9 +1381,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that Microsoft Entra risk detection has not flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
-     * @param RiskDetail|null $value Value to set for the riskDetail property.
+     * @param SignIn_riskDetail|null $value Value to set for the riskDetail property.
     */
-    public function setRiskDetail(?RiskDetail $value): void {
+    public function setRiskDetail(?SignIn_riskDetail $value): void {
         $this->getBackingStore()->set('riskDetail', $value);
     }
 
@@ -1397,25 +1397,25 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the riskLevelAggregated property value. The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Microsoft Entra ID Protection.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
-     * @param RiskLevel|null $value Value to set for the riskLevelAggregated property.
+     * @param SignIn_riskLevelAggregated|null $value Value to set for the riskLevelAggregated property.
     */
-    public function setRiskLevelAggregated(?RiskLevel $value): void {
+    public function setRiskLevelAggregated(?SignIn_riskLevelAggregated $value): void {
         $this->getBackingStore()->set('riskLevelAggregated', $value);
     }
 
     /**
      * Sets the riskLevelDuringSignIn property value. The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Microsoft Entra ID Protection.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
-     * @param RiskLevel|null $value Value to set for the riskLevelDuringSignIn property.
+     * @param SignIn_riskLevelDuringSignIn|null $value Value to set for the riskLevelDuringSignIn property.
     */
-    public function setRiskLevelDuringSignIn(?RiskLevel $value): void {
+    public function setRiskLevelDuringSignIn(?SignIn_riskLevelDuringSignIn $value): void {
         $this->getBackingStore()->set('riskLevelDuringSignIn', $value);
     }
 
     /**
      * Sets the riskState property value. The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue.  Supports $filter (eq).
-     * @param RiskState|null $value Value to set for the riskState property.
+     * @param SignIn_riskState|null $value Value to set for the riskState property.
     */
-    public function setRiskState(?RiskState $value): void {
+    public function setRiskState(?SignIn_riskState $value): void {
         $this->getBackingStore()->set('riskState', $value);
     }
 
@@ -1477,17 +1477,17 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the signInIdentifierType property value. The type of sign in identifier. Possible values are: userPrincipalName, phoneNumber, proxyAddress, qrCode, onPremisesUserPrincipalName, unknownFutureValue.
-     * @param SignInIdentifierType|null $value Value to set for the signInIdentifierType property.
+     * @param SignIn_signInIdentifierType|null $value Value to set for the signInIdentifierType property.
     */
-    public function setSignInIdentifierType(?SignInIdentifierType $value): void {
+    public function setSignInIdentifierType(?SignIn_signInIdentifierType $value): void {
         $this->getBackingStore()->set('signInIdentifierType', $value);
     }
 
     /**
      * Sets the signInTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it is issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
-     * @param TokenProtectionStatus|null $value Value to set for the signInTokenProtectionStatus property.
+     * @param SignIn_signInTokenProtectionStatus|null $value Value to set for the signInTokenProtectionStatus property.
     */
-    public function setSignInTokenProtectionStatus(?TokenProtectionStatus $value): void {
+    public function setSignInTokenProtectionStatus(?SignIn_signInTokenProtectionStatus $value): void {
         $this->getBackingStore()->set('signInTokenProtectionStatus', $value);
     }
 
@@ -1509,9 +1509,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the tokenIssuerType property value. The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
-     * @param TokenIssuerType|null $value Value to set for the tokenIssuerType property.
+     * @param SignIn_tokenIssuerType|null $value Value to set for the tokenIssuerType property.
     */
-    public function setTokenIssuerType(?TokenIssuerType $value): void {
+    public function setTokenIssuerType(?SignIn_tokenIssuerType $value): void {
         $this->getBackingStore()->set('tokenIssuerType', $value);
     }
 
@@ -1557,9 +1557,9 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the userType property value. Identifies whether the user is a member or guest in the tenant. Possible values are: member, guest, unknownFutureValue.
-     * @param SignInUserType|null $value Value to set for the userType property.
+     * @param SignIn_userType|null $value Value to set for the userType property.
     */
-    public function setUserType(?SignInUserType $value): void {
+    public function setUserType(?SignIn_userType $value): void {
         $this->getBackingStore()->set('userType', $value);
     }
 

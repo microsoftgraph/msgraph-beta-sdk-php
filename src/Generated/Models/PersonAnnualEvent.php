@@ -59,17 +59,17 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'date' => fn(ParseNode $n) => $o->setDate($n->getDateValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PersonAnnualEventType::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PersonAnnualEvent_type::class)),
         ]);
     }
 
     /**
      * Gets the type property value. The type property
-     * @return PersonAnnualEventType|null
+     * @return PersonAnnualEvent_type|null
     */
-    public function getType(): ?PersonAnnualEventType {
+    public function getType(): ?PersonAnnualEvent_type {
         $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || $val instanceof PersonAnnualEventType) {
+        if (is_null($val) || $val instanceof PersonAnnualEvent_type) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
@@ -104,9 +104,9 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
 
     /**
      * Sets the type property value. The type property
-     * @param PersonAnnualEventType|null $value Value to set for the type property.
+     * @param PersonAnnualEvent_type|null $value Value to set for the type property.
     */
-    public function setType(?PersonAnnualEventType $value): void {
+    public function setType(?PersonAnnualEvent_type $value): void {
         $this->getBackingStore()->set('type', $value);
     }
 

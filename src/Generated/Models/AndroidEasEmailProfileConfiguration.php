@@ -122,7 +122,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
             'syncContacts' => fn(ParseNode $n) => $o->setSyncContacts($n->getBooleanValue()),
             'syncNotes' => fn(ParseNode $n) => $o->setSyncNotes($n->getBooleanValue()),
             'syncTasks' => fn(ParseNode $n) => $o->setSyncTasks($n->getBooleanValue()),
-            'userDomainNameSource' => fn(ParseNode $n) => $o->setUserDomainNameSource($n->getEnumValue(DomainNameSource::class)),
+            'userDomainNameSource' => fn(ParseNode $n) => $o->setUserDomainNameSource($n->getEnumValue(AndroidEasEmailProfileConfiguration_userDomainNameSource::class)),
             'usernameSource' => fn(ParseNode $n) => $o->setUsernameSource($n->getEnumValue(AndroidUsernameSource::class)),
         ]);
     }
@@ -237,11 +237,11 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Gets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
-     * @return DomainNameSource|null
+     * @return AndroidEasEmailProfileConfiguration_userDomainNameSource|null
     */
-    public function getUserDomainNameSource(): ?DomainNameSource {
+    public function getUserDomainNameSource(): ?AndroidEasEmailProfileConfiguration_userDomainNameSource {
         $val = $this->getBackingStore()->get('userDomainNameSource');
-        if (is_null($val) || $val instanceof DomainNameSource) {
+        if (is_null($val) || $val instanceof AndroidEasEmailProfileConfiguration_userDomainNameSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userDomainNameSource'");
@@ -406,9 +406,9 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
-     * @param DomainNameSource|null $value Value to set for the userDomainNameSource property.
+     * @param AndroidEasEmailProfileConfiguration_userDomainNameSource|null $value Value to set for the userDomainNameSource property.
     */
-    public function setUserDomainNameSource(?DomainNameSource $value): void {
+    public function setUserDomainNameSource(?AndroidEasEmailProfileConfiguration_userDomainNameSource $value): void {
         $this->getBackingStore()->set('userDomainNameSource', $value);
     }
 

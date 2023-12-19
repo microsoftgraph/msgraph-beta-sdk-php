@@ -89,8 +89,8 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
             'allowNewMessageFromBots' => fn(ParseNode $n) => $o->setAllowNewMessageFromBots($n->getBooleanValue()),
             'allowNewMessageFromConnectors' => fn(ParseNode $n) => $o->setAllowNewMessageFromConnectors($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'replyRestriction' => fn(ParseNode $n) => $o->setReplyRestriction($n->getEnumValue(ReplyRestriction::class)),
-            'userNewMessageRestriction' => fn(ParseNode $n) => $o->setUserNewMessageRestriction($n->getEnumValue(UserNewMessageRestriction::class)),
+            'replyRestriction' => fn(ParseNode $n) => $o->setReplyRestriction($n->getEnumValue(ChannelModerationSettings_replyRestriction::class)),
+            'userNewMessageRestriction' => fn(ParseNode $n) => $o->setUserNewMessageRestriction($n->getEnumValue(ChannelModerationSettings_userNewMessageRestriction::class)),
         ];
     }
 
@@ -108,11 +108,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
-     * @return ReplyRestriction|null
+     * @return ChannelModerationSettings_replyRestriction|null
     */
-    public function getReplyRestriction(): ?ReplyRestriction {
+    public function getReplyRestriction(): ?ChannelModerationSettings_replyRestriction {
         $val = $this->getBackingStore()->get('replyRestriction');
-        if (is_null($val) || $val instanceof ReplyRestriction) {
+        if (is_null($val) || $val instanceof ChannelModerationSettings_replyRestriction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'replyRestriction'");
@@ -120,11 +120,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
-     * @return UserNewMessageRestriction|null
+     * @return ChannelModerationSettings_userNewMessageRestriction|null
     */
-    public function getUserNewMessageRestriction(): ?UserNewMessageRestriction {
+    public function getUserNewMessageRestriction(): ?ChannelModerationSettings_userNewMessageRestriction {
         $val = $this->getBackingStore()->get('userNewMessageRestriction');
-        if (is_null($val) || $val instanceof UserNewMessageRestriction) {
+        if (is_null($val) || $val instanceof ChannelModerationSettings_userNewMessageRestriction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userNewMessageRestriction'");
@@ -185,17 +185,17 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
-     * @param ReplyRestriction|null $value Value to set for the replyRestriction property.
+     * @param ChannelModerationSettings_replyRestriction|null $value Value to set for the replyRestriction property.
     */
-    public function setReplyRestriction(?ReplyRestriction $value): void {
+    public function setReplyRestriction(?ChannelModerationSettings_replyRestriction $value): void {
         $this->getBackingStore()->set('replyRestriction', $value);
     }
 
     /**
      * Sets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
-     * @param UserNewMessageRestriction|null $value Value to set for the userNewMessageRestriction property.
+     * @param ChannelModerationSettings_userNewMessageRestriction|null $value Value to set for the userNewMessageRestriction property.
     */
-    public function setUserNewMessageRestriction(?UserNewMessageRestriction $value): void {
+    public function setUserNewMessageRestriction(?ChannelModerationSettings_userNewMessageRestriction $value): void {
         $this->getBackingStore()->set('userNewMessageRestriction', $value);
     }
 

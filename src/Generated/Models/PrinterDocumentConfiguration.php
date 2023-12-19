@@ -70,11 +70,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the colorMode property value. The colorMode property
-     * @return PrintColorMode|null
+     * @return PrinterDocumentConfiguration_colorMode|null
     */
-    public function getColorMode(): ?PrintColorMode {
+    public function getColorMode(): ?PrinterDocumentConfiguration_colorMode {
         $val = $this->getBackingStore()->get('colorMode');
-        if (is_null($val) || $val instanceof PrintColorMode) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_colorMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'colorMode'");
@@ -106,11 +106,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the duplexMode property value. The duplexMode property
-     * @return PrintDuplexMode|null
+     * @return PrinterDocumentConfiguration_duplexMode|null
     */
-    public function getDuplexMode(): ?PrintDuplexMode {
+    public function getDuplexMode(): ?PrinterDocumentConfiguration_duplexMode {
         $val = $this->getBackingStore()->get('duplexMode');
-        if (is_null($val) || $val instanceof PrintDuplexMode) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_duplexMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'duplexMode'");
@@ -118,11 +118,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the feedDirection property value. The feedDirection property
-     * @return PrinterFeedDirection|null
+     * @return PrinterDocumentConfiguration_feedDirection|null
     */
-    public function getFeedDirection(): ?PrinterFeedDirection {
+    public function getFeedDirection(): ?PrinterDocumentConfiguration_feedDirection {
         $val = $this->getBackingStore()->get('feedDirection');
-        if (is_null($val) || $val instanceof PrinterFeedDirection) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_feedDirection) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'feedDirection'");
@@ -130,11 +130,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the feedOrientation property value. The feedOrientation property
-     * @return PrinterFeedOrientation|null
+     * @return PrinterDocumentConfiguration_feedOrientation|null
     */
-    public function getFeedOrientation(): ?PrinterFeedOrientation {
+    public function getFeedOrientation(): ?PrinterDocumentConfiguration_feedOrientation {
         $val = $this->getBackingStore()->get('feedOrientation');
-        if (is_null($val) || $val instanceof PrinterFeedOrientation) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_feedOrientation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'feedOrientation'");
@@ -148,38 +148,38 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
         $o = $this;
         return  [
             'collate' => fn(ParseNode $n) => $o->setCollate($n->getBooleanValue()),
-            'colorMode' => fn(ParseNode $n) => $o->setColorMode($n->getEnumValue(PrintColorMode::class)),
+            'colorMode' => fn(ParseNode $n) => $o->setColorMode($n->getEnumValue(PrinterDocumentConfiguration_colorMode::class)),
             'copies' => fn(ParseNode $n) => $o->setCopies($n->getIntegerValue()),
             'dpi' => fn(ParseNode $n) => $o->setDpi($n->getIntegerValue()),
-            'duplexMode' => fn(ParseNode $n) => $o->setDuplexMode($n->getEnumValue(PrintDuplexMode::class)),
-            'feedDirection' => fn(ParseNode $n) => $o->setFeedDirection($n->getEnumValue(PrinterFeedDirection::class)),
-            'feedOrientation' => fn(ParseNode $n) => $o->setFeedOrientation($n->getEnumValue(PrinterFeedOrientation::class)),
-            'finishings' => fn(ParseNode $n) => $o->setFinishings($n->getCollectionOfEnumValues(PrintFinishing::class)),
+            'duplexMode' => fn(ParseNode $n) => $o->setDuplexMode($n->getEnumValue(PrinterDocumentConfiguration_duplexMode::class)),
+            'feedDirection' => fn(ParseNode $n) => $o->setFeedDirection($n->getEnumValue(PrinterDocumentConfiguration_feedDirection::class)),
+            'feedOrientation' => fn(ParseNode $n) => $o->setFeedOrientation($n->getEnumValue(PrinterDocumentConfiguration_feedOrientation::class)),
+            'finishings' => fn(ParseNode $n) => $o->setFinishings($n->getCollectionOfEnumValues(PrinterDocumentConfiguration_finishings::class)),
             'fitPdfToPage' => fn(ParseNode $n) => $o->setFitPdfToPage($n->getBooleanValue()),
             'inputBin' => fn(ParseNode $n) => $o->setInputBin($n->getStringValue()),
             'margin' => fn(ParseNode $n) => $o->setMargin($n->getObjectValue([PrintMargin::class, 'createFromDiscriminatorValue'])),
             'mediaSize' => fn(ParseNode $n) => $o->setMediaSize($n->getStringValue()),
             'mediaType' => fn(ParseNode $n) => $o->setMediaType($n->getStringValue()),
-            'multipageLayout' => fn(ParseNode $n) => $o->setMultipageLayout($n->getEnumValue(PrintMultipageLayout::class)),
+            'multipageLayout' => fn(ParseNode $n) => $o->setMultipageLayout($n->getEnumValue(PrinterDocumentConfiguration_multipageLayout::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'orientation' => fn(ParseNode $n) => $o->setOrientation($n->getEnumValue(PrintOrientation::class)),
+            'orientation' => fn(ParseNode $n) => $o->setOrientation($n->getEnumValue(PrinterDocumentConfiguration_orientation::class)),
             'outputBin' => fn(ParseNode $n) => $o->setOutputBin($n->getStringValue()),
             'pageRanges' => fn(ParseNode $n) => $o->setPageRanges($n->getCollectionOfObjectValues([IntegerRange::class, 'createFromDiscriminatorValue'])),
             'pagesPerSheet' => fn(ParseNode $n) => $o->setPagesPerSheet($n->getIntegerValue()),
-            'quality' => fn(ParseNode $n) => $o->setQuality($n->getEnumValue(PrintQuality::class)),
-            'scaling' => fn(ParseNode $n) => $o->setScaling($n->getEnumValue(PrintScaling::class)),
+            'quality' => fn(ParseNode $n) => $o->setQuality($n->getEnumValue(PrinterDocumentConfiguration_quality::class)),
+            'scaling' => fn(ParseNode $n) => $o->setScaling($n->getEnumValue(PrinterDocumentConfiguration_scaling::class)),
         ];
     }
 
     /**
      * Gets the finishings property value. The finishings property
-     * @return array<PrintFinishing>|null
+     * @return array<PrinterDocumentConfiguration_finishings>|null
     */
     public function getFinishings(): ?array {
         $val = $this->getBackingStore()->get('finishings');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, PrintFinishing::class);
-            /** @var array<PrintFinishing>|null $val */
+            TypeUtils::validateCollectionValues($val, PrinterDocumentConfiguration_finishings::class);
+            /** @var array<PrinterDocumentConfiguration_finishings>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'finishings'");
@@ -247,11 +247,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the multipageLayout property value. The multipageLayout property
-     * @return PrintMultipageLayout|null
+     * @return PrinterDocumentConfiguration_multipageLayout|null
     */
-    public function getMultipageLayout(): ?PrintMultipageLayout {
+    public function getMultipageLayout(): ?PrinterDocumentConfiguration_multipageLayout {
         $val = $this->getBackingStore()->get('multipageLayout');
-        if (is_null($val) || $val instanceof PrintMultipageLayout) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_multipageLayout) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'multipageLayout'");
@@ -271,11 +271,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the orientation property value. The orientation property
-     * @return PrintOrientation|null
+     * @return PrinterDocumentConfiguration_orientation|null
     */
-    public function getOrientation(): ?PrintOrientation {
+    public function getOrientation(): ?PrinterDocumentConfiguration_orientation {
         $val = $this->getBackingStore()->get('orientation');
-        if (is_null($val) || $val instanceof PrintOrientation) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_orientation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'orientation'");
@@ -321,11 +321,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the quality property value. The quality property
-     * @return PrintQuality|null
+     * @return PrinterDocumentConfiguration_quality|null
     */
-    public function getQuality(): ?PrintQuality {
+    public function getQuality(): ?PrinterDocumentConfiguration_quality {
         $val = $this->getBackingStore()->get('quality');
-        if (is_null($val) || $val instanceof PrintQuality) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_quality) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'quality'");
@@ -333,11 +333,11 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the scaling property value. The scaling property
-     * @return PrintScaling|null
+     * @return PrinterDocumentConfiguration_scaling|null
     */
-    public function getScaling(): ?PrintScaling {
+    public function getScaling(): ?PrinterDocumentConfiguration_scaling {
         $val = $this->getBackingStore()->get('scaling');
-        if (is_null($val) || $val instanceof PrintScaling) {
+        if (is_null($val) || $val instanceof PrinterDocumentConfiguration_scaling) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'scaling'");
@@ -398,9 +398,9 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the colorMode property value. The colorMode property
-     * @param PrintColorMode|null $value Value to set for the colorMode property.
+     * @param PrinterDocumentConfiguration_colorMode|null $value Value to set for the colorMode property.
     */
-    public function setColorMode(?PrintColorMode $value): void {
+    public function setColorMode(?PrinterDocumentConfiguration_colorMode $value): void {
         $this->getBackingStore()->set('colorMode', $value);
     }
 
@@ -422,31 +422,31 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the duplexMode property value. The duplexMode property
-     * @param PrintDuplexMode|null $value Value to set for the duplexMode property.
+     * @param PrinterDocumentConfiguration_duplexMode|null $value Value to set for the duplexMode property.
     */
-    public function setDuplexMode(?PrintDuplexMode $value): void {
+    public function setDuplexMode(?PrinterDocumentConfiguration_duplexMode $value): void {
         $this->getBackingStore()->set('duplexMode', $value);
     }
 
     /**
      * Sets the feedDirection property value. The feedDirection property
-     * @param PrinterFeedDirection|null $value Value to set for the feedDirection property.
+     * @param PrinterDocumentConfiguration_feedDirection|null $value Value to set for the feedDirection property.
     */
-    public function setFeedDirection(?PrinterFeedDirection $value): void {
+    public function setFeedDirection(?PrinterDocumentConfiguration_feedDirection $value): void {
         $this->getBackingStore()->set('feedDirection', $value);
     }
 
     /**
      * Sets the feedOrientation property value. The feedOrientation property
-     * @param PrinterFeedOrientation|null $value Value to set for the feedOrientation property.
+     * @param PrinterDocumentConfiguration_feedOrientation|null $value Value to set for the feedOrientation property.
     */
-    public function setFeedOrientation(?PrinterFeedOrientation $value): void {
+    public function setFeedOrientation(?PrinterDocumentConfiguration_feedOrientation $value): void {
         $this->getBackingStore()->set('feedOrientation', $value);
     }
 
     /**
      * Sets the finishings property value. The finishings property
-     * @param array<PrintFinishing>|null $value Value to set for the finishings property.
+     * @param array<PrinterDocumentConfiguration_finishings>|null $value Value to set for the finishings property.
     */
     public function setFinishings(?array $value): void {
         $this->getBackingStore()->set('finishings', $value);
@@ -494,9 +494,9 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the multipageLayout property value. The multipageLayout property
-     * @param PrintMultipageLayout|null $value Value to set for the multipageLayout property.
+     * @param PrinterDocumentConfiguration_multipageLayout|null $value Value to set for the multipageLayout property.
     */
-    public function setMultipageLayout(?PrintMultipageLayout $value): void {
+    public function setMultipageLayout(?PrinterDocumentConfiguration_multipageLayout $value): void {
         $this->getBackingStore()->set('multipageLayout', $value);
     }
 
@@ -510,9 +510,9 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the orientation property value. The orientation property
-     * @param PrintOrientation|null $value Value to set for the orientation property.
+     * @param PrinterDocumentConfiguration_orientation|null $value Value to set for the orientation property.
     */
-    public function setOrientation(?PrintOrientation $value): void {
+    public function setOrientation(?PrinterDocumentConfiguration_orientation $value): void {
         $this->getBackingStore()->set('orientation', $value);
     }
 
@@ -542,17 +542,17 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the quality property value. The quality property
-     * @param PrintQuality|null $value Value to set for the quality property.
+     * @param PrinterDocumentConfiguration_quality|null $value Value to set for the quality property.
     */
-    public function setQuality(?PrintQuality $value): void {
+    public function setQuality(?PrinterDocumentConfiguration_quality $value): void {
         $this->getBackingStore()->set('quality', $value);
     }
 
     /**
      * Sets the scaling property value. The scaling property
-     * @param PrintScaling|null $value Value to set for the scaling property.
+     * @param PrinterDocumentConfiguration_scaling|null $value Value to set for the scaling property.
     */
-    public function setScaling(?PrintScaling $value): void {
+    public function setScaling(?PrinterDocumentConfiguration_scaling $value): void {
         $this->getBackingStore()->set('scaling', $value);
     }
 

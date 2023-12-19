@@ -64,7 +64,7 @@ class SignInPreferences implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'isSystemPreferredAuthenticationMethodEnabled' => fn(ParseNode $n) => $o->setIsSystemPreferredAuthenticationMethodEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'userPreferredMethodForSecondaryAuthentication' => fn(ParseNode $n) => $o->setUserPreferredMethodForSecondaryAuthentication($n->getEnumValue(UserDefaultAuthenticationMethodType::class)),
+            'userPreferredMethodForSecondaryAuthentication' => fn(ParseNode $n) => $o->setUserPreferredMethodForSecondaryAuthentication($n->getEnumValue(SignInPreferences_userPreferredMethodForSecondaryAuthentication::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class SignInPreferences implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the userPreferredMethodForSecondaryAuthentication property value. The default second-factor method used by the user when signing in. If a user is enabled for system-preferred authentication, then this value is ignored except for a few scenarios where a user is authenticating via NPS extension or ADFS adapter. Possible values are push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, and unknownFutureValue
-     * @return UserDefaultAuthenticationMethodType|null
+     * @return SignInPreferences_userPreferredMethodForSecondaryAuthentication|null
     */
-    public function getUserPreferredMethodForSecondaryAuthentication(): ?UserDefaultAuthenticationMethodType {
+    public function getUserPreferredMethodForSecondaryAuthentication(): ?SignInPreferences_userPreferredMethodForSecondaryAuthentication {
         $val = $this->getBackingStore()->get('userPreferredMethodForSecondaryAuthentication');
-        if (is_null($val) || $val instanceof UserDefaultAuthenticationMethodType) {
+        if (is_null($val) || $val instanceof SignInPreferences_userPreferredMethodForSecondaryAuthentication) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userPreferredMethodForSecondaryAuthentication'");
@@ -149,9 +149,9 @@ class SignInPreferences implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userPreferredMethodForSecondaryAuthentication property value. The default second-factor method used by the user when signing in. If a user is enabled for system-preferred authentication, then this value is ignored except for a few scenarios where a user is authenticating via NPS extension or ADFS adapter. Possible values are push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, and unknownFutureValue
-     * @param UserDefaultAuthenticationMethodType|null $value Value to set for the userPreferredMethodForSecondaryAuthentication property.
+     * @param SignInPreferences_userPreferredMethodForSecondaryAuthentication|null $value Value to set for the userPreferredMethodForSecondaryAuthentication property.
     */
-    public function setUserPreferredMethodForSecondaryAuthentication(?UserDefaultAuthenticationMethodType $value): void {
+    public function setUserPreferredMethodForSecondaryAuthentication(?SignInPreferences_userPreferredMethodForSecondaryAuthentication $value): void {
         $this->getBackingStore()->set('userPreferredMethodForSecondaryAuthentication', $value);
     }
 

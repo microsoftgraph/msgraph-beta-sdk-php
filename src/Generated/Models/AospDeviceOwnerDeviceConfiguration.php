@@ -102,7 +102,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
             'factoryResetBlocked' => fn(ParseNode $n) => $o->setFactoryResetBlocked($n->getBooleanValue()),
             'passwordMinimumLength' => fn(ParseNode $n) => $o->setPasswordMinimumLength($n->getIntegerValue()),
             'passwordMinutesOfInactivityBeforeScreenTimeout' => fn(ParseNode $n) => $o->setPasswordMinutesOfInactivityBeforeScreenTimeout($n->getIntegerValue()),
-            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
+            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AospDeviceOwnerDeviceConfiguration_passwordRequiredType::class)),
             'passwordSignInFailureCountBeforeFactoryReset' => fn(ParseNode $n) => $o->setPasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()),
             'screenCaptureBlocked' => fn(ParseNode $n) => $o->setScreenCaptureBlocked($n->getBooleanValue()),
             'securityAllowDebuggingFeatures' => fn(ParseNode $n) => $o->setSecurityAllowDebuggingFeatures($n->getBooleanValue()),
@@ -138,11 +138,11 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Gets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @return AndroidDeviceOwnerRequiredPasswordType|null
+     * @return AospDeviceOwnerDeviceConfiguration_passwordRequiredType|null
     */
-    public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
+    public function getPasswordRequiredType(): ?AospDeviceOwnerDeviceConfiguration_passwordRequiredType {
         $val = $this->getBackingStore()->get('passwordRequiredType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+        if (is_null($val) || $val instanceof AospDeviceOwnerDeviceConfiguration_passwordRequiredType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
@@ -300,9 +300,9 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AospDeviceOwnerDeviceConfiguration_passwordRequiredType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
+    public function setPasswordRequiredType(?AospDeviceOwnerDeviceConfiguration_passwordRequiredType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 

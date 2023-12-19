@@ -73,13 +73,16 @@ class CloudPcGalleryImage extends Entity implements Parsable
             'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
             'offer' => fn(ParseNode $n) => $o->setOffer($n->getStringValue()),
             'offerDisplayName' => fn(ParseNode $n) => $o->setOfferDisplayName($n->getStringValue()),
+            'offerName' => fn(ParseNode $n) => $o->setOfferName($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
             'recommendedSku' => fn(ParseNode $n) => $o->setRecommendedSku($n->getStringValue()),
             'sizeInGB' => fn(ParseNode $n) => $o->setSizeInGB($n->getIntegerValue()),
             'sku' => fn(ParseNode $n) => $o->setSku($n->getStringValue()),
             'skuDisplayName' => fn(ParseNode $n) => $o->setSkuDisplayName($n->getStringValue()),
+            'skuName' => fn(ParseNode $n) => $o->setSkuName($n->getStringValue()),
             'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcGalleryImageStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcGalleryImage_status::class)),
         ]);
     }
 
@@ -108,6 +111,18 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
+     * Gets the offerName property value. The offerName property
+     * @return string|null
+    */
+    public function getOfferName(): ?string {
+        $val = $this->getBackingStore()->get('offerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offerName'");
+    }
+
+    /**
      * Gets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @return string|null
     */
@@ -117,6 +132,18 @@ class CloudPcGalleryImage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
+    }
+
+    /**
+     * Gets the publisherName property value. The publisherName property
+     * @return string|null
+    */
+    public function getPublisherName(): ?string {
+        $val = $this->getBackingStore()->get('publisherName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisherName'");
     }
 
     /**
@@ -168,6 +195,18 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
+     * Gets the skuName property value. The skuName property
+     * @return string|null
+    */
+    public function getSkuName(): ?string {
+        $val = $this->getBackingStore()->get('skuName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skuName'");
+    }
+
+    /**
      * Gets the startDate property value. The date when the image becomes available. Read-only.
      * @return Date|null
     */
@@ -181,11 +220,11 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
-     * @return CloudPcGalleryImageStatus|null
+     * @return CloudPcGalleryImage_status|null
     */
-    public function getStatus(): ?CloudPcGalleryImageStatus {
+    public function getStatus(): ?CloudPcGalleryImage_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof CloudPcGalleryImageStatus) {
+        if (is_null($val) || $val instanceof CloudPcGalleryImage_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -202,11 +241,14 @@ class CloudPcGalleryImage extends Entity implements Parsable
         $writer->writeDateValue('expirationDate', $this->getExpirationDate());
         $writer->writeStringValue('offer', $this->getOffer());
         $writer->writeStringValue('offerDisplayName', $this->getOfferDisplayName());
+        $writer->writeStringValue('offerName', $this->getOfferName());
         $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeStringValue('publisherName', $this->getPublisherName());
         $writer->writeStringValue('recommendedSku', $this->getRecommendedSku());
         $writer->writeIntegerValue('sizeInGB', $this->getSizeInGB());
         $writer->writeStringValue('sku', $this->getSku());
         $writer->writeStringValue('skuDisplayName', $this->getSkuDisplayName());
+        $writer->writeStringValue('skuName', $this->getSkuName());
         $writer->writeDateValue('startDate', $this->getStartDate());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -252,11 +294,27 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
+     * Sets the offerName property value. The offerName property
+     * @param string|null $value Value to set for the offerName property.
+    */
+    public function setOfferName(?string $value): void {
+        $this->getBackingStore()->set('offerName', $value);
+    }
+
+    /**
      * Sets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
+    }
+
+    /**
+     * Sets the publisherName property value. The publisherName property
+     * @param string|null $value Value to set for the publisherName property.
+    */
+    public function setPublisherName(?string $value): void {
+        $this->getBackingStore()->set('publisherName', $value);
     }
 
     /**
@@ -292,6 +350,14 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
+     * Sets the skuName property value. The skuName property
+     * @param string|null $value Value to set for the skuName property.
+    */
+    public function setSkuName(?string $value): void {
+        $this->getBackingStore()->set('skuName', $value);
+    }
+
+    /**
      * Sets the startDate property value. The date when the image becomes available. Read-only.
      * @param Date|null $value Value to set for the startDate property.
     */
@@ -301,9 +367,9 @@ class CloudPcGalleryImage extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
-     * @param CloudPcGalleryImageStatus|null $value Value to set for the status property.
+     * @param CloudPcGalleryImage_status|null $value Value to set for the status property.
     */
-    public function setStatus(?CloudPcGalleryImageStatus $value): void {
+    public function setStatus(?CloudPcGalleryImage_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

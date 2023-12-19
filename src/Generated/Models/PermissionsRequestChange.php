@@ -27,11 +27,11 @@ class PermissionsRequestChange extends Entity implements Parsable
 
     /**
      * Gets the activeOccurrenceStatus property value. The status of the active occurence of the schedule if one exists. The possible values are: grantingFailed, granted, granting, revoked, revoking, revokingFailed, unknownFutureValue.
-     * @return PermissionsRequestOccurrenceStatus|null
+     * @return PermissionsRequestChange_activeOccurrenceStatus|null
     */
-    public function getActiveOccurrenceStatus(): ?PermissionsRequestOccurrenceStatus {
+    public function getActiveOccurrenceStatus(): ?PermissionsRequestChange_activeOccurrenceStatus {
         $val = $this->getBackingStore()->get('activeOccurrenceStatus');
-        if (is_null($val) || $val instanceof PermissionsRequestOccurrenceStatus) {
+        if (is_null($val) || $val instanceof PermissionsRequestChange_activeOccurrenceStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'activeOccurrenceStatus'");
@@ -44,7 +44,7 @@ class PermissionsRequestChange extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeOccurrenceStatus' => fn(ParseNode $n) => $o->setActiveOccurrenceStatus($n->getEnumValue(PermissionsRequestOccurrenceStatus::class)),
+            'activeOccurrenceStatus' => fn(ParseNode $n) => $o->setActiveOccurrenceStatus($n->getEnumValue(PermissionsRequestChange_activeOccurrenceStatus::class)),
             'modificationDateTime' => fn(ParseNode $n) => $o->setModificationDateTime($n->getDateTimeValue()),
             'permissionsRequestId' => fn(ParseNode $n) => $o->setPermissionsRequestId($n->getStringValue()),
             'statusDetail' => fn(ParseNode $n) => $o->setStatusDetail($n->getEnumValue(StatusDetail::class)),
@@ -115,9 +115,9 @@ class PermissionsRequestChange extends Entity implements Parsable
 
     /**
      * Sets the activeOccurrenceStatus property value. The status of the active occurence of the schedule if one exists. The possible values are: grantingFailed, granted, granting, revoked, revoking, revokingFailed, unknownFutureValue.
-     * @param PermissionsRequestOccurrenceStatus|null $value Value to set for the activeOccurrenceStatus property.
+     * @param PermissionsRequestChange_activeOccurrenceStatus|null $value Value to set for the activeOccurrenceStatus property.
     */
-    public function setActiveOccurrenceStatus(?PermissionsRequestOccurrenceStatus $value): void {
+    public function setActiveOccurrenceStatus(?PermissionsRequestChange_activeOccurrenceStatus $value): void {
         $this->getBackingStore()->set('activeOccurrenceStatus', $value);
     }
 

@@ -66,11 +66,11 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
 
     /**
      * Gets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
-     * @return UserEmailSource|null
+     * @return WindowsPhoneEASEmailProfileConfiguration_emailAddressSource|null
     */
-    public function getEmailAddressSource(): ?UserEmailSource {
+    public function getEmailAddressSource(): ?WindowsPhoneEASEmailProfileConfiguration_emailAddressSource {
         $val = $this->getBackingStore()->get('emailAddressSource');
-        if (is_null($val) || $val instanceof UserEmailSource) {
+        if (is_null($val) || $val instanceof WindowsPhoneEASEmailProfileConfiguration_emailAddressSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'emailAddressSource'");
@@ -98,7 +98,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
             'accountName' => fn(ParseNode $n) => $o->setAccountName($n->getStringValue()),
             'applyOnlyToWindowsPhone81' => fn(ParseNode $n) => $o->setApplyOnlyToWindowsPhone81($n->getBooleanValue()),
             'durationOfEmailToSync' => fn(ParseNode $n) => $o->setDurationOfEmailToSync($n->getEnumValue(EmailSyncDuration::class)),
-            'emailAddressSource' => fn(ParseNode $n) => $o->setEmailAddressSource($n->getEnumValue(UserEmailSource::class)),
+            'emailAddressSource' => fn(ParseNode $n) => $o->setEmailAddressSource($n->getEnumValue(WindowsPhoneEASEmailProfileConfiguration_emailAddressSource::class)),
             'emailSyncSchedule' => fn(ParseNode $n) => $o->setEmailSyncSchedule($n->getEnumValue(EmailSyncSchedule::class)),
             'hostName' => fn(ParseNode $n) => $o->setHostName($n->getStringValue()),
             'requireSsl' => fn(ParseNode $n) => $o->setRequireSsl($n->getBooleanValue()),
@@ -211,9 +211,9 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
 
     /**
      * Sets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
-     * @param UserEmailSource|null $value Value to set for the emailAddressSource property.
+     * @param WindowsPhoneEASEmailProfileConfiguration_emailAddressSource|null $value Value to set for the emailAddressSource property.
     */
-    public function setEmailAddressSource(?UserEmailSource $value): void {
+    public function setEmailAddressSource(?WindowsPhoneEASEmailProfileConfiguration_emailAddressSource $value): void {
         $this->getBackingStore()->set('emailAddressSource', $value);
     }
 

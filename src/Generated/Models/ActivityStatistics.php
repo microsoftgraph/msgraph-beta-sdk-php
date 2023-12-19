@@ -39,11 +39,11 @@ class ActivityStatistics extends Entity implements Parsable
 
     /**
      * Gets the activity property value. The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
-     * @return AnalyticsActivityType|null
+     * @return ActivityStatistics_activity|null
     */
-    public function getActivity(): ?AnalyticsActivityType {
+    public function getActivity(): ?ActivityStatistics_activity {
         $val = $this->getBackingStore()->get('activity');
-        if (is_null($val) || $val instanceof AnalyticsActivityType) {
+        if (is_null($val) || $val instanceof ActivityStatistics_activity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
@@ -80,7 +80,7 @@ class ActivityStatistics extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(AnalyticsActivityType::class)),
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(ActivityStatistics_activity::class)),
             'duration' => fn(ParseNode $n) => $o->setDuration($n->getDateIntervalValue()),
             'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
             'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
@@ -127,9 +127,9 @@ class ActivityStatistics extends Entity implements Parsable
 
     /**
      * Sets the activity property value. The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
-     * @param AnalyticsActivityType|null $value Value to set for the activity property.
+     * @param ActivityStatistics_activity|null $value Value to set for the activity property.
     */
-    public function setActivity(?AnalyticsActivityType $value): void {
+    public function setActivity(?ActivityStatistics_activity $value): void {
         $this->getBackingStore()->set('activity', $value);
     }
 

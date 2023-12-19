@@ -76,7 +76,7 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
         return  [
             'cloudPcId' => fn(ParseNode $n) => $o->setCloudPcId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'validationResult' => fn(ParseNode $n) => $o->setValidationResult($n->getEnumValue(CloudPcResizeValidationCode::class)),
+            'validationResult' => fn(ParseNode $n) => $o->setValidationResult($n->getEnumValue(CloudPcResizeValidationResult_validationResult::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the validationResult property value. Describes a list of the validation result for the Cloud PC resize action. The possible values are: success, cloudPcNotFound, operationCnflict, operationNotSupported, targetLicenseHasAssigned, internalServerError, and unknownFutureValue.
-     * @return CloudPcResizeValidationCode|null
+     * @return CloudPcResizeValidationResult_validationResult|null
     */
-    public function getValidationResult(): ?CloudPcResizeValidationCode {
+    public function getValidationResult(): ?CloudPcResizeValidationResult_validationResult {
         $val = $this->getBackingStore()->get('validationResult');
-        if (is_null($val) || $val instanceof CloudPcResizeValidationCode) {
+        if (is_null($val) || $val instanceof CloudPcResizeValidationResult_validationResult) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'validationResult'");
@@ -149,9 +149,9 @@ class CloudPcResizeValidationResult implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the validationResult property value. Describes a list of the validation result for the Cloud PC resize action. The possible values are: success, cloudPcNotFound, operationCnflict, operationNotSupported, targetLicenseHasAssigned, internalServerError, and unknownFutureValue.
-     * @param CloudPcResizeValidationCode|null $value Value to set for the validationResult property.
+     * @param CloudPcResizeValidationResult_validationResult|null $value Value to set for the validationResult property.
     */
-    public function setValidationResult(?CloudPcResizeValidationCode $value): void {
+    public function setValidationResult(?CloudPcResizeValidationResult_validationResult $value): void {
         $this->getBackingStore()->set('validationResult', $value);
     }
 

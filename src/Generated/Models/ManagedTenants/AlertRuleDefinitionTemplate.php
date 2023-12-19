@@ -57,11 +57,11 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the defaultSeverity property value. The defaultSeverity property
-     * @return AlertSeverity|null
+     * @return AlertRuleDefinitionTemplate_defaultSeverity|null
     */
-    public function getDefaultSeverity(): ?AlertSeverity {
+    public function getDefaultSeverity(): ?AlertRuleDefinitionTemplate_defaultSeverity {
         $val = $this->getBackingStore()->get('defaultSeverity');
-        if (is_null($val) || $val instanceof AlertSeverity) {
+        if (is_null($val) || $val instanceof AlertRuleDefinitionTemplate_defaultSeverity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultSeverity'");
@@ -74,7 +74,7 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultSeverity' => fn(ParseNode $n) => $o->setDefaultSeverity($n->getEnumValue(AlertSeverity::class)),
+            'defaultSeverity' => fn(ParseNode $n) => $o->setDefaultSeverity($n->getEnumValue(AlertRuleDefinitionTemplate_defaultSeverity::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -119,9 +119,9 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the defaultSeverity property value. The defaultSeverity property
-     * @param AlertSeverity|null $value Value to set for the defaultSeverity property.
+     * @param AlertRuleDefinitionTemplate_defaultSeverity|null $value Value to set for the defaultSeverity property.
     */
-    public function setDefaultSeverity(?AlertSeverity $value): void {
+    public function setDefaultSeverity(?AlertRuleDefinitionTemplate_defaultSeverity $value): void {
         $this->getBackingStore()->set('defaultSeverity', $value);
     }
 

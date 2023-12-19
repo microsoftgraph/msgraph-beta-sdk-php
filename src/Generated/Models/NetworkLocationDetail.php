@@ -71,7 +71,7 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
                 /** @var array<string>|null $val */
                 $this->setNetworkNames($val);
             },
-            'networkType' => fn(ParseNode $n) => $o->setNetworkType($n->getEnumValue(NetworkType::class)),
+            'networkType' => fn(ParseNode $n) => $o->setNetworkType($n->getEnumValue(NetworkLocationDetail_networkType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -92,11 +92,11 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the networkType property value. Provides the type of network used when signing in. Possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue.
-     * @return NetworkType|null
+     * @return NetworkLocationDetail_networkType|null
     */
-    public function getNetworkType(): ?NetworkType {
+    public function getNetworkType(): ?NetworkLocationDetail_networkType {
         $val = $this->getBackingStore()->get('networkType');
-        if (is_null($val) || $val instanceof NetworkType) {
+        if (is_null($val) || $val instanceof NetworkLocationDetail_networkType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'networkType'");
@@ -151,9 +151,9 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the networkType property value. Provides the type of network used when signing in. Possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue.
-     * @param NetworkType|null $value Value to set for the networkType property.
+     * @param NetworkLocationDetail_networkType|null $value Value to set for the networkType property.
     */
-    public function setNetworkType(?NetworkType $value): void {
+    public function setNetworkType(?NetworkLocationDetail_networkType $value): void {
         $this->getBackingStore()->set('networkType', $value);
     }
 

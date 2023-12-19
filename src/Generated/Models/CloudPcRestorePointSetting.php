@@ -63,6 +63,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
         $o = $this;
         return  [
             'frequencyInHours' => fn(ParseNode $n) => $o->setFrequencyInHours($n->getIntegerValue()),
+            'frequencyType' => fn(ParseNode $n) => $o->setFrequencyType($n->getEnumValue(CloudPcRestorePointSetting_frequencyType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userRestoreEnabled' => fn(ParseNode $n) => $o->setUserRestoreEnabled($n->getBooleanValue()),
         ];
@@ -78,6 +79,18 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'frequencyInHours'");
+    }
+
+    /**
+     * Gets the frequencyType property value. The frequencyType property
+     * @return CloudPcRestorePointSetting_frequencyType|null
+    */
+    public function getFrequencyType(): ?CloudPcRestorePointSetting_frequencyType {
+        $val = $this->getBackingStore()->get('frequencyType');
+        if (is_null($val) || $val instanceof CloudPcRestorePointSetting_frequencyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frequencyType'");
     }
 
     /**
@@ -110,6 +123,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('frequencyInHours', $this->getFrequencyInHours());
+        $writer->writeEnumValue('frequencyType', $this->getFrequencyType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('userRestoreEnabled', $this->getUserRestoreEnabled());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -137,6 +151,14 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, BackedModel, P
     */
     public function setFrequencyInHours(?int $value): void {
         $this->getBackingStore()->set('frequencyInHours', $value);
+    }
+
+    /**
+     * Sets the frequencyType property value. The frequencyType property
+     * @param CloudPcRestorePointSetting_frequencyType|null $value Value to set for the frequencyType property.
+    */
+    public function setFrequencyType(?CloudPcRestorePointSetting_frequencyType $value): void {
+        $this->getBackingStore()->set('frequencyType', $value);
     }
 
     /**

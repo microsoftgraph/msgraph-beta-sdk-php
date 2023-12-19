@@ -61,7 +61,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
             'cveSeverityInformation' => fn(ParseNode $n) => $o->setCveSeverityInformation($n->getObjectValue([QualityUpdateCveSeverityInformation::class, 'createFromDiscriminatorValue'])),
             'isExpeditable' => fn(ParseNode $n) => $o->setIsExpeditable($n->getBooleanValue()),
             'productRevisions' => fn(ParseNode $n) => $o->setProductRevisions($n->getCollectionOfObjectValues([ProductRevision::class, 'createFromDiscriminatorValue'])),
-            'qualityUpdateCadence' => fn(ParseNode $n) => $o->setQualityUpdateCadence($n->getEnumValue(QualityUpdateCadence::class)),
+            'qualityUpdateCadence' => fn(ParseNode $n) => $o->setQualityUpdateCadence($n->getEnumValue(QualityUpdateCatalogEntry_qualityUpdateCadence::class)),
             'qualityUpdateClassification' => fn(ParseNode $n) => $o->setQualityUpdateClassification($n->getEnumValue(QualityUpdateClassification::class)),
             'shortName' => fn(ParseNode $n) => $o->setShortName($n->getStringValue()),
         ]);
@@ -95,11 +95,11 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
 
     /**
      * Gets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
-     * @return QualityUpdateCadence|null
+     * @return QualityUpdateCatalogEntry_qualityUpdateCadence|null
     */
-    public function getQualityUpdateCadence(): ?QualityUpdateCadence {
+    public function getQualityUpdateCadence(): ?QualityUpdateCatalogEntry_qualityUpdateCadence {
         $val = $this->getBackingStore()->get('qualityUpdateCadence');
-        if (is_null($val) || $val instanceof QualityUpdateCadence) {
+        if (is_null($val) || $val instanceof QualityUpdateCatalogEntry_qualityUpdateCadence) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'qualityUpdateCadence'");
@@ -178,9 +178,9 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
 
     /**
      * Sets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
-     * @param QualityUpdateCadence|null $value Value to set for the qualityUpdateCadence property.
+     * @param QualityUpdateCatalogEntry_qualityUpdateCadence|null $value Value to set for the qualityUpdateCadence property.
     */
-    public function setQualityUpdateCadence(?QualityUpdateCadence $value): void {
+    public function setQualityUpdateCadence(?QualityUpdateCatalogEntry_qualityUpdateCadence $value): void {
         $this->getBackingStore()->set('qualityUpdateCadence', $value);
     }
 

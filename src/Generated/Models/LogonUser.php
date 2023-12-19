@@ -62,11 +62,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the accountType property value. User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator.
-     * @return UserAccountSecurityType|null
+     * @return LogonUser_accountType|null
     */
-    public function getAccountType(): ?UserAccountSecurityType {
+    public function getAccountType(): ?LogonUser_accountType {
         $val = $this->getBackingStore()->get('accountType');
-        if (is_null($val) || $val instanceof UserAccountSecurityType) {
+        if (is_null($val) || $val instanceof LogonUser_accountType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'accountType'");
@@ -102,11 +102,11 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'accountDomain' => fn(ParseNode $n) => $o->setAccountDomain($n->getStringValue()),
             'accountName' => fn(ParseNode $n) => $o->setAccountName($n->getStringValue()),
-            'accountType' => fn(ParseNode $n) => $o->setAccountType($n->getEnumValue(UserAccountSecurityType::class)),
+            'accountType' => fn(ParseNode $n) => $o->setAccountType($n->getEnumValue(LogonUser_accountType::class)),
             'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
             'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
             'logonId' => fn(ParseNode $n) => $o->setLogonId($n->getStringValue()),
-            'logonTypes' => fn(ParseNode $n) => $o->setLogonTypes($n->getCollectionOfEnumValues(LogonType::class)),
+            'logonTypes' => fn(ParseNode $n) => $o->setLogonTypes($n->getCollectionOfEnumValues(LogonUser_logonTypes::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -149,13 +149,13 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @return array<LogonType>|null
+     * @return array<LogonUser_logonTypes>|null
     */
     public function getLogonTypes(): ?array {
         $val = $this->getBackingStore()->get('logonTypes');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, LogonType::class);
-            /** @var array<LogonType>|null $val */
+            TypeUtils::validateCollectionValues($val, LogonUser_logonTypes::class);
+            /** @var array<LogonUser_logonTypes>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'logonTypes'");
@@ -207,9 +207,9 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the accountType property value. User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator.
-     * @param UserAccountSecurityType|null $value Value to set for the accountType property.
+     * @param LogonUser_accountType|null $value Value to set for the accountType property.
     */
-    public function setAccountType(?UserAccountSecurityType $value): void {
+    public function setAccountType(?LogonUser_accountType $value): void {
         $this->getBackingStore()->set('accountType', $value);
     }
 
@@ -255,7 +255,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @param array<LogonType>|null $value Value to set for the logonTypes property.
+     * @param array<LogonUser_logonTypes>|null $value Value to set for the logonTypes property.
     */
     public function setLogonTypes(?array $value): void {
         $this->getBackingStore()->set('logonTypes', $value);

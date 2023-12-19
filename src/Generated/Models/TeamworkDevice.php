@@ -40,11 +40,11 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Gets the activityState property value. The activity state of the device. The possible values are: unknown, busy, idle, unavailable, unknownFutureValue.
-     * @return TeamworkDeviceActivityState|null
+     * @return TeamworkDevice_activityState|null
     */
-    public function getActivityState(): ?TeamworkDeviceActivityState {
+    public function getActivityState(): ?TeamworkDevice_activityState {
         $val = $this->getBackingStore()->get('activityState');
-        if (is_null($val) || $val instanceof TeamworkDeviceActivityState) {
+        if (is_null($val) || $val instanceof TeamworkDevice_activityState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'activityState'");
@@ -130,7 +130,7 @@ class TeamworkDevice extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'activity' => fn(ParseNode $n) => $o->setActivity($n->getObjectValue([TeamworkDeviceActivity::class, 'createFromDiscriminatorValue'])),
-            'activityState' => fn(ParseNode $n) => $o->setActivityState($n->getEnumValue(TeamworkDeviceActivityState::class)),
+            'activityState' => fn(ParseNode $n) => $o->setActivityState($n->getEnumValue(TeamworkDevice_activityState::class)),
             'companyAssetTag' => fn(ParseNode $n) => $o->setCompanyAssetTag($n->getStringValue()),
             'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([TeamworkDeviceConfiguration::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
@@ -139,7 +139,7 @@ class TeamworkDevice extends Entity implements Parsable
             'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(TeamworkDeviceType::class)),
             'hardwareDetail' => fn(ParseNode $n) => $o->setHardwareDetail($n->getObjectValue([TeamworkHardwareDetail::class, 'createFromDiscriminatorValue'])),
             'health' => fn(ParseNode $n) => $o->setHealth($n->getObjectValue([TeamworkDeviceHealth::class, 'createFromDiscriminatorValue'])),
-            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(TeamworkDeviceHealthStatus::class)),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(TeamworkDevice_healthStatus::class)),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
@@ -173,11 +173,11 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Gets the healthStatus property value. The health status of the device. The possible values are: unknown, offline, critical, nonUrgent, healthy, unknownFutureValue.
-     * @return TeamworkDeviceHealthStatus|null
+     * @return TeamworkDevice_healthStatus|null
     */
-    public function getHealthStatus(): ?TeamworkDeviceHealthStatus {
+    public function getHealthStatus(): ?TeamworkDevice_healthStatus {
         $val = $this->getBackingStore()->get('healthStatus');
-        if (is_null($val) || $val instanceof TeamworkDeviceHealthStatus) {
+        if (is_null($val) || $val instanceof TeamworkDevice_healthStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
@@ -266,9 +266,9 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the activityState property value. The activity state of the device. The possible values are: unknown, busy, idle, unavailable, unknownFutureValue.
-     * @param TeamworkDeviceActivityState|null $value Value to set for the activityState property.
+     * @param TeamworkDevice_activityState|null $value Value to set for the activityState property.
     */
-    public function setActivityState(?TeamworkDeviceActivityState $value): void {
+    public function setActivityState(?TeamworkDevice_activityState $value): void {
         $this->getBackingStore()->set('activityState', $value);
     }
 
@@ -338,9 +338,9 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the healthStatus property value. The health status of the device. The possible values are: unknown, offline, critical, nonUrgent, healthy, unknownFutureValue.
-     * @param TeamworkDeviceHealthStatus|null $value Value to set for the healthStatus property.
+     * @param TeamworkDevice_healthStatus|null $value Value to set for the healthStatus property.
     */
-    public function setHealthStatus(?TeamworkDeviceHealthStatus $value): void {
+    public function setHealthStatus(?TeamworkDevice_healthStatus $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
     }
 

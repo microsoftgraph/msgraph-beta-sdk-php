@@ -39,7 +39,7 @@ class BaseSitePage extends BaseItem implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'pageLayout' => fn(ParseNode $n) => $o->setPageLayout($n->getEnumValue(PageLayoutType::class)),
+            'pageLayout' => fn(ParseNode $n) => $o->setPageLayout($n->getEnumValue(BaseSitePage_pageLayout::class)),
             'publishingState' => fn(ParseNode $n) => $o->setPublishingState($n->getObjectValue([PublicationFacet::class, 'createFromDiscriminatorValue'])),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
@@ -47,11 +47,11 @@ class BaseSitePage extends BaseItem implements Parsable
 
     /**
      * Gets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
-     * @return PageLayoutType|null
+     * @return BaseSitePage_pageLayout|null
     */
-    public function getPageLayout(): ?PageLayoutType {
+    public function getPageLayout(): ?BaseSitePage_pageLayout {
         $val = $this->getBackingStore()->get('pageLayout');
-        if (is_null($val) || $val instanceof PageLayoutType) {
+        if (is_null($val) || $val instanceof BaseSitePage_pageLayout) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'pageLayout'");
@@ -94,9 +94,9 @@ class BaseSitePage extends BaseItem implements Parsable
 
     /**
      * Sets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
-     * @param PageLayoutType|null $value Value to set for the pageLayout property.
+     * @param BaseSitePage_pageLayout|null $value Value to set for the pageLayout property.
     */
-    public function setPageLayout(?PageLayoutType $value): void {
+    public function setPageLayout(?BaseSitePage_pageLayout $value): void {
         $this->getBackingStore()->set('pageLayout', $value);
     }
 

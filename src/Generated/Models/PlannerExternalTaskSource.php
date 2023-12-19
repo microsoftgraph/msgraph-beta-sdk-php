@@ -40,11 +40,11 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Gets the displayLinkType property value. Specifies how an application should display the link to the associated plannerExternalTaskSource. The possible values are: none, default.
-     * @return PlannerExternalTaskSourceDisplayType|null
+     * @return PlannerExternalTaskSource_displayLinkType|null
     */
-    public function getDisplayLinkType(): ?PlannerExternalTaskSourceDisplayType {
+    public function getDisplayLinkType(): ?PlannerExternalTaskSource_displayLinkType {
         $val = $this->getBackingStore()->get('displayLinkType');
-        if (is_null($val) || $val instanceof PlannerExternalTaskSourceDisplayType) {
+        if (is_null($val) || $val instanceof PlannerExternalTaskSource_displayLinkType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'displayLinkType'");
@@ -108,7 +108,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'contextScenarioId' => fn(ParseNode $n) => $o->setContextScenarioId($n->getStringValue()),
-            'displayLinkType' => fn(ParseNode $n) => $o->setDisplayLinkType($n->getEnumValue(PlannerExternalTaskSourceDisplayType::class)),
+            'displayLinkType' => fn(ParseNode $n) => $o->setDisplayLinkType($n->getEnumValue(PlannerExternalTaskSource_displayLinkType::class)),
             'displayNameSegments' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -161,9 +161,9 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the displayLinkType property value. Specifies how an application should display the link to the associated plannerExternalTaskSource. The possible values are: none, default.
-     * @param PlannerExternalTaskSourceDisplayType|null $value Value to set for the displayLinkType property.
+     * @param PlannerExternalTaskSource_displayLinkType|null $value Value to set for the displayLinkType property.
     */
-    public function setDisplayLinkType(?PlannerExternalTaskSourceDisplayType $value): void {
+    public function setDisplayLinkType(?PlannerExternalTaskSource_displayLinkType $value): void {
         $this->getBackingStore()->set('displayLinkType', $value);
     }
 

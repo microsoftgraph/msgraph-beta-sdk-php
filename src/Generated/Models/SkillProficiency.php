@@ -90,7 +90,7 @@ class SkillProficiency extends ItemFacet implements Parsable
                 $this->setCollaborationTags($val);
             },
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'proficiency' => fn(ParseNode $n) => $o->setProficiency($n->getEnumValue(SkillProficiencyLevel::class)),
+            'proficiency' => fn(ParseNode $n) => $o->setProficiency($n->getEnumValue(SkillProficiency_proficiency::class)),
             'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
@@ -98,11 +98,11 @@ class SkillProficiency extends ItemFacet implements Parsable
 
     /**
      * Gets the proficiency property value. Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
-     * @return SkillProficiencyLevel|null
+     * @return SkillProficiency_proficiency|null
     */
-    public function getProficiency(): ?SkillProficiencyLevel {
+    public function getProficiency(): ?SkillProficiency_proficiency {
         $val = $this->getBackingStore()->get('proficiency');
-        if (is_null($val) || $val instanceof SkillProficiencyLevel) {
+        if (is_null($val) || $val instanceof SkillProficiency_proficiency) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'proficiency'");
@@ -172,9 +172,9 @@ class SkillProficiency extends ItemFacet implements Parsable
 
     /**
      * Sets the proficiency property value. Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
-     * @param SkillProficiencyLevel|null $value Value to set for the proficiency property.
+     * @param SkillProficiency_proficiency|null $value Value to set for the proficiency property.
     */
-    public function setProficiency(?SkillProficiencyLevel $value): void {
+    public function setProficiency(?SkillProficiency_proficiency $value): void {
         $this->getBackingStore()->set('proficiency', $value);
     }
 

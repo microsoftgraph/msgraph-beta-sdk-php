@@ -57,11 +57,11 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
 
     /**
      * Gets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
-     * @return AuthenticationEventType|null
+     * @return AppliedAuthenticationEventListener_eventType|null
     */
-    public function getEventType(): ?AuthenticationEventType {
+    public function getEventType(): ?AppliedAuthenticationEventListener_eventType {
         $val = $this->getBackingStore()->get('eventType');
-        if (is_null($val) || $val instanceof AuthenticationEventType) {
+        if (is_null($val) || $val instanceof AppliedAuthenticationEventListener_eventType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'eventType'");
@@ -86,7 +86,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'eventType' => fn(ParseNode $n) => $o->setEventType($n->getEnumValue(AuthenticationEventType::class)),
+            'eventType' => fn(ParseNode $n) => $o->setEventType($n->getEnumValue(AppliedAuthenticationEventListener_eventType::class)),
             'executedListenerId' => fn(ParseNode $n) => $o->setExecutedListenerId($n->getStringValue()),
             'handlerResult' => fn(ParseNode $n) => $o->setHandlerResult($n->getObjectValue([AuthenticationEventHandlerResult::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -147,9 +147,9 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
 
     /**
      * Sets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
-     * @param AuthenticationEventType|null $value Value to set for the eventType property.
+     * @param AppliedAuthenticationEventListener_eventType|null $value Value to set for the eventType property.
     */
-    public function setEventType(?AuthenticationEventType $value): void {
+    public function setEventType(?AppliedAuthenticationEventListener_eventType $value): void {
         $this->getBackingStore()->set('eventType', $value);
     }
 

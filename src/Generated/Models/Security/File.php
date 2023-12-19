@@ -97,7 +97,7 @@ class File extends Entity implements Parsable
             'mediaType' => fn(ParseNode $n) => $o->setMediaType($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'otherProperties' => fn(ParseNode $n) => $o->setOtherProperties($n->getObjectValue([StringValueDictionary::class, 'createFromDiscriminatorValue'])),
-            'processingStatus' => fn(ParseNode $n) => $o->setProcessingStatus($n->getEnumValue(FileProcessingStatus::class)),
+            'processingStatus' => fn(ParseNode $n) => $o->setProcessingStatus($n->getEnumValue(File_processingStatus::class)),
             'senderOrAuthors' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -107,7 +107,7 @@ class File extends Entity implements Parsable
                 $this->setSenderOrAuthors($val);
             },
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
-            'sourceType' => fn(ParseNode $n) => $o->setSourceType($n->getEnumValue(SourceType::class)),
+            'sourceType' => fn(ParseNode $n) => $o->setSourceType($n->getEnumValue(File_sourceType::class)),
             'subjectTitle' => fn(ParseNode $n) => $o->setSubjectTitle($n->getStringValue()),
         ]);
     }
@@ -150,11 +150,11 @@ class File extends Entity implements Parsable
 
     /**
      * Gets the processingStatus property value. The processingStatus property
-     * @return FileProcessingStatus|null
+     * @return File_processingStatus|null
     */
-    public function getProcessingStatus(): ?FileProcessingStatus {
+    public function getProcessingStatus(): ?File_processingStatus {
         $val = $this->getBackingStore()->get('processingStatus');
-        if (is_null($val) || $val instanceof FileProcessingStatus) {
+        if (is_null($val) || $val instanceof File_processingStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'processingStatus'");
@@ -188,11 +188,11 @@ class File extends Entity implements Parsable
 
     /**
      * Gets the sourceType property value. The sourceType property
-     * @return SourceType|null
+     * @return File_sourceType|null
     */
-    public function getSourceType(): ?SourceType {
+    public function getSourceType(): ?File_sourceType {
         $val = $this->getBackingStore()->get('sourceType');
-        if (is_null($val) || $val instanceof SourceType) {
+        if (is_null($val) || $val instanceof File_sourceType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceType'");
@@ -288,9 +288,9 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the processingStatus property value. The processingStatus property
-     * @param FileProcessingStatus|null $value Value to set for the processingStatus property.
+     * @param File_processingStatus|null $value Value to set for the processingStatus property.
     */
-    public function setProcessingStatus(?FileProcessingStatus $value): void {
+    public function setProcessingStatus(?File_processingStatus $value): void {
         $this->getBackingStore()->set('processingStatus', $value);
     }
 
@@ -312,9 +312,9 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the sourceType property value. The sourceType property
-     * @param SourceType|null $value Value to set for the sourceType property.
+     * @param File_sourceType|null $value Value to set for the sourceType property.
     */
-    public function setSourceType(?SourceType $value): void {
+    public function setSourceType(?File_sourceType $value): void {
         $this->getBackingStore()->set('sourceType', $value);
     }
 

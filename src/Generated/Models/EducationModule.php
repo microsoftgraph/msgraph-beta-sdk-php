@@ -90,7 +90,7 @@ class EducationModule extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'resources' => fn(ParseNode $n) => $o->setResources($n->getCollectionOfObjectValues([EducationModuleResource::class, 'createFromDiscriminatorValue'])),
             'resourcesFolderUrl' => fn(ParseNode $n) => $o->setResourcesFolderUrl($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationModuleStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationModule_status::class)),
         ]);
     }
 
@@ -158,11 +158,11 @@ class EducationModule extends Entity implements Parsable
 
     /**
      * Gets the status property value. Status of the module.  You can't use a PATCH operation to update this value. Possible values are: draft and published.
-     * @return EducationModuleStatus|null
+     * @return EducationModule_status|null
     */
-    public function getStatus(): ?EducationModuleStatus {
+    public function getStatus(): ?EducationModule_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof EducationModuleStatus) {
+        if (is_null($val) || $val instanceof EducationModule_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -254,9 +254,9 @@ class EducationModule extends Entity implements Parsable
 
     /**
      * Sets the status property value. Status of the module.  You can't use a PATCH operation to update this value. Possible values are: draft and published.
-     * @param EducationModuleStatus|null $value Value to set for the status property.
+     * @param EducationModule_status|null $value Value to set for the status property.
     */
-    public function setStatus(?EducationModuleStatus $value): void {
+    public function setStatus(?EducationModule_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

@@ -62,7 +62,7 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'mode' => fn(ParseNode $n) => $o->setMode($n->getEnumValue(CrossTenantAccessPolicyTargetConfigurationAccessType::class)),
+            'mode' => fn(ParseNode $n) => $o->setMode($n->getEnumValue(DevicesFilter_mode::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rule' => fn(ParseNode $n) => $o->setRule($n->getStringValue()),
         ];
@@ -70,11 +70,11 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.
-     * @return CrossTenantAccessPolicyTargetConfigurationAccessType|null
+     * @return DevicesFilter_mode|null
     */
-    public function getMode(): ?CrossTenantAccessPolicyTargetConfigurationAccessType {
+    public function getMode(): ?DevicesFilter_mode {
         $val = $this->getBackingStore()->get('mode');
-        if (is_null($val) || $val instanceof CrossTenantAccessPolicyTargetConfigurationAccessType) {
+        if (is_null($val) || $val instanceof DevicesFilter_mode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mode'");
@@ -133,9 +133,9 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.
-     * @param CrossTenantAccessPolicyTargetConfigurationAccessType|null $value Value to set for the mode property.
+     * @param DevicesFilter_mode|null $value Value to set for the mode property.
     */
-    public function setMode(?CrossTenantAccessPolicyTargetConfigurationAccessType $value): void {
+    public function setMode(?DevicesFilter_mode $value): void {
         $this->getBackingStore()->set('mode', $value);
     }
 

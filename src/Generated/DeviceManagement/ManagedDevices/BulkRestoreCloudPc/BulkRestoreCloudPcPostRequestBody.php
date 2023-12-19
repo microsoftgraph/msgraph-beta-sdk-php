@@ -3,7 +3,6 @@
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\BulkRestoreCloudPc;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\RestoreTimeRange;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -74,7 +73,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
                 $this->setManagedDeviceIds($val);
             },
             'restorePointDateTime' => fn(ParseNode $n) => $o->setRestorePointDateTime($n->getDateTimeValue()),
-            'timeRange' => fn(ParseNode $n) => $o->setTimeRange($n->getEnumValue(RestoreTimeRange::class)),
+            'timeRange' => fn(ParseNode $n) => $o->setTimeRange($n->getEnumValue(BulkRestoreCloudPcPostRequestBody_timeRange::class)),
         ];
     }
 
@@ -106,11 +105,11 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the timeRange property value. The timeRange property
-     * @return RestoreTimeRange|null
+     * @return BulkRestoreCloudPcPostRequestBody_timeRange|null
     */
-    public function getTimeRange(): ?RestoreTimeRange {
+    public function getTimeRange(): ?BulkRestoreCloudPcPostRequestBody_timeRange {
         $val = $this->getBackingStore()->get('timeRange');
-        if (is_null($val) || $val instanceof RestoreTimeRange) {
+        if (is_null($val) || $val instanceof BulkRestoreCloudPcPostRequestBody_timeRange) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'timeRange'");
@@ -161,9 +160,9 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the timeRange property value. The timeRange property
-     * @param RestoreTimeRange|null $value Value to set for the timeRange property.
+     * @param BulkRestoreCloudPcPostRequestBody_timeRange|null $value Value to set for the timeRange property.
     */
-    public function setTimeRange(?RestoreTimeRange $value): void {
+    public function setTimeRange(?BulkRestoreCloudPcPostRequestBody_timeRange $value): void {
         $this->getBackingStore()->set('timeRange', $value);
     }
 

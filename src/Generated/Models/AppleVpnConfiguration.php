@@ -227,7 +227,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
             'loginGroupOrDomain' => fn(ParseNode $n) => $o->setLoginGroupOrDomain($n->getStringValue()),
             'onDemandRules' => fn(ParseNode $n) => $o->setOnDemandRules($n->getCollectionOfObjectValues([VpnOnDemandRule::class, 'createFromDiscriminatorValue'])),
             'optInToDeviceIdSharing' => fn(ParseNode $n) => $o->setOptInToDeviceIdSharing($n->getBooleanValue()),
-            'providerType' => fn(ParseNode $n) => $o->setProviderType($n->getEnumValue(VpnProviderType::class)),
+            'providerType' => fn(ParseNode $n) => $o->setProviderType($n->getEnumValue(AppleVpnConfiguration_providerType::class)),
             'proxyServer' => fn(ParseNode $n) => $o->setProxyServer($n->getObjectValue([VpnProxyServer::class, 'createFromDiscriminatorValue'])),
             'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
             'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
@@ -295,11 +295,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Gets the providerType property value. Provider type for per-app VPN. Possible values are: notConfigured, appProxy, packetTunnel.
-     * @return VpnProviderType|null
+     * @return AppleVpnConfiguration_providerType|null
     */
-    public function getProviderType(): ?VpnProviderType {
+    public function getProviderType(): ?AppleVpnConfiguration_providerType {
         $val = $this->getBackingStore()->get('providerType');
-        if (is_null($val) || $val instanceof VpnProviderType) {
+        if (is_null($val) || $val instanceof AppleVpnConfiguration_providerType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'providerType'");
@@ -527,9 +527,9 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the providerType property value. Provider type for per-app VPN. Possible values are: notConfigured, appProxy, packetTunnel.
-     * @param VpnProviderType|null $value Value to set for the providerType property.
+     * @param AppleVpnConfiguration_providerType|null $value Value to set for the providerType property.
     */
-    public function setProviderType(?VpnProviderType $value): void {
+    public function setProviderType(?AppleVpnConfiguration_providerType $value): void {
         $this->getBackingStore()->set('providerType', $value);
     }
 

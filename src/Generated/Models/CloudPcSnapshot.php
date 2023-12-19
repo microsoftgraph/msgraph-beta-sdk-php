@@ -72,8 +72,8 @@ class CloudPcSnapshot extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'lastRestoredDateTime' => fn(ParseNode $n) => $o->setLastRestoredDateTime($n->getDateTimeValue()),
-            'snapshotType' => fn(ParseNode $n) => $o->setSnapshotType($n->getEnumValue(CloudPcSnapshotType::class)),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcSnapshotStatus::class)),
+            'snapshotType' => fn(ParseNode $n) => $o->setSnapshotType($n->getEnumValue(CloudPcSnapshot_snapshotType::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcSnapshot_status::class)),
         ]);
     }
 
@@ -91,11 +91,11 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Gets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
-     * @return CloudPcSnapshotType|null
+     * @return CloudPcSnapshot_snapshotType|null
     */
-    public function getSnapshotType(): ?CloudPcSnapshotType {
+    public function getSnapshotType(): ?CloudPcSnapshot_snapshotType {
         $val = $this->getBackingStore()->get('snapshotType');
-        if (is_null($val) || $val instanceof CloudPcSnapshotType) {
+        if (is_null($val) || $val instanceof CloudPcSnapshot_snapshotType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'snapshotType'");
@@ -103,11 +103,11 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status of the Cloud PC snapshot. The possible values are: ready, unknownFutureValue.
-     * @return CloudPcSnapshotStatus|null
+     * @return CloudPcSnapshot_status|null
     */
-    public function getStatus(): ?CloudPcSnapshotStatus {
+    public function getStatus(): ?CloudPcSnapshot_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof CloudPcSnapshotStatus) {
+        if (is_null($val) || $val instanceof CloudPcSnapshot_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -161,17 +161,17 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Sets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
-     * @param CloudPcSnapshotType|null $value Value to set for the snapshotType property.
+     * @param CloudPcSnapshot_snapshotType|null $value Value to set for the snapshotType property.
     */
-    public function setSnapshotType(?CloudPcSnapshotType $value): void {
+    public function setSnapshotType(?CloudPcSnapshot_snapshotType $value): void {
         $this->getBackingStore()->set('snapshotType', $value);
     }
 
     /**
      * Sets the status property value. The status of the Cloud PC snapshot. The possible values are: ready, unknownFutureValue.
-     * @param CloudPcSnapshotStatus|null $value Value to set for the status property.
+     * @param CloudPcSnapshot_status|null $value Value to set for the status property.
     */
-    public function setStatus(?CloudPcSnapshotStatus $value): void {
+    public function setStatus(?CloudPcSnapshot_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

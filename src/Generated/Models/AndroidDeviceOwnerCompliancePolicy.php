@@ -30,11 +30,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Gets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-     * @return DeviceThreatProtectionLevel|null
+     * @return AndroidDeviceOwnerCompliancePolicy_advancedThreatProtectionRequiredSecurityLevel|null
     */
-    public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
+    public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?AndroidDeviceOwnerCompliancePolicy_advancedThreatProtectionRequiredSecurityLevel {
         $val = $this->getBackingStore()->get('advancedThreatProtectionRequiredSecurityLevel');
-        if (is_null($val) || $val instanceof DeviceThreatProtectionLevel) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerCompliancePolicy_advancedThreatProtectionRequiredSecurityLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionRequiredSecurityLevel'");
@@ -54,11 +54,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-     * @return DeviceThreatProtectionLevel|null
+     * @return AndroidDeviceOwnerCompliancePolicy_deviceThreatProtectionRequiredSecurityLevel|null
     */
-    public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
+    public function getDeviceThreatProtectionRequiredSecurityLevel(): ?AndroidDeviceOwnerCompliancePolicy_deviceThreatProtectionRequiredSecurityLevel {
         $val = $this->getBackingStore()->get('deviceThreatProtectionRequiredSecurityLevel');
-        if (is_null($val) || $val instanceof DeviceThreatProtectionLevel) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerCompliancePolicy_deviceThreatProtectionRequiredSecurityLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceThreatProtectionRequiredSecurityLevel'");
@@ -71,9 +71,9 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionRequiredSecurityLevel($n->getEnumValue(DeviceThreatProtectionLevel::class)),
+            'advancedThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionRequiredSecurityLevel($n->getEnumValue(AndroidDeviceOwnerCompliancePolicy_advancedThreatProtectionRequiredSecurityLevel::class)),
             'deviceThreatProtectionEnabled' => fn(ParseNode $n) => $o->setDeviceThreatProtectionEnabled($n->getBooleanValue()),
-            'deviceThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setDeviceThreatProtectionRequiredSecurityLevel($n->getEnumValue(DeviceThreatProtectionLevel::class)),
+            'deviceThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setDeviceThreatProtectionRequiredSecurityLevel($n->getEnumValue(AndroidDeviceOwnerCompliancePolicy_deviceThreatProtectionRequiredSecurityLevel::class)),
             'minAndroidSecurityPatchLevel' => fn(ParseNode $n) => $o->setMinAndroidSecurityPatchLevel($n->getStringValue()),
             'osMaximumVersion' => fn(ParseNode $n) => $o->setOsMaximumVersion($n->getStringValue()),
             'osMinimumVersion' => fn(ParseNode $n) => $o->setOsMinimumVersion($n->getStringValue()),
@@ -88,7 +88,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
             'passwordMinutesOfInactivityBeforeLock' => fn(ParseNode $n) => $o->setPasswordMinutesOfInactivityBeforeLock($n->getIntegerValue()),
             'passwordPreviousPasswordCountToBlock' => fn(ParseNode $n) => $o->setPasswordPreviousPasswordCountToBlock($n->getIntegerValue()),
             'passwordRequired' => fn(ParseNode $n) => $o->setPasswordRequired($n->getBooleanValue()),
-            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
+            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerCompliancePolicy_passwordRequiredType::class)),
             'requireNoPendingSystemUpdates' => fn(ParseNode $n) => $o->setRequireNoPendingSystemUpdates($n->getBooleanValue()),
             'securityRequireIntuneAppIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireIntuneAppIntegrity($n->getBooleanValue()),
             'securityRequireSafetyNetAttestationBasicIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireSafetyNetAttestationBasicIntegrity($n->getBooleanValue()),
@@ -267,11 +267,11 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Gets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @return AndroidDeviceOwnerRequiredPasswordType|null
+     * @return AndroidDeviceOwnerCompliancePolicy_passwordRequiredType|null
     */
-    public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
+    public function getPasswordRequiredType(): ?AndroidDeviceOwnerCompliancePolicy_passwordRequiredType {
         $val = $this->getBackingStore()->get('passwordRequiredType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerCompliancePolicy_passwordRequiredType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
@@ -370,9 +370,9 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-     * @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
+     * @param AndroidDeviceOwnerCompliancePolicy_advancedThreatProtectionRequiredSecurityLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
-    public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
+    public function setAdvancedThreatProtectionRequiredSecurityLevel(?AndroidDeviceOwnerCompliancePolicy_advancedThreatProtectionRequiredSecurityLevel $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionRequiredSecurityLevel', $value);
     }
 
@@ -386,9 +386,9 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-     * @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
+     * @param AndroidDeviceOwnerCompliancePolicy_deviceThreatProtectionRequiredSecurityLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
-    public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
+    public function setDeviceThreatProtectionRequiredSecurityLevel(?AndroidDeviceOwnerCompliancePolicy_deviceThreatProtectionRequiredSecurityLevel $value): void {
         $this->getBackingStore()->set('deviceThreatProtectionRequiredSecurityLevel', $value);
     }
 
@@ -506,9 +506,9 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AndroidDeviceOwnerCompliancePolicy_passwordRequiredType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
+    public function setPasswordRequiredType(?AndroidDeviceOwnerCompliancePolicy_passwordRequiredType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 

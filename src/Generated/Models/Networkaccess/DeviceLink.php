@@ -28,11 +28,11 @@ class DeviceLink extends Entity implements Parsable
 
     /**
      * Gets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
-     * @return BandwidthCapacityInMbps|null
+     * @return DeviceLink_bandwidthCapacityInMbps|null
     */
-    public function getBandwidthCapacityInMbps(): ?BandwidthCapacityInMbps {
+    public function getBandwidthCapacityInMbps(): ?DeviceLink_bandwidthCapacityInMbps {
         $val = $this->getBackingStore()->get('bandwidthCapacityInMbps');
-        if (is_null($val) || $val instanceof BandwidthCapacityInMbps) {
+        if (is_null($val) || $val instanceof DeviceLink_bandwidthCapacityInMbps) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthCapacityInMbps'");
@@ -69,7 +69,7 @@ class DeviceLink extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bandwidthCapacityInMbps' => fn(ParseNode $n) => $o->setBandwidthCapacityInMbps($n->getEnumValue(BandwidthCapacityInMbps::class)),
+            'bandwidthCapacityInMbps' => fn(ParseNode $n) => $o->setBandwidthCapacityInMbps($n->getEnumValue(DeviceLink_bandwidthCapacityInMbps::class)),
             'bgpConfiguration' => fn(ParseNode $n) => $o->setBgpConfiguration($n->getObjectValue([BgpConfiguration::class, 'createFromDiscriminatorValue'])),
             'deviceVendor' => fn(ParseNode $n) => $o->setDeviceVendor($n->getEnumValue(DeviceVendor::class)),
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
@@ -158,9 +158,9 @@ class DeviceLink extends Entity implements Parsable
 
     /**
      * Sets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
-     * @param BandwidthCapacityInMbps|null $value Value to set for the bandwidthCapacityInMbps property.
+     * @param DeviceLink_bandwidthCapacityInMbps|null $value Value to set for the bandwidthCapacityInMbps property.
     */
-    public function setBandwidthCapacityInMbps(?BandwidthCapacityInMbps $value): void {
+    public function setBandwidthCapacityInMbps(?DeviceLink_bandwidthCapacityInMbps $value): void {
         $this->getBackingStore()->set('bandwidthCapacityInMbps', $value);
     }
 

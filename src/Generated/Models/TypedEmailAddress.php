@@ -33,7 +33,7 @@ class TypedEmailAddress extends EmailAddress implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'otherLabel' => fn(ParseNode $n) => $o->setOtherLabel($n->getStringValue()),
-            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(EmailType::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(TypedEmailAddress_type::class)),
         ]);
     }
 
@@ -51,11 +51,11 @@ class TypedEmailAddress extends EmailAddress implements Parsable
 
     /**
      * Gets the type property value. The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
-     * @return EmailType|null
+     * @return TypedEmailAddress_type|null
     */
-    public function getType(): ?EmailType {
+    public function getType(): ?TypedEmailAddress_type {
         $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || $val instanceof EmailType) {
+        if (is_null($val) || $val instanceof TypedEmailAddress_type) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
@@ -81,9 +81,9 @@ class TypedEmailAddress extends EmailAddress implements Parsable
 
     /**
      * Sets the type property value. The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
-     * @param EmailType|null $value Value to set for the type property.
+     * @param TypedEmailAddress_type|null $value Value to set for the type property.
     */
-    public function setType(?EmailType $value): void {
+    public function setType(?TypedEmailAddress_type $value): void {
         $this->getBackingStore()->set('type', $value);
     }
 

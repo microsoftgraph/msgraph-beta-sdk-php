@@ -64,7 +64,7 @@ class VirtualEventRegistration extends Entity implements Parsable
             'registrationDateTime' => fn(ParseNode $n) => $o->setRegistrationDateTime($n->getDateTimeValue()),
             'registrationQuestionAnswers' => fn(ParseNode $n) => $o->setRegistrationQuestionAnswers($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestionAnswer::class, 'createFromDiscriminatorValue'])),
             'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(VirtualEventAttendeeRegistrationStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(VirtualEventRegistration_status::class)),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
@@ -135,11 +135,11 @@ class VirtualEventRegistration extends Entity implements Parsable
 
     /**
      * Gets the status property value. Registration status of the registrant. Read-only.
-     * @return VirtualEventAttendeeRegistrationStatus|null
+     * @return VirtualEventRegistration_status|null
     */
-    public function getStatus(): ?VirtualEventAttendeeRegistrationStatus {
+    public function getStatus(): ?VirtualEventRegistration_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof VirtualEventAttendeeRegistrationStatus) {
+        if (is_null($val) || $val instanceof VirtualEventRegistration_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -232,9 +232,9 @@ class VirtualEventRegistration extends Entity implements Parsable
 
     /**
      * Sets the status property value. Registration status of the registrant. Read-only.
-     * @param VirtualEventAttendeeRegistrationStatus|null $value Value to set for the status property.
+     * @param VirtualEventRegistration_status|null $value Value to set for the status property.
     */
-    public function setStatus(?VirtualEventAttendeeRegistrationStatus $value): void {
+    public function setStatus(?VirtualEventRegistration_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

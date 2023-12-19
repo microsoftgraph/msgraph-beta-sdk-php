@@ -53,11 +53,11 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Gets the allowedAudiences property value. The audiences that are able to see the values contained within the associated entity. Possible values are: me, family, contacts, groupMembers, organization, federatedOrganizations, everyone, unknownFutureValue.
-     * @return AllowedAudiences|null
+     * @return ItemFacet_allowedAudiences|null
     */
-    public function getAllowedAudiences(): ?AllowedAudiences {
+    public function getAllowedAudiences(): ?ItemFacet_allowedAudiences {
         $val = $this->getBackingStore()->get('allowedAudiences');
-        if (is_null($val) || $val instanceof AllowedAudiences) {
+        if (is_null($val) || $val instanceof ItemFacet_allowedAudiences) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedAudiences'");
@@ -94,7 +94,7 @@ class ItemFacet extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedAudiences' => fn(ParseNode $n) => $o->setAllowedAudiences($n->getEnumValue(AllowedAudiences::class)),
+            'allowedAudiences' => fn(ParseNode $n) => $o->setAllowedAudiences($n->getEnumValue(ItemFacet_allowedAudiences::class)),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'inference' => fn(ParseNode $n) => $o->setInference($n->getObjectValue([InferenceData::class, 'createFromDiscriminatorValue'])),
@@ -183,9 +183,9 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the allowedAudiences property value. The audiences that are able to see the values contained within the associated entity. Possible values are: me, family, contacts, groupMembers, organization, federatedOrganizations, everyone, unknownFutureValue.
-     * @param AllowedAudiences|null $value Value to set for the allowedAudiences property.
+     * @param ItemFacet_allowedAudiences|null $value Value to set for the allowedAudiences property.
     */
-    public function setAllowedAudiences(?AllowedAudiences $value): void {
+    public function setAllowedAudiences(?ItemFacet_allowedAudiences $value): void {
         $this->getBackingStore()->set('allowedAudiences', $value);
     }
 

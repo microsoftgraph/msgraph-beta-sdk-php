@@ -60,7 +60,7 @@ class Notification extends Entity implements Parsable
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'groupName' => fn(ParseNode $n) => $o->setGroupName($n->getStringValue()),
             'payload' => fn(ParseNode $n) => $o->setPayload($n->getObjectValue([PayloadTypes::class, 'createFromDiscriminatorValue'])),
-            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(Priority::class)),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(Notification_priority::class)),
             'targetHostName' => fn(ParseNode $n) => $o->setTargetHostName($n->getStringValue()),
             'targetPolicy' => fn(ParseNode $n) => $o->setTargetPolicy($n->getObjectValue([TargetPolicyEndpoints::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -92,11 +92,11 @@ class Notification extends Entity implements Parsable
 
     /**
      * Gets the priority property value. Indicates the priority of a raw user notification. Visual notifications are sent with high priority by default. Valid values are None, High and Low.
-     * @return Priority|null
+     * @return Notification_priority|null
     */
-    public function getPriority(): ?Priority {
+    public function getPriority(): ?Notification_priority {
         $val = $this->getBackingStore()->get('priority');
-        if (is_null($val) || $val instanceof Priority) {
+        if (is_null($val) || $val instanceof Notification_priority) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
@@ -175,9 +175,9 @@ class Notification extends Entity implements Parsable
 
     /**
      * Sets the priority property value. Indicates the priority of a raw user notification. Visual notifications are sent with high priority by default. Valid values are None, High and Low.
-     * @param Priority|null $value Value to set for the priority property.
+     * @param Notification_priority|null $value Value to set for the priority property.
     */
-    public function setPriority(?Priority $value): void {
+    public function setPriority(?Notification_priority $value): void {
         $this->getBackingStore()->set('priority', $value);
     }
 

@@ -29,6 +29,8 @@ class LongRunningOperation extends Entity implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.attackSimulationOperation': return new AttackSimulationOperation();
+                case '#microsoft.graph.engagementAsyncOperation': return new EngagementAsyncOperation();
+                case '#microsoft.graph.goalsExportJob': return new GoalsExportJob();
                 case '#microsoft.graph.industryData.fileValidateOperation': return new FileValidateOperation();
                 case '#microsoft.graph.industryData.validateOperation': return new ValidateOperation();
                 case '#microsoft.graph.richLongRunningOperation': return new RichLongRunningOperation();
@@ -38,7 +40,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The start time of the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the createdDateTime property value. The start time of the operation. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -59,13 +61,13 @@ class LongRunningOperation extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'resourceLocation' => fn(ParseNode $n) => $o->setResourceLocation($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LongRunningOperation_status::class)),
             'statusDetail' => fn(ParseNode $n) => $o->setStatusDetail($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the lastActionDateTime property value. The time of the last action in the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the lastActionDateTime property value. The time of the last action in the operation. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
@@ -90,11 +92,11 @@ class LongRunningOperation extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
-     * @return LongRunningOperationStatus|null
+     * @return LongRunningOperation_status|null
     */
-    public function getStatus(): ?LongRunningOperationStatus {
+    public function getStatus(): ?LongRunningOperation_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof LongRunningOperationStatus) {
+        if (is_null($val) || $val instanceof LongRunningOperation_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -126,7 +128,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The start time of the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the createdDateTime property value. The start time of the operation. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -134,7 +136,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastActionDateTime property value. The time of the last action in the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the lastActionDateTime property value. The time of the last action in the operation. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
@@ -151,9 +153,9 @@ class LongRunningOperation extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
-     * @param LongRunningOperationStatus|null $value Value to set for the status property.
+     * @param LongRunningOperation_status|null $value Value to set for the status property.
     */
-    public function setStatus(?LongRunningOperationStatus $value): void {
+    public function setStatus(?LongRunningOperation_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

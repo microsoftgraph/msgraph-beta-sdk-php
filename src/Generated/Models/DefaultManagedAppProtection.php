@@ -69,11 +69,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
-     * @return ManagedAppRemediationAction|null
+     * @return DefaultManagedAppProtection_appActionIfAccountIsClockedOut|null
     */
-    public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
+    public function getAppActionIfAccountIsClockedOut(): ?DefaultManagedAppProtection_appActionIfAccountIsClockedOut {
         $val = $this->getBackingStore()->get('appActionIfAccountIsClockedOut');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof DefaultManagedAppProtection_appActionIfAccountIsClockedOut) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAccountIsClockedOut'");
@@ -141,11 +141,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Gets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     * @return ManagedAppRemediationAction|null
+     * @return DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh|null
     */
-    public function getAppActionIfDevicePasscodeComplexityLessThanHigh(): ?ManagedAppRemediationAction {
+    public function getAppActionIfDevicePasscodeComplexityLessThanHigh(): ?DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh {
         $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanHigh');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanHigh'");
@@ -153,11 +153,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Gets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     * @return ManagedAppRemediationAction|null
+     * @return DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow|null
     */
-    public function getAppActionIfDevicePasscodeComplexityLessThanLow(): ?ManagedAppRemediationAction {
+    public function getAppActionIfDevicePasscodeComplexityLessThanLow(): ?DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow {
         $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanLow');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanLow'");
@@ -165,11 +165,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Gets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     * @return ManagedAppRemediationAction|null
+     * @return DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium|null
     */
-    public function getAppActionIfDevicePasscodeComplexityLessThanMedium(): ?ManagedAppRemediationAction {
+    public function getAppActionIfDevicePasscodeComplexityLessThanMedium(): ?DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium {
         $val = $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanMedium');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDevicePasscodeComplexityLessThanMedium'");
@@ -464,15 +464,15 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
                 $this->setAllowedAndroidDeviceModels($val);
             },
             'allowedIosDeviceModels' => fn(ParseNode $n) => $o->setAllowedIosDeviceModels($n->getStringValue()),
-            'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(DefaultManagedAppProtection_appActionIfAccountIsClockedOut::class)),
             'appActionIfAndroidDeviceManufacturerNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceManufacturerNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidSafetyNetAppsVerificationFailed' => fn(ParseNode $n) => $o->setAppActionIfAndroidSafetyNetAppsVerificationFailed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidSafetyNetDeviceAttestationFailed' => fn(ParseNode $n) => $o->setAppActionIfAndroidSafetyNetDeviceAttestationFailed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfDeviceLockNotSet' => fn(ParseNode $n) => $o->setAppActionIfDeviceLockNotSet($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfDevicePasscodeComplexityLessThanHigh' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanHigh($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfDevicePasscodeComplexityLessThanLow' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanLow($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfDevicePasscodeComplexityLessThanMedium' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanMedium($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfDevicePasscodeComplexityLessThanHigh' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanHigh($n->getEnumValue(DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh::class)),
+            'appActionIfDevicePasscodeComplexityLessThanLow' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanLow($n->getEnumValue(DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow::class)),
+            'appActionIfDevicePasscodeComplexityLessThanMedium' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanMedium($n->getEnumValue(DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium::class)),
             'appActionIfIosDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfIosDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appDataEncryptionType' => fn(ParseNode $n) => $o->setAppDataEncryptionType($n->getEnumValue(ManagedAppDataEncryptionType::class)),
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([ManagedMobileApp::class, 'createFromDiscriminatorValue'])),
@@ -902,9 +902,9 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
+     * @param DefaultManagedAppProtection_appActionIfAccountIsClockedOut|null $value Value to set for the appActionIfAccountIsClockedOut property.
     */
-    public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfAccountIsClockedOut(?DefaultManagedAppProtection_appActionIfAccountIsClockedOut $value): void {
         $this->getBackingStore()->set('appActionIfAccountIsClockedOut', $value);
     }
 
@@ -950,25 +950,25 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
+     * @param DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanHigh $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanHigh', $value);
     }
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
+     * @param DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanLow(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfDevicePasscodeComplexityLessThanLow(?DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanLow $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanLow', $value);
     }
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
+     * @param DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?DefaultManagedAppProtection_appActionIfDevicePasscodeComplexityLessThanMedium $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanMedium', $value);
     }
 

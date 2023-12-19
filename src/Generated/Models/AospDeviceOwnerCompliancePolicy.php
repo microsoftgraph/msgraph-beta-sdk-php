@@ -41,7 +41,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
             'passwordMinimumLength' => fn(ParseNode $n) => $o->setPasswordMinimumLength($n->getIntegerValue()),
             'passwordMinutesOfInactivityBeforeLock' => fn(ParseNode $n) => $o->setPasswordMinutesOfInactivityBeforeLock($n->getIntegerValue()),
             'passwordRequired' => fn(ParseNode $n) => $o->setPasswordRequired($n->getBooleanValue()),
-            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
+            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AospDeviceOwnerCompliancePolicy_passwordRequiredType::class)),
             'securityBlockJailbrokenDevices' => fn(ParseNode $n) => $o->setSecurityBlockJailbrokenDevices($n->getBooleanValue()),
             'storageRequireEncryption' => fn(ParseNode $n) => $o->setStorageRequireEncryption($n->getBooleanValue()),
         ]);
@@ -121,11 +121,11 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
 
     /**
      * Gets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @return AndroidDeviceOwnerRequiredPasswordType|null
+     * @return AospDeviceOwnerCompliancePolicy_passwordRequiredType|null
     */
-    public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
+    public function getPasswordRequiredType(): ?AospDeviceOwnerCompliancePolicy_passwordRequiredType {
         $val = $this->getBackingStore()->get('passwordRequiredType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+        if (is_null($val) || $val instanceof AospDeviceOwnerCompliancePolicy_passwordRequiredType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
@@ -222,9 +222,9 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
 
     /**
      * Sets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AospDeviceOwnerCompliancePolicy_passwordRequiredType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
+    public function setPasswordRequiredType(?AospDeviceOwnerCompliancePolicy_passwordRequiredType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 

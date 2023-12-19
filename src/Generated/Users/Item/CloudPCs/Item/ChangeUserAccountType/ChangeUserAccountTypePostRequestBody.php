@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\ChangeUserAccountType;
 
-use Microsoft\Graph\Beta\Generated\Models\CloudPcUserAccountType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -63,17 +62,17 @@ class ChangeUserAccountTypePostRequestBody implements AdditionalDataHolder, Back
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
+            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(ChangeUserAccountTypePostRequestBody_userAccountType::class)),
         ];
     }
 
     /**
      * Gets the userAccountType property value. The userAccountType property
-     * @return CloudPcUserAccountType|null
+     * @return ChangeUserAccountTypePostRequestBody_userAccountType|null
     */
-    public function getUserAccountType(): ?CloudPcUserAccountType {
+    public function getUserAccountType(): ?ChangeUserAccountTypePostRequestBody_userAccountType {
         $val = $this->getBackingStore()->get('userAccountType');
-        if (is_null($val) || $val instanceof CloudPcUserAccountType) {
+        if (is_null($val) || $val instanceof ChangeUserAccountTypePostRequestBody_userAccountType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userAccountType'");
@@ -106,9 +105,9 @@ class ChangeUserAccountTypePostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the userAccountType property value. The userAccountType property
-     * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
+     * @param ChangeUserAccountTypePostRequestBody_userAccountType|null $value Value to set for the userAccountType property.
     */
-    public function setUserAccountType(?CloudPcUserAccountType $value): void {
+    public function setUserAccountType(?ChangeUserAccountTypePostRequestBody_userAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
     }
 

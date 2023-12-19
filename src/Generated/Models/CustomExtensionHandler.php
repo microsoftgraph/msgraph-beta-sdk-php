@@ -44,17 +44,17 @@ class CustomExtensionHandler extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'customExtension' => fn(ParseNode $n) => $o->setCustomExtension($n->getObjectValue([CustomAccessPackageWorkflowExtension::class, 'createFromDiscriminatorValue'])),
-            'stage' => fn(ParseNode $n) => $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)),
+            'stage' => fn(ParseNode $n) => $o->setStage($n->getEnumValue(CustomExtensionHandler_stage::class)),
         ]);
     }
 
     /**
      * Gets the stage property value. Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-     * @return AccessPackageCustomExtensionStage|null
+     * @return CustomExtensionHandler_stage|null
     */
-    public function getStage(): ?AccessPackageCustomExtensionStage {
+    public function getStage(): ?CustomExtensionHandler_stage {
         $val = $this->getBackingStore()->get('stage');
-        if (is_null($val) || $val instanceof AccessPackageCustomExtensionStage) {
+        if (is_null($val) || $val instanceof CustomExtensionHandler_stage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'stage'");
@@ -80,9 +80,9 @@ class CustomExtensionHandler extends Entity implements Parsable
 
     /**
      * Sets the stage property value. Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-     * @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
+     * @param CustomExtensionHandler_stage|null $value Value to set for the stage property.
     */
-    public function setStage(?AccessPackageCustomExtensionStage $value): void {
+    public function setStage(?CustomExtensionHandler_stage $value): void {
         $this->getBackingStore()->set('stage', $value);
     }
 

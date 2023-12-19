@@ -297,7 +297,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
             'softwareUpdatesEnforcedDelayInDays' => fn(ParseNode $n) => $o->setSoftwareUpdatesEnforcedDelayInDays($n->getIntegerValue()),
             'spotlightBlockInternetResults' => fn(ParseNode $n) => $o->setSpotlightBlockInternetResults($n->getBooleanValue()),
             'touchIdTimeoutInHours' => fn(ParseNode $n) => $o->setTouchIdTimeoutInHours($n->getIntegerValue()),
-            'updateDelayPolicy' => fn(ParseNode $n) => $o->setUpdateDelayPolicy($n->getEnumValue(MacOSSoftwareUpdateDelayPolicy::class)),
+            'updateDelayPolicy' => fn(ParseNode $n) => $o->setUpdateDelayPolicy($n->getEnumValue(MacOSGeneralDeviceConfiguration_updateDelayPolicy::class)),
             'wallpaperModificationBlocked' => fn(ParseNode $n) => $o->setWallpaperModificationBlocked($n->getBooleanValue()),
         ]);
     }
@@ -810,11 +810,11 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Gets the updateDelayPolicy property value. Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
-     * @return MacOSSoftwareUpdateDelayPolicy|null
+     * @return MacOSGeneralDeviceConfiguration_updateDelayPolicy|null
     */
-    public function getUpdateDelayPolicy(): ?MacOSSoftwareUpdateDelayPolicy {
+    public function getUpdateDelayPolicy(): ?MacOSGeneralDeviceConfiguration_updateDelayPolicy {
         $val = $this->getBackingStore()->get('updateDelayPolicy');
-        if (is_null($val) || $val instanceof MacOSSoftwareUpdateDelayPolicy) {
+        if (is_null($val) || $val instanceof MacOSGeneralDeviceConfiguration_updateDelayPolicy) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'updateDelayPolicy'");
@@ -1366,9 +1366,9 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the updateDelayPolicy property value. Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
-     * @param MacOSSoftwareUpdateDelayPolicy|null $value Value to set for the updateDelayPolicy property.
+     * @param MacOSGeneralDeviceConfiguration_updateDelayPolicy|null $value Value to set for the updateDelayPolicy property.
     */
-    public function setUpdateDelayPolicy(?MacOSSoftwareUpdateDelayPolicy $value): void {
+    public function setUpdateDelayPolicy(?MacOSGeneralDeviceConfiguration_updateDelayPolicy $value): void {
         $this->getBackingStore()->set('updateDelayPolicy', $value);
     }
 

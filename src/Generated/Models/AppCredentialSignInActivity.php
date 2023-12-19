@@ -98,8 +98,8 @@ class AppCredentialSignInActivity extends Entity implements Parsable
             'credentialOrigin' => fn(ParseNode $n) => $o->setCredentialOrigin($n->getEnumValue(ApplicationKeyOrigin::class)),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'keyId' => fn(ParseNode $n) => $o->setKeyId($n->getStringValue()),
-            'keyType' => fn(ParseNode $n) => $o->setKeyType($n->getEnumValue(ApplicationKeyType::class)),
-            'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(ApplicationKeyUsage::class)),
+            'keyType' => fn(ParseNode $n) => $o->setKeyType($n->getEnumValue(AppCredentialSignInActivity_keyType::class)),
+            'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(AppCredentialSignInActivity_keyUsage::class)),
             'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
             'servicePrincipalObjectId' => fn(ParseNode $n) => $o->setServicePrincipalObjectId($n->getStringValue()),
             'signInActivity' => fn(ParseNode $n) => $o->setSignInActivity($n->getObjectValue([SignInActivity::class, 'createFromDiscriminatorValue'])),
@@ -120,11 +120,11 @@ class AppCredentialSignInActivity extends Entity implements Parsable
 
     /**
      * Gets the keyType property value. Specifies the key type. The possible values are: clientSecret, certificate, unknownFutureValue.
-     * @return ApplicationKeyType|null
+     * @return AppCredentialSignInActivity_keyType|null
     */
-    public function getKeyType(): ?ApplicationKeyType {
+    public function getKeyType(): ?AppCredentialSignInActivity_keyType {
         $val = $this->getBackingStore()->get('keyType');
-        if (is_null($val) || $val instanceof ApplicationKeyType) {
+        if (is_null($val) || $val instanceof AppCredentialSignInActivity_keyType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'keyType'");
@@ -132,11 +132,11 @@ class AppCredentialSignInActivity extends Entity implements Parsable
 
     /**
      * Gets the keyUsage property value. Specifies what the key was used for. The possible values are: sign, verify, unknownFutureValue.
-     * @return ApplicationKeyUsage|null
+     * @return AppCredentialSignInActivity_keyUsage|null
     */
-    public function getKeyUsage(): ?ApplicationKeyUsage {
+    public function getKeyUsage(): ?AppCredentialSignInActivity_keyUsage {
         $val = $this->getBackingStore()->get('keyUsage');
-        if (is_null($val) || $val instanceof ApplicationKeyUsage) {
+        if (is_null($val) || $val instanceof AppCredentialSignInActivity_keyUsage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'keyUsage'");
@@ -247,17 +247,17 @@ class AppCredentialSignInActivity extends Entity implements Parsable
 
     /**
      * Sets the keyType property value. Specifies the key type. The possible values are: clientSecret, certificate, unknownFutureValue.
-     * @param ApplicationKeyType|null $value Value to set for the keyType property.
+     * @param AppCredentialSignInActivity_keyType|null $value Value to set for the keyType property.
     */
-    public function setKeyType(?ApplicationKeyType $value): void {
+    public function setKeyType(?AppCredentialSignInActivity_keyType $value): void {
         $this->getBackingStore()->set('keyType', $value);
     }
 
     /**
      * Sets the keyUsage property value. Specifies what the key was used for. The possible values are: sign, verify, unknownFutureValue.
-     * @param ApplicationKeyUsage|null $value Value to set for the keyUsage property.
+     * @param AppCredentialSignInActivity_keyUsage|null $value Value to set for the keyUsage property.
     */
-    public function setKeyUsage(?ApplicationKeyUsage $value): void {
+    public function setKeyUsage(?AppCredentialSignInActivity_keyUsage $value): void {
         $this->getBackingStore()->set('keyUsage', $value);
     }
 

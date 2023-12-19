@@ -80,6 +80,7 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
                 /** @var array<string>|null $val */
                 $this->setOrderBy($val);
             },
+            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(GetInaccessibleCloudPcReportsPostRequestBody_reportName::class)),
             'search' => fn(ParseNode $n) => $o->setSearch($n->getStringValue()),
             'select' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -132,6 +133,18 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'orderBy'");
+    }
+
+    /**
+     * Gets the reportName property value. The reportName property
+     * @return GetInaccessibleCloudPcReportsPostRequestBody_reportName|null
+    */
+    public function getReportName(): ?GetInaccessibleCloudPcReportsPostRequestBody_reportName {
+        $val = $this->getBackingStore()->get('reportName');
+        if (is_null($val) || $val instanceof GetInaccessibleCloudPcReportsPostRequestBody_reportName) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportName'");
     }
 
     /**
@@ -192,6 +205,7 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeCollectionOfPrimitiveValues('groupBy', $this->getGroupBy());
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
+        $writer->writeEnumValue('reportName', $this->getReportName());
         $writer->writeStringValue('search', $this->getSearch());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
         $writer->writeIntegerValue('skip', $this->getSkip());
@@ -237,6 +251,14 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
     */
     public function setOrderBy(?array $value): void {
         $this->getBackingStore()->set('orderBy', $value);
+    }
+
+    /**
+     * Sets the reportName property value. The reportName property
+     * @param GetInaccessibleCloudPcReportsPostRequestBody_reportName|null $value Value to set for the reportName property.
+    */
+    public function setReportName(?GetInaccessibleCloudPcReportsPostRequestBody_reportName $value): void {
+        $this->getBackingStore()->set('reportName', $value);
     }
 
     /**

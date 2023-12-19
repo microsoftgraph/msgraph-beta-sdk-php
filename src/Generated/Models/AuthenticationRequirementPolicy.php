@@ -76,7 +76,7 @@ class AuthenticationRequirementPolicy implements AdditionalDataHolder, BackedMod
         return  [
             'detail' => fn(ParseNode $n) => $o->setDetail($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'requirementProvider' => fn(ParseNode $n) => $o->setRequirementProvider($n->getEnumValue(RequirementProvider::class)),
+            'requirementProvider' => fn(ParseNode $n) => $o->setRequirementProvider($n->getEnumValue(AuthenticationRequirementPolicy_requirementProvider::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class AuthenticationRequirementPolicy implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the requirementProvider property value. Identifies what Microsoft Entra feature requires MFA in this policy. Possible values are: user, request, servicePrincipal, v1ConditionalAccess, multiConditionalAccess, tenantSessionRiskPolicy, accountCompromisePolicies, v1ConditionalAccessDependency, v1ConditionalAccessPolicyIdRequested, mfaRegistrationRequiredByIdentityProtectionPolicy, baselineProtection, mfaRegistrationRequiredByBaselineProtection, mfaRegistrationRequiredByMultiConditionalAccess, enforcedForCspAdmins, securityDefaults, mfaRegistrationRequiredBySecurityDefaults, proofUpCodeRequest, crossTenantOutboundRule, gpsLocationCondition, riskBasedPolicy, unknownFutureValue.
-     * @return RequirementProvider|null
+     * @return AuthenticationRequirementPolicy_requirementProvider|null
     */
-    public function getRequirementProvider(): ?RequirementProvider {
+    public function getRequirementProvider(): ?AuthenticationRequirementPolicy_requirementProvider {
         $val = $this->getBackingStore()->get('requirementProvider');
-        if (is_null($val) || $val instanceof RequirementProvider) {
+        if (is_null($val) || $val instanceof AuthenticationRequirementPolicy_requirementProvider) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'requirementProvider'");
@@ -149,9 +149,9 @@ class AuthenticationRequirementPolicy implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the requirementProvider property value. Identifies what Microsoft Entra feature requires MFA in this policy. Possible values are: user, request, servicePrincipal, v1ConditionalAccess, multiConditionalAccess, tenantSessionRiskPolicy, accountCompromisePolicies, v1ConditionalAccessDependency, v1ConditionalAccessPolicyIdRequested, mfaRegistrationRequiredByIdentityProtectionPolicy, baselineProtection, mfaRegistrationRequiredByBaselineProtection, mfaRegistrationRequiredByMultiConditionalAccess, enforcedForCspAdmins, securityDefaults, mfaRegistrationRequiredBySecurityDefaults, proofUpCodeRequest, crossTenantOutboundRule, gpsLocationCondition, riskBasedPolicy, unknownFutureValue.
-     * @param RequirementProvider|null $value Value to set for the requirementProvider property.
+     * @param AuthenticationRequirementPolicy_requirementProvider|null $value Value to set for the requirementProvider property.
     */
-    public function setRequirementProvider(?RequirementProvider $value): void {
+    public function setRequirementProvider(?AuthenticationRequirementPolicy_requirementProvider $value): void {
         $this->getBackingStore()->set('requirementProvider', $value);
     }
 

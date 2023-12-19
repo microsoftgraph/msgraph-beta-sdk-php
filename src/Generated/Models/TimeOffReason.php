@@ -26,6 +26,18 @@ class TimeOffReason extends ChangeTrackedEntity implements Parsable
     }
 
     /**
+     * Gets the code property value. The code of the timeOffReason to represent an external identifier.
+     * @return string|null
+    */
+    public function getCode(): ?string {
+        $val = $this->getBackingStore()->get('code');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'code'");
+    }
+
+    /**
      * Gets the displayName property value. The name of the timeOffReason. Required.
      * @return string|null
     */
@@ -44,19 +56,20 @@ class TimeOffReason extends ChangeTrackedEntity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'iconType' => fn(ParseNode $n) => $o->setIconType($n->getEnumValue(TimeOffReasonIconType::class)),
+            'iconType' => fn(ParseNode $n) => $o->setIconType($n->getEnumValue(TimeOffReason_iconType::class)),
             'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
         ]);
     }
 
     /**
      * Gets the iconType property value. Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
-     * @return TimeOffReasonIconType|null
+     * @return TimeOffReason_iconType|null
     */
-    public function getIconType(): ?TimeOffReasonIconType {
+    public function getIconType(): ?TimeOffReason_iconType {
         $val = $this->getBackingStore()->get('iconType');
-        if (is_null($val) || $val instanceof TimeOffReasonIconType) {
+        if (is_null($val) || $val instanceof TimeOffReason_iconType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'iconType'");
@@ -80,9 +93,18 @@ class TimeOffReason extends ChangeTrackedEntity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('code', $this->getCode());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('iconType', $this->getIconType());
         $writer->writeBooleanValue('isActive', $this->getIsActive());
+    }
+
+    /**
+     * Sets the code property value. The code of the timeOffReason to represent an external identifier.
+     * @param string|null $value Value to set for the code property.
+    */
+    public function setCode(?string $value): void {
+        $this->getBackingStore()->set('code', $value);
     }
 
     /**
@@ -95,9 +117,9 @@ class TimeOffReason extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the iconType property value. Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
-     * @param TimeOffReasonIconType|null $value Value to set for the iconType property.
+     * @param TimeOffReason_iconType|null $value Value to set for the iconType property.
     */
-    public function setIconType(?TimeOffReasonIconType $value): void {
+    public function setIconType(?TimeOffReason_iconType $value): void {
         $this->getBackingStore()->set('iconType', $value);
     }
 

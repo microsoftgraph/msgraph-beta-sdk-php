@@ -161,7 +161,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
             'microsoftManagedDesktop' => fn(ParseNode $n) => $o->setMicrosoftManagedDesktop($n->getObjectValue([MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'])),
             'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
-            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
+            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningPolicy_provisioningType::class)),
             'scopeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -170,6 +170,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setScopeIds($val);
             },
+            'windowsSetting' => fn(ParseNode $n) => $o->setWindowsSetting($n->getObjectValue([CloudPcWindowsSetting::class, 'createFromDiscriminatorValue'])),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -272,11 +273,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
 
     /**
      * Gets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs using this policy. By default, the license type is dedicated if the provisioningType isn't specified when you create the cloudPcProvisioningPolicy. You can't change this property after the cloudPcProvisioningPolicy was created. Possible values are: dedicated, shared, unknownFutureValue.
-     * @return CloudPcProvisioningType|null
+     * @return CloudPcProvisioningPolicy_provisioningType|null
     */
-    public function getProvisioningType(): ?CloudPcProvisioningType {
+    public function getProvisioningType(): ?CloudPcProvisioningPolicy_provisioningType {
         $val = $this->getBackingStore()->get('provisioningType');
-        if (is_null($val) || $val instanceof CloudPcProvisioningType) {
+        if (is_null($val) || $val instanceof CloudPcProvisioningPolicy_provisioningType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningType'");
@@ -294,6 +295,18 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeIds'");
+    }
+
+    /**
+     * Gets the windowsSetting property value. The windowsSetting property
+     * @return CloudPcWindowsSetting|null
+    */
+    public function getWindowsSetting(): ?CloudPcWindowsSetting {
+        $val = $this->getBackingStore()->get('windowsSetting');
+        if (is_null($val) || $val instanceof CloudPcWindowsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSetting'");
     }
 
     /**
@@ -333,6 +346,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
+        $writer->writeObjectValue('windowsSetting', $this->getWindowsSetting());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
     }
 
@@ -474,9 +488,9 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
 
     /**
      * Sets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs using this policy. By default, the license type is dedicated if the provisioningType isn't specified when you create the cloudPcProvisioningPolicy. You can't change this property after the cloudPcProvisioningPolicy was created. Possible values are: dedicated, shared, unknownFutureValue.
-     * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
+     * @param CloudPcProvisioningPolicy_provisioningType|null $value Value to set for the provisioningType property.
     */
-    public function setProvisioningType(?CloudPcProvisioningType $value): void {
+    public function setProvisioningType(?CloudPcProvisioningPolicy_provisioningType $value): void {
         $this->getBackingStore()->set('provisioningType', $value);
     }
 
@@ -486,6 +500,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setScopeIds(?array $value): void {
         $this->getBackingStore()->set('scopeIds', $value);
+    }
+
+    /**
+     * Sets the windowsSetting property value. The windowsSetting property
+     * @param CloudPcWindowsSetting|null $value Value to set for the windowsSetting property.
+    */
+    public function setWindowsSetting(?CloudPcWindowsSetting $value): void {
+        $this->getBackingStore()->set('windowsSetting', $value);
     }
 
     /**

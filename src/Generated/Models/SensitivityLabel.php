@@ -27,11 +27,11 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Gets the applicableTo property value. The applicableTo property
-     * @return SensitivityLabelTarget|null
+     * @return SensitivityLabel_applicableTo|null
     */
-    public function getApplicableTo(): ?SensitivityLabelTarget {
+    public function getApplicableTo(): ?SensitivityLabel_applicableTo {
         $val = $this->getBackingStore()->get('applicableTo');
-        if (is_null($val) || $val instanceof SensitivityLabelTarget) {
+        if (is_null($val) || $val instanceof SensitivityLabel_applicableTo) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableTo'");
@@ -39,11 +39,11 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Gets the applicationMode property value. The applicationMode property
-     * @return ApplicationMode|null
+     * @return SensitivityLabel_applicationMode|null
     */
-    public function getApplicationMode(): ?ApplicationMode {
+    public function getApplicationMode(): ?SensitivityLabel_applicationMode {
         $val = $this->getBackingStore()->get('applicationMode');
-        if (is_null($val) || $val instanceof ApplicationMode) {
+        if (is_null($val) || $val instanceof SensitivityLabel_applicationMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationMode'");
@@ -106,8 +106,8 @@ class SensitivityLabel extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableTo' => fn(ParseNode $n) => $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)),
-            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)),
+            'applicableTo' => fn(ParseNode $n) => $o->setApplicableTo($n->getEnumValue(SensitivityLabel_applicableTo::class)),
+            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(SensitivityLabel_applicationMode::class)),
             'assignedPolicies' => fn(ParseNode $n) => $o->setAssignedPolicies($n->getCollectionOfObjectValues([LabelPolicy::class, 'createFromDiscriminatorValue'])),
             'autoLabeling' => fn(ParseNode $n) => $o->setAutoLabeling($n->getObjectValue([AutoLabeling::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -233,17 +233,17 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the applicableTo property value. The applicableTo property
-     * @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
+     * @param SensitivityLabel_applicableTo|null $value Value to set for the applicableTo property.
     */
-    public function setApplicableTo(?SensitivityLabelTarget $value): void {
+    public function setApplicableTo(?SensitivityLabel_applicableTo $value): void {
         $this->getBackingStore()->set('applicableTo', $value);
     }
 
     /**
      * Sets the applicationMode property value. The applicationMode property
-     * @param ApplicationMode|null $value Value to set for the applicationMode property.
+     * @param SensitivityLabel_applicationMode|null $value Value to set for the applicationMode property.
     */
-    public function setApplicationMode(?ApplicationMode $value): void {
+    public function setApplicationMode(?SensitivityLabel_applicationMode $value): void {
         $this->getBackingStore()->set('applicationMode', $value);
     }
 

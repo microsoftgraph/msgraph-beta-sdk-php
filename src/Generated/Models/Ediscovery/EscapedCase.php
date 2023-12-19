@@ -136,7 +136,7 @@ class EscapedCase extends Entity implements Parsable
             'reviewSets' => fn(ParseNode $n) => $o->setReviewSets($n->getCollectionOfObjectValues([ReviewSet::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([CaseSettings::class, 'createFromDiscriminatorValue'])),
             'sourceCollections' => fn(ParseNode $n) => $o->setSourceCollections($n->getCollectionOfObjectValues([SourceCollection::class, 'createFromDiscriminatorValue'])),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CaseStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(Case_status::class)),
             'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -249,11 +249,11 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Gets the status property value. The case status. Possible values are unknown, active, pendingDelete, closing, closed, and closedWithError. For details, see the following table.
-     * @return CaseStatus|null
+     * @return Case_status|null
     */
-    public function getStatus(): ?CaseStatus {
+    public function getStatus(): ?Case_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof CaseStatus) {
+        if (is_null($val) || $val instanceof Case_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -420,9 +420,9 @@ class EscapedCase extends Entity implements Parsable
 
     /**
      * Sets the status property value. The case status. Possible values are unknown, active, pendingDelete, closing, closed, and closedWithError. For details, see the following table.
-     * @param CaseStatus|null $value Value to set for the status property.
+     * @param Case_status|null $value Value to set for the status property.
     */
-    public function setStatus(?CaseStatus $value): void {
+    public function setStatus(?Case_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

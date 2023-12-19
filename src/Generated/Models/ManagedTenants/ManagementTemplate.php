@@ -30,11 +30,11 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Gets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
-     * @return ManagementCategory|null
+     * @return ManagementTemplate_category|null
     */
-    public function getCategory(): ?ManagementCategory {
+    public function getCategory(): ?ManagementTemplate_category {
         $val = $this->getBackingStore()->get('category');
-        if (is_null($val) || $val instanceof ManagementCategory) {
+        if (is_null($val) || $val instanceof ManagementTemplate_category) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
@@ -95,7 +95,7 @@ class ManagementTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ManagementCategory::class)),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ManagementTemplate_category::class)),
             'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -282,9 +282,9 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
-     * @param ManagementCategory|null $value Value to set for the category property.
+     * @param ManagementTemplate_category|null $value Value to set for the category property.
     */
-    public function setCategory(?ManagementCategory $value): void {
+    public function setCategory(?ManagementTemplate_category $value): void {
         $this->getBackingStore()->set('category', $value);
     }
 

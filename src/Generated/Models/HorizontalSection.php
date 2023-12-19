@@ -41,11 +41,11 @@ class HorizontalSection extends Entity implements Parsable
 
     /**
      * Gets the emphasis property value. Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
-     * @return SectionEmphasisType|null
+     * @return HorizontalSection_emphasis|null
     */
-    public function getEmphasis(): ?SectionEmphasisType {
+    public function getEmphasis(): ?HorizontalSection_emphasis {
         $val = $this->getBackingStore()->get('emphasis');
-        if (is_null($val) || $val instanceof SectionEmphasisType) {
+        if (is_null($val) || $val instanceof HorizontalSection_emphasis) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'emphasis'");
@@ -59,18 +59,18 @@ class HorizontalSection extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'columns' => fn(ParseNode $n) => $o->setColumns($n->getCollectionOfObjectValues([HorizontalSectionColumn::class, 'createFromDiscriminatorValue'])),
-            'emphasis' => fn(ParseNode $n) => $o->setEmphasis($n->getEnumValue(SectionEmphasisType::class)),
-            'layout' => fn(ParseNode $n) => $o->setLayout($n->getEnumValue(HorizontalSectionLayoutType::class)),
+            'emphasis' => fn(ParseNode $n) => $o->setEmphasis($n->getEnumValue(HorizontalSection_emphasis::class)),
+            'layout' => fn(ParseNode $n) => $o->setLayout($n->getEnumValue(HorizontalSection_layout::class)),
         ]);
     }
 
     /**
      * Gets the layout property value. Layout type of the section. The possible values are: none, oneColumn, twoColumns, threeColumns, oneThirdLeftColumn, oneThirdRightColumn, fullWidth, unknownFutureValue.
-     * @return HorizontalSectionLayoutType|null
+     * @return HorizontalSection_layout|null
     */
-    public function getLayout(): ?HorizontalSectionLayoutType {
+    public function getLayout(): ?HorizontalSection_layout {
         $val = $this->getBackingStore()->get('layout');
-        if (is_null($val) || $val instanceof HorizontalSectionLayoutType) {
+        if (is_null($val) || $val instanceof HorizontalSection_layout) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'layout'");
@@ -97,17 +97,17 @@ class HorizontalSection extends Entity implements Parsable
 
     /**
      * Sets the emphasis property value. Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
-     * @param SectionEmphasisType|null $value Value to set for the emphasis property.
+     * @param HorizontalSection_emphasis|null $value Value to set for the emphasis property.
     */
-    public function setEmphasis(?SectionEmphasisType $value): void {
+    public function setEmphasis(?HorizontalSection_emphasis $value): void {
         $this->getBackingStore()->set('emphasis', $value);
     }
 
     /**
      * Sets the layout property value. Layout type of the section. The possible values are: none, oneColumn, twoColumns, threeColumns, oneThirdLeftColumn, oneThirdRightColumn, fullWidth, unknownFutureValue.
-     * @param HorizontalSectionLayoutType|null $value Value to set for the layout property.
+     * @param HorizontalSection_layout|null $value Value to set for the layout property.
     */
-    public function setLayout(?HorizontalSectionLayoutType $value): void {
+    public function setLayout(?HorizontalSection_layout $value): void {
         $this->getBackingStore()->set('layout', $value);
     }
 

@@ -48,11 +48,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Gets the classificationMethod property value. The classificationMethod property
-     * @return ClassificationMethod|null
+     * @return DetectedSensitiveContent_classificationMethod|null
     */
-    public function getClassificationMethod(): ?ClassificationMethod {
+    public function getClassificationMethod(): ?DetectedSensitiveContent_classificationMethod {
         $val = $this->getBackingStore()->get('classificationMethod');
-        if (is_null($val) || $val instanceof ClassificationMethod) {
+        if (is_null($val) || $val instanceof DetectedSensitiveContent_classificationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'classificationMethod'");
@@ -66,10 +66,10 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'classificationAttributes' => fn(ParseNode $n) => $o->setClassificationAttributes($n->getCollectionOfObjectValues([ClassificationAttribute::class, 'createFromDiscriminatorValue'])),
-            'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)),
+            'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(DetectedSensitiveContent_classificationMethod::class)),
             'matches' => fn(ParseNode $n) => $o->setMatches($n->getCollectionOfObjectValues([SensitiveContentLocation::class, 'createFromDiscriminatorValue'])),
-            'scope' => fn(ParseNode $n) => $o->setScope($n->getEnumValue(SensitiveTypeScope::class)),
-            'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)),
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getEnumValue(DetectedSensitiveContent_scope::class)),
+            'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(DetectedSensitiveContent_sensitiveTypeSource::class)),
         ]);
     }
 
@@ -89,11 +89,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Gets the scope property value. The scope property
-     * @return SensitiveTypeScope|null
+     * @return DetectedSensitiveContent_scope|null
     */
-    public function getScope(): ?SensitiveTypeScope {
+    public function getScope(): ?DetectedSensitiveContent_scope {
         $val = $this->getBackingStore()->get('scope');
-        if (is_null($val) || $val instanceof SensitiveTypeScope) {
+        if (is_null($val) || $val instanceof DetectedSensitiveContent_scope) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'scope'");
@@ -101,11 +101,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Gets the sensitiveTypeSource property value. The sensitiveTypeSource property
-     * @return SensitiveTypeSource|null
+     * @return DetectedSensitiveContent_sensitiveTypeSource|null
     */
-    public function getSensitiveTypeSource(): ?SensitiveTypeSource {
+    public function getSensitiveTypeSource(): ?DetectedSensitiveContent_sensitiveTypeSource {
         $val = $this->getBackingStore()->get('sensitiveTypeSource');
-        if (is_null($val) || $val instanceof SensitiveTypeSource) {
+        if (is_null($val) || $val instanceof DetectedSensitiveContent_sensitiveTypeSource) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitiveTypeSource'");
@@ -134,9 +134,9 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Sets the classificationMethod property value. The classificationMethod property
-     * @param ClassificationMethod|null $value Value to set for the classificationMethod property.
+     * @param DetectedSensitiveContent_classificationMethod|null $value Value to set for the classificationMethod property.
     */
-    public function setClassificationMethod(?ClassificationMethod $value): void {
+    public function setClassificationMethod(?DetectedSensitiveContent_classificationMethod $value): void {
         $this->getBackingStore()->set('classificationMethod', $value);
     }
 
@@ -150,17 +150,17 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Sets the scope property value. The scope property
-     * @param SensitiveTypeScope|null $value Value to set for the scope property.
+     * @param DetectedSensitiveContent_scope|null $value Value to set for the scope property.
     */
-    public function setScope(?SensitiveTypeScope $value): void {
+    public function setScope(?DetectedSensitiveContent_scope $value): void {
         $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the sensitiveTypeSource property value. The sensitiveTypeSource property
-     * @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
+     * @param DetectedSensitiveContent_sensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
     */
-    public function setSensitiveTypeSource(?SensitiveTypeSource $value): void {
+    public function setSensitiveTypeSource(?DetectedSensitiveContent_sensitiveTypeSource $value): void {
         $this->getBackingStore()->set('sensitiveTypeSource', $value);
     }
 

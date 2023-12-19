@@ -60,11 +60,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the encryptionMethod property value. Select the encryption method for operating system drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
-     * @return BitLockerEncryptionMethod|null
+     * @return BitLockerSystemDrivePolicy_encryptionMethod|null
     */
-    public function getEncryptionMethod(): ?BitLockerEncryptionMethod {
+    public function getEncryptionMethod(): ?BitLockerSystemDrivePolicy_encryptionMethod {
         $val = $this->getBackingStore()->get('encryptionMethod');
-        if (is_null($val) || $val instanceof BitLockerEncryptionMethod) {
+        if (is_null($val) || $val instanceof BitLockerSystemDrivePolicy_encryptionMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionMethod'");
@@ -77,7 +77,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'encryptionMethod' => fn(ParseNode $n) => $o->setEncryptionMethod($n->getEnumValue(BitLockerEncryptionMethod::class)),
+            'encryptionMethod' => fn(ParseNode $n) => $o->setEncryptionMethod($n->getEnumValue(BitLockerSystemDrivePolicy_encryptionMethod::class)),
             'minimumPinLength' => fn(ParseNode $n) => $o->setMinimumPinLength($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'prebootRecoveryEnableMessageAndUrl' => fn(ParseNode $n) => $o->setPrebootRecoveryEnableMessageAndUrl($n->getBooleanValue()),
@@ -276,9 +276,9 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the encryptionMethod property value. Select the encryption method for operating system drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
-     * @param BitLockerEncryptionMethod|null $value Value to set for the encryptionMethod property.
+     * @param BitLockerSystemDrivePolicy_encryptionMethod|null $value Value to set for the encryptionMethod property.
     */
-    public function setEncryptionMethod(?BitLockerEncryptionMethod $value): void {
+    public function setEncryptionMethod(?BitLockerSystemDrivePolicy_encryptionMethod $value): void {
         $this->getBackingStore()->set('encryptionMethod', $value);
     }
 

@@ -36,11 +36,11 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.
-     * @return ActionCapability|null
+     * @return CloudPcRemoteActionCapability_actionCapability|null
     */
-    public function getActionCapability(): ?ActionCapability {
+    public function getActionCapability(): ?CloudPcRemoteActionCapability_actionCapability {
         $val = $this->getBackingStore()->get('actionCapability');
-        if (is_null($val) || $val instanceof ActionCapability) {
+        if (is_null($val) || $val instanceof CloudPcRemoteActionCapability_actionCapability) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'actionCapability'");
@@ -48,11 +48,11 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the actionName property value. The name of the supported Cloud PC remote action. Possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
-     * @return CloudPcRemoteActionName|null
+     * @return CloudPcRemoteActionCapability_actionName|null
     */
-    public function getActionName(): ?CloudPcRemoteActionName {
+    public function getActionName(): ?CloudPcRemoteActionCapability_actionName {
         $val = $this->getBackingStore()->get('actionName');
-        if (is_null($val) || $val instanceof CloudPcRemoteActionName) {
+        if (is_null($val) || $val instanceof CloudPcRemoteActionCapability_actionName) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'actionName'");
@@ -86,8 +86,8 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionCapability' => fn(ParseNode $n) => $o->setActionCapability($n->getEnumValue(ActionCapability::class)),
-            'actionName' => fn(ParseNode $n) => $o->setActionName($n->getEnumValue(CloudPcRemoteActionName::class)),
+            'actionCapability' => fn(ParseNode $n) => $o->setActionCapability($n->getEnumValue(CloudPcRemoteActionCapability_actionCapability::class)),
+            'actionName' => fn(ParseNode $n) => $o->setActionName($n->getEnumValue(CloudPcRemoteActionCapability_actionName::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -117,17 +117,17 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.
-     * @param ActionCapability|null $value Value to set for the actionCapability property.
+     * @param CloudPcRemoteActionCapability_actionCapability|null $value Value to set for the actionCapability property.
     */
-    public function setActionCapability(?ActionCapability $value): void {
+    public function setActionCapability(?CloudPcRemoteActionCapability_actionCapability $value): void {
         $this->getBackingStore()->set('actionCapability', $value);
     }
 
     /**
      * Sets the actionName property value. The name of the supported Cloud PC remote action. Possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
-     * @param CloudPcRemoteActionName|null $value Value to set for the actionName property.
+     * @param CloudPcRemoteActionCapability_actionName|null $value Value to set for the actionName property.
     */
-    public function setActionName(?CloudPcRemoteActionName $value): void {
+    public function setActionName(?CloudPcRemoteActionCapability_actionName $value): void {
         $this->getBackingStore()->set('actionName', $value);
     }
 

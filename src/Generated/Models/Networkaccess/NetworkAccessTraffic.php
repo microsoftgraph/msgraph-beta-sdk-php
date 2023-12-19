@@ -37,11 +37,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the action property value. The action property
-     * @return FilteringPolicyAction|null
+     * @return NetworkAccessTraffic_action|null
     */
-    public function getAction(): ?FilteringPolicyAction {
+    public function getAction(): ?NetworkAccessTraffic_action {
         $val = $this->getBackingStore()->get('action');
-        if (is_null($val) || $val instanceof FilteringPolicyAction) {
+        if (is_null($val) || $val instanceof NetworkAccessTraffic_action) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
@@ -154,11 +154,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the deviceCategory property value. Represents the category classification of a device within a network infrastructure. The possible values are: client, branch, unknownFutureValue. Supports $filter (eq) and $orderby.
-     * @return DeviceCategory|null
+     * @return NetworkAccessTraffic_deviceCategory|null
     */
-    public function getDeviceCategory(): ?DeviceCategory {
+    public function getDeviceCategory(): ?NetworkAccessTraffic_deviceCategory {
         $val = $this->getBackingStore()->get('deviceCategory');
-        if (is_null($val) || $val instanceof DeviceCategory) {
+        if (is_null($val) || $val instanceof NetworkAccessTraffic_deviceCategory) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCategory'");
@@ -207,7 +207,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(FilteringPolicyAction::class)),
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(NetworkAccessTraffic_action::class)),
             'agentVersion' => fn(ParseNode $n) => $o->setAgentVersion($n->getStringValue()),
             'connectionId' => fn(ParseNode $n) => $o->setConnectionId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -215,7 +215,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'destinationIp' => fn(ParseNode $n) => $o->setDestinationIp($n->getStringValue()),
             'destinationPort' => fn(ParseNode $n) => $o->setDestinationPort($n->getIntegerValue()),
             'destinationWebCategory' => fn(ParseNode $n) => $o->setDestinationWebCategory($n->getObjectValue([WebCategory::class, 'createFromDiscriminatorValue'])),
-            'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getEnumValue(DeviceCategory::class)),
+            'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getEnumValue(NetworkAccessTraffic_deviceCategory::class)),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceOperatingSystem' => fn(ParseNode $n) => $o->setDeviceOperatingSystem($n->getStringValue()),
             'deviceOperatingSystemVersion' => fn(ParseNode $n) => $o->setDeviceOperatingSystemVersion($n->getStringValue()),
@@ -223,7 +223,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'filteringProfileName' => fn(ParseNode $n) => $o->setFilteringProfileName($n->getStringValue()),
             'headers' => fn(ParseNode $n) => $o->setHeaders($n->getObjectValue([Headers::class, 'createFromDiscriminatorValue'])),
             'initiatingProcessName' => fn(ParseNode $n) => $o->setInitiatingProcessName($n->getStringValue()),
-            'networkProtocol' => fn(ParseNode $n) => $o->setNetworkProtocol($n->getEnumValue(NetworkingProtocol::class)),
+            'networkProtocol' => fn(ParseNode $n) => $o->setNetworkProtocol($n->getEnumValue(NetworkAccessTraffic_networkProtocol::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
             'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
@@ -238,7 +238,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
             'transactionId' => fn(ParseNode $n) => $o->setTransactionId($n->getStringValue()),
-            'transportProtocol' => fn(ParseNode $n) => $o->setTransportProtocol($n->getEnumValue(NetworkingProtocol::class)),
+            'transportProtocol' => fn(ParseNode $n) => $o->setTransportProtocol($n->getEnumValue(NetworkAccessTraffic_transportProtocol::class)),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
@@ -294,11 +294,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the networkProtocol property value. Represents the networking protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
-     * @return NetworkingProtocol|null
+     * @return NetworkAccessTraffic_networkProtocol|null
     */
-    public function getNetworkProtocol(): ?NetworkingProtocol {
+    public function getNetworkProtocol(): ?NetworkAccessTraffic_networkProtocol {
         $val = $this->getBackingStore()->get('networkProtocol');
-        if (is_null($val) || $val instanceof NetworkingProtocol) {
+        if (is_null($val) || $val instanceof NetworkAccessTraffic_networkProtocol) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'networkProtocol'");
@@ -474,11 +474,11 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the transportProtocol property value. Represents the transport protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
-     * @return NetworkingProtocol|null
+     * @return NetworkAccessTraffic_transportProtocol|null
     */
-    public function getTransportProtocol(): ?NetworkingProtocol {
+    public function getTransportProtocol(): ?NetworkAccessTraffic_transportProtocol {
         $val = $this->getBackingStore()->get('transportProtocol');
-        if (is_null($val) || $val instanceof NetworkingProtocol) {
+        if (is_null($val) || $val instanceof NetworkAccessTraffic_transportProtocol) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'transportProtocol'");
@@ -552,9 +552,9 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the action property value. The action property
-     * @param FilteringPolicyAction|null $value Value to set for the action property.
+     * @param NetworkAccessTraffic_action|null $value Value to set for the action property.
     */
-    public function setAction(?FilteringPolicyAction $value): void {
+    public function setAction(?NetworkAccessTraffic_action $value): void {
         $this->getBackingStore()->set('action', $value);
     }
 
@@ -632,9 +632,9 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the deviceCategory property value. Represents the category classification of a device within a network infrastructure. The possible values are: client, branch, unknownFutureValue. Supports $filter (eq) and $orderby.
-     * @param DeviceCategory|null $value Value to set for the deviceCategory property.
+     * @param NetworkAccessTraffic_deviceCategory|null $value Value to set for the deviceCategory property.
     */
-    public function setDeviceCategory(?DeviceCategory $value): void {
+    public function setDeviceCategory(?NetworkAccessTraffic_deviceCategory $value): void {
         $this->getBackingStore()->set('deviceCategory', $value);
     }
 
@@ -696,9 +696,9 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the networkProtocol property value. Represents the networking protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
-     * @param NetworkingProtocol|null $value Value to set for the networkProtocol property.
+     * @param NetworkAccessTraffic_networkProtocol|null $value Value to set for the networkProtocol property.
     */
-    public function setNetworkProtocol(?NetworkingProtocol $value): void {
+    public function setNetworkProtocol(?NetworkAccessTraffic_networkProtocol $value): void {
         $this->getBackingStore()->set('networkProtocol', $value);
     }
 
@@ -816,9 +816,9 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the transportProtocol property value. Represents the transport protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
-     * @param NetworkingProtocol|null $value Value to set for the transportProtocol property.
+     * @param NetworkAccessTraffic_transportProtocol|null $value Value to set for the transportProtocol property.
     */
-    public function setTransportProtocol(?NetworkingProtocol $value): void {
+    public function setTransportProtocol(?NetworkAccessTraffic_transportProtocol $value): void {
         $this->getBackingStore()->set('transportProtocol', $value);
     }
 

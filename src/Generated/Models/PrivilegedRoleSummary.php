@@ -46,7 +46,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
             'elevatedCount' => fn(ParseNode $n) => $o->setElevatedCount($n->getIntegerValue()),
             'managedCount' => fn(ParseNode $n) => $o->setManagedCount($n->getIntegerValue()),
             'mfaEnabled' => fn(ParseNode $n) => $o->setMfaEnabled($n->getBooleanValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RoleSummaryStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(PrivilegedRoleSummary_status::class)),
             'usersCount' => fn(ParseNode $n) => $o->setUsersCount($n->getIntegerValue()),
         ]);
     }
@@ -77,11 +77,11 @@ class PrivilegedRoleSummary extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status property
-     * @return RoleSummaryStatus|null
+     * @return PrivilegedRoleSummary_status|null
     */
-    public function getStatus(): ?RoleSummaryStatus {
+    public function getStatus(): ?PrivilegedRoleSummary_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof RoleSummaryStatus) {
+        if (is_null($val) || $val instanceof PrivilegedRoleSummary_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -138,9 +138,9 @@ class PrivilegedRoleSummary extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     * @param RoleSummaryStatus|null $value Value to set for the status property.
+     * @param PrivilegedRoleSummary_status|null $value Value to set for the status property.
     */
-    public function setStatus(?RoleSummaryStatus $value): void {
+    public function setStatus(?PrivilegedRoleSummary_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

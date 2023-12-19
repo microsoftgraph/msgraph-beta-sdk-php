@@ -64,7 +64,7 @@ class Phone implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PhoneType::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(Phone_type::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class Phone implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
-     * @return PhoneType|null
+     * @return Phone_type|null
     */
-    public function getType(): ?PhoneType {
+    public function getType(): ?Phone_type {
         $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || $val instanceof PhoneType) {
+        if (is_null($val) || $val instanceof Phone_type) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
@@ -149,9 +149,9 @@ class Phone implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
-     * @param PhoneType|null $value Value to set for the type property.
+     * @param Phone_type|null $value Value to set for the type property.
     */
-    public function setType(?PhoneType $value): void {
+    public function setType(?Phone_type $value): void {
         $this->getBackingStore()->set('type', $value);
     }
 

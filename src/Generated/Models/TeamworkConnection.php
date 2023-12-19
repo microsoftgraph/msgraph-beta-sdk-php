@@ -58,11 +58,11 @@ class TeamworkConnection implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the connectionStatus property value. Indicates whether a component/peripheral is connected/disconnected or its state is unknown. The possible values are: unknown, connected, disconnected, unknownFutureValue.
-     * @return TeamworkConnectionStatus|null
+     * @return TeamworkConnection_connectionStatus|null
     */
-    public function getConnectionStatus(): ?TeamworkConnectionStatus {
+    public function getConnectionStatus(): ?TeamworkConnection_connectionStatus {
         $val = $this->getBackingStore()->get('connectionStatus');
-        if (is_null($val) || $val instanceof TeamworkConnectionStatus) {
+        if (is_null($val) || $val instanceof TeamworkConnection_connectionStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionStatus'");
@@ -75,7 +75,7 @@ class TeamworkConnection implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'connectionStatus' => fn(ParseNode $n) => $o->setConnectionStatus($n->getEnumValue(TeamworkConnectionStatus::class)),
+            'connectionStatus' => fn(ParseNode $n) => $o->setConnectionStatus($n->getEnumValue(TeamworkConnection_connectionStatus::class)),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -134,9 +134,9 @@ class TeamworkConnection implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the connectionStatus property value. Indicates whether a component/peripheral is connected/disconnected or its state is unknown. The possible values are: unknown, connected, disconnected, unknownFutureValue.
-     * @param TeamworkConnectionStatus|null $value Value to set for the connectionStatus property.
+     * @param TeamworkConnection_connectionStatus|null $value Value to set for the connectionStatus property.
     */
-    public function setConnectionStatus(?TeamworkConnectionStatus $value): void {
+    public function setConnectionStatus(?TeamworkConnection_connectionStatus $value): void {
         $this->getBackingStore()->set('connectionStatus', $value);
     }
 

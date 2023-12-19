@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\Search;
 
-use Microsoft\Graph\Beta\Generated\Models\DevicePlatformType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -91,7 +90,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DevicePlatformType::class)),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(AnswerVariant_platform::class)),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ];
     }
@@ -122,11 +121,11 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the platform property value. The platform property
-     * @return DevicePlatformType|null
+     * @return AnswerVariant_platform|null
     */
-    public function getPlatform(): ?DevicePlatformType {
+    public function getPlatform(): ?AnswerVariant_platform {
         $val = $this->getBackingStore()->get('platform');
-        if (is_null($val) || $val instanceof DevicePlatformType) {
+        if (is_null($val) || $val instanceof AnswerVariant_platform) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
@@ -208,9 +207,9 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the platform property value. The platform property
-     * @param DevicePlatformType|null $value Value to set for the platform property.
+     * @param AnswerVariant_platform|null $value Value to set for the platform property.
     */
-    public function setPlatform(?DevicePlatformType $value): void {
+    public function setPlatform(?AnswerVariant_platform $value): void {
         $this->getBackingStore()->set('platform', $value);
     }
 

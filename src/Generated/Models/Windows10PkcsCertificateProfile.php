@@ -31,11 +31,11 @@ class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase im
 
     /**
      * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @return CertificateStore|null
+     * @return Windows10PkcsCertificateProfile_certificateStore|null
     */
-    public function getCertificateStore(): ?CertificateStore {
+    public function getCertificateStore(): ?Windows10PkcsCertificateProfile_certificateStore {
         $val = $this->getBackingStore()->get('certificateStore');
-        if (is_null($val) || $val instanceof CertificateStore) {
+        if (is_null($val) || $val instanceof Windows10PkcsCertificateProfile_certificateStore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
@@ -112,7 +112,7 @@ class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(CertificateStore::class)),
+            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(Windows10PkcsCertificateProfile_certificateStore::class)),
             'certificateTemplateName' => fn(ParseNode $n) => $o->setCertificateTemplateName($n->getStringValue()),
             'certificationAuthority' => fn(ParseNode $n) => $o->setCertificationAuthority($n->getStringValue()),
             'certificationAuthorityName' => fn(ParseNode $n) => $o->setCertificationAuthorityName($n->getStringValue()),
@@ -181,9 +181,9 @@ class Windows10PkcsCertificateProfile extends Windows10CertificateProfileBase im
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param Windows10PkcsCertificateProfile_certificateStore|null $value Value to set for the certificateStore property.
     */
-    public function setCertificateStore(?CertificateStore $value): void {
+    public function setCertificateStore(?Windows10PkcsCertificateProfile_certificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
     }
 

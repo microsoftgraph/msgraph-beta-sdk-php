@@ -86,9 +86,10 @@ class Channel extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'filesFolder' => fn(ParseNode $n) => $o->setFilesFolder($n->getObjectValue([DriveItem::class, 'createFromDiscriminatorValue'])),
+            'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'isFavoriteByDefault' => fn(ParseNode $n) => $o->setIsFavoriteByDefault($n->getBooleanValue()),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
-            'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(ChannelMembershipType::class)),
+            'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(Channel_membershipType::class)),
             'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([ChatMessage::class, 'createFromDiscriminatorValue'])),
             'moderationSettings' => fn(ParseNode $n) => $o->setModerationSettings($n->getObjectValue([ChannelModerationSettings::class, 'createFromDiscriminatorValue'])),
             'sharedWithTeams' => fn(ParseNode $n) => $o->setSharedWithTeams($n->getCollectionOfObjectValues([SharedWithChannelTeamInfo::class, 'createFromDiscriminatorValue'])),
@@ -109,6 +110,18 @@ class Channel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'filesFolder'");
+    }
+
+    /**
+     * Gets the isArchived property value. The isArchived property
+     * @return bool|null
+    */
+    public function getIsArchived(): ?bool {
+        $val = $this->getBackingStore()->get('isArchived');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isArchived'");
     }
 
     /**
@@ -139,11 +152,11 @@ class Channel extends Entity implements Parsable
 
     /**
      * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
-     * @return ChannelMembershipType|null
+     * @return Channel_membershipType|null
     */
-    public function getMembershipType(): ?ChannelMembershipType {
+    public function getMembershipType(): ?Channel_membershipType {
         $val = $this->getBackingStore()->get('membershipType');
-        if (is_null($val) || $val instanceof ChannelMembershipType) {
+        if (is_null($val) || $val instanceof Channel_membershipType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipType'");
@@ -250,6 +263,7 @@ class Channel extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeObjectValue('filesFolder', $this->getFilesFolder());
+        $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeBooleanValue('isFavoriteByDefault', $this->getIsFavoriteByDefault());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
         $writer->writeEnumValue('membershipType', $this->getMembershipType());
@@ -303,6 +317,14 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Sets the isArchived property value. The isArchived property
+     * @param bool|null $value Value to set for the isArchived property.
+    */
+    public function setIsArchived(?bool $value): void {
+        $this->getBackingStore()->set('isArchived', $value);
+    }
+
+    /**
      * Sets the isFavoriteByDefault property value. Indicates whether the channel should automatically be marked 'favorite' for all members of the team. Can only be set programmatically with Create team. Default: false.
      * @param bool|null $value Value to set for the isFavoriteByDefault property.
     */
@@ -320,9 +342,9 @@ class Channel extends Entity implements Parsable
 
     /**
      * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
-     * @param ChannelMembershipType|null $value Value to set for the membershipType property.
+     * @param Channel_membershipType|null $value Value to set for the membershipType property.
     */
-    public function setMembershipType(?ChannelMembershipType $value): void {
+    public function setMembershipType(?Channel_membershipType $value): void {
         $this->getBackingStore()->set('membershipType', $value);
     }
 

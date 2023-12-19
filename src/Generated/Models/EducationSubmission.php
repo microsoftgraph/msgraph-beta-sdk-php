@@ -27,12 +27,38 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
+     * Gets the excusedBy property value. The excusedBy property
+     * @return IdentitySet|null
+    */
+    public function getExcusedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('excusedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excusedBy'");
+    }
+
+    /**
+     * Gets the excusedDateTime property value. The excusedDateTime property
+     * @return DateTime|null
+    */
+    public function getExcusedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('excusedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excusedDateTime'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'excusedBy' => fn(ParseNode $n) => $o->setExcusedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'excusedDateTime' => fn(ParseNode $n) => $o->setExcusedDateTime($n->getDateTimeValue()),
             'outcomes' => fn(ParseNode $n) => $o->setOutcomes($n->getCollectionOfObjectValues([EducationOutcome::class, 'createFromDiscriminatorValue'])),
             'reassignedBy' => fn(ParseNode $n) => $o->setReassignedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'reassignedDateTime' => fn(ParseNode $n) => $o->setReassignedDateTime($n->getDateTimeValue()),
@@ -41,7 +67,7 @@ class EducationSubmission extends Entity implements Parsable
             'resourcesFolderUrl' => fn(ParseNode $n) => $o->setResourcesFolderUrl($n->getStringValue()),
             'returnedBy' => fn(ParseNode $n) => $o->setReturnedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'returnedDateTime' => fn(ParseNode $n) => $o->setReturnedDateTime($n->getDateTimeValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationSubmissionStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationSubmission_status::class)),
             'submittedBy' => fn(ParseNode $n) => $o->setSubmittedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'submittedDateTime' => fn(ParseNode $n) => $o->setSubmittedDateTime($n->getDateTimeValue()),
             'submittedResources' => fn(ParseNode $n) => $o->setSubmittedResources($n->getCollectionOfObjectValues([EducationSubmissionResource::class, 'createFromDiscriminatorValue'])),
@@ -153,11 +179,11 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Gets the status property value. Read-only. Possible values are: working, submitted, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
-     * @return EducationSubmissionStatus|null
+     * @return EducationSubmission_status|null
     */
-    public function getStatus(): ?EducationSubmissionStatus {
+    public function getStatus(): ?EducationSubmission_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof EducationSubmissionStatus) {
+        if (is_null($val) || $val instanceof EducationSubmission_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -250,6 +276,22 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
+     * Sets the excusedBy property value. The excusedBy property
+     * @param IdentitySet|null $value Value to set for the excusedBy property.
+    */
+    public function setExcusedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('excusedBy', $value);
+    }
+
+    /**
+     * Sets the excusedDateTime property value. The excusedDateTime property
+     * @param DateTime|null $value Value to set for the excusedDateTime property.
+    */
+    public function setExcusedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('excusedDateTime', $value);
+    }
+
+    /**
      * Sets the outcomes property value. The outcomes property
      * @param array<EducationOutcome>|null $value Value to set for the outcomes property.
     */
@@ -315,9 +357,9 @@ class EducationSubmission extends Entity implements Parsable
 
     /**
      * Sets the status property value. Read-only. Possible values are: working, submitted, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
-     * @param EducationSubmissionStatus|null $value Value to set for the status property.
+     * @param EducationSubmission_status|null $value Value to set for the status property.
     */
-    public function setStatus(?EducationSubmissionStatus $value): void {
+    public function setStatus(?EducationSubmission_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

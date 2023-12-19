@@ -43,11 +43,11 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @return CertificateStore|null
+     * @return MacOSScepCertificateProfile_certificateStore|null
     */
-    public function getCertificateStore(): ?CertificateStore {
+    public function getCertificateStore(): ?MacOSScepCertificateProfile_certificateStore {
         $val = $this->getBackingStore()->get('certificateStore');
-        if (is_null($val) || $val instanceof CertificateStore) {
+        if (is_null($val) || $val instanceof MacOSScepCertificateProfile_certificateStore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
@@ -89,10 +89,10 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowAllAppsAccess' => fn(ParseNode $n) => $o->setAllowAllAppsAccess($n->getBooleanValue()),
-            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(CertificateStore::class)),
+            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(MacOSScepCertificateProfile_certificateStore::class)),
             'customSubjectAlternativeNames' => fn(ParseNode $n) => $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues([CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
             'extendedKeyUsages' => fn(ParseNode $n) => $o->setExtendedKeyUsages($n->getCollectionOfObjectValues([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
-            'hashAlgorithm' => fn(ParseNode $n) => $o->setHashAlgorithm($n->getEnumValue(HashAlgorithms::class)),
+            'hashAlgorithm' => fn(ParseNode $n) => $o->setHashAlgorithm($n->getEnumValue(MacOSScepCertificateProfile_hashAlgorithm::class)),
             'keySize' => fn(ParseNode $n) => $o->setKeySize($n->getEnumValue(KeySize::class)),
             'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(KeyUsages::class)),
             'managedDeviceCertificateStates' => fn(ParseNode $n) => $o->setManagedDeviceCertificateStates($n->getCollectionOfObjectValues([ManagedDeviceCertificateState::class, 'createFromDiscriminatorValue'])),
@@ -112,11 +112,11 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Gets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
-     * @return HashAlgorithms|null
+     * @return MacOSScepCertificateProfile_hashAlgorithm|null
     */
-    public function getHashAlgorithm(): ?HashAlgorithms {
+    public function getHashAlgorithm(): ?MacOSScepCertificateProfile_hashAlgorithm {
         $val = $this->getBackingStore()->get('hashAlgorithm');
-        if (is_null($val) || $val instanceof HashAlgorithms) {
+        if (is_null($val) || $val instanceof MacOSScepCertificateProfile_hashAlgorithm) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hashAlgorithm'");
@@ -240,9 +240,9 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param MacOSScepCertificateProfile_certificateStore|null $value Value to set for the certificateStore property.
     */
-    public function setCertificateStore(?CertificateStore $value): void {
+    public function setCertificateStore(?MacOSScepCertificateProfile_certificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
     }
 
@@ -264,9 +264,9 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
-     * @param HashAlgorithms|null $value Value to set for the hashAlgorithm property.
+     * @param MacOSScepCertificateProfile_hashAlgorithm|null $value Value to set for the hashAlgorithm property.
     */
-    public function setHashAlgorithm(?HashAlgorithms $value): void {
+    public function setHashAlgorithm(?MacOSScepCertificateProfile_hashAlgorithm $value): void {
         $this->getBackingStore()->set('hashAlgorithm', $value);
     }
 

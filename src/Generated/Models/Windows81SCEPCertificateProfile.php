@@ -31,11 +31,11 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
 
     /**
      * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @return CertificateStore|null
+     * @return Windows81SCEPCertificateProfile_certificateStore|null
     */
-    public function getCertificateStore(): ?CertificateStore {
+    public function getCertificateStore(): ?Windows81SCEPCertificateProfile_certificateStore {
         $val = $this->getBackingStore()->get('certificateStore');
-        if (is_null($val) || $val instanceof CertificateStore) {
+        if (is_null($val) || $val instanceof Windows81SCEPCertificateProfile_certificateStore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
@@ -48,7 +48,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(CertificateStore::class)),
+            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(Windows81SCEPCertificateProfile_certificateStore::class)),
             'hashAlgorithm' => fn(ParseNode $n) => $o->setHashAlgorithm($n->getEnumValue(HashAlgorithms::class)),
             'keySize' => fn(ParseNode $n) => $o->setKeySize($n->getEnumValue(KeySize::class)),
             'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(KeyUsages::class)),
@@ -186,9 +186,9 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param Windows81SCEPCertificateProfile_certificateStore|null $value Value to set for the certificateStore property.
     */
-    public function setCertificateStore(?CertificateStore $value): void {
+    public function setCertificateStore(?Windows81SCEPCertificateProfile_certificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
     }
 

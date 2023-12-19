@@ -27,11 +27,11 @@ class VerticalSection extends Entity implements Parsable
 
     /**
      * Gets the emphasis property value. Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
-     * @return SectionEmphasisType|null
+     * @return VerticalSection_emphasis|null
     */
-    public function getEmphasis(): ?SectionEmphasisType {
+    public function getEmphasis(): ?VerticalSection_emphasis {
         $val = $this->getBackingStore()->get('emphasis');
-        if (is_null($val) || $val instanceof SectionEmphasisType) {
+        if (is_null($val) || $val instanceof VerticalSection_emphasis) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'emphasis'");
@@ -44,7 +44,7 @@ class VerticalSection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'emphasis' => fn(ParseNode $n) => $o->setEmphasis($n->getEnumValue(SectionEmphasisType::class)),
+            'emphasis' => fn(ParseNode $n) => $o->setEmphasis($n->getEnumValue(VerticalSection_emphasis::class)),
             'webparts' => fn(ParseNode $n) => $o->setWebparts($n->getCollectionOfObjectValues([WebPart::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -75,9 +75,9 @@ class VerticalSection extends Entity implements Parsable
 
     /**
      * Sets the emphasis property value. Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
-     * @param SectionEmphasisType|null $value Value to set for the emphasis property.
+     * @param VerticalSection_emphasis|null $value Value to set for the emphasis property.
     */
-    public function setEmphasis(?SectionEmphasisType $value): void {
+    public function setEmphasis(?VerticalSection_emphasis $value): void {
         $this->getBackingStore()->set('emphasis', $value);
     }
 

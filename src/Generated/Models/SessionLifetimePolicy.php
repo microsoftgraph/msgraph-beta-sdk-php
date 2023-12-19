@@ -69,11 +69,11 @@ class SessionLifetimePolicy implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the expirationRequirement property value. If a conditional access session management policy required the user to authenticate in this sign-in event, this field describes the policy type that required authentication. The possible values are: rememberMultifactorAuthenticationOnTrustedDevices, tenantTokenLifetimePolicy, audienceTokenLifetimePolicy, signInFrequencyPeriodicReauthentication, ngcMfa, signInFrequencyEveryTime, unknownFutureValue.
-     * @return ExpirationRequirement|null
+     * @return SessionLifetimePolicy_expirationRequirement|null
     */
-    public function getExpirationRequirement(): ?ExpirationRequirement {
+    public function getExpirationRequirement(): ?SessionLifetimePolicy_expirationRequirement {
         $val = $this->getBackingStore()->get('expirationRequirement');
-        if (is_null($val) || $val instanceof ExpirationRequirement) {
+        if (is_null($val) || $val instanceof SessionLifetimePolicy_expirationRequirement) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'expirationRequirement'");
@@ -87,7 +87,7 @@ class SessionLifetimePolicy implements AdditionalDataHolder, BackedModel, Parsab
         $o = $this;
         return  [
             'detail' => fn(ParseNode $n) => $o->setDetail($n->getStringValue()),
-            'expirationRequirement' => fn(ParseNode $n) => $o->setExpirationRequirement($n->getEnumValue(ExpirationRequirement::class)),
+            'expirationRequirement' => fn(ParseNode $n) => $o->setExpirationRequirement($n->getEnumValue(SessionLifetimePolicy_expirationRequirement::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -141,9 +141,9 @@ class SessionLifetimePolicy implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the expirationRequirement property value. If a conditional access session management policy required the user to authenticate in this sign-in event, this field describes the policy type that required authentication. The possible values are: rememberMultifactorAuthenticationOnTrustedDevices, tenantTokenLifetimePolicy, audienceTokenLifetimePolicy, signInFrequencyPeriodicReauthentication, ngcMfa, signInFrequencyEveryTime, unknownFutureValue.
-     * @param ExpirationRequirement|null $value Value to set for the expirationRequirement property.
+     * @param SessionLifetimePolicy_expirationRequirement|null $value Value to set for the expirationRequirement property.
     */
-    public function setExpirationRequirement(?ExpirationRequirement $value): void {
+    public function setExpirationRequirement(?SessionLifetimePolicy_expirationRequirement $value): void {
         $this->getBackingStore()->set('expirationRequirement', $value);
     }
 

@@ -2,9 +2,11 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CallEvent extends Entity implements Parsable 
 {
@@ -26,26 +28,26 @@ class CallEvent extends Entity implements Parsable
 
     /**
      * Gets the callEventType property value. The callEventType property
-     * @return CallEventType|null
+     * @return CallEvent_callEventType|null
     */
-    public function getCallEventType(): ?CallEventType {
+    public function getCallEventType(): ?CallEvent_callEventType {
         $val = $this->getBackingStore()->get('callEventType');
-        if (is_null($val) || $val instanceof CallEventType) {
+        if (is_null($val) || $val instanceof CallEvent_callEventType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'callEventType'");
     }
 
     /**
-     * Gets the direction property value. The direction property
-     * @return CallDirection|null
+     * Gets the eventDateTime property value. The eventDateTime property
+     * @return DateTime|null
     */
-    public function getDirection(): ?CallDirection {
-        $val = $this->getBackingStore()->get('direction');
-        if (is_null($val) || $val instanceof CallDirection) {
+    public function getEventDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('eventDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'direction'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventDateTime'");
     }
 
     /**
@@ -55,22 +57,24 @@ class CallEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'callEventType' => fn(ParseNode $n) => $o->setCallEventType($n->getEnumValue(CallEventType::class)),
-            'direction' => fn(ParseNode $n) => $o->setDirection($n->getEnumValue(CallDirection::class)),
-            'joinCallUrl' => fn(ParseNode $n) => $o->setJoinCallUrl($n->getStringValue()),
+            'callEventType' => fn(ParseNode $n) => $o->setCallEventType($n->getEnumValue(CallEvent_callEventType::class)),
+            'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
+            'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfObjectValues([Participant::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the joinCallUrl property value. The joinCallUrl property
-     * @return string|null
+     * Gets the participants property value. The participants property
+     * @return array<Participant>|null
     */
-    public function getJoinCallUrl(): ?string {
-        $val = $this->getBackingStore()->get('joinCallUrl');
-        if (is_null($val) || is_string($val)) {
+    public function getParticipants(): ?array {
+        $val = $this->getBackingStore()->get('participants');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Participant::class);
+            /** @var array<Participant>|null $val */
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'joinCallUrl'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'participants'");
     }
 
     /**
@@ -80,32 +84,32 @@ class CallEvent extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('callEventType', $this->getCallEventType());
-        $writer->writeEnumValue('direction', $this->getDirection());
-        $writer->writeStringValue('joinCallUrl', $this->getJoinCallUrl());
+        $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
+        $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
     }
 
     /**
      * Sets the callEventType property value. The callEventType property
-     * @param CallEventType|null $value Value to set for the callEventType property.
+     * @param CallEvent_callEventType|null $value Value to set for the callEventType property.
     */
-    public function setCallEventType(?CallEventType $value): void {
+    public function setCallEventType(?CallEvent_callEventType $value): void {
         $this->getBackingStore()->set('callEventType', $value);
     }
 
     /**
-     * Sets the direction property value. The direction property
-     * @param CallDirection|null $value Value to set for the direction property.
+     * Sets the eventDateTime property value. The eventDateTime property
+     * @param DateTime|null $value Value to set for the eventDateTime property.
     */
-    public function setDirection(?CallDirection $value): void {
-        $this->getBackingStore()->set('direction', $value);
+    public function setEventDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('eventDateTime', $value);
     }
 
     /**
-     * Sets the joinCallUrl property value. The joinCallUrl property
-     * @param string|null $value Value to set for the joinCallUrl property.
+     * Sets the participants property value. The participants property
+     * @param array<Participant>|null $value Value to set for the participants property.
     */
-    public function setJoinCallUrl(?string $value): void {
-        $this->getBackingStore()->set('joinCallUrl', $value);
+    public function setParticipants(?array $value): void {
+        $this->getBackingStore()->set('participants', $value);
     }
 
 }

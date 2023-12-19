@@ -106,11 +106,11 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Gets the dataSourceScopes property value. When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
-     * @return DataSourceScopes|null
+     * @return SourceCollection_dataSourceScopes|null
     */
-    public function getDataSourceScopes(): ?DataSourceScopes {
+    public function getDataSourceScopes(): ?SourceCollection_dataSourceScopes {
         $val = $this->getBackingStore()->get('dataSourceScopes');
-        if (is_null($val) || $val instanceof DataSourceScopes) {
+        if (is_null($val) || $val instanceof SourceCollection_dataSourceScopes) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSourceScopes'");
@@ -153,7 +153,7 @@ class SourceCollection extends Entity implements Parsable
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'custodianSources' => fn(ParseNode $n) => $o->setCustodianSources($n->getCollectionOfObjectValues([DataSource::class, 'createFromDiscriminatorValue'])),
-            'dataSourceScopes' => fn(ParseNode $n) => $o->setDataSourceScopes($n->getEnumValue(DataSourceScopes::class)),
+            'dataSourceScopes' => fn(ParseNode $n) => $o->setDataSourceScopes($n->getEnumValue(SourceCollection_dataSourceScopes::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastEstimateStatisticsOperation' => fn(ParseNode $n) => $o->setLastEstimateStatisticsOperation($n->getObjectValue([EstimateStatisticsOperation::class, 'createFromDiscriminatorValue'])),
@@ -284,9 +284,9 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the dataSourceScopes property value. When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
-     * @param DataSourceScopes|null $value Value to set for the dataSourceScopes property.
+     * @param SourceCollection_dataSourceScopes|null $value Value to set for the dataSourceScopes property.
     */
-    public function setDataSourceScopes(?DataSourceScopes $value): void {
+    public function setDataSourceScopes(?SourceCollection_dataSourceScopes $value): void {
         $this->getBackingStore()->set('dataSourceScopes', $value);
     }
 

@@ -138,6 +138,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
                 /** @var array<string>|null $val */
                 $this->setDueDate($val);
             },
+            'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'move' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -204,6 +205,18 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
                 $this->setTitle($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the forms property value. The forms property
+     * @return PlannerFieldRules|null
+    */
+    public function getForms(): ?PlannerFieldRules {
+        $val = $this->getBackingStore()->get('forms');
+        if (is_null($val) || $val instanceof PlannerFieldRules) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forms'");
     }
 
     /**
@@ -342,6 +355,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
         $writer->writeCollectionOfPrimitiveValues('completionRequirements', $this->getCompletionRequirements());
         $writer->writeCollectionOfPrimitiveValues('delete', $this->getDelete());
         $writer->writeCollectionOfPrimitiveValues('dueDate', $this->getDueDate());
+        $writer->writeObjectValue('forms', $this->getForms());
         $writer->writeCollectionOfPrimitiveValues('move', $this->getMove());
         $writer->writeCollectionOfPrimitiveValues('notes', $this->getNotes());
         $writer->writeCollectionOfPrimitiveValues('order', $this->getOrder());
@@ -399,6 +413,14 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     */
     public function setDueDate(?array $value): void {
         $this->getBackingStore()->set('dueDate', $value);
+    }
+
+    /**
+     * Sets the forms property value. The forms property
+     * @param PlannerFieldRules|null $value Value to set for the forms property.
+    */
+    public function setForms(?PlannerFieldRules $value): void {
+        $this->getBackingStore()->set('forms', $value);
     }
 
     /**

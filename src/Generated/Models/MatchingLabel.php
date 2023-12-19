@@ -50,11 +50,11 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the applicationMode property value. The applicationMode property
-     * @return ApplicationMode|null
+     * @return MatchingLabel_applicationMode|null
     */
-    public function getApplicationMode(): ?ApplicationMode {
+    public function getApplicationMode(): ?MatchingLabel_applicationMode {
         $val = $this->getBackingStore()->get('applicationMode');
-        if (is_null($val) || $val instanceof ApplicationMode) {
+        if (is_null($val) || $val instanceof MatchingLabel_applicationMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationMode'");
@@ -99,7 +99,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)),
+            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(MatchingLabel_applicationMode::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
@@ -240,9 +240,9 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the applicationMode property value. The applicationMode property
-     * @param ApplicationMode|null $value Value to set for the applicationMode property.
+     * @param MatchingLabel_applicationMode|null $value Value to set for the applicationMode property.
     */
-    public function setApplicationMode(?ApplicationMode $value): void {
+    public function setApplicationMode(?MatchingLabel_applicationMode $value): void {
         $this->getBackingStore()->set('applicationMode', $value);
     }
 

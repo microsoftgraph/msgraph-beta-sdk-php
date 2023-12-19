@@ -57,11 +57,11 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
 
     /**
      * Gets the desiredMemberState property value. State of the tenant in the multitenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
-     * @return MultiTenantOrganizationMemberState|null
+     * @return MultiTenantOrganizationJoinRequestTransitionDetails_desiredMemberState|null
     */
-    public function getDesiredMemberState(): ?MultiTenantOrganizationMemberState {
+    public function getDesiredMemberState(): ?MultiTenantOrganizationJoinRequestTransitionDetails_desiredMemberState {
         $val = $this->getBackingStore()->get('desiredMemberState');
-        if (is_null($val) || $val instanceof MultiTenantOrganizationMemberState) {
+        if (is_null($val) || $val instanceof MultiTenantOrganizationJoinRequestTransitionDetails_desiredMemberState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'desiredMemberState'");
@@ -86,10 +86,10 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'desiredMemberState' => fn(ParseNode $n) => $o->setDesiredMemberState($n->getEnumValue(MultiTenantOrganizationMemberState::class)),
+            'desiredMemberState' => fn(ParseNode $n) => $o->setDesiredMemberState($n->getEnumValue(MultiTenantOrganizationJoinRequestTransitionDetails_desiredMemberState::class)),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MultiTenantOrganizationMemberProcessingStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MultiTenantOrganizationJoinRequestTransitionDetails_status::class)),
         ];
     }
 
@@ -107,11 +107,11 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
 
     /**
      * Gets the status property value. Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
-     * @return MultiTenantOrganizationMemberProcessingStatus|null
+     * @return MultiTenantOrganizationJoinRequestTransitionDetails_status|null
     */
-    public function getStatus(): ?MultiTenantOrganizationMemberProcessingStatus {
+    public function getStatus(): ?MultiTenantOrganizationJoinRequestTransitionDetails_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof MultiTenantOrganizationMemberProcessingStatus) {
+        if (is_null($val) || $val instanceof MultiTenantOrganizationJoinRequestTransitionDetails_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -147,9 +147,9 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
 
     /**
      * Sets the desiredMemberState property value. State of the tenant in the multitenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
-     * @param MultiTenantOrganizationMemberState|null $value Value to set for the desiredMemberState property.
+     * @param MultiTenantOrganizationJoinRequestTransitionDetails_desiredMemberState|null $value Value to set for the desiredMemberState property.
     */
-    public function setDesiredMemberState(?MultiTenantOrganizationMemberState $value): void {
+    public function setDesiredMemberState(?MultiTenantOrganizationJoinRequestTransitionDetails_desiredMemberState $value): void {
         $this->getBackingStore()->set('desiredMemberState', $value);
     }
 
@@ -171,9 +171,9 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
 
     /**
      * Sets the status property value. Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
-     * @param MultiTenantOrganizationMemberProcessingStatus|null $value Value to set for the status property.
+     * @param MultiTenantOrganizationJoinRequestTransitionDetails_status|null $value Value to set for the status property.
     */
-    public function setStatus(?MultiTenantOrganizationMemberProcessingStatus $value): void {
+    public function setStatus(?MultiTenantOrganizationJoinRequestTransitionDetails_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

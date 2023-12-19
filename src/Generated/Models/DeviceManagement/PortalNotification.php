@@ -97,11 +97,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the alertRuleTemplate property value. The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue, cloudPcInGracePeriodScenario. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: cloudPcInGracePeriodScenario.
-     * @return AlertRuleTemplate|null
+     * @return PortalNotification_alertRuleTemplate|null
     */
-    public function getAlertRuleTemplate(): ?AlertRuleTemplate {
+    public function getAlertRuleTemplate(): ?PortalNotification_alertRuleTemplate {
         $val = $this->getBackingStore()->get('alertRuleTemplate');
-        if (is_null($val) || $val instanceof AlertRuleTemplate) {
+        if (is_null($val) || $val instanceof PortalNotification_alertRuleTemplate) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRuleTemplate'");
@@ -126,11 +126,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
             'alertRecordId' => fn(ParseNode $n) => $o->setAlertRecordId($n->getStringValue()),
             'alertRuleId' => fn(ParseNode $n) => $o->setAlertRuleId($n->getStringValue()),
             'alertRuleName' => fn(ParseNode $n) => $o->setAlertRuleName($n->getStringValue()),
-            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)),
+            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(PortalNotification_alertRuleTemplate::class)),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'isPortalNotificationSent' => fn(ParseNode $n) => $o->setIsPortalNotificationSent($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(RuleSeverityType::class)),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(PortalNotification_severity::class)),
         ];
     }
 
@@ -172,11 +172,11 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the severity property value. The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     * @return RuleSeverityType|null
+     * @return PortalNotification_severity|null
     */
-    public function getSeverity(): ?RuleSeverityType {
+    public function getSeverity(): ?PortalNotification_severity {
         $val = $this->getBackingStore()->get('severity');
-        if (is_null($val) || $val instanceof RuleSeverityType) {
+        if (is_null($val) || $val instanceof PortalNotification_severity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
@@ -241,9 +241,9 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the alertRuleTemplate property value. The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue, cloudPcInGracePeriodScenario. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: cloudPcInGracePeriodScenario.
-     * @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
+     * @param PortalNotification_alertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
-    public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
+    public function setAlertRuleTemplate(?PortalNotification_alertRuleTemplate $value): void {
         $this->getBackingStore()->set('alertRuleTemplate', $value);
     }
 
@@ -281,9 +281,9 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the severity property value. The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     * @param RuleSeverityType|null $value Value to set for the severity property.
+     * @param PortalNotification_severity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?RuleSeverityType $value): void {
+    public function setSeverity(?PortalNotification_severity $value): void {
         $this->getBackingStore()->set('severity', $value);
     }
 

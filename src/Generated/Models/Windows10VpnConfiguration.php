@@ -222,7 +222,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([WindowsCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'microsoftTunnelSiteId' => fn(ParseNode $n) => $o->setMicrosoftTunnelSiteId($n->getStringValue()),
             'onlyAssociatedAppsCanUseConnection' => fn(ParseNode $n) => $o->setOnlyAssociatedAppsCanUseConnection($n->getBooleanValue()),
-            'profileTarget' => fn(ParseNode $n) => $o->setProfileTarget($n->getEnumValue(Windows10VpnProfileTarget::class)),
+            'profileTarget' => fn(ParseNode $n) => $o->setProfileTarget($n->getEnumValue(Windows10VpnConfiguration_profileTarget::class)),
             'proxyServer' => fn(ParseNode $n) => $o->setProxyServer($n->getObjectValue([Windows10VpnProxyServer::class, 'createFromDiscriminatorValue'])),
             'rememberUserCredentials' => fn(ParseNode $n) => $o->setRememberUserCredentials($n->getBooleanValue()),
             'routes' => fn(ParseNode $n) => $o->setRoutes($n->getCollectionOfObjectValues([VpnRoute::class, 'createFromDiscriminatorValue'])),
@@ -279,11 +279,11 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Gets the profileTarget property value. Profile target type. Possible values are: user, device, autoPilotDevice.
-     * @return Windows10VpnProfileTarget|null
+     * @return Windows10VpnConfiguration_profileTarget|null
     */
-    public function getProfileTarget(): ?Windows10VpnProfileTarget {
+    public function getProfileTarget(): ?Windows10VpnConfiguration_profileTarget {
         $val = $this->getBackingStore()->get('profileTarget');
-        if (is_null($val) || $val instanceof Windows10VpnProfileTarget) {
+        if (is_null($val) || $val instanceof Windows10VpnConfiguration_profileTarget) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'profileTarget'");
@@ -554,9 +554,9 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the profileTarget property value. Profile target type. Possible values are: user, device, autoPilotDevice.
-     * @param Windows10VpnProfileTarget|null $value Value to set for the profileTarget property.
+     * @param Windows10VpnConfiguration_profileTarget|null $value Value to set for the profileTarget property.
     */
-    public function setProfileTarget(?Windows10VpnProfileTarget $value): void {
+    public function setProfileTarget(?Windows10VpnConfiguration_profileTarget $value): void {
         $this->getBackingStore()->set('profileTarget', $value);
     }
 

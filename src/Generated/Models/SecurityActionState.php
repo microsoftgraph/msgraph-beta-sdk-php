@@ -77,7 +77,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(OperationStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(SecurityActionState_status::class)),
             'updatedDateTime' => fn(ParseNode $n) => $o->setUpdatedDateTime($n->getDateTimeValue()),
             'user' => fn(ParseNode $n) => $o->setUser($n->getStringValue()),
         ];
@@ -97,11 +97,11 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the status property value. Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
-     * @return OperationStatus|null
+     * @return SecurityActionState_status|null
     */
-    public function getStatus(): ?OperationStatus {
+    public function getStatus(): ?SecurityActionState_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof OperationStatus) {
+        if (is_null($val) || $val instanceof SecurityActionState_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -178,9 +178,9 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the status property value. Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
-     * @param OperationStatus|null $value Value to set for the status property.
+     * @param SecurityActionState_status|null $value Value to set for the status property.
     */
-    public function setStatus(?OperationStatus $value): void {
+    public function setStatus(?SecurityActionState_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

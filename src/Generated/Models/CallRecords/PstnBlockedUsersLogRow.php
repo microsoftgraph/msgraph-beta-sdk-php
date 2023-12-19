@@ -91,7 +91,7 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
             'blockReason' => fn(ParseNode $n) => $o->setBlockReason($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'remediationId' => fn(ParseNode $n) => $o->setRemediationId($n->getStringValue()),
-            'userBlockMode' => fn(ParseNode $n) => $o->setUserBlockMode($n->getEnumValue(PstnUserBlockMode::class)),
+            'userBlockMode' => fn(ParseNode $n) => $o->setUserBlockMode($n->getEnumValue(PstnBlockedUsersLogRow_userBlockMode::class)),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -125,11 +125,11 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the userBlockMode property value. Indicates whether the user is blocked or unblocked from making PSTN calls in Microsoft Teams. The possible values are: blocked, unblocked, unknownFutureValue.
-     * @return PstnUserBlockMode|null
+     * @return PstnBlockedUsersLogRow_userBlockMode|null
     */
-    public function getUserBlockMode(): ?PstnUserBlockMode {
+    public function getUserBlockMode(): ?PstnBlockedUsersLogRow_userBlockMode {
         $val = $this->getBackingStore()->get('userBlockMode');
-        if (is_null($val) || $val instanceof PstnUserBlockMode) {
+        if (is_null($val) || $val instanceof PstnBlockedUsersLogRow_userBlockMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userBlockMode'");
@@ -250,9 +250,9 @@ class PstnBlockedUsersLogRow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the userBlockMode property value. Indicates whether the user is blocked or unblocked from making PSTN calls in Microsoft Teams. The possible values are: blocked, unblocked, unknownFutureValue.
-     * @param PstnUserBlockMode|null $value Value to set for the userBlockMode property.
+     * @param PstnBlockedUsersLogRow_userBlockMode|null $value Value to set for the userBlockMode property.
     */
-    public function setUserBlockMode(?PstnUserBlockMode $value): void {
+    public function setUserBlockMode(?PstnBlockedUsersLogRow_userBlockMode $value): void {
         $this->getBackingStore()->set('userBlockMode', $value);
     }
 

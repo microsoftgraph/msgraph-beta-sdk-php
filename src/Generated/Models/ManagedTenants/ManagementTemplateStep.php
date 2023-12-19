@@ -42,11 +42,11 @@ class ManagementTemplateStep extends Entity implements Parsable
 
     /**
      * Gets the category property value. The category property
-     * @return ManagementCategory|null
+     * @return ManagementTemplateStep_category|null
     */
-    public function getCategory(): ?ManagementCategory {
+    public function getCategory(): ?ManagementTemplateStep_category {
         $val = $this->getBackingStore()->get('category');
-        if (is_null($val) || $val instanceof ManagementCategory) {
+        if (is_null($val) || $val instanceof ManagementTemplateStep_category) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
@@ -108,7 +108,7 @@ class ManagementTemplateStep extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'acceptedVersion' => fn(ParseNode $n) => $o->setAcceptedVersion($n->getObjectValue([ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'])),
-            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ManagementCategory::class)),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ManagementTemplateStep_category::class)),
             'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -226,9 +226,9 @@ class ManagementTemplateStep extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     * @param ManagementCategory|null $value Value to set for the category property.
+     * @param ManagementTemplateStep_category|null $value Value to set for the category property.
     */
-    public function setCategory(?ManagementCategory $value): void {
+    public function setCategory(?ManagementTemplateStep_category $value): void {
         $this->getBackingStore()->set('category', $value);
     }
 

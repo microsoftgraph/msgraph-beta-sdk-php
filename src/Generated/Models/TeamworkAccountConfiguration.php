@@ -64,7 +64,7 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremisesCalendarSyncConfiguration' => fn(ParseNode $n) => $o->setOnPremisesCalendarSyncConfiguration($n->getObjectValue([TeamworkOnPremisesCalendarSyncConfiguration::class, 'createFromDiscriminatorValue'])),
-            'supportedClient' => fn(ParseNode $n) => $o->setSupportedClient($n->getEnumValue(TeamworkSupportedClient::class)),
+            'supportedClient' => fn(ParseNode $n) => $o->setSupportedClient($n->getEnumValue(TeamworkAccountConfiguration_supportedClient::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the supportedClient property value. The supported client for Teams Rooms devices. The possible values are: unknown, skypeDefaultAndTeams, teamsDefaultAndSkype, skypeOnly, teamsOnly, unknownFutureValue.
-     * @return TeamworkSupportedClient|null
+     * @return TeamworkAccountConfiguration_supportedClient|null
     */
-    public function getSupportedClient(): ?TeamworkSupportedClient {
+    public function getSupportedClient(): ?TeamworkAccountConfiguration_supportedClient {
         $val = $this->getBackingStore()->get('supportedClient');
-        if (is_null($val) || $val instanceof TeamworkSupportedClient) {
+        if (is_null($val) || $val instanceof TeamworkAccountConfiguration_supportedClient) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'supportedClient'");
@@ -149,9 +149,9 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the supportedClient property value. The supported client for Teams Rooms devices. The possible values are: unknown, skypeDefaultAndTeams, teamsDefaultAndSkype, skypeOnly, teamsOnly, unknownFutureValue.
-     * @param TeamworkSupportedClient|null $value Value to set for the supportedClient property.
+     * @param TeamworkAccountConfiguration_supportedClient|null $value Value to set for the supportedClient property.
     */
-    public function setSupportedClient(?TeamworkSupportedClient $value): void {
+    public function setSupportedClient(?TeamworkAccountConfiguration_supportedClient $value): void {
         $this->getBackingStore()->set('supportedClient', $value);
     }
 

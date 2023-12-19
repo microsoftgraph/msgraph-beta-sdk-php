@@ -543,11 +543,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Gets the defenderCloudBlockLevel property value. Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.
-     * @return DefenderCloudBlockLevelType|null
+     * @return Windows10EndpointProtectionConfiguration_defenderCloudBlockLevel|null
     */
-    public function getDefenderCloudBlockLevel(): ?DefenderCloudBlockLevelType {
+    public function getDefenderCloudBlockLevel(): ?Windows10EndpointProtectionConfiguration_defenderCloudBlockLevel {
         $val = $this->getBackingStore()->get('defenderCloudBlockLevel');
-        if (is_null($val) || $val instanceof DefenderCloudBlockLevelType) {
+        if (is_null($val) || $val instanceof Windows10EndpointProtectionConfiguration_defenderCloudBlockLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderCloudBlockLevel'");
@@ -993,11 +993,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Gets the defenderPotentiallyUnwantedAppAction property value. Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
-     * @return DefenderProtectionType|null
+     * @return Windows10EndpointProtectionConfiguration_defenderPotentiallyUnwantedAppAction|null
     */
-    public function getDefenderPotentiallyUnwantedAppAction(): ?DefenderProtectionType {
+    public function getDefenderPotentiallyUnwantedAppAction(): ?Windows10EndpointProtectionConfiguration_defenderPotentiallyUnwantedAppAction {
         $val = $this->getBackingStore()->get('defenderPotentiallyUnwantedAppAction');
-        if (is_null($val) || $val instanceof DefenderProtectionType) {
+        if (is_null($val) || $val instanceof Windows10EndpointProtectionConfiguration_defenderPotentiallyUnwantedAppAction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderPotentiallyUnwantedAppAction'");
@@ -1055,11 +1055,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Gets the defenderScanDirection property value. Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
-     * @return DefenderRealtimeScanDirection|null
+     * @return Windows10EndpointProtectionConfiguration_defenderScanDirection|null
     */
-    public function getDefenderScanDirection(): ?DefenderRealtimeScanDirection {
+    public function getDefenderScanDirection(): ?Windows10EndpointProtectionConfiguration_defenderScanDirection {
         $val = $this->getBackingStore()->get('defenderScanDirection');
-        if (is_null($val) || $val instanceof DefenderRealtimeScanDirection) {
+        if (is_null($val) || $val instanceof Windows10EndpointProtectionConfiguration_defenderScanDirection) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanDirection'");
@@ -1079,11 +1079,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Gets the defenderScanType property value. Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.
-     * @return DefenderScanType|null
+     * @return Windows10EndpointProtectionConfiguration_defenderScanType|null
     */
-    public function getDefenderScanType(): ?DefenderScanType {
+    public function getDefenderScanType(): ?Windows10EndpointProtectionConfiguration_defenderScanType {
         $val = $this->getBackingStore()->get('defenderScanType');
-        if (is_null($val) || $val instanceof DefenderScanType) {
+        if (is_null($val) || $val instanceof Windows10EndpointProtectionConfiguration_defenderScanType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScanType'");
@@ -1103,11 +1103,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Gets the defenderScheduledScanDay property value. Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
-     * @return WeeklySchedule|null
+     * @return Windows10EndpointProtectionConfiguration_defenderScheduledScanDay|null
     */
-    public function getDefenderScheduledScanDay(): ?WeeklySchedule {
+    public function getDefenderScheduledScanDay(): ?Windows10EndpointProtectionConfiguration_defenderScheduledScanDay {
         $val = $this->getBackingStore()->get('defenderScheduledScanDay');
-        if (is_null($val) || $val instanceof WeeklySchedule) {
+        if (is_null($val) || $val instanceof Windows10EndpointProtectionConfiguration_defenderScheduledScanDay) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderScheduledScanDay'");
@@ -1427,11 +1427,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Gets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
-     * @return DefenderSubmitSamplesConsentType|null
+     * @return Windows10EndpointProtectionConfiguration_defenderSubmitSamplesConsentType|null
     */
-    public function getDefenderSubmitSamplesConsentType(): ?DefenderSubmitSamplesConsentType {
+    public function getDefenderSubmitSamplesConsentType(): ?Windows10EndpointProtectionConfiguration_defenderSubmitSamplesConsentType {
         $val = $this->getBackingStore()->get('defenderSubmitSamplesConsentType');
-        if (is_null($val) || $val instanceof DefenderSubmitSamplesConsentType) {
+        if (is_null($val) || $val instanceof Windows10EndpointProtectionConfiguration_defenderSubmitSamplesConsentType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defenderSubmitSamplesConsentType'");
@@ -1627,7 +1627,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'defenderBlockEndUserAccess' => fn(ParseNode $n) => $o->setDefenderBlockEndUserAccess($n->getBooleanValue()),
             'defenderBlockPersistenceThroughWmiType' => fn(ParseNode $n) => $o->setDefenderBlockPersistenceThroughWmiType($n->getEnumValue(DefenderAttackSurfaceType::class)),
             'defenderCheckForSignaturesBeforeRunningScan' => fn(ParseNode $n) => $o->setDefenderCheckForSignaturesBeforeRunningScan($n->getBooleanValue()),
-            'defenderCloudBlockLevel' => fn(ParseNode $n) => $o->setDefenderCloudBlockLevel($n->getEnumValue(DefenderCloudBlockLevelType::class)),
+            'defenderCloudBlockLevel' => fn(ParseNode $n) => $o->setDefenderCloudBlockLevel($n->getEnumValue(Windows10EndpointProtectionConfiguration_defenderCloudBlockLevel::class)),
             'defenderCloudExtendedTimeoutInSeconds' => fn(ParseNode $n) => $o->setDefenderCloudExtendedTimeoutInSeconds($n->getIntegerValue()),
             'defenderDaysBeforeDeletingQuarantinedMalware' => fn(ParseNode $n) => $o->setDefenderDaysBeforeDeletingQuarantinedMalware($n->getIntegerValue()),
             'defenderDetectedMalwareActions' => fn(ParseNode $n) => $o->setDefenderDetectedMalwareActions($n->getObjectValue([DefenderDetectedMalwareActions::class, 'createFromDiscriminatorValue'])),
@@ -1685,7 +1685,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'defenderOfficeCommunicationAppsLaunchChildProcess' => fn(ParseNode $n) => $o->setDefenderOfficeCommunicationAppsLaunchChildProcess($n->getEnumValue(DefenderProtectionType::class)),
             'defenderOfficeMacroCodeAllowWin32Imports' => fn(ParseNode $n) => $o->setDefenderOfficeMacroCodeAllowWin32Imports($n->getEnumValue(DefenderProtectionType::class)),
             'defenderOfficeMacroCodeAllowWin32ImportsType' => fn(ParseNode $n) => $o->setDefenderOfficeMacroCodeAllowWin32ImportsType($n->getEnumValue(DefenderAttackSurfaceType::class)),
-            'defenderPotentiallyUnwantedAppAction' => fn(ParseNode $n) => $o->setDefenderPotentiallyUnwantedAppAction($n->getEnumValue(DefenderProtectionType::class)),
+            'defenderPotentiallyUnwantedAppAction' => fn(ParseNode $n) => $o->setDefenderPotentiallyUnwantedAppAction($n->getEnumValue(Windows10EndpointProtectionConfiguration_defenderPotentiallyUnwantedAppAction::class)),
             'defenderPreventCredentialStealingType' => fn(ParseNode $n) => $o->setDefenderPreventCredentialStealingType($n->getEnumValue(DefenderProtectionType::class)),
             'defenderProcessCreation' => fn(ParseNode $n) => $o->setDefenderProcessCreation($n->getEnumValue(DefenderProtectionType::class)),
             'defenderProcessCreationType' => fn(ParseNode $n) => $o->setDefenderProcessCreationType($n->getEnumValue(DefenderAttackSurfaceType::class)),
@@ -1697,11 +1697,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
                 /** @var array<string>|null $val */
                 $this->setDefenderProcessesToExclude($val);
             },
-            'defenderScanDirection' => fn(ParseNode $n) => $o->setDefenderScanDirection($n->getEnumValue(DefenderRealtimeScanDirection::class)),
+            'defenderScanDirection' => fn(ParseNode $n) => $o->setDefenderScanDirection($n->getEnumValue(Windows10EndpointProtectionConfiguration_defenderScanDirection::class)),
             'defenderScanMaxCpuPercentage' => fn(ParseNode $n) => $o->setDefenderScanMaxCpuPercentage($n->getIntegerValue()),
-            'defenderScanType' => fn(ParseNode $n) => $o->setDefenderScanType($n->getEnumValue(DefenderScanType::class)),
+            'defenderScanType' => fn(ParseNode $n) => $o->setDefenderScanType($n->getEnumValue(Windows10EndpointProtectionConfiguration_defenderScanType::class)),
             'defenderScheduledQuickScanTime' => fn(ParseNode $n) => $o->setDefenderScheduledQuickScanTime($n->getTimeValue()),
-            'defenderScheduledScanDay' => fn(ParseNode $n) => $o->setDefenderScheduledScanDay($n->getEnumValue(WeeklySchedule::class)),
+            'defenderScheduledScanDay' => fn(ParseNode $n) => $o->setDefenderScheduledScanDay($n->getEnumValue(Windows10EndpointProtectionConfiguration_defenderScheduledScanDay::class)),
             'defenderScheduledScanTime' => fn(ParseNode $n) => $o->setDefenderScheduledScanTime($n->getTimeValue()),
             'defenderScriptDownloadedPayloadExecution' => fn(ParseNode $n) => $o->setDefenderScriptDownloadedPayloadExecution($n->getEnumValue(DefenderProtectionType::class)),
             'defenderScriptDownloadedPayloadExecutionType' => fn(ParseNode $n) => $o->setDefenderScriptDownloadedPayloadExecutionType($n->getEnumValue(DefenderAttackSurfaceType::class)),
@@ -1728,7 +1728,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'defenderSecurityCenterNotificationsFromApp' => fn(ParseNode $n) => $o->setDefenderSecurityCenterNotificationsFromApp($n->getEnumValue(DefenderSecurityCenterNotificationsFromAppType::class)),
             'defenderSecurityCenterOrganizationDisplayName' => fn(ParseNode $n) => $o->setDefenderSecurityCenterOrganizationDisplayName($n->getStringValue()),
             'defenderSignatureUpdateIntervalInHours' => fn(ParseNode $n) => $o->setDefenderSignatureUpdateIntervalInHours($n->getIntegerValue()),
-            'defenderSubmitSamplesConsentType' => fn(ParseNode $n) => $o->setDefenderSubmitSamplesConsentType($n->getEnumValue(DefenderSubmitSamplesConsentType::class)),
+            'defenderSubmitSamplesConsentType' => fn(ParseNode $n) => $o->setDefenderSubmitSamplesConsentType($n->getEnumValue(Windows10EndpointProtectionConfiguration_defenderSubmitSamplesConsentType::class)),
             'defenderUntrustedExecutable' => fn(ParseNode $n) => $o->setDefenderUntrustedExecutable($n->getEnumValue(DefenderProtectionType::class)),
             'defenderUntrustedExecutableType' => fn(ParseNode $n) => $o->setDefenderUntrustedExecutableType($n->getEnumValue(DefenderAttackSurfaceType::class)),
             'defenderUntrustedUSBProcess' => fn(ParseNode $n) => $o->setDefenderUntrustedUSBProcess($n->getEnumValue(DefenderProtectionType::class)),
@@ -3616,9 +3616,9 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderCloudBlockLevel property value. Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.
-     * @param DefenderCloudBlockLevelType|null $value Value to set for the defenderCloudBlockLevel property.
+     * @param Windows10EndpointProtectionConfiguration_defenderCloudBlockLevel|null $value Value to set for the defenderCloudBlockLevel property.
     */
-    public function setDefenderCloudBlockLevel(?DefenderCloudBlockLevelType $value): void {
+    public function setDefenderCloudBlockLevel(?Windows10EndpointProtectionConfiguration_defenderCloudBlockLevel $value): void {
         $this->getBackingStore()->set('defenderCloudBlockLevel', $value);
     }
 
@@ -3912,9 +3912,9 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderPotentiallyUnwantedAppAction property value. Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
-     * @param DefenderProtectionType|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
+     * @param Windows10EndpointProtectionConfiguration_defenderPotentiallyUnwantedAppAction|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
     */
-    public function setDefenderPotentiallyUnwantedAppAction(?DefenderProtectionType $value): void {
+    public function setDefenderPotentiallyUnwantedAppAction(?Windows10EndpointProtectionConfiguration_defenderPotentiallyUnwantedAppAction $value): void {
         $this->getBackingStore()->set('defenderPotentiallyUnwantedAppAction', $value);
     }
 
@@ -3952,9 +3952,9 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScanDirection property value. Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
-     * @param DefenderRealtimeScanDirection|null $value Value to set for the defenderScanDirection property.
+     * @param Windows10EndpointProtectionConfiguration_defenderScanDirection|null $value Value to set for the defenderScanDirection property.
     */
-    public function setDefenderScanDirection(?DefenderRealtimeScanDirection $value): void {
+    public function setDefenderScanDirection(?Windows10EndpointProtectionConfiguration_defenderScanDirection $value): void {
         $this->getBackingStore()->set('defenderScanDirection', $value);
     }
 
@@ -3968,9 +3968,9 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScanType property value. Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.
-     * @param DefenderScanType|null $value Value to set for the defenderScanType property.
+     * @param Windows10EndpointProtectionConfiguration_defenderScanType|null $value Value to set for the defenderScanType property.
     */
-    public function setDefenderScanType(?DefenderScanType $value): void {
+    public function setDefenderScanType(?Windows10EndpointProtectionConfiguration_defenderScanType $value): void {
         $this->getBackingStore()->set('defenderScanType', $value);
     }
 
@@ -3984,9 +3984,9 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScheduledScanDay property value. Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
-     * @param WeeklySchedule|null $value Value to set for the defenderScheduledScanDay property.
+     * @param Windows10EndpointProtectionConfiguration_defenderScheduledScanDay|null $value Value to set for the defenderScheduledScanDay property.
     */
-    public function setDefenderScheduledScanDay(?WeeklySchedule $value): void {
+    public function setDefenderScheduledScanDay(?Windows10EndpointProtectionConfiguration_defenderScheduledScanDay $value): void {
         $this->getBackingStore()->set('defenderScheduledScanDay', $value);
     }
 
@@ -4200,9 +4200,9 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
-     * @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
+     * @param Windows10EndpointProtectionConfiguration_defenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
     */
-    public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value): void {
+    public function setDefenderSubmitSamplesConsentType(?Windows10EndpointProtectionConfiguration_defenderSubmitSamplesConsentType $value): void {
         $this->getBackingStore()->set('defenderSubmitSamplesConsentType', $value);
     }
 

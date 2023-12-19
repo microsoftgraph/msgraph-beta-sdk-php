@@ -63,7 +63,7 @@ class KerberosSignOnSettings implements AdditionalDataHolder, BackedModel, Parsa
         $o = $this;
         return  [
             'kerberosServicePrincipalName' => fn(ParseNode $n) => $o->setKerberosServicePrincipalName($n->getStringValue()),
-            'kerberosSignOnMappingAttributeType' => fn(ParseNode $n) => $o->setKerberosSignOnMappingAttributeType($n->getEnumValue(KerberosSignOnMappingAttributeType::class)),
+            'kerberosSignOnMappingAttributeType' => fn(ParseNode $n) => $o->setKerberosSignOnMappingAttributeType($n->getEnumValue(KerberosSignOnSettings_kerberosSignOnMappingAttributeType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -82,11 +82,11 @@ class KerberosSignOnSettings implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the kerberosSignOnMappingAttributeType property value. The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . Possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
-     * @return KerberosSignOnMappingAttributeType|null
+     * @return KerberosSignOnSettings_kerberosSignOnMappingAttributeType|null
     */
-    public function getKerberosSignOnMappingAttributeType(): ?KerberosSignOnMappingAttributeType {
+    public function getKerberosSignOnMappingAttributeType(): ?KerberosSignOnSettings_kerberosSignOnMappingAttributeType {
         $val = $this->getBackingStore()->get('kerberosSignOnMappingAttributeType');
-        if (is_null($val) || $val instanceof KerberosSignOnMappingAttributeType) {
+        if (is_null($val) || $val instanceof KerberosSignOnSettings_kerberosSignOnMappingAttributeType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kerberosSignOnMappingAttributeType'");
@@ -141,9 +141,9 @@ class KerberosSignOnSettings implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the kerberosSignOnMappingAttributeType property value. The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . Possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
-     * @param KerberosSignOnMappingAttributeType|null $value Value to set for the kerberosSignOnMappingAttributeType property.
+     * @param KerberosSignOnSettings_kerberosSignOnMappingAttributeType|null $value Value to set for the kerberosSignOnMappingAttributeType property.
     */
-    public function setKerberosSignOnMappingAttributeType(?KerberosSignOnMappingAttributeType $value): void {
+    public function setKerberosSignOnMappingAttributeType(?KerberosSignOnSettings_kerberosSignOnMappingAttributeType $value): void {
         $this->getBackingStore()->set('kerberosSignOnMappingAttributeType', $value);
     }
 

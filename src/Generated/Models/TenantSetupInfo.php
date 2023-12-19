@@ -54,7 +54,7 @@ class TenantSetupInfo extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setRelevantRolesSettings($val);
             },
-            'setupStatus' => fn(ParseNode $n) => $o->setSetupStatus($n->getEnumValue(SetupStatus::class)),
+            'setupStatus' => fn(ParseNode $n) => $o->setSetupStatus($n->getEnumValue(TenantSetupInfo_setupStatus::class)),
             'skipSetup' => fn(ParseNode $n) => $o->setSkipSetup($n->getBooleanValue()),
             'userRolesActions' => fn(ParseNode $n) => $o->setUserRolesActions($n->getStringValue()),
         ]);
@@ -88,11 +88,11 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Gets the setupStatus property value. The setupStatus property
-     * @return SetupStatus|null
+     * @return TenantSetupInfo_setupStatus|null
     */
-    public function getSetupStatus(): ?SetupStatus {
+    public function getSetupStatus(): ?TenantSetupInfo_setupStatus {
         $val = $this->getBackingStore()->get('setupStatus');
-        if (is_null($val) || $val instanceof SetupStatus) {
+        if (is_null($val) || $val instanceof TenantSetupInfo_setupStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'setupStatus'");
@@ -162,9 +162,9 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Sets the setupStatus property value. The setupStatus property
-     * @param SetupStatus|null $value Value to set for the setupStatus property.
+     * @param TenantSetupInfo_setupStatus|null $value Value to set for the setupStatus property.
     */
-    public function setSetupStatus(?SetupStatus $value): void {
+    public function setSetupStatus(?TenantSetupInfo_setupStatus $value): void {
         $this->getBackingStore()->set('setupStatus', $value);
     }
 

@@ -74,6 +74,18 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectionType property value. The connectionType property
+     * @return CloudPcOnPremisesConnection_connectionType|null
+    */
+    public function getConnectionType(): ?CloudPcOnPremisesConnection_connectionType {
+        $val = $this->getBackingStore()->get('connectionType');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnection_connectionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionType'");
+    }
+
+    /**
      * Gets the displayName property value. The display name for the Azure network connection.
      * @return string|null
     */
@@ -96,8 +108,10 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'adDomainPassword' => fn(ParseNode $n) => $o->setAdDomainPassword($n->getStringValue()),
             'adDomainUsername' => fn(ParseNode $n) => $o->setAdDomainUsername($n->getStringValue()),
             'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
+            'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(CloudPcOnPremisesConnection_connectionType::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'healthCheckStatus' => fn(ParseNode $n) => $o->setHealthCheckStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)),
+            'healthCheckStatusDetail' => fn(ParseNode $n) => $o->setHealthCheckStatusDetail($n->getObjectValue([CloudPcOnPremisesConnectionStatusDetail::class, 'createFromDiscriminatorValue'])),
             'healthCheckStatusDetails' => fn(ParseNode $n) => $o->setHealthCheckStatusDetails($n->getObjectValue([CloudPcOnPremisesConnectionStatusDetails::class, 'createFromDiscriminatorValue'])),
             'inUse' => fn(ParseNode $n) => $o->setInUse($n->getBooleanValue()),
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
@@ -114,7 +128,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'subnetId' => fn(ParseNode $n) => $o->setSubnetId($n->getStringValue()),
             'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
             'subscriptionName' => fn(ParseNode $n) => $o->setSubscriptionName($n->getStringValue()),
-            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcOnPremisesConnection_type::class)),
             'virtualNetworkId' => fn(ParseNode $n) => $o->setVirtualNetworkId($n->getStringValue()),
             'virtualNetworkLocation' => fn(ParseNode $n) => $o->setVirtualNetworkLocation($n->getStringValue()),
         ]);
@@ -130,6 +144,18 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'healthCheckStatus'");
+    }
+
+    /**
+     * Gets the healthCheckStatusDetail property value. The healthCheckStatusDetail property
+     * @return CloudPcOnPremisesConnectionStatusDetail|null
+    */
+    public function getHealthCheckStatusDetail(): ?CloudPcOnPremisesConnectionStatusDetail {
+        $val = $this->getBackingStore()->get('healthCheckStatusDetail');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionStatusDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthCheckStatusDetail'");
     }
 
     /**
@@ -244,11 +270,11 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Gets the type property value. Specifies how the provisioned Cloud PC is joined to Microsoft Entra ID. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
-     * @return CloudPcOnPremisesConnectionType|null
+     * @return CloudPcOnPremisesConnection_type|null
     */
-    public function getType(): ?CloudPcOnPremisesConnectionType {
+    public function getType(): ?CloudPcOnPremisesConnection_type {
         $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionType) {
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnection_type) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
@@ -288,8 +314,10 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeStringValue('adDomainPassword', $this->getAdDomainPassword());
         $writer->writeStringValue('adDomainUsername', $this->getAdDomainUsername());
         $writer->writeStringValue('alternateResourceUrl', $this->getAlternateResourceUrl());
+        $writer->writeEnumValue('connectionType', $this->getConnectionType());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('healthCheckStatus', $this->getHealthCheckStatus());
+        $writer->writeObjectValue('healthCheckStatusDetail', $this->getHealthCheckStatusDetail());
         $writer->writeObjectValue('healthCheckStatusDetails', $this->getHealthCheckStatusDetails());
         $writer->writeBooleanValue('inUse', $this->getInUse());
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
@@ -337,6 +365,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Sets the connectionType property value. The connectionType property
+     * @param CloudPcOnPremisesConnection_connectionType|null $value Value to set for the connectionType property.
+    */
+    public function setConnectionType(?CloudPcOnPremisesConnection_connectionType $value): void {
+        $this->getBackingStore()->set('connectionType', $value);
+    }
+
+    /**
      * Sets the displayName property value. The display name for the Azure network connection.
      * @param string|null $value Value to set for the displayName property.
     */
@@ -350,6 +386,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     */
     public function setHealthCheckStatus(?CloudPcOnPremisesConnectionStatus $value): void {
         $this->getBackingStore()->set('healthCheckStatus', $value);
+    }
+
+    /**
+     * Sets the healthCheckStatusDetail property value. The healthCheckStatusDetail property
+     * @param CloudPcOnPremisesConnectionStatusDetail|null $value Value to set for the healthCheckStatusDetail property.
+    */
+    public function setHealthCheckStatusDetail(?CloudPcOnPremisesConnectionStatusDetail $value): void {
+        $this->getBackingStore()->set('healthCheckStatusDetail', $value);
     }
 
     /**
@@ -426,9 +470,9 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the type property value. Specifies how the provisioned Cloud PC is joined to Microsoft Entra ID. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
-     * @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
+     * @param CloudPcOnPremisesConnection_type|null $value Value to set for the type property.
     */
-    public function setType(?CloudPcOnPremisesConnectionType $value): void {
+    public function setType(?CloudPcOnPremisesConnection_type $value): void {
         $this->getBackingStore()->set('type', $value);
     }
 

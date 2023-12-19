@@ -68,11 +68,11 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Gets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. Possible values are: block, wipe, warn.
-     * @return ManagedAppRemediationAction|null
+     * @return WindowsManagedAppProtection_appActionIfUnableToAuthenticateUser|null
     */
-    public function getAppActionIfUnableToAuthenticateUser(): ?ManagedAppRemediationAction {
+    public function getAppActionIfUnableToAuthenticateUser(): ?WindowsManagedAppProtection_appActionIfUnableToAuthenticateUser {
         $val = $this->getBackingStore()->get('appActionIfUnableToAuthenticateUser');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof WindowsManagedAppProtection_appActionIfUnableToAuthenticateUser) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfUnableToAuthenticateUser'");
@@ -128,7 +128,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
             'allowedInboundDataTransferSources' => fn(ParseNode $n) => $o->setAllowedInboundDataTransferSources($n->getEnumValue(WindowsManagedAppDataTransferLevel::class)),
             'allowedOutboundClipboardSharingLevel' => fn(ParseNode $n) => $o->setAllowedOutboundClipboardSharingLevel($n->getEnumValue(WindowsManagedAppClipboardSharingLevel::class)),
             'allowedOutboundDataTransferDestinations' => fn(ParseNode $n) => $o->setAllowedOutboundDataTransferDestinations($n->getEnumValue(WindowsManagedAppDataTransferLevel::class)),
-            'appActionIfUnableToAuthenticateUser' => fn(ParseNode $n) => $o->setAppActionIfUnableToAuthenticateUser($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfUnableToAuthenticateUser' => fn(ParseNode $n) => $o->setAppActionIfUnableToAuthenticateUser($n->getEnumValue(WindowsManagedAppProtection_appActionIfUnableToAuthenticateUser::class)),
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([ManagedMobileApp::class, 'createFromDiscriminatorValue'])),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([TargetedManagedAppPolicyAssignment::class, 'createFromDiscriminatorValue'])),
             'deployedAppCount' => fn(ParseNode $n) => $o->setDeployedAppCount($n->getIntegerValue()),
@@ -414,9 +414,9 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. Possible values are: block, wipe, warn.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
+     * @param WindowsManagedAppProtection_appActionIfUnableToAuthenticateUser|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
     */
-    public function setAppActionIfUnableToAuthenticateUser(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfUnableToAuthenticateUser(?WindowsManagedAppProtection_appActionIfUnableToAuthenticateUser $value): void {
         $this->getBackingStore()->set('appActionIfUnableToAuthenticateUser', $value);
     }
 

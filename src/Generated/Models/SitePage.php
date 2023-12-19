@@ -45,7 +45,7 @@ class SitePage extends BaseSitePage implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'canvasLayout' => fn(ParseNode $n) => $o->setCanvasLayout($n->getObjectValue([CanvasLayout::class, 'createFromDiscriminatorValue'])),
-            'promotionKind' => fn(ParseNode $n) => $o->setPromotionKind($n->getEnumValue(PagePromotionType::class)),
+            'promotionKind' => fn(ParseNode $n) => $o->setPromotionKind($n->getEnumValue(SitePage_promotionKind::class)),
             'reactions' => fn(ParseNode $n) => $o->setReactions($n->getObjectValue([ReactionsFacet::class, 'createFromDiscriminatorValue'])),
             'showComments' => fn(ParseNode $n) => $o->setShowComments($n->getBooleanValue()),
             'showRecommendedPages' => fn(ParseNode $n) => $o->setShowRecommendedPages($n->getBooleanValue()),
@@ -57,11 +57,11 @@ class SitePage extends BaseSitePage implements Parsable
 
     /**
      * Gets the promotionKind property value. Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue.
-     * @return PagePromotionType|null
+     * @return SitePage_promotionKind|null
     */
-    public function getPromotionKind(): ?PagePromotionType {
+    public function getPromotionKind(): ?SitePage_promotionKind {
         $val = $this->getBackingStore()->get('promotionKind');
-        if (is_null($val) || $val instanceof PagePromotionType) {
+        if (is_null($val) || $val instanceof SitePage_promotionKind) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'promotionKind'");
@@ -167,9 +167,9 @@ class SitePage extends BaseSitePage implements Parsable
 
     /**
      * Sets the promotionKind property value. Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue.
-     * @param PagePromotionType|null $value Value to set for the promotionKind property.
+     * @param SitePage_promotionKind|null $value Value to set for the promotionKind property.
     */
-    public function setPromotionKind(?PagePromotionType $value): void {
+    public function setPromotionKind(?SitePage_promotionKind $value): void {
         $this->getBackingStore()->set('promotionKind', $value);
     }
 

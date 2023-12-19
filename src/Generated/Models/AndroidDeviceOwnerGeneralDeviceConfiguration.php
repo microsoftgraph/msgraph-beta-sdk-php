@@ -69,11 +69,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the appsAutoUpdatePolicy property value. Indicates the value of the app auto update policy. Possible values are: notConfigured, userChoice, never, wiFiOnly, always.
-     * @return AndroidDeviceOwnerAppAutoUpdatePolicyType|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_appsAutoUpdatePolicy|null
     */
-    public function getAppsAutoUpdatePolicy(): ?AndroidDeviceOwnerAppAutoUpdatePolicyType {
+    public function getAppsAutoUpdatePolicy(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_appsAutoUpdatePolicy {
         $val = $this->getBackingStore()->get('appsAutoUpdatePolicy');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerAppAutoUpdatePolicyType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_appsAutoUpdatePolicy) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appsAutoUpdatePolicy'");
@@ -81,11 +81,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the appsDefaultPermissionPolicy property value. Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
-     * @return AndroidDeviceOwnerDefaultAppPermissionPolicyType|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_appsDefaultPermissionPolicy|null
     */
-    public function getAppsDefaultPermissionPolicy(): ?AndroidDeviceOwnerDefaultAppPermissionPolicyType {
+    public function getAppsDefaultPermissionPolicy(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_appsDefaultPermissionPolicy {
         $val = $this->getBackingStore()->get('appsDefaultPermissionPolicy');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerDefaultAppPermissionPolicyType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_appsDefaultPermissionPolicy) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appsDefaultPermissionPolicy'");
@@ -191,11 +191,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the crossProfilePoliciesAllowDataSharing property value. Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. Possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.
-     * @return AndroidDeviceOwnerCrossProfileDataSharing|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_crossProfilePoliciesAllowDataSharing|null
     */
-    public function getCrossProfilePoliciesAllowDataSharing(): ?AndroidDeviceOwnerCrossProfileDataSharing {
+    public function getCrossProfilePoliciesAllowDataSharing(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_crossProfilePoliciesAllowDataSharing {
         $val = $this->getBackingStore()->get('crossProfilePoliciesAllowDataSharing');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerCrossProfileDataSharing) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_crossProfilePoliciesAllowDataSharing) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'crossProfilePoliciesAllowDataSharing'");
@@ -251,11 +251,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE)
-     * @return AndroidDeviceOwnerLocationMode|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_deviceLocationMode|null
     */
-    public function getDeviceLocationMode(): ?AndroidDeviceOwnerLocationMode {
+    public function getDeviceLocationMode(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_deviceLocationMode {
         $val = $this->getBackingStore()->get('deviceLocationMode');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerLocationMode) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_deviceLocationMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLocationMode'");
@@ -321,8 +321,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'accountsBlockModification' => fn(ParseNode $n) => $o->setAccountsBlockModification($n->getBooleanValue()),
             'androidDeviceOwnerDelegatedScopeAppSettings' => fn(ParseNode $n) => $o->setAndroidDeviceOwnerDelegatedScopeAppSettings($n->getCollectionOfObjectValues([AndroidDeviceOwnerDelegatedScopeAppSetting::class, 'createFromDiscriminatorValue'])),
             'appsAllowInstallFromUnknownSources' => fn(ParseNode $n) => $o->setAppsAllowInstallFromUnknownSources($n->getBooleanValue()),
-            'appsAutoUpdatePolicy' => fn(ParseNode $n) => $o->setAppsAutoUpdatePolicy($n->getEnumValue(AndroidDeviceOwnerAppAutoUpdatePolicyType::class)),
-            'appsDefaultPermissionPolicy' => fn(ParseNode $n) => $o->setAppsDefaultPermissionPolicy($n->getEnumValue(AndroidDeviceOwnerDefaultAppPermissionPolicyType::class)),
+            'appsAutoUpdatePolicy' => fn(ParseNode $n) => $o->setAppsAutoUpdatePolicy($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_appsAutoUpdatePolicy::class)),
+            'appsDefaultPermissionPolicy' => fn(ParseNode $n) => $o->setAppsDefaultPermissionPolicy($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_appsDefaultPermissionPolicy::class)),
             'appsRecommendSkippingFirstUseHints' => fn(ParseNode $n) => $o->setAppsRecommendSkippingFirstUseHints($n->getBooleanValue()),
             'azureAdSharedDeviceDataClearApps' => fn(ParseNode $n) => $o->setAzureAdSharedDeviceDataClearApps($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
             'bluetoothBlockConfiguration' => fn(ParseNode $n) => $o->setBluetoothBlockConfiguration($n->getBooleanValue()),
@@ -331,12 +331,12 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'cellularBlockWiFiTethering' => fn(ParseNode $n) => $o->setCellularBlockWiFiTethering($n->getBooleanValue()),
             'certificateCredentialConfigurationDisabled' => fn(ParseNode $n) => $o->setCertificateCredentialConfigurationDisabled($n->getBooleanValue()),
             'crossProfilePoliciesAllowCopyPaste' => fn(ParseNode $n) => $o->setCrossProfilePoliciesAllowCopyPaste($n->getBooleanValue()),
-            'crossProfilePoliciesAllowDataSharing' => fn(ParseNode $n) => $o->setCrossProfilePoliciesAllowDataSharing($n->getEnumValue(AndroidDeviceOwnerCrossProfileDataSharing::class)),
+            'crossProfilePoliciesAllowDataSharing' => fn(ParseNode $n) => $o->setCrossProfilePoliciesAllowDataSharing($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_crossProfilePoliciesAllowDataSharing::class)),
             'crossProfilePoliciesShowWorkContactsInPersonalProfile' => fn(ParseNode $n) => $o->setCrossProfilePoliciesShowWorkContactsInPersonalProfile($n->getBooleanValue()),
             'dataRoamingBlocked' => fn(ParseNode $n) => $o->setDataRoamingBlocked($n->getBooleanValue()),
             'dateTimeConfigurationBlocked' => fn(ParseNode $n) => $o->setDateTimeConfigurationBlocked($n->getBooleanValue()),
             'detailedHelpText' => fn(ParseNode $n) => $o->setDetailedHelpText($n->getObjectValue([AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'])),
-            'deviceLocationMode' => fn(ParseNode $n) => $o->setDeviceLocationMode($n->getEnumValue(AndroidDeviceOwnerLocationMode::class)),
+            'deviceLocationMode' => fn(ParseNode $n) => $o->setDeviceLocationMode($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_deviceLocationMode::class)),
             'deviceOwnerLockScreenMessage' => fn(ParseNode $n) => $o->setDeviceOwnerLockScreenMessage($n->getObjectValue([AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'])),
             'enrollmentProfile' => fn(ParseNode $n) => $o->setEnrollmentProfile($n->getEnumValue(AndroidDeviceOwnerEnrollmentProfileType::class)),
             'factoryResetBlocked' => fn(ParseNode $n) => $o->setFactoryResetBlocked($n->getBooleanValue()),
@@ -352,9 +352,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'googleAccountsBlocked' => fn(ParseNode $n) => $o->setGoogleAccountsBlocked($n->getBooleanValue()),
             'kioskCustomizationDeviceSettingsBlocked' => fn(ParseNode $n) => $o->setKioskCustomizationDeviceSettingsBlocked($n->getBooleanValue()),
             'kioskCustomizationPowerButtonActionsBlocked' => fn(ParseNode $n) => $o->setKioskCustomizationPowerButtonActionsBlocked($n->getBooleanValue()),
-            'kioskCustomizationStatusBar' => fn(ParseNode $n) => $o->setKioskCustomizationStatusBar($n->getEnumValue(AndroidDeviceOwnerKioskCustomizationStatusBar::class)),
+            'kioskCustomizationStatusBar' => fn(ParseNode $n) => $o->setKioskCustomizationStatusBar($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationStatusBar::class)),
             'kioskCustomizationSystemErrorWarnings' => fn(ParseNode $n) => $o->setKioskCustomizationSystemErrorWarnings($n->getBooleanValue()),
-            'kioskCustomizationSystemNavigation' => fn(ParseNode $n) => $o->setKioskCustomizationSystemNavigation($n->getEnumValue(AndroidDeviceOwnerKioskCustomizationSystemNavigation::class)),
+            'kioskCustomizationSystemNavigation' => fn(ParseNode $n) => $o->setKioskCustomizationSystemNavigation($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationSystemNavigation::class)),
             'kioskModeAppOrderEnabled' => fn(ParseNode $n) => $o->setKioskModeAppOrderEnabled($n->getBooleanValue()),
             'kioskModeAppPositions' => fn(ParseNode $n) => $o->setKioskModeAppPositions($n->getCollectionOfObjectValues([AndroidDeviceOwnerKioskModeAppPositionItem::class, 'createFromDiscriminatorValue'])),
             'kioskModeApps' => fn(ParseNode $n) => $o->setKioskModeApps($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
@@ -363,16 +363,16 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'kioskModeDebugMenuEasyAccessEnabled' => fn(ParseNode $n) => $o->setKioskModeDebugMenuEasyAccessEnabled($n->getBooleanValue()),
             'kioskModeExitCode' => fn(ParseNode $n) => $o->setKioskModeExitCode($n->getStringValue()),
             'kioskModeFlashlightConfigurationEnabled' => fn(ParseNode $n) => $o->setKioskModeFlashlightConfigurationEnabled($n->getBooleanValue()),
-            'kioskModeFolderIcon' => fn(ParseNode $n) => $o->setKioskModeFolderIcon($n->getEnumValue(AndroidDeviceOwnerKioskModeFolderIcon::class)),
+            'kioskModeFolderIcon' => fn(ParseNode $n) => $o->setKioskModeFolderIcon($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeFolderIcon::class)),
             'kioskModeGridHeight' => fn(ParseNode $n) => $o->setKioskModeGridHeight($n->getIntegerValue()),
             'kioskModeGridWidth' => fn(ParseNode $n) => $o->setKioskModeGridWidth($n->getIntegerValue()),
-            'kioskModeIconSize' => fn(ParseNode $n) => $o->setKioskModeIconSize($n->getEnumValue(AndroidDeviceOwnerKioskModeIconSize::class)),
+            'kioskModeIconSize' => fn(ParseNode $n) => $o->setKioskModeIconSize($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeIconSize::class)),
             'kioskModeLockHomeScreen' => fn(ParseNode $n) => $o->setKioskModeLockHomeScreen($n->getBooleanValue()),
             'kioskModeManagedFolders' => fn(ParseNode $n) => $o->setKioskModeManagedFolders($n->getCollectionOfObjectValues([AndroidDeviceOwnerKioskModeManagedFolder::class, 'createFromDiscriminatorValue'])),
             'kioskModeManagedHomeScreenAutoSignout' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenAutoSignout($n->getBooleanValue()),
             'kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenInactiveSignOutDelayInSeconds($n->getIntegerValue()),
             'kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds($n->getIntegerValue()),
-            'kioskModeManagedHomeScreenPinComplexity' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenPinComplexity($n->getEnumValue(KioskModeManagedHomeScreenPinComplexity::class)),
+            'kioskModeManagedHomeScreenPinComplexity' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenPinComplexity($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeManagedHomeScreenPinComplexity::class)),
             'kioskModeManagedHomeScreenPinRequired' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenPinRequired($n->getBooleanValue()),
             'kioskModeManagedHomeScreenPinRequiredToResume' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenPinRequiredToResume($n->getBooleanValue()),
             'kioskModeManagedHomeScreenSignInBackground' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenSignInBackground($n->getStringValue()),
@@ -380,7 +380,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'kioskModeManagedHomeScreenSignInEnabled' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenSignInEnabled($n->getBooleanValue()),
             'kioskModeManagedSettingsEntryDisabled' => fn(ParseNode $n) => $o->setKioskModeManagedSettingsEntryDisabled($n->getBooleanValue()),
             'kioskModeMediaVolumeConfigurationEnabled' => fn(ParseNode $n) => $o->setKioskModeMediaVolumeConfigurationEnabled($n->getBooleanValue()),
-            'kioskModeScreenOrientation' => fn(ParseNode $n) => $o->setKioskModeScreenOrientation($n->getEnumValue(AndroidDeviceOwnerKioskModeScreenOrientation::class)),
+            'kioskModeScreenOrientation' => fn(ParseNode $n) => $o->setKioskModeScreenOrientation($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeScreenOrientation::class)),
             'kioskModeScreenSaverConfigurationEnabled' => fn(ParseNode $n) => $o->setKioskModeScreenSaverConfigurationEnabled($n->getBooleanValue()),
             'kioskModeScreenSaverDetectMediaDisabled' => fn(ParseNode $n) => $o->setKioskModeScreenSaverDetectMediaDisabled($n->getBooleanValue()),
             'kioskModeScreenSaverDisplayTimeInSeconds' => fn(ParseNode $n) => $o->setKioskModeScreenSaverDisplayTimeInSeconds($n->getIntegerValue()),
@@ -388,9 +388,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'kioskModeScreenSaverStartDelayInSeconds' => fn(ParseNode $n) => $o->setKioskModeScreenSaverStartDelayInSeconds($n->getIntegerValue()),
             'kioskModeShowAppNotificationBadge' => fn(ParseNode $n) => $o->setKioskModeShowAppNotificationBadge($n->getBooleanValue()),
             'kioskModeShowDeviceInfo' => fn(ParseNode $n) => $o->setKioskModeShowDeviceInfo($n->getBooleanValue()),
-            'kioskModeUseManagedHomeScreenApp' => fn(ParseNode $n) => $o->setKioskModeUseManagedHomeScreenApp($n->getEnumValue(KioskModeType::class)),
+            'kioskModeUseManagedHomeScreenApp' => fn(ParseNode $n) => $o->setKioskModeUseManagedHomeScreenApp($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeUseManagedHomeScreenApp::class)),
             'kioskModeVirtualHomeButtonEnabled' => fn(ParseNode $n) => $o->setKioskModeVirtualHomeButtonEnabled($n->getBooleanValue()),
-            'kioskModeVirtualHomeButtonType' => fn(ParseNode $n) => $o->setKioskModeVirtualHomeButtonType($n->getEnumValue(AndroidDeviceOwnerVirtualHomeButtonType::class)),
+            'kioskModeVirtualHomeButtonType' => fn(ParseNode $n) => $o->setKioskModeVirtualHomeButtonType($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeVirtualHomeButtonType::class)),
             'kioskModeWallpaperUrl' => fn(ParseNode $n) => $o->setKioskModeWallpaperUrl($n->getStringValue()),
             'kioskModeWifiAllowedSsids' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -409,10 +409,10 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'microsoftLauncherCustomWallpaperEnabled' => fn(ParseNode $n) => $o->setMicrosoftLauncherCustomWallpaperEnabled($n->getBooleanValue()),
             'microsoftLauncherCustomWallpaperImageUrl' => fn(ParseNode $n) => $o->setMicrosoftLauncherCustomWallpaperImageUrl($n->getStringValue()),
             'microsoftLauncherDockPresenceAllowUserModification' => fn(ParseNode $n) => $o->setMicrosoftLauncherDockPresenceAllowUserModification($n->getBooleanValue()),
-            'microsoftLauncherDockPresenceConfiguration' => fn(ParseNode $n) => $o->setMicrosoftLauncherDockPresenceConfiguration($n->getEnumValue(MicrosoftLauncherDockPresence::class)),
+            'microsoftLauncherDockPresenceConfiguration' => fn(ParseNode $n) => $o->setMicrosoftLauncherDockPresenceConfiguration($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherDockPresenceConfiguration::class)),
             'microsoftLauncherFeedAllowUserModification' => fn(ParseNode $n) => $o->setMicrosoftLauncherFeedAllowUserModification($n->getBooleanValue()),
             'microsoftLauncherFeedEnabled' => fn(ParseNode $n) => $o->setMicrosoftLauncherFeedEnabled($n->getBooleanValue()),
-            'microsoftLauncherSearchBarPlacementConfiguration' => fn(ParseNode $n) => $o->setMicrosoftLauncherSearchBarPlacementConfiguration($n->getEnumValue(MicrosoftLauncherSearchBarPlacement::class)),
+            'microsoftLauncherSearchBarPlacementConfiguration' => fn(ParseNode $n) => $o->setMicrosoftLauncherSearchBarPlacementConfiguration($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherSearchBarPlacementConfiguration::class)),
             'networkEscapeHatchAllowed' => fn(ParseNode $n) => $o->setNetworkEscapeHatchAllowed($n->getBooleanValue()),
             'nfcBlockOutgoingBeam' => fn(ParseNode $n) => $o->setNfcBlockOutgoingBeam($n->getBooleanValue()),
             'passwordBlockKeyguard' => fn(ParseNode $n) => $o->setPasswordBlockKeyguard($n->getBooleanValue()),
@@ -427,15 +427,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'passwordMinimumUpperCaseCharacters' => fn(ParseNode $n) => $o->setPasswordMinimumUpperCaseCharacters($n->getIntegerValue()),
             'passwordMinutesOfInactivityBeforeScreenTimeout' => fn(ParseNode $n) => $o->setPasswordMinutesOfInactivityBeforeScreenTimeout($n->getIntegerValue()),
             'passwordPreviousPasswordCountToBlock' => fn(ParseNode $n) => $o->setPasswordPreviousPasswordCountToBlock($n->getIntegerValue()),
-            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
-            'passwordRequireUnlock' => fn(ParseNode $n) => $o->setPasswordRequireUnlock($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordUnlock::class)),
+            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequiredType::class)),
+            'passwordRequireUnlock' => fn(ParseNode $n) => $o->setPasswordRequireUnlock($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequireUnlock::class)),
             'passwordSignInFailureCountBeforeFactoryReset' => fn(ParseNode $n) => $o->setPasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()),
             'personalProfileAppsAllowInstallFromUnknownSources' => fn(ParseNode $n) => $o->setPersonalProfileAppsAllowInstallFromUnknownSources($n->getBooleanValue()),
             'personalProfileCameraBlocked' => fn(ParseNode $n) => $o->setPersonalProfileCameraBlocked($n->getBooleanValue()),
             'personalProfilePersonalApplications' => fn(ParseNode $n) => $o->setPersonalProfilePersonalApplications($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
-            'personalProfilePlayStoreMode' => fn(ParseNode $n) => $o->setPersonalProfilePlayStoreMode($n->getEnumValue(PersonalProfilePersonalPlayStoreMode::class)),
+            'personalProfilePlayStoreMode' => fn(ParseNode $n) => $o->setPersonalProfilePlayStoreMode($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_personalProfilePlayStoreMode::class)),
             'personalProfileScreenCaptureBlocked' => fn(ParseNode $n) => $o->setPersonalProfileScreenCaptureBlocked($n->getBooleanValue()),
-            'playStoreMode' => fn(ParseNode $n) => $o->setPlayStoreMode($n->getEnumValue(AndroidDeviceOwnerPlayStoreMode::class)),
+            'playStoreMode' => fn(ParseNode $n) => $o->setPlayStoreMode($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_playStoreMode::class)),
             'screenCaptureBlocked' => fn(ParseNode $n) => $o->setScreenCaptureBlocked($n->getBooleanValue()),
             'securityCommonCriteriaModeEnabled' => fn(ParseNode $n) => $o->setSecurityCommonCriteriaModeEnabled($n->getBooleanValue()),
             'securityDeveloperSettingsEnabled' => fn(ParseNode $n) => $o->setSecurityDeveloperSettingsEnabled($n->getBooleanValue()),
@@ -448,7 +448,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'storageBlockExternalMedia' => fn(ParseNode $n) => $o->setStorageBlockExternalMedia($n->getBooleanValue()),
             'storageBlockUsbFileTransfer' => fn(ParseNode $n) => $o->setStorageBlockUsbFileTransfer($n->getBooleanValue()),
             'systemUpdateFreezePeriods' => fn(ParseNode $n) => $o->setSystemUpdateFreezePeriods($n->getCollectionOfObjectValues([AndroidDeviceOwnerSystemUpdateFreezePeriod::class, 'createFromDiscriminatorValue'])),
-            'systemUpdateInstallType' => fn(ParseNode $n) => $o->setSystemUpdateInstallType($n->getEnumValue(AndroidDeviceOwnerSystemUpdateInstallType::class)),
+            'systemUpdateInstallType' => fn(ParseNode $n) => $o->setSystemUpdateInstallType($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_systemUpdateInstallType::class)),
             'systemUpdateWindowEndMinutesAfterMidnight' => fn(ParseNode $n) => $o->setSystemUpdateWindowEndMinutesAfterMidnight($n->getIntegerValue()),
             'systemUpdateWindowStartMinutesAfterMidnight' => fn(ParseNode $n) => $o->setSystemUpdateWindowStartMinutesAfterMidnight($n->getIntegerValue()),
             'systemWindowsBlocked' => fn(ParseNode $n) => $o->setSystemWindowsBlocked($n->getBooleanValue()),
@@ -468,8 +468,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'workProfilePasswordMinimumSymbolCharacters' => fn(ParseNode $n) => $o->setWorkProfilePasswordMinimumSymbolCharacters($n->getIntegerValue()),
             'workProfilePasswordMinimumUpperCaseCharacters' => fn(ParseNode $n) => $o->setWorkProfilePasswordMinimumUpperCaseCharacters($n->getIntegerValue()),
             'workProfilePasswordPreviousPasswordCountToBlock' => fn(ParseNode $n) => $o->setWorkProfilePasswordPreviousPasswordCountToBlock($n->getIntegerValue()),
-            'workProfilePasswordRequiredType' => fn(ParseNode $n) => $o->setWorkProfilePasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
-            'workProfilePasswordRequireUnlock' => fn(ParseNode $n) => $o->setWorkProfilePasswordRequireUnlock($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordUnlock::class)),
+            'workProfilePasswordRequiredType' => fn(ParseNode $n) => $o->setWorkProfilePasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequiredType::class)),
+            'workProfilePasswordRequireUnlock' => fn(ParseNode $n) => $o->setWorkProfilePasswordRequireUnlock($n->getEnumValue(AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequireUnlock::class)),
             'workProfilePasswordSignInFailureCountBeforeFactoryReset' => fn(ParseNode $n) => $o->setWorkProfilePasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()),
         ]);
     }
@@ -524,11 +524,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskCustomizationStatusBar property value. Indicates whether system info and notifications are disabled in Kiosk Mode. Possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.
-     * @return AndroidDeviceOwnerKioskCustomizationStatusBar|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationStatusBar|null
     */
-    public function getKioskCustomizationStatusBar(): ?AndroidDeviceOwnerKioskCustomizationStatusBar {
+    public function getKioskCustomizationStatusBar(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationStatusBar {
         $val = $this->getBackingStore()->get('kioskCustomizationStatusBar');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskCustomizationStatusBar) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationStatusBar) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskCustomizationStatusBar'");
@@ -548,11 +548,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskCustomizationSystemNavigation property value. Indicates which navigation features are enabled in Kiosk Mode. Possible values are: notConfigured, navigationEnabled, homeButtonOnly.
-     * @return AndroidDeviceOwnerKioskCustomizationSystemNavigation|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationSystemNavigation|null
     */
-    public function getKioskCustomizationSystemNavigation(): ?AndroidDeviceOwnerKioskCustomizationSystemNavigation {
+    public function getKioskCustomizationSystemNavigation(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationSystemNavigation {
         $val = $this->getBackingStore()->get('kioskCustomizationSystemNavigation');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskCustomizationSystemNavigation) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationSystemNavigation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskCustomizationSystemNavigation'");
@@ -660,11 +660,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskModeFolderIcon property value. Folder icon configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.
-     * @return AndroidDeviceOwnerKioskModeFolderIcon|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeFolderIcon|null
     */
-    public function getKioskModeFolderIcon(): ?AndroidDeviceOwnerKioskModeFolderIcon {
+    public function getKioskModeFolderIcon(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeFolderIcon {
         $val = $this->getBackingStore()->get('kioskModeFolderIcon');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskModeFolderIcon) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeFolderIcon) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeFolderIcon'");
@@ -696,11 +696,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskModeIconSize property value. Icon size configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, smallest, small, regular, large, largest.
-     * @return AndroidDeviceOwnerKioskModeIconSize|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeIconSize|null
     */
-    public function getKioskModeIconSize(): ?AndroidDeviceOwnerKioskModeIconSize {
+    public function getKioskModeIconSize(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeIconSize {
         $val = $this->getBackingStore()->get('kioskModeIconSize');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskModeIconSize) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeIconSize) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeIconSize'");
@@ -770,11 +770,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskModeManagedHomeScreenPinComplexity property value. Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.
-     * @return KioskModeManagedHomeScreenPinComplexity|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeManagedHomeScreenPinComplexity|null
     */
-    public function getKioskModeManagedHomeScreenPinComplexity(): ?KioskModeManagedHomeScreenPinComplexity {
+    public function getKioskModeManagedHomeScreenPinComplexity(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeManagedHomeScreenPinComplexity {
         $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenPinComplexity');
-        if (is_null($val) || $val instanceof KioskModeManagedHomeScreenPinComplexity) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeManagedHomeScreenPinComplexity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenPinComplexity'");
@@ -866,11 +866,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskModeScreenOrientation property value. Screen orientation configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, portrait, landscape, autoRotate.
-     * @return AndroidDeviceOwnerKioskModeScreenOrientation|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeScreenOrientation|null
     */
-    public function getKioskModeScreenOrientation(): ?AndroidDeviceOwnerKioskModeScreenOrientation {
+    public function getKioskModeScreenOrientation(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeScreenOrientation {
         $val = $this->getBackingStore()->get('kioskModeScreenOrientation');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerKioskModeScreenOrientation) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeScreenOrientation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeScreenOrientation'");
@@ -962,11 +962,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskModeUseManagedHomeScreenApp property value. Whether or not to use single app kiosk mode or multi-app kiosk mode. Possible values are: notConfigured, singleAppMode, multiAppMode.
-     * @return KioskModeType|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeUseManagedHomeScreenApp|null
     */
-    public function getKioskModeUseManagedHomeScreenApp(): ?KioskModeType {
+    public function getKioskModeUseManagedHomeScreenApp(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeUseManagedHomeScreenApp {
         $val = $this->getBackingStore()->get('kioskModeUseManagedHomeScreenApp');
-        if (is_null($val) || $val instanceof KioskModeType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeUseManagedHomeScreenApp) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeUseManagedHomeScreenApp'");
@@ -986,11 +986,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the kioskModeVirtualHomeButtonType property value. Indicates whether the virtual home button is a swipe up home button or a floating home button. Possible values are: notConfigured, swipeUp, floating.
-     * @return AndroidDeviceOwnerVirtualHomeButtonType|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeVirtualHomeButtonType|null
     */
-    public function getKioskModeVirtualHomeButtonType(): ?AndroidDeviceOwnerVirtualHomeButtonType {
+    public function getKioskModeVirtualHomeButtonType(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeVirtualHomeButtonType {
         $val = $this->getBackingStore()->get('kioskModeVirtualHomeButtonType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerVirtualHomeButtonType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeVirtualHomeButtonType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeVirtualHomeButtonType'");
@@ -1132,11 +1132,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the microsoftLauncherDockPresenceConfiguration property value. Indicates whether or not you want to configure the device dock. Possible values are: notConfigured, show, hide, disabled.
-     * @return MicrosoftLauncherDockPresence|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherDockPresenceConfiguration|null
     */
-    public function getMicrosoftLauncherDockPresenceConfiguration(): ?MicrosoftLauncherDockPresence {
+    public function getMicrosoftLauncherDockPresenceConfiguration(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherDockPresenceConfiguration {
         $val = $this->getBackingStore()->get('microsoftLauncherDockPresenceConfiguration');
-        if (is_null($val) || $val instanceof MicrosoftLauncherDockPresence) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherDockPresenceConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherDockPresenceConfiguration'");
@@ -1168,11 +1168,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the microsoftLauncherSearchBarPlacementConfiguration property value. Indicates the search bar placement configuration on the device. Possible values are: notConfigured, top, bottom, hide.
-     * @return MicrosoftLauncherSearchBarPlacement|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherSearchBarPlacementConfiguration|null
     */
-    public function getMicrosoftLauncherSearchBarPlacementConfiguration(): ?MicrosoftLauncherSearchBarPlacement {
+    public function getMicrosoftLauncherSearchBarPlacementConfiguration(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherSearchBarPlacementConfiguration {
         $val = $this->getBackingStore()->get('microsoftLauncherSearchBarPlacementConfiguration');
-        if (is_null($val) || $val instanceof MicrosoftLauncherSearchBarPlacement) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherSearchBarPlacementConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftLauncherSearchBarPlacementConfiguration'");
@@ -1350,11 +1350,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @return AndroidDeviceOwnerRequiredPasswordType|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequiredType|null
     */
-    public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
+    public function getPasswordRequiredType(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequiredType {
         $val = $this->getBackingStore()->get('passwordRequiredType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequiredType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequiredType'");
@@ -1362,11 +1362,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the passwordRequireUnlock property value. Indicates the timeout period after which a device must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
-     * @return AndroidDeviceOwnerRequiredPasswordUnlock|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequireUnlock|null
     */
-    public function getPasswordRequireUnlock(): ?AndroidDeviceOwnerRequiredPasswordUnlock {
+    public function getPasswordRequireUnlock(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequireUnlock {
         $val = $this->getBackingStore()->get('passwordRequireUnlock');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordUnlock) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequireUnlock) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordRequireUnlock'");
@@ -1424,11 +1424,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the personalProfilePlayStoreMode property value. Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. Possible values are: notConfigured, blockedApps, allowedApps.
-     * @return PersonalProfilePersonalPlayStoreMode|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_personalProfilePlayStoreMode|null
     */
-    public function getPersonalProfilePlayStoreMode(): ?PersonalProfilePersonalPlayStoreMode {
+    public function getPersonalProfilePlayStoreMode(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_personalProfilePlayStoreMode {
         $val = $this->getBackingStore()->get('personalProfilePlayStoreMode');
-        if (is_null($val) || $val instanceof PersonalProfilePersonalPlayStoreMode) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_personalProfilePlayStoreMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'personalProfilePlayStoreMode'");
@@ -1448,11 +1448,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the playStoreMode property value. Indicates the Play Store mode of the device. Possible values are: notConfigured, allowList, blockList.
-     * @return AndroidDeviceOwnerPlayStoreMode|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_playStoreMode|null
     */
-    public function getPlayStoreMode(): ?AndroidDeviceOwnerPlayStoreMode {
+    public function getPlayStoreMode(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_playStoreMode {
         $val = $this->getBackingStore()->get('playStoreMode');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerPlayStoreMode) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_playStoreMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'playStoreMode'");
@@ -1608,11 +1608,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the systemUpdateInstallType property value. The type of system update configuration. Possible values are: deviceDefault, postpone, windowed, automatic.
-     * @return AndroidDeviceOwnerSystemUpdateInstallType|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_systemUpdateInstallType|null
     */
-    public function getSystemUpdateInstallType(): ?AndroidDeviceOwnerSystemUpdateInstallType {
+    public function getSystemUpdateInstallType(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_systemUpdateInstallType {
         $val = $this->getBackingStore()->get('systemUpdateInstallType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerSystemUpdateInstallType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_systemUpdateInstallType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'systemUpdateInstallType'");
@@ -1848,11 +1848,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the workProfilePasswordRequiredType property value. Indicates the minimum password quality required on the work profile password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @return AndroidDeviceOwnerRequiredPasswordType|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequiredType|null
     */
-    public function getWorkProfilePasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
+    public function getWorkProfilePasswordRequiredType(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequiredType {
         $val = $this->getBackingStore()->get('workProfilePasswordRequiredType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequiredType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordRequiredType'");
@@ -1860,11 +1860,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the workProfilePasswordRequireUnlock property value. Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
-     * @return AndroidDeviceOwnerRequiredPasswordUnlock|null
+     * @return AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequireUnlock|null
     */
-    public function getWorkProfilePasswordRequireUnlock(): ?AndroidDeviceOwnerRequiredPasswordUnlock {
+    public function getWorkProfilePasswordRequireUnlock(): ?AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequireUnlock {
         $val = $this->getBackingStore()->get('workProfilePasswordRequireUnlock');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerRequiredPasswordUnlock) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequireUnlock) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordRequireUnlock'");
@@ -2055,17 +2055,17 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the appsAutoUpdatePolicy property value. Indicates the value of the app auto update policy. Possible values are: notConfigured, userChoice, never, wiFiOnly, always.
-     * @param AndroidDeviceOwnerAppAutoUpdatePolicyType|null $value Value to set for the appsAutoUpdatePolicy property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_appsAutoUpdatePolicy|null $value Value to set for the appsAutoUpdatePolicy property.
     */
-    public function setAppsAutoUpdatePolicy(?AndroidDeviceOwnerAppAutoUpdatePolicyType $value): void {
+    public function setAppsAutoUpdatePolicy(?AndroidDeviceOwnerGeneralDeviceConfiguration_appsAutoUpdatePolicy $value): void {
         $this->getBackingStore()->set('appsAutoUpdatePolicy', $value);
     }
 
     /**
      * Sets the appsDefaultPermissionPolicy property value. Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
-     * @param AndroidDeviceOwnerDefaultAppPermissionPolicyType|null $value Value to set for the appsDefaultPermissionPolicy property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_appsDefaultPermissionPolicy|null $value Value to set for the appsDefaultPermissionPolicy property.
     */
-    public function setAppsDefaultPermissionPolicy(?AndroidDeviceOwnerDefaultAppPermissionPolicyType $value): void {
+    public function setAppsDefaultPermissionPolicy(?AndroidDeviceOwnerGeneralDeviceConfiguration_appsDefaultPermissionPolicy $value): void {
         $this->getBackingStore()->set('appsDefaultPermissionPolicy', $value);
     }
 
@@ -2135,9 +2135,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the crossProfilePoliciesAllowDataSharing property value. Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. Possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.
-     * @param AndroidDeviceOwnerCrossProfileDataSharing|null $value Value to set for the crossProfilePoliciesAllowDataSharing property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_crossProfilePoliciesAllowDataSharing|null $value Value to set for the crossProfilePoliciesAllowDataSharing property.
     */
-    public function setCrossProfilePoliciesAllowDataSharing(?AndroidDeviceOwnerCrossProfileDataSharing $value): void {
+    public function setCrossProfilePoliciesAllowDataSharing(?AndroidDeviceOwnerGeneralDeviceConfiguration_crossProfilePoliciesAllowDataSharing $value): void {
         $this->getBackingStore()->set('crossProfilePoliciesAllowDataSharing', $value);
     }
 
@@ -2175,9 +2175,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE)
-     * @param AndroidDeviceOwnerLocationMode|null $value Value to set for the deviceLocationMode property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_deviceLocationMode|null $value Value to set for the deviceLocationMode property.
     */
-    public function setDeviceLocationMode(?AndroidDeviceOwnerLocationMode $value): void {
+    public function setDeviceLocationMode(?AndroidDeviceOwnerGeneralDeviceConfiguration_deviceLocationMode $value): void {
         $this->getBackingStore()->set('deviceLocationMode', $value);
     }
 
@@ -2247,9 +2247,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskCustomizationStatusBar property value. Indicates whether system info and notifications are disabled in Kiosk Mode. Possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.
-     * @param AndroidDeviceOwnerKioskCustomizationStatusBar|null $value Value to set for the kioskCustomizationStatusBar property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationStatusBar|null $value Value to set for the kioskCustomizationStatusBar property.
     */
-    public function setKioskCustomizationStatusBar(?AndroidDeviceOwnerKioskCustomizationStatusBar $value): void {
+    public function setKioskCustomizationStatusBar(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationStatusBar $value): void {
         $this->getBackingStore()->set('kioskCustomizationStatusBar', $value);
     }
 
@@ -2263,9 +2263,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskCustomizationSystemNavigation property value. Indicates which navigation features are enabled in Kiosk Mode. Possible values are: notConfigured, navigationEnabled, homeButtonOnly.
-     * @param AndroidDeviceOwnerKioskCustomizationSystemNavigation|null $value Value to set for the kioskCustomizationSystemNavigation property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationSystemNavigation|null $value Value to set for the kioskCustomizationSystemNavigation property.
     */
-    public function setKioskCustomizationSystemNavigation(?AndroidDeviceOwnerKioskCustomizationSystemNavigation $value): void {
+    public function setKioskCustomizationSystemNavigation(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskCustomizationSystemNavigation $value): void {
         $this->getBackingStore()->set('kioskCustomizationSystemNavigation', $value);
     }
 
@@ -2335,9 +2335,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeFolderIcon property value. Folder icon configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.
-     * @param AndroidDeviceOwnerKioskModeFolderIcon|null $value Value to set for the kioskModeFolderIcon property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeFolderIcon|null $value Value to set for the kioskModeFolderIcon property.
     */
-    public function setKioskModeFolderIcon(?AndroidDeviceOwnerKioskModeFolderIcon $value): void {
+    public function setKioskModeFolderIcon(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeFolderIcon $value): void {
         $this->getBackingStore()->set('kioskModeFolderIcon', $value);
     }
 
@@ -2359,9 +2359,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeIconSize property value. Icon size configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, smallest, small, regular, large, largest.
-     * @param AndroidDeviceOwnerKioskModeIconSize|null $value Value to set for the kioskModeIconSize property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeIconSize|null $value Value to set for the kioskModeIconSize property.
     */
-    public function setKioskModeIconSize(?AndroidDeviceOwnerKioskModeIconSize $value): void {
+    public function setKioskModeIconSize(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeIconSize $value): void {
         $this->getBackingStore()->set('kioskModeIconSize', $value);
     }
 
@@ -2407,9 +2407,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenPinComplexity property value. Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.
-     * @param KioskModeManagedHomeScreenPinComplexity|null $value Value to set for the kioskModeManagedHomeScreenPinComplexity property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeManagedHomeScreenPinComplexity|null $value Value to set for the kioskModeManagedHomeScreenPinComplexity property.
     */
-    public function setKioskModeManagedHomeScreenPinComplexity(?KioskModeManagedHomeScreenPinComplexity $value): void {
+    public function setKioskModeManagedHomeScreenPinComplexity(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeManagedHomeScreenPinComplexity $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenPinComplexity', $value);
     }
 
@@ -2471,9 +2471,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeScreenOrientation property value. Screen orientation configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, portrait, landscape, autoRotate.
-     * @param AndroidDeviceOwnerKioskModeScreenOrientation|null $value Value to set for the kioskModeScreenOrientation property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeScreenOrientation|null $value Value to set for the kioskModeScreenOrientation property.
     */
-    public function setKioskModeScreenOrientation(?AndroidDeviceOwnerKioskModeScreenOrientation $value): void {
+    public function setKioskModeScreenOrientation(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeScreenOrientation $value): void {
         $this->getBackingStore()->set('kioskModeScreenOrientation', $value);
     }
 
@@ -2535,9 +2535,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeUseManagedHomeScreenApp property value. Whether or not to use single app kiosk mode or multi-app kiosk mode. Possible values are: notConfigured, singleAppMode, multiAppMode.
-     * @param KioskModeType|null $value Value to set for the kioskModeUseManagedHomeScreenApp property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeUseManagedHomeScreenApp|null $value Value to set for the kioskModeUseManagedHomeScreenApp property.
     */
-    public function setKioskModeUseManagedHomeScreenApp(?KioskModeType $value): void {
+    public function setKioskModeUseManagedHomeScreenApp(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeUseManagedHomeScreenApp $value): void {
         $this->getBackingStore()->set('kioskModeUseManagedHomeScreenApp', $value);
     }
 
@@ -2551,9 +2551,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeVirtualHomeButtonType property value. Indicates whether the virtual home button is a swipe up home button or a floating home button. Possible values are: notConfigured, swipeUp, floating.
-     * @param AndroidDeviceOwnerVirtualHomeButtonType|null $value Value to set for the kioskModeVirtualHomeButtonType property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeVirtualHomeButtonType|null $value Value to set for the kioskModeVirtualHomeButtonType property.
     */
-    public function setKioskModeVirtualHomeButtonType(?AndroidDeviceOwnerVirtualHomeButtonType $value): void {
+    public function setKioskModeVirtualHomeButtonType(?AndroidDeviceOwnerGeneralDeviceConfiguration_kioskModeVirtualHomeButtonType $value): void {
         $this->getBackingStore()->set('kioskModeVirtualHomeButtonType', $value);
     }
 
@@ -2647,9 +2647,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherDockPresenceConfiguration property value. Indicates whether or not you want to configure the device dock. Possible values are: notConfigured, show, hide, disabled.
-     * @param MicrosoftLauncherDockPresence|null $value Value to set for the microsoftLauncherDockPresenceConfiguration property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherDockPresenceConfiguration|null $value Value to set for the microsoftLauncherDockPresenceConfiguration property.
     */
-    public function setMicrosoftLauncherDockPresenceConfiguration(?MicrosoftLauncherDockPresence $value): void {
+    public function setMicrosoftLauncherDockPresenceConfiguration(?AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherDockPresenceConfiguration $value): void {
         $this->getBackingStore()->set('microsoftLauncherDockPresenceConfiguration', $value);
     }
 
@@ -2671,9 +2671,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherSearchBarPlacementConfiguration property value. Indicates the search bar placement configuration on the device. Possible values are: notConfigured, top, bottom, hide.
-     * @param MicrosoftLauncherSearchBarPlacement|null $value Value to set for the microsoftLauncherSearchBarPlacementConfiguration property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherSearchBarPlacementConfiguration|null $value Value to set for the microsoftLauncherSearchBarPlacementConfiguration property.
     */
-    public function setMicrosoftLauncherSearchBarPlacementConfiguration(?MicrosoftLauncherSearchBarPlacement $value): void {
+    public function setMicrosoftLauncherSearchBarPlacementConfiguration(?AndroidDeviceOwnerGeneralDeviceConfiguration_microsoftLauncherSearchBarPlacementConfiguration $value): void {
         $this->getBackingStore()->set('microsoftLauncherSearchBarPlacementConfiguration', $value);
     }
 
@@ -2791,17 +2791,17 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequiredType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
+    public function setPasswordRequiredType(?AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequiredType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 
     /**
      * Sets the passwordRequireUnlock property value. Indicates the timeout period after which a device must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
-     * @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the passwordRequireUnlock property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequireUnlock|null $value Value to set for the passwordRequireUnlock property.
     */
-    public function setPasswordRequireUnlock(?AndroidDeviceOwnerRequiredPasswordUnlock $value): void {
+    public function setPasswordRequireUnlock(?AndroidDeviceOwnerGeneralDeviceConfiguration_passwordRequireUnlock $value): void {
         $this->getBackingStore()->set('passwordRequireUnlock', $value);
     }
 
@@ -2839,9 +2839,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the personalProfilePlayStoreMode property value. Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. Possible values are: notConfigured, blockedApps, allowedApps.
-     * @param PersonalProfilePersonalPlayStoreMode|null $value Value to set for the personalProfilePlayStoreMode property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_personalProfilePlayStoreMode|null $value Value to set for the personalProfilePlayStoreMode property.
     */
-    public function setPersonalProfilePlayStoreMode(?PersonalProfilePersonalPlayStoreMode $value): void {
+    public function setPersonalProfilePlayStoreMode(?AndroidDeviceOwnerGeneralDeviceConfiguration_personalProfilePlayStoreMode $value): void {
         $this->getBackingStore()->set('personalProfilePlayStoreMode', $value);
     }
 
@@ -2855,9 +2855,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the playStoreMode property value. Indicates the Play Store mode of the device. Possible values are: notConfigured, allowList, blockList.
-     * @param AndroidDeviceOwnerPlayStoreMode|null $value Value to set for the playStoreMode property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_playStoreMode|null $value Value to set for the playStoreMode property.
     */
-    public function setPlayStoreMode(?AndroidDeviceOwnerPlayStoreMode $value): void {
+    public function setPlayStoreMode(?AndroidDeviceOwnerGeneralDeviceConfiguration_playStoreMode $value): void {
         $this->getBackingStore()->set('playStoreMode', $value);
     }
 
@@ -2959,9 +2959,9 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the systemUpdateInstallType property value. The type of system update configuration. Possible values are: deviceDefault, postpone, windowed, automatic.
-     * @param AndroidDeviceOwnerSystemUpdateInstallType|null $value Value to set for the systemUpdateInstallType property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_systemUpdateInstallType|null $value Value to set for the systemUpdateInstallType property.
     */
-    public function setSystemUpdateInstallType(?AndroidDeviceOwnerSystemUpdateInstallType $value): void {
+    public function setSystemUpdateInstallType(?AndroidDeviceOwnerGeneralDeviceConfiguration_systemUpdateInstallType $value): void {
         $this->getBackingStore()->set('systemUpdateInstallType', $value);
     }
 
@@ -3119,17 +3119,17 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordRequiredType property value. Indicates the minimum password quality required on the work profile password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequiredType|null $value Value to set for the workProfilePasswordRequiredType property.
     */
-    public function setWorkProfilePasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
+    public function setWorkProfilePasswordRequiredType(?AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequiredType $value): void {
         $this->getBackingStore()->set('workProfilePasswordRequiredType', $value);
     }
 
     /**
      * Sets the workProfilePasswordRequireUnlock property value. Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
-     * @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the workProfilePasswordRequireUnlock property.
+     * @param AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequireUnlock|null $value Value to set for the workProfilePasswordRequireUnlock property.
     */
-    public function setWorkProfilePasswordRequireUnlock(?AndroidDeviceOwnerRequiredPasswordUnlock $value): void {
+    public function setWorkProfilePasswordRequireUnlock(?AndroidDeviceOwnerGeneralDeviceConfiguration_workProfilePasswordRequireUnlock $value): void {
         $this->getBackingStore()->set('workProfilePasswordRequireUnlock', $value);
     }
 

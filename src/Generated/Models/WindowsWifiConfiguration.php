@@ -82,15 +82,15 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
             'connectToPreferredNetwork' => fn(ParseNode $n) => $o->setConnectToPreferredNetwork($n->getBooleanValue()),
             'connectWhenNetworkNameIsHidden' => fn(ParseNode $n) => $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()),
             'forceFIPSCompliance' => fn(ParseNode $n) => $o->setForceFIPSCompliance($n->getBooleanValue()),
-            'meteredConnectionLimit' => fn(ParseNode $n) => $o->setMeteredConnectionLimit($n->getEnumValue(MeteredConnectionLimitType::class)),
+            'meteredConnectionLimit' => fn(ParseNode $n) => $o->setMeteredConnectionLimit($n->getEnumValue(WindowsWifiConfiguration_meteredConnectionLimit::class)),
             'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
             'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
             'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
             'proxyManualAddress' => fn(ParseNode $n) => $o->setProxyManualAddress($n->getStringValue()),
             'proxyManualPort' => fn(ParseNode $n) => $o->setProxyManualPort($n->getIntegerValue()),
-            'proxySetting' => fn(ParseNode $n) => $o->setProxySetting($n->getEnumValue(WiFiProxySetting::class)),
+            'proxySetting' => fn(ParseNode $n) => $o->setProxySetting($n->getEnumValue(WindowsWifiConfiguration_proxySetting::class)),
             'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
-            'wifiSecurityType' => fn(ParseNode $n) => $o->setWifiSecurityType($n->getEnumValue(WiFiSecurityType::class)),
+            'wifiSecurityType' => fn(ParseNode $n) => $o->setWifiSecurityType($n->getEnumValue(WindowsWifiConfiguration_wifiSecurityType::class)),
         ]);
     }
 
@@ -108,11 +108,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Gets the meteredConnectionLimit property value. Specify the metered connection limit type for the wifi connection. Possible values are: unrestricted, fixed, variable.
-     * @return MeteredConnectionLimitType|null
+     * @return WindowsWifiConfiguration_meteredConnectionLimit|null
     */
-    public function getMeteredConnectionLimit(): ?MeteredConnectionLimitType {
+    public function getMeteredConnectionLimit(): ?WindowsWifiConfiguration_meteredConnectionLimit {
         $val = $this->getBackingStore()->get('meteredConnectionLimit');
-        if (is_null($val) || $val instanceof MeteredConnectionLimitType) {
+        if (is_null($val) || $val instanceof WindowsWifiConfiguration_meteredConnectionLimit) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'meteredConnectionLimit'");
@@ -180,11 +180,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Gets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic.
-     * @return WiFiProxySetting|null
+     * @return WindowsWifiConfiguration_proxySetting|null
     */
-    public function getProxySetting(): ?WiFiProxySetting {
+    public function getProxySetting(): ?WindowsWifiConfiguration_proxySetting {
         $val = $this->getBackingStore()->get('proxySetting');
-        if (is_null($val) || $val instanceof WiFiProxySetting) {
+        if (is_null($val) || $val instanceof WindowsWifiConfiguration_proxySetting) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'proxySetting'");
@@ -204,11 +204,11 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Gets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
-     * @return WiFiSecurityType|null
+     * @return WindowsWifiConfiguration_wifiSecurityType|null
     */
-    public function getWifiSecurityType(): ?WiFiSecurityType {
+    public function getWifiSecurityType(): ?WindowsWifiConfiguration_wifiSecurityType {
         $val = $this->getBackingStore()->get('wifiSecurityType');
-        if (is_null($val) || $val instanceof WiFiSecurityType) {
+        if (is_null($val) || $val instanceof WindowsWifiConfiguration_wifiSecurityType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiSecurityType'");
@@ -269,9 +269,9 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the meteredConnectionLimit property value. Specify the metered connection limit type for the wifi connection. Possible values are: unrestricted, fixed, variable.
-     * @param MeteredConnectionLimitType|null $value Value to set for the meteredConnectionLimit property.
+     * @param WindowsWifiConfiguration_meteredConnectionLimit|null $value Value to set for the meteredConnectionLimit property.
     */
-    public function setMeteredConnectionLimit(?MeteredConnectionLimitType $value): void {
+    public function setMeteredConnectionLimit(?WindowsWifiConfiguration_meteredConnectionLimit $value): void {
         $this->getBackingStore()->set('meteredConnectionLimit', $value);
     }
 
@@ -317,9 +317,9 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic.
-     * @param WiFiProxySetting|null $value Value to set for the proxySetting property.
+     * @param WindowsWifiConfiguration_proxySetting|null $value Value to set for the proxySetting property.
     */
-    public function setProxySetting(?WiFiProxySetting $value): void {
+    public function setProxySetting(?WindowsWifiConfiguration_proxySetting $value): void {
         $this->getBackingStore()->set('proxySetting', $value);
     }
 
@@ -333,9 +333,9 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
-     * @param WiFiSecurityType|null $value Value to set for the wifiSecurityType property.
+     * @param WindowsWifiConfiguration_wifiSecurityType|null $value Value to set for the wifiSecurityType property.
     */
-    public function setWifiSecurityType(?WiFiSecurityType $value): void {
+    public function setWifiSecurityType(?WindowsWifiConfiguration_wifiSecurityType $value): void {
         $this->getBackingStore()->set('wifiSecurityType', $value);
     }
 

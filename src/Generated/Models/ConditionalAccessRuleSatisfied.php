@@ -57,11 +57,11 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the conditionalAccessCondition property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client, ipAddressSeenByAzureAD, ipAddressSeenByResourceProvider, unknownFutureValue, servicePrincipals, servicePrincipalRisk, authenticationFlows, insiderRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals, servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.
-     * @return ConditionalAccessConditions|null
+     * @return ConditionalAccessRuleSatisfied_conditionalAccessCondition|null
     */
-    public function getConditionalAccessCondition(): ?ConditionalAccessConditions {
+    public function getConditionalAccessCondition(): ?ConditionalAccessRuleSatisfied_conditionalAccessCondition {
         $val = $this->getBackingStore()->get('conditionalAccessCondition');
-        if (is_null($val) || $val instanceof ConditionalAccessConditions) {
+        if (is_null($val) || $val instanceof ConditionalAccessRuleSatisfied_conditionalAccessCondition) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessCondition'");
@@ -74,9 +74,9 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, BackedMode
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'conditionalAccessCondition' => fn(ParseNode $n) => $o->setConditionalAccessCondition($n->getEnumValue(ConditionalAccessConditions::class)),
+            'conditionalAccessCondition' => fn(ParseNode $n) => $o->setConditionalAccessCondition($n->getEnumValue(ConditionalAccessRuleSatisfied_conditionalAccessCondition::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'ruleSatisfied' => fn(ParseNode $n) => $o->setRuleSatisfied($n->getEnumValue(ConditionalAccessRule::class)),
+            'ruleSatisfied' => fn(ParseNode $n) => $o->setRuleSatisfied($n->getEnumValue(ConditionalAccessRuleSatisfied_ruleSatisfied::class)),
         ];
     }
 
@@ -94,11 +94,11 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the ruleSatisfied property value. Refers to the conditional access policy conditions that were satisfied. The possible values are: allApps, firstPartyApps, office365, appId, acr, appFilter, allUsers, guest, groupId, roleId, userId, allDevicePlatforms, devicePlatform, allLocations, insideCorpnet, allTrustedLocations, locationId, allDevices, deviceFilter, deviceState, unknownFutureValue, deviceFilterIncludeRuleNotMatched, allDeviceStates, anonymizedIPAddress, unfamiliarFeatures, nationStateIPAddress, realTimeThreatIntelligence, internalGuest, b2bCollaborationGuest, b2bCollaborationMember, b2bDirectConnectUser, otherExternalUser, serviceProvider, microsoftAdminPortals, deviceCodeFlow, accountTransfer, insiderRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: deviceFilterIncludeRuleNotMatched, allDeviceStates, anonymizedIPAddress, unfamiliarFeatures, nationStateIPAddress, realTimeThreatIntelligence, internalGuest, b2bCollaborationGuest, b2bCollaborationMember, b2bDirectConnectUser, otherExternalUser, serviceProvider, microsoftAdminPortals, deviceCodeFlow, accountTransfer, insiderRisk.
-     * @return ConditionalAccessRule|null
+     * @return ConditionalAccessRuleSatisfied_ruleSatisfied|null
     */
-    public function getRuleSatisfied(): ?ConditionalAccessRule {
+    public function getRuleSatisfied(): ?ConditionalAccessRuleSatisfied_ruleSatisfied {
         $val = $this->getBackingStore()->get('ruleSatisfied');
-        if (is_null($val) || $val instanceof ConditionalAccessRule) {
+        if (is_null($val) || $val instanceof ConditionalAccessRuleSatisfied_ruleSatisfied) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleSatisfied'");
@@ -133,9 +133,9 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the conditionalAccessCondition property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client, ipAddressSeenByAzureAD, ipAddressSeenByResourceProvider, unknownFutureValue, servicePrincipals, servicePrincipalRisk, authenticationFlows, insiderRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals, servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.
-     * @param ConditionalAccessConditions|null $value Value to set for the conditionalAccessCondition property.
+     * @param ConditionalAccessRuleSatisfied_conditionalAccessCondition|null $value Value to set for the conditionalAccessCondition property.
     */
-    public function setConditionalAccessCondition(?ConditionalAccessConditions $value): void {
+    public function setConditionalAccessCondition(?ConditionalAccessRuleSatisfied_conditionalAccessCondition $value): void {
         $this->getBackingStore()->set('conditionalAccessCondition', $value);
     }
 
@@ -149,9 +149,9 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the ruleSatisfied property value. Refers to the conditional access policy conditions that were satisfied. The possible values are: allApps, firstPartyApps, office365, appId, acr, appFilter, allUsers, guest, groupId, roleId, userId, allDevicePlatforms, devicePlatform, allLocations, insideCorpnet, allTrustedLocations, locationId, allDevices, deviceFilter, deviceState, unknownFutureValue, deviceFilterIncludeRuleNotMatched, allDeviceStates, anonymizedIPAddress, unfamiliarFeatures, nationStateIPAddress, realTimeThreatIntelligence, internalGuest, b2bCollaborationGuest, b2bCollaborationMember, b2bDirectConnectUser, otherExternalUser, serviceProvider, microsoftAdminPortals, deviceCodeFlow, accountTransfer, insiderRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: deviceFilterIncludeRuleNotMatched, allDeviceStates, anonymizedIPAddress, unfamiliarFeatures, nationStateIPAddress, realTimeThreatIntelligence, internalGuest, b2bCollaborationGuest, b2bCollaborationMember, b2bDirectConnectUser, otherExternalUser, serviceProvider, microsoftAdminPortals, deviceCodeFlow, accountTransfer, insiderRisk.
-     * @param ConditionalAccessRule|null $value Value to set for the ruleSatisfied property.
+     * @param ConditionalAccessRuleSatisfied_ruleSatisfied|null $value Value to set for the ruleSatisfied property.
     */
-    public function setRuleSatisfied(?ConditionalAccessRule $value): void {
+    public function setRuleSatisfied(?ConditionalAccessRuleSatisfied_ruleSatisfied $value): void {
         $this->getBackingStore()->set('ruleSatisfied', $value);
     }
 

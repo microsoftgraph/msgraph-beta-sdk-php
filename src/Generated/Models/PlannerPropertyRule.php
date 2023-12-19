@@ -70,7 +70,7 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'ruleKind' => fn(ParseNode $n) => $o->setRuleKind($n->getEnumValue(PlannerRuleKind::class)),
+            'ruleKind' => fn(ParseNode $n) => $o->setRuleKind($n->getEnumValue(PlannerPropertyRule_ruleKind::class)),
         ];
     }
 
@@ -88,11 +88,11 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the ruleKind property value. Identifies which type of property rules is represented by this instance. The possible values are: taskRule, bucketRule, planRule, unknownFutureValue.
-     * @return PlannerRuleKind|null
+     * @return PlannerPropertyRule_ruleKind|null
     */
-    public function getRuleKind(): ?PlannerRuleKind {
+    public function getRuleKind(): ?PlannerPropertyRule_ruleKind {
         $val = $this->getBackingStore()->get('ruleKind');
-        if (is_null($val) || $val instanceof PlannerRuleKind) {
+        if (is_null($val) || $val instanceof PlannerPropertyRule_ruleKind) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ruleKind'");
@@ -134,9 +134,9 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ruleKind property value. Identifies which type of property rules is represented by this instance. The possible values are: taskRule, bucketRule, planRule, unknownFutureValue.
-     * @param PlannerRuleKind|null $value Value to set for the ruleKind property.
+     * @param PlannerPropertyRule_ruleKind|null $value Value to set for the ruleKind property.
     */
-    public function setRuleKind(?PlannerRuleKind $value): void {
+    public function setRuleKind(?PlannerPropertyRule_ruleKind $value): void {
         $this->getBackingStore()->set('ruleKind', $value);
     }
 

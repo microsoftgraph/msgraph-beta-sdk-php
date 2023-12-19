@@ -49,11 +49,11 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the actionState property value. State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
-     * @return ActionState|null
+     * @return CloudPcRemoteActionResult_actionState|null
     */
-    public function getActionState(): ?ActionState {
+    public function getActionState(): ?CloudPcRemoteActionResult_actionState {
         $val = $this->getBackingStore()->get('actionState');
-        if (is_null($val) || $val instanceof ActionState) {
+        if (is_null($val) || $val instanceof CloudPcRemoteActionResult_actionState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'actionState'");
@@ -100,7 +100,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
         $o = $this;
         return  [
             'actionName' => fn(ParseNode $n) => $o->setActionName($n->getStringValue()),
-            'actionState' => fn(ParseNode $n) => $o->setActionState($n->getEnumValue(ActionState::class)),
+            'actionState' => fn(ParseNode $n) => $o->setActionState($n->getEnumValue(CloudPcRemoteActionResult_actionState::class)),
             'cloudPcId' => fn(ParseNode $n) => $o->setCloudPcId($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
@@ -196,9 +196,9 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the actionState property value. State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
-     * @param ActionState|null $value Value to set for the actionState property.
+     * @param CloudPcRemoteActionResult_actionState|null $value Value to set for the actionState property.
     */
-    public function setActionState(?ActionState $value): void {
+    public function setActionState(?CloudPcRemoteActionResult_actionState $value): void {
         $this->getBackingStore()->set('actionState', $value);
     }
 

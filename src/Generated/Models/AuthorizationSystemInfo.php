@@ -49,11 +49,11 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the authorizationSystemType property value. The type of authorization system.The possible values are: azure, gcp, aws, unknownFutureValue.
-     * @return AuthorizationSystemType|null
+     * @return AuthorizationSystemInfo_authorizationSystemType|null
     */
-    public function getAuthorizationSystemType(): ?AuthorizationSystemType {
+    public function getAuthorizationSystemType(): ?AuthorizationSystemInfo_authorizationSystemType {
         $val = $this->getBackingStore()->get('authorizationSystemType');
-        if (is_null($val) || $val instanceof AuthorizationSystemType) {
+        if (is_null($val) || $val instanceof AuthorizationSystemInfo_authorizationSystemType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authorizationSystemType'");
@@ -86,7 +86,7 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'authorizationSystemType' => fn(ParseNode $n) => $o->setAuthorizationSystemType($n->getEnumValue(AuthorizationSystemType::class)),
+            'authorizationSystemType' => fn(ParseNode $n) => $o->setAuthorizationSystemType($n->getEnumValue(AuthorizationSystemInfo_authorizationSystemType::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -139,9 +139,9 @@ class AuthorizationSystemInfo implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the authorizationSystemType property value. The type of authorization system.The possible values are: azure, gcp, aws, unknownFutureValue.
-     * @param AuthorizationSystemType|null $value Value to set for the authorizationSystemType property.
+     * @param AuthorizationSystemInfo_authorizationSystemType|null $value Value to set for the authorizationSystemType property.
     */
-    public function setAuthorizationSystemType(?AuthorizationSystemType $value): void {
+    public function setAuthorizationSystemType(?AuthorizationSystemInfo_authorizationSystemType $value): void {
         $this->getBackingStore()->set('authorizationSystemType', $value);
     }
 

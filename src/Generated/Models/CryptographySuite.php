@@ -52,11 +52,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md596, sha196, sha256128, aes128Gcm, aes192Gcm, aes256Gcm.
-     * @return AuthenticationTransformConstant|null
+     * @return CryptographySuite_authenticationTransformConstants|null
     */
-    public function getAuthenticationTransformConstants(): ?AuthenticationTransformConstant {
+    public function getAuthenticationTransformConstants(): ?CryptographySuite_authenticationTransformConstants {
         $val = $this->getBackingStore()->get('authenticationTransformConstants');
-        if (is_null($val) || $val instanceof AuthenticationTransformConstant) {
+        if (is_null($val) || $val instanceof CryptographySuite_authenticationTransformConstants) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationTransformConstants'");
@@ -72,11 +72,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the cipherTransformConstants property value. Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     * @return VpnEncryptionAlgorithmType|null
+     * @return CryptographySuite_cipherTransformConstants|null
     */
-    public function getCipherTransformConstants(): ?VpnEncryptionAlgorithmType {
+    public function getCipherTransformConstants(): ?CryptographySuite_cipherTransformConstants {
         $val = $this->getBackingStore()->get('cipherTransformConstants');
-        if (is_null($val) || $val instanceof VpnEncryptionAlgorithmType) {
+        if (is_null($val) || $val instanceof CryptographySuite_cipherTransformConstants) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'cipherTransformConstants'");
@@ -84,11 +84,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the dhGroup property value. Diffie Hellman Group. Possible values are: group1, group2, group14, ecp256, ecp384, group24.
-     * @return DiffieHellmanGroup|null
+     * @return CryptographySuite_dhGroup|null
     */
-    public function getDhGroup(): ?DiffieHellmanGroup {
+    public function getDhGroup(): ?CryptographySuite_dhGroup {
         $val = $this->getBackingStore()->get('dhGroup');
-        if (is_null($val) || $val instanceof DiffieHellmanGroup) {
+        if (is_null($val) || $val instanceof CryptographySuite_dhGroup) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'dhGroup'");
@@ -96,11 +96,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the encryptionMethod property value. Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     * @return VpnEncryptionAlgorithmType|null
+     * @return CryptographySuite_encryptionMethod|null
     */
-    public function getEncryptionMethod(): ?VpnEncryptionAlgorithmType {
+    public function getEncryptionMethod(): ?CryptographySuite_encryptionMethod {
         $val = $this->getBackingStore()->get('encryptionMethod');
-        if (is_null($val) || $val instanceof VpnEncryptionAlgorithmType) {
+        if (is_null($val) || $val instanceof CryptographySuite_encryptionMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionMethod'");
@@ -113,23 +113,23 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'authenticationTransformConstants' => fn(ParseNode $n) => $o->setAuthenticationTransformConstants($n->getEnumValue(AuthenticationTransformConstant::class)),
-            'cipherTransformConstants' => fn(ParseNode $n) => $o->setCipherTransformConstants($n->getEnumValue(VpnEncryptionAlgorithmType::class)),
-            'dhGroup' => fn(ParseNode $n) => $o->setDhGroup($n->getEnumValue(DiffieHellmanGroup::class)),
-            'encryptionMethod' => fn(ParseNode $n) => $o->setEncryptionMethod($n->getEnumValue(VpnEncryptionAlgorithmType::class)),
-            'integrityCheckMethod' => fn(ParseNode $n) => $o->setIntegrityCheckMethod($n->getEnumValue(VpnIntegrityAlgorithmType::class)),
+            'authenticationTransformConstants' => fn(ParseNode $n) => $o->setAuthenticationTransformConstants($n->getEnumValue(CryptographySuite_authenticationTransformConstants::class)),
+            'cipherTransformConstants' => fn(ParseNode $n) => $o->setCipherTransformConstants($n->getEnumValue(CryptographySuite_cipherTransformConstants::class)),
+            'dhGroup' => fn(ParseNode $n) => $o->setDhGroup($n->getEnumValue(CryptographySuite_dhGroup::class)),
+            'encryptionMethod' => fn(ParseNode $n) => $o->setEncryptionMethod($n->getEnumValue(CryptographySuite_encryptionMethod::class)),
+            'integrityCheckMethod' => fn(ParseNode $n) => $o->setIntegrityCheckMethod($n->getEnumValue(CryptographySuite_integrityCheckMethod::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'pfsGroup' => fn(ParseNode $n) => $o->setPfsGroup($n->getEnumValue(PerfectForwardSecrecyGroup::class)),
+            'pfsGroup' => fn(ParseNode $n) => $o->setPfsGroup($n->getEnumValue(CryptographySuite_pfsGroup::class)),
         ];
     }
 
     /**
      * Gets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
-     * @return VpnIntegrityAlgorithmType|null
+     * @return CryptographySuite_integrityCheckMethod|null
     */
-    public function getIntegrityCheckMethod(): ?VpnIntegrityAlgorithmType {
+    public function getIntegrityCheckMethod(): ?CryptographySuite_integrityCheckMethod {
         $val = $this->getBackingStore()->get('integrityCheckMethod');
-        if (is_null($val) || $val instanceof VpnIntegrityAlgorithmType) {
+        if (is_null($val) || $val instanceof CryptographySuite_integrityCheckMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'integrityCheckMethod'");
@@ -149,11 +149,11 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the pfsGroup property value. Perfect Forward Secrecy Group. Possible values are: pfs1, pfs2, pfs2048, ecp256, ecp384, pfsMM, pfs24.
-     * @return PerfectForwardSecrecyGroup|null
+     * @return CryptographySuite_pfsGroup|null
     */
-    public function getPfsGroup(): ?PerfectForwardSecrecyGroup {
+    public function getPfsGroup(): ?CryptographySuite_pfsGroup {
         $val = $this->getBackingStore()->get('pfsGroup');
-        if (is_null($val) || $val instanceof PerfectForwardSecrecyGroup) {
+        if (is_null($val) || $val instanceof CryptographySuite_pfsGroup) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'pfsGroup'");
@@ -184,9 +184,9 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md596, sha196, sha256128, aes128Gcm, aes192Gcm, aes256Gcm.
-     * @param AuthenticationTransformConstant|null $value Value to set for the authenticationTransformConstants property.
+     * @param CryptographySuite_authenticationTransformConstants|null $value Value to set for the authenticationTransformConstants property.
     */
-    public function setAuthenticationTransformConstants(?AuthenticationTransformConstant $value): void {
+    public function setAuthenticationTransformConstants(?CryptographySuite_authenticationTransformConstants $value): void {
         $this->getBackingStore()->set('authenticationTransformConstants', $value);
     }
 
@@ -200,33 +200,33 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the cipherTransformConstants property value. Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     * @param VpnEncryptionAlgorithmType|null $value Value to set for the cipherTransformConstants property.
+     * @param CryptographySuite_cipherTransformConstants|null $value Value to set for the cipherTransformConstants property.
     */
-    public function setCipherTransformConstants(?VpnEncryptionAlgorithmType $value): void {
+    public function setCipherTransformConstants(?CryptographySuite_cipherTransformConstants $value): void {
         $this->getBackingStore()->set('cipherTransformConstants', $value);
     }
 
     /**
      * Sets the dhGroup property value. Diffie Hellman Group. Possible values are: group1, group2, group14, ecp256, ecp384, group24.
-     * @param DiffieHellmanGroup|null $value Value to set for the dhGroup property.
+     * @param CryptographySuite_dhGroup|null $value Value to set for the dhGroup property.
     */
-    public function setDhGroup(?DiffieHellmanGroup $value): void {
+    public function setDhGroup(?CryptographySuite_dhGroup $value): void {
         $this->getBackingStore()->set('dhGroup', $value);
     }
 
     /**
      * Sets the encryptionMethod property value. Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     * @param VpnEncryptionAlgorithmType|null $value Value to set for the encryptionMethod property.
+     * @param CryptographySuite_encryptionMethod|null $value Value to set for the encryptionMethod property.
     */
-    public function setEncryptionMethod(?VpnEncryptionAlgorithmType $value): void {
+    public function setEncryptionMethod(?CryptographySuite_encryptionMethod $value): void {
         $this->getBackingStore()->set('encryptionMethod', $value);
     }
 
     /**
      * Sets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
-     * @param VpnIntegrityAlgorithmType|null $value Value to set for the integrityCheckMethod property.
+     * @param CryptographySuite_integrityCheckMethod|null $value Value to set for the integrityCheckMethod property.
     */
-    public function setIntegrityCheckMethod(?VpnIntegrityAlgorithmType $value): void {
+    public function setIntegrityCheckMethod(?CryptographySuite_integrityCheckMethod $value): void {
         $this->getBackingStore()->set('integrityCheckMethod', $value);
     }
 
@@ -240,9 +240,9 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the pfsGroup property value. Perfect Forward Secrecy Group. Possible values are: pfs1, pfs2, pfs2048, ecp256, ecp384, pfsMM, pfs24.
-     * @param PerfectForwardSecrecyGroup|null $value Value to set for the pfsGroup property.
+     * @param CryptographySuite_pfsGroup|null $value Value to set for the pfsGroup property.
     */
-    public function setPfsGroup(?PerfectForwardSecrecyGroup $value): void {
+    public function setPfsGroup(?CryptographySuite_pfsGroup $value): void {
         $this->getBackingStore()->set('pfsGroup', $value);
     }
 

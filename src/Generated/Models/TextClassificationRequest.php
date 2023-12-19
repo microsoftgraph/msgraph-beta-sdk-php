@@ -46,8 +46,8 @@ class TextClassificationRequest extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'contentMetaData' => fn(ParseNode $n) => $o->setContentMetaData($n->getObjectValue([ClassificationRequestContentMetaData::class, 'createFromDiscriminatorValue'])),
             'fileExtension' => fn(ParseNode $n) => $o->setFileExtension($n->getStringValue()),
-            'matchTolerancesToInclude' => fn(ParseNode $n) => $o->setMatchTolerancesToInclude($n->getEnumValue(MlClassificationMatchTolerance::class)),
-            'scopesToRun' => fn(ParseNode $n) => $o->setScopesToRun($n->getEnumValue(SensitiveTypeScope::class)),
+            'matchTolerancesToInclude' => fn(ParseNode $n) => $o->setMatchTolerancesToInclude($n->getEnumValue(TextClassificationRequest_matchTolerancesToInclude::class)),
+            'scopesToRun' => fn(ParseNode $n) => $o->setScopesToRun($n->getEnumValue(TextClassificationRequest_scopesToRun::class)),
             'sensitiveTypeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -74,11 +74,11 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Gets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
-     * @return MlClassificationMatchTolerance|null
+     * @return TextClassificationRequest_matchTolerancesToInclude|null
     */
-    public function getMatchTolerancesToInclude(): ?MlClassificationMatchTolerance {
+    public function getMatchTolerancesToInclude(): ?TextClassificationRequest_matchTolerancesToInclude {
         $val = $this->getBackingStore()->get('matchTolerancesToInclude');
-        if (is_null($val) || $val instanceof MlClassificationMatchTolerance) {
+        if (is_null($val) || $val instanceof TextClassificationRequest_matchTolerancesToInclude) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'matchTolerancesToInclude'");
@@ -86,11 +86,11 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Gets the scopesToRun property value. The scopesToRun property
-     * @return SensitiveTypeScope|null
+     * @return TextClassificationRequest_scopesToRun|null
     */
-    public function getScopesToRun(): ?SensitiveTypeScope {
+    public function getScopesToRun(): ?TextClassificationRequest_scopesToRun {
         $val = $this->getBackingStore()->get('scopesToRun');
-        if (is_null($val) || $val instanceof SensitiveTypeScope) {
+        if (is_null($val) || $val instanceof TextClassificationRequest_scopesToRun) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'scopesToRun'");
@@ -154,17 +154,17 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
-     * @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerancesToInclude property.
+     * @param TextClassificationRequest_matchTolerancesToInclude|null $value Value to set for the matchTolerancesToInclude property.
     */
-    public function setMatchTolerancesToInclude(?MlClassificationMatchTolerance $value): void {
+    public function setMatchTolerancesToInclude(?TextClassificationRequest_matchTolerancesToInclude $value): void {
         $this->getBackingStore()->set('matchTolerancesToInclude', $value);
     }
 
     /**
      * Sets the scopesToRun property value. The scopesToRun property
-     * @param SensitiveTypeScope|null $value Value to set for the scopesToRun property.
+     * @param TextClassificationRequest_scopesToRun|null $value Value to set for the scopesToRun property.
     */
-    public function setScopesToRun(?SensitiveTypeScope $value): void {
+    public function setScopesToRun(?TextClassificationRequest_scopesToRun $value): void {
         $this->getBackingStore()->set('scopesToRun', $value);
     }
 

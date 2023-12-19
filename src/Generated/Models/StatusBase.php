@@ -70,7 +70,7 @@ class StatusBase implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ProvisioningResult::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(StatusBase_status::class)),
         ];
     }
 
@@ -88,11 +88,11 @@ class StatusBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue. Supports $filter (eq, contains).
-     * @return ProvisioningResult|null
+     * @return StatusBase_status|null
     */
-    public function getStatus(): ?ProvisioningResult {
+    public function getStatus(): ?StatusBase_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof ProvisioningResult) {
+        if (is_null($val) || $val instanceof StatusBase_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -134,9 +134,9 @@ class StatusBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue. Supports $filter (eq, contains).
-     * @param ProvisioningResult|null $value Value to set for the status property.
+     * @param StatusBase_status|null $value Value to set for the status property.
     */
-    public function setStatus(?ProvisioningResult $value): void {
+    public function setStatus(?StatusBase_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

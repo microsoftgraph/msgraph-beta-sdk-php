@@ -50,11 +50,11 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the assignmentType property value. The type of the admin relationship(s) associated with the role assignment. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges.
-     * @return DelegatedPrivilegeStatus|null
+     * @return RoleAssignment_assignmentType|null
     */
-    public function getAssignmentType(): ?DelegatedPrivilegeStatus {
+    public function getAssignmentType(): ?RoleAssignment_assignmentType {
         $val = $this->getBackingStore()->get('assignmentType');
-        if (is_null($val) || $val instanceof DelegatedPrivilegeStatus) {
+        if (is_null($val) || $val instanceof RoleAssignment_assignmentType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentType'");
@@ -75,7 +75,7 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentType' => fn(ParseNode $n) => $o->setAssignmentType($n->getEnumValue(DelegatedPrivilegeStatus::class)),
+            'assignmentType' => fn(ParseNode $n) => $o->setAssignmentType($n->getEnumValue(RoleAssignment_assignmentType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roles' => fn(ParseNode $n) => $o->setRoles($n->getCollectionOfObjectValues([RoleDefinition::class, 'createFromDiscriminatorValue'])),
         ];
@@ -128,9 +128,9 @@ class RoleAssignment implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the assignmentType property value. The type of the admin relationship(s) associated with the role assignment. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges.
-     * @param DelegatedPrivilegeStatus|null $value Value to set for the assignmentType property.
+     * @param RoleAssignment_assignmentType|null $value Value to set for the assignmentType property.
     */
-    public function setAssignmentType(?DelegatedPrivilegeStatus $value): void {
+    public function setAssignmentType(?RoleAssignment_assignmentType $value): void {
         $this->getBackingStore()->set('assignmentType', $value);
     }
 

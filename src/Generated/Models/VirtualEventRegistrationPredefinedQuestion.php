@@ -32,17 +32,17 @@ class VirtualEventRegistrationPredefinedQuestion extends VirtualEventRegistratio
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'label' => fn(ParseNode $n) => $o->setLabel($n->getEnumValue(VirtualEventRegistrationPredefinedQuestionLabel::class)),
+            'label' => fn(ParseNode $n) => $o->setLabel($n->getEnumValue(VirtualEventRegistrationPredefinedQuestion_label::class)),
         ]);
     }
 
     /**
      * Gets the label property value. The label property
-     * @return VirtualEventRegistrationPredefinedQuestionLabel|null
+     * @return VirtualEventRegistrationPredefinedQuestion_label|null
     */
-    public function getLabel(): ?VirtualEventRegistrationPredefinedQuestionLabel {
+    public function getLabel(): ?VirtualEventRegistrationPredefinedQuestion_label {
         $val = $this->getBackingStore()->get('label');
-        if (is_null($val) || $val instanceof VirtualEventRegistrationPredefinedQuestionLabel) {
+        if (is_null($val) || $val instanceof VirtualEventRegistrationPredefinedQuestion_label) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
@@ -59,9 +59,9 @@ class VirtualEventRegistrationPredefinedQuestion extends VirtualEventRegistratio
 
     /**
      * Sets the label property value. The label property
-     * @param VirtualEventRegistrationPredefinedQuestionLabel|null $value Value to set for the label property.
+     * @param VirtualEventRegistrationPredefinedQuestion_label|null $value Value to set for the label property.
     */
-    public function setLabel(?VirtualEventRegistrationPredefinedQuestionLabel $value): void {
+    public function setLabel(?VirtualEventRegistrationPredefinedQuestion_label $value): void {
         $this->getBackingStore()->set('label', $value);
     }
 

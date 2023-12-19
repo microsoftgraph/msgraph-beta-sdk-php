@@ -35,7 +35,7 @@ class AttributesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Gets an item from the Microsoft/Graph/Beta/Generated.identity.authenticationEventsFlows.item.graphExternalUsersSelfServiceSignUpEventsFlow.onAttributeCollection.graphOnAttributeCollectionExternalUsersSelfServiceSignUp.attributes.item collection
-     * @param string $identityUserFlowAttributeId Unique identifier of the item
+     * @param string $identityUserFlowAttributeId The unique identifier of identityUserFlowAttribute
      * @return IdentityUserFlowAttributeItemRequestBuilder
     */
     public function byIdentityUserFlowAttributeId(string $identityUserFlowAttributeId): IdentityUserFlowAttributeItemRequestBuilder {

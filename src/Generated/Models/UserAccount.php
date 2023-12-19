@@ -81,7 +81,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
             'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
             'service' => fn(ParseNode $n) => $o->setService($n->getStringValue()),
             'signinName' => fn(ParseNode $n) => $o->setSigninName($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AccountStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(UserAccount_status::class)),
         ];
     }
 
@@ -147,11 +147,11 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the status property value. The status property
-     * @return AccountStatus|null
+     * @return UserAccount_status|null
     */
-    public function getStatus(): ?AccountStatus {
+    public function getStatus(): ?UserAccount_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof AccountStatus) {
+        if (is_null($val) || $val instanceof UserAccount_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -238,9 +238,9 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the status property value. The status property
-     * @param AccountStatus|null $value Value to set for the status property.
+     * @param UserAccount_status|null $value Value to set for the status property.
     */
-    public function setStatus(?AccountStatus $value): void {
+    public function setStatus(?UserAccount_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

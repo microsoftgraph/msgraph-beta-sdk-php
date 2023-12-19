@@ -65,7 +65,7 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
         return  [
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'tenantDiskEncryptionType' => fn(ParseNode $n) => $o->setTenantDiskEncryptionType($n->getEnumValue(CloudPcDiskEncryptionType::class)),
+            'tenantDiskEncryptionType' => fn(ParseNode $n) => $o->setTenantDiskEncryptionType($n->getEnumValue(CloudPcTenantEncryptionSetting_tenantDiskEncryptionType::class)),
         ];
     }
 
@@ -95,11 +95,11 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the tenantDiskEncryptionType property value. The tenantDiskEncryptionType property
-     * @return CloudPcDiskEncryptionType|null
+     * @return CloudPcTenantEncryptionSetting_tenantDiskEncryptionType|null
     */
-    public function getTenantDiskEncryptionType(): ?CloudPcDiskEncryptionType {
+    public function getTenantDiskEncryptionType(): ?CloudPcTenantEncryptionSetting_tenantDiskEncryptionType {
         $val = $this->getBackingStore()->get('tenantDiskEncryptionType');
-        if (is_null($val) || $val instanceof CloudPcDiskEncryptionType) {
+        if (is_null($val) || $val instanceof CloudPcTenantEncryptionSetting_tenantDiskEncryptionType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantDiskEncryptionType'");
@@ -150,9 +150,9 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the tenantDiskEncryptionType property value. The tenantDiskEncryptionType property
-     * @param CloudPcDiskEncryptionType|null $value Value to set for the tenantDiskEncryptionType property.
+     * @param CloudPcTenantEncryptionSetting_tenantDiskEncryptionType|null $value Value to set for the tenantDiskEncryptionType property.
     */
-    public function setTenantDiskEncryptionType(?CloudPcDiskEncryptionType $value): void {
+    public function setTenantDiskEncryptionType(?CloudPcTenantEncryptionSetting_tenantDiskEncryptionType $value): void {
         $this->getBackingStore()->set('tenantDiskEncryptionType', $value);
     }
 

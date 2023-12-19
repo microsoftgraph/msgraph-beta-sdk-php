@@ -45,7 +45,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'regionGroup' => fn(ParseNode $n) => $o->setRegionGroup($n->getEnumValue(CloudPcRegionGroup::class)),
-            'regionStatus' => fn(ParseNode $n) => $o->setRegionStatus($n->getEnumValue(CloudPcSupportedRegionStatus::class)),
+            'regionStatus' => fn(ParseNode $n) => $o->setRegionStatus($n->getEnumValue(CloudPcSupportedRegion_regionStatus::class)),
             'supportedSolution' => fn(ParseNode $n) => $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)),
         ]);
     }
@@ -64,11 +64,11 @@ class CloudPcSupportedRegion extends Entity implements Parsable
 
     /**
      * Gets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
-     * @return CloudPcSupportedRegionStatus|null
+     * @return CloudPcSupportedRegion_regionStatus|null
     */
-    public function getRegionStatus(): ?CloudPcSupportedRegionStatus {
+    public function getRegionStatus(): ?CloudPcSupportedRegion_regionStatus {
         $val = $this->getBackingStore()->get('regionStatus');
-        if (is_null($val) || $val instanceof CloudPcSupportedRegionStatus) {
+        if (is_null($val) || $val instanceof CloudPcSupportedRegion_regionStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'regionStatus'");
@@ -116,9 +116,9 @@ class CloudPcSupportedRegion extends Entity implements Parsable
 
     /**
      * Sets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
-     * @param CloudPcSupportedRegionStatus|null $value Value to set for the regionStatus property.
+     * @param CloudPcSupportedRegion_regionStatus|null $value Value to set for the regionStatus property.
     */
-    public function setRegionStatus(?CloudPcSupportedRegionStatus $value): void {
+    public function setRegionStatus(?CloudPcSupportedRegion_regionStatus $value): void {
         $this->getBackingStore()->set('regionStatus', $value);
     }
 

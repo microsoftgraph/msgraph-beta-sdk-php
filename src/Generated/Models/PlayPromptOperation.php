@@ -26,11 +26,11 @@ class PlayPromptOperation extends CommsOperation implements Parsable
 
     /**
      * Gets the completionReason property value. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
-     * @return PlayPromptCompletionReason|null
+     * @return PlayPromptOperation_completionReason|null
     */
-    public function getCompletionReason(): ?PlayPromptCompletionReason {
+    public function getCompletionReason(): ?PlayPromptOperation_completionReason {
         $val = $this->getBackingStore()->get('completionReason');
-        if (is_null($val) || $val instanceof PlayPromptCompletionReason) {
+        if (is_null($val) || $val instanceof PlayPromptOperation_completionReason) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'completionReason'");
@@ -43,7 +43,7 @@ class PlayPromptOperation extends CommsOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(PlayPromptCompletionReason::class)),
+            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(PlayPromptOperation_completionReason::class)),
         ]);
     }
 
@@ -58,9 +58,9 @@ class PlayPromptOperation extends CommsOperation implements Parsable
 
     /**
      * Sets the completionReason property value. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
-     * @param PlayPromptCompletionReason|null $value Value to set for the completionReason property.
+     * @param PlayPromptOperation_completionReason|null $value Value to set for the completionReason property.
     */
-    public function setCompletionReason(?PlayPromptCompletionReason $value): void {
+    public function setCompletionReason(?PlayPromptOperation_completionReason $value): void {
         $this->getBackingStore()->set('completionReason', $value);
     }
 

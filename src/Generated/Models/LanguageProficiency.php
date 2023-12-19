@@ -45,22 +45,22 @@ class LanguageProficiency extends ItemFacet implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'proficiency' => fn(ParseNode $n) => $o->setProficiency($n->getEnumValue(LanguageProficiencyLevel::class)),
-            'reading' => fn(ParseNode $n) => $o->setReading($n->getEnumValue(LanguageProficiencyLevel::class)),
-            'spoken' => fn(ParseNode $n) => $o->setSpoken($n->getEnumValue(LanguageProficiencyLevel::class)),
+            'proficiency' => fn(ParseNode $n) => $o->setProficiency($n->getEnumValue(LanguageProficiency_proficiency::class)),
+            'reading' => fn(ParseNode $n) => $o->setReading($n->getEnumValue(LanguageProficiency_reading::class)),
+            'spoken' => fn(ParseNode $n) => $o->setSpoken($n->getEnumValue(LanguageProficiency_spoken::class)),
             'tag' => fn(ParseNode $n) => $o->setTag($n->getStringValue()),
             'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
-            'written' => fn(ParseNode $n) => $o->setWritten($n->getEnumValue(LanguageProficiencyLevel::class)),
+            'written' => fn(ParseNode $n) => $o->setWritten($n->getEnumValue(LanguageProficiency_written::class)),
         ]);
     }
 
     /**
      * Gets the proficiency property value. The proficiency property
-     * @return LanguageProficiencyLevel|null
+     * @return LanguageProficiency_proficiency|null
     */
-    public function getProficiency(): ?LanguageProficiencyLevel {
+    public function getProficiency(): ?LanguageProficiency_proficiency {
         $val = $this->getBackingStore()->get('proficiency');
-        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+        if (is_null($val) || $val instanceof LanguageProficiency_proficiency) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'proficiency'");
@@ -68,11 +68,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
 
     /**
      * Gets the reading property value. Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-     * @return LanguageProficiencyLevel|null
+     * @return LanguageProficiency_reading|null
     */
-    public function getReading(): ?LanguageProficiencyLevel {
+    public function getReading(): ?LanguageProficiency_reading {
         $val = $this->getBackingStore()->get('reading');
-        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+        if (is_null($val) || $val instanceof LanguageProficiency_reading) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'reading'");
@@ -80,11 +80,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
 
     /**
      * Gets the spoken property value. Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-     * @return LanguageProficiencyLevel|null
+     * @return LanguageProficiency_spoken|null
     */
-    public function getSpoken(): ?LanguageProficiencyLevel {
+    public function getSpoken(): ?LanguageProficiency_spoken {
         $val = $this->getBackingStore()->get('spoken');
-        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+        if (is_null($val) || $val instanceof LanguageProficiency_spoken) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'spoken'");
@@ -116,11 +116,11 @@ class LanguageProficiency extends ItemFacet implements Parsable
 
     /**
      * Gets the written property value. Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-     * @return LanguageProficiencyLevel|null
+     * @return LanguageProficiency_written|null
     */
-    public function getWritten(): ?LanguageProficiencyLevel {
+    public function getWritten(): ?LanguageProficiency_written {
         $val = $this->getBackingStore()->get('written');
-        if (is_null($val) || $val instanceof LanguageProficiencyLevel) {
+        if (is_null($val) || $val instanceof LanguageProficiency_written) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'written'");
@@ -151,25 +151,25 @@ class LanguageProficiency extends ItemFacet implements Parsable
 
     /**
      * Sets the proficiency property value. The proficiency property
-     * @param LanguageProficiencyLevel|null $value Value to set for the proficiency property.
+     * @param LanguageProficiency_proficiency|null $value Value to set for the proficiency property.
     */
-    public function setProficiency(?LanguageProficiencyLevel $value): void {
+    public function setProficiency(?LanguageProficiency_proficiency $value): void {
         $this->getBackingStore()->set('proficiency', $value);
     }
 
     /**
      * Sets the reading property value. Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-     * @param LanguageProficiencyLevel|null $value Value to set for the reading property.
+     * @param LanguageProficiency_reading|null $value Value to set for the reading property.
     */
-    public function setReading(?LanguageProficiencyLevel $value): void {
+    public function setReading(?LanguageProficiency_reading $value): void {
         $this->getBackingStore()->set('reading', $value);
     }
 
     /**
      * Sets the spoken property value. Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-     * @param LanguageProficiencyLevel|null $value Value to set for the spoken property.
+     * @param LanguageProficiency_spoken|null $value Value to set for the spoken property.
     */
-    public function setSpoken(?LanguageProficiencyLevel $value): void {
+    public function setSpoken(?LanguageProficiency_spoken $value): void {
         $this->getBackingStore()->set('spoken', $value);
     }
 
@@ -191,9 +191,9 @@ class LanguageProficiency extends ItemFacet implements Parsable
 
     /**
      * Sets the written property value. Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-     * @param LanguageProficiencyLevel|null $value Value to set for the written property.
+     * @param LanguageProficiency_written|null $value Value to set for the written property.
     */
-    public function setWritten(?LanguageProficiencyLevel $value): void {
+    public function setWritten(?LanguageProficiency_written $value): void {
         $this->getBackingStore()->set('written', $value);
     }
 

@@ -36,11 +36,11 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the action property value. The action triggered when the threshold for the given signal is reached. Possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
-     * @return MonitoringAction|null
+     * @return MonitoringRule_action|null
     */
-    public function getAction(): ?MonitoringAction {
+    public function getAction(): ?MonitoringRule_action {
         $val = $this->getBackingStore()->get('action');
-        if (is_null($val) || $val instanceof MonitoringAction) {
+        if (is_null($val) || $val instanceof MonitoringRule_action) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
@@ -74,9 +74,9 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(MonitoringAction::class)),
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(MonitoringRule_action::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'signal' => fn(ParseNode $n) => $o->setSignal($n->getEnumValue(MonitoringSignal::class)),
+            'signal' => fn(ParseNode $n) => $o->setSignal($n->getEnumValue(MonitoringRule_signal::class)),
             'threshold' => fn(ParseNode $n) => $o->setThreshold($n->getIntegerValue()),
         ];
     }
@@ -95,11 +95,11 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the signal property value. The signal to monitor. Possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
-     * @return MonitoringSignal|null
+     * @return MonitoringRule_signal|null
     */
-    public function getSignal(): ?MonitoringSignal {
+    public function getSignal(): ?MonitoringRule_signal {
         $val = $this->getBackingStore()->get('signal');
-        if (is_null($val) || $val instanceof MonitoringSignal) {
+        if (is_null($val) || $val instanceof MonitoringRule_signal) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'signal'");
@@ -131,9 +131,9 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the action property value. The action triggered when the threshold for the given signal is reached. Possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
-     * @param MonitoringAction|null $value Value to set for the action property.
+     * @param MonitoringRule_action|null $value Value to set for the action property.
     */
-    public function setAction(?MonitoringAction $value): void {
+    public function setAction(?MonitoringRule_action $value): void {
         $this->getBackingStore()->set('action', $value);
     }
 
@@ -163,9 +163,9 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the signal property value. The signal to monitor. Possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
-     * @param MonitoringSignal|null $value Value to set for the signal property.
+     * @param MonitoringRule_signal|null $value Value to set for the signal property.
     */
-    public function setSignal(?MonitoringSignal $value): void {
+    public function setSignal(?MonitoringRule_signal $value): void {
         $this->getBackingStore()->set('signal', $value);
     }
 

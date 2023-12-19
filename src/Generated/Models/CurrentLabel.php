@@ -49,11 +49,11 @@ class CurrentLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the applicationMode property value. The applicationMode property
-     * @return ApplicationMode|null
+     * @return CurrentLabel_applicationMode|null
     */
-    public function getApplicationMode(): ?ApplicationMode {
+    public function getApplicationMode(): ?CurrentLabel_applicationMode {
         $val = $this->getBackingStore()->get('applicationMode');
-        if (is_null($val) || $val instanceof ApplicationMode) {
+        if (is_null($val) || $val instanceof CurrentLabel_applicationMode) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationMode'");
@@ -74,7 +74,7 @@ class CurrentLabel implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)),
+            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(CurrentLabel_applicationMode::class)),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -125,9 +125,9 @@ class CurrentLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the applicationMode property value. The applicationMode property
-     * @param ApplicationMode|null $value Value to set for the applicationMode property.
+     * @param CurrentLabel_applicationMode|null $value Value to set for the applicationMode property.
     */
-    public function setApplicationMode(?ApplicationMode $value): void {
+    public function setApplicationMode(?CurrentLabel_applicationMode $value): void {
         $this->getBackingStore()->set('applicationMode', $value);
     }
 

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\DayNotes\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get dayNotes from teams
+ * The day notes in the schedule.
 */
 class DayNoteItemRequestBuilderGetQueryParameters 
 {

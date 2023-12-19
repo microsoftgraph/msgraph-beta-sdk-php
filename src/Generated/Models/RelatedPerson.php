@@ -76,7 +76,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'relationship' => fn(ParseNode $n) => $o->setRelationship($n->getEnumValue(PersonRelationship::class)),
+            'relationship' => fn(ParseNode $n) => $o->setRelationship($n->getEnumValue(RelatedPerson_relationship::class)),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
@@ -96,11 +96,11 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the relationship property value. Possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.
-     * @return PersonRelationship|null
+     * @return RelatedPerson_relationship|null
     */
-    public function getRelationship(): ?PersonRelationship {
+    public function getRelationship(): ?RelatedPerson_relationship {
         $val = $this->getBackingStore()->get('relationship');
-        if (is_null($val) || $val instanceof PersonRelationship) {
+        if (is_null($val) || $val instanceof RelatedPerson_relationship) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'relationship'");
@@ -177,9 +177,9 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the relationship property value. Possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.
-     * @param PersonRelationship|null $value Value to set for the relationship property.
+     * @param RelatedPerson_relationship|null $value Value to set for the relationship property.
     */
-    public function setRelationship(?PersonRelationship $value): void {
+    public function setRelationship(?RelatedPerson_relationship $value): void {
         $this->getBackingStore()->set('relationship', $value);
     }
 

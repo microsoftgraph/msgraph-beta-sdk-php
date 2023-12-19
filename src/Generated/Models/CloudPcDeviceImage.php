@@ -40,6 +40,18 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
+     * Gets the errorCode property value. The errorCode property
+     * @return CloudPcDeviceImage_errorCode|null
+    */
+    public function getErrorCode(): ?CloudPcDeviceImage_errorCode {
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || $val instanceof CloudPcDeviceImage_errorCode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
+    }
+
+    /**
      * Gets the expirationDate property value. The date the image became unavailable.
      * @return Date|null
     */
@@ -59,11 +71,12 @@ class CloudPcDeviceImage extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getEnumValue(CloudPcDeviceImage_errorCode::class)),
             'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
             'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
-            'osStatus' => fn(ParseNode $n) => $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)),
+            'osStatus' => fn(ParseNode $n) => $o->setOsStatus($n->getEnumValue(CloudPcDeviceImage_osStatus::class)),
             'scopeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -73,8 +86,8 @@ class CloudPcDeviceImage extends Entity implements Parsable
                 $this->setScopeIds($val);
             },
             'sourceImageResourceId' => fn(ParseNode $n) => $o->setSourceImageResourceId($n->getStringValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcDeviceImageStatus::class)),
-            'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImageStatusDetails::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcDeviceImage_status::class)),
+            'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImage_statusDetails::class)),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
@@ -117,11 +130,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Gets the osStatus property value. The OS status of this image. Possible values are: supported, supportedWithWarning, unknownFutureValue.
-     * @return CloudPcDeviceImageOsStatus|null
+     * @return CloudPcDeviceImage_osStatus|null
     */
-    public function getOsStatus(): ?CloudPcDeviceImageOsStatus {
+    public function getOsStatus(): ?CloudPcDeviceImage_osStatus {
         $val = $this->getBackingStore()->get('osStatus');
-        if (is_null($val) || $val instanceof CloudPcDeviceImageOsStatus) {
+        if (is_null($val) || $val instanceof CloudPcDeviceImage_osStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'osStatus'");
@@ -155,11 +168,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status of the image on Cloud PC. Possible values are: pending, ready, failed.
-     * @return CloudPcDeviceImageStatus|null
+     * @return CloudPcDeviceImage_status|null
     */
-    public function getStatus(): ?CloudPcDeviceImageStatus {
+    public function getStatus(): ?CloudPcDeviceImage_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof CloudPcDeviceImageStatus) {
+        if (is_null($val) || $val instanceof CloudPcDeviceImage_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -167,11 +180,11 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Gets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
-     * @return CloudPcDeviceImageStatusDetails|null
+     * @return CloudPcDeviceImage_statusDetails|null
     */
-    public function getStatusDetails(): ?CloudPcDeviceImageStatusDetails {
+    public function getStatusDetails(): ?CloudPcDeviceImage_statusDetails {
         $val = $this->getBackingStore()->get('statusDetails');
-        if (is_null($val) || $val instanceof CloudPcDeviceImageStatusDetails) {
+        if (is_null($val) || $val instanceof CloudPcDeviceImage_statusDetails) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'statusDetails'");
@@ -196,6 +209,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('errorCode', $this->getErrorCode());
         $writer->writeDateValue('expirationDate', $this->getExpirationDate());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
@@ -214,6 +228,14 @@ class CloudPcDeviceImage extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the errorCode property value. The errorCode property
+     * @param CloudPcDeviceImage_errorCode|null $value Value to set for the errorCode property.
+    */
+    public function setErrorCode(?CloudPcDeviceImage_errorCode $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
@@ -250,9 +272,9 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Sets the osStatus property value. The OS status of this image. Possible values are: supported, supportedWithWarning, unknownFutureValue.
-     * @param CloudPcDeviceImageOsStatus|null $value Value to set for the osStatus property.
+     * @param CloudPcDeviceImage_osStatus|null $value Value to set for the osStatus property.
     */
-    public function setOsStatus(?CloudPcDeviceImageOsStatus $value): void {
+    public function setOsStatus(?CloudPcDeviceImage_osStatus $value): void {
         $this->getBackingStore()->set('osStatus', $value);
     }
 
@@ -274,17 +296,17 @@ class CloudPcDeviceImage extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the image on Cloud PC. Possible values are: pending, ready, failed.
-     * @param CloudPcDeviceImageStatus|null $value Value to set for the status property.
+     * @param CloudPcDeviceImage_status|null $value Value to set for the status property.
     */
-    public function setStatus(?CloudPcDeviceImageStatus $value): void {
+    public function setStatus(?CloudPcDeviceImage_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
-     * @param CloudPcDeviceImageStatusDetails|null $value Value to set for the statusDetails property.
+     * @param CloudPcDeviceImage_statusDetails|null $value Value to set for the statusDetails property.
     */
-    public function setStatusDetails(?CloudPcDeviceImageStatusDetails $value): void {
+    public function setStatusDetails(?CloudPcDeviceImage_statusDetails $value): void {
         $this->getBackingStore()->set('statusDetails', $value);
     }
 

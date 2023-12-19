@@ -32,17 +32,17 @@ class AddWatermark extends MarkContent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'orientation' => fn(ParseNode $n) => $o->setOrientation($n->getEnumValue(PageOrientation::class)),
+            'orientation' => fn(ParseNode $n) => $o->setOrientation($n->getEnumValue(AddWatermark_orientation::class)),
         ]);
     }
 
     /**
      * Gets the orientation property value. The orientation property
-     * @return PageOrientation|null
+     * @return AddWatermark_orientation|null
     */
-    public function getOrientation(): ?PageOrientation {
+    public function getOrientation(): ?AddWatermark_orientation {
         $val = $this->getBackingStore()->get('orientation');
-        if (is_null($val) || $val instanceof PageOrientation) {
+        if (is_null($val) || $val instanceof AddWatermark_orientation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'orientation'");
@@ -59,9 +59,9 @@ class AddWatermark extends MarkContent implements Parsable
 
     /**
      * Sets the orientation property value. The orientation property
-     * @param PageOrientation|null $value Value to set for the orientation property.
+     * @param AddWatermark_orientation|null $value Value to set for the orientation property.
     */
-    public function setOrientation(?PageOrientation $value): void {
+    public function setOrientation(?AddWatermark_orientation $value): void {
         $this->getBackingStore()->set('orientation', $value);
     }
 

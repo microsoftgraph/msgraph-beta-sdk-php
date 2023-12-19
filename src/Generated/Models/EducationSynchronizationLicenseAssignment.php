@@ -50,11 +50,11 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
 
     /**
      * Gets the appliesTo property value. The user role type to assign to license. Possible values are: student, teacher, faculty.
-     * @return EducationUserRole|null
+     * @return EducationSynchronizationLicenseAssignment_appliesTo|null
     */
-    public function getAppliesTo(): ?EducationUserRole {
+    public function getAppliesTo(): ?EducationSynchronizationLicenseAssignment_appliesTo {
         $val = $this->getBackingStore()->get('appliesTo');
-        if (is_null($val) || $val instanceof EducationUserRole) {
+        if (is_null($val) || $val instanceof EducationSynchronizationLicenseAssignment_appliesTo) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appliesTo'");
@@ -75,7 +75,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)),
+            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(EducationSynchronizationLicenseAssignment_appliesTo::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'skuIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -135,9 +135,9 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
 
     /**
      * Sets the appliesTo property value. The user role type to assign to license. Possible values are: student, teacher, faculty.
-     * @param EducationUserRole|null $value Value to set for the appliesTo property.
+     * @param EducationSynchronizationLicenseAssignment_appliesTo|null $value Value to set for the appliesTo property.
     */
-    public function setAppliesTo(?EducationUserRole $value): void {
+    public function setAppliesTo(?EducationSynchronizationLicenseAssignment_appliesTo $value): void {
         $this->getBackingStore()->set('appliesTo', $value);
     }
 

@@ -90,11 +90,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Gets the deadPeerDetectionRate property value. Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.
-     * @return VpnDeadPeerDetectionRate|null
+     * @return IosikEv2VpnConfiguration_deadPeerDetectionRate|null
     */
-    public function getDeadPeerDetectionRate(): ?VpnDeadPeerDetectionRate {
+    public function getDeadPeerDetectionRate(): ?IosikEv2VpnConfiguration_deadPeerDetectionRate {
         $val = $this->getBackingStore()->get('deadPeerDetectionRate');
-        if (is_null($val) || $val instanceof VpnDeadPeerDetectionRate) {
+        if (is_null($val) || $val instanceof IosikEv2VpnConfiguration_deadPeerDetectionRate) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deadPeerDetectionRate'");
@@ -196,7 +196,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
             'alwaysOnConfiguration' => fn(ParseNode $n) => $o->setAlwaysOnConfiguration($n->getObjectValue([AppleVpnAlwaysOnConfiguration::class, 'createFromDiscriminatorValue'])),
             'childSecurityAssociationParameters' => fn(ParseNode $n) => $o->setChildSecurityAssociationParameters($n->getObjectValue([IosVpnSecurityAssociationParameters::class, 'createFromDiscriminatorValue'])),
             'clientAuthenticationType' => fn(ParseNode $n) => $o->setClientAuthenticationType($n->getEnumValue(VpnClientAuthenticationType::class)),
-            'deadPeerDetectionRate' => fn(ParseNode $n) => $o->setDeadPeerDetectionRate($n->getEnumValue(VpnDeadPeerDetectionRate::class)),
+            'deadPeerDetectionRate' => fn(ParseNode $n) => $o->setDeadPeerDetectionRate($n->getEnumValue(IosikEv2VpnConfiguration_deadPeerDetectionRate::class)),
             'disableMobilityAndMultihoming' => fn(ParseNode $n) => $o->setDisableMobilityAndMultihoming($n->getBooleanValue()),
             'disableRedirect' => fn(ParseNode $n) => $o->setDisableRedirect($n->getBooleanValue()),
             'enableAlwaysOnConfiguration' => fn(ParseNode $n) => $o->setEnableAlwaysOnConfiguration($n->getBooleanValue()),
@@ -210,7 +210,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
             'securityAssociationParameters' => fn(ParseNode $n) => $o->setSecurityAssociationParameters($n->getObjectValue([IosVpnSecurityAssociationParameters::class, 'createFromDiscriminatorValue'])),
             'serverCertificateCommonName' => fn(ParseNode $n) => $o->setServerCertificateCommonName($n->getStringValue()),
             'serverCertificateIssuerCommonName' => fn(ParseNode $n) => $o->setServerCertificateIssuerCommonName($n->getStringValue()),
-            'serverCertificateType' => fn(ParseNode $n) => $o->setServerCertificateType($n->getEnumValue(VpnServerCertificateType::class)),
+            'serverCertificateType' => fn(ParseNode $n) => $o->setServerCertificateType($n->getEnumValue(IosikEv2VpnConfiguration_serverCertificateType::class)),
             'sharedSecret' => fn(ParseNode $n) => $o->setSharedSecret($n->getStringValue()),
             'tlsMaximumVersion' => fn(ParseNode $n) => $o->setTlsMaximumVersion($n->getStringValue()),
             'tlsMinimumVersion' => fn(ParseNode $n) => $o->setTlsMinimumVersion($n->getStringValue()),
@@ -291,11 +291,11 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Gets the serverCertificateType property value. The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
-     * @return VpnServerCertificateType|null
+     * @return IosikEv2VpnConfiguration_serverCertificateType|null
     */
-    public function getServerCertificateType(): ?VpnServerCertificateType {
+    public function getServerCertificateType(): ?IosikEv2VpnConfiguration_serverCertificateType {
         $val = $this->getBackingStore()->get('serverCertificateType');
-        if (is_null($val) || $val instanceof VpnServerCertificateType) {
+        if (is_null($val) || $val instanceof IosikEv2VpnConfiguration_serverCertificateType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'serverCertificateType'");
@@ -410,9 +410,9 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the deadPeerDetectionRate property value. Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.
-     * @param VpnDeadPeerDetectionRate|null $value Value to set for the deadPeerDetectionRate property.
+     * @param IosikEv2VpnConfiguration_deadPeerDetectionRate|null $value Value to set for the deadPeerDetectionRate property.
     */
-    public function setDeadPeerDetectionRate(?VpnDeadPeerDetectionRate $value): void {
+    public function setDeadPeerDetectionRate(?IosikEv2VpnConfiguration_deadPeerDetectionRate $value): void {
         $this->getBackingStore()->set('deadPeerDetectionRate', $value);
     }
 
@@ -522,9 +522,9 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the serverCertificateType property value. The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
-     * @param VpnServerCertificateType|null $value Value to set for the serverCertificateType property.
+     * @param IosikEv2VpnConfiguration_serverCertificateType|null $value Value to set for the serverCertificateType property.
     */
-    public function setServerCertificateType(?VpnServerCertificateType $value): void {
+    public function setServerCertificateType(?IosikEv2VpnConfiguration_serverCertificateType $value): void {
         $this->getBackingStore()->set('serverCertificateType', $value);
     }
 

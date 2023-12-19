@@ -64,11 +64,11 @@ class PlannerBucketCreation implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the creationSourceKind property value. Specifies what kind of creation source the bucket is created with. The possible values are: external, publication and unknownFutureValue.
-     * @return PlannerCreationSourceKind|null
+     * @return PlannerBucketCreation_creationSourceKind|null
     */
-    public function getCreationSourceKind(): ?PlannerCreationSourceKind {
+    public function getCreationSourceKind(): ?PlannerBucketCreation_creationSourceKind {
         $val = $this->getBackingStore()->get('creationSourceKind');
-        if (is_null($val) || $val instanceof PlannerCreationSourceKind) {
+        if (is_null($val) || $val instanceof PlannerBucketCreation_creationSourceKind) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'creationSourceKind'");
@@ -81,7 +81,7 @@ class PlannerBucketCreation implements AdditionalDataHolder, BackedModel, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'creationSourceKind' => fn(ParseNode $n) => $o->setCreationSourceKind($n->getEnumValue(PlannerCreationSourceKind::class)),
+            'creationSourceKind' => fn(ParseNode $n) => $o->setCreationSourceKind($n->getEnumValue(PlannerBucketCreation_creationSourceKind::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -126,9 +126,9 @@ class PlannerBucketCreation implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the creationSourceKind property value. Specifies what kind of creation source the bucket is created with. The possible values are: external, publication and unknownFutureValue.
-     * @param PlannerCreationSourceKind|null $value Value to set for the creationSourceKind property.
+     * @param PlannerBucketCreation_creationSourceKind|null $value Value to set for the creationSourceKind property.
     */
-    public function setCreationSourceKind(?PlannerCreationSourceKind $value): void {
+    public function setCreationSourceKind(?PlannerBucketCreation_creationSourceKind $value): void {
         $this->getBackingStore()->set('creationSourceKind', $value);
     }
 

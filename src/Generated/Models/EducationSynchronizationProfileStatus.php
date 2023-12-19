@@ -47,7 +47,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
             'errorCount' => fn(ParseNode $n) => $o->setErrorCount($n->getIntegerValue()),
             'lastActivityDateTime' => fn(ParseNode $n) => $o->setLastActivityDateTime($n->getDateTimeValue()),
             'lastSynchronizationDateTime' => fn(ParseNode $n) => $o->setLastSynchronizationDateTime($n->getDateTimeValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationSynchronizationStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationSynchronizationProfileStatus_status::class)),
             'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getStringValue()),
         ]);
     }
@@ -78,11 +78,11 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
 
     /**
      * Gets the status property value. The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.
-     * @return EducationSynchronizationStatus|null
+     * @return EducationSynchronizationProfileStatus_status|null
     */
-    public function getStatus(): ?EducationSynchronizationStatus {
+    public function getStatus(): ?EducationSynchronizationProfileStatus_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof EducationSynchronizationStatus) {
+        if (is_null($val) || $val instanceof EducationSynchronizationProfileStatus_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -139,9 +139,9 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.
-     * @param EducationSynchronizationStatus|null $value Value to set for the status property.
+     * @param EducationSynchronizationProfileStatus_status|null $value Value to set for the status property.
     */
-    public function setStatus(?EducationSynchronizationStatus $value): void {
+    public function setStatus(?EducationSynchronizationProfileStatus_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

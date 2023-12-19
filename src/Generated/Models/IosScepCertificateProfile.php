@@ -31,11 +31,11 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
 
     /**
      * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @return CertificateStore|null
+     * @return IosScepCertificateProfile_certificateStore|null
     */
-    public function getCertificateStore(): ?CertificateStore {
+    public function getCertificateStore(): ?IosScepCertificateProfile_certificateStore {
         $val = $this->getBackingStore()->get('certificateStore');
-        if (is_null($val) || $val instanceof CertificateStore) {
+        if (is_null($val) || $val instanceof IosScepCertificateProfile_certificateStore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateStore'");
@@ -76,7 +76,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(CertificateStore::class)),
+            'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(IosScepCertificateProfile_certificateStore::class)),
             'customSubjectAlternativeNames' => fn(ParseNode $n) => $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues([CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
             'extendedKeyUsages' => fn(ParseNode $n) => $o->setExtendedKeyUsages($n->getCollectionOfObjectValues([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
             'keySize' => fn(ParseNode $n) => $o->setKeySize($n->getEnumValue(KeySize::class)),
@@ -204,9 +204,9 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     * @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param IosScepCertificateProfile_certificateStore|null $value Value to set for the certificateStore property.
     */
-    public function setCertificateStore(?CertificateStore $value): void {
+    public function setCertificateStore(?IosScepCertificateProfile_certificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
     }
 

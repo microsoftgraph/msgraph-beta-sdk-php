@@ -52,11 +52,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the airPrintExceptionAction property value. Determine whether AirPrint service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     * @return VpnServiceExceptionAction|null
+     * @return AppleVpnAlwaysOnConfiguration_airPrintExceptionAction|null
     */
-    public function getAirPrintExceptionAction(): ?VpnServiceExceptionAction {
+    public function getAirPrintExceptionAction(): ?AppleVpnAlwaysOnConfiguration_airPrintExceptionAction {
         $val = $this->getBackingStore()->get('airPrintExceptionAction');
-        if (is_null($val) || $val instanceof VpnServiceExceptionAction) {
+        if (is_null($val) || $val instanceof AppleVpnAlwaysOnConfiguration_airPrintExceptionAction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'airPrintExceptionAction'");
@@ -108,11 +108,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the cellularExceptionAction property value. Determine whether Cellular service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     * @return VpnServiceExceptionAction|null
+     * @return AppleVpnAlwaysOnConfiguration_cellularExceptionAction|null
     */
-    public function getCellularExceptionAction(): ?VpnServiceExceptionAction {
+    public function getCellularExceptionAction(): ?AppleVpnAlwaysOnConfiguration_cellularExceptionAction {
         $val = $this->getBackingStore()->get('cellularExceptionAction');
-        if (is_null($val) || $val instanceof VpnServiceExceptionAction) {
+        if (is_null($val) || $val instanceof AppleVpnAlwaysOnConfiguration_cellularExceptionAction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularExceptionAction'");
@@ -125,17 +125,17 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'airPrintExceptionAction' => fn(ParseNode $n) => $o->setAirPrintExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)),
+            'airPrintExceptionAction' => fn(ParseNode $n) => $o->setAirPrintExceptionAction($n->getEnumValue(AppleVpnAlwaysOnConfiguration_airPrintExceptionAction::class)),
             'allowAllCaptiveNetworkPlugins' => fn(ParseNode $n) => $o->setAllowAllCaptiveNetworkPlugins($n->getBooleanValue()),
             'allowCaptiveWebSheet' => fn(ParseNode $n) => $o->setAllowCaptiveWebSheet($n->getBooleanValue()),
             'allowedCaptiveNetworkPlugins' => fn(ParseNode $n) => $o->setAllowedCaptiveNetworkPlugins($n->getObjectValue([SpecifiedCaptiveNetworkPlugins::class, 'createFromDiscriminatorValue'])),
-            'cellularExceptionAction' => fn(ParseNode $n) => $o->setCellularExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)),
+            'cellularExceptionAction' => fn(ParseNode $n) => $o->setCellularExceptionAction($n->getEnumValue(AppleVpnAlwaysOnConfiguration_cellularExceptionAction::class)),
             'natKeepAliveIntervalInSeconds' => fn(ParseNode $n) => $o->setNatKeepAliveIntervalInSeconds($n->getIntegerValue()),
             'natKeepAliveOffloadEnable' => fn(ParseNode $n) => $o->setNatKeepAliveOffloadEnable($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tunnelConfiguration' => fn(ParseNode $n) => $o->setTunnelConfiguration($n->getEnumValue(VpnTunnelConfigurationType::class)),
             'userToggleEnabled' => fn(ParseNode $n) => $o->setUserToggleEnabled($n->getBooleanValue()),
-            'voicemailExceptionAction' => fn(ParseNode $n) => $o->setVoicemailExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)),
+            'voicemailExceptionAction' => fn(ParseNode $n) => $o->setVoicemailExceptionAction($n->getEnumValue(AppleVpnAlwaysOnConfiguration_voicemailExceptionAction::class)),
         ];
     }
 
@@ -201,11 +201,11 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the voicemailExceptionAction property value. Determine whether voicemail service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     * @return VpnServiceExceptionAction|null
+     * @return AppleVpnAlwaysOnConfiguration_voicemailExceptionAction|null
     */
-    public function getVoicemailExceptionAction(): ?VpnServiceExceptionAction {
+    public function getVoicemailExceptionAction(): ?AppleVpnAlwaysOnConfiguration_voicemailExceptionAction {
         $val = $this->getBackingStore()->get('voicemailExceptionAction');
-        if (is_null($val) || $val instanceof VpnServiceExceptionAction) {
+        if (is_null($val) || $val instanceof AppleVpnAlwaysOnConfiguration_voicemailExceptionAction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'voicemailExceptionAction'");
@@ -240,9 +240,9 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the airPrintExceptionAction property value. Determine whether AirPrint service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     * @param VpnServiceExceptionAction|null $value Value to set for the airPrintExceptionAction property.
+     * @param AppleVpnAlwaysOnConfiguration_airPrintExceptionAction|null $value Value to set for the airPrintExceptionAction property.
     */
-    public function setAirPrintExceptionAction(?VpnServiceExceptionAction $value): void {
+    public function setAirPrintExceptionAction(?AppleVpnAlwaysOnConfiguration_airPrintExceptionAction $value): void {
         $this->getBackingStore()->set('airPrintExceptionAction', $value);
     }
 
@@ -280,9 +280,9 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the cellularExceptionAction property value. Determine whether Cellular service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     * @param VpnServiceExceptionAction|null $value Value to set for the cellularExceptionAction property.
+     * @param AppleVpnAlwaysOnConfiguration_cellularExceptionAction|null $value Value to set for the cellularExceptionAction property.
     */
-    public function setCellularExceptionAction(?VpnServiceExceptionAction $value): void {
+    public function setCellularExceptionAction(?AppleVpnAlwaysOnConfiguration_cellularExceptionAction $value): void {
         $this->getBackingStore()->set('cellularExceptionAction', $value);
     }
 
@@ -328,9 +328,9 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the voicemailExceptionAction property value. Determine whether voicemail service will be exempt from the always-on VPN connection. Possible values are: forceTrafficViaVPN, allowTrafficOutside, dropTraffic.
-     * @param VpnServiceExceptionAction|null $value Value to set for the voicemailExceptionAction property.
+     * @param AppleVpnAlwaysOnConfiguration_voicemailExceptionAction|null $value Value to set for the voicemailExceptionAction property.
     */
-    public function setVoicemailExceptionAction(?VpnServiceExceptionAction $value): void {
+    public function setVoicemailExceptionAction(?AppleVpnAlwaysOnConfiguration_voicemailExceptionAction $value): void {
         $this->getBackingStore()->set('voicemailExceptionAction', $value);
     }
 

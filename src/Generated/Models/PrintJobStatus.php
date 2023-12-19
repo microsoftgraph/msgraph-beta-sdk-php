@@ -106,7 +106,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
             'details' => fn(ParseNode $n) => $o->setDetails($n->getCollectionOfEnumValues(PrintJobStateDetail::class)),
             'isAcquiredByPrinter' => fn(ParseNode $n) => $o->setIsAcquiredByPrinter($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'processingState' => fn(ParseNode $n) => $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)),
+            'processingState' => fn(ParseNode $n) => $o->setProcessingState($n->getEnumValue(PrintJobStatus_processingState::class)),
             'processingStateDescription' => fn(ParseNode $n) => $o->setProcessingStateDescription($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(PrintJobProcessingState::class)),
         ];
@@ -138,11 +138,11 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the processingState property value. The processingState property
-     * @return PrintJobProcessingState|null
+     * @return PrintJobStatus_processingState|null
     */
-    public function getProcessingState(): ?PrintJobProcessingState {
+    public function getProcessingState(): ?PrintJobStatus_processingState {
         $val = $this->getBackingStore()->get('processingState');
-        if (is_null($val) || $val instanceof PrintJobProcessingState) {
+        if (is_null($val) || $val instanceof PrintJobStatus_processingState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'processingState'");
@@ -246,9 +246,9 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the processingState property value. The processingState property
-     * @param PrintJobProcessingState|null $value Value to set for the processingState property.
+     * @param PrintJobStatus_processingState|null $value Value to set for the processingState property.
     */
-    public function setProcessingState(?PrintJobProcessingState $value): void {
+    public function setProcessingState(?PrintJobStatus_processingState $value): void {
         $this->getBackingStore()->set('processingState', $value);
     }
 

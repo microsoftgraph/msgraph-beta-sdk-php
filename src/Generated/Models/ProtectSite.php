@@ -27,11 +27,11 @@ class ProtectSite extends LabelActionBase implements Parsable
 
     /**
      * Gets the accessType property value. The accessType property
-     * @return SiteAccessType|null
+     * @return ProtectSite_accessType|null
     */
-    public function getAccessType(): ?SiteAccessType {
+    public function getAccessType(): ?ProtectSite_accessType {
         $val = $this->getBackingStore()->get('accessType');
-        if (is_null($val) || $val instanceof SiteAccessType) {
+        if (is_null($val) || $val instanceof ProtectSite_accessType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'accessType'");
@@ -56,7 +56,7 @@ class ProtectSite extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessType' => fn(ParseNode $n) => $o->setAccessType($n->getEnumValue(SiteAccessType::class)),
+            'accessType' => fn(ParseNode $n) => $o->setAccessType($n->getEnumValue(ProtectSite_accessType::class)),
             'conditionalAccessProtectionLevelId' => fn(ParseNode $n) => $o->setConditionalAccessProtectionLevelId($n->getStringValue()),
         ]);
     }
@@ -73,9 +73,9 @@ class ProtectSite extends LabelActionBase implements Parsable
 
     /**
      * Sets the accessType property value. The accessType property
-     * @param SiteAccessType|null $value Value to set for the accessType property.
+     * @param ProtectSite_accessType|null $value Value to set for the accessType property.
     */
-    public function setAccessType(?SiteAccessType $value): void {
+    public function setAccessType(?ProtectSite_accessType $value): void {
         $this->getBackingStore()->set('accessType', $value);
     }
 

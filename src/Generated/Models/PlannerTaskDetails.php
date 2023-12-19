@@ -70,10 +70,23 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
             'checklist' => fn(ParseNode $n) => $o->setChecklist($n->getObjectValue([PlannerChecklistItems::class, 'createFromDiscriminatorValue'])),
             'completionRequirements' => fn(ParseNode $n) => $o->setCompletionRequirements($n->getObjectValue([PlannerTaskCompletionRequirementDetails::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([PlannerFormsDictionary::class, 'createFromDiscriminatorValue'])),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
-            'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)),
+            'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getEnumValue(PlannerTaskDetails_previewType::class)),
             'references' => fn(ParseNode $n) => $o->setReferences($n->getObjectValue([PlannerExternalReferences::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the forms property value. The forms property
+     * @return PlannerFormsDictionary|null
+    */
+    public function getForms(): ?PlannerFormsDictionary {
+        $val = $this->getBackingStore()->get('forms');
+        if (is_null($val) || $val instanceof PlannerFormsDictionary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forms'");
     }
 
     /**
@@ -90,11 +103,11 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
 
     /**
      * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-     * @return PlannerPreviewType|null
+     * @return PlannerTaskDetails_previewType|null
     */
-    public function getPreviewType(): ?PlannerPreviewType {
+    public function getPreviewType(): ?PlannerTaskDetails_previewType {
         $val = $this->getBackingStore()->get('previewType');
-        if (is_null($val) || $val instanceof PlannerPreviewType) {
+        if (is_null($val) || $val instanceof PlannerTaskDetails_previewType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'previewType'");
@@ -121,6 +134,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
         $writer->writeObjectValue('checklist', $this->getChecklist());
         $writer->writeObjectValue('completionRequirements', $this->getCompletionRequirements());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('forms', $this->getForms());
         $writer->writeObjectValue('notes', $this->getNotes());
         $writer->writeEnumValue('previewType', $this->getPreviewType());
         $writer->writeObjectValue('references', $this->getReferences());
@@ -151,6 +165,14 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
+     * Sets the forms property value. The forms property
+     * @param PlannerFormsDictionary|null $value Value to set for the forms property.
+    */
+    public function setForms(?PlannerFormsDictionary $value): void {
+        $this->getBackingStore()->set('forms', $value);
+    }
+
+    /**
      * Sets the notes property value. Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field hasn't previously been set but 'description' has been, the existing description is synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
      * @param ItemBody|null $value Value to set for the notes property.
     */
@@ -160,9 +182,9 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
 
     /**
      * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-     * @param PlannerPreviewType|null $value Value to set for the previewType property.
+     * @param PlannerTaskDetails_previewType|null $value Value to set for the previewType property.
     */
-    public function setPreviewType(?PlannerPreviewType $value): void {
+    public function setPreviewType(?PlannerTaskDetails_previewType $value): void {
         $this->getBackingStore()->set('previewType', $value);
     }
 

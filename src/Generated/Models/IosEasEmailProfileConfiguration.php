@@ -42,11 +42,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Gets the authenticationMethod property value. Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.
-     * @return EasAuthenticationMethod|null
+     * @return IosEasEmailProfileConfiguration_authenticationMethod|null
     */
-    public function getAuthenticationMethod(): ?EasAuthenticationMethod {
+    public function getAuthenticationMethod(): ?IosEasEmailProfileConfiguration_authenticationMethod {
         $val = $this->getBackingStore()->get('authenticationMethod');
-        if (is_null($val) || $val instanceof EasAuthenticationMethod) {
+        if (is_null($val) || $val instanceof IosEasEmailProfileConfiguration_authenticationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
@@ -114,11 +114,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Gets the easServices property value. Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.
-     * @return EasServices|null
+     * @return IosEasEmailProfileConfiguration_easServices|null
     */
-    public function getEasServices(): ?EasServices {
+    public function getEasServices(): ?IosEasEmailProfileConfiguration_easServices {
         $val = $this->getBackingStore()->get('easServices');
-        if (is_null($val) || $val instanceof EasServices) {
+        if (is_null($val) || $val instanceof IosEasEmailProfileConfiguration_easServices) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'easServices'");
@@ -150,11 +150,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Gets the encryptionCertificateType property value. Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
-     * @return EmailCertificateType|null
+     * @return IosEasEmailProfileConfiguration_encryptionCertificateType|null
     */
-    public function getEncryptionCertificateType(): ?EmailCertificateType {
+    public function getEncryptionCertificateType(): ?IosEasEmailProfileConfiguration_encryptionCertificateType {
         $val = $this->getBackingStore()->get('encryptionCertificateType');
-        if (is_null($val) || $val instanceof EmailCertificateType) {
+        if (is_null($val) || $val instanceof IosEasEmailProfileConfiguration_encryptionCertificateType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'encryptionCertificateType'");
@@ -168,22 +168,22 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'accountName' => fn(ParseNode $n) => $o->setAccountName($n->getStringValue()),
-            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(EasAuthenticationMethod::class)),
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(IosEasEmailProfileConfiguration_authenticationMethod::class)),
             'blockMovingMessagesToOtherEmailAccounts' => fn(ParseNode $n) => $o->setBlockMovingMessagesToOtherEmailAccounts($n->getBooleanValue()),
             'blockSendingEmailFromThirdPartyApps' => fn(ParseNode $n) => $o->setBlockSendingEmailFromThirdPartyApps($n->getBooleanValue()),
             'blockSyncingRecentlyUsedEmailAddresses' => fn(ParseNode $n) => $o->setBlockSyncingRecentlyUsedEmailAddresses($n->getBooleanValue()),
             'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
             'durationOfEmailToSync' => fn(ParseNode $n) => $o->setDurationOfEmailToSync($n->getEnumValue(EmailSyncDuration::class)),
-            'easServices' => fn(ParseNode $n) => $o->setEasServices($n->getEnumValue(EasServices::class)),
+            'easServices' => fn(ParseNode $n) => $o->setEasServices($n->getEnumValue(IosEasEmailProfileConfiguration_easServices::class)),
             'easServicesUserOverrideEnabled' => fn(ParseNode $n) => $o->setEasServicesUserOverrideEnabled($n->getBooleanValue()),
             'emailAddressSource' => fn(ParseNode $n) => $o->setEmailAddressSource($n->getEnumValue(UserEmailSource::class)),
-            'encryptionCertificateType' => fn(ParseNode $n) => $o->setEncryptionCertificateType($n->getEnumValue(EmailCertificateType::class)),
+            'encryptionCertificateType' => fn(ParseNode $n) => $o->setEncryptionCertificateType($n->getEnumValue(IosEasEmailProfileConfiguration_encryptionCertificateType::class)),
             'hostName' => fn(ParseNode $n) => $o->setHostName($n->getStringValue()),
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([IosCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'perAppVPNProfileId' => fn(ParseNode $n) => $o->setPerAppVPNProfileId($n->getStringValue()),
             'requireSmime' => fn(ParseNode $n) => $o->setRequireSmime($n->getBooleanValue()),
             'requireSsl' => fn(ParseNode $n) => $o->setRequireSsl($n->getBooleanValue()),
-            'signingCertificateType' => fn(ParseNode $n) => $o->setSigningCertificateType($n->getEnumValue(EmailCertificateType::class)),
+            'signingCertificateType' => fn(ParseNode $n) => $o->setSigningCertificateType($n->getEnumValue(IosEasEmailProfileConfiguration_signingCertificateType::class)),
             'smimeEnablePerMessageSwitch' => fn(ParseNode $n) => $o->setSmimeEnablePerMessageSwitch($n->getBooleanValue()),
             'smimeEncryptByDefaultEnabled' => fn(ParseNode $n) => $o->setSmimeEncryptByDefaultEnabled($n->getBooleanValue()),
             'smimeEncryptByDefaultUserOverrideEnabled' => fn(ParseNode $n) => $o->setSmimeEncryptByDefaultUserOverrideEnabled($n->getBooleanValue()),
@@ -259,11 +259,11 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Gets the signingCertificateType property value. Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
-     * @return EmailCertificateType|null
+     * @return IosEasEmailProfileConfiguration_signingCertificateType|null
     */
-    public function getSigningCertificateType(): ?EmailCertificateType {
+    public function getSigningCertificateType(): ?IosEasEmailProfileConfiguration_signingCertificateType {
         $val = $this->getBackingStore()->get('signingCertificateType');
-        if (is_null($val) || $val instanceof EmailCertificateType) {
+        if (is_null($val) || $val instanceof IosEasEmailProfileConfiguration_signingCertificateType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'signingCertificateType'");
@@ -434,9 +434,9 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the authenticationMethod property value. Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.
-     * @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param IosEasEmailProfileConfiguration_authenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?EasAuthenticationMethod $value): void {
+    public function setAuthenticationMethod(?IosEasEmailProfileConfiguration_authenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
@@ -482,9 +482,9 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the easServices property value. Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.
-     * @param EasServices|null $value Value to set for the easServices property.
+     * @param IosEasEmailProfileConfiguration_easServices|null $value Value to set for the easServices property.
     */
-    public function setEasServices(?EasServices $value): void {
+    public function setEasServices(?IosEasEmailProfileConfiguration_easServices $value): void {
         $this->getBackingStore()->set('easServices', $value);
     }
 
@@ -506,9 +506,9 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the encryptionCertificateType property value. Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
-     * @param EmailCertificateType|null $value Value to set for the encryptionCertificateType property.
+     * @param IosEasEmailProfileConfiguration_encryptionCertificateType|null $value Value to set for the encryptionCertificateType property.
     */
-    public function setEncryptionCertificateType(?EmailCertificateType $value): void {
+    public function setEncryptionCertificateType(?IosEasEmailProfileConfiguration_encryptionCertificateType $value): void {
         $this->getBackingStore()->set('encryptionCertificateType', $value);
     }
 
@@ -554,9 +554,9 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the signingCertificateType property value. Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
-     * @param EmailCertificateType|null $value Value to set for the signingCertificateType property.
+     * @param IosEasEmailProfileConfiguration_signingCertificateType|null $value Value to set for the signingCertificateType property.
     */
-    public function setSigningCertificateType(?EmailCertificateType $value): void {
+    public function setSigningCertificateType(?IosEasEmailProfileConfiguration_signingCertificateType $value): void {
         $this->getBackingStore()->set('signingCertificateType', $value);
     }
 

@@ -64,7 +64,7 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
             'scopeId' => fn(ParseNode $n) => $o->setScopeId($n->getStringValue()),
             'scopeType' => fn(ParseNode $n) => $o->setScopeType($n->getStringValue()),
             'securityImpact' => fn(ParseNode $n) => $o->setSecurityImpact($n->getStringValue()),
-            'severityLevel' => fn(ParseNode $n) => $o->setSeverityLevel($n->getEnumValue(AlertSeverity::class)),
+            'severityLevel' => fn(ParseNode $n) => $o->setSeverityLevel($n->getEnumValue(UnifiedRoleManagementAlertDefinition_severityLevel::class)),
         ]);
     }
 
@@ -154,11 +154,11 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
 
     /**
      * Gets the severityLevel property value. Severity level of the alert. The possible values are: unknown, informational, low, medium, high, unknownFutureValue.
-     * @return AlertSeverity|null
+     * @return UnifiedRoleManagementAlertDefinition_severityLevel|null
     */
-    public function getSeverityLevel(): ?AlertSeverity {
+    public function getSeverityLevel(): ?UnifiedRoleManagementAlertDefinition_severityLevel {
         $val = $this->getBackingStore()->get('severityLevel');
-        if (is_null($val) || $val instanceof AlertSeverity) {
+        if (is_null($val) || $val instanceof UnifiedRoleManagementAlertDefinition_severityLevel) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'severityLevel'");
@@ -256,9 +256,9 @@ class UnifiedRoleManagementAlertDefinition extends Entity implements Parsable
 
     /**
      * Sets the severityLevel property value. Severity level of the alert. The possible values are: unknown, informational, low, medium, high, unknownFutureValue.
-     * @param AlertSeverity|null $value Value to set for the severityLevel property.
+     * @param UnifiedRoleManagementAlertDefinition_severityLevel|null $value Value to set for the severityLevel property.
     */
-    public function setSeverityLevel(?AlertSeverity $value): void {
+    public function setSeverityLevel(?UnifiedRoleManagementAlertDefinition_severityLevel $value): void {
         $this->getBackingStore()->set('severityLevel', $value);
     }
 

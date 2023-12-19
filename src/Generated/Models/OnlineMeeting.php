@@ -78,13 +78,13 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
 
     /**
      * Gets the capabilities property value. The capabilities property
-     * @return array<MeetingCapabilities>|null
+     * @return array<OnlineMeeting_capabilities>|null
     */
     public function getCapabilities(): ?array {
         $val = $this->getBackingStore()->get('capabilities');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, MeetingCapabilities::class);
-            /** @var array<MeetingCapabilities>|null $val */
+            TypeUtils::validateCollectionValues($val, OnlineMeeting_capabilities::class);
+            /** @var array<OnlineMeeting_capabilities>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'capabilities'");
@@ -137,7 +137,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
             'attendeeReport' => fn(ParseNode $n) => $o->setAttendeeReport($n->getBinaryContent()),
             'broadcastRecording' => fn(ParseNode $n) => $o->setBroadcastRecording($n->getBinaryContent()),
             'broadcastSettings' => fn(ParseNode $n) => $o->setBroadcastSettings($n->getObjectValue([BroadcastMeetingSettings::class, 'createFromDiscriminatorValue'])),
-            'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getCollectionOfEnumValues(MeetingCapabilities::class)),
+            'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getCollectionOfEnumValues(OnlineMeeting_capabilities::class)),
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
@@ -324,7 +324,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
 
     /**
      * Sets the capabilities property value. The capabilities property
-     * @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
+     * @param array<OnlineMeeting_capabilities>|null $value Value to set for the capabilities property.
     */
     public function setCapabilities(?array $value): void {
         $this->getBackingStore()->set('capabilities', $value);

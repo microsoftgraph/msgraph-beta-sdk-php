@@ -44,17 +44,17 @@ class ConnectionOperation extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([PublicError::class, 'createFromDiscriminatorValue'])),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ConnectionOperationStatus::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ConnectionOperation_status::class)),
         ]);
     }
 
     /**
      * Gets the status property value. The status property
-     * @return ConnectionOperationStatus|null
+     * @return ConnectionOperation_status|null
     */
-    public function getStatus(): ?ConnectionOperationStatus {
+    public function getStatus(): ?ConnectionOperation_status {
         $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || $val instanceof ConnectionOperationStatus) {
+        if (is_null($val) || $val instanceof ConnectionOperation_status) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
@@ -80,9 +80,9 @@ class ConnectionOperation extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     * @param ConnectionOperationStatus|null $value Value to set for the status property.
+     * @param ConnectionOperation_status|null $value Value to set for the status property.
     */
-    public function setStatus(?ConnectionOperationStatus $value): void {
+    public function setStatus(?ConnectionOperation_status $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

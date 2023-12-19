@@ -49,11 +49,11 @@ class DriveItemSource implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the application property value. Enumeration value that indicates the source application where the file was created.
-     * @return DriveItemSourceApplication|null
+     * @return DriveItemSource_application|null
     */
-    public function getApplication(): ?DriveItemSourceApplication {
+    public function getApplication(): ?DriveItemSource_application {
         $val = $this->getBackingStore()->get('application');
-        if (is_null($val) || $val instanceof DriveItemSourceApplication) {
+        if (is_null($val) || $val instanceof DriveItemSource_application) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'application'");
@@ -86,7 +86,7 @@ class DriveItemSource implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'application' => fn(ParseNode $n) => $o->setApplication($n->getEnumValue(DriveItemSourceApplication::class)),
+            'application' => fn(ParseNode $n) => $o->setApplication($n->getEnumValue(DriveItemSource_application::class)),
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -125,9 +125,9 @@ class DriveItemSource implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the application property value. Enumeration value that indicates the source application where the file was created.
-     * @param DriveItemSourceApplication|null $value Value to set for the application property.
+     * @param DriveItemSource_application|null $value Value to set for the application property.
     */
-    public function setApplication(?DriveItemSourceApplication $value): void {
+    public function setApplication(?DriveItemSource_application $value): void {
         $this->getBackingStore()->set('application', $value);
     }
 

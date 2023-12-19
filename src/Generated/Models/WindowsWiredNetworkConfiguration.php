@@ -43,11 +43,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Gets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
-     * @return WiredNetworkAuthenticationMethod|null
+     * @return WindowsWiredNetworkConfiguration_authenticationMethod|null
     */
-    public function getAuthenticationMethod(): ?WiredNetworkAuthenticationMethod {
+    public function getAuthenticationMethod(): ?WindowsWiredNetworkConfiguration_authenticationMethod {
         $val = $this->getBackingStore()->get('authenticationMethod');
-        if (is_null($val) || $val instanceof WiredNetworkAuthenticationMethod) {
+        if (is_null($val) || $val instanceof WindowsWiredNetworkConfiguration_authenticationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
@@ -79,11 +79,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Gets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you're using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest. Possible values are: none, user, machine, machineOrUser, guest, unknownFutureValue.
-     * @return WiredNetworkAuthenticationType|null
+     * @return WindowsWiredNetworkConfiguration_authenticationType|null
     */
-    public function getAuthenticationType(): ?WiredNetworkAuthenticationType {
+    public function getAuthenticationType(): ?WindowsWiredNetworkConfiguration_authenticationType {
         $val = $this->getBackingStore()->get('authenticationType');
-        if (is_null($val) || $val instanceof WiredNetworkAuthenticationType) {
+        if (is_null($val) || $val instanceof WindowsWiredNetworkConfiguration_authenticationType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationType'");
@@ -157,10 +157,10 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'authenticationBlockPeriodInMinutes' => fn(ParseNode $n) => $o->setAuthenticationBlockPeriodInMinutes($n->getIntegerValue()),
-            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiredNetworkAuthenticationMethod::class)),
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WindowsWiredNetworkConfiguration_authenticationMethod::class)),
             'authenticationPeriodInSeconds' => fn(ParseNode $n) => $o->setAuthenticationPeriodInSeconds($n->getIntegerValue()),
             'authenticationRetryDelayPeriodInSeconds' => fn(ParseNode $n) => $o->setAuthenticationRetryDelayPeriodInSeconds($n->getIntegerValue()),
-            'authenticationType' => fn(ParseNode $n) => $o->setAuthenticationType($n->getEnumValue(WiredNetworkAuthenticationType::class)),
+            'authenticationType' => fn(ParseNode $n) => $o->setAuthenticationType($n->getEnumValue(WindowsWiredNetworkConfiguration_authenticationType::class)),
             'cacheCredentials' => fn(ParseNode $n) => $o->setCacheCredentials($n->getBooleanValue()),
             'disableUserPromptForServerValidation' => fn(ParseNode $n) => $o->setDisableUserPromptForServerValidation($n->getBooleanValue()),
             'eapolStartPeriodInSeconds' => fn(ParseNode $n) => $o->setEapolStartPeriodInSeconds($n->getIntegerValue()),
@@ -168,7 +168,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
             'enforce8021X' => fn(ParseNode $n) => $o->setEnforce8021X($n->getBooleanValue()),
             'forceFIPSCompliance' => fn(ParseNode $n) => $o->setForceFIPSCompliance($n->getBooleanValue()),
             'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([WindowsCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
-            'innerAuthenticationProtocolForEAPTTLS' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEAPTTLS($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
+            'innerAuthenticationProtocolForEAPTTLS' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEAPTTLS($n->getEnumValue(WindowsWiredNetworkConfiguration_innerAuthenticationProtocolForEAPTTLS::class)),
             'maximumAuthenticationFailures' => fn(ParseNode $n) => $o->setMaximumAuthenticationFailures($n->getIntegerValue()),
             'maximumEAPOLStartMessages' => fn(ParseNode $n) => $o->setMaximumEAPOLStartMessages($n->getIntegerValue()),
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
@@ -176,7 +176,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
             'requireCryptographicBinding' => fn(ParseNode $n) => $o->setRequireCryptographicBinding($n->getBooleanValue()),
             'rootCertificateForClientValidation' => fn(ParseNode $n) => $o->setRootCertificateForClientValidation($n->getObjectValue([Windows81TrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
             'rootCertificatesForServerValidation' => fn(ParseNode $n) => $o->setRootCertificatesForServerValidation($n->getCollectionOfObjectValues([Windows81TrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
-            'secondaryAuthenticationMethod' => fn(ParseNode $n) => $o->setSecondaryAuthenticationMethod($n->getEnumValue(WiredNetworkAuthenticationMethod::class)),
+            'secondaryAuthenticationMethod' => fn(ParseNode $n) => $o->setSecondaryAuthenticationMethod($n->getEnumValue(WindowsWiredNetworkConfiguration_secondaryAuthenticationMethod::class)),
             'secondaryIdentityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setSecondaryIdentityCertificateForClientAuthentication($n->getObjectValue([WindowsCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'secondaryRootCertificateForClientValidation' => fn(ParseNode $n) => $o->setSecondaryRootCertificateForClientValidation($n->getObjectValue([Windows81TrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
             'trustedServerCertificateNames' => function (ParseNode $n) {
@@ -216,11 +216,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Gets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @return NonEapAuthenticationMethodForEapTtlsType|null
+     * @return WindowsWiredNetworkConfiguration_innerAuthenticationProtocolForEAPTTLS|null
     */
-    public function getInnerAuthenticationProtocolForEAPTTLS(): ?NonEapAuthenticationMethodForEapTtlsType {
+    public function getInnerAuthenticationProtocolForEAPTTLS(): ?WindowsWiredNetworkConfiguration_innerAuthenticationProtocolForEAPTTLS {
         $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEAPTTLS');
-        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+        if (is_null($val) || $val instanceof WindowsWiredNetworkConfiguration_innerAuthenticationProtocolForEAPTTLS) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEAPTTLS'");
@@ -314,11 +314,11 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Gets the secondaryAuthenticationMethod property value. Specify the secondary authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
-     * @return WiredNetworkAuthenticationMethod|null
+     * @return WindowsWiredNetworkConfiguration_secondaryAuthenticationMethod|null
     */
-    public function getSecondaryAuthenticationMethod(): ?WiredNetworkAuthenticationMethod {
+    public function getSecondaryAuthenticationMethod(): ?WindowsWiredNetworkConfiguration_secondaryAuthenticationMethod {
         $val = $this->getBackingStore()->get('secondaryAuthenticationMethod');
-        if (is_null($val) || $val instanceof WiredNetworkAuthenticationMethod) {
+        if (is_null($val) || $val instanceof WindowsWiredNetworkConfiguration_secondaryAuthenticationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryAuthenticationMethod'");
@@ -404,9 +404,9 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
-     * @param WiredNetworkAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param WindowsWiredNetworkConfiguration_authenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?WiredNetworkAuthenticationMethod $value): void {
+    public function setAuthenticationMethod(?WindowsWiredNetworkConfiguration_authenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
@@ -428,9 +428,9 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you're using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest. Possible values are: none, user, machine, machineOrUser, guest, unknownFutureValue.
-     * @param WiredNetworkAuthenticationType|null $value Value to set for the authenticationType property.
+     * @param WindowsWiredNetworkConfiguration_authenticationType|null $value Value to set for the authenticationType property.
     */
-    public function setAuthenticationType(?WiredNetworkAuthenticationType $value): void {
+    public function setAuthenticationType(?WindowsWiredNetworkConfiguration_authenticationType $value): void {
         $this->getBackingStore()->set('authenticationType', $value);
     }
 
@@ -492,9 +492,9 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
+     * @param WindowsWiredNetworkConfiguration_innerAuthenticationProtocolForEAPTTLS|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
     */
-    public function setInnerAuthenticationProtocolForEAPTTLS(?NonEapAuthenticationMethodForEapTtlsType $value): void {
+    public function setInnerAuthenticationProtocolForEAPTTLS(?WindowsWiredNetworkConfiguration_innerAuthenticationProtocolForEAPTTLS $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEAPTTLS', $value);
     }
 
@@ -556,9 +556,9 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the secondaryAuthenticationMethod property value. Specify the secondary authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
-     * @param WiredNetworkAuthenticationMethod|null $value Value to set for the secondaryAuthenticationMethod property.
+     * @param WindowsWiredNetworkConfiguration_secondaryAuthenticationMethod|null $value Value to set for the secondaryAuthenticationMethod property.
     */
-    public function setSecondaryAuthenticationMethod(?WiredNetworkAuthenticationMethod $value): void {
+    public function setSecondaryAuthenticationMethod(?WindowsWiredNetworkConfiguration_secondaryAuthenticationMethod $value): void {
         $this->getBackingStore()->set('secondaryAuthenticationMethod', $value);
     }
 

@@ -31,11 +31,11 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Gets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @return WiFiAuthenticationMethod|null
+     * @return MacOSWiredNetworkConfiguration_authenticationMethod|null
     */
-    public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
+    public function getAuthenticationMethod(): ?MacOSWiredNetworkConfiguration_authenticationMethod {
         $val = $this->getBackingStore()->get('authenticationMethod');
-        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+        if (is_null($val) || $val instanceof MacOSWiredNetworkConfiguration_authenticationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
@@ -43,11 +43,11 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Gets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
-     * @return EapFastConfiguration|null
+     * @return MacOSWiredNetworkConfiguration_eapFastConfiguration|null
     */
-    public function getEapFastConfiguration(): ?EapFastConfiguration {
+    public function getEapFastConfiguration(): ?MacOSWiredNetworkConfiguration_eapFastConfiguration {
         $val = $this->getBackingStore()->get('eapFastConfiguration');
-        if (is_null($val) || $val instanceof EapFastConfiguration) {
+        if (is_null($val) || $val instanceof MacOSWiredNetworkConfiguration_eapFastConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'eapFastConfiguration'");
@@ -84,14 +84,14 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)),
-            'eapFastConfiguration' => fn(ParseNode $n) => $o->setEapFastConfiguration($n->getEnumValue(EapFastConfiguration::class)),
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(MacOSWiredNetworkConfiguration_authenticationMethod::class)),
+            'eapFastConfiguration' => fn(ParseNode $n) => $o->setEapFastConfiguration($n->getEnumValue(MacOSWiredNetworkConfiguration_eapFastConfiguration::class)),
             'eapType' => fn(ParseNode $n) => $o->setEapType($n->getEnumValue(EapType::class)),
             'enableOuterIdentityPrivacy' => fn(ParseNode $n) => $o->setEnableOuterIdentityPrivacy($n->getStringValue()),
             'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([MacOSCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
             'networkInterface' => fn(ParseNode $n) => $o->setNetworkInterface($n->getEnumValue(WiredNetworkInterface::class)),
             'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
-            'nonEapAuthenticationMethodForEapTtls' => fn(ParseNode $n) => $o->setNonEapAuthenticationMethodForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
+            'nonEapAuthenticationMethodForEapTtls' => fn(ParseNode $n) => $o->setNonEapAuthenticationMethodForEapTtls($n->getEnumValue(MacOSWiredNetworkConfiguration_nonEapAuthenticationMethodForEapTtls::class)),
             'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([MacOSTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
             'trustedServerCertificateNames' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -142,11 +142,11 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Gets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @return NonEapAuthenticationMethodForEapTtlsType|null
+     * @return MacOSWiredNetworkConfiguration_nonEapAuthenticationMethodForEapTtls|null
     */
-    public function getNonEapAuthenticationMethodForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
+    public function getNonEapAuthenticationMethodForEapTtls(): ?MacOSWiredNetworkConfiguration_nonEapAuthenticationMethodForEapTtls {
         $val = $this->getBackingStore()->get('nonEapAuthenticationMethodForEapTtls');
-        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+        if (is_null($val) || $val instanceof MacOSWiredNetworkConfiguration_nonEapAuthenticationMethodForEapTtls) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'nonEapAuthenticationMethodForEapTtls'");
@@ -198,17 +198,17 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param MacOSWiredNetworkConfiguration_authenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
+    public function setAuthenticationMethod(?MacOSWiredNetworkConfiguration_authenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
-     * @param EapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
+     * @param MacOSWiredNetworkConfiguration_eapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
     */
-    public function setEapFastConfiguration(?EapFastConfiguration $value): void {
+    public function setEapFastConfiguration(?MacOSWiredNetworkConfiguration_eapFastConfiguration $value): void {
         $this->getBackingStore()->set('eapFastConfiguration', $value);
     }
 
@@ -254,9 +254,9 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the nonEapAuthenticationMethodForEapTtls property.
+     * @param MacOSWiredNetworkConfiguration_nonEapAuthenticationMethodForEapTtls|null $value Value to set for the nonEapAuthenticationMethodForEapTtls property.
     */
-    public function setNonEapAuthenticationMethodForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {
+    public function setNonEapAuthenticationMethodForEapTtls(?MacOSWiredNetworkConfiguration_nonEapAuthenticationMethodForEapTtls $value): void {
         $this->getBackingStore()->set('nonEapAuthenticationMethodForEapTtls', $value);
     }
 

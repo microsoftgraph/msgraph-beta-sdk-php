@@ -89,14 +89,14 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
             'alternativeText' => fn(ParseNode $n) => $o->setAlternativeText($n->getStringValue()),
             'enableGradientEffect' => fn(ParseNode $n) => $o->setEnableGradientEffect($n->getBooleanValue()),
             'imageWebUrl' => fn(ParseNode $n) => $o->setImageWebUrl($n->getStringValue()),
-            'layout' => fn(ParseNode $n) => $o->setLayout($n->getEnumValue(TitleAreaLayoutType::class)),
+            'layout' => fn(ParseNode $n) => $o->setLayout($n->getEnumValue(TitleArea_layout::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'serverProcessedContent' => fn(ParseNode $n) => $o->setServerProcessedContent($n->getObjectValue([ServerProcessedContent::class, 'createFromDiscriminatorValue'])),
             'showAuthor' => fn(ParseNode $n) => $o->setShowAuthor($n->getBooleanValue()),
             'showPublishedDate' => fn(ParseNode $n) => $o->setShowPublishedDate($n->getBooleanValue()),
             'showTextBlockAboveTitle' => fn(ParseNode $n) => $o->setShowTextBlockAboveTitle($n->getBooleanValue()),
             'textAboveTitle' => fn(ParseNode $n) => $o->setTextAboveTitle($n->getStringValue()),
-            'textAlignment' => fn(ParseNode $n) => $o->setTextAlignment($n->getEnumValue(TitleAreaTextAlignmentType::class)),
+            'textAlignment' => fn(ParseNode $n) => $o->setTextAlignment($n->getEnumValue(TitleArea_textAlignment::class)),
         ];
     }
 
@@ -114,11 +114,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the layout property value. Enumeration value that indicates the layout of the title area. The possible values are: imageAndTitle, plain, colorBlock, overlap, unknownFutureValue.
-     * @return TitleAreaLayoutType|null
+     * @return TitleArea_layout|null
     */
-    public function getLayout(): ?TitleAreaLayoutType {
+    public function getLayout(): ?TitleArea_layout {
         $val = $this->getBackingStore()->get('layout');
-        if (is_null($val) || $val instanceof TitleAreaLayoutType) {
+        if (is_null($val) || $val instanceof TitleArea_layout) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'layout'");
@@ -198,11 +198,11 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the textAlignment property value. Enumeration value that indicates the text alignment of the title area. The possible values are: left, center, unknownFutureValue.
-     * @return TitleAreaTextAlignmentType|null
+     * @return TitleArea_textAlignment|null
     */
-    public function getTextAlignment(): ?TitleAreaTextAlignmentType {
+    public function getTextAlignment(): ?TitleArea_textAlignment {
         $val = $this->getBackingStore()->get('textAlignment');
-        if (is_null($val) || $val instanceof TitleAreaTextAlignmentType) {
+        if (is_null($val) || $val instanceof TitleArea_textAlignment) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'textAlignment'");
@@ -269,9 +269,9 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the layout property value. Enumeration value that indicates the layout of the title area. The possible values are: imageAndTitle, plain, colorBlock, overlap, unknownFutureValue.
-     * @param TitleAreaLayoutType|null $value Value to set for the layout property.
+     * @param TitleArea_layout|null $value Value to set for the layout property.
     */
-    public function setLayout(?TitleAreaLayoutType $value): void {
+    public function setLayout(?TitleArea_layout $value): void {
         $this->getBackingStore()->set('layout', $value);
     }
 
@@ -325,9 +325,9 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the textAlignment property value. Enumeration value that indicates the text alignment of the title area. The possible values are: left, center, unknownFutureValue.
-     * @param TitleAreaTextAlignmentType|null $value Value to set for the textAlignment property.
+     * @param TitleArea_textAlignment|null $value Value to set for the textAlignment property.
     */
-    public function setTextAlignment(?TitleAreaTextAlignmentType $value): void {
+    public function setTextAlignment(?TitleArea_textAlignment $value): void {
         $this->getBackingStore()->set('textAlignment', $value);
     }
 

@@ -142,11 +142,11 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Gets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Possible values are: block, wipe, warn.
-     * @return ManagedAppRemediationAction|null
+     * @return ManagedAppProtection_appActionIfUnableToAuthenticateUser|null
     */
-    public function getAppActionIfUnableToAuthenticateUser(): ?ManagedAppRemediationAction {
+    public function getAppActionIfUnableToAuthenticateUser(): ?ManagedAppProtection_appActionIfUnableToAuthenticateUser {
         $val = $this->getBackingStore()->get('appActionIfUnableToAuthenticateUser');
-        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+        if (is_null($val) || $val instanceof ManagedAppProtection_appActionIfUnableToAuthenticateUser) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfUnableToAuthenticateUser'");
@@ -239,7 +239,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
             'allowedOutboundDataTransferDestinations' => fn(ParseNode $n) => $o->setAllowedOutboundDataTransferDestinations($n->getEnumValue(ManagedAppDataTransferLevel::class)),
             'appActionIfDeviceComplianceRequired' => fn(ParseNode $n) => $o->setAppActionIfDeviceComplianceRequired($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfMaximumPinRetriesExceeded' => fn(ParseNode $n) => $o->setAppActionIfMaximumPinRetriesExceeded($n->getEnumValue(ManagedAppRemediationAction::class)),
-            'appActionIfUnableToAuthenticateUser' => fn(ParseNode $n) => $o->setAppActionIfUnableToAuthenticateUser($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfUnableToAuthenticateUser' => fn(ParseNode $n) => $o->setAppActionIfUnableToAuthenticateUser($n->getEnumValue(ManagedAppProtection_appActionIfUnableToAuthenticateUser::class)),
             'blockDataIngestionIntoOrganizationDocuments' => fn(ParseNode $n) => $o->setBlockDataIngestionIntoOrganizationDocuments($n->getBooleanValue()),
             'contactSyncBlocked' => fn(ParseNode $n) => $o->setContactSyncBlocked($n->getBooleanValue()),
             'dataBackupBlocked' => fn(ParseNode $n) => $o->setDataBackupBlocked($n->getBooleanValue()),
@@ -262,7 +262,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
             'minimumWarningOsVersion' => fn(ParseNode $n) => $o->setMinimumWarningOsVersion($n->getStringValue()),
             'minimumWipeAppVersion' => fn(ParseNode $n) => $o->setMinimumWipeAppVersion($n->getStringValue()),
             'minimumWipeOsVersion' => fn(ParseNode $n) => $o->setMinimumWipeOsVersion($n->getStringValue()),
-            'mobileThreatDefensePartnerPriority' => fn(ParseNode $n) => $o->setMobileThreatDefensePartnerPriority($n->getEnumValue(MobileThreatDefensePartnerPriority::class)),
+            'mobileThreatDefensePartnerPriority' => fn(ParseNode $n) => $o->setMobileThreatDefensePartnerPriority($n->getEnumValue(ManagedAppProtection_mobileThreatDefensePartnerPriority::class)),
             'mobileThreatDefenseRemediationAction' => fn(ParseNode $n) => $o->setMobileThreatDefenseRemediationAction($n->getEnumValue(ManagedAppRemediationAction::class)),
             'notificationRestriction' => fn(ParseNode $n) => $o->setNotificationRestriction($n->getEnumValue(ManagedAppNotificationRestriction::class)),
             'organizationalCredentialsRequired' => fn(ParseNode $n) => $o->setOrganizationalCredentialsRequired($n->getBooleanValue()),
@@ -475,11 +475,11 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Gets the mobileThreatDefensePartnerPriority property value. Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
-     * @return MobileThreatDefensePartnerPriority|null
+     * @return ManagedAppProtection_mobileThreatDefensePartnerPriority|null
     */
-    public function getMobileThreatDefensePartnerPriority(): ?MobileThreatDefensePartnerPriority {
+    public function getMobileThreatDefensePartnerPriority(): ?ManagedAppProtection_mobileThreatDefensePartnerPriority {
         $val = $this->getBackingStore()->get('mobileThreatDefensePartnerPriority');
-        if (is_null($val) || $val instanceof MobileThreatDefensePartnerPriority) {
+        if (is_null($val) || $val instanceof ManagedAppProtection_mobileThreatDefensePartnerPriority) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileThreatDefensePartnerPriority'");
@@ -786,9 +786,9 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Possible values are: block, wipe, warn.
-     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
+     * @param ManagedAppProtection_appActionIfUnableToAuthenticateUser|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
     */
-    public function setAppActionIfUnableToAuthenticateUser(?ManagedAppRemediationAction $value): void {
+    public function setAppActionIfUnableToAuthenticateUser(?ManagedAppProtection_appActionIfUnableToAuthenticateUser $value): void {
         $this->getBackingStore()->set('appActionIfUnableToAuthenticateUser', $value);
     }
 
@@ -970,9 +970,9 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the mobileThreatDefensePartnerPriority property value. Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
-     * @param MobileThreatDefensePartnerPriority|null $value Value to set for the mobileThreatDefensePartnerPriority property.
+     * @param ManagedAppProtection_mobileThreatDefensePartnerPriority|null $value Value to set for the mobileThreatDefensePartnerPriority property.
     */
-    public function setMobileThreatDefensePartnerPriority(?MobileThreatDefensePartnerPriority $value): void {
+    public function setMobileThreatDefensePartnerPriority(?ManagedAppProtection_mobileThreatDefensePartnerPriority $value): void {
         $this->getBackingStore()->set('mobileThreatDefensePartnerPriority', $value);
     }
 

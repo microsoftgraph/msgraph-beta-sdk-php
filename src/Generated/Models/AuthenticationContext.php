@@ -57,11 +57,11 @@ class AuthenticationContext implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the detail property value. Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue.
-     * @return AuthenticationContextDetail|null
+     * @return AuthenticationContext_detail|null
     */
-    public function getDetail(): ?AuthenticationContextDetail {
+    public function getDetail(): ?AuthenticationContext_detail {
         $val = $this->getBackingStore()->get('detail');
-        if (is_null($val) || $val instanceof AuthenticationContextDetail) {
+        if (is_null($val) || $val instanceof AuthenticationContext_detail) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'detail'");
@@ -74,7 +74,7 @@ class AuthenticationContext implements AdditionalDataHolder, BackedModel, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(AuthenticationContextDetail::class)),
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(AuthenticationContext_detail::class)),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -133,9 +133,9 @@ class AuthenticationContext implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the detail property value. Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue.
-     * @param AuthenticationContextDetail|null $value Value to set for the detail property.
+     * @param AuthenticationContext_detail|null $value Value to set for the detail property.
     */
-    public function setDetail(?AuthenticationContextDetail $value): void {
+    public function setDetail(?AuthenticationContext_detail $value): void {
         $this->getBackingStore()->set('detail', $value);
     }
 

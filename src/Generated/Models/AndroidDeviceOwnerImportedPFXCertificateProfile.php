@@ -31,11 +31,11 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
 
     /**
      * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     * @return AndroidDeviceOwnerCertificateAccessType|null
+     * @return AndroidDeviceOwnerImportedPFXCertificateProfile_certificateAccessType|null
     */
-    public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
+    public function getCertificateAccessType(): ?AndroidDeviceOwnerImportedPFXCertificateProfile_certificateAccessType {
         $val = $this->getBackingStore()->get('certificateAccessType');
-        if (is_null($val) || $val instanceof AndroidDeviceOwnerCertificateAccessType) {
+        if (is_null($val) || $val instanceof AndroidDeviceOwnerImportedPFXCertificateProfile_certificateAccessType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'certificateAccessType'");
@@ -48,7 +48,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateAccessType' => fn(ParseNode $n) => $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerCertificateAccessType::class)),
+            'certificateAccessType' => fn(ParseNode $n) => $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerImportedPFXCertificateProfile_certificateAccessType::class)),
             'intendedPurpose' => fn(ParseNode $n) => $o->setIntendedPurpose($n->getEnumValue(IntendedPurpose::class)),
             'managedDeviceCertificateStates' => fn(ParseNode $n) => $o->setManagedDeviceCertificateStates($n->getCollectionOfObjectValues([ManagedDeviceCertificateState::class, 'createFromDiscriminatorValue'])),
             'silentCertificateAccessDetails' => fn(ParseNode $n) => $o->setSilentCertificateAccessDetails($n->getCollectionOfObjectValues([AndroidDeviceOwnerSilentCertificateAccess::class, 'createFromDiscriminatorValue'])),
@@ -109,9 +109,9 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
 
     /**
      * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     * @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+     * @param AndroidDeviceOwnerImportedPFXCertificateProfile_certificateAccessType|null $value Value to set for the certificateAccessType property.
     */
-    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
+    public function setCertificateAccessType(?AndroidDeviceOwnerImportedPFXCertificateProfile_certificateAccessType $value): void {
         $this->getBackingStore()->set('certificateAccessType', $value);
     }
 

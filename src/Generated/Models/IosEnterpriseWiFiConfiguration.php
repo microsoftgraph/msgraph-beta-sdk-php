@@ -31,11 +31,11 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Gets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @return WiFiAuthenticationMethod|null
+     * @return IosEnterpriseWiFiConfiguration_authenticationMethod|null
     */
-    public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
+    public function getAuthenticationMethod(): ?IosEnterpriseWiFiConfiguration_authenticationMethod {
         $val = $this->getBackingStore()->get('authenticationMethod');
-        if (is_null($val) || $val instanceof WiFiAuthenticationMethod) {
+        if (is_null($val) || $val instanceof IosEnterpriseWiFiConfiguration_authenticationMethod) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethod'");
@@ -55,11 +55,11 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Gets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
-     * @return EapFastConfiguration|null
+     * @return IosEnterpriseWiFiConfiguration_eapFastConfiguration|null
     */
-    public function getEapFastConfiguration(): ?EapFastConfiguration {
+    public function getEapFastConfiguration(): ?IosEnterpriseWiFiConfiguration_eapFastConfiguration {
         $val = $this->getBackingStore()->get('eapFastConfiguration');
-        if (is_null($val) || $val instanceof EapFastConfiguration) {
+        if (is_null($val) || $val instanceof IosEnterpriseWiFiConfiguration_eapFastConfiguration) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'eapFastConfiguration'");
@@ -84,12 +84,12 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)),
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(IosEnterpriseWiFiConfiguration_authenticationMethod::class)),
             'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
-            'eapFastConfiguration' => fn(ParseNode $n) => $o->setEapFastConfiguration($n->getEnumValue(EapFastConfiguration::class)),
+            'eapFastConfiguration' => fn(ParseNode $n) => $o->setEapFastConfiguration($n->getEnumValue(IosEnterpriseWiFiConfiguration_eapFastConfiguration::class)),
             'eapType' => fn(ParseNode $n) => $o->setEapType($n->getEnumValue(EapType::class)),
             'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([IosCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
-            'innerAuthenticationProtocolForEapTtls' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
+            'innerAuthenticationProtocolForEapTtls' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEapTtls($n->getEnumValue(IosEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls::class)),
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
             'passwordFormatString' => fn(ParseNode $n) => $o->setPasswordFormatString($n->getStringValue()),
             'rootCertificatesForServerValidation' => fn(ParseNode $n) => $o->setRootCertificatesForServerValidation($n->getCollectionOfObjectValues([IosTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
@@ -119,11 +119,11 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Gets the innerAuthenticationProtocolForEapTtls property value. Non-EAP Method for Authentication when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @return NonEapAuthenticationMethodForEapTtlsType|null
+     * @return IosEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls|null
     */
-    public function getInnerAuthenticationProtocolForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
+    public function getInnerAuthenticationProtocolForEapTtls(): ?IosEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls {
         $val = $this->getBackingStore()->get('innerAuthenticationProtocolForEapTtls');
-        if (is_null($val) || $val instanceof NonEapAuthenticationMethodForEapTtlsType) {
+        if (is_null($val) || $val instanceof IosEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'innerAuthenticationProtocolForEapTtls'");
@@ -214,9 +214,9 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param IosEnterpriseWiFiConfiguration_authenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
+    public function setAuthenticationMethod(?IosEnterpriseWiFiConfiguration_authenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
@@ -230,9 +230,9 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
-     * @param EapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
+     * @param IosEnterpriseWiFiConfiguration_eapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
     */
-    public function setEapFastConfiguration(?EapFastConfiguration $value): void {
+    public function setEapFastConfiguration(?IosEnterpriseWiFiConfiguration_eapFastConfiguration $value): void {
         $this->getBackingStore()->set('eapFastConfiguration', $value);
     }
 
@@ -254,9 +254,9 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the innerAuthenticationProtocolForEapTtls property value. Non-EAP Method for Authentication when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
+     * @param IosEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
     */
-    public function setInnerAuthenticationProtocolForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {
+    public function setInnerAuthenticationProtocolForEapTtls(?IosEnterpriseWiFiConfiguration_innerAuthenticationProtocolForEapTtls $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEapTtls', $value);
     }
 

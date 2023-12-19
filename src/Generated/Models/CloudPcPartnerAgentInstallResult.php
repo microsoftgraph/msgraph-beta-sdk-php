@@ -75,21 +75,21 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
         $o = $this;
         return  [
             'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
-            'installStatus' => fn(ParseNode $n) => $o->setInstallStatus($n->getEnumValue(CloudPcPartnerAgentInstallStatus::class)),
+            'installStatus' => fn(ParseNode $n) => $o->setInstallStatus($n->getEnumValue(CloudPcPartnerAgentInstallResult_installStatus::class)),
             'isThirdPartyPartner' => fn(ParseNode $n) => $o->setIsThirdPartyPartner($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'partnerAgentName' => fn(ParseNode $n) => $o->setPartnerAgentName($n->getEnumValue(CloudPcPartnerAgentName::class)),
+            'partnerAgentName' => fn(ParseNode $n) => $o->setPartnerAgentName($n->getEnumValue(CloudPcPartnerAgentInstallResult_partnerAgentName::class)),
             'retriable' => fn(ParseNode $n) => $o->setRetriable($n->getBooleanValue()),
         ];
     }
 
     /**
      * Gets the installStatus property value. The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
-     * @return CloudPcPartnerAgentInstallStatus|null
+     * @return CloudPcPartnerAgentInstallResult_installStatus|null
     */
-    public function getInstallStatus(): ?CloudPcPartnerAgentInstallStatus {
+    public function getInstallStatus(): ?CloudPcPartnerAgentInstallResult_installStatus {
         $val = $this->getBackingStore()->get('installStatus');
-        if (is_null($val) || $val instanceof CloudPcPartnerAgentInstallStatus) {
+        if (is_null($val) || $val instanceof CloudPcPartnerAgentInstallResult_installStatus) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'installStatus'");
@@ -120,12 +120,12 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the partnerAgentName property value. The name of the partner agent, whether first party or third party. Possible values for third-party partners are Citrix and VMware. Read-Only.
-     * @return CloudPcPartnerAgentName|null
+     * Gets the partnerAgentName property value. The name of the first-party or third-party partner agent. Possible values for third-party partners are Citrix, VMware and HP. Read-Only.
+     * @return CloudPcPartnerAgentInstallResult_partnerAgentName|null
     */
-    public function getPartnerAgentName(): ?CloudPcPartnerAgentName {
+    public function getPartnerAgentName(): ?CloudPcPartnerAgentInstallResult_partnerAgentName {
         $val = $this->getBackingStore()->get('partnerAgentName');
-        if (is_null($val) || $val instanceof CloudPcPartnerAgentName) {
+        if (is_null($val) || $val instanceof CloudPcPartnerAgentInstallResult_partnerAgentName) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerAgentName'");
@@ -183,9 +183,9 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the installStatus property value. The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
-     * @param CloudPcPartnerAgentInstallStatus|null $value Value to set for the installStatus property.
+     * @param CloudPcPartnerAgentInstallResult_installStatus|null $value Value to set for the installStatus property.
     */
-    public function setInstallStatus(?CloudPcPartnerAgentInstallStatus $value): void {
+    public function setInstallStatus(?CloudPcPartnerAgentInstallResult_installStatus $value): void {
         $this->getBackingStore()->set('installStatus', $value);
     }
 
@@ -206,10 +206,10 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the partnerAgentName property value. The name of the partner agent, whether first party or third party. Possible values for third-party partners are Citrix and VMware. Read-Only.
-     * @param CloudPcPartnerAgentName|null $value Value to set for the partnerAgentName property.
+     * Sets the partnerAgentName property value. The name of the first-party or third-party partner agent. Possible values for third-party partners are Citrix, VMware and HP. Read-Only.
+     * @param CloudPcPartnerAgentInstallResult_partnerAgentName|null $value Value to set for the partnerAgentName property.
     */
-    public function setPartnerAgentName(?CloudPcPartnerAgentName $value): void {
+    public function setPartnerAgentName(?CloudPcPartnerAgentInstallResult_partnerAgentName $value): void {
         $this->getBackingStore()->set('partnerAgentName', $value);
     }
 

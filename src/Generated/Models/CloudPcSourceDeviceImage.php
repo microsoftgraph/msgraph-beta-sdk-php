@@ -77,6 +77,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
             'subscriptionDisplayName' => fn(ParseNode $n) => $o->setSubscriptionDisplayName($n->getStringValue()),
             'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
         ];
@@ -104,6 +105,18 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the resourceId property value. The resourceId property
+     * @return string|null
+    */
+    public function getResourceId(): ?string {
+        $val = $this->getBackingStore()->get('resourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceId'");
     }
 
     /**
@@ -138,6 +151,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('resourceId', $this->getResourceId());
         $writer->writeStringValue('subscriptionDisplayName', $this->getSubscriptionDisplayName());
         $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -181,6 +195,14 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the resourceId property value. The resourceId property
+     * @param string|null $value Value to set for the resourceId property.
+    */
+    public function setResourceId(?string $value): void {
+        $this->getBackingStore()->set('resourceId', $value);
     }
 
     /**

@@ -44,11 +44,11 @@ class CloudPcServicePlan extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
+            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcServicePlan_provisioningType::class)),
             'ramInGB' => fn(ParseNode $n) => $o->setRamInGB($n->getIntegerValue()),
             'storageInGB' => fn(ParseNode $n) => $o->setStorageInGB($n->getIntegerValue()),
             'supportedSolution' => fn(ParseNode $n) => $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)),
-            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcServicePlanType::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcServicePlan_type::class)),
             'userProfileInGB' => fn(ParseNode $n) => $o->setUserProfileInGB($n->getIntegerValue()),
             'vCpuCount' => fn(ParseNode $n) => $o->setVCpuCount($n->getIntegerValue()),
         ]);
@@ -56,11 +56,11 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Gets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. Possible values are: dedicated, shared, unknownFutureValue.
-     * @return CloudPcProvisioningType|null
+     * @return CloudPcServicePlan_provisioningType|null
     */
-    public function getProvisioningType(): ?CloudPcProvisioningType {
+    public function getProvisioningType(): ?CloudPcServicePlan_provisioningType {
         $val = $this->getBackingStore()->get('provisioningType');
-        if (is_null($val) || $val instanceof CloudPcProvisioningType) {
+        if (is_null($val) || $val instanceof CloudPcServicePlan_provisioningType) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningType'");
@@ -104,11 +104,11 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Gets the type property value. The type of the service plan. Possible values are: enterprise, business, unknownFutureValue. Read-only.
-     * @return CloudPcServicePlanType|null
+     * @return CloudPcServicePlan_type|null
     */
-    public function getType(): ?CloudPcServicePlanType {
+    public function getType(): ?CloudPcServicePlan_type {
         $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || $val instanceof CloudPcServicePlanType) {
+        if (is_null($val) || $val instanceof CloudPcServicePlan_type) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
@@ -164,9 +164,9 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Sets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. Possible values are: dedicated, shared, unknownFutureValue.
-     * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
+     * @param CloudPcServicePlan_provisioningType|null $value Value to set for the provisioningType property.
     */
-    public function setProvisioningType(?CloudPcProvisioningType $value): void {
+    public function setProvisioningType(?CloudPcServicePlan_provisioningType $value): void {
         $this->getBackingStore()->set('provisioningType', $value);
     }
 
@@ -196,9 +196,9 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type of the service plan. Possible values are: enterprise, business, unknownFutureValue. Read-only.
-     * @param CloudPcServicePlanType|null $value Value to set for the type property.
+     * @param CloudPcServicePlan_type|null $value Value to set for the type property.
     */
-    public function setType(?CloudPcServicePlanType $value): void {
+    public function setType(?CloudPcServicePlan_type $value): void {
         $this->getBackingStore()->set('type', $value);
     }
 

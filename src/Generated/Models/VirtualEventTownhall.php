@@ -27,11 +27,11 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
 
     /**
      * Gets the audience property value. The audience property
-     * @return MeetingAudience|null
+     * @return VirtualEventTownhall_audience|null
     */
-    public function getAudience(): ?MeetingAudience {
+    public function getAudience(): ?VirtualEventTownhall_audience {
         $val = $this->getBackingStore()->get('audience');
-        if (is_null($val) || $val instanceof MeetingAudience) {
+        if (is_null($val) || $val instanceof VirtualEventTownhall_audience) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'audience'");
@@ -58,7 +58,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(MeetingAudience::class)),
+            'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(VirtualEventTownhall_audience::class)),
             'coOrganizers' => fn(ParseNode $n) => $o->setCoOrganizers($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
             'invitedAttendees' => fn(ParseNode $n) => $o->setInvitedAttendees($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
             'isInviteOnly' => fn(ParseNode $n) => $o->setIsInviteOnly($n->getBooleanValue()),
@@ -105,9 +105,9 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
 
     /**
      * Sets the audience property value. The audience property
-     * @param MeetingAudience|null $value Value to set for the audience property.
+     * @param VirtualEventTownhall_audience|null $value Value to set for the audience property.
     */
-    public function setAudience(?MeetingAudience $value): void {
+    public function setAudience(?VirtualEventTownhall_audience $value): void {
         $this->getBackingStore()->set('audience', $value);
     }
 
