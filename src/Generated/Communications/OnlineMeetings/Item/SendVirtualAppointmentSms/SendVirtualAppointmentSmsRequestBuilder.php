@@ -30,11 +30,12 @@ class SendVirtualAppointmentSmsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action sendVirtualAppointmentSms
+     * Send an SMS notification to external attendees when a Teams Virtual Appointment is confirmed, rescheduled, or canceled. This feature requires Teams Premium. Attendees must have a valid United States phone number to receive these SMS notifications.
      * @param SendVirtualAppointmentSmsPostRequestBody $body The request body
      * @param SendVirtualAppointmentSmsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualappointment-sendvirtualappointmentsms?view=graph-rest-1.0 Find more info here
     */
     public function post(SendVirtualAppointmentSmsPostRequestBody $body, ?SendVirtualAppointmentSmsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class SendVirtualAppointmentSmsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action sendVirtualAppointmentSms
+     * Send an SMS notification to external attendees when a Teams Virtual Appointment is confirmed, rescheduled, or canceled. This feature requires Teams Premium. Attendees must have a valid United States phone number to receive these SMS notifications.
      * @param SendVirtualAppointmentSmsPostRequestBody $body The request body
      * @param SendVirtualAppointmentSmsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -35,7 +35,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Gets an item from the Microsoft/Graph/Beta/Generated.onPremisesPublishingProfiles.item.connectorGroups.item.members.item collection
-     * @param string $connectorId Unique identifier of the item
+     * @param string $connectorId The unique identifier of connector
      * @return ConnectorItemRequestBuilder
     */
     public function byConnectorId(string $connectorId): ConnectorItemRequestBuilder {

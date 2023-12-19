@@ -7,23 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class VirtualEventRegistratioCustomQuestion extends VirtualEventRegistrationQuestionBase implements Parsable 
+class VirtualEventRegistrationCustomQuestion extends VirtualEventRegistrationQuestionBase implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventRegistratioCustomQuestion and sets the default values.
+     * Instantiates a new virtualEventRegistrationCustomQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.virtualEventRegistratioCustomQuestion');
+        $this->setOdataType('#microsoft.graph.virtualEventRegistrationCustomQuestion');
     }
 
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return VirtualEventRegistratioCustomQuestion
+     * @return VirtualEventRegistrationCustomQuestion
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): VirtualEventRegistratioCustomQuestion {
-        return new VirtualEventRegistratioCustomQuestion();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): VirtualEventRegistrationCustomQuestion {
+        return new VirtualEventRegistrationCustomQuestion();
     }
 
     /**

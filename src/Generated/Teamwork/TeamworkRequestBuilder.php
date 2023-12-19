@@ -87,10 +87,11 @@ class TeamworkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get teamwork
+     * Get the properties and relationships of a teamwork object, such as the region of the organization and whether Microsoft Teams is enabled.
      * @param TeamworkRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Teamwork|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamwork-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamworkRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -118,7 +119,7 @@ class TeamworkRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get teamwork
+     * Get the properties and relationships of a teamwork object, such as the region of the organization and whether Microsoft Teams is enabled.
      * @param TeamworkRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

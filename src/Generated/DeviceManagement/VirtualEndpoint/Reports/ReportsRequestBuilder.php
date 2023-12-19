@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ExportJobs\ExportJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetActionStatusReports\GetActionStatusReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetCloudPcPerformanceReport\GetCloudPcPerformanceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetCloudPcRecommendationReports\GetCloudPcRecommendationReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetConnectionQualityReports\GetConnectionQualityReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetDailyAggregatedRemoteConnectionReports\GetDailyAggregatedRemoteConnectionReportsRequestBuilder;
@@ -41,6 +42,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getActionStatusReports(): GetActionStatusReportsRequestBuilder {
         return new GetActionStatusReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getCloudPcPerformanceReport method.
+    */
+    public function getCloudPcPerformanceReport(): GetCloudPcPerformanceReportRequestBuilder {
+        return new GetCloudPcPerformanceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

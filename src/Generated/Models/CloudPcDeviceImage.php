@@ -40,6 +40,18 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
+     * Gets the errorCode property value. The errorCode property
+     * @return CloudPcDeviceImageErrorCode|null
+    */
+    public function getErrorCode(): ?CloudPcDeviceImageErrorCode {
+        $val = $this->getBackingStore()->get('errorCode');
+        if (is_null($val) || $val instanceof CloudPcDeviceImageErrorCode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorCode'");
+    }
+
+    /**
      * Gets the expirationDate property value. The date the image became unavailable.
      * @return Date|null
     */
@@ -59,6 +71,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getEnumValue(CloudPcDeviceImageErrorCode::class)),
             'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
@@ -196,6 +209,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('errorCode', $this->getErrorCode());
         $writer->writeDateValue('expirationDate', $this->getExpirationDate());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
@@ -214,6 +228,14 @@ class CloudPcDeviceImage extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the errorCode property value. The errorCode property
+     * @param CloudPcDeviceImageErrorCode|null $value Value to set for the errorCode property.
+    */
+    public function setErrorCode(?CloudPcDeviceImageErrorCode $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
