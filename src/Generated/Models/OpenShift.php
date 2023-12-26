@@ -26,7 +26,7 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftOpenShift property value. An unpublished open shift.
+     * Gets the draftOpenShift property value. Draft changes in the openShift are only visible to managers until they are shared.
      * @return OpenShiftItem|null
     */
     public function getDraftOpenShift(): ?OpenShiftItem {
@@ -47,12 +47,15 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
             'draftOpenShift' => fn(ParseNode $n) => $o->setDraftOpenShift($n->getObjectValue([OpenShiftItem::class, 'createFromDiscriminatorValue'])),
             'isStagedForDeletion' => fn(ParseNode $n) => $o->setIsStagedForDeletion($n->getBooleanValue()),
             'schedulingGroupId' => fn(ParseNode $n) => $o->setSchedulingGroupId($n->getStringValue()),
+            'schedulingGroupName' => fn(ParseNode $n) => $o->setSchedulingGroupName($n->getStringValue()),
             'sharedOpenShift' => fn(ParseNode $n) => $o->setSharedOpenShift($n->getObjectValue([OpenShiftItem::class, 'createFromDiscriminatorValue'])),
+            'teamId' => fn(ParseNode $n) => $o->setTeamId($n->getStringValue()),
+            'teamName' => fn(ParseNode $n) => $o->setTeamName($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the isStagedForDeletion property value. The isStagedForDeletion property
+     * Gets the isStagedForDeletion property value. The openShift is marked for deletion, a process that is finalized when the schedule is shared.
      * @return bool|null
     */
     public function getIsStagedForDeletion(): ?bool {
@@ -64,7 +67,7 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the schedulingGroupId property value. ID for the scheduling group that the open shift belongs to.
+     * Gets the schedulingGroupId property value. The ID of the schedulingGroup that contains the openShift.
      * @return string|null
     */
     public function getSchedulingGroupId(): ?string {
@@ -76,7 +79,19 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedOpenShift property value. A published open shift.
+     * Gets the schedulingGroupName property value. The name of the schedulingGroup that contains the openShift.
+     * @return string|null
+    */
+    public function getSchedulingGroupName(): ?string {
+        $val = $this->getBackingStore()->get('schedulingGroupName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedulingGroupName'");
+    }
+
+    /**
+     * Gets the sharedOpenShift property value. The shared version of this openShift that is viewable by both employees and managers.
      * @return OpenShiftItem|null
     */
     public function getSharedOpenShift(): ?OpenShiftItem {
@@ -85,6 +100,30 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedOpenShift'");
+    }
+
+    /**
+     * Gets the teamId property value. The ID of the team in which the openShift is located.
+     * @return string|null
+    */
+    public function getTeamId(): ?string {
+        $val = $this->getBackingStore()->get('teamId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamId'");
+    }
+
+    /**
+     * Gets the teamName property value. The name of the team in which the openShift is located.
+     * @return string|null
+    */
+    public function getTeamName(): ?string {
+        $val = $this->getBackingStore()->get('teamName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamName'");
     }
 
     /**
@@ -100,7 +139,7 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftOpenShift property value. An unpublished open shift.
+     * Sets the draftOpenShift property value. Draft changes in the openShift are only visible to managers until they are shared.
      * @param OpenShiftItem|null $value Value to set for the draftOpenShift property.
     */
     public function setDraftOpenShift(?OpenShiftItem $value): void {
@@ -108,7 +147,7 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the isStagedForDeletion property value. The isStagedForDeletion property
+     * Sets the isStagedForDeletion property value. The openShift is marked for deletion, a process that is finalized when the schedule is shared.
      * @param bool|null $value Value to set for the isStagedForDeletion property.
     */
     public function setIsStagedForDeletion(?bool $value): void {
@@ -116,7 +155,7 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the schedulingGroupId property value. ID for the scheduling group that the open shift belongs to.
+     * Sets the schedulingGroupId property value. The ID of the schedulingGroup that contains the openShift.
      * @param string|null $value Value to set for the schedulingGroupId property.
     */
     public function setSchedulingGroupId(?string $value): void {
@@ -124,11 +163,35 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedOpenShift property value. A published open shift.
+     * Sets the schedulingGroupName property value. The name of the schedulingGroup that contains the openShift.
+     * @param string|null $value Value to set for the schedulingGroupName property.
+    */
+    public function setSchedulingGroupName(?string $value): void {
+        $this->getBackingStore()->set('schedulingGroupName', $value);
+    }
+
+    /**
+     * Sets the sharedOpenShift property value. The shared version of this openShift that is viewable by both employees and managers.
      * @param OpenShiftItem|null $value Value to set for the sharedOpenShift property.
     */
     public function setSharedOpenShift(?OpenShiftItem $value): void {
         $this->getBackingStore()->set('sharedOpenShift', $value);
+    }
+
+    /**
+     * Sets the teamId property value. The ID of the team in which the openShift is located.
+     * @param string|null $value Value to set for the teamId property.
+    */
+    public function setTeamId(?string $value): void {
+        $this->getBackingStore()->set('teamId', $value);
+    }
+
+    /**
+     * Sets the teamName property value. The name of the team in which the openShift is located.
+     * @param string|null $value Value to set for the teamName property.
+    */
+    public function setTeamName(?string $value): void {
+        $this->getBackingStore()->set('teamName', $value);
     }
 
 }

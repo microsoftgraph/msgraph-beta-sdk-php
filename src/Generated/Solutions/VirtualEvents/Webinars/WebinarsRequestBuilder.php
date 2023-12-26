@@ -54,7 +54,7 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of all virtualEventWebinar objects created in a tenant.
+     * Get the list of all virtualEventWebinar objects created in the tenant.
      * @param WebinarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventWebinarCollectionResponse|null>
      * @throws Exception
@@ -105,7 +105,7 @@ class WebinarsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of all virtualEventWebinar objects created in a tenant.
+     * Get the list of all virtualEventWebinar objects created in the tenant.
      * @param WebinarsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

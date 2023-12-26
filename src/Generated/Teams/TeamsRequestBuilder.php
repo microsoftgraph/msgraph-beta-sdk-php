@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\TeamCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teams\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\GetAllMessages\GetAllMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\GetOpenShifts\GetOpenShiftsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\TeamItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -40,6 +41,13 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     */
     public function getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getOpenShifts method.
+    */
+    public function getOpenShifts(): GetOpenShiftsRequestBuilder {
+        return new GetOpenShiftsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

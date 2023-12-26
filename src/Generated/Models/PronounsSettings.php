@@ -36,7 +36,7 @@ class PronounsSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabledInOrganization property value. true to enable pronouns in the organization, false otherwise. The default is false, and pronouns are disabled.
+     * Gets the isEnabledInOrganization property value. true to enable pronouns in the organization; otherwise, false. The default value is false, and pronouns are disabled.
      * @return bool|null
     */
     public function getIsEnabledInOrganization(): ?bool {
@@ -57,7 +57,7 @@ class PronounsSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabledInOrganization property value. true to enable pronouns in the organization, false otherwise. The default is false, and pronouns are disabled.
+     * Sets the isEnabledInOrganization property value. true to enable pronouns in the organization; otherwise, false. The default value is false, and pronouns are disabled.
      * @param bool|null $value Value to set for the isEnabledInOrganization property.
     */
     public function setIsEnabledInOrganization(?bool $value): void {

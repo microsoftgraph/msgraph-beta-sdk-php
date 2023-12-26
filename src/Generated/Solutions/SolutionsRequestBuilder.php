@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SolutionsRoot;
+use Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\BookingBusinessesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BookingCurrencies\BookingCurrenciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\VirtualEventsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -18,6 +20,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SolutionsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
+    */
+    public function bookingBusinesses(): BookingBusinessesRequestBuilder {
+        return new BookingBusinessesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
+    */
+    public function bookingCurrencies(): BookingCurrenciesRequestBuilder {
+        return new BookingCurrenciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the businessScenarios property of the microsoft.graph.solutionsRoot entity.
     */

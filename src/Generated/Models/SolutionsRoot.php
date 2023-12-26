@@ -57,6 +57,34 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the bookingBusinesses property value. The bookingBusinesses property
+     * @return array<BookingBusiness>|null
+    */
+    public function getBookingBusinesses(): ?array {
+        $val = $this->getBackingStore()->get('bookingBusinesses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingBusiness::class);
+            /** @var array<BookingBusiness>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bookingBusinesses'");
+    }
+
+    /**
+     * Gets the bookingCurrencies property value. The bookingCurrencies property
+     * @return array<BookingCurrency>|null
+    */
+    public function getBookingCurrencies(): ?array {
+        $val = $this->getBackingStore()->get('bookingCurrencies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BookingCurrency::class);
+            /** @var array<BookingCurrency>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bookingCurrencies'");
+    }
+
+    /**
      * Gets the businessScenarios property value. The businessScenarios property
      * @return array<BusinessScenario>|null
     */
@@ -77,6 +105,8 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'bookingBusinesses' => fn(ParseNode $n) => $o->setBookingBusinesses($n->getCollectionOfObjectValues([BookingBusiness::class, 'createFromDiscriminatorValue'])),
+            'bookingCurrencies' => fn(ParseNode $n) => $o->setBookingCurrencies($n->getCollectionOfObjectValues([BookingCurrency::class, 'createFromDiscriminatorValue'])),
             'businessScenarios' => fn(ParseNode $n) => $o->setBusinessScenarios($n->getCollectionOfObjectValues([BusinessScenario::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'virtualEvents' => fn(ParseNode $n) => $o->setVirtualEvents($n->getObjectValue([VirtualEventsRoot::class, 'createFromDiscriminatorValue'])),
@@ -112,6 +142,8 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('bookingBusinesses', $this->getBookingBusinesses());
+        $writer->writeCollectionOfObjectValues('bookingCurrencies', $this->getBookingCurrencies());
         $writer->writeCollectionOfObjectValues('businessScenarios', $this->getBusinessScenarios());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('virtualEvents', $this->getVirtualEvents());
@@ -132,6 +164,22 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the bookingBusinesses property value. The bookingBusinesses property
+     * @param array<BookingBusiness>|null $value Value to set for the bookingBusinesses property.
+    */
+    public function setBookingBusinesses(?array $value): void {
+        $this->getBackingStore()->set('bookingBusinesses', $value);
+    }
+
+    /**
+     * Sets the bookingCurrencies property value. The bookingCurrencies property
+     * @param array<BookingCurrency>|null $value Value to set for the bookingCurrencies property.
+    */
+    public function setBookingCurrencies(?array $value): void {
+        $this->getBackingStore()->set('bookingCurrencies', $value);
     }
 
     /**

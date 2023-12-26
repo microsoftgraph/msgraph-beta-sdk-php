@@ -4,10 +4,12 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\BucketsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Details\DetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\MoveToContainer\MoveToContainerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Tasks\TasksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerPlan;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -20,6 +22,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class PlannerPlanItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the archive method.
+    */
+    public function archive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
     */
@@ -46,6 +55,13 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unarchive method.
+    */
+    public function unarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

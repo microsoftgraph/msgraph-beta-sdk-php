@@ -36,6 +36,7 @@ class Dictionary implements AdditionalDataHolder, BackedModel, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.customAppScopeAttributesDictionary': return new CustomAppScopeAttributesDictionary();
+                case '#microsoft.graph.plannerFormsDictionary': return new PlannerFormsDictionary();
                 case '#microsoft.graph.resultTemplateDictionary': return new ResultTemplateDictionary();
             }
         }

@@ -52,7 +52,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Presenters' information of the virtual event.
+     * The virtual event presenters.
      * @param PresentersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenterCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Presenters' information of the virtual event.
+     * The virtual event presenters.
      * @param PresentersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

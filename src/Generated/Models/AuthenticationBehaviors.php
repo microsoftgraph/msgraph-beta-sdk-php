@@ -56,12 +56,25 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
+     * Gets the blockAzureADGraphAccess property value. The blockAzureADGraphAccess property
+     * @return bool|null
+    */
+    public function getBlockAzureADGraphAccess(): ?bool {
+        $val = $this->getBackingStore()->get('blockAzureADGraphAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockAzureADGraphAccess'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'blockAzureADGraphAccess' => fn(ParseNode $n) => $o->setBlockAzureADGraphAccess($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'removeUnverifiedEmailClaim' => fn(ParseNode $n) => $o->setRemoveUnverifiedEmailClaim($n->getBooleanValue()),
             'requireClientServicePrincipal' => fn(ParseNode $n) => $o->setRequireClientServicePrincipal($n->getBooleanValue()),
@@ -109,6 +122,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('blockAzureADGraphAccess', $this->getBlockAzureADGraphAccess());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('removeUnverifiedEmailClaim', $this->getRemoveUnverifiedEmailClaim());
         $writer->writeBooleanValue('requireClientServicePrincipal', $this->getRequireClientServicePrincipal());
@@ -129,6 +143,14 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the blockAzureADGraphAccess property value. The blockAzureADGraphAccess property
+     * @param bool|null $value Value to set for the blockAzureADGraphAccess property.
+    */
+    public function setBlockAzureADGraphAccess(?bool $value): void {
+        $this->getBackingStore()->set('blockAzureADGraphAccess', $value);
     }
 
     /**

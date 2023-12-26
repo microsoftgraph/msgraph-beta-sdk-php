@@ -18,4 +18,7 @@ class CloudPcReportName extends Enum {
     public const INACCESSIBLE_CLOUD_PC_REPORTS = 'inaccessibleCloudPcReports';
     public const RAW_REMOTE_CONNECTION_REPORTS = 'rawRemoteConnectionReports';
     public const CLOUD_PC_USAGE_CATEGORY_REPORTS = 'cloudPcUsageCategoryReports';
+    public const CROSS_REGION_DISASTER_RECOVERY_REPORT = 'crossRegionDisasterRecoveryReport';
+    public const PERFORMANCE_TREND_REPORT = 'performanceTrendReport';
+    public const INACCESSIBLE_CLOUD_PC_TREND_REPORT = 'inaccessibleCloudPcTrendReport';
 }

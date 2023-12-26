@@ -9,7 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -49,43 +48,15 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the allowedGroups property value. The identifiers of the groups that are in the scope of the policy. Either this property or allowedUsers is required when the appliesTo property is set to selected.
-     * @return array<string>|null
+     * Gets the allowedToRegister property value. Determines if Microsoft Entra registered is allowed.
+     * @return DeviceRegistrationMembership|null
     */
-    public function getAllowedGroups(): ?array {
-        $val = $this->getBackingStore()->get('allowedGroups');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+    public function getAllowedToRegister(): ?DeviceRegistrationMembership {
+        $val = $this->getBackingStore()->get('allowedToRegister');
+        if (is_null($val) || $val instanceof DeviceRegistrationMembership) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedGroups'");
-    }
-
-    /**
-     * Gets the allowedUsers property value. The identifiers of users that are in the scope of the policy. Either this property or allowedGroups is required when the appliesTo property is set to selected.
-     * @return array<string>|null
-    */
-    public function getAllowedUsers(): ?array {
-        $val = $this->getBackingStore()->get('allowedUsers');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedUsers'");
-    }
-
-    /**
-     * Gets the appliesTo property value. Specifies whether to block or allow fine-grained control of the policy scope. The possible values are: 0 (meaning none), 1 (meaning all), 2 (meaning selected), 3 (meaning unknownFutureValue). The default value is 1. When set to 2, at least one user or group identifier must be specified in either allowedUsers or allowedGroups.  Setting this property to 0 or 1 removes all identifiers in both allowedUsers and allowedGroups.
-     * @return PolicyScope|null
-    */
-    public function getAppliesTo(): ?PolicyScope {
-        $val = $this->getBackingStore()->get('appliesTo');
-        if (is_null($val) || $val instanceof PolicyScope) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliesTo'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedToRegister'");
     }
 
     /**
@@ -103,30 +74,14 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedGroups' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setAllowedGroups($val);
-            },
-            'allowedUsers' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setAllowedUsers($val);
-            },
-            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(PolicyScope::class)),
+            'allowedToRegister' => fn(ParseNode $n) => $o->setAllowedToRegister($n->getObjectValue([DeviceRegistrationMembership::class, 'createFromDiscriminatorValue'])),
             'isAdminConfigurable' => fn(ParseNode $n) => $o->setIsAdminConfigurable($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the isAdminConfigurable property value. Specifies whether this policy scope is configurable by the admin. The default value is false. When an admin has enabled Intune (MEM) to manage devices, this property is set to false and appliesTo defaults to 1 (meaning all).
+     * Gets the isAdminConfigurable property value. Determines if administrators can modify this policy.
      * @return bool|null
     */
     public function getIsAdminConfigurable(): ?bool {
@@ -154,9 +109,7 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('allowedGroups', $this->getAllowedGroups());
-        $writer->writeCollectionOfPrimitiveValues('allowedUsers', $this->getAllowedUsers());
-        $writer->writeEnumValue('appliesTo', $this->getAppliesTo());
+        $writer->writeObjectValue('allowedToRegister', $this->getAllowedToRegister());
         $writer->writeBooleanValue('isAdminConfigurable', $this->getIsAdminConfigurable());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -171,27 +124,11 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the allowedGroups property value. The identifiers of the groups that are in the scope of the policy. Either this property or allowedUsers is required when the appliesTo property is set to selected.
-     * @param array<string>|null $value Value to set for the allowedGroups property.
+     * Sets the allowedToRegister property value. Determines if Microsoft Entra registered is allowed.
+     * @param DeviceRegistrationMembership|null $value Value to set for the allowedToRegister property.
     */
-    public function setAllowedGroups(?array $value): void {
-        $this->getBackingStore()->set('allowedGroups', $value);
-    }
-
-    /**
-     * Sets the allowedUsers property value. The identifiers of users that are in the scope of the policy. Either this property or allowedGroups is required when the appliesTo property is set to selected.
-     * @param array<string>|null $value Value to set for the allowedUsers property.
-    */
-    public function setAllowedUsers(?array $value): void {
-        $this->getBackingStore()->set('allowedUsers', $value);
-    }
-
-    /**
-     * Sets the appliesTo property value. Specifies whether to block or allow fine-grained control of the policy scope. The possible values are: 0 (meaning none), 1 (meaning all), 2 (meaning selected), 3 (meaning unknownFutureValue). The default value is 1. When set to 2, at least one user or group identifier must be specified in either allowedUsers or allowedGroups.  Setting this property to 0 or 1 removes all identifiers in both allowedUsers and allowedGroups.
-     * @param PolicyScope|null $value Value to set for the appliesTo property.
-    */
-    public function setAppliesTo(?PolicyScope $value): void {
-        $this->getBackingStore()->set('appliesTo', $value);
+    public function setAllowedToRegister(?DeviceRegistrationMembership $value): void {
+        $this->getBackingStore()->set('allowedToRegister', $value);
     }
 
     /**
@@ -203,7 +140,7 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the isAdminConfigurable property value. Specifies whether this policy scope is configurable by the admin. The default value is false. When an admin has enabled Intune (MEM) to manage devices, this property is set to false and appliesTo defaults to 1 (meaning all).
+     * Sets the isAdminConfigurable property value. Determines if administrators can modify this policy.
      * @param bool|null $value Value to set for the isAdminConfigurable property.
     */
     public function setIsAdminConfigurable(?bool $value): void {

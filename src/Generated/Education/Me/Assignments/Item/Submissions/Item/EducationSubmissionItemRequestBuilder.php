@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Submissio
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Submissions\Item\EscapedReturn\ReturnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Submissions\Item\Excuse\ExcuseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Submissions\Item\Outcomes\OutcomesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Submissions\Item\Reassign\ReassignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Submissions\Item\Resources\ResourcesRequestBuilder;
@@ -29,6 +30,13 @@ class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder
     */
     public function escapedReturn(): ReturnRequestBuilder {
         return new ReturnRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the excuse method.
+    */
+    public function excuse(): ExcuseRequestBuilder {
+        return new ExcuseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

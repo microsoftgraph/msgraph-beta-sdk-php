@@ -2,28 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
-use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Store\BackedModel;
-use Microsoft\Kiota\Abstractions\Store\BackingStore;
-use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable 
+class PolicyRoot extends Entity implements Parsable 
 {
-    /**
-     * @var BackingStore $backingStore Stores model information.
-    */
-    private BackingStore $backingStore;
-    
     /**
      * Instantiates a new policyRoot and sets the default values.
     */
     public function __construct() {
-        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
-        $this->setAdditionalData([]);
+        parent::__construct();
     }
 
     /**
@@ -59,19 +49,6 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'activityBasedTimeoutPolicies'");
-    }
-
-    /**
-     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>|null
-    */
-    public function getAdditionalData(): ?array {
-        $val = $this->getBackingStore()->get('additionalData');
-        if (is_null($val) || is_array($val)) {
-            /** @var array<string, mixed>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -162,14 +139,6 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'b2cAuthenticationMethodsPolicy'");
-    }
-
-    /**
-     * Gets the BackingStore property value. Stores model information.
-     * @return BackingStore
-    */
-    public function getBackingStore(): BackingStore {
-        return $this->backingStore;
     }
 
     /**
@@ -292,7 +261,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return  [
+        return array_merge(parent::getFieldDeserializers(), [
             'accessReviewPolicy' => fn(ParseNode $n) => $o->setAccessReviewPolicy($n->getObjectValue([AccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
             'activityBasedTimeoutPolicies' => fn(ParseNode $n) => $o->setActivityBasedTimeoutPolicies($n->getCollectionOfObjectValues([ActivityBasedTimeoutPolicy::class, 'createFromDiscriminatorValue'])),
             'adminConsentRequestPolicy' => fn(ParseNode $n) => $o->setAdminConsentRequestPolicy($n->getObjectValue([AdminConsentRequestPolicy::class, 'createFromDiscriminatorValue'])),
@@ -315,14 +284,13 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
             'identitySecurityDefaultsEnforcementPolicy' => fn(ParseNode $n) => $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue([IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'])),
             'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'mobileDeviceManagementPolicies' => fn(ParseNode $n) => $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'permissionGrantPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues([PermissionGrantPolicy::class, 'createFromDiscriminatorValue'])),
             'roleManagementPolicies' => fn(ParseNode $n) => $o->setRoleManagementPolicies($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'roleManagementPolicyAssignments' => fn(ParseNode $n) => $o->setRoleManagementPolicyAssignments($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicyAssignment::class, 'createFromDiscriminatorValue'])),
             'servicePrincipalCreationPolicies' => fn(ParseNode $n) => $o->setServicePrincipalCreationPolicies($n->getCollectionOfObjectValues([ServicePrincipalCreationPolicy::class, 'createFromDiscriminatorValue'])),
             'tokenIssuancePolicies' => fn(ParseNode $n) => $o->setTokenIssuancePolicies($n->getCollectionOfObjectValues([TokenIssuancePolicy::class, 'createFromDiscriminatorValue'])),
             'tokenLifetimePolicies' => fn(ParseNode $n) => $o->setTokenLifetimePolicies($n->getCollectionOfObjectValues([TokenLifetimePolicy::class, 'createFromDiscriminatorValue'])),
-        ];
+        ]);
     }
 
     /**
@@ -377,18 +345,6 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileDeviceManagementPolicies'");
-    }
-
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        $val = $this->getBackingStore()->get('odataType');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
     }
 
     /**
@@ -480,6 +436,7 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
         $writer->writeObjectValue('accessReviewPolicy', $this->getAccessReviewPolicy());
         $writer->writeCollectionOfObjectValues('activityBasedTimeoutPolicies', $this->getActivityBasedTimeoutPolicies());
         $writer->writeObjectValue('adminConsentRequestPolicy', $this->getAdminConsentRequestPolicy());
@@ -502,14 +459,12 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('identitySecurityDefaultsEnforcementPolicy', $this->getIdentitySecurityDefaultsEnforcementPolicy());
         $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->getMobileAppManagementPolicies());
         $writer->writeCollectionOfObjectValues('mobileDeviceManagementPolicies', $this->getMobileDeviceManagementPolicies());
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('permissionGrantPolicies', $this->getPermissionGrantPolicies());
         $writer->writeCollectionOfObjectValues('roleManagementPolicies', $this->getRoleManagementPolicies());
         $writer->writeCollectionOfObjectValues('roleManagementPolicyAssignments', $this->getRoleManagementPolicyAssignments());
         $writer->writeCollectionOfObjectValues('servicePrincipalCreationPolicies', $this->getServicePrincipalCreationPolicies());
         $writer->writeCollectionOfObjectValues('tokenIssuancePolicies', $this->getTokenIssuancePolicies());
         $writer->writeCollectionOfObjectValues('tokenLifetimePolicies', $this->getTokenLifetimePolicies());
-        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
@@ -526,14 +481,6 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setActivityBasedTimeoutPolicies(?array $value): void {
         $this->getBackingStore()->set('activityBasedTimeoutPolicies', $value);
-    }
-
-    /**
-     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
-    */
-    public function setAdditionalData(?array $value): void {
-        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
@@ -590,14 +537,6 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setB2cAuthenticationMethodsPolicy(?B2cAuthenticationMethodsPolicy $value): void {
         $this->getBackingStore()->set('b2cAuthenticationMethodsPolicy', $value);
-    }
-
-    /**
-     * Sets the BackingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
-    */
-    public function setBackingStore(BackingStore $value): void {
-        $this->backingStore = $value;
     }
 
     /**
@@ -702,14 +641,6 @@ class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setMobileDeviceManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('mobileDeviceManagementPolicies', $value);
-    }
-
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the @odata.type property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

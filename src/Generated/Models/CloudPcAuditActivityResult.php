@@ -9,5 +9,5 @@ class CloudPcAuditActivityResult extends Enum {
     public const CLIENT_ERROR = 'clientError';
     public const FAILURE = 'failure';
     public const TIMEOUT = 'timeout';
-    public const OTHER = 'other';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }
