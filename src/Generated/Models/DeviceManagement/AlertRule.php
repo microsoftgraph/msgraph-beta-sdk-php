@@ -39,6 +39,20 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
+     * Gets the conditions property value. The conditions that determine when to send alerts. For example, you can configure a condition to send an alert when provisioning fails for six or more Cloud PCs.
+     * @return array<RuleCondition>|null
+    */
+    public function getConditions(): ?array {
+        $val = $this->getBackingStore()->get('conditions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RuleCondition::class);
+            /** @var array<RuleCondition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditions'");
+    }
+
+    /**
      * Gets the description property value. The rule description.
      * @return string|null
     */
@@ -82,6 +96,7 @@ class AlertRule extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)),
+            'conditions' => fn(ParseNode $n) => $o->setConditions($n->getCollectionOfObjectValues([RuleCondition::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
@@ -149,6 +164,7 @@ class AlertRule extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('alertRuleTemplate', $this->getAlertRuleTemplate());
+        $writer->writeCollectionOfObjectValues('conditions', $this->getConditions());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
@@ -164,6 +180,14 @@ class AlertRule extends Entity implements Parsable
     */
     public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
         $this->getBackingStore()->set('alertRuleTemplate', $value);
+    }
+
+    /**
+     * Sets the conditions property value. The conditions that determine when to send alerts. For example, you can configure a condition to send an alert when provisioning fails for six or more Cloud PCs.
+     * @param array<RuleCondition>|null $value Value to set for the conditions property.
+    */
+    public function setConditions(?array $value): void {
+        $this->getBackingStore()->set('conditions', $value);
     }
 
     /**

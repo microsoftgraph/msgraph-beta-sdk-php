@@ -102,6 +102,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
             'dynamics' => fn(ParseNode $n) => $o->setDynamics($n->getObjectValue([AdminDynamics::class, 'createFromDiscriminatorValue'])),
             'edge' => fn(ParseNode $n) => $o->setEdge($n->getObjectValue([Edge::class, 'createFromDiscriminatorValue'])),
             'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([AdminForms::class, 'createFromDiscriminatorValue'])),
+            'microsoft365Apps' => fn(ParseNode $n) => $o->setMicrosoft365Apps($n->getObjectValue([AdminMicrosoft365Apps::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'people' => fn(ParseNode $n) => $o->setPeople($n->getObjectValue([PeopleAdminSettings::class, 'createFromDiscriminatorValue'])),
             'reportSettings' => fn(ParseNode $n) => $o->setReportSettings($n->getObjectValue([AdminReportSettings::class, 'createFromDiscriminatorValue'])),
@@ -122,6 +123,18 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'forms'");
+    }
+
+    /**
+     * Gets the microsoft365Apps property value. A container for the Microsoft 365 apps admin functionality.
+     * @return AdminMicrosoft365Apps|null
+    */
+    public function getMicrosoft365Apps(): ?AdminMicrosoft365Apps {
+        $val = $this->getBackingStore()->get('microsoft365Apps');
+        if (is_null($val) || $val instanceof AdminMicrosoft365Apps) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoft365Apps'");
     }
 
     /**
@@ -217,6 +230,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('dynamics', $this->getDynamics());
         $writer->writeObjectValue('edge', $this->getEdge());
         $writer->writeObjectValue('forms', $this->getForms());
+        $writer->writeObjectValue('microsoft365Apps', $this->getMicrosoft365Apps());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('people', $this->getPeople());
         $writer->writeObjectValue('reportSettings', $this->getReportSettings());
@@ -273,6 +287,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setForms(?AdminForms $value): void {
         $this->getBackingStore()->set('forms', $value);
+    }
+
+    /**
+     * Sets the microsoft365Apps property value. A container for the Microsoft 365 apps admin functionality.
+     * @param AdminMicrosoft365Apps|null $value Value to set for the microsoft365Apps property.
+    */
+    public function setMicrosoft365Apps(?AdminMicrosoft365Apps $value): void {
+        $this->getBackingStore()->set('microsoft365Apps', $value);
     }
 
     /**

@@ -25,7 +25,7 @@ class VirtualEventRegistrationQuestionBase extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.virtualEventRegistratioCustomQuestion': return new VirtualEventRegistratioCustomQuestion();
+                case '#microsoft.graph.virtualEventRegistrationCustomQuestion': return new VirtualEventRegistrationCustomQuestion();
                 case '#microsoft.graph.virtualEventRegistrationPredefinedQuestion': return new VirtualEventRegistrationPredefinedQuestion();
             }
         }

@@ -39,6 +39,18 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
+     * Gets the approvalAttachment property value. The approvalAttachment property
+     * @return PlannerFieldRules|null
+    */
+    public function getApprovalAttachment(): ?PlannerFieldRules {
+        $val = $this->getBackingStore()->get('approvalAttachment');
+        if (is_null($val) || $val instanceof PlannerFieldRules) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalAttachment'");
+    }
+
+    /**
      * Gets the assignments property value. Rules and restrictions for assignments. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are allow, add, addSelf, addOther, remove, removeSelf, removeOther, block.
      * @return PlannerFieldRules|null
     */
@@ -112,6 +124,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'appliedCategories' => fn(ParseNode $n) => $o->setAppliedCategories($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
+            'approvalAttachment' => fn(ParseNode $n) => $o->setApprovalAttachment($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'checkLists' => fn(ParseNode $n) => $o->setCheckLists($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'completionRequirements' => function (ParseNode $n) {
@@ -138,6 +151,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
                 /** @var array<string>|null $val */
                 $this->setDueDate($val);
             },
+            'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([PlannerFieldRules::class, 'createFromDiscriminatorValue'])),
             'move' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -204,6 +218,18 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
                 $this->setTitle($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the forms property value. The forms property
+     * @return PlannerFieldRules|null
+    */
+    public function getForms(): ?PlannerFieldRules {
+        $val = $this->getBackingStore()->get('forms');
+        if (is_null($val) || $val instanceof PlannerFieldRules) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forms'");
     }
 
     /**
@@ -337,11 +363,13 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('appliedCategories', $this->getAppliedCategories());
+        $writer->writeObjectValue('approvalAttachment', $this->getApprovalAttachment());
         $writer->writeObjectValue('assignments', $this->getAssignments());
         $writer->writeObjectValue('checkLists', $this->getCheckLists());
         $writer->writeCollectionOfPrimitiveValues('completionRequirements', $this->getCompletionRequirements());
         $writer->writeCollectionOfPrimitiveValues('delete', $this->getDelete());
         $writer->writeCollectionOfPrimitiveValues('dueDate', $this->getDueDate());
+        $writer->writeObjectValue('forms', $this->getForms());
         $writer->writeCollectionOfPrimitiveValues('move', $this->getMove());
         $writer->writeCollectionOfPrimitiveValues('notes', $this->getNotes());
         $writer->writeCollectionOfPrimitiveValues('order', $this->getOrder());
@@ -359,6 +387,14 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     */
     public function setAppliedCategories(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('appliedCategories', $value);
+    }
+
+    /**
+     * Sets the approvalAttachment property value. The approvalAttachment property
+     * @param PlannerFieldRules|null $value Value to set for the approvalAttachment property.
+    */
+    public function setApprovalAttachment(?PlannerFieldRules $value): void {
+        $this->getBackingStore()->set('approvalAttachment', $value);
     }
 
     /**
@@ -399,6 +435,14 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     */
     public function setDueDate(?array $value): void {
         $this->getBackingStore()->set('dueDate', $value);
+    }
+
+    /**
+     * Sets the forms property value. The forms property
+     * @param PlannerFieldRules|null $value Value to set for the forms property.
+    */
+    public function setForms(?PlannerFieldRules $value): void {
+        $this->getBackingStore()->set('forms', $value);
     }
 
     /**

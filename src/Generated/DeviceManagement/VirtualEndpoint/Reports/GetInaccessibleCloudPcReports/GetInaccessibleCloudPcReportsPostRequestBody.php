@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetInaccessibleCloudPcReports;
 
+use Microsoft\Graph\Beta\Generated\Models\CloudPCInaccessibleReportName;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -80,6 +81,7 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
                 /** @var array<string>|null $val */
                 $this->setOrderBy($val);
             },
+            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(CloudPCInaccessibleReportName::class)),
             'search' => fn(ParseNode $n) => $o->setSearch($n->getStringValue()),
             'select' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -132,6 +134,18 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'orderBy'");
+    }
+
+    /**
+     * Gets the reportName property value. The reportName property
+     * @return CloudPCInaccessibleReportName|null
+    */
+    public function getReportName(): ?CloudPCInaccessibleReportName {
+        $val = $this->getBackingStore()->get('reportName');
+        if (is_null($val) || $val instanceof CloudPCInaccessibleReportName) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reportName'");
     }
 
     /**
@@ -192,6 +206,7 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
         $writer->writeStringValue('filter', $this->getFilter());
         $writer->writeCollectionOfPrimitiveValues('groupBy', $this->getGroupBy());
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
+        $writer->writeEnumValue('reportName', $this->getReportName());
         $writer->writeStringValue('search', $this->getSearch());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
         $writer->writeIntegerValue('skip', $this->getSkip());
@@ -237,6 +252,14 @@ class GetInaccessibleCloudPcReportsPostRequestBody implements AdditionalDataHold
     */
     public function setOrderBy(?array $value): void {
         $this->getBackingStore()->set('orderBy', $value);
+    }
+
+    /**
+     * Sets the reportName property value. The reportName property
+     * @param CloudPCInaccessibleReportName|null $value Value to set for the reportName property.
+    */
+    public function setReportName(?CloudPCInaccessibleReportName $value): void {
+        $this->getBackingStore()->set('reportName', $value);
     }
 
     /**

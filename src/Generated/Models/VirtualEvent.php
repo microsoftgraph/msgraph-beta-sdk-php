@@ -34,7 +34,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. Identity information of who created the virtual event. Inherited from virtualEvent.
+     * Gets the createdBy property value. Identity information for the creator of the virtual event. Inherited from virtualEvent.
      * @return CommunicationsIdentitySet|null
     */
     public function getCreatedBy(): ?CommunicationsIdentitySet {
@@ -58,7 +58,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Display name of the virtual event
+     * Gets the displayName property value. Display name of the virtual event.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -100,7 +100,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the presenters property value. Presenters' information of the virtual event.
+     * Gets the presenters property value. The virtual event presenters.
      * @return array<VirtualEventPresenter>|null
     */
     public function getPresenters(): ?array {
@@ -114,7 +114,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the sessions property value. Sessions of the virtual event.
+     * Gets the sessions property value. Sessions for the virtual event.
      * @return array<VirtualEventSession>|null
     */
     public function getSessions(): ?array {
@@ -168,7 +168,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. Identity information of who created the virtual event. Inherited from virtualEvent.
+     * Sets the createdBy property value. Identity information for the creator of the virtual event. Inherited from virtualEvent.
      * @param CommunicationsIdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?CommunicationsIdentitySet $value): void {
@@ -184,7 +184,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Display name of the virtual event
+     * Sets the displayName property value. Display name of the virtual event.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -200,7 +200,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the presenters property value. Presenters' information of the virtual event.
+     * Sets the presenters property value. The virtual event presenters.
      * @param array<VirtualEventPresenter>|null $value Value to set for the presenters property.
     */
     public function setPresenters(?array $value): void {
@@ -208,7 +208,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the sessions property value. Sessions of the virtual event.
+     * Sets the sessions property value. Sessions for the virtual event.
      * @param array<VirtualEventSession>|null $value Value to set for the sessions property.
     */
     public function setSessions(?array $value): void {
