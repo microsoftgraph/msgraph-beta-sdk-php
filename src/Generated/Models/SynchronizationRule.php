@@ -57,7 +57,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the containerFilter property value. The containerFilter property
+     * Gets the containerFilter property value. The names and identifiers of organizational units that are in scope for a synchronization rule. containerFilter and groupFilter are mutually exclusive properties that cannot be configured in the same request. Currently only supported for Azure AD Connect cloud sync scenarios.
      * @return ContainerFilter|null
     */
     public function getContainerFilter(): ?ContainerFilter {
@@ -102,7 +102,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the groupFilter property value. The groupFilter property
+     * Gets the groupFilter property value. The names and identifiers of groups that are in scope for a synchronization rule. containerFilter and groupFilter are mutually exclusive properties that cannot be configured in the same request. Currently only supported for Azure AD Connect cloud sync scenarios.
      * @return GroupFilter|null
     */
     public function getGroupFilter(): ?GroupFilter {
@@ -249,7 +249,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the containerFilter property value. The containerFilter property
+     * Sets the containerFilter property value. The names and identifiers of organizational units that are in scope for a synchronization rule. containerFilter and groupFilter are mutually exclusive properties that cannot be configured in the same request. Currently only supported for Azure AD Connect cloud sync scenarios.
      * @param ContainerFilter|null $value Value to set for the containerFilter property.
     */
     public function setContainerFilter(?ContainerFilter $value): void {
@@ -265,7 +265,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the groupFilter property value. The groupFilter property
+     * Sets the groupFilter property value. The names and identifiers of groups that are in scope for a synchronization rule. containerFilter and groupFilter are mutually exclusive properties that cannot be configured in the same request. Currently only supported for Azure AD Connect cloud sync scenarios.
      * @param GroupFilter|null $value Value to set for the groupFilter property.
     */
     public function setGroupFilter(?GroupFilter $value): void {

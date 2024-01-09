@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -56,6 +57,18 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
+     * Gets the bookingPageSettings property value. The bookingPageSettings property
+     * @return BookingPageSettings|null
+    */
+    public function getBookingPageSettings(): ?BookingPageSettings {
+        $val = $this->getBackingStore()->get('bookingPageSettings');
+        if (is_null($val) || $val instanceof BookingPageSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bookingPageSettings'");
+    }
+
+    /**
      * Gets the businessHours property value. The hours of operation for the business.
      * @return array<BookingWorkHours>|null
     */
@@ -93,6 +106,18 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'calendarView'");
+    }
+
+    /**
+     * Gets the createdDateTime property value. The createdDateTime property
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -156,15 +181,18 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'address' => fn(ParseNode $n) => $o->setAddress($n->getObjectValue([PhysicalAddress::class, 'createFromDiscriminatorValue'])),
             'appointments' => fn(ParseNode $n) => $o->setAppointments($n->getCollectionOfObjectValues([BookingAppointment::class, 'createFromDiscriminatorValue'])),
+            'bookingPageSettings' => fn(ParseNode $n) => $o->setBookingPageSettings($n->getObjectValue([BookingPageSettings::class, 'createFromDiscriminatorValue'])),
             'businessHours' => fn(ParseNode $n) => $o->setBusinessHours($n->getCollectionOfObjectValues([BookingWorkHours::class, 'createFromDiscriminatorValue'])),
             'businessType' => fn(ParseNode $n) => $o->setBusinessType($n->getStringValue()),
             'calendarView' => fn(ParseNode $n) => $o->setCalendarView($n->getCollectionOfObjectValues([BookingAppointment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'customers' => fn(ParseNode $n) => $o->setCustomers($n->getCollectionOfObjectValues([BookingCustomer::class, 'createFromDiscriminatorValue'])),
             'customQuestions' => fn(ParseNode $n) => $o->setCustomQuestions($n->getCollectionOfObjectValues([BookingCustomQuestion::class, 'createFromDiscriminatorValue'])),
             'defaultCurrencyIso' => fn(ParseNode $n) => $o->setDefaultCurrencyIso($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'isPublished' => fn(ParseNode $n) => $o->setIsPublished($n->getBooleanValue()),
             'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             'phone' => fn(ParseNode $n) => $o->setPhone($n->getStringValue()),
             'publicUrl' => fn(ParseNode $n) => $o->setPublicUrl($n->getStringValue()),
             'schedulingPolicy' => fn(ParseNode $n) => $o->setSchedulingPolicy($n->getObjectValue([BookingSchedulingPolicy::class, 'createFromDiscriminatorValue'])),
@@ -196,6 +224,18 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTag'");
+    }
+
+    /**
+     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastUpdatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastUpdatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedDateTime'");
     }
 
     /**
@@ -282,14 +322,17 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('address', $this->getAddress());
         $writer->writeCollectionOfObjectValues('appointments', $this->getAppointments());
+        $writer->writeObjectValue('bookingPageSettings', $this->getBookingPageSettings());
         $writer->writeCollectionOfObjectValues('businessHours', $this->getBusinessHours());
         $writer->writeStringValue('businessType', $this->getBusinessType());
         $writer->writeCollectionOfObjectValues('calendarView', $this->getCalendarView());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeCollectionOfObjectValues('customers', $this->getCustomers());
         $writer->writeCollectionOfObjectValues('customQuestions', $this->getCustomQuestions());
         $writer->writeStringValue('defaultCurrencyIso', $this->getDefaultCurrencyIso());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeStringValue('languageTag', $this->getLanguageTag());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeStringValue('phone', $this->getPhone());
         $writer->writeObjectValue('schedulingPolicy', $this->getSchedulingPolicy());
         $writer->writeCollectionOfObjectValues('services', $this->getServices());
@@ -314,6 +357,14 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
+     * Sets the bookingPageSettings property value. The bookingPageSettings property
+     * @param BookingPageSettings|null $value Value to set for the bookingPageSettings property.
+    */
+    public function setBookingPageSettings(?BookingPageSettings $value): void {
+        $this->getBackingStore()->set('bookingPageSettings', $value);
+    }
+
+    /**
      * Sets the businessHours property value. The hours of operation for the business.
      * @param array<BookingWorkHours>|null $value Value to set for the businessHours property.
     */
@@ -335,6 +386,14 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     */
     public function setCalendarView(?array $value): void {
         $this->getBackingStore()->set('calendarView', $value);
+    }
+
+    /**
+     * Sets the createdDateTime property value. The createdDateTime property
+     * @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
@@ -383,6 +442,14 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
+    }
+
+    /**
+     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+    */
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**

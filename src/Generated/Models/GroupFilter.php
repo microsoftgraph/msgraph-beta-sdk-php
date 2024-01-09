@@ -76,7 +76,7 @@ class GroupFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the includedGroups property value. The includedGroups property
+     * Gets the includedGroups property value. Identifiers of groups that are in scope for a synchronization rule. For Active Directory groups, use the distinguished names. An empty list means no group filtering is configured.
      * @return array<string>|null
     */
     public function getIncludedGroups(): ?array {
@@ -128,7 +128,7 @@ class GroupFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the includedGroups property value. The includedGroups property
+     * Sets the includedGroups property value. Identifiers of groups that are in scope for a synchronization rule. For Active Directory groups, use the distinguished names. An empty list means no group filtering is configured.
      * @param array<string>|null $value Value to set for the includedGroups property.
     */
     public function setIncludedGroups(?array $value): void {

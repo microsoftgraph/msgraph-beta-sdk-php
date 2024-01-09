@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\GraphSitePage\GraphSitePageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\BaseSitePageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\BaseSitePage;
 use Microsoft\Graph\Beta\Generated\Models\BaseSitePageCollectionResponse;
@@ -24,6 +25,13 @@ class PagesRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to sitePage.
+    */
+    public function graphSitePage(): GraphSitePageRequestBuilder {
+        return new GraphSitePageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

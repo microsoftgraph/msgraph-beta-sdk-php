@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\GetAllMessages\GetAllMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\GetAllRetainedMessages\GetAllRetainedMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -40,6 +41,13 @@ class ChannelsRequestBuilder extends BaseRequestBuilder
     */
     public function getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllRetainedMessages method.
+    */
+    public function getAllRetainedMessages(): GetAllRetainedMessagesRequestBuilder {
+        return new GetAllRetainedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

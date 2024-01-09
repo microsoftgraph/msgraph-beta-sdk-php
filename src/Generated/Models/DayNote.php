@@ -27,7 +27,7 @@ class DayNote extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the dayNoteDate property value. The dayNoteDate property
+     * Gets the dayNoteDate property value. The date of the day note.
      * @return Date|null
     */
     public function getDayNoteDate(): ?Date {
@@ -39,7 +39,7 @@ class DayNote extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftDayNote property value. The draftDayNote property
+     * Gets the draftDayNote property value. The draft version of this day note that is viewable by managers. Only contentType text is supported.
      * @return ItemBody|null
     */
     public function getDraftDayNote(): ?ItemBody {
@@ -64,7 +64,7 @@ class DayNote extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedDayNote property value. The sharedDayNote property
+     * Gets the sharedDayNote property value. The shared version of this day note that is viewable by both employees and managers. Only contentType text is supported.
      * @return ItemBody|null
     */
     public function getSharedDayNote(): ?ItemBody {
@@ -87,7 +87,7 @@ class DayNote extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the dayNoteDate property value. The dayNoteDate property
+     * Sets the dayNoteDate property value. The date of the day note.
      * @param Date|null $value Value to set for the dayNoteDate property.
     */
     public function setDayNoteDate(?Date $value): void {
@@ -95,7 +95,7 @@ class DayNote extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftDayNote property value. The draftDayNote property
+     * Sets the draftDayNote property value. The draft version of this day note that is viewable by managers. Only contentType text is supported.
      * @param ItemBody|null $value Value to set for the draftDayNote property.
     */
     public function setDraftDayNote(?ItemBody $value): void {
@@ -103,7 +103,7 @@ class DayNote extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedDayNote property value. The sharedDayNote property
+     * Sets the sharedDayNote property value. The shared version of this day note that is viewable by both employees and managers. Only contentType text is supported.
      * @param ItemBody|null $value Value to set for the sharedDayNote property.
     */
     public function setSharedDayNote(?ItemBody $value): void {

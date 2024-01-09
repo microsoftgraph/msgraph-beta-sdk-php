@@ -31,11 +31,12 @@ class GetActionStatusReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getActionStatusReports
+     * Get the remote action status reports, including data such as the Cloud PC ID, Cloud PC device display name, initiating user's principal name, device owner's user principal name, action taken, and action state.
      * @param GetActionStatusReportsPostRequestBody $body The request body
      * @param GetActionStatusReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getactionstatusreports?view=graph-rest-1.0 Find more info here
     */
     public function post(GetActionStatusReportsPostRequestBody $body, ?GetActionStatusReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -49,7 +50,7 @@ class GetActionStatusReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getActionStatusReports
+     * Get the remote action status reports, including data such as the Cloud PC ID, Cloud PC device display name, initiating user's principal name, device owner's user principal name, action taken, and action state.
      * @param GetActionStatusReportsPostRequestBody $body The request body
      * @param GetActionStatusReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -62,10 +62,23 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'managedType' => fn(ParseNode $n) => $o->setManagedType($n->getEnumValue(MicrosoftManagedDesktopType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'profile' => fn(ParseNode $n) => $o->setProfile($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(MicrosoftManagedDesktopType::class)),
         ];
+    }
+
+    /**
+     * Gets the managedType property value. The managedType property
+     * @return MicrosoftManagedDesktopType|null
+    */
+    public function getManagedType(): ?MicrosoftManagedDesktopType {
+        $val = $this->getBackingStore()->get('managedType');
+        if (is_null($val) || $val instanceof MicrosoftManagedDesktopType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedType'");
     }
 
     /**
@@ -109,6 +122,7 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('managedType', $this->getManagedType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('profile', $this->getProfile());
         $writer->writeEnumValue('type', $this->getType());
@@ -129,6 +143,14 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the managedType property value. The managedType property
+     * @param MicrosoftManagedDesktopType|null $value Value to set for the managedType property.
+    */
+    public function setManagedType(?MicrosoftManagedDesktopType $value): void {
+        $this->getBackingStore()->set('managedType', $value);
     }
 
     /**

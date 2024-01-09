@@ -48,6 +48,18 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
+     * Gets the approvalRequirement property value. The approvalRequirement property
+     * @return PlannerApprovalRequirement|null
+    */
+    public function getApprovalRequirement(): ?PlannerApprovalRequirement {
+        $val = $this->getBackingStore()->get('approvalRequirement');
+        if (is_null($val) || $val instanceof PlannerApprovalRequirement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalRequirement'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -74,9 +86,23 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'approvalRequirement' => fn(ParseNode $n) => $o->setApprovalRequirement($n->getObjectValue([PlannerApprovalRequirement::class, 'createFromDiscriminatorValue'])),
             'checklistRequirement' => fn(ParseNode $n) => $o->setChecklistRequirement($n->getObjectValue([PlannerChecklistRequirement::class, 'createFromDiscriminatorValue'])),
+            'formsRequirement' => fn(ParseNode $n) => $o->setFormsRequirement($n->getObjectValue([PlannerFormsRequirement::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the formsRequirement property value. The formsRequirement property
+     * @return PlannerFormsRequirement|null
+    */
+    public function getFormsRequirement(): ?PlannerFormsRequirement {
+        $val = $this->getBackingStore()->get('formsRequirement');
+        if (is_null($val) || $val instanceof PlannerFormsRequirement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'formsRequirement'");
     }
 
     /**
@@ -96,7 +122,9 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('approvalRequirement', $this->getApprovalRequirement());
         $writer->writeObjectValue('checklistRequirement', $this->getChecklistRequirement());
+        $writer->writeObjectValue('formsRequirement', $this->getFormsRequirement());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -107,6 +135,14 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the approvalRequirement property value. The approvalRequirement property
+     * @param PlannerApprovalRequirement|null $value Value to set for the approvalRequirement property.
+    */
+    public function setApprovalRequirement(?PlannerApprovalRequirement $value): void {
+        $this->getBackingStore()->set('approvalRequirement', $value);
     }
 
     /**
@@ -123,6 +159,14 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     */
     public function setChecklistRequirement(?PlannerChecklistRequirement $value): void {
         $this->getBackingStore()->set('checklistRequirement', $value);
+    }
+
+    /**
+     * Sets the formsRequirement property value. The formsRequirement property
+     * @param PlannerFormsRequirement|null $value Value to set for the formsRequirement property.
+    */
+    public function setFormsRequirement(?PlannerFormsRequirement $value): void {
+        $this->getBackingStore()->set('formsRequirement', $value);
     }
 
     /**

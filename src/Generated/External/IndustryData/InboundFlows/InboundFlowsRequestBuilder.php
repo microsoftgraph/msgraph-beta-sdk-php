@@ -52,11 +52,11 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFileFlow objects and their properties.
+     * Get a list of the inboundFlow objects and their properties.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlowCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -85,7 +85,7 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFileFlow objects and their properties.
+     * Get a list of the inboundFlow objects and their properties.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

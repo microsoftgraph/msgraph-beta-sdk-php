@@ -26,7 +26,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftShift property value. The draft version of this shift that is viewable by managers. Required.
+     * Gets the draftShift property value. Draft changes in the shift are only visible to managers until they are shared.
      * @return ShiftItem|null
     */
     public function getDraftShift(): ?ShiftItem {
@@ -53,7 +53,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the isStagedForDeletion property value. The isStagedForDeletion property
+     * Gets the isStagedForDeletion property value. The shift is marked for deletion, a process that is finalized when the schedule is shared.
      * @return bool|null
     */
     public function getIsStagedForDeletion(): ?bool {
@@ -77,7 +77,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Required.
+     * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers.
      * @return ShiftItem|null
     */
     public function getSharedShift(): ?ShiftItem {
@@ -114,7 +114,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftShift property value. The draft version of this shift that is viewable by managers. Required.
+     * Sets the draftShift property value. Draft changes in the shift are only visible to managers until they are shared.
      * @param ShiftItem|null $value Value to set for the draftShift property.
     */
     public function setDraftShift(?ShiftItem $value): void {
@@ -122,7 +122,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the isStagedForDeletion property value. The isStagedForDeletion property
+     * Sets the isStagedForDeletion property value. The shift is marked for deletion, a process that is finalized when the schedule is shared.
      * @param bool|null $value Value to set for the isStagedForDeletion property.
     */
     public function setIsStagedForDeletion(?bool $value): void {
@@ -138,7 +138,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Required.
+     * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers.
      * @param ShiftItem|null $value Value to set for the sharedShift property.
     */
     public function setSharedShift(?ShiftItem $value): void {

@@ -120,7 +120,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the partnerAgentName property value. The name of the partner agent, whether first party or third party. Possible values for third-party partners are Citrix and VMware. Read-Only.
+     * Gets the partnerAgentName property value. The name of the first-party or third-party partner agent. Possible values for third-party partners are Citrix, VMware and HP. Read-Only.
      * @return CloudPcPartnerAgentName|null
     */
     public function getPartnerAgentName(): ?CloudPcPartnerAgentName {
@@ -206,7 +206,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the partnerAgentName property value. The name of the partner agent, whether first party or third party. Possible values for third-party partners are Citrix and VMware. Read-Only.
+     * Sets the partnerAgentName property value. The name of the first-party or third-party partner agent. Possible values for third-party partners are Citrix, VMware and HP. Read-Only.
      * @param CloudPcPartnerAgentName|null $value Value to set for the partnerAgentName property.
     */
     public function setPartnerAgentName(?CloudPcPartnerAgentName $value): void {
