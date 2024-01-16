@@ -47,11 +47,11 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFlow object.
+     * Delete an inboundFileFlow object.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?InboundFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -63,11 +63,11 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an inboundFileFlow object.
+     * Read the properties and relationships of an inboundFlow object.
      * @param InboundFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundFlowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -96,7 +96,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an inboundFlow object.
+     * Delete an inboundFileFlow object.
      * @param InboundFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an inboundFileFlow object.
+     * Read the properties and relationships of an inboundFlow object.
      * @param InboundFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

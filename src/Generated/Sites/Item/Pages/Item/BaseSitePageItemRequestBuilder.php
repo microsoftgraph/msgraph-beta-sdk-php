@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\BaseSitePage;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\GraphSitePage\GraphSitePageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -23,6 +24,13 @@ class BaseSitePageItemRequestBuilder extends BaseRequestBuilder
     */
     public function createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to sitePage.
+    */
+    public function graphSitePage(): GraphSitePageRequestBuilder {
+        return new GraphSitePageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\BaseSitePage;
 use Microsoft\Graph\Beta\Generated\Models\BaseSitePageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\GraphSitePage\GraphSitePageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\BaseSitePageItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -24,6 +25,13 @@ class PagesRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to sitePage.
+    */
+    public function graphSitePage(): GraphSitePageRequestBuilder {
+        return new GraphSitePageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -36,7 +36,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Gets an item from the Microsoft/Graph/Beta/Generated.onPremisesPublishingProfiles.item.agentGroups.item.publishedResources.item.agentGroups.item collection
-     * @param string $onPremisesAgentGroupId1 Unique identifier of the item
+     * @param string $onPremisesAgentGroupId1 The unique identifier of onPremisesAgentGroup
      * @return OnPremisesAgentGroupItemRequestBuilder
     */
     public function byOnPremisesAgentGroupId1(string $onPremisesAgentGroupId1): OnPremisesAgentGroupItemRequestBuilder {

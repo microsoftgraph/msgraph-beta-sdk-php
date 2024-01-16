@@ -35,7 +35,7 @@ class IncompatibleAccessPackagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Gets an item from the Microsoft/Graph/Beta/Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackage.incompatibleAccessPackages.item collection
-     * @param string $accessPackageId Unique identifier of the item
+     * @param string $accessPackageId The unique identifier of accessPackage
      * @return AccessPackageItemRequestBuilder
     */
     public function byAccessPackageId(string $accessPackageId): AccessPackageItemRequestBuilder {

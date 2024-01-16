@@ -27,7 +27,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.
+     * Gets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment shouldn't be assigned to new students.
      * @return EducationAddedStudentAction|null
     */
     public function getAddedStudentAction(): ?EducationAddedStudentAction {
@@ -39,7 +39,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the addToCalendarAction property value. Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
+     * Gets the addToCalendarAction property value. Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
      * @return EducationAddToCalendarOptions|null
     */
     public function getAddToCalendarAction(): ?EducationAddToCalendarOptions {
@@ -51,7 +51,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.
+     * Gets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property isn't specified during create, it defaults to true.
      * @return bool|null
     */
     public function getAllowLateSubmissions(): ?bool {
@@ -75,7 +75,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment isn't shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getAssignDateTime(): ?DateTime {
@@ -125,7 +125,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the classId property value. Class which this assignment belongs.
+     * Gets the classId property value. Class to which this assignment belongs.
      * @return string|null
     */
     public function getClassId(): ?string {
@@ -137,7 +137,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the closeDateTime property value. Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the closeDateTime property value. Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment doesn't allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getCloseDateTime(): ?DateTime {
@@ -259,7 +259,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the gradingCategory property value. The gradingCategory property
+     * Gets the gradingCategory property value. When set, enables users to weight assignments differently when computing a class average grade.
      * @return EducationGradingCategory|null
     */
     public function getGradingCategory(): ?EducationGradingCategory {
@@ -271,7 +271,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the instructions property value. Instructions for the assignment.  This along with the display name tell the student what to do.
+     * Gets the instructions property value. Instructions for the assignment. This property and the display name tell the student what to do.
      * @return EducationItemBody|null
     */
     public function getInstructions(): ?EducationItemBody {
@@ -319,7 +319,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.
+     * Gets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn't allowed after the assignment has been published.
      * @return string|null
     */
     public function getNotificationChannelUrl(): ?string {
@@ -369,7 +369,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
+     * Gets the status property value. Status of the Assignment.  You can’t PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
      * @return EducationAssignmentStatus|null
     */
     public function getStatus(): ?EducationAssignmentStatus {
@@ -433,7 +433,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.
+     * Sets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment shouldn't be assigned to new students.
      * @param EducationAddedStudentAction|null $value Value to set for the addedStudentAction property.
     */
     public function setAddedStudentAction(?EducationAddedStudentAction $value): void {
@@ -441,7 +441,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the addToCalendarAction property value. Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
+     * Sets the addToCalendarAction property value. Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
      * @param EducationAddToCalendarOptions|null $value Value to set for the addToCalendarAction property.
     */
     public function setAddToCalendarAction(?EducationAddToCalendarOptions $value): void {
@@ -449,7 +449,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.
+     * Sets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property isn't specified during create, it defaults to true.
      * @param bool|null $value Value to set for the allowLateSubmissions property.
     */
     public function setAllowLateSubmissions(?bool $value): void {
@@ -465,7 +465,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment isn't shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the assignDateTime property.
     */
     public function setAssignDateTime(?DateTime $value): void {
@@ -497,7 +497,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the classId property value. Class which this assignment belongs.
+     * Sets the classId property value. Class to which this assignment belongs.
      * @param string|null $value Value to set for the classId property.
     */
     public function setClassId(?string $value): void {
@@ -505,7 +505,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the closeDateTime property value. Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the closeDateTime property value. Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment doesn't allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the closeDateTime property.
     */
     public function setCloseDateTime(?DateTime $value): void {
@@ -561,7 +561,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the gradingCategory property value. The gradingCategory property
+     * Sets the gradingCategory property value. When set, enables users to weight assignments differently when computing a class average grade.
      * @param EducationGradingCategory|null $value Value to set for the gradingCategory property.
     */
     public function setGradingCategory(?EducationGradingCategory $value): void {
@@ -569,7 +569,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the instructions property value. Instructions for the assignment.  This along with the display name tell the student what to do.
+     * Sets the instructions property value. Instructions for the assignment. This property and the display name tell the student what to do.
      * @param EducationItemBody|null $value Value to set for the instructions property.
     */
     public function setInstructions(?EducationItemBody $value): void {
@@ -601,7 +601,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.
+     * Sets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn't allowed after the assignment has been published.
      * @param string|null $value Value to set for the notificationChannelUrl property.
     */
     public function setNotificationChannelUrl(?string $value): void {
@@ -633,7 +633,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
+     * Sets the status property value. Status of the Assignment.  You can’t PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
      * @param EducationAssignmentStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationAssignmentStatus $value): void {

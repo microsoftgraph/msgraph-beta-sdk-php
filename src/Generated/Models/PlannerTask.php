@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\Date;
 
 class PlannerTask extends PlannerDelta implements Parsable 
 {
@@ -54,6 +55,18 @@ class PlannerTask extends PlannerDelta implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'appliedCategories'");
+    }
+
+    /**
+     * Gets the archivalInfo property value. The archivalInfo property
+     * @return PlannerArchivalInfo|null
+    */
+    public function getArchivalInfo(): ?PlannerArchivalInfo {
+        $val = $this->getBackingStore()->get('archivalInfo');
+        if (is_null($val) || $val instanceof PlannerArchivalInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'archivalInfo'");
     }
 
     /**
@@ -233,6 +246,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'activeChecklistItemCount' => fn(ParseNode $n) => $o->setActiveChecklistItemCount($n->getIntegerValue()),
             'appliedCategories' => fn(ParseNode $n) => $o->setAppliedCategories($n->getObjectValue([PlannerAppliedCategories::class, 'createFromDiscriminatorValue'])),
+            'archivalInfo' => fn(ParseNode $n) => $o->setArchivalInfo($n->getObjectValue([PlannerArchivalInfo::class, 'createFromDiscriminatorValue'])),
             'assignedToTaskBoardFormat' => fn(ParseNode $n) => $o->setAssignedToTaskBoardFormat($n->getObjectValue([PlannerAssignedToTaskBoardTaskFormat::class, 'createFromDiscriminatorValue'])),
             'assigneePriority' => fn(ParseNode $n) => $o->setAssigneePriority($n->getStringValue()),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getObjectValue([PlannerAssignments::class, 'createFromDiscriminatorValue'])),
@@ -248,6 +262,9 @@ class PlannerTask extends PlannerDelta implements Parsable
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerTaskDetails::class, 'createFromDiscriminatorValue'])),
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
             'hasDescription' => fn(ParseNode $n) => $o->setHasDescription($n->getBooleanValue()),
+            'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
+            'isOnMyDay' => fn(ParseNode $n) => $o->setIsOnMyDay($n->getBooleanValue()),
+            'isOnMyDayLastModifiedDate' => fn(ParseNode $n) => $o->setIsOnMyDayLastModifiedDate($n->getDateValue()),
             'orderHint' => fn(ParseNode $n) => $o->setOrderHint($n->getStringValue()),
             'percentComplete' => fn(ParseNode $n) => $o->setPercentComplete($n->getIntegerValue()),
             'planId' => fn(ParseNode $n) => $o->setPlanId($n->getStringValue()),
@@ -272,6 +289,42 @@ class PlannerTask extends PlannerDelta implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hasDescription'");
+    }
+
+    /**
+     * Gets the isArchived property value. The isArchived property
+     * @return bool|null
+    */
+    public function getIsArchived(): ?bool {
+        $val = $this->getBackingStore()->get('isArchived');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isArchived'");
+    }
+
+    /**
+     * Gets the isOnMyDay property value. The isOnMyDay property
+     * @return bool|null
+    */
+    public function getIsOnMyDay(): ?bool {
+        $val = $this->getBackingStore()->get('isOnMyDay');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOnMyDay'");
+    }
+
+    /**
+     * Gets the isOnMyDayLastModifiedDate property value. The isOnMyDayLastModifiedDate property
+     * @return Date|null
+    */
+    public function getIsOnMyDayLastModifiedDate(): ?Date {
+        $val = $this->getBackingStore()->get('isOnMyDayLastModifiedDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOnMyDayLastModifiedDate'");
     }
 
     /**
@@ -414,6 +467,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('activeChecklistItemCount', $this->getActiveChecklistItemCount());
         $writer->writeObjectValue('appliedCategories', $this->getAppliedCategories());
+        $writer->writeObjectValue('archivalInfo', $this->getArchivalInfo());
         $writer->writeObjectValue('assignedToTaskBoardFormat', $this->getAssignedToTaskBoardFormat());
         $writer->writeStringValue('assigneePriority', $this->getAssigneePriority());
         $writer->writeObjectValue('assignments', $this->getAssignments());
@@ -429,6 +483,9 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
         $writer->writeBooleanValue('hasDescription', $this->getHasDescription());
+        $writer->writeBooleanValue('isArchived', $this->getIsArchived());
+        $writer->writeBooleanValue('isOnMyDay', $this->getIsOnMyDay());
+        $writer->writeDateValue('isOnMyDayLastModifiedDate', $this->getIsOnMyDayLastModifiedDate());
         $writer->writeStringValue('orderHint', $this->getOrderHint());
         $writer->writeIntegerValue('percentComplete', $this->getPercentComplete());
         $writer->writeStringValue('planId', $this->getPlanId());
@@ -456,6 +513,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setAppliedCategories(?PlannerAppliedCategories $value): void {
         $this->getBackingStore()->set('appliedCategories', $value);
+    }
+
+    /**
+     * Sets the archivalInfo property value. The archivalInfo property
+     * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
+    */
+    public function setArchivalInfo(?PlannerArchivalInfo $value): void {
+        $this->getBackingStore()->set('archivalInfo', $value);
     }
 
     /**
@@ -576,6 +641,30 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setHasDescription(?bool $value): void {
         $this->getBackingStore()->set('hasDescription', $value);
+    }
+
+    /**
+     * Sets the isArchived property value. The isArchived property
+     * @param bool|null $value Value to set for the isArchived property.
+    */
+    public function setIsArchived(?bool $value): void {
+        $this->getBackingStore()->set('isArchived', $value);
+    }
+
+    /**
+     * Sets the isOnMyDay property value. The isOnMyDay property
+     * @param bool|null $value Value to set for the isOnMyDay property.
+    */
+    public function setIsOnMyDay(?bool $value): void {
+        $this->getBackingStore()->set('isOnMyDay', $value);
+    }
+
+    /**
+     * Sets the isOnMyDayLastModifiedDate property value. The isOnMyDayLastModifiedDate property
+     * @param Date|null $value Value to set for the isOnMyDayLastModifiedDate property.
+    */
+    public function setIsOnMyDayLastModifiedDate(?Date $value): void {
+        $this->getBackingStore()->set('isOnMyDayLastModifiedDate', $value);
     }
 
     /**

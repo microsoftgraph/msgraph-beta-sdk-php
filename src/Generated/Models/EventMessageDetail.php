@@ -44,6 +44,7 @@ class EventMessageDetail implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.channelDescriptionUpdatedEventMessageDetail': return new ChannelDescriptionUpdatedEventMessageDetail();
                 case '#microsoft.graph.channelRenamedEventMessageDetail': return new ChannelRenamedEventMessageDetail();
                 case '#microsoft.graph.channelSetAsFavoriteByDefaultEventMessageDetail': return new ChannelSetAsFavoriteByDefaultEventMessageDetail();
+                case '#microsoft.graph.channelSharingUpdatedEventMessageDetail': return new ChannelSharingUpdatedEventMessageDetail();
                 case '#microsoft.graph.channelUnsetAsFavoriteByDefaultEventMessageDetail': return new ChannelUnsetAsFavoriteByDefaultEventMessageDetail();
                 case '#microsoft.graph.chatRenamedEventMessageDetail': return new ChatRenamedEventMessageDetail();
                 case '#microsoft.graph.conversationMemberRoleUpdatedEventMessageDetail': return new ConversationMemberRoleUpdatedEventMessageDetail();
