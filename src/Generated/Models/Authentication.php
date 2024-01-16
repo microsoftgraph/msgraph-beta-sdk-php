@@ -175,7 +175,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user.
+     * Gets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
      * @return SignInPreferences|null
     */
     public function getSignInPreferences(): ?SignInPreferences {
@@ -322,7 +322,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user.
+     * Sets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
      * @param SignInPreferences|null $value Value to set for the signInPreferences property.
     */
     public function setSignInPreferences(?SignInPreferences $value): void {

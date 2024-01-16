@@ -31,11 +31,12 @@ class MoveToContainerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action moveToContainer
+     * Move a planner plan object from one planner plan container to another. Planner plans can only be moved from a user container to a group container.
      * @param MoveToContainerPostRequestBody $body The request body
      * @param MoveToContainerRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlan|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/plannerplan-movetocontainer?view=graph-rest-1.0 Find more info here
     */
     public function post(MoveToContainerPostRequestBody $body, ?MoveToContainerRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -47,7 +48,7 @@ class MoveToContainerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action moveToContainer
+     * Move a planner plan object from one planner plan container to another. Planner plans can only be moved from a user container to a group container.
      * @param MoveToContainerPostRequestBody $body The request body
      * @param MoveToContainerRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

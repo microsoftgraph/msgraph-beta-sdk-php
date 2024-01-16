@@ -30,11 +30,12 @@ class SendVirtualAppointmentReminderSmsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action sendVirtualAppointmentReminderSms
+     * Send an SMS reminder to external attendees for a Teams Virtual Appointment. This feature requires Teams Premium and attendees must have a valid United States phone number to receive SMS notifications.
      * @param SendVirtualAppointmentReminderSmsPostRequestBody $body The request body
      * @param SendVirtualAppointmentReminderSmsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualappointment-sendvirtualappointmentremindersms?view=graph-rest-1.0 Find more info here
     */
     public function post(SendVirtualAppointmentReminderSmsPostRequestBody $body, ?SendVirtualAppointmentReminderSmsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class SendVirtualAppointmentReminderSmsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action sendVirtualAppointmentReminderSms
+     * Send an SMS reminder to external attendees for a Teams Virtual Appointment. This feature requires Teams Premium and attendees must have a valid United States phone number to receive SMS notifications.
      * @param SendVirtualAppointmentReminderSmsPostRequestBody $body The request body
      * @param SendVirtualAppointmentReminderSmsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

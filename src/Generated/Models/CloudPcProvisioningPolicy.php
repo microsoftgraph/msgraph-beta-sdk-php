@@ -170,6 +170,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setScopeIds($val);
             },
+            'windowsSetting' => fn(ParseNode $n) => $o->setWindowsSetting($n->getObjectValue([CloudPcWindowsSetting::class, 'createFromDiscriminatorValue'])),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -297,6 +298,18 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the windowsSetting property value. The windowsSetting property
+     * @return CloudPcWindowsSetting|null
+    */
+    public function getWindowsSetting(): ?CloudPcWindowsSetting {
+        $val = $this->getBackingStore()->get('windowsSetting');
+        if (is_null($val) || $val instanceof CloudPcWindowsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsSetting'");
+    }
+
+    /**
      * Gets the windowsSettings property value. Specific Windows settings to configure while creating Cloud PCs for this provisioning policy.
      * @return CloudPcWindowsSettings|null
     */
@@ -333,6 +346,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
+        $writer->writeObjectValue('windowsSetting', $this->getWindowsSetting());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
     }
 
@@ -486,6 +500,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setScopeIds(?array $value): void {
         $this->getBackingStore()->set('scopeIds', $value);
+    }
+
+    /**
+     * Sets the windowsSetting property value. The windowsSetting property
+     * @param CloudPcWindowsSetting|null $value Value to set for the windowsSetting property.
+    */
+    public function setWindowsSetting(?CloudPcWindowsSetting $value): void {
+        $this->getBackingStore()->set('windowsSetting', $value);
     }
 
     /**

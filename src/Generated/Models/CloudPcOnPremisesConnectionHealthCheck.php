@@ -49,6 +49,18 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
+     * Gets the additionalDetail property value. The additionalDetail property
+     * @return string|null
+    */
+    public function getAdditionalDetail(): ?string {
+        $val = $this->getBackingStore()->get('additionalDetail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalDetail'");
+    }
+
+    /**
      * Gets the additionalDetails property value. More details about the health check or the recommended action.
      * @return string|null
     */
@@ -123,6 +135,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'additionalDetail' => fn(ParseNode $n) => $o->setAdditionalDetail($n->getStringValue()),
             'additionalDetails' => fn(ParseNode $n) => $o->setAdditionalDetails($n->getStringValue()),
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -188,6 +201,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('additionalDetail', $this->getAdditionalDetail());
         $writer->writeStringValue('additionalDetails', $this->getAdditionalDetails());
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -206,6 +220,14 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the additionalDetail property value. The additionalDetail property
+     * @param string|null $value Value to set for the additionalDetail property.
+    */
+    public function setAdditionalDetail(?string $value): void {
+        $this->getBackingStore()->set('additionalDetail', $value);
     }
 
     /**

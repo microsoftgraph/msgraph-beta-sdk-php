@@ -25,6 +25,18 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
+     * Gets the approvalAttachment property value. The approvalAttachment property
+     * @return PlannerBaseApprovalAttachment|null
+    */
+    public function getApprovalAttachment(): ?PlannerBaseApprovalAttachment {
+        $val = $this->getBackingStore()->get('approvalAttachment');
+        if (is_null($val) || $val instanceof PlannerBaseApprovalAttachment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalAttachment'");
+    }
+
+    /**
      * Gets the checklist property value. The collection of checklist items on the task.
      * @return PlannerChecklistItems|null
     */
@@ -67,13 +79,27 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'approvalAttachment' => fn(ParseNode $n) => $o->setApprovalAttachment($n->getObjectValue([PlannerBaseApprovalAttachment::class, 'createFromDiscriminatorValue'])),
             'checklist' => fn(ParseNode $n) => $o->setChecklist($n->getObjectValue([PlannerChecklistItems::class, 'createFromDiscriminatorValue'])),
             'completionRequirements' => fn(ParseNode $n) => $o->setCompletionRequirements($n->getObjectValue([PlannerTaskCompletionRequirementDetails::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([PlannerFormsDictionary::class, 'createFromDiscriminatorValue'])),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)),
             'references' => fn(ParseNode $n) => $o->setReferences($n->getObjectValue([PlannerExternalReferences::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the forms property value. The forms property
+     * @return PlannerFormsDictionary|null
+    */
+    public function getForms(): ?PlannerFormsDictionary {
+        $val = $this->getBackingStore()->get('forms');
+        if (is_null($val) || $val instanceof PlannerFormsDictionary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forms'");
     }
 
     /**
@@ -118,12 +144,22 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('approvalAttachment', $this->getApprovalAttachment());
         $writer->writeObjectValue('checklist', $this->getChecklist());
         $writer->writeObjectValue('completionRequirements', $this->getCompletionRequirements());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('forms', $this->getForms());
         $writer->writeObjectValue('notes', $this->getNotes());
         $writer->writeEnumValue('previewType', $this->getPreviewType());
         $writer->writeObjectValue('references', $this->getReferences());
+    }
+
+    /**
+     * Sets the approvalAttachment property value. The approvalAttachment property
+     * @param PlannerBaseApprovalAttachment|null $value Value to set for the approvalAttachment property.
+    */
+    public function setApprovalAttachment(?PlannerBaseApprovalAttachment $value): void {
+        $this->getBackingStore()->set('approvalAttachment', $value);
     }
 
     /**
@@ -148,6 +184,14 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the forms property value. The forms property
+     * @param PlannerFormsDictionary|null $value Value to set for the forms property.
+    */
+    public function setForms(?PlannerFormsDictionary $value): void {
+        $this->getBackingStore()->set('forms', $value);
     }
 
     /**

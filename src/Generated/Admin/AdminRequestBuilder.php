@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Admin\AppsAndServices\AppsAndServicesRequestB
 use Microsoft\Graph\Beta\Generated\Admin\Dynamics\DynamicsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Edge\EdgeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Forms\FormsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Microsoft365Apps\Microsoft365AppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\PeopleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
@@ -52,6 +53,13 @@ class AdminRequestBuilder extends BaseRequestBuilder
     */
     public function forms(): FormsRequestBuilder {
         return new FormsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the microsoft365Apps property of the microsoft.graph.admin entity.
+    */
+    public function microsoft365Apps(): Microsoft365AppsRequestBuilder {
+        return new Microsoft365AppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

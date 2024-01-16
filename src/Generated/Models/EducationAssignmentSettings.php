@@ -38,7 +38,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the gradingCategories property value. The gradingCategories property
+     * Gets the gradingCategories property value. When set, enables users to weight assignments differently when computing a class average grade.
      * @return array<EducationGradingCategory>|null
     */
     public function getGradingCategories(): ?array {
@@ -74,7 +74,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the gradingCategories property value. The gradingCategories property
+     * Sets the gradingCategories property value. When set, enables users to weight assignments differently when computing a class average grade.
      * @param array<EducationGradingCategory>|null $value Value to set for the gradingCategories property.
     */
     public function setGradingCategories(?array $value): void {

@@ -79,12 +79,25 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
         $o = $this;
         return  [
             'allowStaffSelection' => fn(ParseNode $n) => $o->setAllowStaffSelection($n->getBooleanValue()),
+            'isMeetingInviteToCustomersEnabled' => fn(ParseNode $n) => $o->setIsMeetingInviteToCustomersEnabled($n->getBooleanValue()),
             'maximumAdvance' => fn(ParseNode $n) => $o->setMaximumAdvance($n->getDateIntervalValue()),
             'minimumLeadTime' => fn(ParseNode $n) => $o->setMinimumLeadTime($n->getDateIntervalValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sendConfirmationsToOwner' => fn(ParseNode $n) => $o->setSendConfirmationsToOwner($n->getBooleanValue()),
             'timeSlotInterval' => fn(ParseNode $n) => $o->setTimeSlotInterval($n->getDateIntervalValue()),
         ];
+    }
+
+    /**
+     * Gets the isMeetingInviteToCustomersEnabled property value. Enable sending meeting invite to customers.
+     * @return bool|null
+    */
+    public function getIsMeetingInviteToCustomersEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isMeetingInviteToCustomersEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMeetingInviteToCustomersEnabled'");
     }
 
     /**
@@ -153,6 +166,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('allowStaffSelection', $this->getAllowStaffSelection());
+        $writer->writeBooleanValue('isMeetingInviteToCustomersEnabled', $this->getIsMeetingInviteToCustomersEnabled());
         $writer->writeDateIntervalValue('maximumAdvance', $this->getMaximumAdvance());
         $writer->writeDateIntervalValue('minimumLeadTime', $this->getMinimumLeadTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -183,6 +197,14 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the isMeetingInviteToCustomersEnabled property value. Enable sending meeting invite to customers.
+     * @param bool|null $value Value to set for the isMeetingInviteToCustomersEnabled property.
+    */
+    public function setIsMeetingInviteToCustomersEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isMeetingInviteToCustomersEnabled', $value);
     }
 
     /**

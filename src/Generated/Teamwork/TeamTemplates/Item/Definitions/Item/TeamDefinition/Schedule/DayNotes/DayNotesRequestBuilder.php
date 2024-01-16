@@ -52,7 +52,7 @@ class DayNotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dayNotes from teamwork
+     * The day notes in the schedule.
      * @param DayNotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DayNoteCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class DayNotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dayNotes from teamwork
+     * The day notes in the schedule.
      * @param DayNotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

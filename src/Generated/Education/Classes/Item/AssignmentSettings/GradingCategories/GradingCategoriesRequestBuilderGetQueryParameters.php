@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettin
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the educationGradingCategory objects and their properties.
+ * When set, enables users to weight assignments differently when computing a class average grade.
 */
 class GradingCategoriesRequestBuilderGetQueryParameters 
 {

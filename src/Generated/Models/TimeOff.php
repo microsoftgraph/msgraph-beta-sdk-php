@@ -26,7 +26,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftTimeOff property value. The draft version of this timeOff that is viewable by managers. Required.
+     * Gets the draftTimeOff property value. Draft changes in the timeOff are only visible to managers until they're shared.
      * @return TimeOffItem|null
     */
     public function getDraftTimeOff(): ?TimeOffItem {
@@ -52,7 +52,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the isStagedForDeletion property value. The isStagedForDeletion property
+     * Gets the isStagedForDeletion property value. The timeOff is marked for deletion, a process that is finalized when the schedule is shared.
      * @return bool|null
     */
     public function getIsStagedForDeletion(): ?bool {
@@ -64,7 +64,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers. Required.
+     * Gets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers.
      * @return TimeOffItem|null
     */
     public function getSharedTimeOff(): ?TimeOffItem {
@@ -100,7 +100,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftTimeOff property value. The draft version of this timeOff that is viewable by managers. Required.
+     * Sets the draftTimeOff property value. Draft changes in the timeOff are only visible to managers until they're shared.
      * @param TimeOffItem|null $value Value to set for the draftTimeOff property.
     */
     public function setDraftTimeOff(?TimeOffItem $value): void {
@@ -108,7 +108,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the isStagedForDeletion property value. The isStagedForDeletion property
+     * Sets the isStagedForDeletion property value. The timeOff is marked for deletion, a process that is finalized when the schedule is shared.
      * @param bool|null $value Value to set for the isStagedForDeletion property.
     */
     public function setIsStagedForDeletion(?bool $value): void {
@@ -116,7 +116,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers. Required.
+     * Sets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers.
      * @param TimeOffItem|null $value Value to set for the sharedTimeOff property.
     */
     public function setSharedTimeOff(?TimeOffItem $value): void {

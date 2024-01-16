@@ -8,5 +8,5 @@ class CloudPcAuditActorType extends Enum {
     public const IT_PRO = 'itPro';
     public const APPLICATION = 'application';
     public const PARTNER = 'partner';
-    public const UNKNOWN = 'unknown';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

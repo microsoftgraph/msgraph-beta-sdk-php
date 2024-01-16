@@ -76,7 +76,7 @@ class ContainerFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the includedContainers property value. The includedContainers property
+     * Gets the includedContainers property value. The identifiers of containers, such as organizational units, that are in scope for a synchronization rule. For Active Directory organizational units, use the distinguished names. An empty list means no container filtering is configured.
      * @return array<string>|null
     */
     public function getIncludedContainers(): ?array {
@@ -128,7 +128,7 @@ class ContainerFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the includedContainers property value. The includedContainers property
+     * Sets the includedContainers property value. The identifiers of containers, such as organizational units, that are in scope for a synchronization rule. For Active Directory organizational units, use the distinguished names. An empty list means no container filtering is configured.
      * @param array<string>|null $value Value to set for the includedContainers property.
     */
     public function setIncludedContainers(?array $value): void {
