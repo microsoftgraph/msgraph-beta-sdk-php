@@ -38,7 +38,7 @@ class DeltaParticipants extends Entity implements Parsable
     }
 
     /**
-     * Gets the participants property value. The participants property
+     * Gets the participants property value. The collection of participants that were updated since the last roster update.
      * @return array<Participant>|null
     */
     public function getParticipants(): ?array {
@@ -74,7 +74,7 @@ class DeltaParticipants extends Entity implements Parsable
     }
 
     /**
-     * Sets the participants property value. The participants property
+     * Sets the participants property value. The collection of participants that were updated since the last roster update.
      * @param array<Participant>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value): void {

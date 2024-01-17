@@ -35,7 +35,7 @@ class IncompatibleGroupsRequestBuilder extends BaseRequestBuilder
     
     /**
      * Gets an item from the Microsoft/Graph/Beta/Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackage.incompatibleGroups.item collection
-     * @param string $groupId Unique identifier of the item
+     * @param string $groupId The unique identifier of group
      * @return GroupItemRequestBuilder
     */
     public function byGroupId(string $groupId): GroupItemRequestBuilder {

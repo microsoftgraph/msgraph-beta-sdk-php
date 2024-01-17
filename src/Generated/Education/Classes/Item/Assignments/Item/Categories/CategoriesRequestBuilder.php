@@ -44,7 +44,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Gets an item from the Microsoft/Graph/Beta/Generated.education.classes.item.assignments.item.categories.item collection
-     * @param string $educationCategoryId Unique identifier of the item
+     * @param string $educationCategoryId The unique identifier of educationCategory
      * @return EducationCategoryItemRequestBuilder
     */
     public function byEducationCategoryId(string $educationCategoryId): EducationCategoryItemRequestBuilder {
@@ -68,7 +68,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * List all categories for an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param CategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationCategoryCollectionResponse|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * List all categories for an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param CategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

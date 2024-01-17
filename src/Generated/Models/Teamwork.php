@@ -77,10 +77,36 @@ class Teamwork extends Entity implements Parsable
             'deletedChats' => fn(ParseNode $n) => $o->setDeletedChats($n->getCollectionOfObjectValues([DeletedChat::class, 'createFromDiscriminatorValue'])),
             'deletedTeams' => fn(ParseNode $n) => $o->setDeletedTeams($n->getCollectionOfObjectValues([DeletedTeam::class, 'createFromDiscriminatorValue'])),
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([TeamworkDevice::class, 'createFromDiscriminatorValue'])),
+            'isTeamsEnabled' => fn(ParseNode $n) => $o->setIsTeamsEnabled($n->getBooleanValue()),
+            'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
             'teamsAppSettings' => fn(ParseNode $n) => $o->setTeamsAppSettings($n->getObjectValue([TeamsAppSettings::class, 'createFromDiscriminatorValue'])),
             'teamTemplates' => fn(ParseNode $n) => $o->setTeamTemplates($n->getCollectionOfObjectValues([TeamTemplate::class, 'createFromDiscriminatorValue'])),
             'workforceIntegrations' => fn(ParseNode $n) => $o->setWorkforceIntegrations($n->getCollectionOfObjectValues([WorkforceIntegration::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the isTeamsEnabled property value. Indicates whether Microsoft Teams is enabled for the organization.
+     * @return bool|null
+    */
+    public function getIsTeamsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isTeamsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isTeamsEnabled'");
+    }
+
+    /**
+     * Gets the region property value. Represents the region of the organization.
+     * @return string|null
+    */
+    public function getRegion(): ?string {
+        $val = $this->getBackingStore()->get('region');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'region'");
     }
 
     /**
@@ -132,6 +158,8 @@ class Teamwork extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deletedChats', $this->getDeletedChats());
         $writer->writeCollectionOfObjectValues('deletedTeams', $this->getDeletedTeams());
         $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
+        $writer->writeBooleanValue('isTeamsEnabled', $this->getIsTeamsEnabled());
+        $writer->writeStringValue('region', $this->getRegion());
         $writer->writeObjectValue('teamsAppSettings', $this->getTeamsAppSettings());
         $writer->writeCollectionOfObjectValues('teamTemplates', $this->getTeamTemplates());
         $writer->writeCollectionOfObjectValues('workforceIntegrations', $this->getWorkforceIntegrations());
@@ -159,6 +187,22 @@ class Teamwork extends Entity implements Parsable
     */
     public function setDevices(?array $value): void {
         $this->getBackingStore()->set('devices', $value);
+    }
+
+    /**
+     * Sets the isTeamsEnabled property value. Indicates whether Microsoft Teams is enabled for the organization.
+     * @param bool|null $value Value to set for the isTeamsEnabled property.
+    */
+    public function setIsTeamsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isTeamsEnabled', $value);
+    }
+
+    /**
+     * Sets the region property value. Represents the region of the organization.
+     * @param string|null $value Value to set for the region property.
+    */
+    public function setRegion(?string $value): void {
+        $this->getBackingStore()->set('region', $value);
     }
 
     /**

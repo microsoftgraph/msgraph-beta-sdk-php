@@ -56,12 +56,25 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
+     * Gets the domainJoinType property value. The domainJoinType property
+     * @return CloudPcDomainJoinType|null
+    */
+    public function getDomainJoinType(): ?CloudPcDomainJoinType {
+        $val = $this->getBackingStore()->get('domainJoinType');
+        if (is_null($val) || $val instanceof CloudPcDomainJoinType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinType'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'domainJoinType' => fn(ParseNode $n) => $o->setDomainJoinType($n->getEnumValue(CloudPcDomainJoinType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
             'regionGroup' => fn(ParseNode $n) => $o->setRegionGroup($n->getEnumValue(CloudPcRegionGroup::class)),
@@ -135,6 +148,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('domainJoinType', $this->getDomainJoinType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('regionGroup', $this->getRegionGroup());
@@ -157,6 +171,14 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the domainJoinType property value. The domainJoinType property
+     * @param CloudPcDomainJoinType|null $value Value to set for the domainJoinType property.
+    */
+    public function setDomainJoinType(?CloudPcDomainJoinType $value): void {
+        $this->getBackingStore()->set('domainJoinType', $value);
     }
 
     /**

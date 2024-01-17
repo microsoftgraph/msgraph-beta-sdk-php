@@ -70,13 +70,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the conditionsNotSatisfied property value. Refers to the conditional access policy conditions that aren't satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk . You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.
-     * @return array<ConditionalAccessConditions>|null
+     * @return ConditionalAccessConditions|null
     */
-    public function getConditionsNotSatisfied(): ?array {
+    public function getConditionsNotSatisfied(): ?ConditionalAccessConditions {
         $val = $this->getBackingStore()->get('conditionsNotSatisfied');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConditionalAccessConditions::class);
-            /** @var array<ConditionalAccessConditions>|null $val */
+        if (is_null($val) || $val instanceof ConditionalAccessConditions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionsNotSatisfied'");
@@ -84,13 +82,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the conditionsSatisfied property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.
-     * @return array<ConditionalAccessConditions>|null
+     * @return ConditionalAccessConditions|null
     */
-    public function getConditionsSatisfied(): ?array {
+    public function getConditionsSatisfied(): ?ConditionalAccessConditions {
         $val = $this->getBackingStore()->get('conditionsSatisfied');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConditionalAccessConditions::class);
-            /** @var array<ConditionalAccessConditions>|null $val */
+        if (is_null($val) || $val instanceof ConditionalAccessConditions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionsSatisfied'");
@@ -158,8 +154,8 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
         $o = $this;
         return  [
             'authenticationStrength' => fn(ParseNode $n) => $o->setAuthenticationStrength($n->getObjectValue([AuthenticationStrength::class, 'createFromDiscriminatorValue'])),
-            'conditionsNotSatisfied' => fn(ParseNode $n) => $o->setConditionsNotSatisfied($n->getCollectionOfEnumValues(ConditionalAccessConditions::class)),
-            'conditionsSatisfied' => fn(ParseNode $n) => $o->setConditionsSatisfied($n->getCollectionOfEnumValues(ConditionalAccessConditions::class)),
+            'conditionsNotSatisfied' => fn(ParseNode $n) => $o->setConditionsNotSatisfied($n->getEnumValue(ConditionalAccessConditions::class)),
+            'conditionsSatisfied' => fn(ParseNode $n) => $o->setConditionsSatisfied($n->getEnumValue(ConditionalAccessConditions::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enforcedGrantControls' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -263,8 +259,8 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('authenticationStrength', $this->getAuthenticationStrength());
-        $writer->writeCollectionOfEnumValues('conditionsNotSatisfied', $this->getConditionsNotSatisfied());
-        $writer->writeCollectionOfEnumValues('conditionsSatisfied', $this->getConditionsSatisfied());
+        $writer->writeEnumValue('conditionsNotSatisfied', $this->getConditionsNotSatisfied());
+        $writer->writeEnumValue('conditionsSatisfied', $this->getConditionsSatisfied());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfPrimitiveValues('enforcedGrantControls', $this->getEnforcedGrantControls());
         $writer->writeCollectionOfPrimitiveValues('enforcedSessionControls', $this->getEnforcedSessionControls());
@@ -303,17 +299,17 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the conditionsNotSatisfied property value. Refers to the conditional access policy conditions that aren't satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk . You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.
-     * @param array<ConditionalAccessConditions>|null $value Value to set for the conditionsNotSatisfied property.
+     * @param ConditionalAccessConditions|null $value Value to set for the conditionsNotSatisfied property.
     */
-    public function setConditionsNotSatisfied(?array $value): void {
+    public function setConditionsNotSatisfied(?ConditionalAccessConditions $value): void {
         $this->getBackingStore()->set('conditionsNotSatisfied', $value);
     }
 
     /**
      * Sets the conditionsSatisfied property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.
-     * @param array<ConditionalAccessConditions>|null $value Value to set for the conditionsSatisfied property.
+     * @param ConditionalAccessConditions|null $value Value to set for the conditionsSatisfied property.
     */
-    public function setConditionsSatisfied(?array $value): void {
+    public function setConditionsSatisfied(?ConditionalAccessConditions $value): void {
         $this->getBackingStore()->set('conditionsSatisfied', $value);
     }
 

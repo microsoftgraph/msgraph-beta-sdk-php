@@ -60,7 +60,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned.
+     * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
      * @param CustomAuthenticationExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAuthenticationExtensionCollectionResponse|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAuthenticationExtension object. Only the onTokenIssuanceStartCustomExtension object type is supported.
+     * Create a new customAuthenticationExtension object. The following derived types are currently supported.
      * @param CustomAuthenticationExtension $body The request body
      * @param CustomAuthenticationExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAuthenticationExtension|null>
@@ -93,7 +93,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customAuthenticationExtension objects and their properties. Currently, only onTokenIssuanceStartCustomExtension objects are returned.
+     * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
      * @param CustomAuthenticationExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAuthenticationExtension object. Only the onTokenIssuanceStartCustomExtension object type is supported.
+     * Create a new customAuthenticationExtension object. The following derived types are currently supported.
      * @param CustomAuthenticationExtension $body The request body
      * @param CustomAuthenticationExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

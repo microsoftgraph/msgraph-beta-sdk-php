@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get attendanceReports from solutions
+ * The attendance reports of an online meeting. Read-only.
 */
 class AttendanceReportsRequestBuilderGetQueryParameters 
 {
