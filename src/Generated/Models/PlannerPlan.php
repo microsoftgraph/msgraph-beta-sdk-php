@@ -27,6 +27,18 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
+     * Gets the archivalInfo property value. The archivalInfo property
+     * @return PlannerArchivalInfo|null
+    */
+    public function getArchivalInfo(): ?PlannerArchivalInfo {
+        $val = $this->getBackingStore()->get('archivalInfo');
+        if (is_null($val) || $val instanceof PlannerArchivalInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'archivalInfo'");
+    }
+
+    /**
      * Gets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
      * @return array<PlannerBucket>|null
     */
@@ -119,6 +131,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'archivalInfo' => fn(ParseNode $n) => $o->setArchivalInfo($n->getObjectValue([PlannerArchivalInfo::class, 'createFromDiscriminatorValue'])),
             'buckets' => fn(ParseNode $n) => $o->setBuckets($n->getCollectionOfObjectValues([PlannerBucket::class, 'createFromDiscriminatorValue'])),
             'container' => fn(ParseNode $n) => $o->setContainer($n->getObjectValue([PlannerPlanContainer::class, 'createFromDiscriminatorValue'])),
             'contexts' => fn(ParseNode $n) => $o->setContexts($n->getObjectValue([PlannerPlanContextCollection::class, 'createFromDiscriminatorValue'])),
@@ -126,11 +139,24 @@ class PlannerPlan extends PlannerDelta implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getObjectValue([PlannerPlanCreation::class, 'createFromDiscriminatorValue'])),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerPlanDetails::class, 'createFromDiscriminatorValue'])),
+            'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
             'sharedWithContainers' => fn(ParseNode $n) => $o->setSharedWithContainers($n->getCollectionOfObjectValues([PlannerSharedWithContainer::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the isArchived property value. The isArchived property
+     * @return bool|null
+    */
+    public function getIsArchived(): ?bool {
+        $val = $this->getBackingStore()->get('isArchived');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isArchived'");
     }
 
     /**
@@ -191,6 +217,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('archivalInfo', $this->getArchivalInfo());
         $writer->writeCollectionOfObjectValues('buckets', $this->getBuckets());
         $writer->writeObjectValue('container', $this->getContainer());
         $writer->writeObjectValue('contexts', $this->getContexts());
@@ -198,10 +225,19 @@ class PlannerPlan extends PlannerDelta implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('creationSource', $this->getCreationSource());
         $writer->writeObjectValue('details', $this->getDetails());
+        $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeStringValue('owner', $this->getOwner());
         $writer->writeCollectionOfObjectValues('sharedWithContainers', $this->getSharedWithContainers());
         $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
         $writer->writeStringValue('title', $this->getTitle());
+    }
+
+    /**
+     * Sets the archivalInfo property value. The archivalInfo property
+     * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
+    */
+    public function setArchivalInfo(?PlannerArchivalInfo $value): void {
+        $this->getBackingStore()->set('archivalInfo', $value);
     }
 
     /**
@@ -258,6 +294,14 @@ class PlannerPlan extends PlannerDelta implements Parsable
     */
     public function setDetails(?PlannerPlanDetails $value): void {
         $this->getBackingStore()->set('details', $value);
+    }
+
+    /**
+     * Sets the isArchived property value. The isArchived property
+     * @param bool|null $value Value to set for the isArchived property.
+    */
+    public function setIsArchived(?bool $value): void {
+        $this->getBackingStore()->set('isArchived', $value);
     }
 
     /**

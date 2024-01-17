@@ -89,7 +89,7 @@ class CloudPcScopedPermission implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the permission property value. The permission property
+     * Gets the permission property value. The operations allowed on scoped resources for the authenticated user. Example permission is Microsoft.CloudPC/ProvisioningPolicies/Create.
      * @return string|null
     */
     public function getPermission(): ?string {
@@ -101,7 +101,7 @@ class CloudPcScopedPermission implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the scopeIds property value. The scopeIds property
+     * Gets the scopeIds property value. The scope IDs of corresponding permission. Currently, it's Intune scope tag ID.
      * @return array<string>|null
     */
     public function getScopeIds(): ?array {
@@ -150,7 +150,7 @@ class CloudPcScopedPermission implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the permission property value. The permission property
+     * Sets the permission property value. The operations allowed on scoped resources for the authenticated user. Example permission is Microsoft.CloudPC/ProvisioningPolicies/Create.
      * @param string|null $value Value to set for the permission property.
     */
     public function setPermission(?string $value): void {
@@ -158,7 +158,7 @@ class CloudPcScopedPermission implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the scopeIds property value. The scopeIds property
+     * Sets the scopeIds property value. The scope IDs of corresponding permission. Currently, it's Intune scope tag ID.
      * @param array<string>|null $value Value to set for the scopeIds property.
     */
     public function setScopeIds(?array $value): void {

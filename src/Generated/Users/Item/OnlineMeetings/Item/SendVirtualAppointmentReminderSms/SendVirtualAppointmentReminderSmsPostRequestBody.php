@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\SendVirtualAppointmentReminderSms;
 
+use Microsoft\Graph\Beta\Generated\Models\AttendeeNotificationInfo;
 use Microsoft\Graph\Beta\Generated\Models\RemindBeforeTimeInMinutesType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -50,6 +51,20 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
     }
 
     /**
+     * Gets the attendees property value. The attendees property
+     * @return array<AttendeeNotificationInfo>|null
+    */
+    public function getAttendees(): ?array {
+        $val = $this->getBackingStore()->get('attendees');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AttendeeNotificationInfo::class);
+            /** @var array<AttendeeNotificationInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attendees'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -64,30 +79,9 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'phoneNumbers' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setPhoneNumbers($val);
-            },
+            'attendees' => fn(ParseNode $n) => $o->setAttendees($n->getCollectionOfObjectValues([AttendeeNotificationInfo::class, 'createFromDiscriminatorValue'])),
             'remindBeforeTimeInMinutesType' => fn(ParseNode $n) => $o->setRemindBeforeTimeInMinutesType($n->getEnumValue(RemindBeforeTimeInMinutesType::class)),
         ];
-    }
-
-    /**
-     * Gets the phoneNumbers property value. The phoneNumbers property
-     * @return array<string>|null
-    */
-    public function getPhoneNumbers(): ?array {
-        $val = $this->getBackingStore()->get('phoneNumbers');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'phoneNumbers'");
     }
 
     /**
@@ -107,7 +101,7 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('phoneNumbers', $this->getPhoneNumbers());
+        $writer->writeCollectionOfObjectValues('attendees', $this->getAttendees());
         $writer->writeEnumValue('remindBeforeTimeInMinutesType', $this->getRemindBeforeTimeInMinutesType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -121,19 +115,19 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
     }
 
     /**
+     * Sets the attendees property value. The attendees property
+     * @param array<AttendeeNotificationInfo>|null $value Value to set for the attendees property.
+    */
+    public function setAttendees(?array $value): void {
+        $this->getBackingStore()->set('attendees', $value);
+    }
+
+    /**
      * Sets the BackingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
-    }
-
-    /**
-     * Sets the phoneNumbers property value. The phoneNumbers property
-     * @param array<string>|null $value Value to set for the phoneNumbers property.
-    */
-    public function setPhoneNumbers(?array $value): void {
-        $this->getBackingStore()->set('phoneNumbers', $value);
     }
 
     /**

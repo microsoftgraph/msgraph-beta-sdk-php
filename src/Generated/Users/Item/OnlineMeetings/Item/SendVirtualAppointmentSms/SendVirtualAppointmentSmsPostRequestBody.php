@@ -2,7 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\SendVirtualAppointmentSms;
 
-use Microsoft\Graph\Beta\Generated\Models\VirtualAppointmentSmsType;
+use Microsoft\Graph\Beta\Generated\Models\AttendeeNotificationInfo;
+use Microsoft\Graph\Beta\Generated\Models\VirtualAppointmentMessageType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -50,6 +51,20 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
     }
 
     /**
+     * Gets the attendees property value. The attendees property
+     * @return array<AttendeeNotificationInfo>|null
+    */
+    public function getAttendees(): ?array {
+        $val = $this->getBackingStore()->get('attendees');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AttendeeNotificationInfo::class);
+            /** @var array<AttendeeNotificationInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'attendees'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -64,42 +79,21 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'phoneNumbers' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setPhoneNumbers($val);
-            },
-            'smsType' => fn(ParseNode $n) => $o->setSmsType($n->getEnumValue(VirtualAppointmentSmsType::class)),
+            'attendees' => fn(ParseNode $n) => $o->setAttendees($n->getCollectionOfObjectValues([AttendeeNotificationInfo::class, 'createFromDiscriminatorValue'])),
+            'messageType' => fn(ParseNode $n) => $o->setMessageType($n->getEnumValue(VirtualAppointmentMessageType::class)),
         ];
     }
 
     /**
-     * Gets the phoneNumbers property value. The phoneNumbers property
-     * @return array<string>|null
+     * Gets the messageType property value. The messageType property
+     * @return VirtualAppointmentMessageType|null
     */
-    public function getPhoneNumbers(): ?array {
-        $val = $this->getBackingStore()->get('phoneNumbers');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+    public function getMessageType(): ?VirtualAppointmentMessageType {
+        $val = $this->getBackingStore()->get('messageType');
+        if (is_null($val) || $val instanceof VirtualAppointmentMessageType) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'phoneNumbers'");
-    }
-
-    /**
-     * Gets the smsType property value. The smsType property
-     * @return VirtualAppointmentSmsType|null
-    */
-    public function getSmsType(): ?VirtualAppointmentSmsType {
-        $val = $this->getBackingStore()->get('smsType');
-        if (is_null($val) || $val instanceof VirtualAppointmentSmsType) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'smsType'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messageType'");
     }
 
     /**
@@ -107,8 +101,8 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('phoneNumbers', $this->getPhoneNumbers());
-        $writer->writeEnumValue('smsType', $this->getSmsType());
+        $writer->writeCollectionOfObjectValues('attendees', $this->getAttendees());
+        $writer->writeEnumValue('messageType', $this->getMessageType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -121,6 +115,14 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
     }
 
     /**
+     * Sets the attendees property value. The attendees property
+     * @param array<AttendeeNotificationInfo>|null $value Value to set for the attendees property.
+    */
+    public function setAttendees(?array $value): void {
+        $this->getBackingStore()->set('attendees', $value);
+    }
+
+    /**
      * Sets the BackingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -129,19 +131,11 @@ class SendVirtualAppointmentSmsPostRequestBody implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the phoneNumbers property value. The phoneNumbers property
-     * @param array<string>|null $value Value to set for the phoneNumbers property.
+     * Sets the messageType property value. The messageType property
+     * @param VirtualAppointmentMessageType|null $value Value to set for the messageType property.
     */
-    public function setPhoneNumbers(?array $value): void {
-        $this->getBackingStore()->set('phoneNumbers', $value);
-    }
-
-    /**
-     * Sets the smsType property value. The smsType property
-     * @param VirtualAppointmentSmsType|null $value Value to set for the smsType property.
-    */
-    public function setSmsType(?VirtualAppointmentSmsType $value): void {
-        $this->getBackingStore()->set('smsType', $value);
+    public function setMessageType(?VirtualAppointmentMessageType $value): void {
+        $this->getBackingStore()->set('messageType', $value);
     }
 
 }

@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\LicenseDetails;
 use Microsoft\Graph\Beta\Generated\Models\LicenseDetailsCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\LicenseDetails\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\LicenseDetails\GetTeamsLicensingDetails\GetTeamsLicensingDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\LicenseDetails\Item\LicenseDetailsItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -24,6 +25,13 @@ class LicenseDetailsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getTeamsLicensingDetails method.
+    */
+    public function getTeamsLicensingDetails(): GetTeamsLicensingDetailsRequestBuilder {
+        return new GetTeamsLicensingDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

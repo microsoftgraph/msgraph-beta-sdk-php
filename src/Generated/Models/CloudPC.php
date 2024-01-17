@@ -63,6 +63,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the disasterRecoveryCapability property value. The disasterRecoveryCapability property
+     * @return CloudPcDisasterRecoveryCapability|null
+    */
+    public function getDisasterRecoveryCapability(): ?CloudPcDisasterRecoveryCapability {
+        $val = $this->getBackingStore()->get('disasterRecoveryCapability');
+        if (is_null($val) || $val instanceof CloudPcDisasterRecoveryCapability) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disasterRecoveryCapability'");
+    }
+
+    /**
      * Gets the diskEncryptionState property value. The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.
      * @return CloudPcDiskEncryptionState|null
     */
@@ -96,6 +108,7 @@ class CloudPC extends Entity implements Parsable
             'aadDeviceId' => fn(ParseNode $n) => $o->setAadDeviceId($n->getStringValue()),
             'connectionSettings' => fn(ParseNode $n) => $o->setConnectionSettings($n->getObjectValue([CloudPcConnectionSettings::class, 'createFromDiscriminatorValue'])),
             'connectivityResult' => fn(ParseNode $n) => $o->setConnectivityResult($n->getObjectValue([CloudPcConnectivityResult::class, 'createFromDiscriminatorValue'])),
+            'disasterRecoveryCapability' => fn(ParseNode $n) => $o->setDisasterRecoveryCapability($n->getObjectValue([CloudPcDisasterRecoveryCapability::class, 'createFromDiscriminatorValue'])),
             'diskEncryptionState' => fn(ParseNode $n) => $o->setDiskEncryptionState($n->getEnumValue(CloudPcDiskEncryptionState::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'gracePeriodEndDateTime' => fn(ParseNode $n) => $o->setGracePeriodEndDateTime($n->getDateTimeValue()),
@@ -407,6 +420,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('aadDeviceId', $this->getAadDeviceId());
         $writer->writeObjectValue('connectionSettings', $this->getConnectionSettings());
         $writer->writeObjectValue('connectivityResult', $this->getConnectivityResult());
+        $writer->writeObjectValue('disasterRecoveryCapability', $this->getDisasterRecoveryCapability());
         $writer->writeEnumValue('diskEncryptionState', $this->getDiskEncryptionState());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('gracePeriodEndDateTime', $this->getGracePeriodEndDateTime());
@@ -455,6 +469,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setConnectivityResult(?CloudPcConnectivityResult $value): void {
         $this->getBackingStore()->set('connectivityResult', $value);
+    }
+
+    /**
+     * Sets the disasterRecoveryCapability property value. The disasterRecoveryCapability property
+     * @param CloudPcDisasterRecoveryCapability|null $value Value to set for the disasterRecoveryCapability property.
+    */
+    public function setDisasterRecoveryCapability(?CloudPcDisasterRecoveryCapability $value): void {
+        $this->getBackingStore()->set('disasterRecoveryCapability', $value);
     }
 
     /**

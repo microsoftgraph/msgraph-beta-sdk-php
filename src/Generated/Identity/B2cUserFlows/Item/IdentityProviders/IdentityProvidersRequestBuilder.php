@@ -35,7 +35,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     
     /**
      * Gets an item from the Microsoft/Graph/Beta/Generated.identity.b2cUserFlows.item.identityProviders.item collection
-     * @param string $identityProviderId Unique identifier of the item
+     * @param string $identityProviderId The unique identifier of identityProvider
      * @return IdentityProviderItemRequestBuilder
     */
     public function byIdentityProviderId(string $identityProviderId): IdentityProviderItemRequestBuilder {

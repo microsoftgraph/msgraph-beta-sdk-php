@@ -56,7 +56,7 @@ class CustomExtensionOverwriteConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the clientConfiguration property value. The clientConfiguration property
+     * Gets the clientConfiguration property value. Optional. Configuration of calling external API, such as timeout, retryCount, retriableResponseCodes.
      * @return CustomExtensionClientConfiguration|null
     */
     public function getClientConfiguration(): ?CustomExtensionClientConfiguration {
@@ -118,7 +118,7 @@ class CustomExtensionOverwriteConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the clientConfiguration property value. The clientConfiguration property
+     * Sets the clientConfiguration property value. Optional. Configuration of calling external API, such as timeout, retryCount, retriableResponseCodes.
      * @param CustomExtensionClientConfiguration|null $value Value to set for the clientConfiguration property.
     */
     public function setClientConfiguration(?CustomExtensionClientConfiguration $value): void {

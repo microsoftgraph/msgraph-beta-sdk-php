@@ -78,6 +78,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
         $o = $this;
         return  [
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
             'password' => fn(ParseNode $n) => $o->setPassword($n->getStringValue()),
             'recipients' => fn(ParseNode $n) => $o->setRecipients($n->getCollectionOfObjectValues([DriveRecipient::class, 'createFromDiscriminatorValue'])),
             'retainInheritedPermissions' => fn(ParseNode $n) => $o->setRetainInheritedPermissions($n->getBooleanValue()),
@@ -85,6 +86,18 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
             'sendNotification' => fn(ParseNode $n) => $o->setSendNotification($n->getBooleanValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the message property value. The message property
+     * @return string|null
+    */
+    public function getMessage(): ?string {
+        $val = $this->getBackingStore()->get('message');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'message'");
     }
 
     /**
@@ -167,6 +180,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('message', $this->getMessage());
         $writer->writeStringValue('password', $this->getPassword());
         $writer->writeCollectionOfObjectValues('recipients', $this->getRecipients());
         $writer->writeBooleanValue('retainInheritedPermissions', $this->getRetainInheritedPermissions());
@@ -198,6 +212,14 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
+    }
+
+    /**
+     * Sets the message property value. The message property
+     * @param string|null $value Value to set for the message property.
+    */
+    public function setMessage(?string $value): void {
+        $this->getBackingStore()->set('message', $value);
     }
 
     /**
