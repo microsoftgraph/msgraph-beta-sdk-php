@@ -35,38 +35,12 @@ class AndroidLobApp extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'identityName' => fn(ParseNode $n) => $o->setIdentityName($n->getStringValue()),
-            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([AndroidMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
             'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
             'targetedPlatforms' => fn(ParseNode $n) => $o->setTargetedPlatforms($n->getEnumValue(AndroidTargetedPlatforms::class)),
             'versionCode' => fn(ParseNode $n) => $o->setVersionCode($n->getStringValue()),
             'versionName' => fn(ParseNode $n) => $o->setVersionName($n->getStringValue()),
         ]);
-    }
-
-    /**
-     * Gets the identityName property value. The Identity Name. This property is being deprecated in 2302(February 2023).
-     * @return string|null
-    */
-    public function getIdentityName(): ?string {
-        $val = $this->getBackingStore()->get('identityName');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityName'");
-    }
-
-    /**
-     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2302(February 2023).
-     * @return string|null
-    */
-    public function getIdentityVersion(): ?string {
-        $val = $this->getBackingStore()->get('identityVersion');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVersion'");
     }
 
     /**
@@ -135,29 +109,11 @@ class AndroidLobApp extends MobileLobApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('identityName', $this->getIdentityName());
-        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeEnumValue('targetedPlatforms', $this->getTargetedPlatforms());
         $writer->writeStringValue('versionCode', $this->getVersionCode());
         $writer->writeStringValue('versionName', $this->getVersionName());
-    }
-
-    /**
-     * Sets the identityName property value. The Identity Name. This property is being deprecated in 2302(February 2023).
-     * @param string|null $value Value to set for the identityName property.
-    */
-    public function setIdentityName(?string $value): void {
-        $this->getBackingStore()->set('identityName', $value);
-    }
-
-    /**
-     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2302(February 2023).
-     * @param string|null $value Value to set for the identityVersion property.
-    */
-    public function setIdentityVersion(?string $value): void {
-        $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**

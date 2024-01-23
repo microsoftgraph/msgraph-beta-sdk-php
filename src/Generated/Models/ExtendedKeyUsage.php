@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
 /**
- * Custom Extended Key Usage definition
+ * The Custom Extended Key Usage definition
 */
 class ExtendedKeyUsage implements AdditionalDataHolder, BackedModel, Parsable 
 {

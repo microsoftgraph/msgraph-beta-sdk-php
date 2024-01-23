@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * Entity representing the configuration of a cached report
+ * Entity representing the configuration of a cached report.
 */
 class DeviceManagementCachedReportConfiguration extends Entity implements Parsable 
 {
@@ -30,7 +30,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the expirationDateTime property value. Time that the cached report expires. This property is read-only.
+     * Gets the expirationDateTime property value. Time that the cached report expires.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -86,7 +86,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the lastRefreshDateTime property value. Time that the cached report was last refreshed. This property is read-only.
+     * Gets the lastRefreshDateTime property value. Time that the cached report was last refreshed.
      * @return DateTime|null
     */
     public function getLastRefreshDateTime(): ?DateTime {
@@ -98,7 +98,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the metadata property value. Caller-managed metadata associated with the report
+     * Gets the metadata property value. Caller-managed metadata associated with the report.
      * @return string|null
     */
     public function getMetadata(): ?string {
@@ -110,7 +110,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the orderBy property value. Ordering of columns in the report
+     * Gets the orderBy property value. Ordering of columns in the report.
      * @return array<string>|null
     */
     public function getOrderBy(): ?array {
@@ -124,7 +124,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the reportName property value. Name of the report. This property is read-only.
+     * Gets the reportName property value. Name of the report.
      * @return string|null
     */
     public function getReportName(): ?string {
@@ -136,7 +136,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the select property value. Columns selected from the report
+     * Gets the select property value. Columns selected from the report.
      * @return array<string>|null
     */
     public function getSelect(): ?array {
@@ -150,7 +150,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the status property value. Possible statuses associated with a generated report
+     * Gets the status property value. Possible statuses associated with a generated report.
      * @return DeviceManagementReportStatus|null
     */
     public function getStatus(): ?DeviceManagementReportStatus {
@@ -178,7 +178,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the expirationDateTime property value. Time that the cached report expires. This property is read-only.
+     * Sets the expirationDateTime property value. Time that the cached report expires.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -194,7 +194,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the lastRefreshDateTime property value. Time that the cached report was last refreshed. This property is read-only.
+     * Sets the lastRefreshDateTime property value. Time that the cached report was last refreshed.
      * @param DateTime|null $value Value to set for the lastRefreshDateTime property.
     */
     public function setLastRefreshDateTime(?DateTime $value): void {
@@ -202,7 +202,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the metadata property value. Caller-managed metadata associated with the report
+     * Sets the metadata property value. Caller-managed metadata associated with the report.
      * @param string|null $value Value to set for the metadata property.
     */
     public function setMetadata(?string $value): void {
@@ -210,7 +210,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the orderBy property value. Ordering of columns in the report
+     * Sets the orderBy property value. Ordering of columns in the report.
      * @param array<string>|null $value Value to set for the orderBy property.
     */
     public function setOrderBy(?array $value): void {
@@ -218,7 +218,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the reportName property value. Name of the report. This property is read-only.
+     * Sets the reportName property value. Name of the report.
      * @param string|null $value Value to set for the reportName property.
     */
     public function setReportName(?string $value): void {
@@ -226,7 +226,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the select property value. Columns selected from the report
+     * Sets the select property value. Columns selected from the report.
      * @param array<string>|null $value Value to set for the select property.
     */
     public function setSelect(?array $value): void {
@@ -234,7 +234,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the status property value. Possible statuses associated with a generated report
+     * Sets the status property value. Possible statuses associated with a generated report.
      * @param DeviceManagementReportStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceManagementReportStatus $value): void {

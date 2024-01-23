@@ -24,6 +24,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloud
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetCloudPcReviewStatus\GetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetFileVaultKey\GetFileVaultKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\GetNonCompliantSettings\GetNonCompliantSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\InitiateDeviceAttestation\InitiateDeviceAttestationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\InitiateMobileDeviceManagementKeyRecovery\InitiateMobileDeviceManagementKeyRecoveryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\InitiateOnDemandProactiveRemediation\InitiateOnDemandProactiveRemediationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\LocateDevice\LocateDeviceRequestBuilder;
@@ -211,6 +212,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function getNonCompliantSettings(): GetNonCompliantSettingsRequestBuilder {
         return new GetNonCompliantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the initiateDeviceAttestation method.
+    */
+    public function initiateDeviceAttestation(): InitiateDeviceAttestationRequestBuilder {
+        return new InitiateDeviceAttestationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

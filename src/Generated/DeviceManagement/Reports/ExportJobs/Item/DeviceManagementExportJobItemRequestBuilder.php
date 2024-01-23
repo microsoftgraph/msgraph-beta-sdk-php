@@ -46,7 +46,7 @@ class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Entity representing a job to export a report
+     * Entity representing a job to export a report.
      * @param DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementExportJob|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Entity representing a job to export a report
+     * Entity representing a job to export a report.
      * @param DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

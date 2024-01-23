@@ -26,7 +26,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftShift property value. Draft changes in the shift are only visible to managers until they are shared.
+     * Gets the draftShift property value. Draft changes in the shift. Draft changes are only visible to managers. The changes are visible to employees when they are shared, which copies the changes from the draftShift to the sharedShift property.
      * @return ShiftItem|null
     */
     public function getDraftShift(): ?ShiftItem {
@@ -77,7 +77,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers.
+     * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Updates to the sharedShift property send notifications to users in the Teams client.
      * @return ShiftItem|null
     */
     public function getSharedShift(): ?ShiftItem {
@@ -114,7 +114,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftShift property value. Draft changes in the shift are only visible to managers until they are shared.
+     * Sets the draftShift property value. Draft changes in the shift. Draft changes are only visible to managers. The changes are visible to employees when they are shared, which copies the changes from the draftShift to the sharedShift property.
      * @param ShiftItem|null $value Value to set for the draftShift property.
     */
     public function setDraftShift(?ShiftItem $value): void {
@@ -138,7 +138,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers.
+     * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Updates to the sharedShift property send notifications to users in the Teams client.
      * @param ShiftItem|null $value Value to set for the sharedShift property.
     */
     public function setSharedShift(?ShiftItem $value): void {

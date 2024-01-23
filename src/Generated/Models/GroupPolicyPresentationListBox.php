@@ -53,7 +53,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
     }
 
     /**
-     * Gets the valuePrefix property value. Not yet documented
+     * Gets the valuePrefix property value. The valuePrefix property
      * @return string|null
     */
     public function getValuePrefix(): ?string {
@@ -83,7 +83,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
     }
 
     /**
-     * Sets the valuePrefix property value. Not yet documented
+     * Sets the valuePrefix property value. The valuePrefix property
      * @param string|null $value Value to set for the valuePrefix property.
     */
     public function setValuePrefix(?string $value): void {

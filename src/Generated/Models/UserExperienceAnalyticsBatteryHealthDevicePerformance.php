@@ -55,7 +55,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the deviceBatteryCount property value. Number of batteries in a user device. Valid values 1 to 2147483647
+     * Gets the deviceBatteryCount property value. Number of batteries in a user device. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getDeviceBatteryCount(): ?int {
@@ -76,6 +76,20 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceBatteryHealthScore'");
+    }
+
+    /**
+     * Gets the deviceBatteryTags property value. Tags for computed information on how battery on the device is behaving. E.g. newbattery, batterycapacityred, designcapacityzero, etc.
+     * @return array<string>|null
+    */
+    public function getDeviceBatteryTags(): ?array {
+        $val = $this->getBackingStore()->get('deviceBatteryTags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceBatteryTags'");
     }
 
     /**
@@ -125,6 +139,14 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
             'deviceBatteriesDetails' => fn(ParseNode $n) => $o->setDeviceBatteriesDetails($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceBatteryDetail::class, 'createFromDiscriminatorValue'])),
             'deviceBatteryCount' => fn(ParseNode $n) => $o->setDeviceBatteryCount($n->getIntegerValue()),
             'deviceBatteryHealthScore' => fn(ParseNode $n) => $o->setDeviceBatteryHealthScore($n->getIntegerValue()),
+            'deviceBatteryTags' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDeviceBatteryTags($val);
+            },
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'estimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()),
@@ -206,6 +228,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
         $writer->writeCollectionOfObjectValues('deviceBatteriesDetails', $this->getDeviceBatteriesDetails());
         $writer->writeIntegerValue('deviceBatteryCount', $this->getDeviceBatteryCount());
         $writer->writeIntegerValue('deviceBatteryHealthScore', $this->getDeviceBatteryHealthScore());
+        $writer->writeCollectionOfPrimitiveValues('deviceBatteryTags', $this->getDeviceBatteryTags());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->getEstimatedRuntimeInMinutes());
@@ -233,7 +256,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the deviceBatteryCount property value. Number of batteries in a user device. Valid values 1 to 2147483647
+     * Sets the deviceBatteryCount property value. Number of batteries in a user device. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the deviceBatteryCount property.
     */
     public function setDeviceBatteryCount(?int $value): void {
@@ -246,6 +269,14 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public function setDeviceBatteryHealthScore(?int $value): void {
         $this->getBackingStore()->set('deviceBatteryHealthScore', $value);
+    }
+
+    /**
+     * Sets the deviceBatteryTags property value. Tags for computed information on how battery on the device is behaving. E.g. newbattery, batterycapacityred, designcapacityzero, etc.
+     * @param array<string>|null $value Value to set for the deviceBatteryTags property.
+    */
+    public function setDeviceBatteryTags(?array $value): void {
+        $this->getBackingStore()->set('deviceBatteryTags', $value);
     }
 
     /**

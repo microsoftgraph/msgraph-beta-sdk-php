@@ -11,4 +11,6 @@ class Win32LobAppRegistryRuleOperationType extends Enum {
     public const STRING = 'string';
     public const INTEGER = 'integer';
     public const VERSION = 'version';
+    public const APP_VERSION = 'appVersion';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

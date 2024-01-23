@@ -1307,7 +1307,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the manager property value. The user or contact that is this user's manager. Read-only. (HTTP Methods: GET, PUT, DELETE.). Supports $expand.
+     * Gets the manager property value. The user or contact that is this user's manager. Read-only. Supports $expand.
      * @return DirectoryObject|null
     */
     public function getManager(): ?DirectoryObject {
@@ -3025,7 +3025,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the manager property value. The user or contact that is this user's manager. Read-only. (HTTP Methods: GET, PUT, DELETE.). Supports $expand.
+     * Sets the manager property value. The user or contact that is this user's manager. Read-only. Supports $expand.
      * @param DirectoryObject|null $value Value to set for the manager property.
     */
     public function setManager(?DirectoryObject $value): void {

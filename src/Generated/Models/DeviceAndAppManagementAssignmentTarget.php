@@ -44,7 +44,6 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
                 case '#microsoft.graph.configurationManagerCollectionAssignmentTarget': return new ConfigurationManagerCollectionAssignmentTarget();
                 case '#microsoft.graph.exclusionGroupAssignmentTarget': return new ExclusionGroupAssignmentTarget();
                 case '#microsoft.graph.groupAssignmentTarget': return new GroupAssignmentTarget();
-                case '#microsoft.graph.scopeTagGroupAssignmentTarget': return new ScopeTagGroupAssignmentTarget();
             }
         }
         return new DeviceAndAppManagementAssignmentTarget();

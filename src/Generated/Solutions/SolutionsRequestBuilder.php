@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\SolutionsRoot;
 use Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\BookingBusinessesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BookingCurrencies\BookingCurrenciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenariosWithUniqueName\BusinessScenariosWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\VirtualEventsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -48,6 +49,15 @@ class SolutionsRequestBuilder extends BaseRequestBuilder
         return new VirtualEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the businessScenarios property of the microsoft.graph.solutionsRoot entity.
+     * @param string $uniqueName Alternate key of businessScenario
+     * @return BusinessScenariosWithUniqueNameRequestBuilder
+    */
+    public function businessScenariosWithUniqueName(string $uniqueName): BusinessScenariosWithUniqueNameRequestBuilder {
+        return new BusinessScenariosWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
     /**
      * Instantiates a new SolutionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

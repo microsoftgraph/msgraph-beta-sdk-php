@@ -105,7 +105,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     }
 
     /**
-     * Gets the trackedOnEnrollmentStatus property value. Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
+     * Gets the trackedOnEnrollmentStatus property value. Indicates if this policy was tracked as part of the autopilot bootstrap enrollment sync session
      * @return bool|null
     */
     public function getTrackedOnEnrollmentStatus(): ?bool {
@@ -171,7 +171,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     }
 
     /**
-     * Sets the trackedOnEnrollmentStatus property value. Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
+     * Sets the trackedOnEnrollmentStatus property value. Indicates if this policy was tracked as part of the autopilot bootstrap enrollment sync session
      * @param bool|null $value Value to set for the trackedOnEnrollmentStatus property.
     */
     public function setTrackedOnEnrollmentStatus(?bool $value): void {

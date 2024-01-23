@@ -82,7 +82,7 @@ class ServiceNowConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the instanceUrl property value. Indicates the ServiceNow instance URL that Intune will connect to. Saved in the format of https://<instance>.service-now.com
+     * Gets the instanceUrl property value. Indicates the ServiceNow instance URL that Intune will connect to. Saved in the format of https://.service-now.com
      * @return string|null
     */
     public function getInstanceUrl(): ?string {
@@ -169,7 +169,7 @@ class ServiceNowConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the instanceUrl property value. Indicates the ServiceNow instance URL that Intune will connect to. Saved in the format of https://<instance>.service-now.com
+     * Sets the instanceUrl property value. Indicates the ServiceNow instance URL that Intune will connect to. Saved in the format of https://.service-now.com
      * @param string|null $value Value to set for the instanceUrl property.
     */
     public function setInstanceUrl(?string $value): void {

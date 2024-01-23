@@ -304,7 +304,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the SafetyNet basic integrity check.
+     * Gets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the Play Integrity basic integrity check.
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationBasicIntegrity(): ?bool {
@@ -316,7 +316,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the SafetyNet certified device check.
+     * Gets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the Play Integrity device integrity check.
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationCertifiedDevice(): ?bool {
@@ -557,7 +557,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the SafetyNet basic integrity check.
+     * Sets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the Play Integrity basic integrity check.
      * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationBasicIntegrity property.
     */
     public function setSecurityRequireSafetyNetAttestationBasicIntegrity(?bool $value): void {
@@ -565,7 +565,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the SafetyNet certified device check.
+     * Sets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the Play Integrity device integrity check.
      * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationCertifiedDevice property.
     */
     public function setSecurityRequireSafetyNetAttestationCertifiedDevice(?bool $value): void {
