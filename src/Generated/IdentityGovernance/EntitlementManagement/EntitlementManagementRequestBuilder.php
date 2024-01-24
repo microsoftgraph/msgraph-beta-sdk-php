@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\ConnectedOrganizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\SubjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\SubjectsWithObjectId\SubjectsWithObjectIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -186,6 +187,15 @@ class EntitlementManagementRequestBuilder extends BaseRequestBuilder
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [EntitlementManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
+     * @param string $objectId Alternate key of accessPackageSubject
+     * @return SubjectsWithObjectIdRequestBuilder
+    */
+    public function subjectsWithObjectId(string $objectId): SubjectsWithObjectIdRequestBuilder {
+        return new SubjectsWithObjectIdRequestBuilder($this->pathParameters, $this->requestAdapter, $objectId);
     }
 
     /**

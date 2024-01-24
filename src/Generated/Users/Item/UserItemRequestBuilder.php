@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\AgreementAcceptances\AgreementAcce
 use Microsoft\Graph\Beta\Generated\Users\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\AppConsentRequestsForApprovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResources\AppRoleAssignedResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResourcesWithAppId\AppRoleAssignedResourcesWithAppIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\ApprovalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AssignLicense\AssignLicenseRequestBuilder;
@@ -31,6 +32,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\DeletePasswordSingleSignOnCredenti
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\DeviceEnrollmentConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshootingEvents\DeviceManagementTroubleshootingEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\DevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\DevicesWithDeviceId\DevicesWithDeviceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\DirectReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\DrivesRequestBuilder;
@@ -76,6 +78,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Notifications\NotificationsRequest
 use Microsoft\Graph\Beta\Generated\Users\Item\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\OnenoteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\OnlineMeetingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\OutlookRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\OwnedDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\OwnedObjectsRequestBuilder;
@@ -852,6 +855,15 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the appRoleAssignedResources property of the microsoft.graph.user entity.
+     * @param string $appId Alternate key of servicePrincipal
+     * @return AppRoleAssignedResourcesWithAppIdRequestBuilder
+    */
+    public function appRoleAssignedResourcesWithAppId(string $appId): AppRoleAssignedResourcesWithAppIdRequestBuilder {
+        return new AppRoleAssignedResourcesWithAppIdRequestBuilder($this->pathParameters, $this->requestAdapter, $appId);
+    }
+
+    /**
      * Instantiates a new UserItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -879,6 +891,15 @@ class UserItemRequestBuilder extends BaseRequestBuilder
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the devices property of the microsoft.graph.user entity.
+     * @param string $deviceId Alternate key of device
+     * @return DevicesWithDeviceIdRequestBuilder
+    */
+    public function devicesWithDeviceId(string $deviceId): DevicesWithDeviceIdRequestBuilder {
+        return new DevicesWithDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $deviceId);
     }
 
     /**
@@ -914,6 +935,15 @@ class UserItemRequestBuilder extends BaseRequestBuilder
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
+     * @param string $joinWebUrl Alternate key of onlineMeeting
+     * @return OnlineMeetingsWithJoinWebUrlRequestBuilder
+    */
+    public function onlineMeetingsWithJoinWebUrl(string $joinWebUrl): OnlineMeetingsWithJoinWebUrlRequestBuilder {
+        return new OnlineMeetingsWithJoinWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $joinWebUrl);
     }
 
     /**

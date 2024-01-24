@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerUser;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\AllRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans\FavoritePlansRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks\MyDayTasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans\PlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RecentPlans\RecentPlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RosterPlans\RosterPlansRequestBuilder;
@@ -34,6 +35,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     */
     public function favoritePlans(): FavoritePlansRequestBuilder {
         return new FavoritePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the myDayTasks property of the microsoft.graph.plannerUser entity.
+    */
+    public function myDayTasks(): MyDayTasksRequestBuilder {
+        return new MyDayTasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

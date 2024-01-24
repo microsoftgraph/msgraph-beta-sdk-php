@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\CommunitiesReq
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\EngagementAsyncOperations\EngagementAsyncOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\GoalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivitiesWithExternalcourseActivityId\LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmployeeExperience;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -83,6 +84,15 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [EmployeeExperience::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+     * @param string $externalcourseActivityId Alternate key of learningCourseActivity
+     * @return LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+    */
+    public function learningCourseActivitiesWithExternalcourseActivityId(string $externalcourseActivityId): LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder {
+        return new LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder($this->pathParameters, $this->requestAdapter, $externalcourseActivityId);
     }
 
     /**

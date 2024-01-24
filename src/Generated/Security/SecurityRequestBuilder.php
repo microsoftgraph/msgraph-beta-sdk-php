@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationReq
 use Microsoft\Graph\Beta\Generated\Security\AuditLog\AuditLogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Collaboration\CollaborationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\FileSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\HostSecurityProfilesRequestBuilder;
@@ -81,6 +82,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function cloudAppSecurityProfiles(): CloudAppSecurityProfilesRequestBuilder {
         return new CloudAppSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the collaboration property of the microsoft.graph.security entity.
+    */
+    public function collaboration(): CollaborationRequestBuilder {
+        return new CollaborationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

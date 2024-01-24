@@ -52,7 +52,7 @@ class CachedReportConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Entity representing the configuration of a cached report
+     * Entity representing the configuration of a cached report.
      * @param CachedReportConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementCachedReportConfigurationCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class CachedReportConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Entity representing the configuration of a cached report
+     * Entity representing the configuration of a cached report.
      * @param CachedReportConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

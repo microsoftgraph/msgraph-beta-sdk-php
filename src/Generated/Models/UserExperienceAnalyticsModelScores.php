@@ -75,6 +75,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
             'endpointAnalyticsScore' => fn(ParseNode $n) => $o->setEndpointAnalyticsScore($n->getFloatValue()),
             'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'meanResourceSpikeTimeScore' => fn(ParseNode $n) => $o->setMeanResourceSpikeTimeScore($n->getFloatValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
             'modelDeviceCount' => fn(ParseNode $n) => $o->setModelDeviceCount($n->getIntegerValue()),
             'startupPerformanceScore' => fn(ParseNode $n) => $o->setStartupPerformanceScore($n->getFloatValue()),
@@ -104,6 +105,18 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'manufacturer'");
+    }
+
+    /**
+     * Gets the meanResourceSpikeTimeScore property value. Indicates a calulated score indicating the health of the device's resource spike score . Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @return float|null
+    */
+    public function getMeanResourceSpikeTimeScore(): ?float {
+        $val = $this->getBackingStore()->get('meanResourceSpikeTimeScore');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meanResourceSpikeTimeScore'");
     }
 
     /**
@@ -165,6 +178,7 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
         $writer->writeFloatValue('endpointAnalyticsScore', $this->getEndpointAnalyticsScore());
         $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeFloatValue('meanResourceSpikeTimeScore', $this->getMeanResourceSpikeTimeScore());
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeIntegerValue('modelDeviceCount', $this->getModelDeviceCount());
         $writer->writeFloatValue('startupPerformanceScore', $this->getStartupPerformanceScore());
@@ -209,6 +223,14 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
+    }
+
+    /**
+     * Sets the meanResourceSpikeTimeScore property value. Indicates a calulated score indicating the health of the device's resource spike score . Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @param float|null $value Value to set for the meanResourceSpikeTimeScore property.
+    */
+    public function setMeanResourceSpikeTimeScore(?float $value): void {
+        $this->getBackingStore()->set('meanResourceSpikeTimeScore', $value);
     }
 
     /**

@@ -179,7 +179,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic.
+     * Gets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic, unknownFutureValue.
      * @return WiFiProxySetting|null
     */
     public function getProxySetting(): ?WiFiProxySetting {
@@ -316,7 +316,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic.
+     * Sets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic, unknownFutureValue.
      * @param WiFiProxySetting|null $value Value to set for the proxySetting property.
     */
     public function setProxySetting(?WiFiProxySetting $value): void {

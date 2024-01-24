@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\Partners\Partners;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -169,6 +170,7 @@ class ReportRoot extends Entity implements Parsable
             'monthlyPrintUsageByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
+            'partners' => fn(ParseNode $n) => $o->setPartners($n->getObjectValue([Partners::class, 'createFromDiscriminatorValue'])),
             'security' => fn(ParseNode $n) => $o->setSecurity($n->getObjectValue([SecurityReportsRoot::class, 'createFromDiscriminatorValue'])),
             'serviceActivity' => fn(ParseNode $n) => $o->setServiceActivity($n->getObjectValue([ServiceActivity::class, 'createFromDiscriminatorValue'])),
             'servicePrincipalSignInActivities' => fn(ParseNode $n) => $o->setServicePrincipalSignInActivities($n->getCollectionOfObjectValues([ServicePrincipalSignInActivity::class, 'createFromDiscriminatorValue'])),
@@ -232,6 +234,18 @@ class ReportRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'monthlyPrintUsageSummariesByUser'");
+    }
+
+    /**
+     * Gets the partners property value. Represents billing details for a Microsoft direct partner.
+     * @return Partners|null
+    */
+    public function getPartners(): ?Partners {
+        $val = $this->getBackingStore()->get('partners');
+        if (is_null($val) || $val instanceof Partners) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partners'");
     }
 
     /**
@@ -329,6 +343,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->getMonthlyPrintUsageByUser());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->getMonthlyPrintUsageSummariesByUser());
+        $writer->writeObjectValue('partners', $this->getPartners());
         $writer->writeObjectValue('security', $this->getSecurity());
         $writer->writeObjectValue('serviceActivity', $this->getServiceActivity());
         $writer->writeCollectionOfObjectValues('servicePrincipalSignInActivities', $this->getServicePrincipalSignInActivities());
@@ -439,6 +454,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setMonthlyPrintUsageSummariesByUser(?array $value): void {
         $this->getBackingStore()->set('monthlyPrintUsageSummariesByUser', $value);
+    }
+
+    /**
+     * Sets the partners property value. Represents billing details for a Microsoft direct partner.
+     * @param Partners|null $value Value to set for the partners property.
+    */
+    public function setPartners(?Partners $value): void {
+        $this->getBackingStore()->set('partners', $value);
     }
 
     /**

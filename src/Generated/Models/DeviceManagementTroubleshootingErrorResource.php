@@ -96,7 +96,7 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
     }
 
     /**
-     * Gets the text property value. Not yet documented
+     * Gets the text property value. The text property
      * @return string|null
     */
     public function getText(): ?string {
@@ -151,7 +151,7 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
     }
 
     /**
-     * Sets the text property value. Not yet documented
+     * Sets the text property value. The text property
      * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {

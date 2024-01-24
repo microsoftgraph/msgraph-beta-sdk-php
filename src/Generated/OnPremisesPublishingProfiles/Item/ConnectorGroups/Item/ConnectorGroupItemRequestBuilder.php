@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ConnectorGroup;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Applications\ApplicationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\ApplicationsWithAppId\ApplicationsWithAppIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\ApplicationsWithUniqueName\ApplicationsWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\Members\MembersRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -32,6 +34,24 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
+     * @param string $appId Alternate key of application
+     * @return ApplicationsWithAppIdRequestBuilder
+    */
+    public function applicationsWithAppId(string $appId): ApplicationsWithAppIdRequestBuilder {
+        return new ApplicationsWithAppIdRequestBuilder($this->pathParameters, $this->requestAdapter, $appId);
+    }
+
+    /**
+     * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
+     * @param string $uniqueName Alternate key of application
+     * @return ApplicationsWithUniqueNameRequestBuilder
+    */
+    public function applicationsWithUniqueName(string $uniqueName): ApplicationsWithUniqueNameRequestBuilder {
+        return new ApplicationsWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
     /**
      * Instantiates a new ConnectorGroupItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

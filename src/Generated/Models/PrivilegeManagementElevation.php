@@ -126,6 +126,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
             'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
             'result' => fn(ParseNode $n) => $o->setResult($n->getIntegerValue()),
             'ruleId' => fn(ParseNode $n) => $o->setRuleId($n->getStringValue()),
+            'systemInitiatedElevation' => fn(ParseNode $n) => $o->setSystemInitiatedElevation($n->getBooleanValue()),
             'upn' => fn(ParseNode $n) => $o->setUpn($n->getStringValue()),
             'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(PrivilegeManagementEndUserType::class)),
         ]);
@@ -288,6 +289,18 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
+     * Gets the systemInitiatedElevation property value. To identify if the elevation is initiated by system or user interaction
+     * @return bool|null
+    */
+    public function getSystemInitiatedElevation(): ?bool {
+        $val = $this->getBackingStore()->get('systemInitiatedElevation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'systemInitiatedElevation'");
+    }
+
+    /**
      * Gets the upn property value. The User Principal Name of the user who performed the elevation. Example: `john@domain.com`
      * @return string|null
     */
@@ -336,6 +349,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeIntegerValue('result', $this->getResult());
         $writer->writeStringValue('ruleId', $this->getRuleId());
+        $writer->writeBooleanValue('systemInitiatedElevation', $this->getSystemInitiatedElevation());
         $writer->writeStringValue('upn', $this->getUpn());
         $writer->writeEnumValue('userType', $this->getUserType());
     }
@@ -490,6 +504,14 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     */
     public function setRuleId(?string $value): void {
         $this->getBackingStore()->set('ruleId', $value);
+    }
+
+    /**
+     * Sets the systemInitiatedElevation property value. To identify if the elevation is initiated by system or user interaction
+     * @param bool|null $value Value to set for the systemInitiatedElevation property.
+    */
+    public function setSystemInitiatedElevation(?bool $value): void {
+        $this->getBackingStore()->set('systemInitiatedElevation', $value);
     }
 
     /**

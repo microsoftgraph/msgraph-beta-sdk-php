@@ -27,7 +27,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessPackageResourceEnvironment property value. Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
+     * Gets the accessPackageResourceEnvironment property value. Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment's originId. Supports $expand.
      * @return AccessPackageResourceEnvironment|null
     */
     public function getAccessPackageResourceEnvironment(): ?AccessPackageResourceEnvironment {
@@ -117,7 +117,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the resource, such as the application name, group name or site name.
+     * Gets the displayName property value. The display name of the resource, such as the application name, group name, or site name.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -164,7 +164,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the originId property value. The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, this is the identifier of the group.
+     * Gets the originId property value. The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, originId is the identifier of the group.
      * @return string|null
     */
     public function getOriginId(): ?string {
@@ -176,7 +176,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
+     * Gets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup.
      * @return string|null
     */
     public function getOriginSystem(): ?string {
@@ -233,7 +233,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessPackageResourceEnvironment property value. Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
+     * Sets the accessPackageResourceEnvironment property value. Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment's originId. Supports $expand.
      * @param AccessPackageResourceEnvironment|null $value Value to set for the accessPackageResourceEnvironment property.
     */
     public function setAccessPackageResourceEnvironment(?AccessPackageResourceEnvironment $value): void {
@@ -289,7 +289,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the resource, such as the application name, group name or site name.
+     * Sets the displayName property value. The display name of the resource, such as the application name, group name, or site name.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -305,7 +305,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the originId property value. The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, this is the identifier of the group.
+     * Sets the originId property value. The unique identifier of the resource in the origin system. In the case of a Microsoft Entra group, originId is the identifier of the group.
      * @param string|null $value Value to set for the originId property.
     */
     public function setOriginId(?string $value): void {
@@ -313,7 +313,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
+     * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup.
      * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {

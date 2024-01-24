@@ -38,6 +38,18 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
+     * Gets the detectorId property value. The detectorId property
+     * @return string|null
+    */
+    public function getDetectorId(): ?string {
+        $val = $this->getBackingStore()->get('detectorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectorId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -45,6 +57,7 @@ class DetectionRule extends ProtectionRule implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'detectionAction' => fn(ParseNode $n) => $o->setDetectionAction($n->getObjectValue([DetectionAction::class, 'createFromDiscriminatorValue'])),
+            'detectorId' => fn(ParseNode $n) => $o->setDetectorId($n->getStringValue()),
             'lastRunDetails' => fn(ParseNode $n) => $o->setLastRunDetails($n->getObjectValue([RunDetails::class, 'createFromDiscriminatorValue'])),
             'queryCondition' => fn(ParseNode $n) => $o->setQueryCondition($n->getObjectValue([QueryCondition::class, 'createFromDiscriminatorValue'])),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RuleSchedule::class, 'createFromDiscriminatorValue'])),
@@ -94,6 +107,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('detectionAction', $this->getDetectionAction());
+        $writer->writeStringValue('detectorId', $this->getDetectorId());
         $writer->writeObjectValue('lastRunDetails', $this->getLastRunDetails());
         $writer->writeObjectValue('queryCondition', $this->getQueryCondition());
         $writer->writeObjectValue('schedule', $this->getSchedule());
@@ -105,6 +119,14 @@ class DetectionRule extends ProtectionRule implements Parsable
     */
     public function setDetectionAction(?DetectionAction $value): void {
         $this->getBackingStore()->set('detectionAction', $value);
+    }
+
+    /**
+     * Sets the detectorId property value. The detectorId property
+     * @param string|null $value Value to set for the detectorId property.
+    */
+    public function setDetectorId(?string $value): void {
+        $this->getBackingStore()->set('detectorId', $value);
     }
 
     /**

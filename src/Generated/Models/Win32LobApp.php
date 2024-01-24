@@ -26,6 +26,13 @@ class Win32LobApp extends MobileLobApp implements Parsable
      * @return Win32LobApp
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Win32LobApp {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.win32CatalogApp': return new Win32CatalogApp();
+            }
+        }
         return new Win32LobApp();
     }
 
