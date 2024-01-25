@@ -64,7 +64,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the country property value. The branch site is created in the specified country.
+     * Gets the country property value. The country property
      * @return string|null
     */
     public function getCountry(): ?string {
@@ -214,7 +214,7 @@ class BranchSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the country property value. The branch site is created in the specified country.
+     * Sets the country property value. The country property
      * @param string|null $value Value to set for the country property.
     */
     public function setCountry(?string $value): void {

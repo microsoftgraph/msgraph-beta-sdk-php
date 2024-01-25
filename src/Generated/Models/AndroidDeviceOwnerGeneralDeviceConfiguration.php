@@ -250,7 +250,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE)
+     * Gets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). Possible values are: notConfigured, disabled, unknownFutureValue.
      * @return AndroidDeviceOwnerLocationMode|null
     */
     public function getDeviceLocationMode(): ?AndroidDeviceOwnerLocationMode {
@@ -2174,7 +2174,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE)
+     * Sets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). Possible values are: notConfigured, disabled, unknownFutureValue.
      * @param AndroidDeviceOwnerLocationMode|null $value Value to set for the deviceLocationMode property.
     */
     public function setDeviceLocationMode(?AndroidDeviceOwnerLocationMode $value): void {

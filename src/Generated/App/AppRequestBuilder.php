@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\App\Calls\CallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\OnlineMeetingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CommsApplication;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -59,6 +60,15 @@ class AppRequestBuilder extends BaseRequestBuilder
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CommsApplication::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.commsApplication entity.
+     * @param string $joinWebUrl Alternate key of onlineMeeting
+     * @return OnlineMeetingsWithJoinWebUrlRequestBuilder
+    */
+    public function onlineMeetingsWithJoinWebUrl(string $joinWebUrl): OnlineMeetingsWithJoinWebUrlRequestBuilder {
+        return new OnlineMeetingsWithJoinWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $joinWebUrl);
     }
 
     /**

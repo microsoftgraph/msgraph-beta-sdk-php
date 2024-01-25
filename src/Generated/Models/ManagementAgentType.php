@@ -19,4 +19,6 @@ class ManagementAgentType extends Enum {
     public const MICROSOFT365_MANAGED_MDM = 'microsoft365ManagedMdm';
     public const MS_SENSE = 'msSense';
     public const INTUNE_AOSP = 'intuneAosp';
+    public const GOOGLE = 'google';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

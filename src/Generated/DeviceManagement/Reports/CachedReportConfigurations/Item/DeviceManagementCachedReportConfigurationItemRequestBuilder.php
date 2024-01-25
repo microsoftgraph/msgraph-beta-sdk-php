@@ -46,7 +46,7 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
     }
 
     /**
-     * Entity representing the configuration of a cached report
+     * Entity representing the configuration of a cached report.
      * @param DeviceManagementCachedReportConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementCachedReportConfiguration|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
     }
 
     /**
-     * Entity representing the configuration of a cached report
+     * Entity representing the configuration of a cached report.
      * @param DeviceManagementCachedReportConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

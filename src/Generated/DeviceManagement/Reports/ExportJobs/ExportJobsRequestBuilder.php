@@ -52,7 +52,7 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Entity representing a job to export a report
+     * Entity representing a job to export a report.
      * @param ExportJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementExportJobCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Entity representing a job to export a report
+     * Entity representing a job to export a report.
      * @param ExportJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

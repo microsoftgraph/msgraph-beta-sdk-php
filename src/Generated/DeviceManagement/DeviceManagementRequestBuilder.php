@@ -98,6 +98,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnector
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\MonitoringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\NdesConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\NotificationMessageTemplatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\OperationApprovalPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\OperationApprovalRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\PrivilegeManagementElevationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\RemoteAssistancePartnersRequestBuilder;
@@ -824,6 +826,20 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function notificationMessageTemplates(): NotificationMessageTemplatesRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the operationApprovalPolicies property of the microsoft.graph.deviceManagement entity.
+    */
+    public function operationApprovalPolicies(): OperationApprovalPoliciesRequestBuilder {
+        return new OperationApprovalPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the operationApprovalRequests property of the microsoft.graph.deviceManagement entity.
+    */
+    public function operationApprovalRequests(): OperationApprovalRequestsRequestBuilder {
+        return new OperationApprovalRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -4,6 +4,8 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\Tasks\ItemAtWithIndex\Changes\ChangesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\Tasks\ItemAtWithIndex\Comment\CommentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WorkbookDocumentTask;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +18,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ItemAtWithIndexRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the changes property of the microsoft.graph.workbookDocumentTask entity.
+    */
+    public function changes(): ChangesRequestBuilder {
+        return new ChangesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the comment property of the microsoft.graph.workbookDocumentTask entity.
+    */
+    public function comment(): CommentRequestBuilder {
+        return new CommentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new ItemAtWithIndexRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * Entity representing a job to export a report
+ * Entity representing a job to export a report.
 */
 class DeviceManagementExportJob extends Entity implements Parsable 
 {
@@ -30,7 +30,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. Time that the exported report expires. This property is read-only.
+     * Gets the expirationDateTime property value. Time that the exported report expires.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -54,6 +54,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
             'localizationType' => fn(ParseNode $n) => $o->setLocalizationType($n->getEnumValue(DeviceManagementExportJobLocalizationType::class)),
             'reportName' => fn(ParseNode $n) => $o->setReportName($n->getStringValue()),
             'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
+            'search' => fn(ParseNode $n) => $o->setSearch($n->getStringValue()),
             'select' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -69,7 +70,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the filter property value. Filters applied on the report
+     * Gets the filter property value. Filters applied on the report. The maximum length allowed for this property is 2000 characters.
      * @return string|null
     */
     public function getFilter(): ?string {
@@ -81,7 +82,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the format property value. Possible values for the file format of a report
+     * Gets the format property value. Possible values for the file format of a report.
      * @return DeviceManagementReportFileFormat|null
     */
     public function getFormat(): ?DeviceManagementReportFileFormat {
@@ -93,7 +94,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the localizationType property value. Configures how the requested export job is localized
+     * Gets the localizationType property value. Configures how the requested export job is localized.
      * @return DeviceManagementExportJobLocalizationType|null
     */
     public function getLocalizationType(): ?DeviceManagementExportJobLocalizationType {
@@ -105,7 +106,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the reportName property value. Name of the report
+     * Gets the reportName property value. Name of the report. The maximum length allowed for this property is 2000 characters.
      * @return string|null
     */
     public function getReportName(): ?string {
@@ -117,7 +118,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestDateTime property value. Time that the exported report was requested. This property is read-only.
+     * Gets the requestDateTime property value. Time that the exported report was requested.
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
@@ -129,7 +130,19 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the select property value. Columns selected from the report
+     * Gets the search property value. Configures a search term to filter the data. The maximum length allowed for this property is 100 characters.
+     * @return string|null
+    */
+    public function getSearch(): ?string {
+        $val = $this->getBackingStore()->get('search');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'search'");
+    }
+
+    /**
+     * Gets the select property value. Columns selected from the report. The maximum number of allowed columns names is 256. The maximum length allowed for each column name in this property is 1000 characters.
      * @return array<string>|null
     */
     public function getSelect(): ?array {
@@ -143,7 +156,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the snapshotId property value. A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id.
+     * Gets the snapshotId property value. A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. The maximum length allowed for this property is 128 characters.
      * @return string|null
     */
     public function getSnapshotId(): ?string {
@@ -155,7 +168,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Possible statuses associated with a generated report
+     * Gets the status property value. Possible statuses associated with a generated report.
      * @return DeviceManagementReportStatus|null
     */
     public function getStatus(): ?DeviceManagementReportStatus {
@@ -167,7 +180,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the url property value. Temporary location of the exported report. This property is read-only.
+     * Gets the url property value. Temporary location of the exported report.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -190,6 +203,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
         $writer->writeEnumValue('localizationType', $this->getLocalizationType());
         $writer->writeStringValue('reportName', $this->getReportName());
         $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
+        $writer->writeStringValue('search', $this->getSearch());
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
         $writer->writeStringValue('snapshotId', $this->getSnapshotId());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -197,7 +211,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. Time that the exported report expires. This property is read-only.
+     * Sets the expirationDateTime property value. Time that the exported report expires.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -205,7 +219,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the filter property value. Filters applied on the report
+     * Sets the filter property value. Filters applied on the report. The maximum length allowed for this property is 2000 characters.
      * @param string|null $value Value to set for the filter property.
     */
     public function setFilter(?string $value): void {
@@ -213,7 +227,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the format property value. Possible values for the file format of a report
+     * Sets the format property value. Possible values for the file format of a report.
      * @param DeviceManagementReportFileFormat|null $value Value to set for the format property.
     */
     public function setFormat(?DeviceManagementReportFileFormat $value): void {
@@ -221,7 +235,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the localizationType property value. Configures how the requested export job is localized
+     * Sets the localizationType property value. Configures how the requested export job is localized.
      * @param DeviceManagementExportJobLocalizationType|null $value Value to set for the localizationType property.
     */
     public function setLocalizationType(?DeviceManagementExportJobLocalizationType $value): void {
@@ -229,7 +243,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the reportName property value. Name of the report
+     * Sets the reportName property value. Name of the report. The maximum length allowed for this property is 2000 characters.
      * @param string|null $value Value to set for the reportName property.
     */
     public function setReportName(?string $value): void {
@@ -237,7 +251,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestDateTime property value. Time that the exported report was requested. This property is read-only.
+     * Sets the requestDateTime property value. Time that the exported report was requested.
      * @param DateTime|null $value Value to set for the requestDateTime property.
     */
     public function setRequestDateTime(?DateTime $value): void {
@@ -245,7 +259,15 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the select property value. Columns selected from the report
+     * Sets the search property value. Configures a search term to filter the data. The maximum length allowed for this property is 100 characters.
+     * @param string|null $value Value to set for the search property.
+    */
+    public function setSearch(?string $value): void {
+        $this->getBackingStore()->set('search', $value);
+    }
+
+    /**
+     * Sets the select property value. Columns selected from the report. The maximum number of allowed columns names is 256. The maximum length allowed for each column name in this property is 1000 characters.
      * @param array<string>|null $value Value to set for the select property.
     */
     public function setSelect(?array $value): void {
@@ -253,7 +275,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the snapshotId property value. A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id.
+     * Sets the snapshotId property value. A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. The maximum length allowed for this property is 128 characters.
      * @param string|null $value Value to set for the snapshotId property.
     */
     public function setSnapshotId(?string $value): void {
@@ -261,7 +283,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Possible statuses associated with a generated report
+     * Sets the status property value. Possible statuses associated with a generated report.
      * @param DeviceManagementReportStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceManagementReportStatus $value): void {
@@ -269,7 +291,7 @@ class DeviceManagementExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the url property value. Temporary location of the exported report. This property is read-only.
+     * Sets the url property value. Temporary location of the exported report.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

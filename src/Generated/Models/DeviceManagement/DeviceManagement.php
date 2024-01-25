@@ -96,6 +96,8 @@ use Microsoft\Graph\Beta\Generated\Models\MobileThreatDefenseConnector;
 use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
 use Microsoft\Graph\Beta\Generated\Models\NotificationMessageTemplate;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesConditionalAccessSettings;
+use Microsoft\Graph\Beta\Generated\Models\OperationApprovalPolicy;
+use Microsoft\Graph\Beta\Generated\Models\OperationApprovalRequest;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevation;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationRequest;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAudit;
@@ -1135,6 +1137,8 @@ class DeviceManagement extends Entity implements Parsable
             'monitoring' => fn(ParseNode $n) => $o->setMonitoring($n->getObjectValue([Monitoring::class, 'createFromDiscriminatorValue'])),
             'ndesConnectors' => fn(ParseNode $n) => $o->setNdesConnectors($n->getCollectionOfObjectValues([NdesConnector::class, 'createFromDiscriminatorValue'])),
             'notificationMessageTemplates' => fn(ParseNode $n) => $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues([NotificationMessageTemplate::class, 'createFromDiscriminatorValue'])),
+            'operationApprovalPolicies' => fn(ParseNode $n) => $o->setOperationApprovalPolicies($n->getCollectionOfObjectValues([OperationApprovalPolicy::class, 'createFromDiscriminatorValue'])),
+            'operationApprovalRequests' => fn(ParseNode $n) => $o->setOperationApprovalRequests($n->getCollectionOfObjectValues([OperationApprovalRequest::class, 'createFromDiscriminatorValue'])),
             'privilegeManagementElevations' => fn(ParseNode $n) => $o->setPrivilegeManagementElevations($n->getCollectionOfObjectValues([PrivilegeManagementElevation::class, 'createFromDiscriminatorValue'])),
             'remoteActionAudits' => fn(ParseNode $n) => $o->setRemoteActionAudits($n->getCollectionOfObjectValues([RemoteActionAudit::class, 'createFromDiscriminatorValue'])),
             'remoteAssistancePartners' => fn(ParseNode $n) => $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues([RemoteAssistancePartner::class, 'createFromDiscriminatorValue'])),
@@ -1642,6 +1646,34 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationMessageTemplates'");
+    }
+
+    /**
+     * Gets the operationApprovalPolicies property value. The Operation Approval Policies
+     * @return array<OperationApprovalPolicy>|null
+    */
+    public function getOperationApprovalPolicies(): ?array {
+        $val = $this->getBackingStore()->get('operationApprovalPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OperationApprovalPolicy::class);
+            /** @var array<OperationApprovalPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operationApprovalPolicies'");
+    }
+
+    /**
+     * Gets the operationApprovalRequests property value. The Operation Approval Requests
+     * @return array<OperationApprovalRequest>|null
+    */
+    public function getOperationApprovalRequests(): ?array {
+        $val = $this->getBackingStore()->get('operationApprovalRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OperationApprovalRequest::class);
+            /** @var array<OperationApprovalRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operationApprovalRequests'");
     }
 
     /**
@@ -2932,6 +2964,8 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('monitoring', $this->getMonitoring());
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->getNdesConnectors());
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->getNotificationMessageTemplates());
+        $writer->writeCollectionOfObjectValues('operationApprovalPolicies', $this->getOperationApprovalPolicies());
+        $writer->writeCollectionOfObjectValues('operationApprovalRequests', $this->getOperationApprovalRequests());
         $writer->writeCollectionOfObjectValues('privilegeManagementElevations', $this->getPrivilegeManagementElevations());
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->getRemoteActionAudits());
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->getRemoteAssistancePartners());
@@ -3763,6 +3797,22 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setNotificationMessageTemplates(?array $value): void {
         $this->getBackingStore()->set('notificationMessageTemplates', $value);
+    }
+
+    /**
+     * Sets the operationApprovalPolicies property value. The Operation Approval Policies
+     * @param array<OperationApprovalPolicy>|null $value Value to set for the operationApprovalPolicies property.
+    */
+    public function setOperationApprovalPolicies(?array $value): void {
+        $this->getBackingStore()->set('operationApprovalPolicies', $value);
+    }
+
+    /**
+     * Sets the operationApprovalRequests property value. The Operation Approval Requests
+     * @param array<OperationApprovalRequest>|null $value Value to set for the operationApprovalRequests property.
+    */
+    public function setOperationApprovalRequests(?array $value): void {
+        $this->getBackingStore()->set('operationApprovalRequests', $value);
     }
 
     /**

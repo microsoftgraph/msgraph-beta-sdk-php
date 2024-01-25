@@ -22,4 +22,6 @@ class DeviceEnrollmentType extends Enum {
     public const ANDROID_ENTERPRISE_DEDICATED_DEVICE = 'androidEnterpriseDedicatedDevice';
     public const ANDROID_ENTERPRISE_FULLY_MANAGED = 'androidEnterpriseFullyManaged';
     public const ANDROID_ENTERPRISE_CORPORATE_WORK_PROFILE = 'androidEnterpriseCorporateWorkProfile';
+    public const ANDROID_A_O_S_P_USER_OWNED_DEVICE_ENROLLMENT = 'androidAOSPUserOwnedDeviceEnrollment';
+    public const ANDROID_A_O_S_P_USERLESS_DEVICE_ENROLLMENT = 'androidAOSPUserlessDeviceEnrollment';
 }

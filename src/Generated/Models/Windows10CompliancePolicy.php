@@ -126,7 +126,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     }
 
     /**
-     * Gets the deviceCompliancePolicyScript property value. Not yet documented
+     * Gets the deviceCompliancePolicyScript property value. The deviceCompliancePolicyScript property
      * @return DeviceCompliancePolicyScript|null
     */
     public function getDeviceCompliancePolicyScript(): ?DeviceCompliancePolicyScript {
@@ -618,7 +618,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     }
 
     /**
-     * Sets the deviceCompliancePolicyScript property value. Not yet documented
+     * Sets the deviceCompliancePolicyScript property value. The deviceCompliancePolicyScript property
      * @param DeviceCompliancePolicyScript|null $value Value to set for the deviceCompliancePolicyScript property.
     */
     public function setDeviceCompliancePolicyScript(?DeviceCompliancePolicyScript $value): void {

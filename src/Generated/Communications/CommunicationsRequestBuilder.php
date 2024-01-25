@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsRequest
 use Microsoft\Graph\Beta\Generated\Communications\Calls\CallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\GetPresencesByUserId\GetPresencesByUserIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\OnlineMeetingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Presences\PresencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudCommunications;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -83,6 +84,15 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CloudCommunications::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+     * @param string $joinWebUrl Alternate key of onlineMeeting
+     * @return OnlineMeetingsWithJoinWebUrlRequestBuilder
+    */
+    public function onlineMeetingsWithJoinWebUrl(string $joinWebUrl): OnlineMeetingsWithJoinWebUrlRequestBuilder {
+        return new OnlineMeetingsWithJoinWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $joinWebUrl);
     }
 
     /**

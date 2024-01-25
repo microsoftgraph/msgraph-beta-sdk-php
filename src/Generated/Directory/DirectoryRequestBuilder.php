@@ -19,6 +19,8 @@ use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Outbound
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithCommerceSubscriptionId\SubscriptionsWithCommerceSubscriptionIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithOcpSubscriptionId\SubscriptionsWithOcpSubscriptionIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Directory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -179,6 +181,24 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
                 '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Directory::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
+     * @param string $commerceSubscriptionId Alternate key of companySubscription
+     * @return SubscriptionsWithCommerceSubscriptionIdRequestBuilder
+    */
+    public function subscriptionsWithCommerceSubscriptionId(string $commerceSubscriptionId): SubscriptionsWithCommerceSubscriptionIdRequestBuilder {
+        return new SubscriptionsWithCommerceSubscriptionIdRequestBuilder($this->pathParameters, $this->requestAdapter, $commerceSubscriptionId);
+    }
+
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
+     * @param string $ocpSubscriptionId Alternate key of companySubscription
+     * @return SubscriptionsWithOcpSubscriptionIdRequestBuilder
+    */
+    public function subscriptionsWithOcpSubscriptionId(string $ocpSubscriptionId): SubscriptionsWithOcpSubscriptionIdRequestBuilder {
+        return new SubscriptionsWithOcpSubscriptionIdRequestBuilder($this->pathParameters, $this->requestAdapter, $ocpSubscriptionId);
     }
 
     /**
