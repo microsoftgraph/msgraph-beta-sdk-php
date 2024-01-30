@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TeamsAppDefinition extends Entity implements Parsable 
 {
@@ -98,6 +99,20 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the dashboardCards property value. The dashboardCards property
+     * @return array<TeamsAppDashboardCardDefinition>|null
+    */
+    public function getDashboardCards(): ?array {
+        $val = $this->getBackingStore()->get('dashboardCards');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamsAppDashboardCardDefinition::class);
+            /** @var array<TeamsAppDashboardCardDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dashboardCards'");
+    }
+
+    /**
      * Gets the description property value. The description property
      * @return string|null
     */
@@ -134,6 +149,7 @@ class TeamsAppDefinition extends Entity implements Parsable
             'bot' => fn(ParseNode $n) => $o->setBot($n->getObjectValue([TeamworkBot::class, 'createFromDiscriminatorValue'])),
             'colorIcon' => fn(ParseNode $n) => $o->setColorIcon($n->getObjectValue([TeamsAppIcon::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'dashboardCards' => fn(ParseNode $n) => $o->setDashboardCards($n->getCollectionOfObjectValues([TeamsAppDashboardCardDefinition::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -229,6 +245,7 @@ class TeamsAppDefinition extends Entity implements Parsable
         $writer->writeObjectValue('bot', $this->getBot());
         $writer->writeObjectValue('colorIcon', $this->getColorIcon());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeCollectionOfObjectValues('dashboardCards', $this->getDashboardCards());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
@@ -285,6 +302,14 @@ class TeamsAppDefinition extends Entity implements Parsable
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
+    }
+
+    /**
+     * Sets the dashboardCards property value. The dashboardCards property
+     * @param array<TeamsAppDashboardCardDefinition>|null $value Value to set for the dashboardCards property.
+    */
+    public function setDashboardCards(?array $value): void {
+        $this->getBackingStore()->set('dashboardCards', $value);
     }
 
     /**

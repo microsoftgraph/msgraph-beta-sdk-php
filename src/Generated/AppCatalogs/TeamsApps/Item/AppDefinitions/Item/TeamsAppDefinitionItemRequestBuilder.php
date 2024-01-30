@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\Bot\BotRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\ColorIcon\ColorIconRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\DashboardCards\DashboardCardsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\OutlineIcon\OutlineIconRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamsAppDefinition;
@@ -31,6 +32,13 @@ class TeamsAppDefinitionItemRequestBuilder extends BaseRequestBuilder
     */
     public function colorIcon(): ColorIconRequestBuilder {
         return new ColorIconRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the dashboardCards property of the microsoft.graph.teamsAppDefinition entity.
+    */
+    public function dashboardCards(): DashboardCardsRequestBuilder {
+        return new DashboardCardsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

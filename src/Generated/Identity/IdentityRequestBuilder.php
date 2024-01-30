@@ -63,7 +63,7 @@ class IdentityRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
+     * The conditionalAccess property
     */
     public function conditionalAccess(): ConditionalAccessRequestBuilder {
         return new ConditionalAccessRequestBuilder($this->pathParameters, $this->requestAdapter);

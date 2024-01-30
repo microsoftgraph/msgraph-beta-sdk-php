@@ -93,7 +93,7 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the offerAsOptional property value. The offerAsOptional property
+     * Gets the offerAsOptional property value. Specifies whether the update is offered as Optional rather than Required.
      * @return bool|null
     */
     public function getOfferAsOptional(): ?bool {
@@ -148,7 +148,7 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the offerAsOptional property value. The offerAsOptional property
+     * Sets the offerAsOptional property value. Specifies whether the update is offered as Optional rather than Required.
      * @param bool|null $value Value to set for the offerAsOptional property.
     */
     public function setOfferAsOptional(?bool $value): void {

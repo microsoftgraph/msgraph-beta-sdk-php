@@ -52,7 +52,7 @@ class RecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get records from security
+     * An individual audit log record.
      * @param RecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditLogRecordCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class RecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get records from security
+     * An individual audit log record.
      * @param RecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

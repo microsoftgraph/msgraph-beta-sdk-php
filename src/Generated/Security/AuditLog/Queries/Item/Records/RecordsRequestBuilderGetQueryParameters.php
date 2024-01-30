@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AuditLog\Queries\Item\Records;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get records from security
+ * An individual audit log record.
 */
 class RecordsRequestBuilderGetQueryParameters 
 {
