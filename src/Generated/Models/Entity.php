@@ -148,7 +148,6 @@ use Microsoft\Graph\Beta\Generated\Models\Search\Acronym;
 use Microsoft\Graph\Beta\Generated\Models\Search\Bookmark;
 use Microsoft\Graph\Beta\Generated\Models\Search\Qna;
 use Microsoft\Graph\Beta\Generated\Models\Search\SearchAnswer;
-use Microsoft\Graph\Beta\Generated\Models\Security\Alert;
 use Microsoft\Graph\Beta\Generated\Models\Security\AnalyzedEmail;
 use Microsoft\Graph\Beta\Generated\Models\Security\Article;
 use Microsoft\Graph\Beta\Generated\Models\Security\ArticleIndicator;
@@ -343,7 +342,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.agreementFileLocalization': return new AgreementFileLocalization();
                 case '#microsoft.graph.agreementFileProperties': return new AgreementFileProperties();
                 case '#microsoft.graph.agreementFileVersion': return new AgreementFileVersion();
-                case '#microsoft.graph.alert': return new Alert();
+                case '#microsoft.graph.alert': return new \Microsoft\Graph\Beta\Generated\Models\Alert();
                 case '#microsoft.graph.allowedDataLocation': return new AllowedDataLocation();
                 case '#microsoft.graph.allowedValue': return new AllowedValue();
                 case '#microsoft.graph.androidCertificateProfileBase': return new AndroidCertificateProfileBase();
@@ -1307,6 +1306,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.muteParticipantsOperation': return new MuteParticipantsOperation();
                 case '#microsoft.graph.namedLocation': return new NamedLocation();
                 case '#microsoft.graph.ndesConnector': return new NdesConnector();
+                case '#microsoft.graph.networkaccess.alert': return new \Microsoft\Graph\Beta\Generated\Models\Networkaccess\Alert();
                 case '#microsoft.graph.networkaccess.branchSite': return new BranchSite();
                 case '#microsoft.graph.networkaccess.conditionalAccessPolicy': return new ConditionalAccessPolicy();
                 case '#microsoft.graph.networkaccess.conditionalAccessSettings': return new ConditionalAccessSettings();
@@ -1601,7 +1601,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.secureScore': return new SecureScore();
                 case '#microsoft.graph.secureScoreControlProfile': return new SecureScoreControlProfile();
                 case '#microsoft.graph.security': return new Security();
-                case '#microsoft.graph.security.alert': return new Alert();
+                case '#microsoft.graph.security.alert': return new \Microsoft\Graph\Beta\Generated\Models\Security\Alert();
                 case '#microsoft.graph.security.analyzedEmail': return new AnalyzedEmail();
                 case '#microsoft.graph.security.article': return new Article();
                 case '#microsoft.graph.security.articleIndicator': return new ArticleIndicator();
@@ -1790,6 +1790,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.team': return new Team();
                 case '#microsoft.graph.teamInfo': return new TeamInfo();
                 case '#microsoft.graph.teamsApp': return new TeamsApp();
+                case '#microsoft.graph.teamsAppDashboardCardDefinition': return new TeamsAppDashboardCardDefinition();
                 case '#microsoft.graph.teamsAppDefinition': return new TeamsAppDefinition();
                 case '#microsoft.graph.teamsAppIcon': return new TeamsAppIcon();
                 case '#microsoft.graph.teamsAppInstallation': return new TeamsAppInstallation();

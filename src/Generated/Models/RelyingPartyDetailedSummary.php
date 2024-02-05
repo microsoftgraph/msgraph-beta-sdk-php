@@ -92,7 +92,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the relyingPartyId property value. This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
+     * Gets the relyingPartyId property value. This identifier is used to identify the relying party to this Federation Service. It's used when issuing claims to the relying party.
      * @return string|null
     */
     public function getRelyingPartyId(): ?string {
@@ -104,7 +104,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the relyingPartyName property value. Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
+     * Gets the relyingPartyName property value. Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to sign in.
      * @return string|null
     */
     public function getRelyingPartyName(): ?string {
@@ -166,7 +166,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalSignInCount property value. Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
+     * Gets the totalSignInCount property value. Number of successful + failed sign ins on Active Directory Federation Service in the period specified.
      * @return int|null
     */
     public function getTotalSignInCount(): ?int {
@@ -233,7 +233,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the relyingPartyId property value. This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
+     * Sets the relyingPartyId property value. This identifier is used to identify the relying party to this Federation Service. It's used when issuing claims to the relying party.
      * @param string|null $value Value to set for the relyingPartyId property.
     */
     public function setRelyingPartyId(?string $value): void {
@@ -241,7 +241,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the relyingPartyName property value. Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
+     * Sets the relyingPartyName property value. Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to sign in.
      * @param string|null $value Value to set for the relyingPartyName property.
     */
     public function setRelyingPartyName(?string $value): void {
@@ -281,7 +281,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalSignInCount property value. Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
+     * Sets the totalSignInCount property value. Number of successful + failed sign ins on Active Directory Federation Service in the period specified.
      * @param int|null $value Value to set for the totalSignInCount property.
     */
     public function setTotalSignInCount(?int $value): void {

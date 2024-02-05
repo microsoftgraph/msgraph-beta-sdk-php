@@ -54,7 +54,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessPackageAssignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
+     * Gets the accessPackageAssignmentRequests property value. Represents access package assignment requests created by or on behalf of a user. DO NOT USE. TO BE RETIRED SOON. Use the assignmentRequests relationship instead.
      * @return array<AccessPackageAssignmentRequest>|null
     */
     public function getAccessPackageAssignmentRequests(): ?array {
@@ -180,6 +180,20 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the assignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
+     * @return array<AccessPackageAssignmentRequest>|null
+    */
+    public function getAssignmentRequests(): ?array {
+        $val = $this->getBackingStore()->get('assignmentRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessPackageAssignmentRequest::class);
+            /** @var array<AccessPackageAssignmentRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentRequests'");
+    }
+
+    /**
      * Gets the connectedOrganizations property value. Represents references to a directory or domain of another organization whose users can request access.
      * @return array<ConnectedOrganization>|null
     */
@@ -211,6 +225,7 @@ class EntitlementManagement extends Entity implements Parsable
             'accessPackageResourceRoleScopes' => fn(ParseNode $n) => $o->setAccessPackageResourceRoleScopes($n->getCollectionOfObjectValues([AccessPackageResourceRoleScope::class, 'createFromDiscriminatorValue'])),
             'accessPackageResources' => fn(ParseNode $n) => $o->setAccessPackageResources($n->getCollectionOfObjectValues([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
             'accessPackages' => fn(ParseNode $n) => $o->setAccessPackages($n->getCollectionOfObjectValues([AccessPackage::class, 'createFromDiscriminatorValue'])),
+            'assignmentRequests' => fn(ParseNode $n) => $o->setAssignmentRequests($n->getCollectionOfObjectValues([AccessPackageAssignmentRequest::class, 'createFromDiscriminatorValue'])),
             'connectedOrganizations' => fn(ParseNode $n) => $o->setConnectedOrganizations($n->getCollectionOfObjectValues([ConnectedOrganization::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([EntitlementManagementSettings::class, 'createFromDiscriminatorValue'])),
             'subjects' => fn(ParseNode $n) => $o->setSubjects($n->getCollectionOfObjectValues([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
@@ -260,6 +275,7 @@ class EntitlementManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('accessPackageResourceRoleScopes', $this->getAccessPackageResourceRoleScopes());
         $writer->writeCollectionOfObjectValues('accessPackageResources', $this->getAccessPackageResources());
         $writer->writeCollectionOfObjectValues('accessPackages', $this->getAccessPackages());
+        $writer->writeCollectionOfObjectValues('assignmentRequests', $this->getAssignmentRequests());
         $writer->writeCollectionOfObjectValues('connectedOrganizations', $this->getConnectedOrganizations());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeCollectionOfObjectValues('subjects', $this->getSubjects());
@@ -282,7 +298,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessPackageAssignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
+     * Sets the accessPackageAssignmentRequests property value. Represents access package assignment requests created by or on behalf of a user. DO NOT USE. TO BE RETIRED SOON. Use the assignmentRequests relationship instead.
      * @param array<AccessPackageAssignmentRequest>|null $value Value to set for the accessPackageAssignmentRequests property.
     */
     public function setAccessPackageAssignmentRequests(?array $value): void {
@@ -351,6 +367,14 @@ class EntitlementManagement extends Entity implements Parsable
     */
     public function setAccessPackages(?array $value): void {
         $this->getBackingStore()->set('accessPackages', $value);
+    }
+
+    /**
+     * Sets the assignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
+     * @param array<AccessPackageAssignmentRequest>|null $value Value to set for the assignmentRequests property.
+    */
+    public function setAssignmentRequests(?array $value): void {
+        $this->getBackingStore()->set('assignmentRequests', $value);
     }
 
     /**

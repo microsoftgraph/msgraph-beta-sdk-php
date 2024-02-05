@@ -46,7 +46,7 @@ class AuditLogRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get records from security
+     * An individual audit log record.
      * @param AuditLogRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditLogRecord|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class AuditLogRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get records from security
+     * An individual audit log record.
      * @param AuditLogRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
