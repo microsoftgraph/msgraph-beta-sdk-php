@@ -113,13 +113,29 @@ class ManagementTemplateStep extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'informationLinks' => fn(ParseNode $n) => $o->setInformationLinks($n->getCollectionOfObjectValues([ActionUrl::class, 'createFromDiscriminatorValue'])),
             'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
             'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
             'managementTemplate' => fn(ParseNode $n) => $o->setManagementTemplate($n->getObjectValue([ManagementTemplate::class, 'createFromDiscriminatorValue'])),
             'portalLink' => fn(ParseNode $n) => $o->setPortalLink($n->getObjectValue([ActionUrl::class, 'createFromDiscriminatorValue'])),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'userImpact' => fn(ParseNode $n) => $o->setUserImpact($n->getStringValue()),
             'versions' => fn(ParseNode $n) => $o->setVersions($n->getCollectionOfObjectValues([ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the informationLinks property value. The informationLinks property
+     * @return array<ActionUrl>|null
+    */
+    public function getInformationLinks(): ?array {
+        $val = $this->getBackingStore()->get('informationLinks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ActionUrl::class);
+            /** @var array<ActionUrl>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'informationLinks'");
     }
 
     /**
@@ -183,6 +199,18 @@ class ManagementTemplateStep extends Entity implements Parsable
     }
 
     /**
+     * Gets the userImpact property value. The userImpact property
+     * @return string|null
+    */
+    public function getUserImpact(): ?string {
+        $val = $this->getBackingStore()->get('userImpact');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userImpact'");
+    }
+
+    /**
      * Gets the versions property value. The versions property
      * @return array<ManagementTemplateStepVersion>|null
     */
@@ -208,11 +236,13 @@ class ManagementTemplateStep extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('informationLinks', $this->getInformationLinks());
         $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
         $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
         $writer->writeObjectValue('managementTemplate', $this->getManagementTemplate());
         $writer->writeObjectValue('portalLink', $this->getPortalLink());
         $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeStringValue('userImpact', $this->getUserImpact());
         $writer->writeCollectionOfObjectValues('versions', $this->getVersions());
     }
 
@@ -265,6 +295,14 @@ class ManagementTemplateStep extends Entity implements Parsable
     }
 
     /**
+     * Sets the informationLinks property value. The informationLinks property
+     * @param array<ActionUrl>|null $value Value to set for the informationLinks property.
+    */
+    public function setInformationLinks(?array $value): void {
+        $this->getBackingStore()->set('informationLinks', $value);
+    }
+
+    /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      * @param string|null $value Value to set for the lastActionByUserId property.
     */
@@ -302,6 +340,14 @@ class ManagementTemplateStep extends Entity implements Parsable
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
+    }
+
+    /**
+     * Sets the userImpact property value. The userImpact property
+     * @param string|null $value Value to set for the userImpact property.
+    */
+    public function setUserImpact(?string $value): void {
+        $this->getBackingStore()->set('userImpact', $value);
     }
 
     /**

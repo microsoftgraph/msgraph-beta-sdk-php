@@ -26,6 +26,12 @@ class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirect
     public ?string $directoryScopeType = null;
     
     /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
+    
+    /**
      * @QueryParameter("%24filter")
      * @var string|null $filter Filter items by property values
     */
@@ -71,6 +77,7 @@ class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirect
      * @param bool|null $count Include count of items
      * @param string|null $directoryScopeId Usage: directoryScopeId='@directoryScopeId'
      * @param string|null $directoryScopeType Usage: directoryScopeType='@directoryScopeType'
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -79,10 +86,11 @@ class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirect
      * @param int|null $top Show only the first n items
      * @param bool|null $transitive Usage: transitive=@transitive
     */
-    public function __construct(?bool $count = null, ?string $directoryScopeId = null, ?string $directoryScopeType = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null, ?bool $transitive = null) {
+    public function __construct(?bool $count = null, ?string $directoryScopeId = null, ?string $directoryScopeType = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null, ?bool $transitive = null) {
         $this->count = $count;
         $this->directoryScopeId = $directoryScopeId;
         $this->directoryScopeType = $directoryScopeType;
+        $this->expand = $expand;
         $this->filter = $filter;
         $this->orderby = $orderby;
         $this->search = $search;

@@ -6,7 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEvent;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Cancel\CancelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Presenters\PresentersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -20,10 +22,24 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class VirtualEventItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to call the cancel method.
+    */
+    public function cancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
     */
     public function presenters(): PresentersRequestBuilder {
         return new PresentersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the publish method.
+    */
+    public function publish(): PublishRequestBuilder {
+        return new PublishRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -39,7 +55,7 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

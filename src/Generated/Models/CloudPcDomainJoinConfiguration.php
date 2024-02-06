@@ -56,7 +56,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the domainJoinType property value. The domainJoinType property
+     * Gets the domainJoinType property value. Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave the regionName property empty. If you choose the azureADJoin type, provide a value for either the onPremisesConnectionId or the regionName property. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @return CloudPcDomainJoinType|null
     */
     public function getDomainJoinType(): ?CloudPcDomainJoinType {
@@ -132,7 +132,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the type property value. Specifies how the provisioned Cloud PC will be joined to Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave regionName as empty. If you choose the azureADJoin type, provide a value for either onPremisesConnectionId or regionName. The possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Gets the type property value. The type property
      * @return CloudPcDomainJoinType|null
     */
     public function getType(): ?CloudPcDomainJoinType {
@@ -174,7 +174,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the domainJoinType property value. The domainJoinType property
+     * Sets the domainJoinType property value. Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave the regionName property empty. If you choose the azureADJoin type, provide a value for either the onPremisesConnectionId or the regionName property. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @param CloudPcDomainJoinType|null $value Value to set for the domainJoinType property.
     */
     public function setDomainJoinType(?CloudPcDomainJoinType $value): void {
@@ -214,7 +214,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the type property value. Specifies how the provisioned Cloud PC will be joined to Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave regionName as empty. If you choose the azureADJoin type, provide a value for either onPremisesConnectionId or regionName. The possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Sets the type property value. The type property
      * @param CloudPcDomainJoinType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcDomainJoinType $value): void {

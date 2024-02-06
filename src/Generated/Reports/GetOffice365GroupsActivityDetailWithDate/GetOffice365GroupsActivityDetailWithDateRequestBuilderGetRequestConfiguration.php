@@ -29,6 +29,7 @@ class GetOffice365GroupsActivityDetailWithDateRequestBuilderGetRequestConfigurat
     /**
      * Instantiates a new getOffice365GroupsActivityDetailWithDateRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -37,8 +38,8 @@ class GetOffice365GroupsActivityDetailWithDateRequestBuilderGetRequestConfigurat
      * @param int|null $top Show only the first n items
      * @return GetOffice365GroupsActivityDetailWithDateRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365GroupsActivityDetailWithDateRequestBuilderGetQueryParameters {
-        return new GetOffice365GroupsActivityDetailWithDateRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365GroupsActivityDetailWithDateRequestBuilderGetQueryParameters {
+        return new GetOffice365GroupsActivityDetailWithDateRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
     }
 
 }

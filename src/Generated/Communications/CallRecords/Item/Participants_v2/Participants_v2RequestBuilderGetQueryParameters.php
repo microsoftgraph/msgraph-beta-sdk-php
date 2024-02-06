@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item\Partici
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of participants associated with a callRecord.
+ * Get the list of participant objects associated with a callRecord.
 */
 class Participants_v2RequestBuilderGetQueryParameters 
 {

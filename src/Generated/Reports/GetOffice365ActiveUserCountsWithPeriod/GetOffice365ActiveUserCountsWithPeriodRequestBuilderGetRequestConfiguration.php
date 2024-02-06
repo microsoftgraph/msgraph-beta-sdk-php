@@ -29,6 +29,7 @@ class GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetRequestConfiguratio
     /**
      * Instantiates a new getOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -37,8 +38,8 @@ class GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetRequestConfiguratio
      * @param int|null $top Show only the first n items
      * @return GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters {
-        return new GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters {
+        return new GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
     }
 
 }

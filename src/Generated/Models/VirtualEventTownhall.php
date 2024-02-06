@@ -14,6 +14,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.virtualEventTownhall');
     }
 
     /**

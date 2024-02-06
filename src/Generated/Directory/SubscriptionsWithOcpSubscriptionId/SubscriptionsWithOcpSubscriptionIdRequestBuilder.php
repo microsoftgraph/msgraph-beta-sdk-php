@@ -23,7 +23,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
      * @param string|null $ocpSubscriptionId Alternate key of companySubscription
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $ocpSubscriptionId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['ocpSubscriptionId'] = $ocpSubscriptionId;

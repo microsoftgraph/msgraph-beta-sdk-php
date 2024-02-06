@@ -22,7 +22,7 @@ class FindByMethodModeWithAuthenticationMethodModesRequestBuilder extends BaseRe
      * @param string|null $authenticationMethodModes Usage: authenticationMethodModes={authenticationMethodModes}
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $authenticationMethodModes = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/authenticationStrengthPolicies/findByMethodMode(authenticationMethodModes={authenticationMethodModes}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/authenticationStrengthPolicies/findByMethodMode(authenticationMethodModes={authenticationMethodModes}){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['authenticationMethodModes'] = $authenticationMethodModes;

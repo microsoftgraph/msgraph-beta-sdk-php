@@ -57,7 +57,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the errorCode property value. The errorCode property
+     * Gets the errorCode property value. Error code of the most recent run that encountered an error. The possible values are: queryExecutionFailed, queryExecutionThrottling, queryExceededResultSize, queryLimitsExceeded, queryTimeout, alertCreationFailed, alertReportNotFound, partialRowsFailed, unknownFutureValue.
      * @return HuntingRuleErrorCode|null
     */
     public function getErrorCode(): ?HuntingRuleErrorCode {
@@ -69,7 +69,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the failureReason property value. The failureReason property
+     * Gets the failureReason property value. Reason for failure when the custom detection last ran and failed. See the table below.
      * @return string|null
     */
     public function getFailureReason(): ?string {
@@ -96,7 +96,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastRunDateTime property value. The lastRunDateTime property
+     * Gets the lastRunDateTime property value. Timestamp when the custom detection was last run.
      * @return DateTime|null
     */
     public function getLastRunDateTime(): ?DateTime {
@@ -120,7 +120,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Status of custom detection when it was last run. The possible values are: running, completed, failed, partiallyFailed, unknownFutureValue.
      * @return HuntingRuleRunStatus|null
     */
     public function getStatus(): ?HuntingRuleRunStatus {
@@ -161,7 +161,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the errorCode property value. The errorCode property
+     * Sets the errorCode property value. Error code of the most recent run that encountered an error. The possible values are: queryExecutionFailed, queryExecutionThrottling, queryExceededResultSize, queryLimitsExceeded, queryTimeout, alertCreationFailed, alertReportNotFound, partialRowsFailed, unknownFutureValue.
      * @param HuntingRuleErrorCode|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?HuntingRuleErrorCode $value): void {
@@ -169,7 +169,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the failureReason property value. The failureReason property
+     * Sets the failureReason property value. Reason for failure when the custom detection last ran and failed. See the table below.
      * @param string|null $value Value to set for the failureReason property.
     */
     public function setFailureReason(?string $value): void {
@@ -177,7 +177,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastRunDateTime property value. The lastRunDateTime property
+     * Sets the lastRunDateTime property value. Timestamp when the custom detection was last run.
      * @param DateTime|null $value Value to set for the lastRunDateTime property.
     */
     public function setLastRunDateTime(?DateTime $value): void {
@@ -193,7 +193,7 @@ class RunDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Status of custom detection when it was last run. The possible values are: running, completed, failed, partiallyFailed, unknownFutureValue.
      * @param HuntingRuleRunStatus|null $value Value to set for the status property.
     */
     public function setStatus(?HuntingRuleRunStatus $value): void {

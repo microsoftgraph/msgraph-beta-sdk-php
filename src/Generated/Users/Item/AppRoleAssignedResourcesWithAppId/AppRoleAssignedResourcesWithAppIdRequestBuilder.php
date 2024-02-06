@@ -23,7 +23,7 @@ class AppRoleAssignedResourcesWithAppIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $appId Alternate key of servicePrincipal
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $appId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/appRoleAssignedResources(appId=\'{appId}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/appRoleAssignedResources(appId=\'{appId}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['appId'] = $appId;

@@ -89,7 +89,7 @@ class OrganizationalScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the scopeNames property value. The scopeNames property
+     * Gets the scopeNames property value. List of groups to which the custom detection rule applies.
      * @return array<string>|null
     */
     public function getScopeNames(): ?array {
@@ -150,7 +150,7 @@ class OrganizationalScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the scopeNames property value. The scopeNames property
+     * Sets the scopeNames property value. List of groups to which the custom detection rule applies.
      * @param array<string>|null $value Value to set for the scopeNames property.
     */
     public function setScopeNames(?array $value): void {

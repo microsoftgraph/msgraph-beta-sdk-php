@@ -31,6 +31,7 @@ class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirect
      * @param bool|null $count Include count of items
      * @param string|null $directoryScopeId Usage: directoryScopeId='@directoryScopeId'
      * @param string|null $directoryScopeType Usage: directoryScopeType='@directoryScopeType'
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -40,8 +41,8 @@ class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirect
      * @param bool|null $transitive Usage: transitive=@transitive
      * @return AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $directoryScopeId = null, ?string $directoryScopeType = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null, ?bool $transitive = null): AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilderGetQueryParameters {
-        return new AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilderGetQueryParameters($count, $directoryScopeId, $directoryScopeType, $filter, $orderby, $search, $select, $skip, $top, $transitive);
+    public static function createQueryParameters(?bool $count = null, ?string $directoryScopeId = null, ?string $directoryScopeType = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null, ?bool $transitive = null): AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilderGetQueryParameters {
+        return new AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilderGetQueryParameters($count, $directoryScopeId, $directoryScopeType, $expand, $filter, $orderby, $search, $select, $skip, $top, $transitive);
     }
 
 }

@@ -47,7 +47,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
      * @param string|null $joinWebUrl Alternate key of onlineMeeting
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $joinWebUrl = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/app/onlineMeetings(joinWebUrl=\'{joinWebUrl}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/app/onlineMeetings(joinWebUrl=\'{joinWebUrl}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['joinWebUrl'] = $joinWebUrl;

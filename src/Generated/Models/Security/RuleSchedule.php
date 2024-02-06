@@ -70,7 +70,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the nextRunDateTime property value. The nextRunDateTime property
+     * Gets the nextRunDateTime property value. Timestamp of the custom detection rule's next scheduled run.
      * @return DateTime|null
     */
     public function getNextRunDateTime(): ?DateTime {
@@ -94,7 +94,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the period property value. The period property
+     * Gets the period property value. How often the detection rule is set to run. The allowed values are: 0, 1H, 3H, 12H, or 24H. '0' signifies the rule is run continuously.
      * @return string|null
     */
     public function getPeriod(): ?string {
@@ -133,7 +133,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the nextRunDateTime property value. The nextRunDateTime property
+     * Sets the nextRunDateTime property value. Timestamp of the custom detection rule's next scheduled run.
      * @param DateTime|null $value Value to set for the nextRunDateTime property.
     */
     public function setNextRunDateTime(?DateTime $value): void {
@@ -149,7 +149,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the period property value. The period property
+     * Sets the period property value. How often the detection rule is set to run. The allowed values are: 0, 1H, 3H, 12H, or 24H. '0' signifies the rule is run continuously.
      * @param string|null $value Value to set for the period property.
     */
     public function setPeriod(?string $value): void {

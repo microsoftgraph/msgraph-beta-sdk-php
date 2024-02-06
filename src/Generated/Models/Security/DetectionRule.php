@@ -26,7 +26,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the detectionAction property value. The detectionAction property
+     * Gets the detectionAction property value. Complex type representing the actions taken when a detection is made by this rule.
      * @return DetectionAction|null
     */
     public function getDetectionAction(): ?DetectionAction {
@@ -38,7 +38,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the detectorId property value. The detectorId property
+     * Gets the detectorId property value. The ID of the detector that triggered the alert. Also see the 'detectorId' field in microsoft.graph.security.alert.
      * @return string|null
     */
     public function getDetectorId(): ?string {
@@ -65,7 +65,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the lastRunDetails property value. The lastRunDetails property
+     * Gets the lastRunDetails property value. Complex type holding details about the last run of this rule.
      * @return RunDetails|null
     */
     public function getLastRunDetails(): ?RunDetails {
@@ -77,7 +77,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the queryCondition property value. The queryCondition property
+     * Gets the queryCondition property value. Complex type holding data about the advanced hunting query of this rule.
      * @return QueryCondition|null
     */
     public function getQueryCondition(): ?QueryCondition {
@@ -89,7 +89,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the schedule property value. The schedule property
+     * Gets the schedule property value. Complex type holding data about the triggering schedule of this rule.
      * @return RuleSchedule|null
     */
     public function getSchedule(): ?RuleSchedule {
@@ -114,7 +114,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the detectionAction property value. The detectionAction property
+     * Sets the detectionAction property value. Complex type representing the actions taken when a detection is made by this rule.
      * @param DetectionAction|null $value Value to set for the detectionAction property.
     */
     public function setDetectionAction(?DetectionAction $value): void {
@@ -122,7 +122,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the detectorId property value. The detectorId property
+     * Sets the detectorId property value. The ID of the detector that triggered the alert. Also see the 'detectorId' field in microsoft.graph.security.alert.
      * @param string|null $value Value to set for the detectorId property.
     */
     public function setDetectorId(?string $value): void {
@@ -130,7 +130,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the lastRunDetails property value. The lastRunDetails property
+     * Sets the lastRunDetails property value. Complex type holding details about the last run of this rule.
      * @param RunDetails|null $value Value to set for the lastRunDetails property.
     */
     public function setLastRunDetails(?RunDetails $value): void {
@@ -138,7 +138,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the queryCondition property value. The queryCondition property
+     * Sets the queryCondition property value. Complex type holding data about the advanced hunting query of this rule.
      * @param QueryCondition|null $value Value to set for the queryCondition property.
     */
     public function setQueryCondition(?QueryCondition $value): void {
@@ -146,7 +146,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the schedule property value. The schedule property
+     * Sets the schedule property value. Complex type holding data about the triggering schedule of this rule.
      * @param RuleSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RuleSchedule $value): void {

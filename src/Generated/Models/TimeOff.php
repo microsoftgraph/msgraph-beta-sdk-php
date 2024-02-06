@@ -47,7 +47,9 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
             'draftTimeOff' => fn(ParseNode $n) => $o->setDraftTimeOff($n->getObjectValue([TimeOffItem::class, 'createFromDiscriminatorValue'])),
             'isStagedForDeletion' => fn(ParseNode $n) => $o->setIsStagedForDeletion($n->getBooleanValue()),
             'sharedTimeOff' => fn(ParseNode $n) => $o->setSharedTimeOff($n->getObjectValue([TimeOffItem::class, 'createFromDiscriminatorValue'])),
+            'teamInfo' => fn(ParseNode $n) => $o->setTeamInfo($n->getObjectValue([ShiftsTeamInfo::class, 'createFromDiscriminatorValue'])),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userInfo' => fn(ParseNode $n) => $o->setUserInfo($n->getObjectValue([ShiftsUserInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -76,6 +78,18 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
+     * Gets the teamInfo property value. The teamInfo property
+     * @return ShiftsTeamInfo|null
+    */
+    public function getTeamInfo(): ?ShiftsTeamInfo {
+        $val = $this->getBackingStore()->get('teamInfo');
+        if (is_null($val) || $val instanceof ShiftsTeamInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamInfo'");
+    }
+
+    /**
      * Gets the userId property value. ID of the user assigned to the timeOff. Required.
      * @return string|null
     */
@@ -85,6 +99,18 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
+    }
+
+    /**
+     * Gets the userInfo property value. The userInfo property
+     * @return ShiftsUserInfo|null
+    */
+    public function getUserInfo(): ?ShiftsUserInfo {
+        $val = $this->getBackingStore()->get('userInfo');
+        if (is_null($val) || $val instanceof ShiftsUserInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userInfo'");
     }
 
     /**
@@ -124,11 +150,27 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
+     * Sets the teamInfo property value. The teamInfo property
+     * @param ShiftsTeamInfo|null $value Value to set for the teamInfo property.
+    */
+    public function setTeamInfo(?ShiftsTeamInfo $value): void {
+        $this->getBackingStore()->set('teamInfo', $value);
+    }
+
+    /**
      * Sets the userId property value. ID of the user assigned to the timeOff. Required.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
+    }
+
+    /**
+     * Sets the userInfo property value. The userInfo property
+     * @param ShiftsUserInfo|null $value Value to set for the userInfo property.
+    */
+    public function setUserInfo(?ShiftsUserInfo $value): void {
+        $this->getBackingStore()->set('userInfo', $value);
     }
 
 }
