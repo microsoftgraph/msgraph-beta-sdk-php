@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TeamTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamTemplate and sets the default values.
+     * Instantiates a new TeamTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

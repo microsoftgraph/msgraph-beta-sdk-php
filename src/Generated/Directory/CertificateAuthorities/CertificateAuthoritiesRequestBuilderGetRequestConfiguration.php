@@ -16,7 +16,7 @@ class CertificateAuthoritiesRequestBuilderGetRequestConfiguration extends BaseRe
     public ?CertificateAuthoritiesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new certificateAuthoritiesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CertificateAuthoritiesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CertificateAuthoritiesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CertificateAuthoritiesRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new certificateAuthoritiesRequestBuilderGetQueryParameters.
+     * Instantiates a new CertificateAuthoritiesRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return CertificateAuthoritiesRequestBuilderGetQueryParameters

@@ -42,4 +42,5 @@ class RemoteAction extends Enum {
     public const REMOVE_DEVICE_FIRMWARE_CONFIGURATION_INTERFACE_MANAGEMENT = 'removeDeviceFirmwareConfigurationInterfaceManagement';
     public const PAUSE_CONFIGURATION_REFRESH = 'pauseConfigurationRefresh';
     public const INITIATE_DEVICE_ATTESTATION = 'initiateDeviceAttestation';
+    public const CHANGE_ASSIGNMENTS = 'changeAssignments';
 }

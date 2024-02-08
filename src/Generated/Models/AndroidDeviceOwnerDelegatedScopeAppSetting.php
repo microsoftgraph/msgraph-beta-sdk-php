@@ -22,7 +22,7 @@ class AndroidDeviceOwnerDelegatedScopeAppSetting implements AdditionalDataHolder
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidDeviceOwnerDelegatedScopeAppSetting and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerDelegatedScopeAppSetting and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

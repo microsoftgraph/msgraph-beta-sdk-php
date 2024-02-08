@@ -14,7 +14,7 @@ use Psr\Http\Message\StreamInterface;
 class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskMultipleApps and sets the default values.
+     * Instantiates a new WindowsKioskMultipleApps and sets the default values.
     */
     public function __construct() {
         parent::__construct();

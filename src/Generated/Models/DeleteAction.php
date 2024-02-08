@@ -18,7 +18,7 @@ class DeleteAction implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deleteAction and sets the default values.
+     * Instantiates a new DeleteAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

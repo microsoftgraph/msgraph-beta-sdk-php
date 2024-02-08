@@ -16,7 +16,7 @@ class ColorIconRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     public ?ColorIconRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new colorIconRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ColorIconRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ColorIconRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ColorIconRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     }
 
     /**
-     * Instantiates a new colorIconRequestBuilderGetQueryParameters.
+     * Instantiates a new ColorIconRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ColorIconRequestBuilderGetQueryParameters

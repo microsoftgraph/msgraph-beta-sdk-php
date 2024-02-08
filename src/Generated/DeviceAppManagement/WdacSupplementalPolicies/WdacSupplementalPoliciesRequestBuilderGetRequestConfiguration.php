@@ -16,7 +16,7 @@ class WdacSupplementalPoliciesRequestBuilderGetRequestConfiguration extends Base
     public ?WdacSupplementalPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new wdacSupplementalPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WdacSupplementalPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WdacSupplementalPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WdacSupplementalPoliciesRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new wdacSupplementalPoliciesRequestBuilderGetQueryParameters.
+     * Instantiates a new WdacSupplementalPoliciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class FilePlanReferenceTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new filePlanReferenceTemplateCollectionResponse and sets the default values.
+     * Instantiates a new FilePlanReferenceTemplateCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

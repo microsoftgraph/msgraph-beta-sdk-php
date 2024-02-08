@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Custodian extends DataSourceContainer implements Parsable 
 {
     /**
-     * Instantiates a new custodian and sets the default values.
+     * Instantiates a new Custodian and sets the default values.
     */
     public function __construct() {
         parent::__construct();

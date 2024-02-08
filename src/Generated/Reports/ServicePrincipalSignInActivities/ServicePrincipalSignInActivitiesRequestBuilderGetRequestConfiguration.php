@@ -16,7 +16,7 @@ class ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration exte
     public ?ServicePrincipalSignInActivitiesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new servicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ServicePrincipalSignInActivitiesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration exte
     }
 
     /**
-     * Instantiates a new servicePrincipalSignInActivitiesRequestBuilderGetQueryParameters.
+     * Instantiates a new ServicePrincipalSignInActivitiesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

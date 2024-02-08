@@ -16,7 +16,7 @@ class GraphAndroidManagedStoreAppRequestBuilderGetRequestConfiguration extends B
     public ?GraphAndroidManagedStoreAppRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new graphAndroidManagedStoreAppRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GraphAndroidManagedStoreAppRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GraphAndroidManagedStoreAppRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GraphAndroidManagedStoreAppRequestBuilderGetRequestConfiguration extends B
     }
 
     /**
-     * Instantiates a new graphAndroidManagedStoreAppRequestBuilderGetQueryParameters.
+     * Instantiates a new GraphAndroidManagedStoreAppRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return GraphAndroidManagedStoreAppRequestBuilderGetQueryParameters

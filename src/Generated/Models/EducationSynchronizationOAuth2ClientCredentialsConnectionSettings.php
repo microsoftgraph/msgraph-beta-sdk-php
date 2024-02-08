@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends EducationSynchronizationConnectionSettings implements Parsable 
 {
     /**
-     * Instantiates a new educationSynchronizationOAuth2ClientCredentialsConnectionSettings and sets the default values.
+     * Instantiates a new EducationSynchronizationOAuth2ClientCredentialsConnectionSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

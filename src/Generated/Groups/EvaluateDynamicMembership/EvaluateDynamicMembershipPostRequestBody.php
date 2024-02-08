@@ -18,7 +18,7 @@ class EvaluateDynamicMembershipPostRequestBody implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new evaluateDynamicMembershipPostRequestBody and sets the default values.
+     * Instantiates a new EvaluateDynamicMembershipPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

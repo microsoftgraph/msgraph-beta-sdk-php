@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BlockAccessAction extends DlpActionInfo implements Parsable 
 {
     /**
-     * Instantiates a new blockAccessAction and sets the default values.
+     * Instantiates a new BlockAccessAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

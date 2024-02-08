@@ -16,7 +16,7 @@ class CountriesRegionsRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?CountriesRegionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new countriesRegionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CountriesRegionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CountriesRegionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CountriesRegionsRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new countriesRegionsRequestBuilderGetQueryParameters.
+     * Instantiates a new CountriesRegionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

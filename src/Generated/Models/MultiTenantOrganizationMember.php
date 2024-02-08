@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MultiTenantOrganizationMember extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new multiTenantOrganizationMember and sets the default values.
+     * Instantiates a new MultiTenantOrganizationMember and sets the default values.
     */
     public function __construct() {
         parent::__construct();

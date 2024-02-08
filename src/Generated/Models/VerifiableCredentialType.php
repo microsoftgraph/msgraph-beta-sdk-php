@@ -19,7 +19,7 @@ class VerifiableCredentialType implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new verifiableCredentialType and sets the default values.
+     * Instantiates a new VerifiableCredentialType and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

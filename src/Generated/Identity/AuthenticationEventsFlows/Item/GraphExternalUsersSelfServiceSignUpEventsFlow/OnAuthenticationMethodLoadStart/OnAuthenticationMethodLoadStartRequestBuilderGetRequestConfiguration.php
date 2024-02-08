@@ -16,7 +16,7 @@ class OnAuthenticationMethodLoadStartRequestBuilderGetRequestConfiguration exten
     public ?OnAuthenticationMethodLoadStartRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new onAuthenticationMethodLoadStartRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new OnAuthenticationMethodLoadStartRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param OnAuthenticationMethodLoadStartRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class OnAuthenticationMethodLoadStartRequestBuilderGetRequestConfiguration exten
     }
 
     /**
-     * Instantiates a new onAuthenticationMethodLoadStartRequestBuilderGetQueryParameters.
+     * Instantiates a new OnAuthenticationMethodLoadStartRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return OnAuthenticationMethodLoadStartRequestBuilderGetQueryParameters

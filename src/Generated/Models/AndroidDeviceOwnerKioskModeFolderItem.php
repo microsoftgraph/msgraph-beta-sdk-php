@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeHomeScreenItem implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerKioskModeFolderItem and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerKioskModeFolderItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

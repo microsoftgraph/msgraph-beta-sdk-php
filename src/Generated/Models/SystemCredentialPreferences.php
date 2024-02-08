@@ -19,7 +19,7 @@ class SystemCredentialPreferences implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new systemCredentialPreferences and sets the default values.
+     * Instantiates a new SystemCredentialPreferences and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

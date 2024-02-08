@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule implements Parsable 
 {
     /**
-     * Instantiates a new deviceHealthScriptTimeSchedule and sets the default values.
+     * Instantiates a new DeviceHealthScriptTimeSchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

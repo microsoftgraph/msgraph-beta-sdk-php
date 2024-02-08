@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CountryRegionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new countryRegionCollectionResponse and sets the default values.
+     * Instantiates a new CountryRegionCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

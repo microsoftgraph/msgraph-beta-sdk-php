@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationChoiceSettingInstanceTemplate and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationChoiceSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

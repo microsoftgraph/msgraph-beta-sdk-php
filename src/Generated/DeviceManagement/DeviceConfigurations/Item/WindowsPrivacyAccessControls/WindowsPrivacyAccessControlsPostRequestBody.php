@@ -20,7 +20,7 @@ class WindowsPrivacyAccessControlsPostRequestBody implements AdditionalDataHolde
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windowsPrivacyAccessControlsPostRequestBody and sets the default values.
+     * Instantiates a new WindowsPrivacyAccessControlsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

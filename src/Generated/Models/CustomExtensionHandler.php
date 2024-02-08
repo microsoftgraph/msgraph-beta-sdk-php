@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomExtensionHandler extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new customExtensionHandler and sets the default values.
+     * Instantiates a new CustomExtensionHandler and sets the default values.
     */
     public function __construct() {
         parent::__construct();

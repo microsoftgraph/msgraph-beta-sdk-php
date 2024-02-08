@@ -18,7 +18,7 @@ class PrintSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new printSettings and sets the default values.
+     * Instantiates a new PrintSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -56,7 +56,7 @@ class PrintSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the documentConversionEnabled property value. Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.
+     * Gets the documentConversionEnabled property value. Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service converts documents into a format compatible with the printer (xps to pdf) when needed.
      * @return bool|null
     */
     public function getDocumentConversionEnabled(): ?bool {
@@ -93,7 +93,7 @@ class PrintSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the printerDiscoverySettings property value. The printerDiscoverySettings property
+     * Gets the printerDiscoverySettings property value. Specifies settings that affect printer discovery when using Universal Print.
      * @return PrinterDiscoverySettings|null
     */
     public function getPrinterDiscoverySettings(): ?PrinterDiscoverySettings {
@@ -132,7 +132,7 @@ class PrintSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the documentConversionEnabled property value. Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.
+     * Sets the documentConversionEnabled property value. Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service converts documents into a format compatible with the printer (xps to pdf) when needed.
      * @param bool|null $value Value to set for the documentConversionEnabled property.
     */
     public function setDocumentConversionEnabled(?bool $value): void {
@@ -148,7 +148,7 @@ class PrintSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the printerDiscoverySettings property value. The printerDiscoverySettings property
+     * Sets the printerDiscoverySettings property value. Specifies settings that affect printer discovery when using Universal Print.
      * @param PrinterDiscoverySettings|null $value Value to set for the printerDiscoverySettings property.
     */
     public function setPrinterDiscoverySettings(?PrinterDiscoverySettings $value): void {

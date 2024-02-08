@@ -18,7 +18,7 @@ class EnablePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new enablePostRequestBody and sets the default values.
+     * Instantiates a new EnablePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

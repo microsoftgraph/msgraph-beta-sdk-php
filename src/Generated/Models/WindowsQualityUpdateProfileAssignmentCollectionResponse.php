@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsQualityUpdateProfileAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new windowsQualityUpdateProfileAssignmentCollectionResponse and sets the default values.
+     * Instantiates a new WindowsQualityUpdateProfileAssignmentCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

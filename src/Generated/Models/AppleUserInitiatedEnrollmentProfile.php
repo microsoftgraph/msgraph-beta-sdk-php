@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new appleUserInitiatedEnrollmentProfile and sets the default values.
+     * Instantiates a new AppleUserInitiatedEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

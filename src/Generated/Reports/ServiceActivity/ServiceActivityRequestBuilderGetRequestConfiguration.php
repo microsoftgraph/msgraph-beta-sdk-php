@@ -16,7 +16,7 @@ class ServiceActivityRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?ServiceActivityRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new serviceActivityRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ServiceActivityRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ServiceActivityRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ServiceActivityRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new serviceActivityRequestBuilderGetQueryParameters.
+     * Instantiates a new ServiceActivityRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ServiceActivityRequestBuilderGetQueryParameters

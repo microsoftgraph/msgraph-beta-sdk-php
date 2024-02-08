@@ -19,7 +19,7 @@ class CreateServerLogCollectionRequestPostRequestBody implements AdditionalDataH
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new createServerLogCollectionRequestPostRequestBody and sets the default values.
+     * Instantiates a new CreateServerLogCollectionRequestPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

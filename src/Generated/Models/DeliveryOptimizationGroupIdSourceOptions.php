@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroupIdSource implements Parsable 
 {
     /**
-     * Instantiates a new deliveryOptimizationGroupIdSourceOptions and sets the default values.
+     * Instantiates a new DeliveryOptimizationGroupIdSourceOptions and sets the default values.
     */
     public function __construct() {
         parent::__construct();

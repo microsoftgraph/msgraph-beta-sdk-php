@@ -19,7 +19,7 @@ class PostponePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new postponePostRequestBody and sets the default values.
+     * Instantiates a new PostponePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

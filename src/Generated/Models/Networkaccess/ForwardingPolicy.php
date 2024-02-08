@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ForwardingPolicy extends Policy implements Parsable 
 {
     /**
-     * Instantiates a new forwardingPolicy and sets the default values.
+     * Instantiates a new ForwardingPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContactMergeSuggestions extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new contactMergeSuggestions and sets the default values.
+     * Instantiates a new ContactMergeSuggestions and sets the default values.
     */
     public function __construct() {
         parent::__construct();

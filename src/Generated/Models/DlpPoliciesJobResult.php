@@ -20,7 +20,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new dlpPoliciesJobResult and sets the default values.
+     * Instantiates a new DlpPoliciesJobResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -16,7 +16,7 @@ class VendorsRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     public ?VendorsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new vendorsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new VendorsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param VendorsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class VendorsRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     }
 
     /**
-     * Instantiates a new vendorsRequestBuilderGetQueryParameters.
+     * Instantiates a new VendorsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

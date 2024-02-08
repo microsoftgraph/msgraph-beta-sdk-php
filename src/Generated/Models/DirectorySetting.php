@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DirectorySetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new directorySetting and sets the default values.
+     * Instantiates a new DirectorySetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();

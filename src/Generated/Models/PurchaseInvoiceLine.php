@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PurchaseInvoiceLine extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new purchaseInvoiceLine and sets the default values.
+     * Instantiates a new PurchaseInvoiceLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();

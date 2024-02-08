@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IntuneBrandingProfileCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new intuneBrandingProfileCollectionResponse and sets the default values.
+     * Instantiates a new IntuneBrandingProfileCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -21,7 +21,7 @@ class AssignmentFilterValidationResult implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new assignmentFilterValidationResult and sets the default values.
+     * Instantiates a new AssignmentFilterValidationResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

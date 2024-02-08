@@ -16,7 +16,7 @@ class OnAttributeCollectionRequestBuilderGetRequestConfiguration extends BaseReq
     public ?OnAttributeCollectionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new onAttributeCollectionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new OnAttributeCollectionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param OnAttributeCollectionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class OnAttributeCollectionRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new onAttributeCollectionRequestBuilderGetQueryParameters.
+     * Instantiates a new OnAttributeCollectionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return OnAttributeCollectionRequestBuilderGetQueryParameters

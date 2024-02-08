@@ -18,7 +18,7 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new migrateToTemplatePostRequestBody and sets the default values.
+     * Instantiates a new MigrateToTemplatePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

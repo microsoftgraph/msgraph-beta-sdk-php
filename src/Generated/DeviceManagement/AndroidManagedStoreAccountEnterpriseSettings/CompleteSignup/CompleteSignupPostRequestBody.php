@@ -18,7 +18,7 @@ class CompleteSignupPostRequestBody implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new completeSignupPostRequestBody and sets the default values.
+     * Instantiates a new CompleteSignupPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -21,7 +21,7 @@ class DeviceManagementConfigurationSettingValueTemplateReference implements Addi
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementConfigurationSettingValueTemplateReference and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationSettingValueTemplateReference and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

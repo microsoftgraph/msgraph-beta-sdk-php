@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementScriptGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementScriptGroupAssignment and sets the default values.
+     * Instantiates a new DeviceManagementScriptGroupAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

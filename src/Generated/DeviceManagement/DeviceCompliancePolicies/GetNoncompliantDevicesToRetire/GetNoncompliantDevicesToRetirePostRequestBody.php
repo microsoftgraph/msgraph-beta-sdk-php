@@ -19,7 +19,7 @@ class GetNoncompliantDevicesToRetirePostRequestBody implements AdditionalDataHol
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getNoncompliantDevicesToRetirePostRequestBody and sets the default values.
+     * Instantiates a new GetNoncompliantDevicesToRetirePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

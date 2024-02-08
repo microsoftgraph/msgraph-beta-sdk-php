@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IsolateDeviceResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new isolateDeviceResponseAction and sets the default values.
+     * Instantiates a new IsolateDeviceResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

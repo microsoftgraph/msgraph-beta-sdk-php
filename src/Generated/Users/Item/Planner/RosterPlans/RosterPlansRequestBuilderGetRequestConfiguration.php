@@ -16,7 +16,7 @@ class RosterPlansRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?RosterPlansRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new rosterPlansRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RosterPlansRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RosterPlansRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RosterPlansRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new rosterPlansRequestBuilderGetQueryParameters.
+     * Instantiates a new RosterPlansRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

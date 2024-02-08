@@ -18,7 +18,7 @@ class CloudPcWindowsSetting implements AdditionalDataHolder, BackedModel, Parsab
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcWindowsSetting and sets the default values.
+     * Instantiates a new CloudPcWindowsSetting and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -68,7 +68,7 @@ class CloudPcWindowsSetting implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the locale property value. The locale property
+     * Gets the locale property value. The Windows language or region tag to use for language pack configuration and localization of the Cloud PC. The default value is en-US, which corresponds to English (United States).
      * @return string|null
     */
     public function getLocale(): ?string {
@@ -118,7 +118,7 @@ class CloudPcWindowsSetting implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the locale property value. The locale property
+     * Sets the locale property value. The Windows language or region tag to use for language pack configuration and localization of the Cloud PC. The default value is en-US, which corresponds to English (United States).
      * @param string|null $value Value to set for the locale property.
     */
     public function setLocale(?string $value): void {

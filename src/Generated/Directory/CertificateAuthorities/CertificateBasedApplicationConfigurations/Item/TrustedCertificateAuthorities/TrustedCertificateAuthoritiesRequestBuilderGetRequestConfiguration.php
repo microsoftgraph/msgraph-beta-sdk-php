@@ -16,7 +16,7 @@ class TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration extends
     public ?TrustedCertificateAuthoritiesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new trustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TrustedCertificateAuthoritiesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new trustedCertificateAuthoritiesRequestBuilderGetQueryParameters.
+     * Instantiates a new TrustedCertificateAuthoritiesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

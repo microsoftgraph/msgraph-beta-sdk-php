@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MyRoleCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new myRoleCollectionResponse and sets the default values.
+     * Instantiates a new MyRoleCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

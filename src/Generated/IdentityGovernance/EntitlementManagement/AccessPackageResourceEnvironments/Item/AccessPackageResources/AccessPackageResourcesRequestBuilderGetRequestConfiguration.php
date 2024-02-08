@@ -16,7 +16,7 @@ class AccessPackageResourcesRequestBuilderGetRequestConfiguration extends BaseRe
     public ?AccessPackageResourcesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageResourcesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageResourcesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageResourcesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageResourcesRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new accessPackageResourcesRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageResourcesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

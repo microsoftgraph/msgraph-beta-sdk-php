@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationExchangeOnlineSettingApplicability extends DeviceManagementConfigurationSettingApplicability implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationExchangeOnlineSettingApplicability and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationExchangeOnlineSettingApplicability and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdgeHomeButtonOpensCustomURL extends EdgeHomeButtonConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new edgeHomeButtonOpensCustomURL and sets the default values.
+     * Instantiates a new EdgeHomeButtonOpensCustomURL and sets the default values.
     */
     public function __construct() {
         parent::__construct();

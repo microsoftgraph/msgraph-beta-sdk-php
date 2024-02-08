@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MoveToInboxResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new moveToInboxResponseAction and sets the default values.
+     * Instantiates a new MoveToInboxResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

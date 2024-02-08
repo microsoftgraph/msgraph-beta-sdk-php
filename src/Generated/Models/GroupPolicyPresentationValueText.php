@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyPresentationValueText and sets the default values.
+     * Instantiates a new GroupPolicyPresentationValueText and sets the default values.
     */
     public function __construct() {
         parent::__construct();

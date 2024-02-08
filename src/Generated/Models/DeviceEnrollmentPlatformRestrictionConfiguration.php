@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new deviceEnrollmentPlatformRestrictionConfiguration and sets the default values.
+     * Instantiates a new DeviceEnrollmentPlatformRestrictionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class CitationTemplateRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?CitationTemplateRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new citationTemplateRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CitationTemplateRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CitationTemplateRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CitationTemplateRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new citationTemplateRequestBuilderGetQueryParameters.
+     * Instantiates a new CitationTemplateRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return CitationTemplateRequestBuilderGetQueryParameters

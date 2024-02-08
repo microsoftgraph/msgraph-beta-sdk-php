@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ZebraFotaDeploymentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new zebraFotaDeploymentCollectionResponse and sets the default values.
+     * Instantiates a new ZebraFotaDeploymentCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

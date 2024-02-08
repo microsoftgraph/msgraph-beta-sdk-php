@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerEnrollmentProfile and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

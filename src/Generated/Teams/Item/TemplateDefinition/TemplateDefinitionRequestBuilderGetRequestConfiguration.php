@@ -16,7 +16,7 @@ class TemplateDefinitionRequestBuilderGetRequestConfiguration extends BaseReques
     public ?TemplateDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new templateDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TemplateDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TemplateDefinitionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TemplateDefinitionRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new templateDefinitionRequestBuilderGetQueryParameters.
+     * Instantiates a new TemplateDefinitionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return TemplateDefinitionRequestBuilderGetQueryParameters

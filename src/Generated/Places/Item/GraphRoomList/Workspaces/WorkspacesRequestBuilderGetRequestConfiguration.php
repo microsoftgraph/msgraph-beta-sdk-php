@@ -16,7 +16,7 @@ class WorkspacesRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?WorkspacesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new workspacesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WorkspacesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WorkspacesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WorkspacesRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new workspacesRequestBuilderGetQueryParameters.
+     * Instantiates a new WorkspacesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

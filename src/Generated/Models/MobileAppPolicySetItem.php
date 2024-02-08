@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new mobileAppPolicySetItem and sets the default values.
+     * Instantiates a new MobileAppPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

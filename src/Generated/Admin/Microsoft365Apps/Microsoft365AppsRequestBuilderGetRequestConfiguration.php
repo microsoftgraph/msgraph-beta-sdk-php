@@ -16,7 +16,7 @@ class Microsoft365AppsRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?Microsoft365AppsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new microsoft365AppsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new Microsoft365AppsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param Microsoft365AppsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class Microsoft365AppsRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new microsoft365AppsRequestBuilderGetQueryParameters.
+     * Instantiates a new Microsoft365AppsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return Microsoft365AppsRequestBuilderGetQueryParameters

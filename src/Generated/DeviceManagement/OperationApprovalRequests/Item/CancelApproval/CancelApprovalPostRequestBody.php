@@ -19,7 +19,7 @@ class CancelApprovalPostRequestBody implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cancelApprovalPostRequestBody and sets the default values.
+     * Instantiates a new CancelApprovalPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

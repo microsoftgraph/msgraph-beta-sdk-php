@@ -16,7 +16,7 @@ class AccessPackageResourceRoleRequestBuilderGetRequestConfiguration extends Bas
     public ?AccessPackageResourceRoleRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageResourceRoleRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageResourceRoleRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageResourceRoleRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageResourceRoleRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new accessPackageResourceRoleRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageResourceRoleRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AccessPackageResourceRoleRequestBuilderGetQueryParameters

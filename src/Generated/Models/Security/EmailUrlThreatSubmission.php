@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable 
 {
     /**
-     * Instantiates a new emailUrlThreatSubmission and sets the default values.
+     * Instantiates a new EmailUrlThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();

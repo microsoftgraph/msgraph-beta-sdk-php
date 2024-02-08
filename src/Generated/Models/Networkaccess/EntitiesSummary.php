@@ -18,7 +18,7 @@ class EntitiesSummary implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new entitiesSummary and sets the default values.
+     * Instantiates a new EntitiesSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

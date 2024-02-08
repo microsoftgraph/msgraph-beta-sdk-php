@@ -19,7 +19,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkMicrophoneConfiguration and sets the default values.
+     * Instantiates a new TeamworkMicrophoneConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

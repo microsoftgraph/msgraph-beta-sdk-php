@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementDerivedCredentialSettingsCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementDerivedCredentialSettingsCollectionResponse and sets the default values.
+     * Instantiates a new DeviceManagementDerivedCredentialSettingsCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

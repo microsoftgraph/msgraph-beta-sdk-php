@@ -18,7 +18,7 @@ class GetPasswordSingleSignOnCredentialsPostRequestBody implements AdditionalDat
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getPasswordSingleSignOnCredentialsPostRequestBody and sets the default values.
+     * Instantiates a new GetPasswordSingleSignOnCredentialsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

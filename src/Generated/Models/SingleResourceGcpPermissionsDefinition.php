@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SingleResourceGcpPermissionsDefinition extends PermissionsDefinition implements Parsable 
 {
     /**
-     * Instantiates a new singleResourceGcpPermissionsDefinition and sets the default values.
+     * Instantiates a new SingleResourceGcpPermissionsDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

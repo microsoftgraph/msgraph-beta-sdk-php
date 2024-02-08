@@ -15,7 +15,7 @@ use Psr\Http\Message\StreamInterface;
 class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyUploadedDefinitionFile and sets the default values.
+     * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

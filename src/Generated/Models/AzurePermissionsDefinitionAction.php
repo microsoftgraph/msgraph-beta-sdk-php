@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzurePermissionsDefinitionAction extends PermissionsDefinitionAction implements Parsable 
 {
     /**
-     * Instantiates a new azurePermissionsDefinitionAction and sets the default values.
+     * Instantiates a new AzurePermissionsDefinitionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

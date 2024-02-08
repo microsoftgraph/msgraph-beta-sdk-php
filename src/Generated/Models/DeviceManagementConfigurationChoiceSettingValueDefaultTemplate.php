@@ -21,7 +21,7 @@ class DeviceManagementConfigurationChoiceSettingValueDefaultTemplate implements 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementConfigurationChoiceSettingValueDefaultTemplate and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationChoiceSettingValueDefaultTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

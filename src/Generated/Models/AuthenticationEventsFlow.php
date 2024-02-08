@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationEventsFlow extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new authenticationEventsFlow and sets the default values.
+     * Instantiates a new AuthenticationEventsFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();

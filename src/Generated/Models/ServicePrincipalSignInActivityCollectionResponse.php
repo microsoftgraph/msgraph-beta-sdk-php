@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ServicePrincipalSignInActivityCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new servicePrincipalSignInActivityCollectionResponse and sets the default values.
+     * Instantiates a new ServicePrincipalSignInActivityCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

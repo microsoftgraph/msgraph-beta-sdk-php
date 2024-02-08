@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppDashboardCardDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamsAppDashboardCardDefinition and sets the default values.
+     * Instantiates a new TeamsAppDashboardCardDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

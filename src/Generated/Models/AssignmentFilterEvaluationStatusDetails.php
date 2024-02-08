@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new assignmentFilterEvaluationStatusDetails and sets the default values.
+     * Instantiates a new AssignmentFilterEvaluationStatusDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

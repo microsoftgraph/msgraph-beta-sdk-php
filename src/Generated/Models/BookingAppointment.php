@@ -15,7 +15,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingAppointment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new bookingAppointment and sets the default values.
+     * Instantiates a new BookingAppointment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +55,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the appointmentLabel property value. Custom label that can be stamped on this appointment by users.
+     * Gets the appointmentLabel property value. Custom label that can be stamped on this appointment by the user.
      * @return string|null
     */
     public function getAppointmentLabel(): ?string {
@@ -67,7 +67,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the appointment was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -353,7 +353,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the booking business was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -622,7 +622,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the appointmentLabel property value. Custom label that can be stamped on this appointment by users.
+     * Sets the appointmentLabel property value. Custom label that can be stamped on this appointment by the user.
      * @param string|null $value Value to set for the appointmentLabel property.
     */
     public function setAppointmentLabel(?string $value): void {
@@ -630,7 +630,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the appointment was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -782,7 +782,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the booking business was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {

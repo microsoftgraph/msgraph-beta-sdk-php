@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class OperationApprovalPolicyType extends Enum {
+    public const UNKNOWN = 'unknown';
     public const DEVICE_ACTION = 'deviceAction';
     public const DEVICE_WIPE = 'deviceWipe';
     public const DEVICE_RETIRE = 'deviceRetire';
@@ -21,7 +22,7 @@ class OperationApprovalPolicyType extends Enum {
     public const FILTER = 'filter';
     public const ENDPOINT_SECURITY_POLICY = 'endpointSecurityPolicy';
     public const APP = 'app';
-    public const SCRIPTS = 'scripts';
+    public const SCRIPT = 'script';
     public const ROLE = 'role';
     public const DEVICE_RESET_PASSCODE = 'deviceResetPasscode';
     public const CUSTOM_ORGANIZATIONAL_MESSAGE = 'customOrganizationalMessage';

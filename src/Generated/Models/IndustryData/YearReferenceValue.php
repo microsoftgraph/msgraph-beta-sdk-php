@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class YearReferenceValue extends ReferenceValue implements Parsable 
 {
     /**
-     * Instantiates a new yearReferenceValue and sets the default values.
+     * Instantiates a new YearReferenceValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();

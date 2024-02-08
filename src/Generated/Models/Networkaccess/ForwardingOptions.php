@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ForwardingOptions extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new forwardingOptions and sets the default values.
+     * Instantiates a new ForwardingOptions and sets the default values.
     */
     public function __construct() {
         parent::__construct();

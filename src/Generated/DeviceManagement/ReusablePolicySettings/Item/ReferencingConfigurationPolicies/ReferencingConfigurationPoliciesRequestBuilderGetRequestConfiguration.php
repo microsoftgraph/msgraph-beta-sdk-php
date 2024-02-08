@@ -16,7 +16,7 @@ class ReferencingConfigurationPoliciesRequestBuilderGetRequestConfiguration exte
     public ?ReferencingConfigurationPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new referencingConfigurationPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ReferencingConfigurationPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ReferencingConfigurationPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ReferencingConfigurationPoliciesRequestBuilderGetRequestConfiguration exte
     }
 
     /**
-     * Instantiates a new referencingConfigurationPoliciesRequestBuilderGetQueryParameters.
+     * Instantiates a new ReferencingConfigurationPoliciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

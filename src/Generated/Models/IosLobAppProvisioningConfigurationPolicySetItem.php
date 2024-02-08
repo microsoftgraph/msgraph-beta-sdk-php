@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosLobAppProvisioningConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new iosLobAppProvisioningConfigurationPolicySetItem and sets the default values.
+     * Instantiates a new IosLobAppProvisioningConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

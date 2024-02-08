@@ -16,7 +16,7 @@ class AccessPackageResourceRequestBuilderGetRequestConfiguration extends BaseReq
     public ?AccessPackageResourceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageResourceRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageResourceRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageResourceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageResourceRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new accessPackageResourceRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageResourceRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AccessPackageResourceRequestBuilderGetQueryParameters

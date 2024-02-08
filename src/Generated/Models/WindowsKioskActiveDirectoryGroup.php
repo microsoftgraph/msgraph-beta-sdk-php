@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskActiveDirectoryGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskActiveDirectoryGroup and sets the default values.
+     * Instantiates a new WindowsKioskActiveDirectoryGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

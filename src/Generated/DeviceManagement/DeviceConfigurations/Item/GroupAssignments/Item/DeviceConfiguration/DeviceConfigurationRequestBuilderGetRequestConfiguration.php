@@ -16,7 +16,7 @@ class DeviceConfigurationRequestBuilderGetRequestConfiguration extends BaseReque
     public ?DeviceConfigurationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deviceConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DeviceConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DeviceConfigurationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DeviceConfigurationRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new deviceConfigurationRequestBuilderGetQueryParameters.
+     * Instantiates a new DeviceConfigurationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DeviceConfigurationRequestBuilderGetQueryParameters

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnbilledUsage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new unbilledUsage and sets the default values.
+     * Instantiates a new UnbilledUsage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

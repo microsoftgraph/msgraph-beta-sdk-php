@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CatalogEntry extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new catalogEntry and sets the default values.
+     * Instantiates a new CatalogEntry and sets the default values.
     */
     public function __construct() {
         parent::__construct();

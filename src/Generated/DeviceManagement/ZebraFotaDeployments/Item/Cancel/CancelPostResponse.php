@@ -18,7 +18,7 @@ class CancelPostResponse implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cancelPostResponse and sets the default values.
+     * Instantiates a new CancelPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

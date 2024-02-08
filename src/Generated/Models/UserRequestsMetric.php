@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class UserRequestsMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userRequestsMetric and sets the default values.
+     * Instantiates a new UserRequestsMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

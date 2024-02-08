@@ -16,7 +16,7 @@ class ContactInsightsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?ContactInsightsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new contactInsightsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ContactInsightsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ContactInsightsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ContactInsightsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new contactInsightsRequestBuilderGetQueryParameters.
+     * Instantiates a new ContactInsightsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ContactInsightsRequestBuilderGetQueryParameters

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InactiveGroupFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new inactiveGroupFinding and sets the default values.
+     * Instantiates a new InactiveGroupFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

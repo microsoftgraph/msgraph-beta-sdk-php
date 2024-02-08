@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetRoleScopeTagsByResourceWithResourceGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getRoleScopeTagsByResourceWithResourceGetResponse and sets the default values.
+     * Instantiates a new GetRoleScopeTagsByResourceWithResourceGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

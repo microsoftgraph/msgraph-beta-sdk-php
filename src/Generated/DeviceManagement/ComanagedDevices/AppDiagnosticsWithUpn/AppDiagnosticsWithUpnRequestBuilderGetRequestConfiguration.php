@@ -16,7 +16,7 @@ class AppDiagnosticsWithUpnRequestBuilderGetRequestConfiguration extends BaseReq
     public ?AppDiagnosticsWithUpnRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new appDiagnosticsWithUpnRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AppDiagnosticsWithUpnRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AppDiagnosticsWithUpnRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AppDiagnosticsWithUpnRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new appDiagnosticsWithUpnRequestBuilderGetQueryParameters.
+     * Instantiates a new AppDiagnosticsWithUpnRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

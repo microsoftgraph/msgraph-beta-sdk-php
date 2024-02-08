@@ -16,7 +16,7 @@ class MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration extends B
     public ?MobileAppManagementPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new mobileAppManagementPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MobileAppManagementPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration extends B
     }
 
     /**
-     * Instantiates a new mobileAppManagementPoliciesRequestBuilderGetQueryParameters.
+     * Instantiates a new MobileAppManagementPoliciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

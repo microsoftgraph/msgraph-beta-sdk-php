@@ -19,7 +19,7 @@ class TriggerConfigurationManagerActionPostRequestBody implements AdditionalData
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new triggerConfigurationManagerActionPostRequestBody and sets the default values.
+     * Instantiates a new TriggerConfigurationManagerActionPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

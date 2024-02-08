@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedAppProtectionPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new managedAppProtectionPolicySetItem and sets the default values.
+     * Instantiates a new ManagedAppProtectionPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

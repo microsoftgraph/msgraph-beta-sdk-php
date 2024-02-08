@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnenforcedMfaAwsUserFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new unenforcedMfaAwsUserFinding and sets the default values.
+     * Instantiates a new UnenforcedMfaAwsUserFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

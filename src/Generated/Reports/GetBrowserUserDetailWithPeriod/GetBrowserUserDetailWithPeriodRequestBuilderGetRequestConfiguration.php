@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class GetBrowserUserDetailWithPeriodRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new getBrowserUserDetailWithPeriodRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetBrowserUserDetailWithPeriodRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

@@ -16,7 +16,7 @@ class RunSummaryRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?RunSummaryRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new runSummaryRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RunSummaryRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RunSummaryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RunSummaryRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new runSummaryRequestBuilderGetQueryParameters.
+     * Instantiates a new RunSummaryRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return RunSummaryRequestBuilderGetQueryParameters

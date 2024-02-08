@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FqdnFilteringRule extends FilteringRule implements Parsable 
 {
     /**
-     * Instantiates a new fqdnFilteringRule and sets the default values.
+     * Instantiates a new FqdnFilteringRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

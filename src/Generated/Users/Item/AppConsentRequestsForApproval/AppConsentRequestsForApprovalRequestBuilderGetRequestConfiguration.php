@@ -16,7 +16,7 @@ class AppConsentRequestsForApprovalRequestBuilderGetRequestConfiguration extends
     public ?AppConsentRequestsForApprovalRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new appConsentRequestsForApprovalRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AppConsentRequestsForApprovalRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AppConsentRequestsForApprovalRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AppConsentRequestsForApprovalRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new appConsentRequestsForApprovalRequestBuilderGetQueryParameters.
+     * Instantiates a new AppConsentRequestsForApprovalRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

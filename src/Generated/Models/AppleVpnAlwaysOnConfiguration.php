@@ -21,7 +21,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new appleVpnAlwaysOnConfiguration and sets the default values.
+     * Instantiates a new AppleVpnAlwaysOnConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

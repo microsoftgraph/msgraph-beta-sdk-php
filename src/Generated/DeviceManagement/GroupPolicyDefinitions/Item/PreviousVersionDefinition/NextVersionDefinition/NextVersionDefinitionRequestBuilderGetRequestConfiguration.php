@@ -16,7 +16,7 @@ class NextVersionDefinitionRequestBuilderGetRequestConfiguration extends BaseReq
     public ?NextVersionDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new nextVersionDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new NextVersionDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param NextVersionDefinitionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class NextVersionDefinitionRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new nextVersionDefinitionRequestBuilderGetQueryParameters.
+     * Instantiates a new NextVersionDefinitionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return NextVersionDefinitionRequestBuilderGetQueryParameters

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item\Partici
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of participants associated with a callRecord.
+ * Get the list of participant objects associated with a callRecord.
 */
 class Participants_v2RequestBuilderGetQueryParameters 
 {
@@ -58,7 +58,7 @@ class Participants_v2RequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new participants_v2RequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new Participants_v2RequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

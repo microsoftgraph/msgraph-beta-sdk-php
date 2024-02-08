@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptContent extends LabelActionBase implements Parsable 
 {
     /**
-     * Instantiates a new encryptContent and sets the default values.
+     * Instantiates a new EncryptContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

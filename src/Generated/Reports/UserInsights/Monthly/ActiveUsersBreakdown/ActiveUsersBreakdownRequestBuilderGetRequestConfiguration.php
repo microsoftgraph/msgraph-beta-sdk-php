@@ -16,7 +16,7 @@ class ActiveUsersBreakdownRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?ActiveUsersBreakdownRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new activeUsersBreakdownRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ActiveUsersBreakdownRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ActiveUsersBreakdownRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ActiveUsersBreakdownRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new activeUsersBreakdownRequestBuilderGetQueryParameters.
+     * Instantiates a new ActiveUsersBreakdownRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -45,7 +45,7 @@ class GetMetricsForConditionalAccessManagedDevicesSignInSuccessWithInclusiveInte
     public ?int $top = null;
     
     /**
-     * Instantiates a new getMetricsForConditionalAccessManagedDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new GetMetricsForConditionalAccessManagedDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters and sets the default values.
      * @param int|null $aggregationIntervalInMinutes Usage: aggregationIntervalInMinutes=@aggregationIntervalInMinutes
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values

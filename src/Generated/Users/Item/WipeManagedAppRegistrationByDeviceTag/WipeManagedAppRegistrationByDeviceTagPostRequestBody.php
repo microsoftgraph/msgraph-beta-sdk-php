@@ -18,7 +18,7 @@ class WipeManagedAppRegistrationByDeviceTagPostRequestBody implements Additional
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new wipeManagedAppRegistrationByDeviceTagPostRequestBody and sets the default values.
+     * Instantiates a new WipeManagedAppRegistrationByDeviceTagPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

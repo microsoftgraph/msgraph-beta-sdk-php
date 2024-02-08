@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WebCategoryFilteringRule extends FilteringRule implements Parsable 
 {
     /**
-     * Instantiates a new webCategoryFilteringRule and sets the default values.
+     * Instantiates a new WebCategoryFilteringRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AwsAuthorizationSystem extends AuthorizationSystem implements Parsable 
 {
     /**
-     * Instantiates a new awsAuthorizationSystem and sets the default values.
+     * Instantiates a new AwsAuthorizationSystem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProgramControl extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new programControl and sets the default values.
+     * Instantiates a new ProgramControl and sets the default values.
     */
     public function __construct() {
         parent::__construct();

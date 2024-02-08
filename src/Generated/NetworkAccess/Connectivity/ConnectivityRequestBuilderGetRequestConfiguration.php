@@ -16,7 +16,7 @@ class ConnectivityRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?ConnectivityRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new connectivityRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ConnectivityRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ConnectivityRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ConnectivityRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new connectivityRequestBuilderGetQueryParameters.
+     * Instantiates a new ConnectivityRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ConnectivityRequestBuilderGetQueryParameters

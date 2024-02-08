@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GcpCloudFunction extends GcpIdentity implements Parsable 
 {
     /**
-     * Instantiates a new gcpCloudFunction and sets the default values.
+     * Instantiates a new GcpCloudFunction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

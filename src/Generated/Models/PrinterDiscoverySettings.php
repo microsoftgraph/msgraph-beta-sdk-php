@@ -18,7 +18,7 @@ class PrinterDiscoverySettings implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new printerDiscoverySettings and sets the default values.
+     * Instantiates a new PrinterDiscoverySettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

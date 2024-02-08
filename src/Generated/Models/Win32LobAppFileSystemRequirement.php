@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements Parsable 
 {
     /**
-     * Instantiates a new win32LobAppFileSystemRequirement and sets the default values.
+     * Instantiates a new Win32LobAppFileSystemRequirement and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GcpActionPermissionsDefinitionAction extends GcpPermissionsDefinitionAction implements Parsable 
 {
     /**
-     * Instantiates a new gcpActionPermissionsDefinitionAction and sets the default values.
+     * Instantiates a new GcpActionPermissionsDefinitionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

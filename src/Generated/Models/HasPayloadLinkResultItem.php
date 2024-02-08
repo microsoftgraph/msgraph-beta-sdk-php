@@ -22,7 +22,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new hasPayloadLinkResultItem and sets the default values.
+     * Instantiates a new HasPayloadLinkResultItem and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

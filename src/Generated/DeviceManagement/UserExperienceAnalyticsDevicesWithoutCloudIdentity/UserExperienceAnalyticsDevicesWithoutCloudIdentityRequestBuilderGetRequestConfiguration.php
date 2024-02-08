@@ -16,7 +16,7 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequest
     public ?UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequest
     }
 
     /**
-     * Instantiates a new userExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetQueryParameters.
+     * Instantiates a new UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

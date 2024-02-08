@@ -18,7 +18,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new classifcationErrorBase and sets the default values.
+     * Instantiates a new ClassifcationErrorBase and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

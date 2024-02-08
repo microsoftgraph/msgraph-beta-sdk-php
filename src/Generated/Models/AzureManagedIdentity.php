@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureManagedIdentity extends AzureIdentity implements Parsable 
 {
     /**
-     * Instantiates a new azureManagedIdentity and sets the default values.
+     * Instantiates a new AzureManagedIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

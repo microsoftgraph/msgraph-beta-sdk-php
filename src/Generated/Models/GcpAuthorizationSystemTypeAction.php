@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GcpAuthorizationSystemTypeAction extends AuthorizationSystemTypeAction implements Parsable 
 {
     /**
-     * Instantiates a new gcpAuthorizationSystemTypeAction and sets the default values.
+     * Instantiates a new GcpAuthorizationSystemTypeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

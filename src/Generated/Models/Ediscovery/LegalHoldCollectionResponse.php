@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class LegalHoldCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new legalHoldCollectionResponse and sets the default values.
+     * Instantiates a new LegalHoldCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

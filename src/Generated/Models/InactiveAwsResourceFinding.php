@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InactiveAwsResourceFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new inactiveAwsResourceFinding and sets the default values.
+     * Instantiates a new InactiveAwsResourceFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

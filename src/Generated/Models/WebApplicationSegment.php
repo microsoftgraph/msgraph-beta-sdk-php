@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WebApplicationSegment extends ApplicationSegment implements Parsable 
 {
     /**
-     * Instantiates a new webApplicationSegment and sets the default values.
+     * Instantiates a new WebApplicationSegment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

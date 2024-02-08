@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GcpPermissionsDefinitionAction extends PermissionsDefinitionAction implements Parsable 
 {
     /**
-     * Instantiates a new gcpPermissionsDefinitionAction and sets the default values.
+     * Instantiates a new GcpPermissionsDefinitionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

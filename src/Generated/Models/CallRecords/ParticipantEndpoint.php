@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\CallRecords;
 
+use Microsoft\Graph\Beta\Generated\Models\Identity;
 use Microsoft\Graph\Beta\Generated\Models\IdentitySet;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -10,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ParticipantEndpoint extends Endpoint implements Parsable 
 {
     /**
-     * Instantiates a new participantEndpoint and sets the default values.
+     * Instantiates a new ParticipantEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -28,11 +29,11 @@ class ParticipantEndpoint extends Endpoint implements Parsable
 
     /**
      * Gets the associatedIdentity property value. Identity associated with the endpoint.
-     * @return UserIdentity|null
+     * @return Identity|null
     */
-    public function getAssociatedIdentity(): ?UserIdentity {
+    public function getAssociatedIdentity(): ?Identity {
         $val = $this->getBackingStore()->get('associatedIdentity');
-        if (is_null($val) || $val instanceof UserIdentity) {
+        if (is_null($val) || $val instanceof Identity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'associatedIdentity'");
@@ -93,7 +94,7 @@ class ParticipantEndpoint extends Endpoint implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'associatedIdentity' => fn(ParseNode $n) => $o->setAssociatedIdentity($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
+            'associatedIdentity' => fn(ParseNode $n) => $o->setAssociatedIdentity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'cpuCoresCount' => fn(ParseNode $n) => $o->setCpuCoresCount($n->getIntegerValue()),
             'cpuName' => fn(ParseNode $n) => $o->setCpuName($n->getStringValue()),
             'cpuProcessorSpeedInMhz' => fn(ParseNode $n) => $o->setCpuProcessorSpeedInMhz($n->getIntegerValue()),
@@ -144,9 +145,9 @@ class ParticipantEndpoint extends Endpoint implements Parsable
 
     /**
      * Sets the associatedIdentity property value. Identity associated with the endpoint.
-     * @param UserIdentity|null $value Value to set for the associatedIdentity property.
+     * @param Identity|null $value Value to set for the associatedIdentity property.
     */
-    public function setAssociatedIdentity(?UserIdentity $value): void {
+    public function setAssociatedIdentity(?Identity $value): void {
         $this->getBackingStore()->set('associatedIdentity', $value);
     }
 

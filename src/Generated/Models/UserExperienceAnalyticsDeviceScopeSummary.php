@@ -22,7 +22,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceScopeSummary and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceScopeSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

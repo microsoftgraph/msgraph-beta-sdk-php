@@ -18,7 +18,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new personNamePronounciation and sets the default values.
+     * Instantiates a new PersonNamePronounciation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

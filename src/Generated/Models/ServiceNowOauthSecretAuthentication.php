@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServiceNowOauthSecretAuthentication extends ServiceNowAuthenticationMethod implements Parsable 
 {
     /**
-     * Instantiates a new serviceNowOauthSecretAuthentication and sets the default values.
+     * Instantiates a new ServiceNowOauthSecretAuthentication and sets the default values.
     */
     public function __construct() {
         parent::__construct();

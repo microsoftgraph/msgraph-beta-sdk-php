@@ -19,7 +19,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkCameraConfiguration and sets the default values.
+     * Instantiates a new TeamworkCameraConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windows81VpnConfiguration and sets the default values.
+     * Instantiates a new Windows81VpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -19,7 +19,7 @@ class AuthenticationSourceFilter implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new authenticationSourceFilter and sets the default values.
+     * Instantiates a new AuthenticationSourceFilter and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

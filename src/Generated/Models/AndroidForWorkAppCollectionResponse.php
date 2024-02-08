@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidForWorkAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkAppCollectionResponse and sets the default values.
+     * Instantiates a new AndroidForWorkAppCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

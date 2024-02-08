@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityToolAwsServerlessFunctionAdministratorFinding extends AwsSecurityToolAdministrationFinding implements Parsable 
 {
     /**
-     * Instantiates a new securityToolAwsServerlessFunctionAdministratorFinding and sets the default values.
+     * Instantiates a new SecurityToolAwsServerlessFunctionAdministratorFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

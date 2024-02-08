@@ -21,7 +21,7 @@ class SendVirtualAppointmentReminderSmsPostRequestBody implements AdditionalData
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new sendVirtualAppointmentReminderSmsPostRequestBody and sets the default values.
+     * Instantiates a new SendVirtualAppointmentReminderSmsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

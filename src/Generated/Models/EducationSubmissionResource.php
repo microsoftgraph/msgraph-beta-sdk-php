@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationSubmissionResource extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new educationSubmissionResource and sets the default values.
+     * Instantiates a new EducationSubmissionResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class SubjectsWithObjectIdRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?SubjectsWithObjectIdRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new subjectsWithObjectIdRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SubjectsWithObjectIdRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SubjectsWithObjectIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SubjectsWithObjectIdRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new subjectsWithObjectIdRequestBuilderGetQueryParameters.
+     * Instantiates a new SubjectsWithObjectIdRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return SubjectsWithObjectIdRequestBuilderGetQueryParameters

@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsQualityUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsQualityUpdateProfile and sets the default values.
+     * Instantiates a new WindowsQualityUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

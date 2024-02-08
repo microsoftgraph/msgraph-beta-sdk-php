@@ -19,7 +19,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new educationSynchronizationLicenseAssignment and sets the default values.
+     * Instantiates a new EducationSynchronizationLicenseAssignment and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

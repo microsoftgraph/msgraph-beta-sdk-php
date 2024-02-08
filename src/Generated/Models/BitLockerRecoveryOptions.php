@@ -21,7 +21,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new bitLockerRecoveryOptions and sets the default values.
+     * Instantiates a new BitLockerRecoveryOptions and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

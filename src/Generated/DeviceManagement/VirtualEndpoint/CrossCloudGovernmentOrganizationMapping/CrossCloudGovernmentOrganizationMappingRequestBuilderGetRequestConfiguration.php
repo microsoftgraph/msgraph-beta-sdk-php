@@ -16,7 +16,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfigurati
     public ?CrossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new crossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CrossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfigurati
     }
 
     /**
-     * Instantiates a new crossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters.
+     * Instantiates a new CrossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return CrossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters

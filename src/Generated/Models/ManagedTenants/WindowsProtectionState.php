@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsProtectionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsProtectionState and sets the default values.
+     * Instantiates a new WindowsProtectionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

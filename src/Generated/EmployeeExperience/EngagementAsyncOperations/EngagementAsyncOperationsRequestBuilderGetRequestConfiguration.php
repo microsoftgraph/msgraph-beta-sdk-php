@@ -16,7 +16,7 @@ class EngagementAsyncOperationsRequestBuilderGetRequestConfiguration extends Bas
     public ?EngagementAsyncOperationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new engagementAsyncOperationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new EngagementAsyncOperationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param EngagementAsyncOperationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class EngagementAsyncOperationsRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new engagementAsyncOperationsRequestBuilderGetQueryParameters.
+     * Instantiates a new EngagementAsyncOperationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -21,7 +21,7 @@ class DeviceManagementPriorityMetaData implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementPriorityMetaData and sets the default values.
+     * Instantiates a new DeviceManagementPriorityMetaData and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

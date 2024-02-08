@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptWithTemplate extends EncryptContent implements Parsable 
 {
     /**
-     * Instantiates a new encryptWithTemplate and sets the default values.
+     * Instantiates a new EncryptWithTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

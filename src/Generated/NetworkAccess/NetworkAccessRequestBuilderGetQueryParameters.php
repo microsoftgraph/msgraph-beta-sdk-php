@@ -22,7 +22,7 @@ class NetworkAccessRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new networkAccessRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new NetworkAccessRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

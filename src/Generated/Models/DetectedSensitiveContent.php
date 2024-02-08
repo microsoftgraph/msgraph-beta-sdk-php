@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
 {
     /**
-     * Instantiates a new detectedSensitiveContent and sets the default values.
+     * Instantiates a new DetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

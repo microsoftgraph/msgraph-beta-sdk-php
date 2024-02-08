@@ -16,7 +16,7 @@ class MicrosoftTunnelConfigurationsRequestBuilderGetRequestConfiguration extends
     public ?MicrosoftTunnelConfigurationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new microsoftTunnelConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MicrosoftTunnelConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MicrosoftTunnelConfigurationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MicrosoftTunnelConfigurationsRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new microsoftTunnelConfigurationsRequestBuilderGetQueryParameters.
+     * Instantiates a new MicrosoftTunnelConfigurationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

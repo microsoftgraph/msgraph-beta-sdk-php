@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new securityBaselineStateSummary and sets the default values.
+     * Instantiates a new SecurityBaselineStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

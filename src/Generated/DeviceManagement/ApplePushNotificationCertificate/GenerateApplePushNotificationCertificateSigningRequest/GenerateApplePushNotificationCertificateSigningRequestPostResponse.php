@@ -18,7 +18,7 @@ class GenerateApplePushNotificationCertificateSigningRequestPostResponse impleme
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new generateApplePushNotificationCertificateSigningRequestPostResponse and sets the default values.
+     * Instantiates a new GenerateApplePushNotificationCertificateSigningRequestPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -18,7 +18,7 @@ class ValidateXmlPostResponse implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new validateXmlPostResponse and sets the default values.
+     * Instantiates a new ValidateXmlPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

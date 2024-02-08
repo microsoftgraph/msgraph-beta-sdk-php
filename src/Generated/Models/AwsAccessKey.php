@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsAccessKey extends AwsIdentity implements Parsable 
 {
     /**
-     * Instantiates a new awsAccessKey and sets the default values.
+     * Instantiates a new AwsAccessKey and sets the default values.
     */
     public function __construct() {
         parent::__construct();

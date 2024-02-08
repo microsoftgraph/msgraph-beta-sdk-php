@@ -16,7 +16,7 @@ class LinksRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     public ?LinksRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new linksRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new LinksRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param LinksRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class LinksRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     }
 
     /**
-     * Instantiates a new linksRequestBuilderGetQueryParameters.
+     * Instantiates a new LinksRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

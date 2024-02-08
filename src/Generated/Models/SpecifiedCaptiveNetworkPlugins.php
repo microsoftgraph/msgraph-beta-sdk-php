@@ -22,7 +22,7 @@ class SpecifiedCaptiveNetworkPlugins implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new specifiedCaptiveNetworkPlugins and sets the default values.
+     * Instantiates a new SpecifiedCaptiveNetworkPlugins and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

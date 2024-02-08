@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new awsPolicy and sets the default values.
+     * Instantiates a new AwsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

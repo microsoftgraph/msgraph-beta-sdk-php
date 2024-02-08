@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class JobResponseBaseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new jobResponseBaseCollectionResponse and sets the default values.
+     * Instantiates a new JobResponseBaseCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

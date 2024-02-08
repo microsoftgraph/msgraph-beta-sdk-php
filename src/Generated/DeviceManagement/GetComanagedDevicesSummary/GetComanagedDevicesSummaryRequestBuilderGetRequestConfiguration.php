@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class GetComanagedDevicesSummaryRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new getComanagedDevicesSummaryRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetComanagedDevicesSummaryRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

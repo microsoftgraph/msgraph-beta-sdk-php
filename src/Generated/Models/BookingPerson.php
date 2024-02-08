@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BookingPerson extends BookingNamedEntity implements Parsable 
 {
     /**
-     * Instantiates a new bookingPerson and sets the default values.
+     * Instantiates a new BookingPerson and sets the default values.
     */
     public function __construct() {
         parent::__construct();

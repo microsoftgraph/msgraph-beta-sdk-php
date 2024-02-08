@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AzureActionPermissionsDefinitionAction extends AzurePermissionsDefinitionAction implements Parsable 
 {
     /**
-     * Instantiates a new azureActionPermissionsDefinitionAction and sets the default values.
+     * Instantiates a new AzureActionPermissionsDefinitionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -20,7 +20,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new setScheduledRetireStatePostRequestBody and sets the default values.
+     * Instantiates a new SetScheduledRetireStatePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

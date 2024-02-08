@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyPresentationDecimalTextBox and sets the default values.
+     * Instantiates a new GroupPolicyPresentationDecimalTextBox and sets the default values.
     */
     public function __construct() {
         parent::__construct();

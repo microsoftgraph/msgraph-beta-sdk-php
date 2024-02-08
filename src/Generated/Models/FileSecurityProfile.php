@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class FileSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new fileSecurityProfile and sets the default values.
+     * Instantiates a new FileSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

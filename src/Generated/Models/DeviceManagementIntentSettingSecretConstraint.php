@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntentSettingSecretConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementIntentSettingSecretConstraint and sets the default values.
+     * Instantiates a new DeviceManagementIntentSettingSecretConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

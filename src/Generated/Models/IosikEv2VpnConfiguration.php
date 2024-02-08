@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new iosikEv2VpnConfiguration and sets the default values.
+     * Instantiates a new IosikEv2VpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

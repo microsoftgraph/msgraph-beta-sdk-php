@@ -19,7 +19,7 @@ class GetWindowsUpdateAlertSummaryReportPostRequestBody implements AdditionalDat
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getWindowsUpdateAlertSummaryReportPostRequestBody and sets the default values.
+     * Instantiates a new GetWindowsUpdateAlertSummaryReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -16,7 +16,7 @@ class DeviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration ex
     public ?DeviceConfigurationConflictSummaryRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DeviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DeviceConfigurationConflictSummaryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DeviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration ex
     }
 
     /**
-     * Instantiates a new deviceConfigurationConflictSummaryRequestBuilderGetQueryParameters.
+     * Instantiates a new DeviceConfigurationConflictSummaryRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

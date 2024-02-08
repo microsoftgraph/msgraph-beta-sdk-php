@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureServerlessFunction extends AzureIdentity implements Parsable 
 {
     /**
-     * Instantiates a new azureServerlessFunction and sets the default values.
+     * Instantiates a new AzureServerlessFunction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

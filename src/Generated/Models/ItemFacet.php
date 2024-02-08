@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemFacet extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new itemFacet and sets the default values.
+     * Instantiates a new ItemFacet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

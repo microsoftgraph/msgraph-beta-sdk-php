@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RecycleBin extends BaseItem implements Parsable 
 {
     /**
-     * Instantiates a new recycleBin and sets the default values.
+     * Instantiates a new RecycleBin and sets the default values.
     */
     public function __construct() {
         parent::__construct();

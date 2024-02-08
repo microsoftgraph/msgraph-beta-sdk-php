@@ -16,7 +16,7 @@ class GroupPolicyDefinitionsRequestBuilderGetRequestConfiguration extends BaseRe
     public ?GroupPolicyDefinitionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new groupPolicyDefinitionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GroupPolicyDefinitionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GroupPolicyDefinitionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GroupPolicyDefinitionsRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new groupPolicyDefinitionsRequestBuilderGetQueryParameters.
+     * Instantiates a new GroupPolicyDefinitionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

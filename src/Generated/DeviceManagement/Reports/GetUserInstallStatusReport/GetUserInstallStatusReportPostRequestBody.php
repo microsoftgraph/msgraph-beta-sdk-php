@@ -19,7 +19,7 @@ class GetUserInstallStatusReportPostRequestBody implements AdditionalDataHolder,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getUserInstallStatusReportPostRequestBody and sets the default values.
+     * Instantiates a new GetUserInstallStatusReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

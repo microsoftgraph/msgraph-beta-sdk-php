@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class NetworkAccessRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new networkAccessRoot and sets the default values.
+     * Instantiates a new NetworkAccessRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

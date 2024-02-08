@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Policy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new policy and sets the default values.
+     * Instantiates a new Policy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

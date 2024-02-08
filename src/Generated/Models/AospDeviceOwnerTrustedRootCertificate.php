@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class AospDeviceOwnerTrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new aospDeviceOwnerTrustedRootCertificate and sets the default values.
+     * Instantiates a new AospDeviceOwnerTrustedRootCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

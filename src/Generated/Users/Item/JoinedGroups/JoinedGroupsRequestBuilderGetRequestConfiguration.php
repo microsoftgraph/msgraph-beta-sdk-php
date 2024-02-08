@@ -16,7 +16,7 @@ class JoinedGroupsRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?JoinedGroupsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new joinedGroupsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new JoinedGroupsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param JoinedGroupsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class JoinedGroupsRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new joinedGroupsRequestBuilderGetQueryParameters.
+     * Instantiates a new JoinedGroupsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values

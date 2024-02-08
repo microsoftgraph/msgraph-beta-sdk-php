@@ -19,7 +19,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new networkAccessTraffic and sets the default values.
+     * Instantiates a new NetworkAccessTraffic and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -153,6 +153,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the destinationUrl property value. The destinationUrl property
+     * @return string|null
+    */
+    public function getDestinationUrl(): ?string {
+        $val = $this->getBackingStore()->get('destinationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationUrl'");
+    }
+
+    /**
      * Gets the destinationWebCategory property value. The destinationWebCategory property
      * @return WebCategory|null
     */
@@ -227,6 +239,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'destinationFQDN' => fn(ParseNode $n) => $o->setDestinationFQDN($n->getStringValue()),
             'destinationIp' => fn(ParseNode $n) => $o->setDestinationIp($n->getStringValue()),
             'destinationPort' => fn(ParseNode $n) => $o->setDestinationPort($n->getIntegerValue()),
+            'destinationUrl' => fn(ParseNode $n) => $o->setDestinationUrl($n->getStringValue()),
             'destinationWebCategory' => fn(ParseNode $n) => $o->setDestinationWebCategory($n->getObjectValue([WebCategory::class, 'createFromDiscriminatorValue'])),
             'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getEnumValue(DeviceCategory::class)),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
@@ -250,6 +263,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'sourceIp' => fn(ParseNode $n) => $o->setSourceIp($n->getStringValue()),
             'sourcePort' => fn(ParseNode $n) => $o->setSourcePort($n->getIntegerValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'threatType' => fn(ParseNode $n) => $o->setThreatType($n->getStringValue()),
             'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
             'transactionId' => fn(ParseNode $n) => $o->setTransactionId($n->getStringValue()),
             'transportProtocol' => fn(ParseNode $n) => $o->setTransportProtocol($n->getEnumValue(NetworkingProtocol::class)),
@@ -475,6 +489,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the threatType property value. The threatType property
+     * @return string|null
+    */
+    public function getThreatType(): ?string {
+        $val = $this->getBackingStore()->get('threatType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatType'");
+    }
+
+    /**
      * Gets the trafficType property value. The trafficType property
      * @return TrafficType|null
     */
@@ -547,6 +573,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('destinationFQDN', $this->getDestinationFQDN());
         $writer->writeStringValue('destinationIp', $this->getDestinationIp());
         $writer->writeIntegerValue('destinationPort', $this->getDestinationPort());
+        $writer->writeStringValue('destinationUrl', $this->getDestinationUrl());
         $writer->writeObjectValue('destinationWebCategory', $this->getDestinationWebCategory());
         $writer->writeEnumValue('deviceCategory', $this->getDeviceCategory());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
@@ -570,6 +597,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('sourceIp', $this->getSourceIp());
         $writer->writeIntegerValue('sourcePort', $this->getSourcePort());
         $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('threatType', $this->getThreatType());
         $writer->writeEnumValue('trafficType', $this->getTrafficType());
         $writer->writeStringValue('transactionId', $this->getTransactionId());
         $writer->writeEnumValue('transportProtocol', $this->getTransportProtocol());
@@ -656,6 +684,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setDestinationPort(?int $value): void {
         $this->getBackingStore()->set('destinationPort', $value);
+    }
+
+    /**
+     * Sets the destinationUrl property value. The destinationUrl property
+     * @param string|null $value Value to set for the destinationUrl property.
+    */
+    public function setDestinationUrl(?string $value): void {
+        $this->getBackingStore()->set('destinationUrl', $value);
     }
 
     /**
@@ -840,6 +876,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
+    }
+
+    /**
+     * Sets the threatType property value. The threatType property
+     * @param string|null $value Value to set for the threatType property.
+    */
+    public function setThreatType(?string $value): void {
+        $this->getBackingStore()->set('threatType', $value);
     }
 
     /**

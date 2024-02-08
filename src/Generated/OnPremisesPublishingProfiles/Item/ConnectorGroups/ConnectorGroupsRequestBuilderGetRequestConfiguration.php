@@ -16,7 +16,7 @@ class ConnectorGroupsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?ConnectorGroupsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new connectorGroupsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ConnectorGroupsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ConnectorGroupsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ConnectorGroupsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new connectorGroupsRequestBuilderGetQueryParameters.
+     * Instantiates a new ConnectorGroupsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

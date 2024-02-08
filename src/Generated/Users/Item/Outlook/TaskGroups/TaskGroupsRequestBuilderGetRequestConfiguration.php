@@ -16,7 +16,7 @@ class TaskGroupsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?TaskGroupsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new taskGroupsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TaskGroupsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TaskGroupsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TaskGroupsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new taskGroupsRequestBuilderGetQueryParameters.
+     * Instantiates a new TaskGroupsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values

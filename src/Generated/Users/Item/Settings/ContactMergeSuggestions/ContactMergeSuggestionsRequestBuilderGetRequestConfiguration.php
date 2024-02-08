@@ -16,7 +16,7 @@ class ContactMergeSuggestionsRequestBuilderGetRequestConfiguration extends BaseR
     public ?ContactMergeSuggestionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new contactMergeSuggestionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ContactMergeSuggestionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ContactMergeSuggestionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ContactMergeSuggestionsRequestBuilderGetRequestConfiguration extends BaseR
     }
 
     /**
-     * Instantiates a new contactMergeSuggestionsRequestBuilderGetQueryParameters.
+     * Instantiates a new ContactMergeSuggestionsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ContactMergeSuggestionsRequestBuilderGetQueryParameters

@@ -20,7 +20,7 @@ class UpdateTiIndicatorsPostRequestBody implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updateTiIndicatorsPostRequestBody and sets the default values.
+     * Instantiates a new UpdateTiIndicatorsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingEvent implements Parsable 
 {
     /**
-     * Instantiates a new appleVppTokenTroubleshootingEvent and sets the default values.
+     * Instantiates a new AppleVppTokenTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

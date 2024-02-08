@@ -16,7 +16,7 @@ class AzureRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     public ?AzureRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new azureRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AzureRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AzureRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AzureRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     }
 
     /**
-     * Instantiates a new azureRequestBuilderGetQueryParameters.
+     * Instantiates a new AzureRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AzureRequestBuilderGetQueryParameters

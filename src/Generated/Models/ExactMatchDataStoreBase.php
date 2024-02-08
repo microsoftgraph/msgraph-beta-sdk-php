@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ExactMatchDataStoreBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new exactMatchDataStoreBase and sets the default values.
+     * Instantiates a new ExactMatchDataStoreBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

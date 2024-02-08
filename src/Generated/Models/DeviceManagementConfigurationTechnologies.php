@@ -17,4 +17,5 @@ class DeviceManagementConfigurationTechnologies extends Enum {
     public const ENROLLMENT = 'enrollment';
     public const ENDPOINT_PRIVILEGE_MANAGEMENT = 'endpointPrivilegeManagement';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const WINDOWS_OS_RECOVERY = 'windowsOsRecovery';
 }

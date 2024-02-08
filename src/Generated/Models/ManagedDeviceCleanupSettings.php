@@ -21,7 +21,7 @@ class ManagedDeviceCleanupSettings implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new managedDeviceCleanupSettings and sets the default values.
+     * Instantiates a new ManagedDeviceCleanupSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

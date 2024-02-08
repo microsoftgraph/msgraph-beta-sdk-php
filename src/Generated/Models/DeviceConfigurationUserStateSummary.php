@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationUserStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceConfigurationUserStateSummary and sets the default values.
+     * Instantiates a new DeviceConfigurationUserStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

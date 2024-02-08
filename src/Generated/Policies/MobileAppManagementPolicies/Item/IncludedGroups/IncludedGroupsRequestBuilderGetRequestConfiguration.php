@@ -16,7 +16,7 @@ class IncludedGroupsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?IncludedGroupsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new includedGroupsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new IncludedGroupsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param IncludedGroupsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class IncludedGroupsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new includedGroupsRequestBuilderGetQueryParameters.
+     * Instantiates a new IncludedGroupsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

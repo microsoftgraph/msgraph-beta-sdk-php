@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CatalogContent extends DeployableContent implements Parsable 
 {
     /**
-     * Instantiates a new catalogContent and sets the default values.
+     * Instantiates a new CatalogContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

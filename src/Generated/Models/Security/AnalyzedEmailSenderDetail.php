@@ -18,7 +18,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new analyzedEmailSenderDetail and sets the default values.
+     * Instantiates a new AnalyzedEmailSenderDetail and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GcpAuthorizationSystemResource extends AuthorizationSystemResource implements Parsable 
 {
     /**
-     * Instantiates a new gcpAuthorizationSystemResource and sets the default values.
+     * Instantiates a new GcpAuthorizationSystemResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

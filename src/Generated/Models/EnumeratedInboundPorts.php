@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EnumeratedInboundPorts extends InboundPorts implements Parsable 
 {
     /**
-     * Instantiates a new enumeratedInboundPorts and sets the default values.
+     * Instantiates a new EnumeratedInboundPorts and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class EnterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration ext
     public ?EnterpriseCodeSigningCertificatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new enterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new EnterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param EnterpriseCodeSigningCertificatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class EnterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration ext
     }
 
     /**
-     * Instantiates a new enterpriseCodeSigningCertificatesRequestBuilderGetQueryParameters.
+     * Instantiates a new EnterpriseCodeSigningCertificatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

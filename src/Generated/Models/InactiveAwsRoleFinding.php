@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InactiveAwsRoleFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new inactiveAwsRoleFinding and sets the default values.
+     * Instantiates a new InactiveAwsRoleFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

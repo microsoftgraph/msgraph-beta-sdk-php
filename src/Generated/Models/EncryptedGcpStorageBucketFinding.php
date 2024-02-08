@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptedGcpStorageBucketFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new encryptedGcpStorageBucketFinding and sets the default values.
+     * Instantiates a new EncryptedGcpStorageBucketFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new enrollmentRestrictionsConfigurationPolicySetItem and sets the default values.
+     * Instantiates a new EnrollmentRestrictionsConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

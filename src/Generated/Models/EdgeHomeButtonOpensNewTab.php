@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdgeHomeButtonOpensNewTab extends EdgeHomeButtonConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new edgeHomeButtonOpensNewTab and sets the default values.
+     * Instantiates a new EdgeHomeButtonOpensNewTab and sets the default values.
     */
     public function __construct() {
         parent::__construct();

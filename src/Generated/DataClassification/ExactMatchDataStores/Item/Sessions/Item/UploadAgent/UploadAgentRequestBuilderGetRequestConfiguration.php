@@ -16,7 +16,7 @@ class UploadAgentRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?UploadAgentRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new uploadAgentRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UploadAgentRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UploadAgentRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UploadAgentRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new uploadAgentRequestBuilderGetQueryParameters.
+     * Instantiates a new UploadAgentRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return UploadAgentRequestBuilderGetQueryParameters

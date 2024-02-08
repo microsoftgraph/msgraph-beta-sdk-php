@@ -16,7 +16,7 @@ class AnniversariesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?AnniversariesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new anniversariesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AnniversariesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AnniversariesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AnniversariesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new anniversariesRequestBuilderGetQueryParameters.
+     * Instantiates a new AnniversariesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

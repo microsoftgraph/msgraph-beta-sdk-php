@@ -16,7 +16,7 @@ class AggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration extends B
     public ?AggregatedPolicyCompliancesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new aggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AggregatedPolicyCompliancesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration extends B
     }
 
     /**
-     * Instantiates a new aggregatedPolicyCompliancesRequestBuilderGetQueryParameters.
+     * Instantiates a new AggregatedPolicyCompliancesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

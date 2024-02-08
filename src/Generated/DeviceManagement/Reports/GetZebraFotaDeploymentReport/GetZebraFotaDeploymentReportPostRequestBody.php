@@ -19,7 +19,7 @@ class GetZebraFotaDeploymentReportPostRequestBody implements AdditionalDataHolde
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getZebraFotaDeploymentReportPostRequestBody and sets the default values.
+     * Instantiates a new GetZebraFotaDeploymentReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

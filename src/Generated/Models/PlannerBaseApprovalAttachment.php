@@ -18,7 +18,7 @@ class PlannerBaseApprovalAttachment implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerBaseApprovalAttachment and sets the default values.
+     * Instantiates a new PlannerBaseApprovalAttachment and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

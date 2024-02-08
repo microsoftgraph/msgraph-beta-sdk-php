@@ -19,7 +19,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkSpeakerConfiguration and sets the default values.
+     * Instantiates a new TeamworkSpeakerConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

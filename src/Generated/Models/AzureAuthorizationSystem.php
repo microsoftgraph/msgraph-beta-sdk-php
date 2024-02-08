@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AzureAuthorizationSystem extends AuthorizationSystem implements Parsable 
 {
     /**
-     * Instantiates a new azureAuthorizationSystem and sets the default values.
+     * Instantiates a new AzureAuthorizationSystem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

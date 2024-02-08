@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeleteTiIndicatorsByExternalIdPostResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new deleteTiIndicatorsByExternalIdPostResponse and sets the default values.
+     * Instantiates a new DeleteTiIndicatorsByExternalIdPostResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

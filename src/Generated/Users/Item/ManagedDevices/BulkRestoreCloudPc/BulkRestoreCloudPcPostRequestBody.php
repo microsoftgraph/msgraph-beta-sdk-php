@@ -21,7 +21,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new bulkRestoreCloudPcPostRequestBody and sets the default values.
+     * Instantiates a new BulkRestoreCloudPcPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

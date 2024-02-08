@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidForWorkVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkVpnConfiguration and sets the default values.
+     * Instantiates a new AndroidForWorkVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

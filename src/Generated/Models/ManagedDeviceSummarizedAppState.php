@@ -21,7 +21,7 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new managedDeviceSummarizedAppState and sets the default values.
+     * Instantiates a new ManagedDeviceSummarizedAppState and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

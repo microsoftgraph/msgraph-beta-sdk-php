@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOsVppApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new macOsVppApp and sets the default values.
+     * Instantiates a new MacOsVppApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

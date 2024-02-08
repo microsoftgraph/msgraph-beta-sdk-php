@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class Windows81WifiImportConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windows81WifiImportConfiguration and sets the default values.
+     * Instantiates a new Windows81WifiImportConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

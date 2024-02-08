@@ -21,7 +21,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new companyPortalBlockedAction and sets the default values.
+     * Instantiates a new CompanyPortalBlockedAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

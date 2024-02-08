@@ -26,6 +26,12 @@ class RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipal
     public ?string $directoryScopeId = null;
     
     /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
+    
+    /**
      * @QueryParameter("%24filter")
      * @var string|null $filter Filter items by property values
     */
@@ -72,10 +78,11 @@ class RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipal
     public ?int $top = null;
     
     /**
-     * Instantiates a new roleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters and sets the default values.
      * @param string|null $appScopeId Usage: appScopeId='@appScopeId'
      * @param bool|null $count Include count of items
      * @param string|null $directoryScopeId Usage: directoryScopeId='@directoryScopeId'
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $principalId Usage: principalId='@principalId'
@@ -85,10 +92,11 @@ class RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipal
      * @param int|null $skip Skip the first n items
      * @param int|null $top Show only the first n items
     */
-    public function __construct(?string $appScopeId = null, ?bool $count = null, ?string $directoryScopeId = null, ?string $filter = null, ?array $orderby = null, ?string $principalId = null, ?string $roleDefinitionId = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null) {
+    public function __construct(?string $appScopeId = null, ?bool $count = null, ?string $directoryScopeId = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $principalId = null, ?string $roleDefinitionId = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null) {
         $this->appScopeId = $appScopeId;
         $this->count = $count;
         $this->directoryScopeId = $directoryScopeId;
+        $this->expand = $expand;
         $this->filter = $filter;
         $this->orderby = $orderby;
         $this->principalId = $principalId;

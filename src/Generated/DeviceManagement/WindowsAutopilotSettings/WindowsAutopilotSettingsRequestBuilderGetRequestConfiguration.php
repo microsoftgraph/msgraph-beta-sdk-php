@@ -16,7 +16,7 @@ class WindowsAutopilotSettingsRequestBuilderGetRequestConfiguration extends Base
     public ?WindowsAutopilotSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new windowsAutopilotSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WindowsAutopilotSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WindowsAutopilotSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WindowsAutopilotSettingsRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new windowsAutopilotSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new WindowsAutopilotSettingsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return WindowsAutopilotSettingsRequestBuilderGetQueryParameters

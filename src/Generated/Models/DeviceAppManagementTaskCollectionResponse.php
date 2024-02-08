@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceAppManagementTaskCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new deviceAppManagementTaskCollectionResponse and sets the default values.
+     * Instantiates a new DeviceAppManagementTaskCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class DataConnectorRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?DataConnectorRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dataConnectorRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DataConnectorRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DataConnectorRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DataConnectorRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new dataConnectorRequestBuilderGetQueryParameters.
+     * Instantiates a new DataConnectorRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DataConnectorRequestBuilderGetQueryParameters

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow implements Parsable 
 {
     /**
-     * Instantiates a new externalUsersSelfServiceSignUpEventsFlow and sets the default values.
+     * Instantiates a new ExternalUsersSelfServiceSignUpEventsFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();

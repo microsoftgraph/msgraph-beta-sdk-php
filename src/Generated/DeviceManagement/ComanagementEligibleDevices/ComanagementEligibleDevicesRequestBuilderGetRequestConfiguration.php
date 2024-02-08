@@ -16,7 +16,7 @@ class ComanagementEligibleDevicesRequestBuilderGetRequestConfiguration extends B
     public ?ComanagementEligibleDevicesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new comanagementEligibleDevicesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ComanagementEligibleDevicesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ComanagementEligibleDevicesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ComanagementEligibleDevicesRequestBuilderGetRequestConfiguration extends B
     }
 
     /**
-     * Instantiates a new comanagementEligibleDevicesRequestBuilderGetQueryParameters.
+     * Instantiates a new ComanagementEligibleDevicesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServiceActivity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new serviceActivity and sets the default values.
+     * Instantiates a new ServiceActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

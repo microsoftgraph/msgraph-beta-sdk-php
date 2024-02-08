@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementDomainJoinConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementDomainJoinConnector and sets the default values.
+     * Instantiates a new DeviceManagementDomainJoinConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

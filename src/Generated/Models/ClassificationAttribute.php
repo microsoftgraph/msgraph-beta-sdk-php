@@ -18,7 +18,7 @@ class ClassificationAttribute implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new classificationAttribute and sets the default values.
+     * Instantiates a new ClassificationAttribute and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -16,7 +16,7 @@ class GroupPolicyDefinitionFilesRequestBuilderGetRequestConfiguration extends Ba
     public ?GroupPolicyDefinitionFilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new groupPolicyDefinitionFilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GroupPolicyDefinitionFilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GroupPolicyDefinitionFilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GroupPolicyDefinitionFilesRequestBuilderGetRequestConfiguration extends Ba
     }
 
     /**
-     * Instantiates a new groupPolicyDefinitionFilesRequestBuilderGetQueryParameters.
+     * Instantiates a new GroupPolicyDefinitionFilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

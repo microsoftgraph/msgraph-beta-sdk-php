@@ -18,7 +18,7 @@ class EnrichedAuditLogsSettings implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new enrichedAuditLogsSettings and sets the default values.
+     * Instantiates a new EnrichedAuditLogsSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

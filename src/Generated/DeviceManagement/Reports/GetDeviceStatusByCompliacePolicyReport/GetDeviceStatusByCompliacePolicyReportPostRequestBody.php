@@ -19,7 +19,7 @@ class GetDeviceStatusByCompliacePolicyReportPostRequestBody implements Additiona
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getDeviceStatusByCompliacePolicyReportPostRequestBody and sets the default values.
+     * Instantiates a new GetDeviceStatusByCompliacePolicyReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

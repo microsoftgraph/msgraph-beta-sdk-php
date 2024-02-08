@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DailyInactiveUsersMetricCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new dailyInactiveUsersMetricCollectionResponse and sets the default values.
+     * Instantiates a new DailyInactiveUsersMetricCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -23,7 +23,7 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
      * @param string|null $uniqueName Alternate key of businessScenario
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $uniqueName = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/businessScenarios(uniqueName=\'{uniqueName}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/businessScenarios(uniqueName=\'{uniqueName}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['uniqueName'] = $uniqueName;

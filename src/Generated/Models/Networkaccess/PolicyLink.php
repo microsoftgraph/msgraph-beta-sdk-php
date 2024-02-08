@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PolicyLink extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new policyLink and sets the default values.
+     * Instantiates a new PolicyLink and sets the default values.
     */
     public function __construct() {
         parent::__construct();

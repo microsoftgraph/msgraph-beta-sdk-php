@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DataCollectionInfo extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new dataCollectionInfo and sets the default values.
+     * Instantiates a new DataCollectionInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();

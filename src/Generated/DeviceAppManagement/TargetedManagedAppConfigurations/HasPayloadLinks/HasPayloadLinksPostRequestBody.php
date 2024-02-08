@@ -19,7 +19,7 @@ class HasPayloadLinksPostRequestBody implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new hasPayloadLinksPostRequestBody and sets the default values.
+     * Instantiates a new HasPayloadLinksPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDriverUpdateInventory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsDriverUpdateInventory and sets the default values.
+     * Instantiates a new WindowsDriverUpdateInventory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

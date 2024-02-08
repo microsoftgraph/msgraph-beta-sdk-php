@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new conditionalAccessSettings and sets the default values.
+     * Instantiates a new ConditionalAccessSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

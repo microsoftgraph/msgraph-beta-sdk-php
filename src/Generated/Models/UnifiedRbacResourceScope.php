@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRbacResourceScope extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new unifiedRbacResourceScope and sets the default values.
+     * Instantiates a new UnifiedRbacResourceScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();

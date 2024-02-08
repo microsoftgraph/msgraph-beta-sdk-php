@@ -16,7 +16,7 @@ class SubjectsRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?SubjectsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new subjectsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SubjectsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SubjectsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SubjectsRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new subjectsRequestBuilderGetQueryParameters.
+     * Instantiates a new SubjectsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

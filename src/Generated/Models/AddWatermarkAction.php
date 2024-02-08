@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new addWatermarkAction and sets the default values.
+     * Instantiates a new AddWatermarkAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

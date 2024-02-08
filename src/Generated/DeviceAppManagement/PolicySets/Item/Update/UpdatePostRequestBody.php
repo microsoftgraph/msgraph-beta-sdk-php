@@ -21,7 +21,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updatePostRequestBody and sets the default values.
+     * Instantiates a new UpdatePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

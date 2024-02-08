@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UpdatableAssetGroup extends UpdatableAsset implements Parsable 
 {
     /**
-     * Instantiates a new updatableAssetGroup and sets the default values.
+     * Instantiates a new UpdatableAssetGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

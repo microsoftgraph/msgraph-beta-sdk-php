@@ -19,7 +19,7 @@ class SafeguardSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new safeguardSettings and sets the default values.
+     * Instantiates a new SafeguardSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

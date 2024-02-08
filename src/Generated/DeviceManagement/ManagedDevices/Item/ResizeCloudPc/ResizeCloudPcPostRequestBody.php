@@ -18,7 +18,7 @@ class ResizeCloudPcPostRequestBody implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new resizeCloudPcPostRequestBody and sets the default values.
+     * Instantiates a new ResizeCloudPcPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

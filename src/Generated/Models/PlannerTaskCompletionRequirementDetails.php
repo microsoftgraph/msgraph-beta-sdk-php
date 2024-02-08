@@ -18,7 +18,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerTaskCompletionRequirementDetails and sets the default values.
+     * Instantiates a new PlannerTaskCompletionRequirementDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

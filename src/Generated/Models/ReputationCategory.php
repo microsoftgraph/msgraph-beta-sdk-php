@@ -18,7 +18,7 @@ class ReputationCategory implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new reputationCategory and sets the default values.
+     * Instantiates a new ReputationCategory and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

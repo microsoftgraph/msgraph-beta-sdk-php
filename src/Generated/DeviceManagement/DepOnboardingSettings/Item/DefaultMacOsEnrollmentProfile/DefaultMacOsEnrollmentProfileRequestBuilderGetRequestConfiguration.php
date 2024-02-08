@@ -16,7 +16,7 @@ class DefaultMacOsEnrollmentProfileRequestBuilderGetRequestConfiguration extends
     public ?DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new defaultMacOsEnrollmentProfileRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DefaultMacOsEnrollmentProfileRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DefaultMacOsEnrollmentProfileRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new defaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters.
+     * Instantiates a new DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters

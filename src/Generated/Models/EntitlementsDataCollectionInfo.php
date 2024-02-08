@@ -18,7 +18,7 @@ class EntitlementsDataCollectionInfo implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new entitlementsDataCollectionInfo and sets the default values.
+     * Instantiates a new EntitlementsDataCollectionInfo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

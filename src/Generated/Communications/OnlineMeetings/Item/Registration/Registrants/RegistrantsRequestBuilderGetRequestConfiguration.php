@@ -16,7 +16,7 @@ class RegistrantsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?RegistrantsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new registrantsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RegistrantsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RegistrantsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RegistrantsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new registrantsRequestBuilderGetQueryParameters.
+     * Instantiates a new RegistrantsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

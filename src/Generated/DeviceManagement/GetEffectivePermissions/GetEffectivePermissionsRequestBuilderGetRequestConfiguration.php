@@ -16,7 +16,7 @@ class GetEffectivePermissionsRequestBuilderGetRequestConfiguration extends BaseR
     public ?GetEffectivePermissionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getEffectivePermissionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetEffectivePermissionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetEffectivePermissionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetEffectivePermissionsRequestBuilderGetRequestConfiguration extends BaseR
     }
 
     /**
-     * Instantiates a new getEffectivePermissionsRequestBuilderGetQueryParameters.
+     * Instantiates a new GetEffectivePermissionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

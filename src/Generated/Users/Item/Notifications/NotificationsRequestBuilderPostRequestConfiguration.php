@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class NotificationsRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new notificationsRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new NotificationsRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

@@ -22,7 +22,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new customUpdateTimeWindow and sets the default values.
+     * Instantiates a new CustomUpdateTimeWindow and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

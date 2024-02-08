@@ -16,7 +16,7 @@ class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration e
     public ?MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new microsoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,8 +27,9 @@ class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration e
     }
 
     /**
-     * Instantiates a new microsoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters.
+     * Instantiates a new MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -37,8 +38,8 @@ class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration e
      * @param int|null $top Show only the first n items
      * @return MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters {
-        return new MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters {
+        return new MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
     }
 
 }

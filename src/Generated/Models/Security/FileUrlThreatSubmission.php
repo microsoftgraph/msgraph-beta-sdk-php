@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileUrlThreatSubmission extends FileThreatSubmission implements Parsable 
 {
     /**
-     * Instantiates a new fileUrlThreatSubmission and sets the default values.
+     * Instantiates a new FileUrlThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();

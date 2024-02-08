@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WorkPosition extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new workPosition and sets the default values.
+     * Instantiates a new WorkPosition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

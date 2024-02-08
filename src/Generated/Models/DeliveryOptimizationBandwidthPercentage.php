@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * Instantiates a new deliveryOptimizationBandwidthPercentage and sets the default values.
+     * Instantiates a new DeliveryOptimizationBandwidthPercentage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

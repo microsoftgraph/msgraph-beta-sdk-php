@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcForensicStorageAccount extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcForensicStorageAccount and sets the default values.
+     * Instantiates a new CloudPcForensicStorageAccount and sets the default values.
     */
     public function __construct() {
         parent::__construct();

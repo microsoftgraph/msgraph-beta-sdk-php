@@ -18,7 +18,7 @@ class NotificationReceiver implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new notificationReceiver and sets the default values.
+     * Instantiates a new NotificationReceiver and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

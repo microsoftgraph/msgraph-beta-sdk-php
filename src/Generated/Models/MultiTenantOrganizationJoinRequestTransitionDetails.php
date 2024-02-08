@@ -18,7 +18,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails implements AdditionalD
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new multiTenantOrganizationJoinRequestTransitionDetails and sets the default values.
+     * Instantiates a new MultiTenantOrganizationJoinRequestTransitionDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

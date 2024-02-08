@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptIntegerParameter extends DeviceHealthScriptParameter implements Parsable 
 {
     /**
-     * Instantiates a new deviceHealthScriptIntegerParameter and sets the default values.
+     * Instantiates a new DeviceHealthScriptIntegerParameter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

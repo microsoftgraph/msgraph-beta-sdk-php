@@ -21,7 +21,7 @@ class MacOSKernelExtension implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new macOSKernelExtension and sets the default values.
+     * Instantiates a new MacOSKernelExtension and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

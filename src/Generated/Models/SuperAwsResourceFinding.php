@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SuperAwsResourceFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new superAwsResourceFinding and sets the default values.
+     * Instantiates a new SuperAwsResourceFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

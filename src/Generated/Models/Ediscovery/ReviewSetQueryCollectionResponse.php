@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ReviewSetQueryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new reviewSetQueryCollectionResponse and sets the default values.
+     * Instantiates a new ReviewSetQueryCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

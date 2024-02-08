@@ -18,7 +18,7 @@ class OnUserCreateStartHandler implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new onUserCreateStartHandler and sets the default values.
+     * Instantiates a new OnUserCreateStartHandler and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

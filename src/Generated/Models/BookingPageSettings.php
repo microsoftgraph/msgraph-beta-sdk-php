@@ -18,7 +18,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new bookingPageSettings and sets the default values.
+     * Instantiates a new BookingPageSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -68,7 +68,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bookingPageColorCode property value. Custom color for bookings page. Value should be in Hex format. Example: `#123456`.
+     * Gets the bookingPageColorCode property value. Custom color for the bookings page. The value should be in Hex format. Example: #123456.
      * @return string|null
     */
     public function getBookingPageColorCode(): ?string {
@@ -80,7 +80,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the businessTimeZone property value. The time zone of the customer. For a list of possible values, see [dateTimeTimeZone](https://learn.microsoft.com/en-us/graph/api/resources/datetimetimezone?view=graph-rest-beta).
+     * Gets the businessTimeZone property value. The time zone of the customer. For a list of possible values, see dateTimeTimeZone.
      * @return string|null
     */
     public function getBusinessTimeZone(): ?string {
@@ -92,7 +92,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the customerConsentMessage property value. Customer consent message that is displayed in the Booking page.
+     * Gets the customerConsentMessage property value. The personal data collection and usage consent message in the bookings page.
      * @return string|null
     */
     public function getCustomerConsentMessage(): ?string {
@@ -104,7 +104,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the enforceOneTimePassword property value. Enforcing One Time Password (OTP) during appointment creation.
+     * Gets the enforceOneTimePassword property value. Determines if the one-time password is required to create an appointment. The default value is false.
      * @return bool|null
     */
     public function getEnforceOneTimePassword(): ?bool {
@@ -138,7 +138,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isBusinessLogoDisplayEnabled property value. Enable display of business logo display on the Bookings page.
+     * Gets the isBusinessLogoDisplayEnabled property value. Indicates if the business logo is displayed on the bookings page. The default value is false.
      * @return bool|null
     */
     public function getIsBusinessLogoDisplayEnabled(): ?bool {
@@ -150,7 +150,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isCustomerConsentEnabled property value. Enforces customer consent on the customer consent message before appointment is booked.
+     * Gets the isCustomerConsentEnabled property value. Enables personal data collection and the usage consent toggle on the bookings page. The default value is false.
      * @return bool|null
     */
     public function getIsCustomerConsentEnabled(): ?bool {
@@ -162,7 +162,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isSearchEngineIndexabilityDisabled property value. Disable booking page to be indexed by search engines. False by default.
+     * Gets the isSearchEngineIndexabilityDisabled property value. Ensures that the web crawlers don't index this page. The defaults value is false.
      * @return bool|null
     */
     public function getIsSearchEngineIndexabilityDisabled(): ?bool {
@@ -174,7 +174,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isTimeSlotTimeZoneSetToBusinessTimeZone property value. If business time zone the default value for the time slots that we show in the bookings page. False by default.
+     * Gets the isTimeSlotTimeZoneSetToBusinessTimeZone property value. Displays the booking time slots in the business time zone. The default value is false.
      * @return bool|null
     */
     public function getIsTimeSlotTimeZoneSetToBusinessTimeZone(): ?bool {
@@ -198,7 +198,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the privacyPolicyWebUrl property value. The URL of the business' Privacy Policy.
+     * Gets the privacyPolicyWebUrl property value. RL of a webpage that provides the terms and conditions of the business. If a privacy policy isn't included, the following text appears on the bookings page as default: 'The policies and practices of <booking business's name> apply to the use of your data.
      * @return string|null
     */
     public function getPrivacyPolicyWebUrl(): ?string {
@@ -210,7 +210,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the termsAndConditionsWebUrl property value. The URL of the business' Terms and Conditions.
+     * Gets the termsAndConditionsWebUrl property value. URL of a webpage that provides the terms and conditions of the business.
      * @return string|null
     */
     public function getTermsAndConditionsWebUrl(): ?string {
@@ -266,7 +266,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bookingPageColorCode property value. Custom color for bookings page. Value should be in Hex format. Example: `#123456`.
+     * Sets the bookingPageColorCode property value. Custom color for the bookings page. The value should be in Hex format. Example: #123456.
      * @param string|null $value Value to set for the bookingPageColorCode property.
     */
     public function setBookingPageColorCode(?string $value): void {
@@ -274,7 +274,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the businessTimeZone property value. The time zone of the customer. For a list of possible values, see [dateTimeTimeZone](https://learn.microsoft.com/en-us/graph/api/resources/datetimetimezone?view=graph-rest-beta).
+     * Sets the businessTimeZone property value. The time zone of the customer. For a list of possible values, see dateTimeTimeZone.
      * @param string|null $value Value to set for the businessTimeZone property.
     */
     public function setBusinessTimeZone(?string $value): void {
@@ -282,7 +282,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the customerConsentMessage property value. Customer consent message that is displayed in the Booking page.
+     * Sets the customerConsentMessage property value. The personal data collection and usage consent message in the bookings page.
      * @param string|null $value Value to set for the customerConsentMessage property.
     */
     public function setCustomerConsentMessage(?string $value): void {
@@ -290,7 +290,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the enforceOneTimePassword property value. Enforcing One Time Password (OTP) during appointment creation.
+     * Sets the enforceOneTimePassword property value. Determines if the one-time password is required to create an appointment. The default value is false.
      * @param bool|null $value Value to set for the enforceOneTimePassword property.
     */
     public function setEnforceOneTimePassword(?bool $value): void {
@@ -298,7 +298,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isBusinessLogoDisplayEnabled property value. Enable display of business logo display on the Bookings page.
+     * Sets the isBusinessLogoDisplayEnabled property value. Indicates if the business logo is displayed on the bookings page. The default value is false.
      * @param bool|null $value Value to set for the isBusinessLogoDisplayEnabled property.
     */
     public function setIsBusinessLogoDisplayEnabled(?bool $value): void {
@@ -306,7 +306,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isCustomerConsentEnabled property value. Enforces customer consent on the customer consent message before appointment is booked.
+     * Sets the isCustomerConsentEnabled property value. Enables personal data collection and the usage consent toggle on the bookings page. The default value is false.
      * @param bool|null $value Value to set for the isCustomerConsentEnabled property.
     */
     public function setIsCustomerConsentEnabled(?bool $value): void {
@@ -314,7 +314,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isSearchEngineIndexabilityDisabled property value. Disable booking page to be indexed by search engines. False by default.
+     * Sets the isSearchEngineIndexabilityDisabled property value. Ensures that the web crawlers don't index this page. The defaults value is false.
      * @param bool|null $value Value to set for the isSearchEngineIndexabilityDisabled property.
     */
     public function setIsSearchEngineIndexabilityDisabled(?bool $value): void {
@@ -322,7 +322,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isTimeSlotTimeZoneSetToBusinessTimeZone property value. If business time zone the default value for the time slots that we show in the bookings page. False by default.
+     * Sets the isTimeSlotTimeZoneSetToBusinessTimeZone property value. Displays the booking time slots in the business time zone. The default value is false.
      * @param bool|null $value Value to set for the isTimeSlotTimeZoneSetToBusinessTimeZone property.
     */
     public function setIsTimeSlotTimeZoneSetToBusinessTimeZone(?bool $value): void {
@@ -338,7 +338,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the privacyPolicyWebUrl property value. The URL of the business' Privacy Policy.
+     * Sets the privacyPolicyWebUrl property value. RL of a webpage that provides the terms and conditions of the business. If a privacy policy isn't included, the following text appears on the bookings page as default: 'The policies and practices of <booking business's name> apply to the use of your data.
      * @param string|null $value Value to set for the privacyPolicyWebUrl property.
     */
     public function setPrivacyPolicyWebUrl(?string $value): void {
@@ -346,7 +346,7 @@ class BookingPageSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the termsAndConditionsWebUrl property value. The URL of the business' Terms and Conditions.
+     * Sets the termsAndConditionsWebUrl property value. URL of a webpage that provides the terms and conditions of the business.
      * @param string|null $value Value to set for the termsAndConditionsWebUrl property.
     */
     public function setTermsAndConditionsWebUrl(?string $value): void {

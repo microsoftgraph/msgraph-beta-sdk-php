@@ -16,7 +16,7 @@ class RoleAssignmentRequestsRequestBuilderGetRequestConfiguration extends BaseRe
     public ?RoleAssignmentRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new roleAssignmentRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RoleAssignmentRequestsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RoleAssignmentRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RoleAssignmentRequestsRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new roleAssignmentRequestsRequestBuilderGetQueryParameters.
+     * Instantiates a new RoleAssignmentRequestsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

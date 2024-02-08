@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class MonitoringRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new monitoringRequestBuilderPatchRequestConfiguration and sets the default values.
+     * Instantiates a new MonitoringRequestBuilderPatchRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

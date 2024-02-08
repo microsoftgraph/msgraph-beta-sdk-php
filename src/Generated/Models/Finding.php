@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Finding extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new finding and sets the default values.
+     * Instantiates a new Finding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -20,7 +20,7 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new validateAuthenticationConfigurationPostRequestBody and sets the default values.
+     * Instantiates a new ValidateAuthenticationConfigurationPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

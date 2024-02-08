@@ -16,7 +16,7 @@ class ModulesRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     public ?ModulesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new modulesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ModulesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ModulesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ModulesRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     }
 
     /**
-     * Instantiates a new modulesRequestBuilderGetQueryParameters.
+     * Instantiates a new ModulesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new macOSWiredNetworkConfiguration and sets the default values.
+     * Instantiates a new MacOSWiredNetworkConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

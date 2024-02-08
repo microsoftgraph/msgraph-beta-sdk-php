@@ -16,7 +16,7 @@ class UserConfigurationsRequestBuilderGetRequestConfiguration extends BaseReques
     public ?UserConfigurationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserConfigurationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserConfigurationsRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new userConfigurationsRequestBuilderGetQueryParameters.
+     * Instantiates a new UserConfigurationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values

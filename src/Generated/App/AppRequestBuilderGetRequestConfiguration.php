@@ -16,7 +16,7 @@ class AppRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?AppRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new appRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AppRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AppRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AppRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new appRequestBuilderGetQueryParameters.
+     * Instantiates a new AppRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AppRequestBuilderGetQueryParameters

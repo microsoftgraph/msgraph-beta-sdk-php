@@ -22,7 +22,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new bookingSchedulingPolicy and sets the default values.
+     * Instantiates a new BookingSchedulingPolicy and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -89,7 +89,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the isMeetingInviteToCustomersEnabled property value. Enable sending meeting invite to customers.
+     * Gets the isMeetingInviteToCustomersEnabled property value. Indicates if the meeting invite is sent to the customers. The default value is false
      * @return bool|null
     */
     public function getIsMeetingInviteToCustomersEnabled(): ?bool {
@@ -200,7 +200,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the isMeetingInviteToCustomersEnabled property value. Enable sending meeting invite to customers.
+     * Sets the isMeetingInviteToCustomersEnabled property value. Indicates if the meeting invite is sent to the customers. The default value is false
      * @param bool|null $value Value to set for the isMeetingInviteToCustomersEnabled property.
     */
     public function setIsMeetingInviteToCustomersEnabled(?bool $value): void {

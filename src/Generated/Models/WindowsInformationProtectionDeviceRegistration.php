@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionDeviceRegistration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsInformationProtectionDeviceRegistration and sets the default values.
+     * Instantiates a new WindowsInformationProtectionDeviceRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

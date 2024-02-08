@@ -22,7 +22,7 @@ class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new winGetAppInstallTimeSettings and sets the default values.
+     * Instantiates a new WinGetAppInstallTimeSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

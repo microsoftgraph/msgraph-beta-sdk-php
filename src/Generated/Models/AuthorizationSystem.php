@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthorizationSystem extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new authorizationSystem and sets the default values.
+     * Instantiates a new AuthorizationSystem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

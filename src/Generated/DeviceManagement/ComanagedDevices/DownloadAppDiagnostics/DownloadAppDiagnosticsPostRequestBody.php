@@ -19,7 +19,7 @@ class DownloadAppDiagnosticsPostRequestBody implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new downloadAppDiagnosticsPostRequestBody and sets the default values.
+     * Instantiates a new DownloadAppDiagnosticsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

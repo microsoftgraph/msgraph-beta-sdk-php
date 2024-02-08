@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSWebClip extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new macOSWebClip and sets the default values.
+     * Instantiates a new MacOSWebClip and sets the default values.
     */
     public function __construct() {
         parent::__construct();

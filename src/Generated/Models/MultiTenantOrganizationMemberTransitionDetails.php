@@ -18,7 +18,7 @@ class MultiTenantOrganizationMemberTransitionDetails implements AdditionalDataHo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new multiTenantOrganizationMemberTransitionDetails and sets the default values.
+     * Instantiates a new MultiTenantOrganizationMemberTransitionDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

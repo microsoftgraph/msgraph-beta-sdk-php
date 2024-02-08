@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PlannerTask extends PlannerDelta implements Parsable 
 {
     /**
-     * Instantiates a new plannerTask and sets the default values.
+     * Instantiates a new PlannerTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();

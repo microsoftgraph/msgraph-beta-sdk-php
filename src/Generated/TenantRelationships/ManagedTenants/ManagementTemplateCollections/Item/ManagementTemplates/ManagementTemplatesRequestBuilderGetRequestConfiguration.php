@@ -16,7 +16,7 @@ class ManagementTemplatesRequestBuilderGetRequestConfiguration extends BaseReque
     public ?ManagementTemplatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managementTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagementTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagementTemplatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagementTemplatesRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new managementTemplatesRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagementTemplatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

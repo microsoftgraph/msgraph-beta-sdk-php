@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class LabelsRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new labelsRoot and sets the default values.
+     * Instantiates a new LabelsRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

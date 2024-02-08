@@ -20,7 +20,7 @@ class UnenrollAssetsByIdPostRequestBody implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new unenrollAssetsByIdPostRequestBody and sets the default values.
+     * Instantiates a new UnenrollAssetsByIdPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

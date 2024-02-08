@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskWin32App and sets the default values.
+     * Instantiates a new WindowsKioskWin32App and sets the default values.
     */
     public function __construct() {
         parent::__construct();

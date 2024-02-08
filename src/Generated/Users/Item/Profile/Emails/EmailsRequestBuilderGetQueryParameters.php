@@ -58,7 +58,7 @@ class EmailsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new emailsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new EmailsRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

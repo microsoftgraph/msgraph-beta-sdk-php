@@ -16,7 +16,7 @@ class PrivilegeManagementElevationsRequestBuilderGetRequestConfiguration extends
     public ?PrivilegeManagementElevationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new privilegeManagementElevationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PrivilegeManagementElevationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PrivilegeManagementElevationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PrivilegeManagementElevationsRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new privilegeManagementElevationsRequestBuilderGetQueryParameters.
+     * Instantiates a new PrivilegeManagementElevationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

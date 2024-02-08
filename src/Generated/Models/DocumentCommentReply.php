@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DocumentCommentReply extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new documentCommentReply and sets the default values.
+     * Instantiates a new DocumentCommentReply and sets the default values.
     */
     public function __construct() {
         parent::__construct();

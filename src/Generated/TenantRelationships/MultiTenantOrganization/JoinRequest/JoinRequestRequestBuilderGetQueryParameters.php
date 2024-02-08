@@ -22,7 +22,7 @@ class JoinRequestRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new joinRequestRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new JoinRequestRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

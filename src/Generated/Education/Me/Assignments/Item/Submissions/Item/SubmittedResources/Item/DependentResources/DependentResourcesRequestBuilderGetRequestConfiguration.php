@@ -16,7 +16,7 @@ class DependentResourcesRequestBuilderGetRequestConfiguration extends BaseReques
     public ?DependentResourcesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dependentResourcesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DependentResourcesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DependentResourcesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DependentResourcesRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new dependentResourcesRequestBuilderGetQueryParameters.
+     * Instantiates a new DependentResourcesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

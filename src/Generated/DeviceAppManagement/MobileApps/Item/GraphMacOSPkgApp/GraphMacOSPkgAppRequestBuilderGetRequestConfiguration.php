@@ -16,7 +16,7 @@ class GraphMacOSPkgAppRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?GraphMacOSPkgAppRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new graphMacOSPkgAppRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GraphMacOSPkgAppRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GraphMacOSPkgAppRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GraphMacOSPkgAppRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new graphMacOSPkgAppRequestBuilderGetQueryParameters.
+     * Instantiates a new GraphMacOSPkgAppRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return GraphMacOSPkgAppRequestBuilderGetQueryParameters

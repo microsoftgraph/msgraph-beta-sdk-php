@@ -16,7 +16,7 @@ class OnPremisesPublishingProfilesRequestBuilderGetRequestConfiguration extends 
     public ?OnPremisesPublishingProfilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new onPremisesPublishingProfilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new OnPremisesPublishingProfilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param OnPremisesPublishingProfilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class OnPremisesPublishingProfilesRequestBuilderGetRequestConfiguration extends 
     }
 
     /**
-     * Instantiates a new onPremisesPublishingProfilesRequestBuilderGetQueryParameters.
+     * Instantiates a new OnPremisesPublishingProfilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

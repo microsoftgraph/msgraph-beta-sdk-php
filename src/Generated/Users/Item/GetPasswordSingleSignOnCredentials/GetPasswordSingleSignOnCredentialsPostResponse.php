@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetPasswordSingleSignOnCredentialsPostResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getPasswordSingleSignOnCredentialsPostResponse and sets the default values.
+     * Instantiates a new GetPasswordSingleSignOnCredentialsPostResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

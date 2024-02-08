@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VirtualEventWebinarRegistrationConfiguration extends VirtualEventRegistrationConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventWebinarRegistrationConfiguration and sets the default values.
+     * Instantiates a new VirtualEventWebinarRegistrationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

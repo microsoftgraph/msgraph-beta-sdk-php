@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidWiFiConfiguration and sets the default values.
+     * Instantiates a new AndroidWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

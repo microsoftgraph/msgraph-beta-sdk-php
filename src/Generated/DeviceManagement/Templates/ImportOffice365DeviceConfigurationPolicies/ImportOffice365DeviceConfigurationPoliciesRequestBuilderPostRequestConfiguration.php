@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class ImportOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new importOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new ImportOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

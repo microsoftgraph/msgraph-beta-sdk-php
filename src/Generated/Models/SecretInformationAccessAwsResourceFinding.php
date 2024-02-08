@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecretInformationAccessAwsResourceFinding extends AwsSecretInformationAccessFinding implements Parsable 
 {
     /**
-     * Instantiates a new secretInformationAccessAwsResourceFinding and sets the default values.
+     * Instantiates a new SecretInformationAccessAwsResourceFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

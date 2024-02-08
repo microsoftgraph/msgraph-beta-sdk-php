@@ -22,7 +22,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementTroubleshootingErrorDetails and sets the default values.
+     * Instantiates a new DeviceManagementTroubleshootingErrorDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

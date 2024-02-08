@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase implements Parsable 
 {
     /**
-     * Instantiates a new iosWebContentFilterSpecificWebsitesAccess and sets the default values.
+     * Instantiates a new IosWebContentFilterSpecificWebsitesAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();

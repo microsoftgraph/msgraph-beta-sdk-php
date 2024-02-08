@@ -16,7 +16,7 @@ class DeviceRegistrationPolicyRequestBuilderGetRequestConfiguration extends Base
     public ?DeviceRegistrationPolicyRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deviceRegistrationPolicyRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DeviceRegistrationPolicyRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DeviceRegistrationPolicyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DeviceRegistrationPolicyRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new deviceRegistrationPolicyRequestBuilderGetQueryParameters.
+     * Instantiates a new DeviceRegistrationPolicyRequestBuilderGetQueryParameters.
      * @param array<string>|null $select Select properties to be returned
      * @return DeviceRegistrationPolicyRequestBuilderGetQueryParameters
     */

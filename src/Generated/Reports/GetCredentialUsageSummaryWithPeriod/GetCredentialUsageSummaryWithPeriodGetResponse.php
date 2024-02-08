@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetCredentialUsageSummaryWithPeriodGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getCredentialUsageSummaryWithPeriodGetResponse and sets the default values.
+     * Instantiates a new GetCredentialUsageSummaryWithPeriodGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

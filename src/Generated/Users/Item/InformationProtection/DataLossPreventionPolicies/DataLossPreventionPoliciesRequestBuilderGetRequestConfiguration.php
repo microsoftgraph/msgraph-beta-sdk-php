@@ -16,7 +16,7 @@ class DataLossPreventionPoliciesRequestBuilderGetRequestConfiguration extends Ba
     public ?DataLossPreventionPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dataLossPreventionPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DataLossPreventionPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DataLossPreventionPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DataLossPreventionPoliciesRequestBuilderGetRequestConfiguration extends Ba
     }
 
     /**
-     * Instantiates a new dataLossPreventionPoliciesRequestBuilderGetQueryParameters.
+     * Instantiates a new DataLossPreventionPoliciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class NotificationMessageTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new notificationMessageTemplate and sets the default values.
+     * Instantiates a new NotificationMessageTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +54,18 @@ class NotificationMessageTemplate extends Entity implements Parsable
     }
 
     /**
+     * Gets the description property value. Display name for the Notification Message Template.
+     * @return string|null
+    */
+    public function getDescription(): ?string {
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
+    }
+
+    /**
      * Gets the displayName property value. Display name for the Notification Message Template.
      * @return string|null
     */
@@ -74,6 +86,7 @@ class NotificationMessageTemplate extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'brandingOptions' => fn(ParseNode $n) => $o->setBrandingOptions($n->getEnumValue(NotificationTemplateBrandingOptions::class)),
             'defaultLocale' => fn(ParseNode $n) => $o->setDefaultLocale($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'localizedNotificationMessages' => fn(ParseNode $n) => $o->setLocalizedNotificationMessages($n->getCollectionOfObjectValues([LocalizedNotificationMessage::class, 'createFromDiscriminatorValue'])),
@@ -136,6 +149,7 @@ class NotificationMessageTemplate extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('brandingOptions', $this->getBrandingOptions());
         $writer->writeStringValue('defaultLocale', $this->getDefaultLocale());
+        $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfObjectValues('localizedNotificationMessages', $this->getLocalizedNotificationMessages());
@@ -156,6 +170,14 @@ class NotificationMessageTemplate extends Entity implements Parsable
     */
     public function setDefaultLocale(?string $value): void {
         $this->getBackingStore()->set('defaultLocale', $value);
+    }
+
+    /**
+     * Sets the description property value. Display name for the Notification Message Template.
+     * @param string|null $value Value to set for the description property.
+    */
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**

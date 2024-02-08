@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VppToken extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new vppToken and sets the default values.
+     * Instantiates a new VppToken and sets the default values.
     */
     public function __construct() {
         parent::__construct();

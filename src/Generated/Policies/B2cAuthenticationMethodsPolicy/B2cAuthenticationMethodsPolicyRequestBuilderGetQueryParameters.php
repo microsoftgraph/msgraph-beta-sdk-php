@@ -22,7 +22,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new b2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

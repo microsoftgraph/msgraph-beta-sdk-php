@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceHealthScriptAssignment and sets the default values.
+     * Instantiates a new DeviceHealthScriptAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

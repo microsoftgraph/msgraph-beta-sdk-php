@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsEc2Instance extends AwsIdentity implements Parsable 
 {
     /**
-     * Instantiates a new awsEc2Instance and sets the default values.
+     * Instantiates a new AwsEc2Instance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

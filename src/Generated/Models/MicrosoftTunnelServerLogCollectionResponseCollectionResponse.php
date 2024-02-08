@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MicrosoftTunnelServerLogCollectionResponseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new microsoftTunnelServerLogCollectionResponseCollectionResponse and sets the default values.
+     * Instantiates a new MicrosoftTunnelServerLogCollectionResponseCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

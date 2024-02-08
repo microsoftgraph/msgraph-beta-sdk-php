@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CorsConfiguration_v2 extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new corsConfiguration_v2 and sets the default values.
+     * Instantiates a new CorsConfiguration_v2 and sets the default values.
     */
     public function __construct() {
         parent::__construct();

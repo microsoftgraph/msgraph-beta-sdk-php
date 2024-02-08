@@ -18,7 +18,7 @@ class InvalidateAllRefreshTokensPostResponse implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new invalidateAllRefreshTokensPostResponse and sets the default values.
+     * Instantiates a new InvalidateAllRefreshTokensPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

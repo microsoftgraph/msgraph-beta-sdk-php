@@ -19,7 +19,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceComplianceScriptValidationResult and sets the default values.
+     * Instantiates a new DeviceComplianceScriptValidationResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserAnalytics extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userAnalytics and sets the default values.
+     * Instantiates a new UserAnalytics and sets the default values.
     */
     public function __construct() {
         parent::__construct();

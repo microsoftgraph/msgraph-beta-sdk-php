@@ -18,7 +18,7 @@ class HasCustomRoleScopeTagGetResponse implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new hasCustomRoleScopeTagGetResponse and sets the default values.
+     * Instantiates a new HasCustomRoleScopeTagGetResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceCompliancePolicySettingStateSummary and sets the default values.
+     * Instantiates a new DeviceCompliancePolicySettingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -15,7 +15,7 @@ use Psr\Http\Message\StreamInterface;
 class DeviceComplianceScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceComplianceScript and sets the default values.
+     * Instantiates a new DeviceComplianceScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

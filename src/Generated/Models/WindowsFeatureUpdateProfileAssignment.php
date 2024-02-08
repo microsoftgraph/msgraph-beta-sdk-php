@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsFeatureUpdateProfileAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsFeatureUpdateProfileAssignment and sets the default values.
+     * Instantiates a new WindowsFeatureUpdateProfileAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

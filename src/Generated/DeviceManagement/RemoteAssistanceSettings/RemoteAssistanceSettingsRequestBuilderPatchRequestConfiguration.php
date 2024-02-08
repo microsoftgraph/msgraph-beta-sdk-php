@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class RemoteAssistanceSettingsRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new remoteAssistanceSettingsRequestBuilderPatchRequestConfiguration and sets the default values.
+     * Instantiates a new RemoteAssistanceSettingsRequestBuilderPatchRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

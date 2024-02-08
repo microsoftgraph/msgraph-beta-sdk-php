@@ -19,7 +19,7 @@ class GetUnhealthyDefenderAgentsReportPostRequestBody implements AdditionalDataH
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getUnhealthyDefenderAgentsReportPostRequestBody and sets the default values.
+     * Instantiates a new GetUnhealthyDefenderAgentsReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

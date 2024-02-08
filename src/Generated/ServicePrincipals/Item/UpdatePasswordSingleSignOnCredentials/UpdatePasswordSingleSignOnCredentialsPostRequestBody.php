@@ -20,7 +20,7 @@ class UpdatePasswordSingleSignOnCredentialsPostRequestBody implements Additional
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updatePasswordSingleSignOnCredentialsPostRequestBody and sets the default values.
+     * Instantiates a new UpdatePasswordSingleSignOnCredentialsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

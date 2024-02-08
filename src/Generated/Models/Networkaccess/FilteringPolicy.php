@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilteringPolicy extends Policy implements Parsable 
 {
     /**
-     * Instantiates a new filteringPolicy and sets the default values.
+     * Instantiates a new FilteringPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

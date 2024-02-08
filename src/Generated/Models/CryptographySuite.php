@@ -21,7 +21,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cryptographySuite and sets the default values.
+     * Instantiates a new CryptographySuite and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

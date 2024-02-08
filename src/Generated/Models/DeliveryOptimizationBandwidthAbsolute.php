@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * Instantiates a new deliveryOptimizationBandwidthAbsolute and sets the default values.
+     * Instantiates a new DeliveryOptimizationBandwidthAbsolute and sets the default values.
     */
     public function __construct() {
         parent::__construct();

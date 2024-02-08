@@ -84,6 +84,7 @@ use Microsoft\Graph\Beta\Generated\Models\IosUpdateDeviceStatus;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateAccountSummary;
 use Microsoft\Graph\Beta\Generated\Models\ManagedAllDeviceCertificateState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
+use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupRule;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupSettings;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceEncryptionState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceOverview;
@@ -182,7 +183,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagement extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagement and sets the default values.
+     * Instantiates a new DeviceManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -1123,6 +1124,7 @@ class DeviceManagement extends Entity implements Parsable
             'lastReportAggregationDateTime' => fn(ParseNode $n) => $o->setLastReportAggregationDateTime($n->getDateTimeValue()),
             'legacyPcManangementEnabled' => fn(ParseNode $n) => $o->setLegacyPcManangementEnabled($n->getBooleanValue()),
             'macOSSoftwareUpdateAccountSummaries' => fn(ParseNode $n) => $o->setMacOSSoftwareUpdateAccountSummaries($n->getCollectionOfObjectValues([MacOSSoftwareUpdateAccountSummary::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceCleanupRules' => fn(ParseNode $n) => $o->setManagedDeviceCleanupRules($n->getCollectionOfObjectValues([ManagedDeviceCleanupRule::class, 'createFromDiscriminatorValue'])),
             'managedDeviceCleanupSettings' => fn(ParseNode $n) => $o->setManagedDeviceCleanupSettings($n->getObjectValue([ManagedDeviceCleanupSettings::class, 'createFromDiscriminatorValue'])),
             'managedDeviceEncryptionStates' => fn(ParseNode $n) => $o->setManagedDeviceEncryptionStates($n->getCollectionOfObjectValues([ManagedDeviceEncryptionState::class, 'createFromDiscriminatorValue'])),
             'managedDeviceOverview' => fn(ParseNode $n) => $o->setManagedDeviceOverview($n->getObjectValue([ManagedDeviceOverview::class, 'createFromDiscriminatorValue'])),
@@ -1458,6 +1460,20 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'macOSSoftwareUpdateAccountSummaries'");
+    }
+
+    /**
+     * Gets the managedDeviceCleanupRules property value. Device cleanup rule V2
+     * @return array<ManagedDeviceCleanupRule>|null
+    */
+    public function getManagedDeviceCleanupRules(): ?array {
+        $val = $this->getBackingStore()->get('managedDeviceCleanupRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceCleanupRule::class);
+            /** @var array<ManagedDeviceCleanupRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceCleanupRules'");
     }
 
     /**
@@ -2950,6 +2966,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('intuneBrandingProfiles', $this->getIntuneBrandingProfiles());
         $writer->writeCollectionOfObjectValues('iosUpdateStatuses', $this->getIosUpdateStatuses());
         $writer->writeCollectionOfObjectValues('macOSSoftwareUpdateAccountSummaries', $this->getMacOSSoftwareUpdateAccountSummaries());
+        $writer->writeCollectionOfObjectValues('managedDeviceCleanupRules', $this->getManagedDeviceCleanupRules());
         $writer->writeObjectValue('managedDeviceCleanupSettings', $this->getManagedDeviceCleanupSettings());
         $writer->writeCollectionOfObjectValues('managedDeviceEncryptionStates', $this->getManagedDeviceEncryptionStates());
         $writer->writeObjectValue('managedDeviceOverview', $this->getManagedDeviceOverview());
@@ -3685,6 +3702,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setMacOSSoftwareUpdateAccountSummaries(?array $value): void {
         $this->getBackingStore()->set('macOSSoftwareUpdateAccountSummaries', $value);
+    }
+
+    /**
+     * Sets the managedDeviceCleanupRules property value. Device cleanup rule V2
+     * @param array<ManagedDeviceCleanupRule>|null $value Value to set for the managedDeviceCleanupRules property.
+    */
+    public function setManagedDeviceCleanupRules(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceCleanupRules', $value);
     }
 
     /**

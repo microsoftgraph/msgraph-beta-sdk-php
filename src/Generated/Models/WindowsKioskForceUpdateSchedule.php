@@ -22,7 +22,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windowsKioskForceUpdateSchedule and sets the default values.
+     * Instantiates a new WindowsKioskForceUpdateSchedule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

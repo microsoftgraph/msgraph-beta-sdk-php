@@ -16,7 +16,7 @@ class ManagedTenantAlertLogsRequestBuilderGetRequestConfiguration extends BaseRe
     public ?ManagedTenantAlertLogsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managedTenantAlertLogsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagedTenantAlertLogsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagedTenantAlertLogsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagedTenantAlertLogsRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new managedTenantAlertLogsRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagedTenantAlertLogsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -19,7 +19,7 @@ class UpdateIndexPostRequestBody implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updateIndexPostRequestBody and sets the default values.
+     * Instantiates a new UpdateIndexPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

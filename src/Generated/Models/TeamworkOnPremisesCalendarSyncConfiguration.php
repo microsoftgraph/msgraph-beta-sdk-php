@@ -18,7 +18,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkOnPremisesCalendarSyncConfiguration and sets the default values.
+     * Instantiates a new TeamworkOnPremisesCalendarSyncConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

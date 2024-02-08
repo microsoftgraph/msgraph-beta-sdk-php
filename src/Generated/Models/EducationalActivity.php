@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class EducationalActivity extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new educationalActivity and sets the default values.
+     * Instantiates a new EducationalActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

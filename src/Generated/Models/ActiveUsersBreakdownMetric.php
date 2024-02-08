@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ActiveUsersBreakdownMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new activeUsersBreakdownMetric and sets the default values.
+     * Instantiates a new ActiveUsersBreakdownMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRoleManagementAlertIncident extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new unifiedRoleManagementAlertIncident and sets the default values.
+     * Instantiates a new UnifiedRoleManagementAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();

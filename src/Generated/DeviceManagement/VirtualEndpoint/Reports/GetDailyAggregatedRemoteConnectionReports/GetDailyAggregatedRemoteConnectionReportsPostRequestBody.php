@@ -19,7 +19,7 @@ class GetDailyAggregatedRemoteConnectionReportsPostRequestBody implements Additi
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getDailyAggregatedRemoteConnectionReportsPostRequestBody and sets the default values.
+     * Instantiates a new GetDailyAggregatedRemoteConnectionReportsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

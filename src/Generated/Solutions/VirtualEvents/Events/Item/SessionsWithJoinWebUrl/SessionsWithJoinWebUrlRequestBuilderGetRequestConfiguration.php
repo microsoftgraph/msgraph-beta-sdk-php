@@ -16,7 +16,7 @@ class SessionsWithJoinWebUrlRequestBuilderGetRequestConfiguration extends BaseRe
     public ?SessionsWithJoinWebUrlRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new sessionsWithJoinWebUrlRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SessionsWithJoinWebUrlRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SessionsWithJoinWebUrlRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SessionsWithJoinWebUrlRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new sessionsWithJoinWebUrlRequestBuilderGetQueryParameters.
+     * Instantiates a new SessionsWithJoinWebUrlRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return SessionsWithJoinWebUrlRequestBuilderGetQueryParameters

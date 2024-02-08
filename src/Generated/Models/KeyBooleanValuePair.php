@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KeyBooleanValuePair extends KeyTypedValuePair implements Parsable 
 {
     /**
-     * Instantiates a new keyBooleanValuePair and sets the default values.
+     * Instantiates a new KeyBooleanValuePair and sets the default values.
     */
     public function __construct() {
         parent::__construct();

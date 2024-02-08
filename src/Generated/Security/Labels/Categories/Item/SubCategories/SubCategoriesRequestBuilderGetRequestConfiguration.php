@@ -16,7 +16,7 @@ class SubCategoriesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?SubCategoriesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new subCategoriesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SubCategoriesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SubCategoriesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SubCategoriesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new subCategoriesRequestBuilderGetQueryParameters.
+     * Instantiates a new SubCategoriesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

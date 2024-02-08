@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcOnPremisesConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcOnPremisesConnection and sets the default values.
+     * Instantiates a new CloudPcOnPremisesConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

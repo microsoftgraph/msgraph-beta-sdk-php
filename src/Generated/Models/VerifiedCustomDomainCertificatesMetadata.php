@@ -19,7 +19,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new verifiedCustomDomainCertificatesMetadata and sets the default values.
+     * Instantiates a new VerifiedCustomDomainCertificatesMetadata and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BaseSitePage extends BaseItem implements Parsable 
 {
     /**
-     * Instantiates a new baseSitePage and sets the default values.
+     * Instantiates a new BaseSitePage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnsupportedGroupPolicyExtension extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new unsupportedGroupPolicyExtension and sets the default values.
+     * Instantiates a new UnsupportedGroupPolicyExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class PolicySetsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?PolicySetsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new policySetsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PolicySetsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PolicySetsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PolicySetsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new policySetsRequestBuilderGetQueryParameters.
+     * Instantiates a new PolicySetsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

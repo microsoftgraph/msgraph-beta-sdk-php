@@ -16,7 +16,7 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration 
     public ?AppleUserInitiatedEnrollmentProfilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new appleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration 
     }
 
     /**
-     * Instantiates a new appleUserInitiatedEnrollmentProfilesRequestBuilderGetQueryParameters.
+     * Instantiates a new AppleUserInitiatedEnrollmentProfilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

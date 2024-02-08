@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcBulkPowerOff extends CloudPcBulkAction implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcBulkPowerOff and sets the default values.
+     * Instantiates a new CloudPcBulkPowerOff and sets the default values.
     */
     public function __construct() {
         parent::__construct();

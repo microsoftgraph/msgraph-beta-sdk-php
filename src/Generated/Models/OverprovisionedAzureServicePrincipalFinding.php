@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OverprovisionedAzureServicePrincipalFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new overprovisionedAzureServicePrincipalFinding and sets the default values.
+     * Instantiates a new OverprovisionedAzureServicePrincipalFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

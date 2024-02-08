@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MarkContent extends LabelActionBase implements Parsable 
 {
     /**
-     * Instantiates a new markContent and sets the default values.
+     * Instantiates a new MarkContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

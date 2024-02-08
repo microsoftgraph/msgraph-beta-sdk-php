@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserInsightsRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userInsightsRoot and sets the default values.
+     * Instantiates a new UserInsightsRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

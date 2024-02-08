@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComplianceScriptRunSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceComplianceScriptRunSummary and sets the default values.
+     * Instantiates a new DeviceComplianceScriptRunSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class CompareWithTemplateIdRequestBuilderGetRequestConfiguration extends BaseReq
     public ?CompareWithTemplateIdRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new compareWithTemplateIdRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CompareWithTemplateIdRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CompareWithTemplateIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CompareWithTemplateIdRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new compareWithTemplateIdRequestBuilderGetQueryParameters.
+     * Instantiates a new CompareWithTemplateIdRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable 
 {
     /**
-     * Instantiates a new windowsPhone81AppXBundle and sets the default values.
+     * Instantiates a new WindowsPhone81AppXBundle and sets the default values.
     */
     public function __construct() {
         parent::__construct();

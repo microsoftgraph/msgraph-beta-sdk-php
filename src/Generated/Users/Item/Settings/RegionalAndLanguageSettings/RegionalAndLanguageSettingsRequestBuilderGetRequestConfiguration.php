@@ -16,7 +16,7 @@ class RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration extends B
     public ?RegionalAndLanguageSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new regionalAndLanguageSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RegionalAndLanguageSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration extends B
     }
 
     /**
-     * Instantiates a new regionalAndLanguageSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new RegionalAndLanguageSettingsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return RegionalAndLanguageSettingsRequestBuilderGetQueryParameters

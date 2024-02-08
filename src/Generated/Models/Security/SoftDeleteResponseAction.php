@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SoftDeleteResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new softDeleteResponseAction and sets the default values.
+     * Instantiates a new SoftDeleteResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

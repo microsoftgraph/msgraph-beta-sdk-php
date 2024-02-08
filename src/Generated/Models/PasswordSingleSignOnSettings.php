@@ -19,7 +19,7 @@ class PasswordSingleSignOnSettings implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new passwordSingleSignOnSettings and sets the default values.
+     * Instantiates a new PasswordSingleSignOnSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

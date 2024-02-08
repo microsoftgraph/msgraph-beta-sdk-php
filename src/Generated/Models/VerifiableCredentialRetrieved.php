@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VerifiableCredentialRetrieved extends VerifiableCredentialRequirementStatus implements Parsable 
 {
     /**
-     * Instantiates a new verifiableCredentialRetrieved and sets the default values.
+     * Instantiates a new VerifiableCredentialRetrieved and sets the default values.
     */
     public function __construct() {
         parent::__construct();

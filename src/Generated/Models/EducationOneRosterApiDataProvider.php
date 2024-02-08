@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * Instantiates a new educationOneRosterApiDataProvider and sets the default values.
+     * Instantiates a new EducationOneRosterApiDataProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();

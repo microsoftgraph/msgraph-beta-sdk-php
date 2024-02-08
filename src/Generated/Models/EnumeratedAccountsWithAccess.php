@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EnumeratedAccountsWithAccess extends AccountsWithAccess implements Parsable 
 {
     /**
-     * Instantiates a new enumeratedAccountsWithAccess and sets the default values.
+     * Instantiates a new EnumeratedAccountsWithAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();

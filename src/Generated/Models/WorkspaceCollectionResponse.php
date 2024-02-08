@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WorkspaceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new workspaceCollectionResponse and sets the default values.
+     * Instantiates a new WorkspaceCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

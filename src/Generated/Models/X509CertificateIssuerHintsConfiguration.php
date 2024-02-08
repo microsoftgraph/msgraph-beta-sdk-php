@@ -18,7 +18,7 @@ class X509CertificateIssuerHintsConfiguration implements AdditionalDataHolder, B
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new x509CertificateIssuerHintsConfiguration and sets the default values.
+     * Instantiates a new X509CertificateIssuerHintsConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

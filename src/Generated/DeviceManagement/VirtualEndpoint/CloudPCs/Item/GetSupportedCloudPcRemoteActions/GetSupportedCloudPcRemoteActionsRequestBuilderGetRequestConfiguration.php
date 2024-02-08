@@ -16,7 +16,7 @@ class GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration exte
     public ?GetSupportedCloudPcRemoteActionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetSupportedCloudPcRemoteActionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration exte
     }
 
     /**
-     * Instantiates a new getSupportedCloudPcRemoteActionsRequestBuilderGetQueryParameters.
+     * Instantiates a new GetSupportedCloudPcRemoteActionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

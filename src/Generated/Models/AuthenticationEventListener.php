@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationEventListener extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new authenticationEventListener and sets the default values.
+     * Instantiates a new AuthenticationEventListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();

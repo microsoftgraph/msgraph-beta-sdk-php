@@ -14,7 +14,7 @@ use Psr\Http\Message\StreamInterface;
 class OfficeSuiteApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new officeSuiteApp and sets the default values.
+     * Instantiates a new OfficeSuiteApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

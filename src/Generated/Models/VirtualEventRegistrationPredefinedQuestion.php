@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VirtualEventRegistrationPredefinedQuestion extends VirtualEventRegistrationQuestionBase implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventRegistrationPredefinedQuestion and sets the default values.
+     * Instantiates a new VirtualEventRegistrationPredefinedQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

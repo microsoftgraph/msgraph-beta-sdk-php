@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PermissionsRequestChange extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new permissionsRequestChange and sets the default values.
+     * Instantiates a new PermissionsRequestChange and sets the default values.
     */
     public function __construct() {
         parent::__construct();

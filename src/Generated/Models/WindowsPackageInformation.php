@@ -21,7 +21,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windowsPackageInformation and sets the default values.
+     * Instantiates a new WindowsPackageInformation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -20,7 +20,7 @@ class UpdatePolicyRulesPostRequestBody implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updatePolicyRulesPostRequestBody and sets the default values.
+     * Instantiates a new UpdatePolicyRulesPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

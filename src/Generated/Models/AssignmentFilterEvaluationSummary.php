@@ -23,7 +23,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new assignmentFilterEvaluationSummary and sets the default values.
+     * Instantiates a new AssignmentFilterEvaluationSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

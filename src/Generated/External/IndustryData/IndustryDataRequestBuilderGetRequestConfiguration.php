@@ -16,7 +16,7 @@ class IndustryDataRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?IndustryDataRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new industryDataRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new IndustryDataRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param IndustryDataRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class IndustryDataRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new industryDataRequestBuilderGetQueryParameters.
+     * Instantiates a new IndustryDataRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return IndustryDataRequestBuilderGetQueryParameters

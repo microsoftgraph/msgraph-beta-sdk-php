@@ -43,7 +43,7 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -68,12 +68,12 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new connectorGroup.
+     * Create a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectorGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/connectorgroup-post-connectorgroups?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/connectorgroup-post?view=graph-rest-1.0 Find more info here
     */
     public function post(ConnectorGroup $body, ?ConnectorGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -106,7 +106,7 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new connectorGroup.
+     * Create a connectorGroup object.
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

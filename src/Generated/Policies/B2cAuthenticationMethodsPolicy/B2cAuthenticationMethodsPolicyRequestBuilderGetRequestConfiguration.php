@@ -16,7 +16,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration extend
     public ?B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new b2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration extend
     }
 
     /**
-     * Instantiates a new b2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters.
+     * Instantiates a new B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters

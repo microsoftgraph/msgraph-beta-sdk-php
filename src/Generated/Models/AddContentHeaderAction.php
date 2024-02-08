@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddContentHeaderAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new addContentHeaderAction and sets the default values.
+     * Instantiates a new AddContentHeaderAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

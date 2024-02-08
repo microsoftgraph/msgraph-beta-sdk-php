@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcBulkDisasterRecoveryFailover extends CloudPcBulkAction implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcBulkDisasterRecoveryFailover and sets the default values.
+     * Instantiates a new CloudPcBulkDisasterRecoveryFailover and sets the default values.
     */
     public function __construct() {
         parent::__construct();

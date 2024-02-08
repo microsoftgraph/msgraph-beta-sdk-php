@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ItemPatentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new itemPatentCollectionResponse and sets the default values.
+     * Instantiates a new ItemPatentCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

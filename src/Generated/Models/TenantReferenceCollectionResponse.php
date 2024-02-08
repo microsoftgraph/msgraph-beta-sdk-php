@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TenantReferenceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new tenantReferenceCollectionResponse and sets the default values.
+     * Instantiates a new TenantReferenceCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -15,7 +15,7 @@ use Psr\Http\Message\StreamInterface;
 class DeviceCustomAttributeShellScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceCustomAttributeShellScript and sets the default values.
+     * Instantiates a new DeviceCustomAttributeShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

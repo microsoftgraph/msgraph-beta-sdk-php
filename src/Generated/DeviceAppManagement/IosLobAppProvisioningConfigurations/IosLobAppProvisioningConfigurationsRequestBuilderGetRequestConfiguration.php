@@ -16,7 +16,7 @@ class IosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration e
     public ?IosLobAppProvisioningConfigurationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new iosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new IosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param IosLobAppProvisioningConfigurationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class IosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration e
     }
 
     /**
-     * Instantiates a new iosLobAppProvisioningConfigurationsRequestBuilderGetQueryParameters.
+     * Instantiates a new IosLobAppProvisioningConfigurationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

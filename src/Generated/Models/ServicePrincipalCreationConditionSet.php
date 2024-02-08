@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ServicePrincipalCreationConditionSet extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new servicePrincipalCreationConditionSet and sets the default values.
+     * Instantiates a new ServicePrincipalCreationConditionSet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

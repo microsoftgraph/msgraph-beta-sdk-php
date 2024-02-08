@@ -19,7 +19,7 @@ class GetComplianceSettingDetailsReportPostRequestBody implements AdditionalData
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getComplianceSettingDetailsReportPostRequestBody and sets the default values.
+     * Instantiates a new GetComplianceSettingDetailsReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

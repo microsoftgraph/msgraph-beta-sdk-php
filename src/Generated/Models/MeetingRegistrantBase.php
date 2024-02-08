@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingRegistrantBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new meetingRegistrantBase and sets the default values.
+     * Instantiates a new MeetingRegistrantBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

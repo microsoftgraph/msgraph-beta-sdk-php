@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternallyAccessibleAwsStorageBucketFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new externallyAccessibleAwsStorageBucketFinding and sets the default values.
+     * Instantiates a new ExternallyAccessibleAwsStorageBucketFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -19,7 +19,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementApplicabilityRuleOsEdition and sets the default values.
+     * Instantiates a new DeviceManagementApplicabilityRuleOsEdition and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

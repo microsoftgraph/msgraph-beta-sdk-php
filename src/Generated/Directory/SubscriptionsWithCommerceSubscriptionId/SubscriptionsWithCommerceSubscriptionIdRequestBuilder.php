@@ -23,7 +23,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
      * @param string|null $commerceSubscriptionId Alternate key of companySubscription
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $commerceSubscriptionId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(commerceSubscriptionId=\'{commerceSubscriptionId}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(commerceSubscriptionId=\'{commerceSubscriptionId}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['commerceSubscriptionId'] = $commerceSubscriptionId;

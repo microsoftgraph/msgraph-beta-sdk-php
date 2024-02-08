@@ -18,7 +18,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new ipReferenceData and sets the default values.
+     * Instantiates a new IpReferenceData and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

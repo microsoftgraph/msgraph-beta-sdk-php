@@ -18,7 +18,7 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new uploadSecretPostRequestBody and sets the default values.
+     * Instantiates a new UploadSecretPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

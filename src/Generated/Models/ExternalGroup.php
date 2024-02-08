@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalGroup extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new externalGroup and sets the default values.
+     * Instantiates a new ExternalGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

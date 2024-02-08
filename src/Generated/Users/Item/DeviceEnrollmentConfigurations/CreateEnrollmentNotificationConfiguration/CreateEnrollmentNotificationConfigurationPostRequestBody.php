@@ -20,7 +20,7 @@ class CreateEnrollmentNotificationConfigurationPostRequestBody implements Additi
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new createEnrollmentNotificationConfigurationPostRequestBody and sets the default values.
+     * Instantiates a new CreateEnrollmentNotificationConfigurationPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

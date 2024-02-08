@@ -16,7 +16,7 @@ class BusinessFlowTemplatesRequestBuilderGetRequestConfiguration extends BaseReq
     public ?BusinessFlowTemplatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new businessFlowTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new BusinessFlowTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param BusinessFlowTemplatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class BusinessFlowTemplatesRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new businessFlowTemplatesRequestBuilderGetQueryParameters.
+     * Instantiates a new BusinessFlowTemplatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

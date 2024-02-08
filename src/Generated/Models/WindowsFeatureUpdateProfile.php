@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsFeatureUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsFeatureUpdateProfile and sets the default values.
+     * Instantiates a new WindowsFeatureUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

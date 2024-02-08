@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementResourceAccessProfileBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementResourceAccessProfileBase and sets the default values.
+     * Instantiates a new DeviceManagementResourceAccessProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

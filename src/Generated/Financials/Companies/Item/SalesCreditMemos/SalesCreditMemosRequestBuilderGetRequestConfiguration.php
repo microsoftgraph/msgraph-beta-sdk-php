@@ -16,7 +16,7 @@ class SalesCreditMemosRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?SalesCreditMemosRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new salesCreditMemosRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SalesCreditMemosRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SalesCreditMemosRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SalesCreditMemosRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new salesCreditMemosRequestBuilderGetQueryParameters.
+     * Instantiates a new SalesCreditMemosRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

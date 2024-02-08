@@ -18,7 +18,7 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody implements
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new setAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody and sets the default values.
+     * Instantiates a new SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

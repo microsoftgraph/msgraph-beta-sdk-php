@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeletedChat extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deletedChat and sets the default values.
+     * Instantiates a new DeletedChat and sets the default values.
     */
     public function __construct() {
         parent::__construct();

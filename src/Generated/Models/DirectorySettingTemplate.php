@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DirectorySettingTemplate extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new directorySettingTemplate and sets the default values.
+     * Instantiates a new DirectorySettingTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

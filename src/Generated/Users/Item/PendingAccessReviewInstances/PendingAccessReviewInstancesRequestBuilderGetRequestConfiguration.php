@@ -16,7 +16,7 @@ class PendingAccessReviewInstancesRequestBuilderGetRequestConfiguration extends 
     public ?PendingAccessReviewInstancesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new pendingAccessReviewInstancesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PendingAccessReviewInstancesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PendingAccessReviewInstancesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PendingAccessReviewInstancesRequestBuilderGetRequestConfiguration extends 
     }
 
     /**
-     * Instantiates a new pendingAccessReviewInstancesRequestBuilderGetQueryParameters.
+     * Instantiates a new PendingAccessReviewInstancesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

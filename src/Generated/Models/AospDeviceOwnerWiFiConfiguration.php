@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new aospDeviceOwnerWiFiConfiguration and sets the default values.
+     * Instantiates a new AospDeviceOwnerWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new azureAdTokenAuthentication and sets the default values.
+     * Instantiates a new AzureAdTokenAuthentication and sets the default values.
     */
     public function __construct() {
         parent::__construct();

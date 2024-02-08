@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingBusiness extends BookingNamedEntity implements Parsable 
 {
     /**
-     * Instantiates a new bookingBusiness and sets the default values.
+     * Instantiates a new BookingBusiness and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,7 +57,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the bookingPageSettings property value. The bookingPageSettings property
+     * Gets the bookingPageSettings property value. Settings for the published booking page.
      * @return BookingPageSettings|null
     */
     public function getBookingPageSettings(): ?BookingPageSettings {
@@ -109,7 +109,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the booking business was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -135,7 +135,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the customQuestions property value. All the custom questions of this business. Read-only. Nullable.
+     * Gets the customQuestions property value. All custom questions of this business.
      * @return array<BookingCustomQuestion>|null
     */
     public function getCustomQuestions(): ?array {
@@ -227,7 +227,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the booking business was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -357,7 +357,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the bookingPageSettings property value. The bookingPageSettings property
+     * Sets the bookingPageSettings property value. Settings for the published booking page.
      * @param BookingPageSettings|null $value Value to set for the bookingPageSettings property.
     */
     public function setBookingPageSettings(?BookingPageSettings $value): void {
@@ -389,7 +389,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the booking business was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -405,7 +405,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the customQuestions property value. All the custom questions of this business. Read-only. Nullable.
+     * Sets the customQuestions property value. All custom questions of this business.
      * @param array<BookingCustomQuestion>|null $value Value to set for the customQuestions property.
     */
     public function setCustomQuestions(?array $value): void {
@@ -445,7 +445,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the booking business was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {

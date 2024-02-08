@@ -16,7 +16,7 @@ class DispositionReviewStagesRequestBuilderGetRequestConfiguration extends BaseR
     public ?DispositionReviewStagesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dispositionReviewStagesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DispositionReviewStagesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DispositionReviewStagesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DispositionReviewStagesRequestBuilderGetRequestConfiguration extends BaseR
     }
 
     /**
-     * Instantiates a new dispositionReviewStagesRequestBuilderGetQueryParameters.
+     * Instantiates a new DispositionReviewStagesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

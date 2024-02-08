@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSettingInstance implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementAbstractComplexSettingInstance and sets the default values.
+     * Instantiates a new DeviceManagementAbstractComplexSettingInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

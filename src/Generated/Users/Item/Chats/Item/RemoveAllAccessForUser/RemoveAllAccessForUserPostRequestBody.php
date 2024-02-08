@@ -19,7 +19,7 @@ class RemoveAllAccessForUserPostRequestBody implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new removeAllAccessForUserPostRequestBody and sets the default values.
+     * Instantiates a new RemoveAllAccessForUserPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewDecision extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new accessReviewDecision and sets the default values.
+     * Instantiates a new AccessReviewDecision and sets the default values.
     */
     public function __construct() {
         parent::__construct();

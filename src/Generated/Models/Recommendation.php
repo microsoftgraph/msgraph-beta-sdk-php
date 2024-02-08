@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Recommendation extends RecommendationBase implements Parsable 
 {
     /**
-     * Instantiates a new recommendation and sets the default values.
+     * Instantiates a new Recommendation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

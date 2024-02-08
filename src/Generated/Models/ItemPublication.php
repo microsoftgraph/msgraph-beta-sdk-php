@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ItemPublication extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new itemPublication and sets the default values.
+     * Instantiates a new ItemPublication and sets the default values.
     */
     public function __construct() {
         parent::__construct();

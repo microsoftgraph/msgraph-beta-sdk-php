@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new redirectSingleSignOnExtension and sets the default values.
+     * Instantiates a new RedirectSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

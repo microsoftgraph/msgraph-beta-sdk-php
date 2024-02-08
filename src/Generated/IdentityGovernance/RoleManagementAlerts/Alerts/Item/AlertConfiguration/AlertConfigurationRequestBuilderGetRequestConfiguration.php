@@ -16,7 +16,7 @@ class AlertConfigurationRequestBuilderGetRequestConfiguration extends BaseReques
     public ?AlertConfigurationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new alertConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AlertConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AlertConfigurationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AlertConfigurationRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new alertConfigurationRequestBuilderGetQueryParameters.
+     * Instantiates a new AlertConfigurationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AlertConfigurationRequestBuilderGetQueryParameters

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcSupportedRegionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcSupportedRegionCollectionResponse and sets the default values.
+     * Instantiates a new CloudPcSupportedRegionCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

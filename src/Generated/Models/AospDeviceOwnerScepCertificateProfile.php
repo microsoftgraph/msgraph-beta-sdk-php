@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AospDeviceOwnerScepCertificateProfile extends AospDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new aospDeviceOwnerScepCertificateProfile and sets the default values.
+     * Instantiates a new AospDeviceOwnerScepCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

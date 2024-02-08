@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcFrontLineServicePlan extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcFrontLineServicePlan and sets the default values.
+     * Instantiates a new CloudPcFrontLineServicePlan and sets the default values.
     */
     public function __construct() {
         parent::__construct();

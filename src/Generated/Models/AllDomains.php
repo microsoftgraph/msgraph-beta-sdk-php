@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AllDomains extends ValidatingDomains implements Parsable 
 {
     /**
-     * Instantiates a new allDomains and sets the default values.
+     * Instantiates a new AllDomains and sets the default values.
     */
     public function __construct() {
         parent::__construct();

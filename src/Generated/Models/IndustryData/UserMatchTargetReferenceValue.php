@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserMatchTargetReferenceValue extends ReferenceValue implements Parsable 
 {
     /**
-     * Instantiates a new userMatchTargetReferenceValue and sets the default values.
+     * Instantiates a new UserMatchTargetReferenceValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();

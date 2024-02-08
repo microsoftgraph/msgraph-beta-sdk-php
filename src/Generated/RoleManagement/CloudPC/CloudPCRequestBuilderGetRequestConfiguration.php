@@ -16,7 +16,7 @@ class CloudPCRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     public ?CloudPCRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new cloudPCRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CloudPCRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CloudPCRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CloudPCRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     }
 
     /**
-     * Instantiates a new cloudPCRequestBuilderGetQueryParameters.
+     * Instantiates a new CloudPCRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return CloudPCRequestBuilderGetQueryParameters

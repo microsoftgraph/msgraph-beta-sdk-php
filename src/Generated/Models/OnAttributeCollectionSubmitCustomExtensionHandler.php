@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnAttributeCollectionSubmitCustomExtensionHandler extends OnAttributeCollectionSubmitHandler implements Parsable 
 {
     /**
-     * Instantiates a new onAttributeCollectionSubmitCustomExtensionHandler and sets the default values.
+     * Instantiates a new OnAttributeCollectionSubmitCustomExtensionHandler and sets the default values.
     */
     public function __construct() {
         parent::__construct();

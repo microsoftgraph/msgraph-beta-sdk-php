@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MetadataAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new metadataAction and sets the default values.
+     * Instantiates a new MetadataAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

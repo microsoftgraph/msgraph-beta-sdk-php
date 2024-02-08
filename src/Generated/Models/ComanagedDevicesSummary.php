@@ -21,7 +21,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new comanagedDevicesSummary and sets the default values.
+     * Instantiates a new ComanagedDevicesSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

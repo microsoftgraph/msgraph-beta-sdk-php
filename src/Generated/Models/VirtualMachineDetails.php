@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VirtualMachineDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new virtualMachineDetails and sets the default values.
+     * Instantiates a new VirtualMachineDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

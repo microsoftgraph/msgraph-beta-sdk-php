@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntentAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementIntentAssignment and sets the default values.
+     * Instantiates a new DeviceManagementIntentAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

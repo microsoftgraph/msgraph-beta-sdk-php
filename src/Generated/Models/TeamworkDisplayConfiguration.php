@@ -19,7 +19,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkDisplayConfiguration and sets the default values.
+     * Instantiates a new TeamworkDisplayConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

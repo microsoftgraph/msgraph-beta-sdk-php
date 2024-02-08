@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GcpAuthorizationSystem extends AuthorizationSystem implements Parsable 
 {
     /**
-     * Instantiates a new gcpAuthorizationSystem and sets the default values.
+     * Instantiates a new GcpAuthorizationSystem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

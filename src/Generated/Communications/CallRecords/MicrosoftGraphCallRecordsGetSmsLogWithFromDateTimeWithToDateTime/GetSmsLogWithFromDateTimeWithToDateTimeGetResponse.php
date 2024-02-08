@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetSmsLogWithFromDateTimeWithToDateTimeGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getSmsLogWithFromDateTimeWithToDateTimeGetResponse and sets the default values.
+     * Instantiates a new GetSmsLogWithFromDateTimeWithToDateTimeGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

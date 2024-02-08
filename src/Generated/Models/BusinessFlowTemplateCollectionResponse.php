@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BusinessFlowTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new businessFlowTemplateCollectionResponse and sets the default values.
+     * Instantiates a new BusinessFlowTemplateCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetRequestConfigurat
     public ?GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,8 +27,9 @@ class GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetRequestConfigurat
     }
 
     /**
-     * Instantiates a new getRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters.
+     * Instantiates a new GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -37,8 +38,8 @@ class GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetRequestConfigurat
      * @param int|null $top Show only the first n items
      * @return GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters {
-        return new GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters {
+        return new GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
     }
 
 }

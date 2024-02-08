@@ -16,7 +16,7 @@ class MonthlyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration e
     public ?MonthlyPrintUsageSummariesByPrinterRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new monthlyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MonthlyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MonthlyPrintUsageSummariesByPrinterRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MonthlyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration e
     }
 
     /**
-     * Instantiates a new monthlyPrintUsageSummariesByPrinterRequestBuilderGetQueryParameters.
+     * Instantiates a new MonthlyPrintUsageSummariesByPrinterRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

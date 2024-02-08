@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SuperGcpServiceAccountFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new superGcpServiceAccountFinding and sets the default values.
+     * Instantiates a new SuperGcpServiceAccountFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

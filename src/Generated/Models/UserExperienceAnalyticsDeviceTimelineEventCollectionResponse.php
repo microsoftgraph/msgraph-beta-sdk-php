@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserExperienceAnalyticsDeviceTimelineEventCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceTimelineEventCollectionResponse and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceTimelineEventCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

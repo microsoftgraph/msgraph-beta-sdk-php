@@ -18,7 +18,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcCrossRegionDisasterRecoverySetting and sets the default values.
+     * Instantiates a new CloudPcCrossRegionDisasterRecoverySetting and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

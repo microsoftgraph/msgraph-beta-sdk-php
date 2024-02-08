@@ -21,7 +21,7 @@ class UserExperienceAnalyticsDeviceBatteryDetail implements AdditionalDataHolder
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceBatteryDetail and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceBatteryDetail and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

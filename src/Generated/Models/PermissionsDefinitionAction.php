@@ -18,7 +18,7 @@ class PermissionsDefinitionAction implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new permissionsDefinitionAction and sets the default values.
+     * Instantiates a new PermissionsDefinitionAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

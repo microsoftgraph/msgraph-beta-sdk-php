@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BlockFileResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new blockFileResponseAction and sets the default values.
+     * Instantiates a new BlockFileResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class BlockFileResponseAction extends ResponseAction implements Parsable
     }
 
     /**
-     * Gets the deviceGroupNames property value. The deviceGroupNames property
+     * Gets the deviceGroupNames property value. Device groups to which the actions set in the custom detection rule are applied. More information
      * @return array<string>|null
     */
     public function getDeviceGroupNames(): ?array {
@@ -82,7 +82,7 @@ class BlockFileResponseAction extends ResponseAction implements Parsable
     }
 
     /**
-     * Sets the deviceGroupNames property value. The deviceGroupNames property
+     * Sets the deviceGroupNames property value. Device groups to which the actions set in the custom detection rule are applied. More information
      * @param array<string>|null $value Value to set for the deviceGroupNames property.
     */
     public function setDeviceGroupNames(?array $value): void {

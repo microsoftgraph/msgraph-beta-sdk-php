@@ -18,7 +18,7 @@ class VerificationResult implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new verificationResult and sets the default values.
+     * Instantiates a new VerificationResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

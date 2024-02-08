@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AlertRecord extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new alertRecord and sets the default values.
+     * Instantiates a new AlertRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();

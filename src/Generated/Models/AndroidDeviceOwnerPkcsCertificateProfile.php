@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerPkcsCertificateProfile and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

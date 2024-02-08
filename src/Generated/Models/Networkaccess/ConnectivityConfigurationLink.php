@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ConnectivityConfigurationLink extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new connectivityConfigurationLink and sets the default values.
+     * Instantiates a new ConnectivityConfigurationLink and sets the default values.
     */
     public function __construct() {
         parent::__construct();

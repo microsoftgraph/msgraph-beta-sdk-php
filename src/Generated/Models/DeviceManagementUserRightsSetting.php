@@ -22,7 +22,7 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementUserRightsSetting and sets the default values.
+     * Instantiates a new DeviceManagementUserRightsSetting and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

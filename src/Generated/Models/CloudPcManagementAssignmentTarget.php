@@ -18,7 +18,7 @@ class CloudPcManagementAssignmentTarget implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcManagementAssignmentTarget and sets the default values.
+     * Instantiates a new CloudPcManagementAssignmentTarget and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

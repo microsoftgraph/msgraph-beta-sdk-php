@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GroupPolicySettingMapping extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicySettingMapping and sets the default values.
+     * Instantiates a new GroupPolicySettingMapping and sets the default values.
     */
     public function __construct() {
         parent::__construct();

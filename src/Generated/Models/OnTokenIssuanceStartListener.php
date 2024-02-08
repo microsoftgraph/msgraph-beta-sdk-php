@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnTokenIssuanceStartListener extends AuthenticationEventListener implements Parsable 
 {
     /**
-     * Instantiates a new onTokenIssuanceStartListener and sets the default values.
+     * Instantiates a new OnTokenIssuanceStartListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementDerivedCredentialSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementDerivedCredentialSettings and sets the default values.
+     * Instantiates a new DeviceManagementDerivedCredentialSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

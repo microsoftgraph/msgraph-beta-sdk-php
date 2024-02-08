@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * Instantiates a new mobileAppTroubleshootingAppStateHistory and sets the default values.
+     * Instantiates a new MobileAppTroubleshootingAppStateHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

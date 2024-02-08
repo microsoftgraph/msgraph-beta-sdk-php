@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmbeddedSIMActivationCodePoolAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new embeddedSIMActivationCodePoolAssignment and sets the default values.
+     * Instantiates a new EmbeddedSIMActivationCodePoolAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

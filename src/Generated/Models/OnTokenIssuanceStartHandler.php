@@ -18,7 +18,7 @@ class OnTokenIssuanceStartHandler implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new onTokenIssuanceStartHandler and sets the default values.
+     * Instantiates a new OnTokenIssuanceStartHandler and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

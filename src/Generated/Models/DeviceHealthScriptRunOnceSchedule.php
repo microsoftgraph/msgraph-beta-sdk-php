@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule implements Parsable 
 {
     /**
-     * Instantiates a new deviceHealthScriptRunOnceSchedule and sets the default values.
+     * Instantiates a new DeviceHealthScriptRunOnceSchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

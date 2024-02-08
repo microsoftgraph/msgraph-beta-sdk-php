@@ -16,7 +16,7 @@ class SensitiveTypesRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?SensitiveTypesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new sensitiveTypesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SensitiveTypesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SensitiveTypesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SensitiveTypesRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new sensitiveTypesRequestBuilderGetQueryParameters.
+     * Instantiates a new SensitiveTypesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

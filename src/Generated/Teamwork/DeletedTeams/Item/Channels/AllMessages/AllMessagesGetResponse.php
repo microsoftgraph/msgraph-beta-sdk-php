@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AllMessagesGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new allMessagesGetResponse and sets the default values.
+     * Instantiates a new AllMessagesGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskAzureADGroup and sets the default values.
+     * Instantiates a new WindowsKioskAzureADGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

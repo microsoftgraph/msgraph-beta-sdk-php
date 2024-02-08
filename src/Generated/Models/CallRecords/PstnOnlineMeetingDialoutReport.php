@@ -18,7 +18,7 @@ class PstnOnlineMeetingDialoutReport implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new pstnOnlineMeetingDialoutReport and sets the default values.
+     * Instantiates a new PstnOnlineMeetingDialoutReport and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

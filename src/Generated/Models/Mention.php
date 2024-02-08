@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Mention extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new mention and sets the default values.
+     * Instantiates a new Mention and sets the default values.
     */
     public function __construct() {
         parent::__construct();

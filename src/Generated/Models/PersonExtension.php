@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PersonExtension extends Extension implements Parsable 
 {
     /**
-     * Instantiates a new personExtension and sets the default values.
+     * Instantiates a new PersonExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

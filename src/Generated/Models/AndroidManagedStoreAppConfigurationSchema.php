@@ -14,7 +14,7 @@ use Psr\Http\Message\StreamInterface;
 class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new androidManagedStoreAppConfigurationSchema and sets the default values.
+     * Instantiates a new AndroidManagedStoreAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();

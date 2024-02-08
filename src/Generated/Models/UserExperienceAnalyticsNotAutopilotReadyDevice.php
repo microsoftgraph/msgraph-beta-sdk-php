@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsNotAutopilotReadyDevice and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsNotAutopilotReadyDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();

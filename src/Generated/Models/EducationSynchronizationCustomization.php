@@ -20,7 +20,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new educationSynchronizationCustomization and sets the default values.
+     * Instantiates a new EducationSynchronizationCustomization and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

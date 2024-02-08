@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacAppIdentifier extends MobileAppIdentifier implements Parsable 
 {
     /**
-     * Instantiates a new macAppIdentifier and sets the default values.
+     * Instantiates a new MacAppIdentifier and sets the default values.
     */
     public function __construct() {
         parent::__construct();

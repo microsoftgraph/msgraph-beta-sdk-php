@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ComplianceChangeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new complianceChangeCollectionResponse and sets the default values.
+     * Instantiates a new ComplianceChangeCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

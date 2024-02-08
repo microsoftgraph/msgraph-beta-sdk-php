@@ -16,7 +16,7 @@ class AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration extends Bas
     public ?AuthenticationEventsFlowsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new authenticationEventsFlowsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AuthenticationEventsFlowsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new authenticationEventsFlowsRequestBuilderGetQueryParameters.
+     * Instantiates a new AuthenticationEventsFlowsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

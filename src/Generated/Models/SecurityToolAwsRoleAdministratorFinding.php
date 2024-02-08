@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityToolAwsRoleAdministratorFinding extends AwsSecurityToolAdministrationFinding implements Parsable 
 {
     /**
-     * Instantiates a new securityToolAwsRoleAdministratorFinding and sets the default values.
+     * Instantiates a new SecurityToolAwsRoleAdministratorFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

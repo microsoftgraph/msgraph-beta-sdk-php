@@ -18,7 +18,7 @@ class EducationIdentityDomain implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new educationIdentityDomain and sets the default values.
+     * Instantiates a new EducationIdentityDomain and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

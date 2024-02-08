@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppIcon extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamsAppIcon and sets the default values.
+     * Instantiates a new TeamsAppIcon and sets the default values.
     */
     public function __construct() {
         parent::__construct();

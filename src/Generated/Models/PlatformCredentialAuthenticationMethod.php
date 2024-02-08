@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implements Parsable 
 {
     /**
-     * Instantiates a new platformCredentialAuthenticationMethod and sets the default values.
+     * Instantiates a new PlatformCredentialAuthenticationMethod and sets the default values.
     */
     public function __construct() {
         parent::__construct();

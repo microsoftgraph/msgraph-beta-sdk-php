@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementScriptDeviceState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementScriptDeviceState and sets the default values.
+     * Instantiates a new DeviceManagementScriptDeviceState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

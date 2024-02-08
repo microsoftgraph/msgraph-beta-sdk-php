@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingStaffMember extends BookingPerson implements Parsable 
 {
     /**
-     * Instantiates a new bookingStaffMember and sets the default values.
+     * Instantiates a new BookingStaffMember and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,7 +54,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the staff member was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -86,7 +86,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Gets the isEmailNotificationEnabled property value. True indicates that a staff member will be notified via email when a booking assigned to them is created or changed.
+     * Gets the isEmailNotificationEnabled property value. Indicates that a staff members are  notified via email when a booking assigned to them is created or changed. The default value is true
      * @return bool|null
     */
     public function getIsEmailNotificationEnabled(): ?bool {
@@ -98,7 +98,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the staff member was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -158,7 +158,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Gets the workingHours property value. The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.
+     * Gets the workingHours property value. The range of hours each day of the week that the staff member is available for booking. By default, they're initialized to be the same as the businessHours property of the business.
      * @return array<BookingWorkHours>|null
     */
     public function getWorkingHours(): ?array {
@@ -206,7 +206,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the staff member was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -214,7 +214,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Sets the isEmailNotificationEnabled property value. True indicates that a staff member will be notified via email when a booking assigned to them is created or changed.
+     * Sets the isEmailNotificationEnabled property value. Indicates that a staff members are  notified via email when a booking assigned to them is created or changed. The default value is true
      * @param bool|null $value Value to set for the isEmailNotificationEnabled property.
     */
     public function setIsEmailNotificationEnabled(?bool $value): void {
@@ -222,7 +222,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the staff member was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
@@ -262,7 +262,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
     }
 
     /**
-     * Sets the workingHours property value. The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.
+     * Sets the workingHours property value. The range of hours each day of the week that the staff member is available for booking. By default, they're initialized to be the same as the businessHours property of the business.
      * @param array<BookingWorkHours>|null $value Value to set for the workingHours property.
     */
     public function setWorkingHours(?array $value): void {

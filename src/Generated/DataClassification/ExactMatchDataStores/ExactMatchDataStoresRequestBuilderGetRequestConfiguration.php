@@ -16,7 +16,7 @@ class ExactMatchDataStoresRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?ExactMatchDataStoresRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new exactMatchDataStoresRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ExactMatchDataStoresRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ExactMatchDataStoresRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ExactMatchDataStoresRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new exactMatchDataStoresRequestBuilderGetQueryParameters.
+     * Instantiates a new ExactMatchDataStoresRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

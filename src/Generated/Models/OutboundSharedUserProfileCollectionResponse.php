@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OutboundSharedUserProfileCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new outboundSharedUserProfileCollectionResponse and sets the default values.
+     * Instantiates a new OutboundSharedUserProfileCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

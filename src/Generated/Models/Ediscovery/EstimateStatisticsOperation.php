@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EstimateStatisticsOperation extends CaseOperation implements Parsable 
 {
     /**
-     * Instantiates a new estimateStatisticsOperation and sets the default values.
+     * Instantiates a new EstimateStatisticsOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureUsage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new azureUsage and sets the default values.
+     * Instantiates a new AzureUsage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OverprovisionedAwsResourceFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new overprovisionedAwsResourceFinding and sets the default values.
+     * Instantiates a new OverprovisionedAwsResourceFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

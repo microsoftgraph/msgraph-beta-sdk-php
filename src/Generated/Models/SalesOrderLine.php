@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class SalesOrderLine extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new salesOrderLine and sets the default values.
+     * Instantiates a new SalesOrderLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -21,7 +21,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new bitLockerSystemDrivePolicy and sets the default values.
+     * Instantiates a new BitLockerSystemDrivePolicy and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

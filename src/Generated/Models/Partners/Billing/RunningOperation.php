@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RunningOperation extends Operation implements Parsable 
 {
     /**
-     * Instantiates a new runningOperation and sets the default values.
+     * Instantiates a new RunningOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

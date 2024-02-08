@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MobilityManagementPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new mobilityManagementPolicyCollectionResponse and sets the default values.
+     * Instantiates a new MobilityManagementPolicyCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

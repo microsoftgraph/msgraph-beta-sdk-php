@@ -21,7 +21,7 @@ class DeliveryOptimizationMaxCacheSize implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deliveryOptimizationMaxCacheSize and sets the default values.
+     * Instantiates a new DeliveryOptimizationMaxCacheSize and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

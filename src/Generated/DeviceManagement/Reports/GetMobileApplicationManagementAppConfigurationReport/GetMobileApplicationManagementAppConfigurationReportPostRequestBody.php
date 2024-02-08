@@ -19,7 +19,7 @@ class GetMobileApplicationManagementAppConfigurationReportPostRequestBody implem
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getMobileApplicationManagementAppConfigurationReportPostRequestBody and sets the default values.
+     * Instantiates a new GetMobileApplicationManagementAppConfigurationReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

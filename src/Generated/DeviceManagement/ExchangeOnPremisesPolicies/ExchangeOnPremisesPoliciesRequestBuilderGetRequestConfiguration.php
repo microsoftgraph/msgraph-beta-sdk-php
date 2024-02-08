@@ -16,7 +16,7 @@ class ExchangeOnPremisesPoliciesRequestBuilderGetRequestConfiguration extends Ba
     public ?ExchangeOnPremisesPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new exchangeOnPremisesPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ExchangeOnPremisesPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ExchangeOnPremisesPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ExchangeOnPremisesPoliciesRequestBuilderGetRequestConfiguration extends Ba
     }
 
     /**
-     * Instantiates a new exchangeOnPremisesPoliciesRequestBuilderGetQueryParameters.
+     * Instantiates a new ExchangeOnPremisesPoliciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -22,7 +22,7 @@ class CrossTenantAccessRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new crossTenantAccessRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new CrossTenantAccessRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

@@ -22,7 +22,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidManagedStoreAppConfigurationSchemaItem and sets the default values.
+     * Instantiates a new AndroidManagedStoreAppConfigurationSchemaItem and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

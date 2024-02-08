@@ -18,7 +18,7 @@ class CancelMyRequestPostRequestBody implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cancelMyRequestPostRequestBody and sets the default values.
+     * Instantiates a new CancelMyRequestPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

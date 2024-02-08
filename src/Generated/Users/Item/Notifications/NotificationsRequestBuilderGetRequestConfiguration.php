@@ -16,7 +16,7 @@ class NotificationsRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?NotificationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new notificationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new NotificationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param NotificationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class NotificationsRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new notificationsRequestBuilderGetQueryParameters.
+     * Instantiates a new NotificationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

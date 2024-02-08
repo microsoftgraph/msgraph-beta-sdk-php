@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsFeatureUpdateCatalogItem extends WindowsUpdateCatalogItem implements Parsable 
 {
     /**
-     * Instantiates a new windowsFeatureUpdateCatalogItem and sets the default values.
+     * Instantiates a new WindowsFeatureUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

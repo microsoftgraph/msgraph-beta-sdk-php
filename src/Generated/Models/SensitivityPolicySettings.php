@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitivityPolicySettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new sensitivityPolicySettings and sets the default values.
+     * Instantiates a new SensitivityPolicySettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VulnerableManagedDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new vulnerableManagedDevice and sets the default values.
+     * Instantiates a new VulnerableManagedDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();

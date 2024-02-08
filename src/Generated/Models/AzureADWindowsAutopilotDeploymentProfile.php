@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureADWindowsAutopilotDeploymentProfile extends WindowsAutopilotDeploymentProfile implements Parsable 
 {
     /**
-     * Instantiates a new azureADWindowsAutopilotDeploymentProfile and sets the default values.
+     * Instantiates a new AzureADWindowsAutopilotDeploymentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

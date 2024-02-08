@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\BookingCurrencies;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+ * Get entities from bookingCurrencies
 */
 class BookingCurrenciesRequestBuilderGetQueryParameters 
 {
@@ -58,7 +58,7 @@ class BookingCurrenciesRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new bookingCurrenciesRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new BookingCurrenciesRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

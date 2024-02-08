@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidForWorkCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkCertificateProfileBase and sets the default values.
+     * Instantiates a new AndroidForWorkCertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

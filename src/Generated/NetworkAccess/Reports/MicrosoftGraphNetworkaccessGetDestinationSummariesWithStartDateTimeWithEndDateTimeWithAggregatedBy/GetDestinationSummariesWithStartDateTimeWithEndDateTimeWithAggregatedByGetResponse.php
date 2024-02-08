@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByGetResponse and sets the default values.
+     * Instantiates a new GetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

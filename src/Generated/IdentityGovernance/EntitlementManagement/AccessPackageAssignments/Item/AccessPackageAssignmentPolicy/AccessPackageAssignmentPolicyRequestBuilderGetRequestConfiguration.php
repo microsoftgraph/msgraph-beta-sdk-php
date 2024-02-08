@@ -16,7 +16,7 @@ class AccessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration extends
     public ?AccessPackageAssignmentPolicyRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageAssignmentPolicyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new accessPackageAssignmentPolicyRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageAssignmentPolicyRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AccessPackageAssignmentPolicyRequestBuilderGetQueryParameters

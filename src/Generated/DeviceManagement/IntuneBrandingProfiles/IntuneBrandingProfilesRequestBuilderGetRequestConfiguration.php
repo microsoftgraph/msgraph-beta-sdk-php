@@ -16,7 +16,7 @@ class IntuneBrandingProfilesRequestBuilderGetRequestConfiguration extends BaseRe
     public ?IntuneBrandingProfilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new intuneBrandingProfilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new IntuneBrandingProfilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param IntuneBrandingProfilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class IntuneBrandingProfilesRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new intuneBrandingProfilesRequestBuilderGetQueryParameters.
+     * Instantiates a new IntuneBrandingProfilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

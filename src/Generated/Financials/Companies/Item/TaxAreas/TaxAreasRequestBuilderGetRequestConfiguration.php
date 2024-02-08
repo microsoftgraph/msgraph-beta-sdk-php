@@ -16,7 +16,7 @@ class TaxAreasRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?TaxAreasRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new taxAreasRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TaxAreasRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TaxAreasRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TaxAreasRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new taxAreasRequestBuilderGetQueryParameters.
+     * Instantiates a new TaxAreasRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

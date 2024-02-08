@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsGroup extends AwsIdentity implements Parsable 
 {
     /**
-     * Instantiates a new awsGroup and sets the default values.
+     * Instantiates a new AwsGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

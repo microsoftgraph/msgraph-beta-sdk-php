@@ -21,7 +21,7 @@ class DataProcessorServiceForWindowsFeaturesOnboarding implements AdditionalData
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new dataProcessorServiceForWindowsFeaturesOnboarding and sets the default values.
+     * Instantiates a new DataProcessorServiceForWindowsFeaturesOnboarding and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

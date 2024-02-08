@@ -22,7 +22,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidDeviceOwnerKioskModeManagedFolder and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerKioskModeManagedFolder and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

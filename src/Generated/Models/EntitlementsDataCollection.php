@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EntitlementsDataCollection extends EntitlementsDataCollectionInfo implements Parsable 
 {
     /**
-     * Instantiates a new entitlementsDataCollection and sets the default values.
+     * Instantiates a new EntitlementsDataCollection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -19,7 +19,7 @@ class GetEncryptionReportForDevicesPostRequestBody implements AdditionalDataHold
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getEncryptionReportForDevicesPostRequestBody and sets the default values.
+     * Instantiates a new GetEncryptionReportForDevicesPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

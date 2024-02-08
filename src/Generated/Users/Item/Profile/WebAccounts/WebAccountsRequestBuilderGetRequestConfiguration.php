@@ -16,7 +16,7 @@ class WebAccountsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?WebAccountsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new webAccountsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WebAccountsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WebAccountsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WebAccountsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new webAccountsRequestBuilderGetQueryParameters.
+     * Instantiates a new WebAccountsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

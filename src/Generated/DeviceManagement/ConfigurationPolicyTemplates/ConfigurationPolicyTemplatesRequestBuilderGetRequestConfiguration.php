@@ -16,7 +16,7 @@ class ConfigurationPolicyTemplatesRequestBuilderGetRequestConfiguration extends 
     public ?ConfigurationPolicyTemplatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new configurationPolicyTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ConfigurationPolicyTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ConfigurationPolicyTemplatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ConfigurationPolicyTemplatesRequestBuilderGetRequestConfiguration extends 
     }
 
     /**
-     * Instantiates a new configurationPolicyTemplatesRequestBuilderGetQueryParameters.
+     * Instantiates a new ConfigurationPolicyTemplatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

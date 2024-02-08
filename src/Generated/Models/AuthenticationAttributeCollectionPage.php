@@ -19,7 +19,7 @@ class AuthenticationAttributeCollectionPage implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new authenticationAttributeCollectionPage and sets the default values.
+     * Instantiates a new AuthenticationAttributeCollectionPage and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

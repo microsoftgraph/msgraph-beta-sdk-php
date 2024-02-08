@@ -16,7 +16,7 @@ class InstallationOptionsRequestBuilderGetRequestConfiguration extends BaseReque
     public ?InstallationOptionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new installationOptionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new InstallationOptionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param InstallationOptionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class InstallationOptionsRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new installationOptionsRequestBuilderGetQueryParameters.
+     * Instantiates a new InstallationOptionsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return InstallationOptionsRequestBuilderGetQueryParameters

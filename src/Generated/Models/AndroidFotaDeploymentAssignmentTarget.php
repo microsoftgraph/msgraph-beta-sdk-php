@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidFotaDeploymentAssignmentTarget extends DeviceAndAppManagementAssignmentTarget implements Parsable 
 {
     /**
-     * Instantiates a new androidFotaDeploymentAssignmentTarget and sets the default values.
+     * Instantiates a new AndroidFotaDeploymentAssignmentTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();

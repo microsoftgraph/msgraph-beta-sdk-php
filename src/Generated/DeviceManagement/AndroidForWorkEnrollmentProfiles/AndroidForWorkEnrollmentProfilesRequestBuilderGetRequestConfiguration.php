@@ -16,7 +16,7 @@ class AndroidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration exte
     public ?AndroidForWorkEnrollmentProfilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new androidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AndroidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AndroidForWorkEnrollmentProfilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AndroidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration exte
     }
 
     /**
-     * Instantiates a new androidForWorkEnrollmentProfilesRequestBuilderGetQueryParameters.
+     * Instantiates a new AndroidForWorkEnrollmentProfilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

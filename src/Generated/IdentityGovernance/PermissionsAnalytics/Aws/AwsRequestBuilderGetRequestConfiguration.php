@@ -16,7 +16,7 @@ class AwsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?AwsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new awsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AwsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AwsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AwsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new awsRequestBuilderGetQueryParameters.
+     * Instantiates a new AwsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AwsRequestBuilderGetQueryParameters

@@ -21,7 +21,7 @@ class EncryptionReportPolicyDetails implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new encryptionReportPolicyDetails and sets the default values.
+     * Instantiates a new EncryptionReportPolicyDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

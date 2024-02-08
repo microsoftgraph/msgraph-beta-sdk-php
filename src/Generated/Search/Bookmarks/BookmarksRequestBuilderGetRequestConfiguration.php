@@ -16,7 +16,7 @@ class BookmarksRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     public ?BookmarksRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new bookmarksRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new BookmarksRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param BookmarksRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class BookmarksRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     }
 
     /**
-     * Instantiates a new bookmarksRequestBuilderGetQueryParameters.
+     * Instantiates a new BookmarksRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

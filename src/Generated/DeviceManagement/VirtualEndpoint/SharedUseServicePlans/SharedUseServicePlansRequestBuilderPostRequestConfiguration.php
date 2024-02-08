@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class SharedUseServicePlansRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new sharedUseServicePlansRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new SharedUseServicePlansRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

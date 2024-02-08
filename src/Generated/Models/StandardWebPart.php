@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StandardWebPart extends WebPart implements Parsable 
 {
     /**
-     * Instantiates a new standardWebPart and sets the default values.
+     * Instantiates a new StandardWebPart and sets the default values.
     */
     public function __construct() {
         parent::__construct();

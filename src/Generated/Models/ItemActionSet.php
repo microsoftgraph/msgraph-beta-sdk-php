@@ -18,7 +18,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new itemActionSet and sets the default values.
+     * Instantiates a new ItemActionSet and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -58,7 +58,7 @@ class AuthorizationSystemsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new authorizationSystemsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new AuthorizationSystemsRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

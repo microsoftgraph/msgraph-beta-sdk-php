@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ActiveUsersMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new activeUsersMetric and sets the default values.
+     * Instantiates a new ActiveUsersMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

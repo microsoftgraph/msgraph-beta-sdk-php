@@ -16,7 +16,7 @@ class DataSharingConsentsRequestBuilderGetRequestConfiguration extends BaseReque
     public ?DataSharingConsentsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dataSharingConsentsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DataSharingConsentsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DataSharingConsentsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DataSharingConsentsRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new dataSharingConsentsRequestBuilderGetQueryParameters.
+     * Instantiates a new DataSharingConsentsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -15,7 +15,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingService extends BookingNamedEntity implements Parsable 
 {
     /**
-     * Instantiates a new bookingService and sets the default values.
+     * Instantiates a new BookingService and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -44,7 +44,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the Service was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -183,7 +183,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the isAnonymousJoinEnabled property value. True if an anonymousJoinWebUrl(webrtcUrl) will be generated for the appointment booked for this service.
+     * Gets the isAnonymousJoinEnabled property value. Indicates if an anonymousJoinWebUrl(webrtcUrl) is generated for the appointment booked for this service. The default value is false.
      * @return bool|null
     */
     public function getIsAnonymousJoinEnabled(): ?bool {
@@ -207,7 +207,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the isLocationOnline property value. True indicates that the appointments for the service will be held online. Default value is false.
+     * Gets the isLocationOnline property value. Indicates that the appointments for the service are held online. The default value is false.
      * @return bool|null
     */
     public function getIsLocationOnline(): ?bool {
@@ -231,7 +231,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the Service  was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -378,7 +378,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the Service was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -442,7 +442,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the isAnonymousJoinEnabled property value. True if an anonymousJoinWebUrl(webrtcUrl) will be generated for the appointment booked for this service.
+     * Sets the isAnonymousJoinEnabled property value. Indicates if an anonymousJoinWebUrl(webrtcUrl) is generated for the appointment booked for this service. The default value is false.
      * @param bool|null $value Value to set for the isAnonymousJoinEnabled property.
     */
     public function setIsAnonymousJoinEnabled(?bool $value): void {
@@ -458,7 +458,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the isLocationOnline property value. True indicates that the appointments for the service will be held online. Default value is false.
+     * Sets the isLocationOnline property value. Indicates that the appointments for the service are held online. The default value is false.
      * @param bool|null $value Value to set for the isLocationOnline property.
     */
     public function setIsLocationOnline(?bool $value): void {
@@ -474,7 +474,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the Service  was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {

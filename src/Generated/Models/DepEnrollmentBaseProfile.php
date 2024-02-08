@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable 
 {
     /**
-     * Instantiates a new depEnrollmentBaseProfile and sets the default values.
+     * Instantiates a new DepEnrollmentBaseProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

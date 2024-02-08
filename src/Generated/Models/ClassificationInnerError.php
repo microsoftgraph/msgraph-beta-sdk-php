@@ -19,7 +19,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new classificationInnerError and sets the default values.
+     * Instantiates a new ClassificationInnerError and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

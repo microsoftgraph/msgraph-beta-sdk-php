@@ -16,7 +16,7 @@ class GetAuditActivityTypesRequestBuilderGetRequestConfiguration extends BaseReq
     public ?GetAuditActivityTypesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getAuditActivityTypesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetAuditActivityTypesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetAuditActivityTypesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetAuditActivityTypesRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new getAuditActivityTypesRequestBuilderGetQueryParameters.
+     * Instantiates a new GetAuditActivityTypesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

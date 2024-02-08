@@ -16,7 +16,7 @@ class UserStatesRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?UserStatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userStatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserStatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserStatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserStatesRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new userStatesRequestBuilderGetQueryParameters.
+     * Instantiates a new UserStatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

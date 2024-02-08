@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class WindowsPhone81TrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsPhone81TrustedRootCertificate and sets the default values.
+     * Instantiates a new WindowsPhone81TrustedRootCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

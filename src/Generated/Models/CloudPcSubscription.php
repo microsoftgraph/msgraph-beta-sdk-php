@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcSubscription extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcSubscription and sets the default values.
+     * Instantiates a new CloudPcSubscription and sets the default values.
     */
     public function __construct() {
         parent::__construct();

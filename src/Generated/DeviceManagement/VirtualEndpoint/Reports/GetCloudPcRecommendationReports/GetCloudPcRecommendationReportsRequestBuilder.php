@@ -31,11 +31,12 @@ class GetCloudPcRecommendationReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getCloudPcRecommendationReports
+     * Get the device recommendation reports for Cloud PCs, such as the usage category report. The usage category report categorizes a Cloud PC as Undersized, Oversized, Rightsized, or Underutilized, and also provides the recommended SKU when the Cloud PC isn't Rightsized.
      * @param GetCloudPcRecommendationReportsPostRequestBody $body The request body
      * @param GetCloudPcRecommendationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getcloudpcrecommendationreports?view=graph-rest-1.0 Find more info here
     */
     public function post(GetCloudPcRecommendationReportsPostRequestBody $body, ?GetCloudPcRecommendationReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -49,7 +50,7 @@ class GetCloudPcRecommendationReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getCloudPcRecommendationReports
+     * Get the device recommendation reports for Cloud PCs, such as the usage category report. The usage category report categorizes a Cloud PC as Undersized, Oversized, Rightsized, or Underutilized, and also provides the recommended SKU when the Cloud PC isn't Rightsized.
      * @param GetCloudPcRecommendationReportsPostRequestBody $body The request body
      * @param GetCloudPcRecommendationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

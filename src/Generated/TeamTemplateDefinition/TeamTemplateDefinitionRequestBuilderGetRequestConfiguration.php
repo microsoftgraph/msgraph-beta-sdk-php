@@ -16,7 +16,7 @@ class TeamTemplateDefinitionRequestBuilderGetRequestConfiguration extends BaseRe
     public ?TeamTemplateDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new teamTemplateDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TeamTemplateDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TeamTemplateDefinitionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TeamTemplateDefinitionRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new teamTemplateDefinitionRequestBuilderGetQueryParameters.
+     * Instantiates a new TeamTemplateDefinitionRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

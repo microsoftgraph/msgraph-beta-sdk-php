@@ -16,7 +16,7 @@ class CloudAppSecurityProfilesRequestBuilderGetRequestConfiguration extends Base
     public ?CloudAppSecurityProfilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new cloudAppSecurityProfilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CloudAppSecurityProfilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CloudAppSecurityProfilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CloudAppSecurityProfilesRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new cloudAppSecurityProfilesRequestBuilderGetQueryParameters.
+     * Instantiates a new CloudAppSecurityProfilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

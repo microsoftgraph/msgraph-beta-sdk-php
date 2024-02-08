@@ -19,7 +19,7 @@ class CreateMigrationReportPostRequestBody implements AdditionalDataHolder, Back
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new createMigrationReportPostRequestBody and sets the default values.
+     * Instantiates a new CreateMigrationReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

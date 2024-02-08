@@ -16,7 +16,7 @@ class ManagementActionsRequestBuilderGetRequestConfiguration extends BaseRequest
     public ?ManagementActionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managementActionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagementActionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagementActionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagementActionsRequestBuilderGetRequestConfiguration extends BaseRequest
     }
 
     /**
-     * Instantiates a new managementActionsRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagementActionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

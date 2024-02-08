@@ -18,4 +18,5 @@ class DevicePlatformType extends Enum {
     public const ANDROID_MOBILE_APPLICATION_MANAGEMENT = 'androidMobileApplicationManagement';
     public const I_O_S_MOBILE_APPLICATION_MANAGEMENT = 'iOSMobileApplicationManagement';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const WINDOWS_MOBILE_APPLICATION_MANAGEMENT = 'windowsMobileApplicationManagement';
 }

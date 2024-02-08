@@ -19,7 +19,7 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new muteAllPostRequestBody and sets the default values.
+     * Instantiates a new MuteAllPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

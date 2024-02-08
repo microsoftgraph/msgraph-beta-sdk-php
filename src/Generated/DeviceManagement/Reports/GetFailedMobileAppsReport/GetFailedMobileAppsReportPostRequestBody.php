@@ -19,7 +19,7 @@ class GetFailedMobileAppsReportPostRequestBody implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getFailedMobileAppsReportPostRequestBody and sets the default values.
+     * Instantiates a new GetFailedMobileAppsReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

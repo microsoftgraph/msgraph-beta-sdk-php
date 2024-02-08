@@ -18,7 +18,7 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementConfigurationSettingOccurrence and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationSettingOccurrence and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

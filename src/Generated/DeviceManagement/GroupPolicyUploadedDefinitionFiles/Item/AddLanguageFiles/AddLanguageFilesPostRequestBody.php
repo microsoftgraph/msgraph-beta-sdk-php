@@ -20,7 +20,7 @@ class AddLanguageFilesPostRequestBody implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new addLanguageFilesPostRequestBody and sets the default values.
+     * Instantiates a new AddLanguageFilesPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

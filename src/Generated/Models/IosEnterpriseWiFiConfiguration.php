@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new iosEnterpriseWiFiConfiguration and sets the default values.
+     * Instantiates a new IosEnterpriseWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

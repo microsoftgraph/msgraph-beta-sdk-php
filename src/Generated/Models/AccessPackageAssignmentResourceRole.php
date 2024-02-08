@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AccessPackageAssignmentResourceRole extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new accessPackageAssignmentResourceRole and sets the default values.
+     * Instantiates a new AccessPackageAssignmentResourceRole and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -19,7 +19,7 @@ class VerifiableCredentialSettings implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new verifiableCredentialSettings and sets the default values.
+     * Instantiates a new VerifiableCredentialSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

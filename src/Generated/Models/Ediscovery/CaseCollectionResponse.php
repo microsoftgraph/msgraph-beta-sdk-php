@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CaseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new caseCollectionResponse and sets the default values.
+     * Instantiates a new CaseCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

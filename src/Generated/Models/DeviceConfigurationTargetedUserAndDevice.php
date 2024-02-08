@@ -22,7 +22,7 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceConfigurationTargetedUserAndDevice and sets the default values.
+     * Instantiates a new DeviceConfigurationTargetedUserAndDevice and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -16,7 +16,7 @@ class GcpRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?GcpRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new gcpRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GcpRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GcpRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GcpRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new gcpRequestBuilderGetQueryParameters.
+     * Instantiates a new GcpRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return GcpRequestBuilderGetQueryParameters

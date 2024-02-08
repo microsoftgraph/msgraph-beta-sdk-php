@@ -19,7 +19,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new overrideComplianceStatePostRequestBody and sets the default values.
+     * Instantiates a new OverrideComplianceStatePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

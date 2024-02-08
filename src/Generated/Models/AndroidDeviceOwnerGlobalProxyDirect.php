@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerGlobalProxyDirect and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerGlobalProxyDirect and sets the default values.
     */
     public function __construct() {
         parent::__construct();

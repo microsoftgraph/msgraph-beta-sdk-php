@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchJobBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new exactMatchJobBase and sets the default values.
+     * Instantiates a new ExactMatchJobBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

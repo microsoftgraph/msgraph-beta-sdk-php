@@ -16,7 +16,7 @@ class EnterpriseAppsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?EnterpriseAppsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new enterpriseAppsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new EnterpriseAppsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param EnterpriseAppsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class EnterpriseAppsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new enterpriseAppsRequestBuilderGetQueryParameters.
+     * Instantiates a new EnterpriseAppsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new iosVpnConfiguration and sets the default values.
+     * Instantiates a new IosVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

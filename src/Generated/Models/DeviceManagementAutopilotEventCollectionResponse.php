@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementAutopilotEventCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementAutopilotEventCollectionResponse and sets the default values.
+     * Instantiates a new DeviceManagementAutopilotEventCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -18,7 +18,7 @@ class OnAuthenticationMethodLoadStartHandler implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new onAuthenticationMethodLoadStartHandler and sets the default values.
+     * Instantiates a new OnAuthenticationMethodLoadStartHandler and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

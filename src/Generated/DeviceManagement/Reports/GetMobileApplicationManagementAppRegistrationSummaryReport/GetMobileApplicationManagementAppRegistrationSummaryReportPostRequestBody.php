@@ -19,7 +19,7 @@ class GetMobileApplicationManagementAppRegistrationSummaryReportPostRequestBody 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getMobileApplicationManagementAppRegistrationSummaryReportPostRequestBody and sets the default values.
+     * Instantiates a new GetMobileApplicationManagementAppRegistrationSummaryReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

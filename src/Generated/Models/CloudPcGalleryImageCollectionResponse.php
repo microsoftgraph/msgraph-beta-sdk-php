@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcGalleryImageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcGalleryImageCollectionResponse and sets the default values.
+     * Instantiates a new CloudPcGalleryImageCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

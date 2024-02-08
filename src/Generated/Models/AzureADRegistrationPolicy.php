@@ -18,7 +18,7 @@ class AzureADRegistrationPolicy implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new azureADRegistrationPolicy and sets the default values.
+     * Instantiates a new AzureADRegistrationPolicy and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

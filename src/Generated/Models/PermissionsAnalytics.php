@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PermissionsAnalytics extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new permissionsAnalytics and sets the default values.
+     * Instantiates a new PermissionsAnalytics and sets the default values.
     */
     public function __construct() {
         parent::__construct();

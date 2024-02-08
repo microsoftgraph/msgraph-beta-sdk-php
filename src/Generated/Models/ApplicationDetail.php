@@ -21,7 +21,7 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new applicationDetail and sets the default values.
+     * Instantiates a new ApplicationDetail and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -73,6 +73,7 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
             'productInternalName' => fn(ParseNode $n) => $o->setProductInternalName($n->getStringValue()),
             'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
             'productVersion' => fn(ParseNode $n) => $o->setProductVersion($n->getStringValue()),
+            'publisherCert' => fn(ParseNode $n) => $o->setPublisherCert($n->getStringValue()),
             'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
         ];
     }
@@ -174,6 +175,18 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encoded_leaf_cert1, encoded_leaf_cert2....]
+     * @return string|null
+    */
+    public function getPublisherCert(): ?string {
+        $val = $this->getBackingStore()->get('publisherCert');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publisherCert'");
+    }
+
+    /**
      * Gets the publisherName property value. The certificate issuer name of the certificate used to sign the application, for example, 'Sectigo Public Code Signing CA R36'
      * @return string|null
     */
@@ -198,6 +211,7 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('productInternalName', $this->getProductInternalName());
         $writer->writeStringValue('productName', $this->getProductName());
         $writer->writeStringValue('productVersion', $this->getProductVersion());
+        $writer->writeStringValue('publisherCert', $this->getPublisherCert());
         $writer->writeStringValue('publisherName', $this->getPublisherName());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -280,6 +294,14 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setProductVersion(?string $value): void {
         $this->getBackingStore()->set('productVersion', $value);
+    }
+
+    /**
+     * Sets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encoded_leaf_cert1, encoded_leaf_cert2....]
+     * @param string|null $value Value to set for the publisherCert property.
+    */
+    public function setPublisherCert(?string $value): void {
+        $this->getBackingStore()->set('publisherCert', $value);
     }
 
     /**

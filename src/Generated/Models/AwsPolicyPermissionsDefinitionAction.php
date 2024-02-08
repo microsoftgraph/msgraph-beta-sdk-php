@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AwsPolicyPermissionsDefinitionAction extends AwsPermissionsDefinitionAction implements Parsable 
 {
     /**
-     * Instantiates a new awsPolicyPermissionsDefinitionAction and sets the default values.
+     * Instantiates a new AwsPolicyPermissionsDefinitionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

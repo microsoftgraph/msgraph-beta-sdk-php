@@ -16,7 +16,7 @@ class SharedUseServicePlansRequestBuilderGetRequestConfiguration extends BaseReq
     public ?SharedUseServicePlansRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new sharedUseServicePlansRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SharedUseServicePlansRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SharedUseServicePlansRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SharedUseServicePlansRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new sharedUseServicePlansRequestBuilderGetQueryParameters.
+     * Instantiates a new SharedUseServicePlansRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

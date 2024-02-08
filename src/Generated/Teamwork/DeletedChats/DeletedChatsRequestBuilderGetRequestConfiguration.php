@@ -16,7 +16,7 @@ class DeletedChatsRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?DeletedChatsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deletedChatsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DeletedChatsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DeletedChatsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DeletedChatsRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new deletedChatsRequestBuilderGetQueryParameters.
+     * Instantiates a new DeletedChatsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

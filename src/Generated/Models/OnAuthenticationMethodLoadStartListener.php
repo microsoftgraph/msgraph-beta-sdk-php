@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnAuthenticationMethodLoadStartListener extends AuthenticationEventListener implements Parsable 
 {
     /**
-     * Instantiates a new onAuthenticationMethodLoadStartListener and sets the default values.
+     * Instantiates a new OnAuthenticationMethodLoadStartListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();

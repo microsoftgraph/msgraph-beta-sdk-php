@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetOffice365GroupsActivityDetailWithPeriodGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getOffice365GroupsActivityDetailWithPeriodGetResponse and sets the default values.
+     * Instantiates a new GetOffice365GroupsActivityDetailWithPeriodGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

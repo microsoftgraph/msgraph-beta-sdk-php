@@ -16,7 +16,7 @@ class PresentationRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?PresentationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new presentationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PresentationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PresentationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PresentationRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new presentationRequestBuilderGetQueryParameters.
+     * Instantiates a new PresentationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return PresentationRequestBuilderGetQueryParameters

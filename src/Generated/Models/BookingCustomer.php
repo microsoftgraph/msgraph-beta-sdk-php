@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingCustomer extends BookingPerson implements Parsable 
 {
     /**
-     * Instantiates a new bookingCustomer and sets the default values.
+     * Instantiates a new BookingCustomer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -44,7 +44,7 @@ class BookingCustomer extends BookingPerson implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the customer was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -70,7 +70,7 @@ class BookingCustomer extends BookingPerson implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the customer was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -116,7 +116,7 @@ class BookingCustomer extends BookingPerson implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the customer was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -124,7 +124,7 @@ class BookingCustomer extends BookingPerson implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the customer was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {

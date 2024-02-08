@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ReferenceDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new referenceDefinition and sets the default values.
+     * Instantiates a new ReferenceDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

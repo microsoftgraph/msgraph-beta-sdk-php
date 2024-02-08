@@ -16,7 +16,7 @@ class IntentsRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     public ?IntentsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new intentsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new IntentsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param IntentsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class IntentsRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     }
 
     /**
-     * Instantiates a new intentsRequestBuilderGetQueryParameters.
+     * Instantiates a new IntentsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

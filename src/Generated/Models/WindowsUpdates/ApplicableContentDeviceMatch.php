@@ -19,7 +19,7 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new applicableContentDeviceMatch and sets the default values.
+     * Instantiates a new ApplicableContentDeviceMatch and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

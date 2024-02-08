@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EngagementAsyncOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new engagementAsyncOperationCollectionResponse and sets the default values.
+     * Instantiates a new EngagementAsyncOperationCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

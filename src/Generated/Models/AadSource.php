@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AadSource extends AuthorizationSystemIdentitySource implements Parsable 
 {
     /**
-     * Instantiates a new aadSource and sets the default values.
+     * Instantiates a new AadSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -20,7 +20,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Backe
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new classifyExactMatchesPostRequestBody and sets the default values.
+     * Instantiates a new ClassifyExactMatchesPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

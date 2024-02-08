@@ -21,7 +21,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceScopeActionResult and sets the default values.
+     * Instantiates a new DeviceScopeActionResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

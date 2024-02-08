@@ -16,7 +16,7 @@ class WindowsManagementAppRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?WindowsManagementAppRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new windowsManagementAppRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WindowsManagementAppRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WindowsManagementAppRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WindowsManagementAppRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new windowsManagementAppRequestBuilderGetQueryParameters.
+     * Instantiates a new WindowsManagementAppRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return WindowsManagementAppRequestBuilderGetQueryParameters

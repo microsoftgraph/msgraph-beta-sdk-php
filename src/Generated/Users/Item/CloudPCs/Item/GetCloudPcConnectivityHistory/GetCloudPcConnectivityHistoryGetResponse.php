@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetCloudPcConnectivityHistoryGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getCloudPcConnectivityHistoryGetResponse and sets the default values.
+     * Instantiates a new GetCloudPcConnectivityHistoryGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class QuotaRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     public ?QuotaRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new quotaRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new QuotaRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param QuotaRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class QuotaRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     }
 
     /**
-     * Instantiates a new quotaRequestBuilderGetQueryParameters.
+     * Instantiates a new QuotaRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return QuotaRequestBuilderGetQueryParameters

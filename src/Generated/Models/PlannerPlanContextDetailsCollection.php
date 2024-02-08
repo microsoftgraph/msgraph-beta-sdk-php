@@ -18,7 +18,7 @@ class PlannerPlanContextDetailsCollection implements AdditionalDataHolder, Backe
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerPlanContextDetailsCollection and sets the default values.
+     * Instantiates a new PlannerPlanContextDetailsCollection and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new macOSPkcsCertificateProfile and sets the default values.
+     * Instantiates a new MacOSPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

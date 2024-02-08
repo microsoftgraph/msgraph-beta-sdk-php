@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class UserCountMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userCountMetric and sets the default values.
+     * Instantiates a new UserCountMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

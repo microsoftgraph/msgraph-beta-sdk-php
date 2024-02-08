@@ -21,7 +21,7 @@ class RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipal
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/roleManagement/entitlementManagement/roleSchedules(directoryScopeId=\'@directoryScopeId\',appScopeId=\'@appScopeId\',principalId=\'@principalId\',roleDefinitionId=\'@roleDefinitionId\'){?directoryScopeId*,appScopeId*,principalId*,roleDefinitionId*,%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/roleManagement/entitlementManagement/roleSchedules(directoryScopeId=\'@directoryScopeId\',appScopeId=\'@appScopeId\',principalId=\'@principalId\',roleDefinitionId=\'@roleDefinitionId\'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top,appScopeId*,directoryScopeId*,principalId*,roleDefinitionId*}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

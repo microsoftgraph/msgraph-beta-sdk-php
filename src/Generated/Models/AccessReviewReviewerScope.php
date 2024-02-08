@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewReviewerScope extends AccessReviewScope implements Parsable 
 {
     /**
-     * Instantiates a new accessReviewReviewerScope and sets the default values.
+     * Instantiates a new AccessReviewReviewerScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();

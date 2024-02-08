@@ -16,7 +16,7 @@ class PartnerInformationRequestBuilderGetRequestConfiguration extends BaseReques
     public ?PartnerInformationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new partnerInformationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PartnerInformationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PartnerInformationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PartnerInformationRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new partnerInformationRequestBuilderGetQueryParameters.
+     * Instantiates a new PartnerInformationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return PartnerInformationRequestBuilderGetQueryParameters

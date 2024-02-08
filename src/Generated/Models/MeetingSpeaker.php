@@ -18,7 +18,7 @@ class MeetingSpeaker implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new meetingSpeaker and sets the default values.
+     * Instantiates a new MeetingSpeaker and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

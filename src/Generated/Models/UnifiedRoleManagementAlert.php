@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UnifiedRoleManagementAlert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new unifiedRoleManagementAlert and sets the default values.
+     * Instantiates a new UnifiedRoleManagementAlert and sets the default values.
     */
     public function __construct() {
         parent::__construct();

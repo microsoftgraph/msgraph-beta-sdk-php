@@ -16,7 +16,7 @@ class ForwardingOptionsRequestBuilderGetRequestConfiguration extends BaseRequest
     public ?ForwardingOptionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new forwardingOptionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ForwardingOptionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ForwardingOptionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ForwardingOptionsRequestBuilderGetRequestConfiguration extends BaseRequest
     }
 
     /**
-     * Instantiates a new forwardingOptionsRequestBuilderGetQueryParameters.
+     * Instantiates a new ForwardingOptionsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ForwardingOptionsRequestBuilderGetQueryParameters

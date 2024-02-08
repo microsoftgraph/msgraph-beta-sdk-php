@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcBulkModifyDiskEncryptionType extends CloudPcBulkAction implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcBulkModifyDiskEncryptionType and sets the default values.
+     * Instantiates a new CloudPcBulkModifyDiskEncryptionType and sets the default values.
     */
     public function __construct() {
         parent::__construct();

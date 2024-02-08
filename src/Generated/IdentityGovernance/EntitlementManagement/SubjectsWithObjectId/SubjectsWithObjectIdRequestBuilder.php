@@ -23,7 +23,7 @@ class SubjectsWithObjectIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $objectId Alternate key of accessPackageSubject
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $objectId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/subjects(objectId=\'{objectId}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/subjects(objectId=\'{objectId}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['objectId'] = $objectId;

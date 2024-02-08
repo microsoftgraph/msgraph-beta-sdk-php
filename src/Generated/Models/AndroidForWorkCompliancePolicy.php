@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkCompliancePolicy and sets the default values.
+     * Instantiates a new AndroidForWorkCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,6 +83,13 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
             'securityRequireUpToDateSecurityProviders' => fn(ParseNode $n) => $o->setSecurityRequireUpToDateSecurityProviders($n->getBooleanValue()),
             'securityRequireVerifyApps' => fn(ParseNode $n) => $o->setSecurityRequireVerifyApps($n->getBooleanValue()),
             'storageRequireEncryption' => fn(ParseNode $n) => $o->setStorageRequireEncryption($n->getBooleanValue()),
+            'workProfileInactiveBeforeScreenLockInMinutes' => fn(ParseNode $n) => $o->setWorkProfileInactiveBeforeScreenLockInMinutes($n->getIntegerValue()),
+            'workProfilePasswordExpirationInDays' => fn(ParseNode $n) => $o->setWorkProfilePasswordExpirationInDays($n->getIntegerValue()),
+            'workProfilePasswordMinimumLength' => fn(ParseNode $n) => $o->setWorkProfilePasswordMinimumLength($n->getIntegerValue()),
+            'workProfilePasswordRequiredType' => fn(ParseNode $n) => $o->setWorkProfilePasswordRequiredType($n->getEnumValue(AndroidForWorkRequiredPasswordType::class)),
+            'workProfilePreviousPasswordBlockCount' => fn(ParseNode $n) => $o->setWorkProfilePreviousPasswordBlockCount($n->getIntegerValue()),
+            'workProfileRequiredPasswordComplexity' => fn(ParseNode $n) => $o->setWorkProfileRequiredPasswordComplexity($n->getEnumValue(AndroidRequiredPasswordComplexity::class)),
+            'workProfileRequirePassword' => fn(ParseNode $n) => $o->setWorkProfileRequirePassword($n->getBooleanValue()),
         ]);
     }
 
@@ -351,6 +358,90 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
     }
 
     /**
+     * Gets the workProfileInactiveBeforeScreenLockInMinutes property value. Minutes of inactivity before the screen times out.
+     * @return int|null
+    */
+    public function getWorkProfileInactiveBeforeScreenLockInMinutes(): ?int {
+        $val = $this->getBackingStore()->get('workProfileInactiveBeforeScreenLockInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileInactiveBeforeScreenLockInMinutes'");
+    }
+
+    /**
+     * Gets the workProfilePasswordExpirationInDays property value. Number of days before the work profile password expires. Valid values 1 to 365
+     * @return int|null
+    */
+    public function getWorkProfilePasswordExpirationInDays(): ?int {
+        $val = $this->getBackingStore()->get('workProfilePasswordExpirationInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordExpirationInDays'");
+    }
+
+    /**
+     * Gets the workProfilePasswordMinimumLength property value. Minimum length of work profile password. Valid values 4 to 16
+     * @return int|null
+    */
+    public function getWorkProfilePasswordMinimumLength(): ?int {
+        $val = $this->getBackingStore()->get('workProfilePasswordMinimumLength');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordMinimumLength'");
+    }
+
+    /**
+     * Gets the workProfilePasswordRequiredType property value. Android For Work required password type.
+     * @return AndroidForWorkRequiredPasswordType|null
+    */
+    public function getWorkProfilePasswordRequiredType(): ?AndroidForWorkRequiredPasswordType {
+        $val = $this->getBackingStore()->get('workProfilePasswordRequiredType');
+        if (is_null($val) || $val instanceof AndroidForWorkRequiredPasswordType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePasswordRequiredType'");
+    }
+
+    /**
+     * Gets the workProfilePreviousPasswordBlockCount property value. Number of previous work profile passwords to block. Valid values 0 to 24
+     * @return int|null
+    */
+    public function getWorkProfilePreviousPasswordBlockCount(): ?int {
+        $val = $this->getBackingStore()->get('workProfilePreviousPasswordBlockCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfilePreviousPasswordBlockCount'");
+    }
+
+    /**
+     * Gets the workProfileRequiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     * @return AndroidRequiredPasswordComplexity|null
+    */
+    public function getWorkProfileRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
+        $val = $this->getBackingStore()->get('workProfileRequiredPasswordComplexity');
+        if (is_null($val) || $val instanceof AndroidRequiredPasswordComplexity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileRequiredPasswordComplexity'");
+    }
+
+    /**
+     * Gets the workProfileRequirePassword property value. Password is required or not for work profile
+     * @return bool|null
+    */
+    public function getWorkProfileRequirePassword(): ?bool {
+        $val = $this->getBackingStore()->get('workProfileRequirePassword');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workProfileRequirePassword'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -380,6 +471,13 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
         $writer->writeBooleanValue('securityRequireUpToDateSecurityProviders', $this->getSecurityRequireUpToDateSecurityProviders());
         $writer->writeBooleanValue('securityRequireVerifyApps', $this->getSecurityRequireVerifyApps());
         $writer->writeBooleanValue('storageRequireEncryption', $this->getStorageRequireEncryption());
+        $writer->writeIntegerValue('workProfileInactiveBeforeScreenLockInMinutes', $this->getWorkProfileInactiveBeforeScreenLockInMinutes());
+        $writer->writeIntegerValue('workProfilePasswordExpirationInDays', $this->getWorkProfilePasswordExpirationInDays());
+        $writer->writeIntegerValue('workProfilePasswordMinimumLength', $this->getWorkProfilePasswordMinimumLength());
+        $writer->writeEnumValue('workProfilePasswordRequiredType', $this->getWorkProfilePasswordRequiredType());
+        $writer->writeIntegerValue('workProfilePreviousPasswordBlockCount', $this->getWorkProfilePreviousPasswordBlockCount());
+        $writer->writeEnumValue('workProfileRequiredPasswordComplexity', $this->getWorkProfileRequiredPasswordComplexity());
+        $writer->writeBooleanValue('workProfileRequirePassword', $this->getWorkProfileRequirePassword());
     }
 
     /**
@@ -572,6 +670,62 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy implements P
     */
     public function setStorageRequireEncryption(?bool $value): void {
         $this->getBackingStore()->set('storageRequireEncryption', $value);
+    }
+
+    /**
+     * Sets the workProfileInactiveBeforeScreenLockInMinutes property value. Minutes of inactivity before the screen times out.
+     * @param int|null $value Value to set for the workProfileInactiveBeforeScreenLockInMinutes property.
+    */
+    public function setWorkProfileInactiveBeforeScreenLockInMinutes(?int $value): void {
+        $this->getBackingStore()->set('workProfileInactiveBeforeScreenLockInMinutes', $value);
+    }
+
+    /**
+     * Sets the workProfilePasswordExpirationInDays property value. Number of days before the work profile password expires. Valid values 1 to 365
+     * @param int|null $value Value to set for the workProfilePasswordExpirationInDays property.
+    */
+    public function setWorkProfilePasswordExpirationInDays(?int $value): void {
+        $this->getBackingStore()->set('workProfilePasswordExpirationInDays', $value);
+    }
+
+    /**
+     * Sets the workProfilePasswordMinimumLength property value. Minimum length of work profile password. Valid values 4 to 16
+     * @param int|null $value Value to set for the workProfilePasswordMinimumLength property.
+    */
+    public function setWorkProfilePasswordMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('workProfilePasswordMinimumLength', $value);
+    }
+
+    /**
+     * Sets the workProfilePasswordRequiredType property value. Android For Work required password type.
+     * @param AndroidForWorkRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
+    */
+    public function setWorkProfilePasswordRequiredType(?AndroidForWorkRequiredPasswordType $value): void {
+        $this->getBackingStore()->set('workProfilePasswordRequiredType', $value);
+    }
+
+    /**
+     * Sets the workProfilePreviousPasswordBlockCount property value. Number of previous work profile passwords to block. Valid values 0 to 24
+     * @param int|null $value Value to set for the workProfilePreviousPasswordBlockCount property.
+    */
+    public function setWorkProfilePreviousPasswordBlockCount(?int $value): void {
+        $this->getBackingStore()->set('workProfilePreviousPasswordBlockCount', $value);
+    }
+
+    /**
+     * Sets the workProfileRequiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     * @param AndroidRequiredPasswordComplexity|null $value Value to set for the workProfileRequiredPasswordComplexity property.
+    */
+    public function setWorkProfileRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value): void {
+        $this->getBackingStore()->set('workProfileRequiredPasswordComplexity', $value);
+    }
+
+    /**
+     * Sets the workProfileRequirePassword property value. Password is required or not for work profile
+     * @param bool|null $value Value to set for the workProfileRequirePassword property.
+    */
+    public function setWorkProfileRequirePassword(?bool $value): void {
+        $this->getBackingStore()->set('workProfileRequirePassword', $value);
     }
 
 }

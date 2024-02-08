@@ -16,7 +16,7 @@ class GovernanceRoleSettingsRequestBuilderGetRequestConfiguration extends BaseRe
     public ?GovernanceRoleSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new governanceRoleSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GovernanceRoleSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GovernanceRoleSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GovernanceRoleSettingsRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new governanceRoleSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new GovernanceRoleSettingsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

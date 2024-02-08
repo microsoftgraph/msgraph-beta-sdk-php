@@ -18,7 +18,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new webCategoriesSummary and sets the default values.
+     * Instantiates a new WebCategoriesSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -32,6 +32,18 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WebCategoriesSummary {
         return new WebCategoriesSummary();
+    }
+
+    /**
+     * Gets the action property value. The action property
+     * @return FilteringPolicyAction|null
+    */
+    public function getAction(): ?FilteringPolicyAction {
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof FilteringPolicyAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -74,6 +86,7 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(FilteringPolicyAction::class)),
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'transactionCount' => fn(ParseNode $n) => $o->setTransactionCount($n->getIntegerValue()),
@@ -135,12 +148,21 @@ class WebCategoriesSummary implements AdditionalDataHolder, BackedModel, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('action', $this->getAction());
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('transactionCount', $this->getTransactionCount());
         $writer->writeIntegerValue('userCount', $this->getUserCount());
         $writer->writeObjectValue('webCategory', $this->getWebCategory());
         $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the action property value. The action property
+     * @param FilteringPolicyAction|null $value Value to set for the action property.
+    */
+    public function setAction(?FilteringPolicyAction $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**

@@ -16,7 +16,7 @@ class GetIosAvailableUpdateVersionsRequestBuilderGetRequestConfiguration extends
     public ?GetIosAvailableUpdateVersionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getIosAvailableUpdateVersionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetIosAvailableUpdateVersionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetIosAvailableUpdateVersionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetIosAvailableUpdateVersionsRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new getIosAvailableUpdateVersionsRequestBuilderGetQueryParameters.
+     * Instantiates a new GetIosAvailableUpdateVersionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

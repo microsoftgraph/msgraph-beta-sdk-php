@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SequentialActivationRenewalsAlertConfiguration extends UnifiedRoleManagementAlertConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new sequentialActivationRenewalsAlertConfiguration and sets the default values.
+     * Instantiates a new SequentialActivationRenewalsAlertConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

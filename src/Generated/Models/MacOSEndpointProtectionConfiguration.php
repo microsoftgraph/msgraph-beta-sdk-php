@@ -14,7 +14,7 @@ use Psr\Http\Message\StreamInterface;
 class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new macOSEndpointProtectionConfiguration and sets the default values.
+     * Instantiates a new MacOSEndpointProtectionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

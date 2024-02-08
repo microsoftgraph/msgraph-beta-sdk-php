@@ -16,7 +16,7 @@ class ProfileStatusRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?ProfileStatusRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new profileStatusRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ProfileStatusRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ProfileStatusRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ProfileStatusRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new profileStatusRequestBuilderGetQueryParameters.
+     * Instantiates a new ProfileStatusRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ProfileStatusRequestBuilderGetQueryParameters

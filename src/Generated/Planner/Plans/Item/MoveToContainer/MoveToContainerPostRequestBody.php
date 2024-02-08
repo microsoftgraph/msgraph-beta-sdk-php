@@ -19,7 +19,7 @@ class MoveToContainerPostRequestBody implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new moveToContainerPostRequestBody and sets the default values.
+     * Instantiates a new MoveToContainerPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

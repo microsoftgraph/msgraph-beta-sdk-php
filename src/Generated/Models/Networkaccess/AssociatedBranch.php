@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssociatedBranch extends Association implements Parsable 
 {
     /**
-     * Instantiates a new associatedBranch and sets the default values.
+     * Instantiates a new AssociatedBranch and sets the default values.
     */
     public function __construct() {
         parent::__construct();

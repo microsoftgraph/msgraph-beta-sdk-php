@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Parsable 
 {
     /**
-     * Instantiates a new unmanagedDeviceDiscoveryTask and sets the default values.
+     * Instantiates a new UnmanagedDeviceDiscoveryTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsAnomalyCorrelationGroupOverview and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAnomalyCorrelationGroupOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();

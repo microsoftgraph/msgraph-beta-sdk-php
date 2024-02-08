@@ -16,7 +16,7 @@ class ConfigurationSettingsRequestBuilderGetRequestConfiguration extends BaseReq
     public ?ConfigurationSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new configurationSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ConfigurationSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ConfigurationSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ConfigurationSettingsRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new configurationSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new ConfigurationSettingsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

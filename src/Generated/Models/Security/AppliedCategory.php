@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppliedCategory extends FilePlanDescriptorBase implements Parsable 
 {
     /**
-     * Instantiates a new appliedCategory and sets the default values.
+     * Instantiates a new AppliedCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

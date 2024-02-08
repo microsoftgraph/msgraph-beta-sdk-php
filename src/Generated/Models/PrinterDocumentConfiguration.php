@@ -19,7 +19,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new printerDocumentConfiguration and sets the default values.
+     * Instantiates a new PrinterDocumentConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

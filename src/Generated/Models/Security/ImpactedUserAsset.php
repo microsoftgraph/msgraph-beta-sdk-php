@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImpactedUserAsset extends ImpactedAsset implements Parsable 
 {
     /**
-     * Instantiates a new impactedUserAsset and sets the default values.
+     * Instantiates a new ImpactedUserAsset and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -40,7 +40,7 @@ class MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateT
     public ?int $top = null;
     
     /**
-     * Instantiates a new microsoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

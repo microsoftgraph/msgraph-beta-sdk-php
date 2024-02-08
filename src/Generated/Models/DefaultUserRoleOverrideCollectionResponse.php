@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DefaultUserRoleOverrideCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new defaultUserRoleOverrideCollectionResponse and sets the default values.
+     * Instantiates a new DefaultUserRoleOverrideCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

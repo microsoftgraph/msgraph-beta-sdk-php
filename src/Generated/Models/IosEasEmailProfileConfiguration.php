@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase implements Parsable 
 {
     /**
-     * Instantiates a new iosEasEmailProfileConfiguration and sets the default values.
+     * Instantiates a new IosEasEmailProfileConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

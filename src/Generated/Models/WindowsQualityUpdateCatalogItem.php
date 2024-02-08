@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implements Parsable 
 {
     /**
-     * Instantiates a new windowsQualityUpdateCatalogItem and sets the default values.
+     * Instantiates a new WindowsQualityUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

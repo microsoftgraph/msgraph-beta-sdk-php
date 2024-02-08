@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SuperAzureServicePrincipalFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new superAzureServicePrincipalFinding and sets the default values.
+     * Instantiates a new SuperAzureServicePrincipalFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

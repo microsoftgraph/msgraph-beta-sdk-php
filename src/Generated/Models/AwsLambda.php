@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsLambda extends AwsIdentity implements Parsable 
 {
     /**
-     * Instantiates a new awsLambda and sets the default values.
+     * Instantiates a new AwsLambda and sets the default values.
     */
     public function __construct() {
         parent::__construct();

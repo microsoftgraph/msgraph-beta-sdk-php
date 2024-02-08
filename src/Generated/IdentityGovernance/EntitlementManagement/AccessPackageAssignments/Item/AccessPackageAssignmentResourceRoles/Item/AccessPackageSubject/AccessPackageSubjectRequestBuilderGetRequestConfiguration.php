@@ -16,7 +16,7 @@ class AccessPackageSubjectRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?AccessPackageSubjectRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageSubjectRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageSubjectRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageSubjectRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageSubjectRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new accessPackageSubjectRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageSubjectRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AccessPackageSubjectRequestBuilderGetQueryParameters

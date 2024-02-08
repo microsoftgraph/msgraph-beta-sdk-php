@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new b2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration and sets the default values.
+     * Instantiates a new B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

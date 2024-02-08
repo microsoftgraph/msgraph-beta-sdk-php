@@ -16,7 +16,7 @@ class DimensionValuesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?DimensionValuesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dimensionValuesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DimensionValuesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DimensionValuesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DimensionValuesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new dimensionValuesRequestBuilderGetQueryParameters.
+     * Instantiates a new DimensionValuesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

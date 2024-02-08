@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BilledUsage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new billedUsage and sets the default values.
+     * Instantiates a new BilledUsage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

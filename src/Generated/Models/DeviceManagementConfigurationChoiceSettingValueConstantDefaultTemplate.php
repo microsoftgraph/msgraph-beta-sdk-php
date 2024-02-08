@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate extends DeviceManagementConfigurationChoiceSettingValueDefaultTemplate implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

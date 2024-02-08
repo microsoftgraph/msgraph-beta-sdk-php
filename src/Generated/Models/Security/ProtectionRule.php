@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectionRule extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new protectionRule and sets the default values.
+     * Instantiates a new ProtectionRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,7 +34,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. Name of the user or application that created the rule.
      * @return string|null
     */
     public function getCreatedBy(): ?string {
@@ -46,7 +46,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Timestamp of rule creation.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -58,7 +58,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Name of the rule.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -86,7 +86,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Whether rule is turned on for the tenant.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -98,7 +98,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. Name of the user or application who last updated the rule.
      * @return string|null
     */
     public function getLastModifiedBy(): ?string {
@@ -110,7 +110,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Timestamp of when the rule was last updated.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -136,7 +136,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. Name of the user or application that created the rule.
      * @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value): void {
@@ -144,7 +144,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Timestamp of rule creation.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -152,7 +152,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Name of the rule.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -160,7 +160,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Whether rule is turned on for the tenant.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
@@ -168,7 +168,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. Name of the user or application who last updated the rule.
      * @param string|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?string $value): void {
@@ -176,7 +176,7 @@ class ProtectionRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Timestamp of when the rule was last updated.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

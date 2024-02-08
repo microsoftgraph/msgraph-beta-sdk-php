@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class HorizontalSectionColumn extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new horizontalSectionColumn and sets the default values.
+     * Instantiates a new HorizontalSectionColumn and sets the default values.
     */
     public function __construct() {
         parent::__construct();

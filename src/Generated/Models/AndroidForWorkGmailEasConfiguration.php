@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkGmailEasConfiguration extends AndroidForWorkEasEmailProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkGmailEasConfiguration and sets the default values.
+     * Instantiates a new AndroidForWorkGmailEasConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

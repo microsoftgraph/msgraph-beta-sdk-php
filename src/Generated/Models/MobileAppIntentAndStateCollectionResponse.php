@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MobileAppIntentAndStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new mobileAppIntentAndStateCollectionResponse and sets the default values.
+     * Instantiates a new MobileAppIntentAndStateCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

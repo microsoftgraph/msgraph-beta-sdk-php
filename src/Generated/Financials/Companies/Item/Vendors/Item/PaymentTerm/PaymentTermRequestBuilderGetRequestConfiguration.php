@@ -16,7 +16,7 @@ class PaymentTermRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?PaymentTermRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new paymentTermRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PaymentTermRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PaymentTermRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PaymentTermRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new paymentTermRequestBuilderGetQueryParameters.
+     * Instantiates a new PaymentTermRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return PaymentTermRequestBuilderGetQueryParameters

@@ -19,7 +19,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcOnPremisesConnectionHealthCheck and sets the default values.
+     * Instantiates a new CloudPcOnPremisesConnectionHealthCheck and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

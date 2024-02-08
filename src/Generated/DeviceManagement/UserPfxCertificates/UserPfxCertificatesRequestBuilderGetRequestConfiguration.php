@@ -16,7 +16,7 @@ class UserPfxCertificatesRequestBuilderGetRequestConfiguration extends BaseReque
     public ?UserPfxCertificatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userPfxCertificatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserPfxCertificatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserPfxCertificatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserPfxCertificatesRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new userPfxCertificatesRequestBuilderGetQueryParameters.
+     * Instantiates a new UserPfxCertificatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

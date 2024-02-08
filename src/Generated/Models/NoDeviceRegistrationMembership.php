@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NoDeviceRegistrationMembership extends DeviceRegistrationMembership implements Parsable 
 {
     /**
-     * Instantiates a new noDeviceRegistrationMembership and sets the default values.
+     * Instantiates a new NoDeviceRegistrationMembership and sets the default values.
     */
     public function __construct() {
         parent::__construct();

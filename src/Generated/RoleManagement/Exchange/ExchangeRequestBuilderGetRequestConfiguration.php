@@ -16,7 +16,7 @@ class ExchangeRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?ExchangeRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new exchangeRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ExchangeRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ExchangeRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ExchangeRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new exchangeRequestBuilderGetQueryParameters.
+     * Instantiates a new ExchangeRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ExchangeRequestBuilderGetQueryParameters

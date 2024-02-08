@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Monitoring extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new monitoring and sets the default values.
+     * Instantiates a new Monitoring and sets the default values.
     */
     public function __construct() {
         parent::__construct();

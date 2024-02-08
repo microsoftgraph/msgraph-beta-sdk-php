@@ -19,7 +19,7 @@ class ComplianceChangeRule implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new complianceChangeRule and sets the default values.
+     * Instantiates a new ComplianceChangeRule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

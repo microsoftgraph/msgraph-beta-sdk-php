@@ -16,7 +16,7 @@ class CustomerPaymentsRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?CustomerPaymentsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new customerPaymentsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CustomerPaymentsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CustomerPaymentsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CustomerPaymentsRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new customerPaymentsRequestBuilderGetQueryParameters.
+     * Instantiates a new CustomerPaymentsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DailyInactiveUsersByApplicationMetric extends InactiveUsersByApplicationMetricBase implements Parsable 
 {
     /**
-     * Instantiates a new dailyInactiveUsersByApplicationMetric and sets the default values.
+     * Instantiates a new DailyInactiveUsersByApplicationMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

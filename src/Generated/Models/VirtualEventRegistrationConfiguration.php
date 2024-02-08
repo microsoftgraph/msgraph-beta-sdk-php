@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEventRegistrationConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventRegistrationConfiguration and sets the default values.
+     * Instantiates a new VirtualEventRegistrationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

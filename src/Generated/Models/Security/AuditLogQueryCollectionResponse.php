@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AuditLogQueryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new auditLogQueryCollectionResponse and sets the default values.
+     * Instantiates a new AuditLogQueryCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -18,7 +18,7 @@ class EducationSynchronizationDataProvider implements AdditionalDataHolder, Back
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new educationSynchronizationDataProvider and sets the default values.
+     * Instantiates a new EducationSynchronizationDataProvider and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

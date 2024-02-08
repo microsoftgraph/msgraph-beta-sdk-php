@@ -19,7 +19,7 @@ class PlannerFieldRules implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerFieldRules and sets the default values.
+     * Instantiates a new PlannerFieldRules and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class FindRoomsGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new findRoomsGetResponse and sets the default values.
+     * Instantiates a new FindRoomsGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

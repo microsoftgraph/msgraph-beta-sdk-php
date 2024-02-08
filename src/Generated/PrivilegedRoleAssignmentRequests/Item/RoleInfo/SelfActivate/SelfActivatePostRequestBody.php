@@ -18,7 +18,7 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new selfActivatePostRequestBody and sets the default values.
+     * Instantiates a new SelfActivatePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

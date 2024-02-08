@@ -18,7 +18,7 @@ class ActionSummary implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new actionSummary and sets the default values.
+     * Instantiates a new ActionSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RegionalAndLanguageSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new regionalAndLanguageSettings and sets the default values.
+     * Instantiates a new RegionalAndLanguageSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

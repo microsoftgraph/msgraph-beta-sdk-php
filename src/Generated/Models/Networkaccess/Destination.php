@@ -19,7 +19,7 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new destination and sets the default values.
+     * Instantiates a new Destination and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -76,16 +76,32 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
+            'firstAccessDateTime' => fn(ParseNode $n) => $o->setFirstAccessDateTime($n->getDateTimeValue()),
             'fqdn' => fn(ParseNode $n) => $o->setFqdn($n->getStringValue()),
             'ip' => fn(ParseNode $n) => $o->setIp($n->getStringValue()),
             'lastAccessDateTime' => fn(ParseNode $n) => $o->setLastAccessDateTime($n->getDateTimeValue()),
             'networkingProtocol' => fn(ParseNode $n) => $o->setNetworkingProtocol($n->getEnumValue(NetworkingProtocol::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
+            'threatCount' => fn(ParseNode $n) => $o->setThreatCount($n->getIntegerValue()),
+            'totalBytesReceived' => fn(ParseNode $n) => $o->setTotalBytesReceived($n->getIntegerValue()),
+            'totalBytesSent' => fn(ParseNode $n) => $o->setTotalBytesSent($n->getIntegerValue()),
             'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
             'transactionCount' => fn(ParseNode $n) => $o->setTransactionCount($n->getIntegerValue()),
             'userCount' => fn(ParseNode $n) => $o->setUserCount($n->getIntegerValue()),
         ];
+    }
+
+    /**
+     * Gets the firstAccessDateTime property value. The firstAccessDateTime property
+     * @return DateTime|null
+    */
+    public function getFirstAccessDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('firstAccessDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstAccessDateTime'");
     }
 
     /**
@@ -161,6 +177,42 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the threatCount property value. The threatCount property
+     * @return int|null
+    */
+    public function getThreatCount(): ?int {
+        $val = $this->getBackingStore()->get('threatCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatCount'");
+    }
+
+    /**
+     * Gets the totalBytesReceived property value. The totalBytesReceived property
+     * @return int|null
+    */
+    public function getTotalBytesReceived(): ?int {
+        $val = $this->getBackingStore()->get('totalBytesReceived');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalBytesReceived'");
+    }
+
+    /**
+     * Gets the totalBytesSent property value. The totalBytesSent property
+     * @return int|null
+    */
+    public function getTotalBytesSent(): ?int {
+        $val = $this->getBackingStore()->get('totalBytesSent');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalBytesSent'");
+    }
+
+    /**
      * Gets the trafficType property value. The trafficType property
      * @return TrafficType|null
     */
@@ -202,12 +254,16 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
+        $writer->writeDateTimeValue('firstAccessDateTime', $this->getFirstAccessDateTime());
         $writer->writeStringValue('fqdn', $this->getFqdn());
         $writer->writeStringValue('ip', $this->getIp());
         $writer->writeDateTimeValue('lastAccessDateTime', $this->getLastAccessDateTime());
         $writer->writeEnumValue('networkingProtocol', $this->getNetworkingProtocol());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('port', $this->getPort());
+        $writer->writeIntegerValue('threatCount', $this->getThreatCount());
+        $writer->writeIntegerValue('totalBytesReceived', $this->getTotalBytesReceived());
+        $writer->writeIntegerValue('totalBytesSent', $this->getTotalBytesSent());
         $writer->writeEnumValue('trafficType', $this->getTrafficType());
         $writer->writeIntegerValue('transactionCount', $this->getTransactionCount());
         $writer->writeIntegerValue('userCount', $this->getUserCount());
@@ -236,6 +292,14 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);
+    }
+
+    /**
+     * Sets the firstAccessDateTime property value. The firstAccessDateTime property
+     * @param DateTime|null $value Value to set for the firstAccessDateTime property.
+    */
+    public function setFirstAccessDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('firstAccessDateTime', $value);
     }
 
     /**
@@ -284,6 +348,30 @@ class Destination implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setPort(?int $value): void {
         $this->getBackingStore()->set('port', $value);
+    }
+
+    /**
+     * Sets the threatCount property value. The threatCount property
+     * @param int|null $value Value to set for the threatCount property.
+    */
+    public function setThreatCount(?int $value): void {
+        $this->getBackingStore()->set('threatCount', $value);
+    }
+
+    /**
+     * Sets the totalBytesReceived property value. The totalBytesReceived property
+     * @param int|null $value Value to set for the totalBytesReceived property.
+    */
+    public function setTotalBytesReceived(?int $value): void {
+        $this->getBackingStore()->set('totalBytesReceived', $value);
+    }
+
+    /**
+     * Sets the totalBytesSent property value. The totalBytesSent property
+     * @param int|null $value Value to set for the totalBytesSent property.
+    */
+    public function setTotalBytesSent(?int $value): void {
+        $this->getBackingStore()->set('totalBytesSent', $value);
     }
 
     /**

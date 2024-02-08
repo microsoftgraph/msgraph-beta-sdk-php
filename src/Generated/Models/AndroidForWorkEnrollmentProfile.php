@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkEnrollmentProfile and sets the default values.
+     * Instantiates a new AndroidForWorkEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

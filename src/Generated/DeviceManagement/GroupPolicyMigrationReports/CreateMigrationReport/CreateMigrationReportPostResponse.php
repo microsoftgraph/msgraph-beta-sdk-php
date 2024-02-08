@@ -18,7 +18,7 @@ class CreateMigrationReportPostResponse implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new createMigrationReportPostResponse and sets the default values.
+     * Instantiates a new CreateMigrationReportPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

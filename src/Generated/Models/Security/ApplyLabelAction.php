@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ApplyLabelAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new applyLabelAction and sets the default values.
+     * Instantiates a new ApplyLabelAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

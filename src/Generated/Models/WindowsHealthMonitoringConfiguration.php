@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsHealthMonitoringConfiguration and sets the default values.
+     * Instantiates a new WindowsHealthMonitoringConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

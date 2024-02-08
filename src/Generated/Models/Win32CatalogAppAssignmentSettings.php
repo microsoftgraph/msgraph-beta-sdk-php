@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32CatalogAppAssignmentSettings extends Win32LobAppAssignmentSettings implements Parsable 
 {
     /**
-     * Instantiates a new win32CatalogAppAssignmentSettings and sets the default values.
+     * Instantiates a new Win32CatalogAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

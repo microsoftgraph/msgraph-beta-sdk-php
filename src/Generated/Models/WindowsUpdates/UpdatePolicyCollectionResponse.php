@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UpdatePolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new updatePolicyCollectionResponse and sets the default values.
+     * Instantiates a new UpdatePolicyCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

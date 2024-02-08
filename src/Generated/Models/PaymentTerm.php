@@ -19,7 +19,7 @@ class PaymentTerm implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new paymentTerm and sets the default values.
+     * Instantiates a new PaymentTerm and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

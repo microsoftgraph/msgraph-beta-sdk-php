@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Acronym extends SearchAnswer implements Parsable 
 {
     /**
-     * Instantiates a new acronym and sets the default values.
+     * Instantiates a new Acronym and sets the default values.
     */
     public function __construct() {
         parent::__construct();

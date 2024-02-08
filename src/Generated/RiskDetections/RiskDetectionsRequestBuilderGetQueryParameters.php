@@ -46,7 +46,7 @@ class RiskDetectionsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new riskDetectionsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new RiskDetectionsRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values

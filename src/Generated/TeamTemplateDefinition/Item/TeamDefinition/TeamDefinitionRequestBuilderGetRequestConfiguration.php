@@ -16,7 +16,7 @@ class TeamDefinitionRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?TeamDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new teamDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TeamDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TeamDefinitionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TeamDefinitionRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new teamDefinitionRequestBuilderGetQueryParameters.
+     * Instantiates a new TeamDefinitionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return TeamDefinitionRequestBuilderGetQueryParameters

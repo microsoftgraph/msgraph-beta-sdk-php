@@ -16,7 +16,7 @@ class UnitsOfMeasureRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?UnitsOfMeasureRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new unitsOfMeasureRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UnitsOfMeasureRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UnitsOfMeasureRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UnitsOfMeasureRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new unitsOfMeasureRequestBuilderGetQueryParameters.
+     * Instantiates a new UnitsOfMeasureRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

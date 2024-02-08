@@ -18,7 +18,7 @@ class HasActiveDeploymentsPostResponse implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new hasActiveDeploymentsPostResponse and sets the default values.
+     * Instantiates a new HasActiveDeploymentsPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

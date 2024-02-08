@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OperationalInsightsConnection extends ResourceConnection implements Parsable 
 {
     /**
-     * Instantiates a new operationalInsightsConnection and sets the default values.
+     * Instantiates a new OperationalInsightsConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhoneXAP extends MobileLobApp implements Parsable 
 {
     /**
-     * Instantiates a new windowsPhoneXAP and sets the default values.
+     * Instantiates a new WindowsPhoneXAP and sets the default values.
     */
     public function __construct() {
         parent::__construct();

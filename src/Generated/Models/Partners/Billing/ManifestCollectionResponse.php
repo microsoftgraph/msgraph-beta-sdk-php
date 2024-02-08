@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManifestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new manifestCollectionResponse and sets the default values.
+     * Instantiates a new ManifestCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

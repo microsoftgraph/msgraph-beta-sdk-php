@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServiceLevelAgreementRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new serviceLevelAgreementRoot and sets the default values.
+     * Instantiates a new ServiceLevelAgreementRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

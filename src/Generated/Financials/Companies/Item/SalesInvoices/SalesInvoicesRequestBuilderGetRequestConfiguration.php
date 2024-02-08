@@ -16,7 +16,7 @@ class SalesInvoicesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?SalesInvoicesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new salesInvoicesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SalesInvoicesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SalesInvoicesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SalesInvoicesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new salesInvoicesRequestBuilderGetQueryParameters.
+     * Instantiates a new SalesInvoicesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

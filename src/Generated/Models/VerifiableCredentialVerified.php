@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VerifiableCredentialVerified extends VerifiableCredentialRequirementStatus implements Parsable 
 {
     /**
-     * Instantiates a new verifiableCredentialVerified and sets the default values.
+     * Instantiates a new VerifiableCredentialVerified and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class GraphWinGetAppRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?GraphWinGetAppRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new graphWinGetAppRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GraphWinGetAppRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GraphWinGetAppRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GraphWinGetAppRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new graphWinGetAppRequestBuilderGetQueryParameters.
+     * Instantiates a new GraphWinGetAppRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return GraphWinGetAppRequestBuilderGetQueryParameters

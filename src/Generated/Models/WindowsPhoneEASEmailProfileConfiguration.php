@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurationBase implements Parsable 
 {
     /**
-     * Instantiates a new windowsPhoneEASEmailProfileConfiguration and sets the default values.
+     * Instantiates a new WindowsPhoneEASEmailProfileConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

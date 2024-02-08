@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetManagedDevicesWithFailedOrPendingAppsGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getManagedDevicesWithFailedOrPendingAppsGetResponse and sets the default values.
+     * Instantiates a new GetManagedDevicesWithFailedOrPendingAppsGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

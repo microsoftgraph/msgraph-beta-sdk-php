@@ -19,7 +19,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new matchingDlpRule and sets the default values.
+     * Instantiates a new MatchingDlpRule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

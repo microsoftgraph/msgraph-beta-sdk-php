@@ -21,7 +21,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementConfigurationIntegerSettingValueDefinitionTemplate and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
