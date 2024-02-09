@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows81VpnProxyServer extends VpnProxyServer implements Parsable 
 {
     /**
-     * Instantiates a new windows81VpnProxyServer and sets the default values.
+     * Instantiates a new Windows81VpnProxyServer and sets the default values.
     */
     public function __construct() {
         parent::__construct();

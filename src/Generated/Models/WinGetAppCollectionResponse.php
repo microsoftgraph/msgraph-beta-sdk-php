@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WinGetAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new winGetAppCollectionResponse and sets the default values.
+     * Instantiates a new WinGetAppCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

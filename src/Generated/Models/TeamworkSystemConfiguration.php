@@ -19,7 +19,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkSystemConfiguration and sets the default values.
+     * Instantiates a new TeamworkSystemConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

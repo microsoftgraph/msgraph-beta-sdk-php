@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OperationApprovalPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new operationApprovalPolicy and sets the default values.
+     * Instantiates a new OperationApprovalPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -86,6 +86,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'policyPlatform' => fn(ParseNode $n) => $o->setPolicyPlatform($n->getEnumValue(OperationApprovalPolicyPlatform::class)),
+            'policySet' => fn(ParseNode $n) => $o->setPolicySet($n->getObjectValue([OperationApprovalPolicySet::class, 'createFromDiscriminatorValue'])),
             'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(OperationApprovalPolicyType::class)),
         ]);
     }
@@ -115,6 +116,18 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in user. This property is required, and is defined by the user in order to correctly show the expected experience.
+     * @return OperationApprovalPolicySet|null
+    */
+    public function getPolicySet(): ?OperationApprovalPolicySet {
+        $val = $this->getBackingStore()->get('policySet');
+        if (is_null($val) || $val instanceof OperationApprovalPolicySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policySet'");
+    }
+
+    /**
      * Gets the policyType property value. The set of available policy types that can be configured for approval. There is no default value for this enum, indicating that the policy type must always be chosen.
      * @return OperationApprovalPolicyType|null
     */
@@ -136,6 +149,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('policyPlatform', $this->getPolicyPlatform());
+        $writer->writeObjectValue('policySet', $this->getPolicySet());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
     }
 
@@ -177,6 +191,14 @@ class OperationApprovalPolicy extends Entity implements Parsable
     */
     public function setPolicyPlatform(?OperationApprovalPolicyPlatform $value): void {
         $this->getBackingStore()->set('policyPlatform', $value);
+    }
+
+    /**
+     * Sets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in user. This property is required, and is defined by the user in order to correctly show the expected experience.
+     * @param OperationApprovalPolicySet|null $value Value to set for the policySet property.
+    */
+    public function setPolicySet(?OperationApprovalPolicySet $value): void {
+        $this->getBackingStore()->set('policySet', $value);
     }
 
     /**

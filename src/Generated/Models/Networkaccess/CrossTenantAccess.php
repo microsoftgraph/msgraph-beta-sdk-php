@@ -19,7 +19,7 @@ class CrossTenantAccess implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new crossTenantAccess and sets the default values.
+     * Instantiates a new CrossTenantAccess and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

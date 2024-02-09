@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidManagedStoreApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new androidManagedStoreApp and sets the default values.
+     * Instantiates a new AndroidManagedStoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

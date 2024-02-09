@@ -18,7 +18,7 @@ class MarkAsNotJunkPostRequestBody implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new markAsNotJunkPostRequestBody and sets the default values.
+     * Instantiates a new MarkAsNotJunkPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

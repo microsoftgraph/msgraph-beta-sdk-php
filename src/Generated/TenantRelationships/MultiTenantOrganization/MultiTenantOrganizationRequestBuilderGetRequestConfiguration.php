@@ -16,7 +16,7 @@ class MultiTenantOrganizationRequestBuilderGetRequestConfiguration extends BaseR
     public ?MultiTenantOrganizationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new multiTenantOrganizationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MultiTenantOrganizationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MultiTenantOrganizationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MultiTenantOrganizationRequestBuilderGetRequestConfiguration extends BaseR
     }
 
     /**
-     * Instantiates a new multiTenantOrganizationRequestBuilderGetQueryParameters.
+     * Instantiates a new MultiTenantOrganizationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return MultiTenantOrganizationRequestBuilderGetQueryParameters

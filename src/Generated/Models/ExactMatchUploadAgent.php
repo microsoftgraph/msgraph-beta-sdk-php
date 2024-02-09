@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchUploadAgent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new exactMatchUploadAgent and sets the default values.
+     * Instantiates a new ExactMatchUploadAgent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsWifiConfiguration and sets the default values.
+     * Instantiates a new WindowsWifiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

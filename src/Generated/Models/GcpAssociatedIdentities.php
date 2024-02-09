@@ -19,7 +19,7 @@ class GcpAssociatedIdentities implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new gcpAssociatedIdentities and sets the default values.
+     * Instantiates a new GcpAssociatedIdentities and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

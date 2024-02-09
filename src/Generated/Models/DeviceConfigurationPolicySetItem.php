@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * Instantiates a new deviceConfigurationPolicySetItem and sets the default values.
+     * Instantiates a new DeviceConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

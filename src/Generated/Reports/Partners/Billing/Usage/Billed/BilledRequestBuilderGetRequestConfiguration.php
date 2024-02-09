@@ -16,7 +16,7 @@ class BilledRequestBuilderGetRequestConfiguration extends BaseRequestConfigurati
     public ?BilledRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new billedRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new BilledRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param BilledRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class BilledRequestBuilderGetRequestConfiguration extends BaseRequestConfigurati
     }
 
     /**
-     * Instantiates a new billedRequestBuilderGetQueryParameters.
+     * Instantiates a new BilledRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return BilledRequestBuilderGetQueryParameters

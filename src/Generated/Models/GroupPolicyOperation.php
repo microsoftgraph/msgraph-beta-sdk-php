@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyOperation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyOperation and sets the default values.
+     * Instantiates a new GroupPolicyOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

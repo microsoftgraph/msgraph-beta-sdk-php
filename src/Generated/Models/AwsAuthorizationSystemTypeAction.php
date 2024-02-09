@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsAuthorizationSystemTypeAction extends AuthorizationSystemTypeAction implements Parsable 
 {
     /**
-     * Instantiates a new awsAuthorizationSystemTypeAction and sets the default values.
+     * Instantiates a new AwsAuthorizationSystemTypeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

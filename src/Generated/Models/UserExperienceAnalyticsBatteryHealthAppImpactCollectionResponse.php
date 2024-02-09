@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserExperienceAnalyticsBatteryHealthAppImpactCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthAppImpactCollectionResponse and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthAppImpactCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

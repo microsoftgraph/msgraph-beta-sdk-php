@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Schedule extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new schedule and sets the default values.
+     * Instantiates a new Schedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -82,6 +82,7 @@ class Schedule extends Entity implements Parsable
             'provisionStatusCode' => fn(ParseNode $n) => $o->setProvisionStatusCode($n->getStringValue()),
             'schedulingGroups' => fn(ParseNode $n) => $o->setSchedulingGroups($n->getCollectionOfObjectValues([SchedulingGroup::class, 'createFromDiscriminatorValue'])),
             'shifts' => fn(ParseNode $n) => $o->setShifts($n->getCollectionOfObjectValues([Shift::class, 'createFromDiscriminatorValue'])),
+            'shiftsRoleDefinitions' => fn(ParseNode $n) => $o->setShiftsRoleDefinitions($n->getCollectionOfObjectValues([ShiftsRoleDefinition::class, 'createFromDiscriminatorValue'])),
             'startDayOfWeek' => fn(ParseNode $n) => $o->setStartDayOfWeek($n->getEnumValue(DayOfWeek::class)),
             'swapShiftsChangeRequests' => fn(ParseNode $n) => $o->setSwapShiftsChangeRequests($n->getCollectionOfObjectValues([SwapShiftsChangeRequest::class, 'createFromDiscriminatorValue'])),
             'swapShiftsRequestsEnabled' => fn(ParseNode $n) => $o->setSwapShiftsRequestsEnabled($n->getBooleanValue()),
@@ -220,6 +221,20 @@ class Schedule extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'shifts'");
+    }
+
+    /**
+     * Gets the shiftsRoleDefinitions property value. The shiftsRoleDefinitions property
+     * @return array<ShiftsRoleDefinition>|null
+    */
+    public function getShiftsRoleDefinitions(): ?array {
+        $val = $this->getBackingStore()->get('shiftsRoleDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ShiftsRoleDefinition::class);
+            /** @var array<ShiftsRoleDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shiftsRoleDefinitions'");
     }
 
     /**
@@ -394,6 +409,7 @@ class Schedule extends Entity implements Parsable
         $writer->writeBooleanValue('openShiftsEnabled', $this->getOpenShiftsEnabled());
         $writer->writeCollectionOfObjectValues('schedulingGroups', $this->getSchedulingGroups());
         $writer->writeCollectionOfObjectValues('shifts', $this->getShifts());
+        $writer->writeCollectionOfObjectValues('shiftsRoleDefinitions', $this->getShiftsRoleDefinitions());
         $writer->writeEnumValue('startDayOfWeek', $this->getStartDayOfWeek());
         $writer->writeCollectionOfObjectValues('swapShiftsChangeRequests', $this->getSwapShiftsChangeRequests());
         $writer->writeBooleanValue('swapShiftsRequestsEnabled', $this->getSwapShiftsRequestsEnabled());
@@ -502,6 +518,14 @@ class Schedule extends Entity implements Parsable
     */
     public function setShifts(?array $value): void {
         $this->getBackingStore()->set('shifts', $value);
+    }
+
+    /**
+     * Sets the shiftsRoleDefinitions property value. The shiftsRoleDefinitions property
+     * @param array<ShiftsRoleDefinition>|null $value Value to set for the shiftsRoleDefinitions property.
+    */
+    public function setShiftsRoleDefinitions(?array $value): void {
+        $this->getBackingStore()->set('shiftsRoleDefinitions', $value);
     }
 
     /**

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementStringSettingInstance extends DeviceManagementSettingInstance implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementStringSettingInstance and sets the default values.
+     * Instantiates a new DeviceManagementStringSettingInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

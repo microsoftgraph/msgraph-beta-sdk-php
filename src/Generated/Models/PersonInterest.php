@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PersonInterest extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new personInterest and sets the default values.
+     * Instantiates a new PersonInterest and sets the default values.
     */
     public function __construct() {
         parent::__construct();

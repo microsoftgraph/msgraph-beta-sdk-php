@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdminMicrosoft365Apps extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new adminMicrosoft365Apps and sets the default values.
+     * Instantiates a new AdminMicrosoft365Apps and sets the default values.
     */
     public function __construct() {
         parent::__construct();

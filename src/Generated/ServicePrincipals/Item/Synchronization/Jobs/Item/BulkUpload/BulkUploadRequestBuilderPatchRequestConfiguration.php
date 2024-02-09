@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class BulkUploadRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new bulkUploadRequestBuilderPatchRequestConfiguration and sets the default values.
+     * Instantiates a new BulkUploadRequestBuilderPatchRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

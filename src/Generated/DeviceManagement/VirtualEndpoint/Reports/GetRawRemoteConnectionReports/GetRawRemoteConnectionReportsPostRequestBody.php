@@ -19,7 +19,7 @@ class GetRawRemoteConnectionReportsPostRequestBody implements AdditionalDataHold
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getRawRemoteConnectionReportsPostRequestBody and sets the default values.
+     * Instantiates a new GetRawRemoteConnectionReportsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

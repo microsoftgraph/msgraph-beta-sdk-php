@@ -16,7 +16,7 @@ class RelationshipsRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?RelationshipsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new relationshipsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RelationshipsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RelationshipsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RelationshipsRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new relationshipsRequestBuilderGetQueryParameters.
+     * Instantiates a new RelationshipsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SuperServerlessFunctionFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new superServerlessFunctionFinding and sets the default values.
+     * Instantiates a new SuperServerlessFunctionFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

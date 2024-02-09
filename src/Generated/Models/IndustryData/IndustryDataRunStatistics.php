@@ -19,7 +19,7 @@ class IndustryDataRunStatistics implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new industryDataRunStatistics and sets the default values.
+     * Instantiates a new IndustryDataRunStatistics and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

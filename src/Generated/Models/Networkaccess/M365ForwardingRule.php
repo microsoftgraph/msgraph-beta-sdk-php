@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class M365ForwardingRule extends ForwardingRule implements Parsable 
 {
     /**
-     * Instantiates a new m365ForwardingRule and sets the default values.
+     * Instantiates a new M365ForwardingRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

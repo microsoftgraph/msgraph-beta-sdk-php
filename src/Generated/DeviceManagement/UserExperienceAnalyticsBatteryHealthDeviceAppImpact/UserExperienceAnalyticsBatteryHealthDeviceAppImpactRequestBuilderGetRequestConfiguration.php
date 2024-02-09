@@ -16,7 +16,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetReques
     public ?UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetReques
     }
 
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetQueryParameters.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

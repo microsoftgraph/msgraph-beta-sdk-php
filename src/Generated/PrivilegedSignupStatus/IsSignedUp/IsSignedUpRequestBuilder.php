@@ -38,8 +38,7 @@ class IsSignedUpRequestBuilder extends BaseRequestBuilder
     public function get(?IsSignedUpRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [IsSignedUpGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

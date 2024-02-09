@@ -16,7 +16,7 @@ class AppsAndServicesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?AppsAndServicesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new appsAndServicesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AppsAndServicesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AppsAndServicesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AppsAndServicesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new appsAndServicesRequestBuilderGetQueryParameters.
+     * Instantiates a new AppsAndServicesRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AppsAndServicesRequestBuilderGetQueryParameters

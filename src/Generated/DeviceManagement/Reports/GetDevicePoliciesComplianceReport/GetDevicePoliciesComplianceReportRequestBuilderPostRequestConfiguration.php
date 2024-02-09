@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class GetDevicePoliciesComplianceReportRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new getDevicePoliciesComplianceReportRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new GetDevicePoliciesComplianceReportRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

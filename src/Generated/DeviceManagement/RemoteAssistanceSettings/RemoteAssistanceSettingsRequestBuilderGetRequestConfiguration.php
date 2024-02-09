@@ -16,7 +16,7 @@ class RemoteAssistanceSettingsRequestBuilderGetRequestConfiguration extends Base
     public ?RemoteAssistanceSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new remoteAssistanceSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RemoteAssistanceSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RemoteAssistanceSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RemoteAssistanceSettingsRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new remoteAssistanceSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new RemoteAssistanceSettingsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return RemoteAssistanceSettingsRequestBuilderGetQueryParameters

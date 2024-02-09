@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitiveType extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new sensitiveType and sets the default values.
+     * Instantiates a new SensitiveType and sets the default values.
     */
     public function __construct() {
         parent::__construct();

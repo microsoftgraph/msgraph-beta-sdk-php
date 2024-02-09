@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class HorizontalSectionColumnCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new horizontalSectionColumnCollectionResponse and sets the default values.
+     * Instantiates a new HorizontalSectionColumnCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

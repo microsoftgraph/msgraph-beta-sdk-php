@@ -19,7 +19,7 @@ class GetCompliancePolicyDevicesReportPostRequestBody implements AdditionalDataH
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getCompliancePolicyDevicesReportPostRequestBody and sets the default values.
+     * Instantiates a new GetCompliancePolicyDevicesReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

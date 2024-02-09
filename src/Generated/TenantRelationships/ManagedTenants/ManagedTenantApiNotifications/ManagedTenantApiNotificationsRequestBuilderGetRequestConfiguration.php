@@ -16,7 +16,7 @@ class ManagedTenantApiNotificationsRequestBuilderGetRequestConfiguration extends
     public ?ManagedTenantApiNotificationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managedTenantApiNotificationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagedTenantApiNotificationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagedTenantApiNotificationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagedTenantApiNotificationsRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new managedTenantApiNotificationsRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagedTenantApiNotificationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

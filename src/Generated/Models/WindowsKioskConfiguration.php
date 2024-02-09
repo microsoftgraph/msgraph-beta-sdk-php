@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskConfiguration and sets the default values.
+     * Instantiates a new WindowsKioskConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

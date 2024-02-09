@@ -46,7 +46,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -63,8 +63,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     public function delete(?PrivilegeManagementElevationRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -78,8 +77,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     public function get(?PrivilegeManagementElevationRequestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [PrivilegeManagementElevationRequest::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -94,8 +92,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     public function patch(PrivilegeManagementElevationRequest $body, ?PrivilegeManagementElevationRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [PrivilegeManagementElevationRequest::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -107,7 +104,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     */
     public function toDeleteRequestInformation(?PrivilegeManagementElevationRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -147,7 +144,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     */
     public function toPatchRequestInformation(PrivilegeManagementElevationRequest $body, ?PrivilegeManagementElevationRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

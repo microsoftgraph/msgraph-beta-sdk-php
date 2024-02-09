@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class AddLanguageFilesRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new addLanguageFilesRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new AddLanguageFilesRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

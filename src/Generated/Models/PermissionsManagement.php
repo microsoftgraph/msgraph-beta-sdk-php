@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PermissionsManagement extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new permissionsManagement and sets the default values.
+     * Instantiates a new PermissionsManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -33,6 +33,7 @@ class PermissionsManagement extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'permissionsRequestChanges' => fn(ParseNode $n) => $o->setPermissionsRequestChanges($n->getCollectionOfObjectValues([PermissionsRequestChange::class, 'createFromDiscriminatorValue'])),
+            'scheduledPermissionsApprovals' => fn(ParseNode $n) => $o->setScheduledPermissionsApprovals($n->getCollectionOfObjectValues([Approval::class, 'createFromDiscriminatorValue'])),
             'scheduledPermissionsRequests' => fn(ParseNode $n) => $o->setScheduledPermissionsRequests($n->getCollectionOfObjectValues([ScheduledPermissionsRequest::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -49,6 +50,20 @@ class PermissionsManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionsRequestChanges'");
+    }
+
+    /**
+     * Gets the scheduledPermissionsApprovals property value. The scheduledPermissionsApprovals property
+     * @return array<Approval>|null
+    */
+    public function getScheduledPermissionsApprovals(): ?array {
+        $val = $this->getBackingStore()->get('scheduledPermissionsApprovals');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Approval::class);
+            /** @var array<Approval>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduledPermissionsApprovals'");
     }
 
     /**
@@ -72,6 +87,7 @@ class PermissionsManagement extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('permissionsRequestChanges', $this->getPermissionsRequestChanges());
+        $writer->writeCollectionOfObjectValues('scheduledPermissionsApprovals', $this->getScheduledPermissionsApprovals());
         $writer->writeCollectionOfObjectValues('scheduledPermissionsRequests', $this->getScheduledPermissionsRequests());
     }
 
@@ -81,6 +97,14 @@ class PermissionsManagement extends Entity implements Parsable
     */
     public function setPermissionsRequestChanges(?array $value): void {
         $this->getBackingStore()->set('permissionsRequestChanges', $value);
+    }
+
+    /**
+     * Sets the scheduledPermissionsApprovals property value. The scheduledPermissionsApprovals property
+     * @param array<Approval>|null $value Value to set for the scheduledPermissionsApprovals property.
+    */
+    public function setScheduledPermissionsApprovals(?array $value): void {
+        $this->getBackingStore()->set('scheduledPermissionsApprovals', $value);
     }
 
     /**

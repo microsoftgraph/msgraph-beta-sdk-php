@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PermissionsAnalyticsAggregation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new permissionsAnalyticsAggregation and sets the default values.
+     * Instantiates a new PermissionsAnalyticsAggregation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

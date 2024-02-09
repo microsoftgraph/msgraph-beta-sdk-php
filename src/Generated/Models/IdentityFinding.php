@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IdentityFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new identityFinding and sets the default values.
+     * Instantiates a new IdentityFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

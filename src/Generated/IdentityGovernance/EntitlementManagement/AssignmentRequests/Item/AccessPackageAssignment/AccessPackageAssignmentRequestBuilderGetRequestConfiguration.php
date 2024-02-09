@@ -16,7 +16,7 @@ class AccessPackageAssignmentRequestBuilderGetRequestConfiguration extends BaseR
     public ?AccessPackageAssignmentRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageAssignmentRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageAssignmentRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageAssignmentRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageAssignmentRequestBuilderGetRequestConfiguration extends BaseR
     }
 
     /**
-     * Instantiates a new accessPackageAssignmentRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageAssignmentRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AccessPackageAssignmentRequestBuilderGetQueryParameters

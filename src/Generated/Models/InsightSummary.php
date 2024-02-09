@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class InsightSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new insightSummary and sets the default values.
+     * Instantiates a new InsightSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

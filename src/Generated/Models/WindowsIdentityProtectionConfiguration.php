@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsIdentityProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsIdentityProtectionConfiguration and sets the default values.
+     * Instantiates a new WindowsIdentityProtectionConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

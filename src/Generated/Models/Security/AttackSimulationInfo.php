@@ -20,7 +20,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new attackSimulationInfo and sets the default values.
+     * Instantiates a new AttackSimulationInfo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -58,7 +58,7 @@ class CustomAppScopesRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new customAppScopesRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new CustomAppScopesRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

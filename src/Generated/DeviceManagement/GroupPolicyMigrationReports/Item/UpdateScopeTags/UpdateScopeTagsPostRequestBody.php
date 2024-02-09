@@ -19,7 +19,7 @@ class UpdateScopeTagsPostRequestBody implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updateScopeTagsPostRequestBody and sets the default values.
+     * Instantiates a new UpdateScopeTagsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

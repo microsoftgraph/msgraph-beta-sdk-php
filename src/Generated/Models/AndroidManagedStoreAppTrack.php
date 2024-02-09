@@ -21,7 +21,7 @@ class AndroidManagedStoreAppTrack implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidManagedStoreAppTrack and sets the default values.
+     * Instantiates a new AndroidManagedStoreAppTrack and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

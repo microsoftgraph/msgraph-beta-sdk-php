@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProgramResource extends Identity implements Parsable 
 {
     /**
-     * Instantiates a new programResource and sets the default values.
+     * Instantiates a new ProgramResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

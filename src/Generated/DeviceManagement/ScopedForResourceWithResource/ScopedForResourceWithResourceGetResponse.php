@@ -18,7 +18,7 @@ class ScopedForResourceWithResourceGetResponse implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new scopedForResourceWithResourceGetResponse and sets the default values.
+     * Instantiates a new ScopedForResourceWithResourceGetResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

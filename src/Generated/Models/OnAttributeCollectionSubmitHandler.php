@@ -18,7 +18,7 @@ class OnAttributeCollectionSubmitHandler implements AdditionalDataHolder, Backed
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new onAttributeCollectionSubmitHandler and sets the default values.
+     * Instantiates a new OnAttributeCollectionSubmitHandler and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

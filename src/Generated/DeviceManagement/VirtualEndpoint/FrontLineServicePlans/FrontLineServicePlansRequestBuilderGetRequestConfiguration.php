@@ -16,7 +16,7 @@ class FrontLineServicePlansRequestBuilderGetRequestConfiguration extends BaseReq
     public ?FrontLineServicePlansRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new frontLineServicePlansRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new FrontLineServicePlansRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param FrontLineServicePlansRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class FrontLineServicePlansRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new frontLineServicePlansRequestBuilderGetQueryParameters.
+     * Instantiates a new FrontLineServicePlansRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

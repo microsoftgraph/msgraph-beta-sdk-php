@@ -16,7 +16,7 @@ class CustodianRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     public ?CustodianRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new custodianRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CustodianRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CustodianRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CustodianRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     }
 
     /**
-     * Instantiates a new custodianRequestBuilderGetQueryParameters.
+     * Instantiates a new CustodianRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return CustodianRequestBuilderGetQueryParameters

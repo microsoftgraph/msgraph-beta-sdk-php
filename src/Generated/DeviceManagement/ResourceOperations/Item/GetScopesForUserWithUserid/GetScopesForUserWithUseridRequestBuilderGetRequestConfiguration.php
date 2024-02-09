@@ -16,7 +16,7 @@ class GetScopesForUserWithUseridRequestBuilderGetRequestConfiguration extends Ba
     public ?GetScopesForUserWithUseridRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getScopesForUserWithUseridRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetScopesForUserWithUseridRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetScopesForUserWithUseridRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetScopesForUserWithUseridRequestBuilderGetRequestConfiguration extends Ba
     }
 
     /**
-     * Instantiates a new getScopesForUserWithUseridRequestBuilderGetQueryParameters.
+     * Instantiates a new GetScopesForUserWithUseridRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

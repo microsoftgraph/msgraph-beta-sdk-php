@@ -19,7 +19,7 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerArchivalInfo and sets the default values.
+     * Instantiates a new PlannerArchivalInfo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

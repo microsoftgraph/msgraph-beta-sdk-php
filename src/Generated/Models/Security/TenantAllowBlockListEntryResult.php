@@ -19,7 +19,7 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new tenantAllowBlockListEntryResult and sets the default values.
+     * Instantiates a new TenantAllowBlockListEntryResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

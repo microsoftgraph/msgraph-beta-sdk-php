@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MeetingRegistrationQuestion extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new meetingRegistrationQuestion and sets the default values.
+     * Instantiates a new MeetingRegistrationQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

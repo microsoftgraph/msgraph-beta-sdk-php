@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CustomSecurityAttributeAuditCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new customSecurityAttributeAuditCollectionResponse and sets the default values.
+     * Instantiates a new CustomSecurityAttributeAuditCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

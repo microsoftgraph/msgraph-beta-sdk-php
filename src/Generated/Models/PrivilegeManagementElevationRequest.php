@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegeManagementElevationRequest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new privilegeManagementElevationRequest and sets the default values.
+     * Instantiates a new PrivilegeManagementElevationRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();

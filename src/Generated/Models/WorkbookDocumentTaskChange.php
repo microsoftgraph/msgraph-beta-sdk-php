@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookDocumentTaskChange extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new workbookDocumentTaskChange and sets the default values.
+     * Instantiates a new WorkbookDocumentTaskChange and sets the default values.
     */
     public function __construct() {
         parent::__construct();

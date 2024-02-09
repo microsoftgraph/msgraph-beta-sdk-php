@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class UserSignUpMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userSignUpMetric and sets the default values.
+     * Instantiates a new UserSignUpMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

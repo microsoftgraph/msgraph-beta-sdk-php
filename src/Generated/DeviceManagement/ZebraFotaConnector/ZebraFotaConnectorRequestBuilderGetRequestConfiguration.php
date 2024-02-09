@@ -16,7 +16,7 @@ class ZebraFotaConnectorRequestBuilderGetRequestConfiguration extends BaseReques
     public ?ZebraFotaConnectorRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new zebraFotaConnectorRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ZebraFotaConnectorRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ZebraFotaConnectorRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ZebraFotaConnectorRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new zebraFotaConnectorRequestBuilderGetQueryParameters.
+     * Instantiates a new ZebraFotaConnectorRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ZebraFotaConnectorRequestBuilderGetQueryParameters

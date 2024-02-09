@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TeamsAppDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamsAppDefinition and sets the default values.
+     * Instantiates a new TeamsAppDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

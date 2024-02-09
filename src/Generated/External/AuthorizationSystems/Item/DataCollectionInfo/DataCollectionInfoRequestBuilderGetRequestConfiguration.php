@@ -16,7 +16,7 @@ class DataCollectionInfoRequestBuilderGetRequestConfiguration extends BaseReques
     public ?DataCollectionInfoRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dataCollectionInfoRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DataCollectionInfoRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DataCollectionInfoRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DataCollectionInfoRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new dataCollectionInfoRequestBuilderGetQueryParameters.
+     * Instantiates a new DataCollectionInfoRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DataCollectionInfoRequestBuilderGetQueryParameters

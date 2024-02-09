@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceManagementConfigurationSettingApplicability implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationWindowsSettingApplicability and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationWindowsSettingApplicability and sets the default values.
     */
     public function __construct() {
         parent::__construct();

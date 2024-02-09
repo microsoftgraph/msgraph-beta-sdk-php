@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPC extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPC and sets the default values.
+     * Instantiates a new CloudPC and sets the default values.
     */
     public function __construct() {
         parent::__construct();

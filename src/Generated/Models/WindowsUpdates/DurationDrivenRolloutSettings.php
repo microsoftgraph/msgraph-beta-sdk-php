@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DurationDrivenRolloutSettings extends GradualRolloutSettings implements Parsable 
 {
     /**
-     * Instantiates a new durationDrivenRolloutSettings and sets the default values.
+     * Instantiates a new DurationDrivenRolloutSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

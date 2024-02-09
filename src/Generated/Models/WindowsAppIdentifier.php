@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAppIdentifier extends MobileAppIdentifier implements Parsable 
 {
     /**
-     * Instantiates a new windowsAppIdentifier and sets the default values.
+     * Instantiates a new WindowsAppIdentifier and sets the default values.
     */
     public function __construct() {
         parent::__construct();

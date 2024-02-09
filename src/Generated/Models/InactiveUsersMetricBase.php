@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class InactiveUsersMetricBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new inactiveUsersMetricBase and sets the default values.
+     * Instantiates a new InactiveUsersMetricBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

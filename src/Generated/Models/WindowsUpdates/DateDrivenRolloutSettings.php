@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DateDrivenRolloutSettings extends GradualRolloutSettings implements Parsable 
 {
     /**
-     * Instantiates a new dateDrivenRolloutSettings and sets the default values.
+     * Instantiates a new DateDrivenRolloutSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

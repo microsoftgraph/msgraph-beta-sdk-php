@@ -16,7 +16,7 @@ class GroupAssignmentsRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?GroupAssignmentsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new groupAssignmentsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GroupAssignmentsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GroupAssignmentsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GroupAssignmentsRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new groupAssignmentsRequestBuilderGetQueryParameters.
+     * Instantiates a new GroupAssignmentsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

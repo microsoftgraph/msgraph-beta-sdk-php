@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsable 
 {
     /**
-     * Instantiates a new plannerTeamsPublicationInfo and sets the default values.
+     * Instantiates a new PlannerTeamsPublicationInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();

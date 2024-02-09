@@ -19,7 +19,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new detonationDetails and sets the default values.
+     * Instantiates a new DetonationDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

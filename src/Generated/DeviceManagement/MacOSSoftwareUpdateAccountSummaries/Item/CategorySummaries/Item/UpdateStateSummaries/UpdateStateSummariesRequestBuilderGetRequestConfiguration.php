@@ -16,7 +16,7 @@ class UpdateStateSummariesRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?UpdateStateSummariesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new updateStateSummariesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UpdateStateSummariesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UpdateStateSummariesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UpdateStateSummariesRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new updateStateSummariesRequestBuilderGetQueryParameters.
+     * Instantiates a new UpdateStateSummariesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

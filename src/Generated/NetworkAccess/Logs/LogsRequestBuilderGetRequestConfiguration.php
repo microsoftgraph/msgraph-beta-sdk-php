@@ -16,7 +16,7 @@ class LogsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?LogsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new logsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new LogsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param LogsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class LogsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new logsRequestBuilderGetQueryParameters.
+     * Instantiates a new LogsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return LogsRequestBuilderGetQueryParameters

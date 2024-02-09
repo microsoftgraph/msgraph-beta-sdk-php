@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExportSuccessOperation extends Operation implements Parsable 
 {
     /**
-     * Instantiates a new exportSuccessOperation and sets the default values.
+     * Instantiates a new ExportSuccessOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

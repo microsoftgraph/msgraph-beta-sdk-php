@@ -16,7 +16,7 @@ class PaymentMethodsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?PaymentMethodsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new paymentMethodsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PaymentMethodsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PaymentMethodsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PaymentMethodsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new paymentMethodsRequestBuilderGetQueryParameters.
+     * Instantiates a new PaymentMethodsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

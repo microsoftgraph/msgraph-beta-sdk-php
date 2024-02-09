@@ -40,8 +40,7 @@ class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder extends B
     public function post(ChangeDeploymentStatusPostRequestBody $body, ?MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ManagementTemplateStepDeployment::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

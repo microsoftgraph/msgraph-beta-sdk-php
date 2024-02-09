@@ -16,7 +16,7 @@ class JoinRequestRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?JoinRequestRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new joinRequestRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new JoinRequestRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param JoinRequestRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class JoinRequestRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new joinRequestRequestBuilderGetQueryParameters.
+     * Instantiates a new JoinRequestRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return JoinRequestRequestBuilderGetQueryParameters

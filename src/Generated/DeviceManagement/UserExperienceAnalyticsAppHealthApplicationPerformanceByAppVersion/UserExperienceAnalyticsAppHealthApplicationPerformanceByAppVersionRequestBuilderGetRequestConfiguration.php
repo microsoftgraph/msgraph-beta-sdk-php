@@ -16,7 +16,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestB
     public ?UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestB
     }
 
     /**
-     * Instantiates a new userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilderGetQueryParameters.
+     * Instantiates a new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

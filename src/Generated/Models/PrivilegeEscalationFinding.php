@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PrivilegeEscalationFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new privilegeEscalationFinding and sets the default values.
+     * Instantiates a new PrivilegeEscalationFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

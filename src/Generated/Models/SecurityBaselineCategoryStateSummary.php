@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineCategoryStateSummary extends SecurityBaselineStateSummary implements Parsable 
 {
     /**
-     * Instantiates a new securityBaselineCategoryStateSummary and sets the default values.
+     * Instantiates a new SecurityBaselineCategoryStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

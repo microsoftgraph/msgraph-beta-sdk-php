@@ -16,7 +16,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration exte
     public ?ConditionalAccessPolicyCoveragesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new conditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ConditionalAccessPolicyCoveragesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration exte
     }
 
     /**
-     * Instantiates a new conditionalAccessPolicyCoveragesRequestBuilderGetQueryParameters.
+     * Instantiates a new ConditionalAccessPolicyCoveragesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

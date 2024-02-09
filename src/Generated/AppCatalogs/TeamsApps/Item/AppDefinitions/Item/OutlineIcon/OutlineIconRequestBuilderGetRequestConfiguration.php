@@ -16,7 +16,7 @@ class OutlineIconRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?OutlineIconRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new outlineIconRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new OutlineIconRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param OutlineIconRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class OutlineIconRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new outlineIconRequestBuilderGetQueryParameters.
+     * Instantiates a new OutlineIconRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return OutlineIconRequestBuilderGetQueryParameters

@@ -18,7 +18,7 @@ class GetUserOwnedObjectsPostRequestBody implements AdditionalDataHolder, Backed
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getUserOwnedObjectsPostRequestBody and sets the default values.
+     * Instantiates a new GetUserOwnedObjectsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

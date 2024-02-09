@@ -20,7 +20,7 @@ class UpdateLanguageFilesPostRequestBody implements AdditionalDataHolder, Backed
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updateLanguageFilesPostRequestBody and sets the default values.
+     * Instantiates a new UpdateLanguageFilesPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

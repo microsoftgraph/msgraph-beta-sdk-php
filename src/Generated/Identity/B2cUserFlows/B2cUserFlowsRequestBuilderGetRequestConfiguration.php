@@ -16,7 +16,7 @@ class B2cUserFlowsRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?B2cUserFlowsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new b2cUserFlowsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new B2cUserFlowsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param B2cUserFlowsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class B2cUserFlowsRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new b2cUserFlowsRequestBuilderGetQueryParameters.
+     * Instantiates a new B2cUserFlowsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

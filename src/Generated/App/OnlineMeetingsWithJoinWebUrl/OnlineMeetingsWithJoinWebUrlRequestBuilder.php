@@ -47,7 +47,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
      * @param string|null $joinWebUrl Alternate key of onlineMeeting
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $joinWebUrl = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/app/onlineMeetings(joinWebUrl=\'{joinWebUrl}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/app/onlineMeetings(joinWebUrl=\'{joinWebUrl}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['joinWebUrl'] = $joinWebUrl;
@@ -66,8 +66,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     public function delete(?OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -81,8 +80,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     public function get(?OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [OnlineMeeting::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -97,8 +95,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     public function patch(OnlineMeeting $body, ?OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [OnlineMeeting::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -110,7 +107,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/app/onlineMeetings(joinWebUrl='{joinWebUrl}')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -150,7 +147,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(OnlineMeeting $body, ?OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/app/onlineMeetings(joinWebUrl='{joinWebUrl}')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

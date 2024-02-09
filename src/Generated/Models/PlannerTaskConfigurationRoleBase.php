@@ -18,7 +18,7 @@ class PlannerTaskConfigurationRoleBase implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerTaskConfigurationRoleBase and sets the default values.
+     * Instantiates a new PlannerTaskConfigurationRoleBase and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

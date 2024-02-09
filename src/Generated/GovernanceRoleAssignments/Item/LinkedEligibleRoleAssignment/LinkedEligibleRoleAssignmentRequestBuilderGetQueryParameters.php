@@ -22,7 +22,7 @@ class LinkedEligibleRoleAssignmentRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new linkedEligibleRoleAssignmentRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new LinkedEligibleRoleAssignmentRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

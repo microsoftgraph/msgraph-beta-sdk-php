@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmbeddedSIMDeviceState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new embeddedSIMDeviceState and sets the default values.
+     * Instantiates a new EmbeddedSIMDeviceState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

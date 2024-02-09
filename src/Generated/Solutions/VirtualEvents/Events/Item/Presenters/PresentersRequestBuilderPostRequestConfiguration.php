@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class PresentersRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new presentersRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new PresentersRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

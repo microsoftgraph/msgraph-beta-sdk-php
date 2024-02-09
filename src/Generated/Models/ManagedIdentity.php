@@ -18,7 +18,7 @@ class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new managedIdentity and sets the default values.
+     * Instantiates a new ManagedIdentity and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

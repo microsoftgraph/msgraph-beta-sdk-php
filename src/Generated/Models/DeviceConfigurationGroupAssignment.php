@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceConfigurationGroupAssignment and sets the default values.
+     * Instantiates a new DeviceConfigurationGroupAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

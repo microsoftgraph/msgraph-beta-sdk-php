@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new win32LobAppRegistryDetection and sets the default values.
+     * Instantiates a new Win32LobAppRegistryDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

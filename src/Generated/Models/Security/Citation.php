@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Citation extends FilePlanDescriptorBase implements Parsable 
 {
     /**
-     * Instantiates a new citation and sets the default values.
+     * Instantiates a new Citation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

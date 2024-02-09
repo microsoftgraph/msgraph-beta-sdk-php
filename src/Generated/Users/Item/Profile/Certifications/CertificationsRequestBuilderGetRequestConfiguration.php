@@ -16,7 +16,7 @@ class CertificationsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?CertificationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new certificationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CertificationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CertificationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CertificationsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new certificationsRequestBuilderGetQueryParameters.
+     * Instantiates a new CertificationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

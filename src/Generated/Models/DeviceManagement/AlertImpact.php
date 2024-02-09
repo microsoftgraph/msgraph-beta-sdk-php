@@ -20,7 +20,7 @@ class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new alertImpact and sets the default values.
+     * Instantiates a new AlertImpact and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
