@@ -16,7 +16,7 @@ class MobileAppIntentAndStatesRequestBuilderGetRequestConfiguration extends Base
     public ?MobileAppIntentAndStatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new mobileAppIntentAndStatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MobileAppIntentAndStatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MobileAppIntentAndStatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MobileAppIntentAndStatesRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new mobileAppIntentAndStatesRequestBuilderGetQueryParameters.
+     * Instantiates a new MobileAppIntentAndStatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

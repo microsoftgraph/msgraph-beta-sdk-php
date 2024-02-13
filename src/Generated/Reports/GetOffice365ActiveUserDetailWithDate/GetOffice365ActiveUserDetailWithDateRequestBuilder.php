@@ -23,7 +23,7 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilder extends BaseRequestBuil
      * @param Date|null $date Usage: date={date}
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?Date $date = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/getOffice365ActiveUserDetail(date={date}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/getOffice365ActiveUserDetail(date={date}){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['date'] = $date;
@@ -42,8 +42,7 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilder extends BaseRequestBuil
     public function get(?GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetOffice365ActiveUserDetailWithDateGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

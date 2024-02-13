@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerWiFiConfiguration and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,6 +68,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
         return array_merge(parent::getFieldDeserializers(), [
             'connectAutomatically' => fn(ParseNode $n) => $o->setConnectAutomatically($n->getBooleanValue()),
             'connectWhenNetworkNameIsHidden' => fn(ParseNode $n) => $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()),
+            'macAddressRandomizationMode' => fn(ParseNode $n) => $o->setMacAddressRandomizationMode($n->getEnumValue(MacAddressRandomizationMode::class)),
             'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
             'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
             'preSharedKeyIsSet' => fn(ParseNode $n) => $o->setPreSharedKeyIsSet($n->getBooleanValue()),
@@ -79,6 +80,18 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
             'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
             'wiFiSecurityType' => fn(ParseNode $n) => $o->setWiFiSecurityType($n->getEnumValue(AndroidDeviceOwnerWiFiSecurityType::class)),
         ]);
+    }
+
+    /**
+     * Gets the macAddressRandomizationMode property value. The MAC address randomization mode for Android device Wi-Fi configuration. Possible values include automatic and hardware. Default value is automatic.
+     * @return MacAddressRandomizationMode|null
+    */
+    public function getMacAddressRandomizationMode(): ?MacAddressRandomizationMode {
+        $val = $this->getBackingStore()->get('macAddressRandomizationMode');
+        if (is_null($val) || $val instanceof MacAddressRandomizationMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'macAddressRandomizationMode'");
     }
 
     /**
@@ -209,6 +222,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
         parent::serialize($writer);
         $writer->writeBooleanValue('connectAutomatically', $this->getConnectAutomatically());
         $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->getConnectWhenNetworkNameIsHidden());
+        $writer->writeEnumValue('macAddressRandomizationMode', $this->getMacAddressRandomizationMode());
         $writer->writeStringValue('networkName', $this->getNetworkName());
         $writer->writeStringValue('preSharedKey', $this->getPreSharedKey());
         $writer->writeBooleanValue('preSharedKeyIsSet', $this->getPreSharedKeyIsSet());
@@ -235,6 +249,14 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     */
     public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
         $this->getBackingStore()->set('connectWhenNetworkNameIsHidden', $value);
+    }
+
+    /**
+     * Sets the macAddressRandomizationMode property value. The MAC address randomization mode for Android device Wi-Fi configuration. Possible values include automatic and hardware. Default value is automatic.
+     * @param MacAddressRandomizationMode|null $value Value to set for the macAddressRandomizationMode property.
+    */
+    public function setMacAddressRandomizationMode(?MacAddressRandomizationMode $value): void {
+        $this->getBackingStore()->set('macAddressRandomizationMode', $value);
     }
 
     /**

@@ -19,7 +19,7 @@ class AssignTagPostRequestBody implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new assignTagPostRequestBody and sets the default values.
+     * Instantiates a new AssignTagPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

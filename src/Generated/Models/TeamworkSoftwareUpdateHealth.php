@@ -18,7 +18,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkSoftwareUpdateHealth and sets the default values.
+     * Instantiates a new TeamworkSoftwareUpdateHealth and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

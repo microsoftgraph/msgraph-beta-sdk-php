@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\OpenShifts\OpenShif
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\SchedulingGroups\SchedulingGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\Share\ShareRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\Shifts\ShiftsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\ShiftsRoleDefinitions\ShiftsRoleDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\SwapShiftsChangeRequests\SwapShiftsChangeRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\TimeCardsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeOffReasons\TimeOffReasonsRequestBuilder;
@@ -78,6 +79,13 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the shiftsRoleDefinitions property of the microsoft.graph.schedule entity.
+    */
+    public function shiftsRoleDefinitions(): ShiftsRoleDefinitionsRequestBuilder {
+        return new ShiftsRoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
     */
     public function swapShiftsChangeRequests(): SwapShiftsChangeRequestsRequestBuilder {
@@ -118,7 +126,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/groups/{group%2Did}/team/schedule{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/groups/{group%2Did}/team/schedule{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -135,8 +143,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
     public function delete(?ScheduleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -151,8 +158,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
     public function get(?ScheduleRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Schedule::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -167,8 +173,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
     public function put(Schedule $body, ?ScheduleRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Schedule::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -180,7 +185,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ScheduleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/groups/{group%2Did}/team/schedule';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -220,7 +225,7 @@ class ScheduleRequestBuilder extends BaseRequestBuilder
     */
     public function toPutRequestInformation(Schedule $body, ?ScheduleRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/groups/{group%2Did}/team/schedule';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PUT;
         if ($requestConfiguration !== null) {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApprovalStep extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new approvalStep and sets the default values.
+     * Instantiates a new ApprovalStep and sets the default values.
     */
     public function __construct() {
         parent::__construct();

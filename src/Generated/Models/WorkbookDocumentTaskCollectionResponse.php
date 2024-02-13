@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WorkbookDocumentTaskCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new workbookDocumentTaskCollectionResponse and sets the default values.
+     * Instantiates a new WorkbookDocumentTaskCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

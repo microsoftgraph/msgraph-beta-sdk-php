@@ -16,7 +16,7 @@ class DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetRequ
     public ?DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetRequ
     }
 
     /**
-     * Instantiates a new deviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetQueryParameters.
+     * Instantiates a new DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

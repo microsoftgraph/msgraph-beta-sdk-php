@@ -18,7 +18,7 @@ class WritebackConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new writebackConfiguration and sets the default values.
+     * Instantiates a new WritebackConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

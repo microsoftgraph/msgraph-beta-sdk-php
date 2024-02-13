@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AwsUser extends AwsIdentity implements Parsable 
 {
     /**
-     * Instantiates a new awsUser and sets the default values.
+     * Instantiates a new AwsUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();

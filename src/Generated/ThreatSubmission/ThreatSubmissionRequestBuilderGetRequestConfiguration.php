@@ -16,7 +16,7 @@ class ThreatSubmissionRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?ThreatSubmissionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new threatSubmissionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ThreatSubmissionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ThreatSubmissionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ThreatSubmissionRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new threatSubmissionRequestBuilderGetQueryParameters.
+     * Instantiates a new ThreatSubmissionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ThreatSubmissionRequestBuilderGetQueryParameters

@@ -16,7 +16,7 @@ class GetLicensesForAppWithBundleIdRequestBuilderGetRequestConfiguration extends
     public ?GetLicensesForAppWithBundleIdRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getLicensesForAppWithBundleIdRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetLicensesForAppWithBundleIdRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetLicensesForAppWithBundleIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetLicensesForAppWithBundleIdRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new getLicensesForAppWithBundleIdRequestBuilderGetQueryParameters.
+     * Instantiates a new GetLicensesForAppWithBundleIdRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

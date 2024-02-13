@@ -16,7 +16,7 @@ class TenantsDetailedInformationRequestBuilderGetRequestConfiguration extends Ba
     public ?TenantsDetailedInformationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new tenantsDetailedInformationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TenantsDetailedInformationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TenantsDetailedInformationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TenantsDetailedInformationRequestBuilderGetRequestConfiguration extends Ba
     }
 
     /**
-     * Instantiates a new tenantsDetailedInformationRequestBuilderGetQueryParameters.
+     * Instantiates a new TenantsDetailedInformationRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

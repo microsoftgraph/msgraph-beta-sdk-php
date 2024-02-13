@@ -18,7 +18,7 @@ class AppsInstallationOptionsForMac implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new appsInstallationOptionsForMac and sets the default values.
+     * Instantiates a new AppsInstallationOptionsForMac and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

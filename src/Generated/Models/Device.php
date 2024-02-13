@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Device extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new device and sets the default values.
+     * Instantiates a new Device and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -200,7 +200,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Microsoft Entra ID. Supports $filter (eq, not, startsWith, and eq on null values).
+     * Gets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes aren't selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Microsoft Entra ID. Supports $filter (eq, not, startsWith, and eq on null values).
      * @return OnPremisesExtensionAttributes|null
     */
     public function getExtensionAttributes(): ?OnPremisesExtensionAttributes {
@@ -387,7 +387,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the manufacturer property value. Manufacturer of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
+     * Gets the manufacturer property value. Manufacturer of the device. Read-only.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -425,7 +425,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the model property value. Model of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
+     * Gets the model property value. Model of the device. Read-only.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -627,7 +627,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more details, see Introduction to device management in Microsoft Entra ID.
+     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more information, see Introduction to device management in Microsoft Entra ID.
      * @return string|null
     */
     public function getTrustType(): ?string {
@@ -817,7 +817,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Microsoft Entra ID. Supports $filter (eq, not, startsWith, and eq on null values).
+     * Sets the extensionAttributes property value. Contains extension attributes 1-15 for the device. The individual extension attributes aren't selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Microsoft Entra ID. Supports $filter (eq, not, startsWith, and eq on null values).
      * @param OnPremisesExtensionAttributes|null $value Value to set for the extensionAttributes property.
     */
     public function setExtensionAttributes(?OnPremisesExtensionAttributes $value): void {
@@ -889,7 +889,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the manufacturer property value. Manufacturer of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
+     * Sets the manufacturer property value. Manufacturer of the device. Read-only.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -913,7 +913,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the model property value. Model of the device. Only returned if the user signs in with a Microsoft account as part of Project Rome.
+     * Sets the model property value. Model of the device. Read-only.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -1041,7 +1041,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more details, see Introduction to device management in Microsoft Entra ID.
+     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more information, see Introduction to device management in Microsoft Entra ID.
      * @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value): void {

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WorkbookDocumentTask extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new workbookDocumentTask and sets the default values.
+     * Instantiates a new WorkbookDocumentTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();

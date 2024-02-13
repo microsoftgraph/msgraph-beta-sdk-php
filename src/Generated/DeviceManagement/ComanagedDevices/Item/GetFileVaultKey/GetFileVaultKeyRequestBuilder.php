@@ -38,8 +38,7 @@ class GetFileVaultKeyRequestBuilder extends BaseRequestBuilder
     public function get(?GetFileVaultKeyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetFileVaultKeyGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

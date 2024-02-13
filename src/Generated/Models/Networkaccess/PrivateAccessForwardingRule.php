@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivateAccessForwardingRule extends ForwardingRule implements Parsable 
 {
     /**
-     * Instantiates a new privateAccessForwardingRule and sets the default values.
+     * Instantiates a new PrivateAccessForwardingRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

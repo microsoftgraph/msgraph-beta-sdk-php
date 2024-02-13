@@ -21,7 +21,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementConfigurationChoiceSettingValueTemplate and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationChoiceSettingValueTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

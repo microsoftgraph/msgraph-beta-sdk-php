@@ -18,7 +18,7 @@ class DenyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new denyPostRequestBody and sets the default values.
+     * Instantiates a new DenyPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

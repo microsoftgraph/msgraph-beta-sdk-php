@@ -39,8 +39,7 @@ class GetPolicySetsRequestBuilder extends BaseRequestBuilder
     public function post(GetPolicySetsPostRequestBody $body, ?GetPolicySetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetPolicySetsPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

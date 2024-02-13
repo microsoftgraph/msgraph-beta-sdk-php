@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new webCategoryReportWithStartDateTimeWithEndDateTimeGetResponse and sets the default values.
+     * Instantiates a new WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

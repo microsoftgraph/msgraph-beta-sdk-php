@@ -40,7 +40,7 @@ class FindRoomsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new findRoomsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new FindRoomsRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

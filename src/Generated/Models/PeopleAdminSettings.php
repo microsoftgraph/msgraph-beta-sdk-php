@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PeopleAdminSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new peopleAdminSettings and sets the default values.
+     * Instantiates a new PeopleAdminSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,9 +32,22 @@ class PeopleAdminSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
             'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
             'pronouns' => fn(ParseNode $n) => $o->setPronouns($n->getObjectValue([PronounsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the itemInsights property value. The itemInsights property
+     * @return InsightsSettings|null
+    */
+    public function getItemInsights(): ?InsightsSettings {
+        $val = $this->getBackingStore()->get('itemInsights');
+        if (is_null($val) || $val instanceof InsightsSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemInsights'");
     }
 
     /**
@@ -69,8 +82,17 @@ class PeopleAdminSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('itemInsights', $this->getItemInsights());
         $writer->writeCollectionOfObjectValues('profileCardProperties', $this->getProfileCardProperties());
         $writer->writeObjectValue('pronouns', $this->getPronouns());
+    }
+
+    /**
+     * Sets the itemInsights property value. The itemInsights property
+     * @param InsightsSettings|null $value Value to set for the itemInsights property.
+    */
+    public function setItemInsights(?InsightsSettings $value): void {
+        $this->getBackingStore()->set('itemInsights', $value);
     }
 
     /**

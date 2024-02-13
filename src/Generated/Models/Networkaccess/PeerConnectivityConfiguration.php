@@ -18,7 +18,7 @@ class PeerConnectivityConfiguration implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new peerConnectivityConfiguration and sets the default values.
+     * Instantiates a new PeerConnectivityConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

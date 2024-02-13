@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Deployment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deployment and sets the default values.
+     * Instantiates a new Deployment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

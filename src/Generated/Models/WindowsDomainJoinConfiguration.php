@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsDomainJoinConfiguration and sets the default values.
+     * Instantiates a new WindowsDomainJoinConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

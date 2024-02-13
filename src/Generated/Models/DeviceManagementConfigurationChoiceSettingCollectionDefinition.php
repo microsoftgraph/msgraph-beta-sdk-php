@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingCollectionDefinition extends DeviceManagementConfigurationChoiceSettingDefinition implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationChoiceSettingCollectionDefinition and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationChoiceSettingCollectionDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,7 +37,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Gets the maximumCount property value. Maximum number of choices in the collection
+     * Gets the maximumCount property value. Maximum number of choices in the collection. Valid values 1 to 100
      * @return int|null
     */
     public function getMaximumCount(): ?int {
@@ -49,7 +49,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Gets the minimumCount property value. Minimum number of choices in the collection
+     * Gets the minimumCount property value. Minimum number of choices in the collection. Valid values 1 to 100
      * @return int|null
     */
     public function getMinimumCount(): ?int {
@@ -71,7 +71,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Sets the maximumCount property value. Maximum number of choices in the collection
+     * Sets the maximumCount property value. Maximum number of choices in the collection. Valid values 1 to 100
      * @param int|null $value Value to set for the maximumCount property.
     */
     public function setMaximumCount(?int $value): void {
@@ -79,7 +79,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Sets the minimumCount property value. Minimum number of choices in the collection
+     * Sets the minimumCount property value. Minimum number of choices in the collection. Valid values 1 to 100
      * @param int|null $value Value to set for the minimumCount property.
     */
     public function setMinimumCount(?int $value): void {

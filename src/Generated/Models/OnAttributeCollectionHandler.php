@@ -18,7 +18,7 @@ class OnAttributeCollectionHandler implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new onAttributeCollectionHandler and sets the default values.
+     * Instantiates a new OnAttributeCollectionHandler and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

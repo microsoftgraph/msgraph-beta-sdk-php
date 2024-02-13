@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Windows81CertificateProfileBase extends WindowsCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new windows81CertificateProfileBase and sets the default values.
+     * Instantiates a new Windows81CertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

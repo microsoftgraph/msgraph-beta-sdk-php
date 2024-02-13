@@ -18,7 +18,7 @@ class PauseConfigurationRefreshPostRequestBody implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new pauseConfigurationRefreshPostRequestBody and sets the default values.
+     * Instantiates a new PauseConfigurationRefreshPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -18,7 +18,7 @@ class GraphAPIErrorDetails implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new graphAPIErrorDetails and sets the default values.
+     * Instantiates a new GraphAPIErrorDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

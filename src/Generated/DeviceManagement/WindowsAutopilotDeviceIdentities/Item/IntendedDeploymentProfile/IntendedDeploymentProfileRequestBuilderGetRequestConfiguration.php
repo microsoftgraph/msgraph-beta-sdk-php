@@ -16,7 +16,7 @@ class IntendedDeploymentProfileRequestBuilderGetRequestConfiguration extends Bas
     public ?IntendedDeploymentProfileRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new intendedDeploymentProfileRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new IntendedDeploymentProfileRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param IntendedDeploymentProfileRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class IntendedDeploymentProfileRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new intendedDeploymentProfileRequestBuilderGetQueryParameters.
+     * Instantiates a new IntendedDeploymentProfileRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return IntendedDeploymentProfileRequestBuilderGetQueryParameters

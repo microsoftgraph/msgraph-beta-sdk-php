@@ -45,7 +45,7 @@ class GetMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusi
     public ?int $top = null;
     
     /**
-     * Instantiates a new getMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new GetMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters and sets the default values.
      * @param int|null $aggregationIntervalInMinutes Usage: aggregationIntervalInMinutes=@aggregationIntervalInMinutes
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values

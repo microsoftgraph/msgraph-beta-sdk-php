@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Command extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new command and sets the default values.
+     * Instantiates a new Command and sets the default values.
     */
     public function __construct() {
         parent::__construct();

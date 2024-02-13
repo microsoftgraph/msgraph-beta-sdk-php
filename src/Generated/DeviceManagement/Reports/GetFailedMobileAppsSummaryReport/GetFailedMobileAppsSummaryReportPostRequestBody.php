@@ -19,7 +19,7 @@ class GetFailedMobileAppsSummaryReportPostRequestBody implements AdditionalDataH
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getFailedMobileAppsSummaryReportPostRequestBody and sets the default values.
+     * Instantiates a new GetFailedMobileAppsSummaryReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

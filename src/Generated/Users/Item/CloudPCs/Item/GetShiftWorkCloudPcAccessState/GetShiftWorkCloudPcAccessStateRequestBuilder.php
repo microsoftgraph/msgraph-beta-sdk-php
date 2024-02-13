@@ -39,8 +39,7 @@ class GetShiftWorkCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
     public function get(?GetShiftWorkCloudPcAccessStateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         /** @var Promise<ShiftWorkCloudPcAccessState|null> $result */
         $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, ShiftWorkCloudPcAccessState::class, $errorMappings);

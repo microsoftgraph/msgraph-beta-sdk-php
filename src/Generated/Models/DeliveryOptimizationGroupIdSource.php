@@ -21,7 +21,7 @@ class DeliveryOptimizationGroupIdSource implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deliveryOptimizationGroupIdSource and sets the default values.
+     * Instantiates a new DeliveryOptimizationGroupIdSource and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

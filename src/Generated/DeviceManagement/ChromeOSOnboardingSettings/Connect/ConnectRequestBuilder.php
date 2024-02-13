@@ -40,8 +40,7 @@ class ConnectRequestBuilder extends BaseRequestBuilder
     public function post(ConnectPostRequestBody $body, ?ConnectRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         /** @var Promise<ChromeOSOnboardingStatus|null> $result */
         $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, ChromeOSOnboardingStatus::class, $errorMappings);

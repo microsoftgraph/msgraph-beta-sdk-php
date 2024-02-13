@@ -39,8 +39,7 @@ class QueryByPlatformTypeRequestBuilder extends BaseRequestBuilder
     public function post(QueryByPlatformTypePostRequestBody $body, ?QueryByPlatformTypeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [QueryByPlatformTypePostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

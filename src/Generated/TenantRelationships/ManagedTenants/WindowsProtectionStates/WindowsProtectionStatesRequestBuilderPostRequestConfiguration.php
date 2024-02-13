@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class WindowsProtectionStatesRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new windowsProtectionStatesRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new WindowsProtectionStatesRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

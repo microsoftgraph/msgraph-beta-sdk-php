@@ -41,8 +41,7 @@ class ScopedForResourceWithResourceRequestBuilder extends BaseRequestBuilder
     public function get(?ScopedForResourceWithResourceRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ScopedForResourceWithResourceGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

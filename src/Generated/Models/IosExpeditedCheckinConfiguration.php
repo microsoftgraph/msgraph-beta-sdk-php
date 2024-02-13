@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosExpeditedCheckinConfiguration extends AppleExpeditedCheckinConfigurationBase implements Parsable 
 {
     /**
-     * Instantiates a new iosExpeditedCheckinConfiguration and sets the default values.
+     * Instantiates a new IosExpeditedCheckinConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

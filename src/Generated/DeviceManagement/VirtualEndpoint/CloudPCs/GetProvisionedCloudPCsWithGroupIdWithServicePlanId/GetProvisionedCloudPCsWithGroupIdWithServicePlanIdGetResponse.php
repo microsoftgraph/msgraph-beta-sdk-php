@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getProvisionedCloudPCsWithGroupIdWithServicePlanIdGetResponse and sets the default values.
+     * Instantiates a new GetProvisionedCloudPCsWithGroupIdWithServicePlanIdGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

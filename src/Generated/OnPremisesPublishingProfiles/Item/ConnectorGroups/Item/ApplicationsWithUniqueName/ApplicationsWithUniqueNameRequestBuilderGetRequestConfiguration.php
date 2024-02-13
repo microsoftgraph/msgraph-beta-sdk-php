@@ -16,7 +16,7 @@ class ApplicationsWithUniqueNameRequestBuilderGetRequestConfiguration extends Ba
     public ?ApplicationsWithUniqueNameRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new applicationsWithUniqueNameRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ApplicationsWithUniqueNameRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ApplicationsWithUniqueNameRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ApplicationsWithUniqueNameRequestBuilderGetRequestConfiguration extends Ba
     }
 
     /**
-     * Instantiates a new applicationsWithUniqueNameRequestBuilderGetQueryParameters.
+     * Instantiates a new ApplicationsWithUniqueNameRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ApplicationsWithUniqueNameRequestBuilderGetQueryParameters

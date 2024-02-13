@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KnowledgeBaseArticle extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new knowledgeBaseArticle and sets the default values.
+     * Instantiates a new KnowledgeBaseArticle and sets the default values.
     */
     public function __construct() {
         parent::__construct();

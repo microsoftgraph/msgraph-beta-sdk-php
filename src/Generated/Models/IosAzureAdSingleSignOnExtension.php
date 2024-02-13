@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new iosAzureAdSingleSignOnExtension and sets the default values.
+     * Instantiates a new IosAzureAdSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

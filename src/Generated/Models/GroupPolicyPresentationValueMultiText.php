@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyPresentationValueMultiText and sets the default values.
+     * Instantiates a new GroupPolicyPresentationValueMultiText and sets the default values.
     */
     public function __construct() {
         parent::__construct();

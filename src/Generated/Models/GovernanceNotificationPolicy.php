@@ -19,7 +19,7 @@ class GovernanceNotificationPolicy implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new governanceNotificationPolicy and sets the default values.
+     * Instantiates a new GovernanceNotificationPolicy and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

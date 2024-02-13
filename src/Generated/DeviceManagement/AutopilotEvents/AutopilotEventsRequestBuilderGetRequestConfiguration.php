@@ -16,7 +16,7 @@ class AutopilotEventsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?AutopilotEventsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new autopilotEventsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AutopilotEventsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AutopilotEventsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AutopilotEventsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new autopilotEventsRequestBuilderGetQueryParameters.
+     * Instantiates a new AutopilotEventsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

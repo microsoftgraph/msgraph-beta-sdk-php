@@ -19,7 +19,7 @@ class VerifySignaturePostRequestBody implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new verifySignaturePostRequestBody and sets the default values.
+     * Instantiates a new VerifySignaturePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

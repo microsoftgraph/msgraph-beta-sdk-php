@@ -16,7 +16,7 @@ class ClassifyTextJobsRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?ClassifyTextJobsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new classifyTextJobsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ClassifyTextJobsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ClassifyTextJobsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ClassifyTextJobsRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new classifyTextJobsRequestBuilderGetQueryParameters.
+     * Instantiates a new ClassifyTextJobsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

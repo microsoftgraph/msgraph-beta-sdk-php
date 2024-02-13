@@ -16,7 +16,7 @@ class MyDayTasksRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?MyDayTasksRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new myDayTasksRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MyDayTasksRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MyDayTasksRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MyDayTasksRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new myDayTasksRequestBuilderGetQueryParameters.
+     * Instantiates a new MyDayTasksRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

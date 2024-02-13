@@ -16,7 +16,7 @@ class WindowsRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     public ?WindowsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new windowsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WindowsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WindowsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WindowsRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     }
 
     /**
-     * Instantiates a new windowsRequestBuilderGetQueryParameters.
+     * Instantiates a new WindowsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return WindowsRequestBuilderGetQueryParameters

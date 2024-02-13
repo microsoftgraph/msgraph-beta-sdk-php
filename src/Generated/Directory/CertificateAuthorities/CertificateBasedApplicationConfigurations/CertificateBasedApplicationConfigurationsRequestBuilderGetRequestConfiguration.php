@@ -16,7 +16,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfigura
     public ?CertificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new certificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CertificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfigura
     }
 
     /**
-     * Instantiates a new certificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters.
+     * Instantiates a new CertificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

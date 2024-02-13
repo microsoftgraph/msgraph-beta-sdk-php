@@ -19,7 +19,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windowsKioskProfile and sets the default values.
+     * Instantiates a new WindowsKioskProfile and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

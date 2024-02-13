@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpSubnet extends RuleDestination implements Parsable 
 {
     /**
-     * Instantiates a new ipSubnet and sets the default values.
+     * Instantiates a new IpSubnet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

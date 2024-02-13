@@ -19,7 +19,7 @@ class GetUnhealthyFirewallReportPostRequestBody implements AdditionalDataHolder,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getUnhealthyFirewallReportPostRequestBody and sets the default values.
+     * Instantiates a new GetUnhealthyFirewallReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

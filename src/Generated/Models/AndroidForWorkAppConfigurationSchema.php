@@ -14,7 +14,7 @@ use Psr\Http\Message\StreamInterface;
 class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkAppConfigurationSchema and sets the default values.
+     * Instantiates a new AndroidForWorkAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();

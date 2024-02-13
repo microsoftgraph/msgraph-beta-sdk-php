@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile implements Parsable 
 {
     /**
-     * Instantiates a new windows10XSCEPCertificateProfile and sets the default values.
+     * Instantiates a new Windows10XSCEPCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

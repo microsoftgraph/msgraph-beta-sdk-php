@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AllAccountsWithAccess extends AccountsWithAccess implements Parsable 
 {
     /**
-     * Instantiates a new allAccountsWithAccess and sets the default values.
+     * Instantiates a new AllAccountsWithAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();

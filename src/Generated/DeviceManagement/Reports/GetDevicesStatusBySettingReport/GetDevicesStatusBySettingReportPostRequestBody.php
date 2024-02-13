@@ -19,7 +19,7 @@ class GetDevicesStatusBySettingReportPostRequestBody implements AdditionalDataHo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getDevicesStatusBySettingReportPostRequestBody and sets the default values.
+     * Instantiates a new GetDevicesStatusBySettingReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

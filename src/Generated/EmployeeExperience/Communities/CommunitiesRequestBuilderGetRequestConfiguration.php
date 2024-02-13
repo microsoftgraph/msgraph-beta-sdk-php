@@ -16,7 +16,7 @@ class CommunitiesRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?CommunitiesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new communitiesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CommunitiesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CommunitiesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CommunitiesRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new communitiesRequestBuilderGetQueryParameters.
+     * Instantiates a new CommunitiesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

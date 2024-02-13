@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new iosKerberosSingleSignOnExtension and sets the default values.
+     * Instantiates a new IosKerberosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

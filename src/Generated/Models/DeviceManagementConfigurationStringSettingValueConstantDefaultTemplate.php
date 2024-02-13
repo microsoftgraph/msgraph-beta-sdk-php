@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate extends DeviceManagementConfigurationStringSettingValueDefaultTemplate implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationStringSettingValueConstantDefaultTemplate and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

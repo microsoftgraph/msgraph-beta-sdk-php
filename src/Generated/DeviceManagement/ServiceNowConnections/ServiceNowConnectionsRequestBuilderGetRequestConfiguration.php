@@ -16,7 +16,7 @@ class ServiceNowConnectionsRequestBuilderGetRequestConfiguration extends BaseReq
     public ?ServiceNowConnectionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new serviceNowConnectionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ServiceNowConnectionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ServiceNowConnectionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ServiceNowConnectionsRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new serviceNowConnectionsRequestBuilderGetQueryParameters.
+     * Instantiates a new ServiceNowConnectionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

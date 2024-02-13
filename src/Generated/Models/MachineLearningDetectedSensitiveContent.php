@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent implements Parsable 
 {
     /**
-     * Instantiates a new machineLearningDetectedSensitiveContent and sets the default values.
+     * Instantiates a new MachineLearningDetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

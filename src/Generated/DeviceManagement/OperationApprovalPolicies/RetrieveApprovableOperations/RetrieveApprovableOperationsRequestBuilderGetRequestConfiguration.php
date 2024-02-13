@@ -16,7 +16,7 @@ class RetrieveApprovableOperationsRequestBuilderGetRequestConfiguration extends 
     public ?RetrieveApprovableOperationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new retrieveApprovableOperationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RetrieveApprovableOperationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RetrieveApprovableOperationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RetrieveApprovableOperationsRequestBuilderGetRequestConfiguration extends 
     }
 
     /**
-     * Instantiates a new retrieveApprovableOperationsRequestBuilderGetQueryParameters.
+     * Instantiates a new RetrieveApprovableOperationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

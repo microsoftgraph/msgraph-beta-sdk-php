@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsPrivacyDataAccessControlItem and sets the default values.
+     * Instantiates a new WindowsPrivacyDataAccessControlItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

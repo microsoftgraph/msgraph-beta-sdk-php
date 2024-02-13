@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PermissionsDefinitionAwsPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new permissionsDefinitionAwsPolicy and sets the default values.
+     * Instantiates a new PermissionsDefinitionAwsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

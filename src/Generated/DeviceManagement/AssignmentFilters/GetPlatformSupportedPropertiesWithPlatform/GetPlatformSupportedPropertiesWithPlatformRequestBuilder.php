@@ -22,7 +22,7 @@ class GetPlatformSupportedPropertiesWithPlatformRequestBuilder extends BaseReque
      * @param string|null $platform Usage: platform='{platform}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $platform = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/assignmentFilters/getPlatformSupportedProperties(platform=\'{platform}\'){?%24top,%24skip,%24search,%24filter,%24count}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/assignmentFilters/getPlatformSupportedProperties(platform=\'{platform}\'){?%24count,%24filter,%24search,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['platform'] = $platform;
@@ -41,8 +41,7 @@ class GetPlatformSupportedPropertiesWithPlatformRequestBuilder extends BaseReque
     public function get(?GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetPlatformSupportedPropertiesWithPlatformGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

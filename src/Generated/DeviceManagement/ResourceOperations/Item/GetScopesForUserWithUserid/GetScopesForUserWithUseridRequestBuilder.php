@@ -22,7 +22,7 @@ class GetScopesForUserWithUseridRequestBuilder extends BaseRequestBuilder
      * @param string|null $userid Usage: userid='{userid}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $userid = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}/getScopesForUser(userid=\'{userid}\'){?%24top,%24skip,%24search,%24filter,%24count}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}/getScopesForUser(userid=\'{userid}\'){?%24count,%24filter,%24search,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['userid'] = $userid;
@@ -41,8 +41,7 @@ class GetScopesForUserWithUseridRequestBuilder extends BaseRequestBuilder
     public function get(?GetScopesForUserWithUseridRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetScopesForUserWithUseridGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

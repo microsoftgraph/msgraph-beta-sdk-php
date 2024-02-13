@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class MfaCompletionMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new mfaCompletionMetric and sets the default values.
+     * Instantiates a new MfaCompletionMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

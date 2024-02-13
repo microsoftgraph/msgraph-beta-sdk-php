@@ -16,7 +16,7 @@ class GetApprovableOperationsRequestBuilderGetRequestConfiguration extends BaseR
     public ?GetApprovableOperationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getApprovableOperationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetApprovableOperationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetApprovableOperationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetApprovableOperationsRequestBuilderGetRequestConfiguration extends BaseR
     }
 
     /**
-     * Instantiates a new getApprovableOperationsRequestBuilderGetQueryParameters.
+     * Instantiates a new GetApprovableOperationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

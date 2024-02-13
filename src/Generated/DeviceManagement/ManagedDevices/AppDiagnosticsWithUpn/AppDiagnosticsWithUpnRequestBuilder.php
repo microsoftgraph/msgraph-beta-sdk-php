@@ -22,7 +22,7 @@ class AppDiagnosticsWithUpnRequestBuilder extends BaseRequestBuilder
      * @param string|null $upn Usage: upn='{upn}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $upn = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/appDiagnostics(upn=\'{upn}\'){?%24top,%24skip,%24search,%24filter,%24count}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/appDiagnostics(upn=\'{upn}\'){?%24count,%24filter,%24search,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['upn'] = $upn;
@@ -41,8 +41,7 @@ class AppDiagnosticsWithUpnRequestBuilder extends BaseRequestBuilder
     public function get(?AppDiagnosticsWithUpnRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [AppDiagnosticsWithUpnGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

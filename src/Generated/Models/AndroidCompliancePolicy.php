@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new androidCompliancePolicy and sets the default values.
+     * Instantiates a new AndroidCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

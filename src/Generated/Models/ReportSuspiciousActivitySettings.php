@@ -18,7 +18,7 @@ class ReportSuspiciousActivitySettings implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new reportSuspiciousActivitySettings and sets the default values.
+     * Instantiates a new ReportSuspiciousActivitySettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

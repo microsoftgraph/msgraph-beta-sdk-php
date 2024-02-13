@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Directory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new directory and sets the default values.
+     * Instantiates a new Directory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -80,7 +80,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedItems property value. The deletedItems property
+     * Gets the deletedItems property value. Recently deleted items. Read-only. Nullable.
      * @return array<DirectoryObject>|null
     */
     public function getDeletedItems(): ?array {
@@ -175,7 +175,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
+     * Gets the inboundSharedUserProfiles property value. A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
      * @return array<InboundSharedUserProfile>|null
     */
     public function getInboundSharedUserProfiles(): ?array {
@@ -245,7 +245,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptions property value. List of commercial subscriptions that an organization has acquired.
+     * Gets the subscriptions property value. List of commercial subscriptions that an organization has.
      * @return array<CompanySubscription>|null
     */
     public function getSubscriptions(): ?array {
@@ -314,7 +314,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedItems property value. The deletedItems property
+     * Sets the deletedItems property value. Recently deleted items. Read-only. Nullable.
      * @param array<DirectoryObject>|null $value Value to set for the deletedItems property.
     */
     public function setDeletedItems(?array $value): void {
@@ -354,7 +354,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
+     * Sets the inboundSharedUserProfiles property value. A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
      * @param array<InboundSharedUserProfile>|null $value Value to set for the inboundSharedUserProfiles property.
     */
     public function setInboundSharedUserProfiles(?array $value): void {
@@ -394,7 +394,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptions property value. List of commercial subscriptions that an organization has acquired.
+     * Sets the subscriptions property value. List of commercial subscriptions that an organization has.
      * @param array<CompanySubscription>|null $value Value to set for the subscriptions property.
     */
     public function setSubscriptions(?array $value): void {

@@ -21,7 +21,7 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Back
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceHealthScriptRemediationSummary and sets the default values.
+     * Instantiates a new DeviceHealthScriptRemediationSummary and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

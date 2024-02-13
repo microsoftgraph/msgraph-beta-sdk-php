@@ -16,7 +16,7 @@ class DailyPrintUsageRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?DailyPrintUsageRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dailyPrintUsageRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DailyPrintUsageRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DailyPrintUsageRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DailyPrintUsageRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new dailyPrintUsageRequestBuilderGetQueryParameters.
+     * Instantiates a new DailyPrintUsageRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

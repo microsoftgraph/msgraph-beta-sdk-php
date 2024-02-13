@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskSingleUWPApp and sets the default values.
+     * Instantiates a new WindowsKioskSingleUWPApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

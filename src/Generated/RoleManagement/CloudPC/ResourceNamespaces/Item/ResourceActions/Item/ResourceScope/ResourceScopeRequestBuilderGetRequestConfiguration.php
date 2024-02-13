@@ -16,7 +16,7 @@ class ResourceScopeRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?ResourceScopeRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new resourceScopeRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ResourceScopeRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ResourceScopeRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ResourceScopeRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new resourceScopeRequestBuilderGetQueryParameters.
+     * Instantiates a new ResourceScopeRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ResourceScopeRequestBuilderGetQueryParameters

@@ -19,7 +19,7 @@ class GetConfigurationSettingsReportPostRequestBody implements AdditionalDataHol
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getConfigurationSettingsReportPostRequestBody and sets the default values.
+     * Instantiates a new GetConfigurationSettingsReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GcpServiceAccount extends GcpIdentity implements Parsable 
 {
     /**
-     * Instantiates a new gcpServiceAccount and sets the default values.
+     * Instantiates a new GcpServiceAccount and sets the default values.
     */
     public function __construct() {
         parent::__construct();

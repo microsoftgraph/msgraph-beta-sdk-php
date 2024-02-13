@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ComplianceChange extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new complianceChange and sets the default values.
+     * Instantiates a new ComplianceChange and sets the default values.
     */
     public function __construct() {
         parent::__construct();

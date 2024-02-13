@@ -16,7 +16,7 @@ class AndroidForWorkSettingsRequestBuilderGetRequestConfiguration extends BaseRe
     public ?AndroidForWorkSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new androidForWorkSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AndroidForWorkSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AndroidForWorkSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AndroidForWorkSettingsRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new androidForWorkSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new AndroidForWorkSettingsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AndroidForWorkSettingsRequestBuilderGetQueryParameters

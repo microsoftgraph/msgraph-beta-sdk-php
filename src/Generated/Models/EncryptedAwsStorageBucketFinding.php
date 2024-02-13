@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptedAwsStorageBucketFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new encryptedAwsStorageBucketFinding and sets the default values.
+     * Instantiates a new EncryptedAwsStorageBucketFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

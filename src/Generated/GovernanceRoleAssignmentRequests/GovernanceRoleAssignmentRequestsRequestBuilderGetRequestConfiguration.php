@@ -16,7 +16,7 @@ class GovernanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration exte
     public ?GovernanceRoleAssignmentRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new governanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GovernanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GovernanceRoleAssignmentRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GovernanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration exte
     }
 
     /**
-     * Instantiates a new governanceRoleAssignmentRequestsRequestBuilderGetQueryParameters.
+     * Instantiates a new GovernanceRoleAssignmentRequestsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -22,7 +22,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new zebraFotaDeploymentStatus and sets the default values.
+     * Instantiates a new ZebraFotaDeploymentStatus and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Team extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new team and sets the default values.
+     * Instantiates a new Team and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -157,7 +157,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the funSettings property value. Settings to configure use of Giphy, memes, and stickers in the team.
+     * Gets the funSettings property value. Settings to configure the use of Giphy, memes, and stickers in the team.
      * @return TeamFunSettings|null
     */
     public function getFunSettings(): ?TeamFunSettings {
@@ -221,7 +221,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the internalId property value. A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.
+     * Gets the internalId property value. A unique ID for the team used in a few places such as the audit log/Office 365 Management Activity API.
      * @return string|null
     */
     public function getInternalId(): ?string {
@@ -245,7 +245,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the isMembershipLimitedToOwners property value. If set to true, the team is currently in the owner-only team membership state and not accessible by other team members, such as students.
+     * Gets the isMembershipLimitedToOwners property value. If set to true, the team is currently in the owner-only team membership state and inaccessible by other team members, such as students.
      * @return bool|null
     */
     public function getIsMembershipLimitedToOwners(): ?bool {
@@ -309,7 +309,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the owners property value. The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user delegated permissions, no owner can be specified (the current user is the owner). Owner must be specified as an object ID (GUID), not a UPN.
+     * Gets the owners property value. The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user-delegated permissions, no owner can be specified (the current user is the owner). The owner must be specified as an object ID (GUID), not a UPN.
      * @return array<User>|null
     */
     public function getOwners(): ?array {
@@ -385,7 +385,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the summary property value. Contains summary information about the team, including number of owners, members, and guests.
+     * Gets the summary property value. Contains summary information about the team, including the number of owners, members, and guests.
      * @return TeamSummary|null
     */
     public function getSummary(): ?TeamSummary {
@@ -459,7 +459,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
+     * Gets the webUrl property value. A hyperlink that goes to the team in the Microsoft Teams client. It is the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -567,7 +567,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the funSettings property value. Settings to configure use of Giphy, memes, and stickers in the team.
+     * Sets the funSettings property value. Settings to configure the use of Giphy, memes, and stickers in the team.
      * @param TeamFunSettings|null $value Value to set for the funSettings property.
     */
     public function setFunSettings(?TeamFunSettings $value): void {
@@ -607,7 +607,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the internalId property value. A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.
+     * Sets the internalId property value. A unique ID for the team used in a few places such as the audit log/Office 365 Management Activity API.
      * @param string|null $value Value to set for the internalId property.
     */
     public function setInternalId(?string $value): void {
@@ -623,7 +623,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the isMembershipLimitedToOwners property value. If set to true, the team is currently in the owner-only team membership state and not accessible by other team members, such as students.
+     * Sets the isMembershipLimitedToOwners property value. If set to true, the team is currently in the owner-only team membership state and inaccessible by other team members, such as students.
      * @param bool|null $value Value to set for the isMembershipLimitedToOwners property.
     */
     public function setIsMembershipLimitedToOwners(?bool $value): void {
@@ -663,7 +663,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the owners property value. The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user delegated permissions, no owner can be specified (the current user is the owner). Owner must be specified as an object ID (GUID), not a UPN.
+     * Sets the owners property value. The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user-delegated permissions, no owner can be specified (the current user is the owner). The owner must be specified as an object ID (GUID), not a UPN.
      * @param array<User>|null $value Value to set for the owners property.
     */
     public function setOwners(?array $value): void {
@@ -711,7 +711,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the summary property value. Contains summary information about the team, including number of owners, members, and guests.
+     * Sets the summary property value. Contains summary information about the team, including the number of owners, members, and guests.
      * @param TeamSummary|null $value Value to set for the summary property.
     */
     public function setSummary(?TeamSummary $value): void {
@@ -759,7 +759,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
+     * Sets the webUrl property value. A hyperlink that goes to the team in the Microsoft Teams client. It is the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

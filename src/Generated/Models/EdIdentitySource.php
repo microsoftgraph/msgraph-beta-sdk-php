@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdIdentitySource extends PermissionsDefinitionIdentitySource implements Parsable 
 {
     /**
-     * Instantiates a new edIdentitySource and sets the default values.
+     * Instantiates a new EdIdentitySource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

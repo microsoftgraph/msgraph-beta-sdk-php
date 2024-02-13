@@ -30,23 +30,23 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Invoke action deletePasswordSingleSignOnCredentials
+     * Delete the password-based single sign-on credentials for a given user to a given service principal.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/user-deletepasswordsinglesignoncredentials?view=graph-rest-1.0 Find more info here
     */
     public function post(DeletePasswordSingleSignOnCredentialsPostRequestBody $body, ?DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
 
     /**
-     * Invoke action deletePasswordSingleSignOnCredentials
+     * Delete the password-based single sign-on credentials for a given user to a given service principal.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
      * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

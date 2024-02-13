@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Billing extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new billing and sets the default values.
+     * Instantiates a new Billing and sets the default values.
     */
     public function __construct() {
         parent::__construct();

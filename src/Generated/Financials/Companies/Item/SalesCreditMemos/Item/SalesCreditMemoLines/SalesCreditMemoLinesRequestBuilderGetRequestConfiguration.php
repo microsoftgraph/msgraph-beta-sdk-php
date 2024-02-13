@@ -16,7 +16,7 @@ class SalesCreditMemoLinesRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?SalesCreditMemoLinesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new salesCreditMemoLinesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SalesCreditMemoLinesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SalesCreditMemoLinesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SalesCreditMemoLinesRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new salesCreditMemoLinesRequestBuilderGetQueryParameters.
+     * Instantiates a new SalesCreditMemoLinesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

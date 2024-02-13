@@ -16,7 +16,7 @@ class FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration extend
     public ?FederatedTokenValidationPolicyRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new federatedTokenValidationPolicyRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param FederatedTokenValidationPolicyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration extend
     }
 
     /**
-     * Instantiates a new federatedTokenValidationPolicyRequestBuilderGetQueryParameters.
+     * Instantiates a new FederatedTokenValidationPolicyRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return FederatedTokenValidationPolicyRequestBuilderGetQueryParameters

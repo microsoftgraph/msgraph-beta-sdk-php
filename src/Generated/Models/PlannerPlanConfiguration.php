@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerPlanConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new plannerPlanConfiguration and sets the default values.
+     * Instantiates a new PlannerPlanConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SuperUserFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new superUserFinding and sets the default values.
+     * Instantiates a new SuperUserFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

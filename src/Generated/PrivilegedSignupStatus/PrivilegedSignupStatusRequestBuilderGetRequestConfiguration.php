@@ -16,7 +16,7 @@ class PrivilegedSignupStatusRequestBuilderGetRequestConfiguration extends BaseRe
     public ?PrivilegedSignupStatusRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new privilegedSignupStatusRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PrivilegedSignupStatusRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PrivilegedSignupStatusRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PrivilegedSignupStatusRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new privilegedSignupStatusRequestBuilderGetQueryParameters.
+     * Instantiates a new PrivilegedSignupStatusRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

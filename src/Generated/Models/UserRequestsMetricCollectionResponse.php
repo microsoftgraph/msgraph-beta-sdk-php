@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserRequestsMetricCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new userRequestsMetricCollectionResponse and sets the default values.
+     * Instantiates a new UserRequestsMetricCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

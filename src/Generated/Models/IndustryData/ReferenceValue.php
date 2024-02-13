@@ -18,7 +18,7 @@ class ReferenceValue implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new referenceValue and sets the default values.
+     * Instantiates a new ReferenceValue and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

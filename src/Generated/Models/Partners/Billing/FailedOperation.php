@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FailedOperation extends Operation implements Parsable 
 {
     /**
-     * Instantiates a new failedOperation and sets the default values.
+     * Instantiates a new FailedOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

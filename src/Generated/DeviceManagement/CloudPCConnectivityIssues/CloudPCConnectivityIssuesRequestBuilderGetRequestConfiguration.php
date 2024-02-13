@@ -16,7 +16,7 @@ class CloudPCConnectivityIssuesRequestBuilderGetRequestConfiguration extends Bas
     public ?CloudPCConnectivityIssuesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new cloudPCConnectivityIssuesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CloudPCConnectivityIssuesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CloudPCConnectivityIssuesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CloudPCConnectivityIssuesRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new cloudPCConnectivityIssuesRequestBuilderGetQueryParameters.
+     * Instantiates a new CloudPCConnectivityIssuesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

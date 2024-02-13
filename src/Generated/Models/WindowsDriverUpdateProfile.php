@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsDriverUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsDriverUpdateProfile and sets the default values.
+     * Instantiates a new WindowsDriverUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -21,7 +21,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementUserRightsLocalUserOrGroup and sets the default values.
+     * Instantiates a new DeviceManagementUserRightsLocalUserOrGroup and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

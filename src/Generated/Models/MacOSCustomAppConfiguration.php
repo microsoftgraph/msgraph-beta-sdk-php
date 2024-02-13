@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new macOSCustomAppConfiguration and sets the default values.
+     * Instantiates a new MacOSCustomAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

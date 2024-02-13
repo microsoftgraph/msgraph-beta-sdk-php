@@ -21,7 +21,7 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Backe
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementExchangeDeviceClass and sets the default values.
+     * Instantiates a new DeviceManagementExchangeDeviceClass and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

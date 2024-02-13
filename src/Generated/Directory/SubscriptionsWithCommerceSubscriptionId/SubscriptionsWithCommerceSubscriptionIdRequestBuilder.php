@@ -23,7 +23,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
      * @param string|null $commerceSubscriptionId Alternate key of companySubscription
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $commerceSubscriptionId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(commerceSubscriptionId=\'{commerceSubscriptionId}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(commerceSubscriptionId=\'{commerceSubscriptionId}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['commerceSubscriptionId'] = $commerceSubscriptionId;
@@ -42,8 +42,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
     public function delete(?SubscriptionsWithCommerceSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -58,8 +57,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
     public function get(?SubscriptionsWithCommerceSubscriptionIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CompanySubscription::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -74,8 +72,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
     public function patch(CompanySubscription $body, ?SubscriptionsWithCommerceSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CompanySubscription::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -87,7 +84,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
     */
     public function toDeleteRequestInformation(?SubscriptionsWithCommerceSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(commerceSubscriptionId='{commerceSubscriptionId}')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -127,7 +124,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
     */
     public function toPatchRequestInformation(CompanySubscription $body, ?SubscriptionsWithCommerceSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(commerceSubscriptionId='{commerceSubscriptionId}')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

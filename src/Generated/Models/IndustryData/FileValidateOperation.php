@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class FileValidateOperation extends ValidateOperation implements Parsable 
 {
     /**
-     * Instantiates a new fileValidateOperation and sets the default values.
+     * Instantiates a new FileValidateOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

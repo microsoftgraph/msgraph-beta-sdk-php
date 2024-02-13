@@ -22,7 +22,7 @@ class CompareWithTemplateIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $templateId Usage: templateId='{templateId}'
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $templateId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/migratableTo/{deviceManagementTemplate%2Did1}/compare(templateId=\'{templateId}\'){?%24top,%24skip,%24search,%24filter,%24count}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/migratableTo/{deviceManagementTemplate%2Did1}/compare(templateId=\'{templateId}\'){?%24count,%24filter,%24search,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['templateId'] = $templateId;
@@ -41,8 +41,7 @@ class CompareWithTemplateIdRequestBuilder extends BaseRequestBuilder
     public function get(?CompareWithTemplateIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CompareWithTemplateIdGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

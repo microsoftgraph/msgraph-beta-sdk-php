@@ -22,7 +22,7 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new managedDeviceModelsAndManufacturers and sets the default values.
+     * Instantiates a new ManagedDeviceModelsAndManufacturers and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
