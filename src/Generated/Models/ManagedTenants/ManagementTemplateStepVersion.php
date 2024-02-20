@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagementTemplateStepVersion extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managementTemplateStepVersion and sets the default values.
+     * Instantiates a new ManagementTemplateStepVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

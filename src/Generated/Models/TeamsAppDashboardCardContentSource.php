@@ -18,7 +18,7 @@ class TeamsAppDashboardCardContentSource implements AdditionalDataHolder, Backed
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamsAppDashboardCardContentSource and sets the default values.
+     * Instantiates a new TeamsAppDashboardCardContentSource and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

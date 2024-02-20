@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SoftwareUpdateFilter extends ContentFilter implements Parsable 
 {
     /**
-     * Instantiates a new softwareUpdateFilter and sets the default values.
+     * Instantiates a new SoftwareUpdateFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

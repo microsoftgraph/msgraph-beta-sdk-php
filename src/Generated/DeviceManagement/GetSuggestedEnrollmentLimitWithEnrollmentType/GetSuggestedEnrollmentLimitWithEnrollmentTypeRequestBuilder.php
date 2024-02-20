@@ -42,8 +42,7 @@ class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder extends BaseRe
     public function get(?GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [SuggestedEnrollmentLimit::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

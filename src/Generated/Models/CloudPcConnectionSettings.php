@@ -18,7 +18,7 @@ class CloudPcConnectionSettings implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcConnectionSettings and sets the default values.
+     * Instantiates a new CloudPcConnectionSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

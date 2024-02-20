@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDriverUpdateProfileAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsDriverUpdateProfileAssignment and sets the default values.
+     * Instantiates a new WindowsDriverUpdateProfileAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

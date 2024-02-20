@@ -19,7 +19,7 @@ class BranchConnectivityConfiguration implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new branchConnectivityConfiguration and sets the default values.
+     * Instantiates a new BranchConnectivityConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

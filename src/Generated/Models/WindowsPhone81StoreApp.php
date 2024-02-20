@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhone81StoreApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new windowsPhone81StoreApp and sets the default values.
+     * Instantiates a new WindowsPhone81StoreApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

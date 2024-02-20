@@ -16,7 +16,7 @@ class RoleInfoRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?RoleInfoRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new roleInfoRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RoleInfoRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RoleInfoRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RoleInfoRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new roleInfoRequestBuilderGetQueryParameters.
+     * Instantiates a new RoleInfoRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return RoleInfoRequestBuilderGetQueryParameters

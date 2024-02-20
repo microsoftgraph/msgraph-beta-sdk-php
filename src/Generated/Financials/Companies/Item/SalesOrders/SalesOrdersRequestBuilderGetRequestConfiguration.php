@@ -16,7 +16,7 @@ class SalesOrdersRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?SalesOrdersRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new salesOrdersRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SalesOrdersRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SalesOrdersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SalesOrdersRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new salesOrdersRequestBuilderGetQueryParameters.
+     * Instantiates a new SalesOrdersRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

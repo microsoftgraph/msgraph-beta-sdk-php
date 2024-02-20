@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSAzureAdSingleSignOnExtension extends MacOSSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new macOSAzureAdSingleSignOnExtension and sets the default values.
+     * Instantiates a new MacOSAzureAdSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

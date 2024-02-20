@@ -14,7 +14,7 @@ use Psr\Http\Message\StreamInterface;
 class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windows10VpnConfiguration and sets the default values.
+     * Instantiates a new Windows10VpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

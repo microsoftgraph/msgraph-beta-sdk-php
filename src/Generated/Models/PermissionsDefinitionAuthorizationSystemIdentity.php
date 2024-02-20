@@ -18,7 +18,7 @@ class PermissionsDefinitionAuthorizationSystemIdentity implements AdditionalData
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new permissionsDefinitionAuthorizationSystemIdentity and sets the default values.
+     * Instantiates a new PermissionsDefinitionAuthorizationSystemIdentity and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

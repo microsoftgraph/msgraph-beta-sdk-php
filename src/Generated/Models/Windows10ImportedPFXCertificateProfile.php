@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Windows10ImportedPFXCertificateProfile extends WindowsCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new windows10ImportedPFXCertificateProfile and sets the default values.
+     * Instantiates a new Windows10ImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

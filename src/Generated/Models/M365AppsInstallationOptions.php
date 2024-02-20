@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class M365AppsInstallationOptions extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new m365AppsInstallationOptions and sets the default values.
+     * Instantiates a new M365AppsInstallationOptions and sets the default values.
     */
     public function __construct() {
         parent::__construct();

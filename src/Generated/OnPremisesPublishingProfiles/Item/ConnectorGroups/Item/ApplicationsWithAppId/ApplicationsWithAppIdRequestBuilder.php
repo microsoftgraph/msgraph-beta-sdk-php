@@ -23,7 +23,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $appId Alternate key of application
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $appId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/applications(appId=\'{appId}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/applications(appId=\'{appId}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['appId'] = $appId;
@@ -42,8 +42,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
     public function get(?ApplicationsWithAppIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

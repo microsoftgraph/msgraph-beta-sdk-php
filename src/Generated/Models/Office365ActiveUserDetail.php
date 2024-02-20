@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Office365ActiveUserDetail extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new office365ActiveUserDetail and sets the default values.
+     * Instantiates a new Office365ActiveUserDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();

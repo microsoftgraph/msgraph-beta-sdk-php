@@ -18,7 +18,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementConfigurationSettingApplicability and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationSettingApplicability and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

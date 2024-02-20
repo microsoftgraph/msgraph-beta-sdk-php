@@ -16,7 +16,7 @@ class UsageRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     public ?UsageRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new usageRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UsageRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UsageRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UsageRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     }
 
     /**
-     * Instantiates a new usageRequestBuilderGetQueryParameters.
+     * Instantiates a new UsageRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return UsageRequestBuilderGetQueryParameters

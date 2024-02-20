@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EdiscoveryFileCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new ediscoveryFileCollectionResponse and sets the default values.
+     * Instantiates a new EdiscoveryFileCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new macOSScepCertificateProfile and sets the default values.
+     * Instantiates a new MacOSScepCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

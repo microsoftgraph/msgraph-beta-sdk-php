@@ -38,7 +38,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -55,8 +55,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
     public function delete(?DeviceManagementReusablePolicySettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -70,8 +69,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
     public function get(?DeviceManagementReusablePolicySettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReusablePolicySetting::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -86,8 +84,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
     public function patch(DeviceManagementReusablePolicySetting $body, ?DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReusablePolicySetting::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -99,7 +96,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
     */
     public function toDeleteRequestInformation(?DeviceManagementReusablePolicySettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +136,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
     */
     public function toPatchRequestInformation(DeviceManagementReusablePolicySetting $body, ?DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

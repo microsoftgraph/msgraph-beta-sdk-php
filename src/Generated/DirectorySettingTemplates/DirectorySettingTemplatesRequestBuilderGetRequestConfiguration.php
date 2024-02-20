@@ -16,7 +16,7 @@ class DirectorySettingTemplatesRequestBuilderGetRequestConfiguration extends Bas
     public ?DirectorySettingTemplatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new directorySettingTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DirectorySettingTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DirectorySettingTemplatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DirectorySettingTemplatesRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new directorySettingTemplatesRequestBuilderGetQueryParameters.
+     * Instantiates a new DirectorySettingTemplatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

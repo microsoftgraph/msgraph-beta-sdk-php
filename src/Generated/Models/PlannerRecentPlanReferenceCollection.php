@@ -18,7 +18,7 @@ class PlannerRecentPlanReferenceCollection implements AdditionalDataHolder, Back
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerRecentPlanReferenceCollection and sets the default values.
+     * Instantiates a new PlannerRecentPlanReferenceCollection and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

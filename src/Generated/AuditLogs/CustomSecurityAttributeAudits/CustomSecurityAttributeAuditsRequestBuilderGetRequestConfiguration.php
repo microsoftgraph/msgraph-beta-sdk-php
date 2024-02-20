@@ -16,7 +16,7 @@ class CustomSecurityAttributeAuditsRequestBuilderGetRequestConfiguration extends
     public ?CustomSecurityAttributeAuditsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new customSecurityAttributeAuditsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CustomSecurityAttributeAuditsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CustomSecurityAttributeAuditsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CustomSecurityAttributeAuditsRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new customSecurityAttributeAuditsRequestBuilderGetQueryParameters.
+     * Instantiates a new CustomSecurityAttributeAuditsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

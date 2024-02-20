@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DailyUserInsightMetricsRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new dailyUserInsightMetricsRoot and sets the default values.
+     * Instantiates a new DailyUserInsightMetricsRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

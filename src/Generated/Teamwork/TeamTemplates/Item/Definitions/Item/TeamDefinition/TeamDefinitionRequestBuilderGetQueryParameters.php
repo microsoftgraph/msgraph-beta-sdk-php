@@ -22,7 +22,7 @@ class TeamDefinitionRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new teamDefinitionRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new TeamDefinitionRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

@@ -22,7 +22,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions/{companySubscription%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions/{companySubscription%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -39,8 +39,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     public function delete(?CompanySubscriptionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -55,8 +54,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     public function get(?CompanySubscriptionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CompanySubscription::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -71,8 +69,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     public function patch(CompanySubscription $body, ?CompanySubscriptionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CompanySubscription::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -84,7 +81,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CompanySubscriptionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions/{companySubscription%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -124,7 +121,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CompanySubscription $body, ?CompanySubscriptionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions/{companySubscription%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

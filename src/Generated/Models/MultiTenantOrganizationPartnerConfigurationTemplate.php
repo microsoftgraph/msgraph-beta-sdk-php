@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MultiTenantOrganizationPartnerConfigurationTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new multiTenantOrganizationPartnerConfigurationTemplate and sets the default values.
+     * Instantiates a new MultiTenantOrganizationPartnerConfigurationTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

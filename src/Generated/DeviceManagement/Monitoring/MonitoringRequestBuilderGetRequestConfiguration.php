@@ -16,7 +16,7 @@ class MonitoringRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?MonitoringRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new monitoringRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MonitoringRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MonitoringRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MonitoringRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new monitoringRequestBuilderGetQueryParameters.
+     * Instantiates a new MonitoringRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return MonitoringRequestBuilderGetQueryParameters

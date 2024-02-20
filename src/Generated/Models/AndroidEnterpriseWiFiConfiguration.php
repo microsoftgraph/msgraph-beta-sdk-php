@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidEnterpriseWiFiConfiguration and sets the default values.
+     * Instantiates a new AndroidEnterpriseWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

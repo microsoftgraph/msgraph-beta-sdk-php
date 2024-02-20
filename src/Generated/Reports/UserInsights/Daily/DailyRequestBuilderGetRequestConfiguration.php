@@ -16,7 +16,7 @@ class DailyRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     public ?DailyRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dailyRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DailyRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DailyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DailyRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     }
 
     /**
-     * Instantiates a new dailyRequestBuilderGetQueryParameters.
+     * Instantiates a new DailyRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DailyRequestBuilderGetQueryParameters

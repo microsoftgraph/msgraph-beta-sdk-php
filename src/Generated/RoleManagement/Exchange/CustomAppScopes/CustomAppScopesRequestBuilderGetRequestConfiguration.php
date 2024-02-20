@@ -16,7 +16,7 @@ class CustomAppScopesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?CustomAppScopesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new customAppScopesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CustomAppScopesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CustomAppScopesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CustomAppScopesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new customAppScopesRequestBuilderGetQueryParameters.
+     * Instantiates a new CustomAppScopesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

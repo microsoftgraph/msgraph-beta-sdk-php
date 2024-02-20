@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AwsExternalSystemAccessRoleFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new awsExternalSystemAccessRoleFinding and sets the default values.
+     * Instantiates a new AwsExternalSystemAccessRoleFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMaxCacheSize implements Parsable 
 {
     /**
-     * Instantiates a new deliveryOptimizationMaxCacheSizePercentage and sets the default values.
+     * Instantiates a new DeliveryOptimizationMaxCacheSizePercentage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

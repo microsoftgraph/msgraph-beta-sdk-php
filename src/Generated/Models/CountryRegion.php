@@ -19,7 +19,7 @@ class CountryRegion implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new countryRegion and sets the default values.
+     * Instantiates a new CountryRegion and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

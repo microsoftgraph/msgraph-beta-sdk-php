@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class B2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new b2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration and sets the default values.
+     * Instantiates a new B2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

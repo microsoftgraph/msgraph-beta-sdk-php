@@ -59,7 +59,7 @@ class ImportedDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/importedDeviceIdentities{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/importedDeviceIdentities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -76,8 +76,7 @@ class ImportedDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     public function get(?ImportedDeviceIdentitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ImportedDeviceIdentityCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -92,8 +91,7 @@ class ImportedDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     public function post(ImportedDeviceIdentity $body, ?ImportedDeviceIdentitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ImportedDeviceIdentity::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -127,7 +125,7 @@ class ImportedDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ImportedDeviceIdentity $body, ?ImportedDeviceIdentitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/importedDeviceIdentities';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

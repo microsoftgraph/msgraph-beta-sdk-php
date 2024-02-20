@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DataClassificationService extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new dataClassificationService and sets the default values.
+     * Instantiates a new DataClassificationService and sets the default values.
     */
     public function __construct() {
         parent::__construct();

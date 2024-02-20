@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetStorageAccountsWithSubscriptionIdGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getStorageAccountsWithSubscriptionIdGetResponse and sets the default values.
+     * Instantiates a new GetStorageAccountsWithSubscriptionIdGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

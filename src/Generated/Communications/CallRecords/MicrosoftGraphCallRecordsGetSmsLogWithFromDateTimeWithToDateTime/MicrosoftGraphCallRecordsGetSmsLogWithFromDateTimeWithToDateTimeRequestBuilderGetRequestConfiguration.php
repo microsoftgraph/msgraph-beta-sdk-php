@@ -16,7 +16,7 @@ class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBui
     public ?MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new microsoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBui
     }
 
     /**
-     * Instantiates a new microsoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters.
+     * Instantiates a new MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

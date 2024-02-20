@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingCustomQuestion extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new bookingCustomQuestion and sets the default values.
+     * Instantiates a new BookingCustomQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,7 +56,7 @@ class BookingCustomQuestion extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the custom question was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -102,7 +102,7 @@ class BookingCustomQuestion extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the custom question was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -143,7 +143,7 @@ class BookingCustomQuestion extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the custom question was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -159,7 +159,7 @@ class BookingCustomQuestion extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the custom question was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {

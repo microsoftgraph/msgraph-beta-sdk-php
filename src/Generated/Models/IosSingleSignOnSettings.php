@@ -22,7 +22,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new iosSingleSignOnSettings and sets the default values.
+     * Instantiates a new IosSingleSignOnSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

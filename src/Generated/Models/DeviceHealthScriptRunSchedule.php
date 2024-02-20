@@ -21,7 +21,7 @@ class DeviceHealthScriptRunSchedule implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceHealthScriptRunSchedule and sets the default values.
+     * Instantiates a new DeviceHealthScriptRunSchedule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

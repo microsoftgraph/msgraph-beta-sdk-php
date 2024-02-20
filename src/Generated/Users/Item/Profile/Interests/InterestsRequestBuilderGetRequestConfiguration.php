@@ -16,7 +16,7 @@ class InterestsRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     public ?InterestsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new interestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new InterestsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param InterestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class InterestsRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     }
 
     /**
-     * Instantiates a new interestsRequestBuilderGetQueryParameters.
+     * Instantiates a new InterestsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -10,10 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEventTownhall extends VirtualEvent implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventTownhall and sets the default values.
+     * Instantiates a new VirtualEventTownhall and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.virtualEventTownhall');
     }
 
     /**

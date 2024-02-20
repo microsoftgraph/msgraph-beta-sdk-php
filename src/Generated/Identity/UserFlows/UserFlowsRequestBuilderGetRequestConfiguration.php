@@ -16,7 +16,7 @@ class UserFlowsRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     public ?UserFlowsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userFlowsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserFlowsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserFlowsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserFlowsRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     }
 
     /**
-     * Instantiates a new userFlowsRequestBuilderGetQueryParameters.
+     * Instantiates a new UserFlowsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

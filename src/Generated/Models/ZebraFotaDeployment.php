@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ZebraFotaDeployment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new zebraFotaDeployment and sets the default values.
+     * Instantiates a new ZebraFotaDeployment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

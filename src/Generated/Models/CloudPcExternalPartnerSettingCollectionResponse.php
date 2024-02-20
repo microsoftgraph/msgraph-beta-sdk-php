@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcExternalPartnerSettingCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcExternalPartnerSettingCollectionResponse and sets the default values.
+     * Instantiates a new CloudPcExternalPartnerSettingCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ScheduledPermissionsRequest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new scheduledPermissionsRequest and sets the default values.
+     * Instantiates a new ScheduledPermissionsRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -23,6 +23,18 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ScheduledPermissionsRequest {
         return new ScheduledPermissionsRequest();
+    }
+
+    /**
+     * Gets the action property value. The action property
+     * @return UnifiedRoleScheduleRequestActions|null
+    */
+    public function getAction(): ?UnifiedRoleScheduleRequestActions {
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof UnifiedRoleScheduleRequestActions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -44,6 +56,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(UnifiedRoleScheduleRequestActions::class)),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
@@ -132,6 +145,7 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('action', $this->getAction());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('justification', $this->getJustification());
         $writer->writeStringValue('notes', $this->getNotes());
@@ -139,6 +153,14 @@ class ScheduledPermissionsRequest extends Entity implements Parsable
         $writer->writeObjectValue('scheduleInfo', $this->getScheduleInfo());
         $writer->writeEnumValue('statusDetail', $this->getStatusDetail());
         $writer->writeObjectValue('ticketInfo', $this->getTicketInfo());
+    }
+
+    /**
+     * Sets the action property value. The action property
+     * @param UnifiedRoleScheduleRequestActions|null $value Value to set for the action property.
+    */
+    public function setAction(?UnifiedRoleScheduleRequestActions $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**

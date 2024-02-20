@@ -38,8 +38,7 @@ class ExportMobileConfigRequestBuilder extends BaseRequestBuilder
     public function get(?ExportMobileConfigRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ExportMobileConfigGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

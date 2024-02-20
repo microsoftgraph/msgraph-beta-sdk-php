@@ -16,7 +16,7 @@ class UserExperienceAnalyticsAnomalyDeviceRequestBuilderGetRequestConfiguration 
     public ?UserExperienceAnalyticsAnomalyDeviceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsAnomalyDeviceRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAnomalyDeviceRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserExperienceAnalyticsAnomalyDeviceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserExperienceAnalyticsAnomalyDeviceRequestBuilderGetRequestConfiguration 
     }
 
     /**
-     * Instantiates a new userExperienceAnalyticsAnomalyDeviceRequestBuilderGetQueryParameters.
+     * Instantiates a new UserExperienceAnalyticsAnomalyDeviceRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

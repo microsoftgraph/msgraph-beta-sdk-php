@@ -16,7 +16,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfigu
     public ?MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new multiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfigu
     }
 
     /**
-     * Instantiates a new multiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters.
+     * Instantiates a new MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters

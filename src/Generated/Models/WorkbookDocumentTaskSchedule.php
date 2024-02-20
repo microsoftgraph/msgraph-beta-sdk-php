@@ -19,7 +19,7 @@ class WorkbookDocumentTaskSchedule implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new workbookDocumentTaskSchedule and sets the default values.
+     * Instantiates a new WorkbookDocumentTaskSchedule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new macOSSoftwareUpdateStateSummary and sets the default values.
+     * Instantiates a new MacOSSoftwareUpdateStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

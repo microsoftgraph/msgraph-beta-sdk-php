@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CollaborationRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new collaborationRoot and sets the default values.
+     * Instantiates a new CollaborationRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

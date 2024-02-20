@@ -18,7 +18,7 @@ class EnableLostModePostRequestBody implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new enableLostModePostRequestBody and sets the default values.
+     * Instantiates a new EnableLostModePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

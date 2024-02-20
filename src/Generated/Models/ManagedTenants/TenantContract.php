@@ -18,7 +18,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new tenantContract and sets the default values.
+     * Instantiates a new TenantContract and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -20,7 +20,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new assignmentReviewSettings and sets the default values.
+     * Instantiates a new AssignmentReviewSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

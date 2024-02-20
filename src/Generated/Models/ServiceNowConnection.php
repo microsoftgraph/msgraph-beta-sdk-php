@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServiceNowConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new serviceNowConnection and sets the default values.
+     * Instantiates a new ServiceNowConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

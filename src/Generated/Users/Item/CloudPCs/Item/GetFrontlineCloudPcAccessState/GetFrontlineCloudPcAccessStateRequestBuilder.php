@@ -39,8 +39,7 @@ class GetFrontlineCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
     public function get(?GetFrontlineCloudPcAccessStateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         /** @var Promise<FrontlineCloudPcAccessState|null> $result */
         $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, FrontlineCloudPcAccessState::class, $errorMappings);

@@ -273,7 +273,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new entity and sets the default values.
+     * Instantiates a new Entity and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -1191,6 +1191,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.managedAppStatusRaw': return new ManagedAppStatusRaw();
                 case '#microsoft.graph.managedDevice': return new ManagedDevice();
                 case '#microsoft.graph.managedDeviceCertificateState': return new ManagedDeviceCertificateState();
+                case '#microsoft.graph.managedDeviceCleanupRule': return new ManagedDeviceCleanupRule();
                 case '#microsoft.graph.managedDeviceEncryptionState': return new ManagedDeviceEncryptionState();
                 case '#microsoft.graph.managedDeviceMobileAppConfiguration': return new ManagedDeviceMobileAppConfiguration();
                 case '#microsoft.graph.managedDeviceMobileAppConfigurationAssignment': return new ManagedDeviceMobileAppConfigurationAssignment();
@@ -1740,6 +1741,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sharepointSettings': return new SharepointSettings();
                 case '#microsoft.graph.shift': return new Shift();
                 case '#microsoft.graph.shiftPreferences': return new ShiftPreferences();
+                case '#microsoft.graph.shiftsRoleDefinition': return new ShiftsRoleDefinition();
                 case '#microsoft.graph.signIn': return new SignIn();
                 case '#microsoft.graph.simulation': return new Simulation();
                 case '#microsoft.graph.simulationAutomation': return new SimulationAutomation();

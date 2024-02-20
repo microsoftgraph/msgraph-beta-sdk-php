@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new windows10XVpnConfiguration and sets the default values.
+     * Instantiates a new Windows10XVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

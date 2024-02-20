@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserGovernanceCriteria extends GovernanceCriteria implements Parsable 
 {
     /**
-     * Instantiates a new userGovernanceCriteria and sets the default values.
+     * Instantiates a new UserGovernanceCriteria and sets the default values.
     */
     public function __construct() {
         parent::__construct();

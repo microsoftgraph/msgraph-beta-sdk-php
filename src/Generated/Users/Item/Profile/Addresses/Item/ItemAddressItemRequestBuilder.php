@@ -22,7 +22,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/profile/addresses/{itemAddress%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/profile/addresses/{itemAddress%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,8 +40,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     public function delete(?ItemAddressItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -56,8 +55,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     public function get(?ItemAddressItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ItemAddress::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -73,8 +71,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     public function patch(ItemAddress $body, ?ItemAddressItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ItemAddress::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -86,7 +83,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ItemAddressItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/addresses/{itemAddress%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -126,7 +123,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ItemAddress $body, ?ItemAddressItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/addresses/{itemAddress%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

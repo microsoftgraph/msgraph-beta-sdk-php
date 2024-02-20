@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new iosEduDeviceConfiguration and sets the default values.
+     * Instantiates a new IosEduDeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

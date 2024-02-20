@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OpenShift extends ChangeTrackedEntity implements Parsable 
 {
     /**
-     * Instantiates a new openShift and sets the default values.
+     * Instantiates a new OpenShift and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftOpenShift property value. Draft changes in the openShift are only visible to managers until they are shared.
+     * Gets the draftOpenShift property value. Draft changes in the openShift are only visible to managers until they're shared.
      * @return OpenShiftItem|null
     */
     public function getDraftOpenShift(): ?OpenShiftItem {
@@ -47,10 +47,9 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
             'draftOpenShift' => fn(ParseNode $n) => $o->setDraftOpenShift($n->getObjectValue([OpenShiftItem::class, 'createFromDiscriminatorValue'])),
             'isStagedForDeletion' => fn(ParseNode $n) => $o->setIsStagedForDeletion($n->getBooleanValue()),
             'schedulingGroupId' => fn(ParseNode $n) => $o->setSchedulingGroupId($n->getStringValue()),
-            'schedulingGroupName' => fn(ParseNode $n) => $o->setSchedulingGroupName($n->getStringValue()),
+            'schedulingGroupInfo' => fn(ParseNode $n) => $o->setSchedulingGroupInfo($n->getObjectValue([SchedulingGroupInfo::class, 'createFromDiscriminatorValue'])),
             'sharedOpenShift' => fn(ParseNode $n) => $o->setSharedOpenShift($n->getObjectValue([OpenShiftItem::class, 'createFromDiscriminatorValue'])),
-            'teamId' => fn(ParseNode $n) => $o->setTeamId($n->getStringValue()),
-            'teamName' => fn(ParseNode $n) => $o->setTeamName($n->getStringValue()),
+            'teamInfo' => fn(ParseNode $n) => $o->setTeamInfo($n->getObjectValue([ShiftsTeamInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -79,15 +78,15 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the schedulingGroupName property value. The name of the schedulingGroup that contains the openShift.
-     * @return string|null
+     * Gets the schedulingGroupInfo property value. Information about the scheduling group to which the shift belongs.
+     * @return SchedulingGroupInfo|null
     */
-    public function getSchedulingGroupName(): ?string {
-        $val = $this->getBackingStore()->get('schedulingGroupName');
-        if (is_null($val) || is_string($val)) {
+    public function getSchedulingGroupInfo(): ?SchedulingGroupInfo {
+        $val = $this->getBackingStore()->get('schedulingGroupInfo');
+        if (is_null($val) || $val instanceof SchedulingGroupInfo) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedulingGroupName'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedulingGroupInfo'");
     }
 
     /**
@@ -103,27 +102,15 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the teamId property value. The ID of the team in which the openShift is located.
-     * @return string|null
+     * Gets the teamInfo property value. Information of the team that the openShift is in.
+     * @return ShiftsTeamInfo|null
     */
-    public function getTeamId(): ?string {
-        $val = $this->getBackingStore()->get('teamId');
-        if (is_null($val) || is_string($val)) {
+    public function getTeamInfo(): ?ShiftsTeamInfo {
+        $val = $this->getBackingStore()->get('teamInfo');
+        if (is_null($val) || $val instanceof ShiftsTeamInfo) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamId'");
-    }
-
-    /**
-     * Gets the teamName property value. The name of the team in which the openShift is located.
-     * @return string|null
-    */
-    public function getTeamName(): ?string {
-        $val = $this->getBackingStore()->get('teamName');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamName'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamInfo'");
     }
 
     /**
@@ -139,7 +126,7 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftOpenShift property value. Draft changes in the openShift are only visible to managers until they are shared.
+     * Sets the draftOpenShift property value. Draft changes in the openShift are only visible to managers until they're shared.
      * @param OpenShiftItem|null $value Value to set for the draftOpenShift property.
     */
     public function setDraftOpenShift(?OpenShiftItem $value): void {
@@ -163,11 +150,11 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the schedulingGroupName property value. The name of the schedulingGroup that contains the openShift.
-     * @param string|null $value Value to set for the schedulingGroupName property.
+     * Sets the schedulingGroupInfo property value. Information about the scheduling group to which the shift belongs.
+     * @param SchedulingGroupInfo|null $value Value to set for the schedulingGroupInfo property.
     */
-    public function setSchedulingGroupName(?string $value): void {
-        $this->getBackingStore()->set('schedulingGroupName', $value);
+    public function setSchedulingGroupInfo(?SchedulingGroupInfo $value): void {
+        $this->getBackingStore()->set('schedulingGroupInfo', $value);
     }
 
     /**
@@ -179,19 +166,11 @@ class OpenShift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the teamId property value. The ID of the team in which the openShift is located.
-     * @param string|null $value Value to set for the teamId property.
+     * Sets the teamInfo property value. Information of the team that the openShift is in.
+     * @param ShiftsTeamInfo|null $value Value to set for the teamInfo property.
     */
-    public function setTeamId(?string $value): void {
-        $this->getBackingStore()->set('teamId', $value);
-    }
-
-    /**
-     * Sets the teamName property value. The name of the team in which the openShift is located.
-     * @param string|null $value Value to set for the teamName property.
-    */
-    public function setTeamName(?string $value): void {
-        $this->getBackingStore()->set('teamName', $value);
+    public function setTeamInfo(?ShiftsTeamInfo $value): void {
+        $this->getBackingStore()->set('teamInfo', $value);
     }
 
 }

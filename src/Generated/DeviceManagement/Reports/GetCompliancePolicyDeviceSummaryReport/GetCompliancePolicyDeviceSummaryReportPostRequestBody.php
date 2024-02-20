@@ -19,7 +19,7 @@ class GetCompliancePolicyDeviceSummaryReportPostRequestBody implements Additiona
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getCompliancePolicyDeviceSummaryReportPostRequestBody and sets the default values.
+     * Instantiates a new GetCompliancePolicyDeviceSummaryReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

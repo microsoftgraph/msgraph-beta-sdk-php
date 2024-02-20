@@ -11,6 +11,8 @@ use Microsoft\Graph\Beta\Generated\Teams\AllMessages\AllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\GetAllMessages\GetAllMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\GetOpenShifts\GetOpenShiftsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\GetShifts\GetShiftsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\GetTimesOff\GetTimesOffRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\TeamItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -51,6 +53,20 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getShifts method.
+    */
+    public function getShifts(): GetShiftsRequestBuilder {
+        return new GetShiftsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getTimesOff method.
+    */
+    public function getTimesOff(): GetTimesOffRequestBuilder {
+        return new GetTimesOffRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the collection of team entities.
      * @param string $teamId The unique identifier of team
      * @return TeamItemRequestBuilder
@@ -67,7 +83,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/teams{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/teams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -85,8 +101,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     public function get(?TeamsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [TeamCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -102,8 +117,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     public function post(Team $body, ?TeamsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -137,7 +151,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(Team $body, ?TeamsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/teams';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

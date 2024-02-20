@@ -23,7 +23,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
      * @param string|null $ocpSubscriptionId Alternate key of companySubscription
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $ocpSubscriptionId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['ocpSubscriptionId'] = $ocpSubscriptionId;
@@ -42,8 +42,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     public function delete(?SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -58,8 +57,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     public function get(?SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CompanySubscription::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -74,8 +72,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     public function patch(CompanySubscription $body, ?SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CompanySubscription::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -87,7 +84,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     */
     public function toDeleteRequestInformation(?SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(ocpSubscriptionId='{ocpSubscriptionId}')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -127,7 +124,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     */
     public function toPatchRequestInformation(CompanySubscription $body, ?SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(ocpSubscriptionId='{ocpSubscriptionId}')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

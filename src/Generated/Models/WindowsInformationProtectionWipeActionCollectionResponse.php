@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsInformationProtectionWipeActionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new windowsInformationProtectionWipeActionCollectionResponse and sets the default values.
+     * Instantiates a new WindowsInformationProtectionWipeActionCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Alert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new alert and sets the default values.
+     * Instantiates a new Alert and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -401,7 +401,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the systemTags property value. The systemTags property
+     * Gets the systemTags property value. The system tags associated with the alert
      * @return array<string>|null
     */
     public function getSystemTags(): ?array {
@@ -710,7 +710,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the systemTags property value. The systemTags property
+     * Sets the systemTags property value. The system tags associated with the alert
      * @param array<string>|null $value Value to set for the systemTags property.
     */
     public function setSystemTags(?array $value): void {

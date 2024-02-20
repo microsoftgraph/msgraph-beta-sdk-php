@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TypedEmailAddress extends EmailAddress implements Parsable 
 {
     /**
-     * Instantiates a new typedEmailAddress and sets the default values.
+     * Instantiates a new TypedEmailAddress and sets the default values.
     */
     public function __construct() {
         parent::__construct();

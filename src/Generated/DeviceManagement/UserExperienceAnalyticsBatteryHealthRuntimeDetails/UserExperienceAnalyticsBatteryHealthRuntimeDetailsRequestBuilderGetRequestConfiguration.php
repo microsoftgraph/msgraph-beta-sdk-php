@@ -16,7 +16,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequest
     public ?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequest
     }
 
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetQueryParameters.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetQueryParameters

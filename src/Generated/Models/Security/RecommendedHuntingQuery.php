@@ -18,7 +18,7 @@ class RecommendedHuntingQuery implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new recommendedHuntingQuery and sets the default values.
+     * Instantiates a new RecommendedHuntingQuery and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -68,7 +68,7 @@ class RecommendedHuntingQuery implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the kqlText property value. The kqlText property
+     * Gets the kqlText property value. The query string.
      * @return string|null
     */
     public function getKqlText(): ?string {
@@ -118,7 +118,7 @@ class RecommendedHuntingQuery implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the kqlText property value. The kqlText property
+     * Sets the kqlText property value. The query string.
      * @param string|null $value Value to set for the kqlText property.
     */
     public function setKqlText(?string $value): void {

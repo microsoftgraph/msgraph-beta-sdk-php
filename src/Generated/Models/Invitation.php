@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Invitation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new invitation and sets the default values.
+     * Instantiates a new Invitation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InactiveUserFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new inactiveUserFinding and sets the default values.
+     * Instantiates a new InactiveUserFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

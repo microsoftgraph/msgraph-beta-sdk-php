@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetOperationsRequiringApprovalGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getOperationsRequiringApprovalGetResponse and sets the default values.
+     * Instantiates a new GetOperationsRequiringApprovalGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

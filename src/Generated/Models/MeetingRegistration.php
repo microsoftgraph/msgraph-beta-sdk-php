@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MeetingRegistration extends MeetingRegistrationBase implements Parsable 
 {
     /**
-     * Instantiates a new meetingRegistration and sets the default values.
+     * Instantiates a new MeetingRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

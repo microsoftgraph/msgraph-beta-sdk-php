@@ -16,7 +16,7 @@ class ZebraFotaDeploymentsRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?ZebraFotaDeploymentsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new zebraFotaDeploymentsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ZebraFotaDeploymentsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ZebraFotaDeploymentsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ZebraFotaDeploymentsRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new zebraFotaDeploymentsRequestBuilderGetQueryParameters.
+     * Instantiates a new ZebraFotaDeploymentsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

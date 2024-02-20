@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OperationApprovalRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new operationApprovalRequestCollectionResponse and sets the default values.
+     * Instantiates a new OperationApprovalRequestCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

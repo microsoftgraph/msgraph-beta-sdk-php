@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DriverUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Parsable 
 {
     /**
-     * Instantiates a new driverUpdateCatalogEntry and sets the default values.
+     * Instantiates a new DriverUpdateCatalogEntry and sets the default values.
     */
     public function __construct() {
         parent::__construct();

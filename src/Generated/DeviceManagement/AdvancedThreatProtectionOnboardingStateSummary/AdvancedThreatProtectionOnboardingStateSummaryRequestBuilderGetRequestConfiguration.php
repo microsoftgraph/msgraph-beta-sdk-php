@@ -16,7 +16,7 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConf
     public ?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new advancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConf
     }
 
     /**
-     * Instantiates a new advancedThreatProtectionOnboardingStateSummaryRequestBuilderGetQueryParameters.
+     * Instantiates a new AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetQueryParameters

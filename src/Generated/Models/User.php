@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class User extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new user and sets the default values.
+     * Instantiates a new User and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -1009,7 +1009,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
+     * Gets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value.  Supports $filter (eq) with limitations.
      * @return array<ObjectIdentity>|null
     */
     public function getIdentities(): ?array {
@@ -2841,7 +2841,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
+     * Sets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value.  Supports $filter (eq) with limitations.
      * @param array<ObjectIdentity>|null $value Value to set for the identities property.
     */
     public function setIdentities(?array $value): void {

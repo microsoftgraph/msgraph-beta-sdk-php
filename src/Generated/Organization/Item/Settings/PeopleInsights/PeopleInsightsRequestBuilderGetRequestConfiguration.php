@@ -16,7 +16,7 @@ class PeopleInsightsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?PeopleInsightsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new peopleInsightsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PeopleInsightsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PeopleInsightsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PeopleInsightsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new peopleInsightsRequestBuilderGetQueryParameters.
+     * Instantiates a new PeopleInsightsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return PeopleInsightsRequestBuilderGetQueryParameters

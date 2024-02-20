@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MonthlyInactiveUsersMetric extends InactiveUsersMetricBase implements Parsable 
 {
     /**
-     * Instantiates a new monthlyInactiveUsersMetric and sets the default values.
+     * Instantiates a new MonthlyInactiveUsersMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

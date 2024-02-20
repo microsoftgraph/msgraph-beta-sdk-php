@@ -25,7 +25,7 @@ class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEnd
      * @param DateTime|null $startDateTime Usage: startDateTime={startDateTime}
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $aggregatedBy = null, ?DateTime $endDateTime = null, ?DateTime $startDateTime = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/reports/microsoft.graph.networkaccess.getDestinationSummaries(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy=\'{aggregatedBy}\'){?%24top,%24skip,%24search,%24filter,%24count}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/reports/microsoft.graph.networkaccess.getDestinationSummaries(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy=\'{aggregatedBy}\'){?%24count,%24filter,%24search,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['aggregatedBy'] = $aggregatedBy;
@@ -46,8 +46,7 @@ class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEnd
     public function get(?MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EvaluateRemovalPostResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new evaluateRemovalPostResponse and sets the default values.
+     * Instantiates a new EvaluateRemovalPostResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

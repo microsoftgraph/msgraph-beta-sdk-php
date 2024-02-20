@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TrustedCertificateAuthorityAsEntityBase extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new trustedCertificateAuthorityAsEntityBase and sets the default values.
+     * Instantiates a new TrustedCertificateAuthorityAsEntityBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

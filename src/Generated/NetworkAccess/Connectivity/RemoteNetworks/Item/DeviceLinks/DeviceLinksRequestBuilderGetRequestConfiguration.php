@@ -16,7 +16,7 @@ class DeviceLinksRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?DeviceLinksRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deviceLinksRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DeviceLinksRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DeviceLinksRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DeviceLinksRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new deviceLinksRequestBuilderGetQueryParameters.
+     * Instantiates a new DeviceLinksRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

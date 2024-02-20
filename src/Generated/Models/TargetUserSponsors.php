@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TargetUserSponsors extends UserSet implements Parsable 
 {
     /**
-     * Instantiates a new targetUserSponsors and sets the default values.
+     * Instantiates a new TargetUserSponsors and sets the default values.
     */
     public function __construct() {
         parent::__construct();

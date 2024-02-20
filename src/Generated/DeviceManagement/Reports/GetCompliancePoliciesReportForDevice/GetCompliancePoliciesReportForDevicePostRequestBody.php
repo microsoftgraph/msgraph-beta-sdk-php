@@ -19,7 +19,7 @@ class GetCompliancePoliciesReportForDevicePostRequestBody implements AdditionalD
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getCompliancePoliciesReportForDevicePostRequestBody and sets the default values.
+     * Instantiates a new GetCompliancePoliciesReportForDevicePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

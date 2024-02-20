@@ -21,7 +21,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windowsEnrollmentStatusScreenSettings and sets the default values.
+     * Instantiates a new WindowsEnrollmentStatusScreenSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

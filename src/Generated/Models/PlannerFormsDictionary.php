@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerFormsDictionary extends Dictionary implements Parsable 
 {
     /**
-     * Instantiates a new plannerFormsDictionary and sets the default values.
+     * Instantiates a new PlannerFormsDictionary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

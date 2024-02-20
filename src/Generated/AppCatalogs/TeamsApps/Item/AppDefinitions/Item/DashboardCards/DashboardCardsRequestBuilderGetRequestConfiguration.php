@@ -16,7 +16,7 @@ class DashboardCardsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?DashboardCardsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new dashboardCardsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DashboardCardsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DashboardCardsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DashboardCardsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new dashboardCardsRequestBuilderGetQueryParameters.
+     * Instantiates a new DashboardCardsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

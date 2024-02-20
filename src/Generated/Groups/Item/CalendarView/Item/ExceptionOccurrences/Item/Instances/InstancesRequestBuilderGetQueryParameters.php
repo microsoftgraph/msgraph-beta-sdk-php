@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\Item\Exception
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
+ * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but doesn't include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.
 */
 class InstancesRequestBuilderGetQueryParameters 
 {
@@ -56,7 +56,7 @@ class InstancesRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new instancesRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new InstancesRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param string|null $endDateTime The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
      * @param string|null $filter Filter items by property values

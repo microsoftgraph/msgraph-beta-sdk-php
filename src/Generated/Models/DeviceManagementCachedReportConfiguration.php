@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementCachedReportConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementCachedReportConfiguration and sets the default values.
+     * Instantiates a new DeviceManagementCachedReportConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

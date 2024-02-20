@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CanvasLayout extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new canvasLayout and sets the default values.
+     * Instantiates a new CanvasLayout and sets the default values.
     */
     public function __construct() {
         parent::__construct();

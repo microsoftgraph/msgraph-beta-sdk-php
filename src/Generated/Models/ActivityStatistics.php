@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ActivityStatistics extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new activityStatistics and sets the default values.
+     * Instantiates a new ActivityStatistics and sets the default values.
     */
     public function __construct() {
         parent::__construct();

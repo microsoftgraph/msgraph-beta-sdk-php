@@ -22,7 +22,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameter
     public ?array $select = null;
     
     /**
-     * Instantiates a new multiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

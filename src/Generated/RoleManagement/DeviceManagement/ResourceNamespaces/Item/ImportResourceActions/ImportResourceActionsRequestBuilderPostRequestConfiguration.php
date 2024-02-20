@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class ImportResourceActionsRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new importResourceActionsRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new ImportResourceActionsRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

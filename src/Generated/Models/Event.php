@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Event extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new event and sets the default values.
+     * Instantiates a new Event and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -104,7 +104,7 @@ class Event extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the cancelledOccurrences property value. Contains occurrenceId property values of cancelled instances in a recurring series, if the event is the series master. Instances in a recurring series that are cancelled are called cancelledOccurences.Returned only on $select in a Get operation which specifies the id of a series master event (that is, the seriesMasterId property value).
+     * Gets the cancelledOccurrences property value. Contains occurrenceId property values of canceled instances in a recurring series, if the event is the series master. Instances in a recurring series that are canceled are called cancelledOccurences.Returned only on $select in a Get operation which specifies the id of a series master event (that is, the seriesMasterId property value).
      * @return array<string>|null
     */
     public function getCancelledOccurrences(): ?array {
@@ -256,7 +256,7 @@ class Event extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the instances property value. The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
+     * Gets the instances property value. The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but doesn't include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.
      * @return array<Event>|null
     */
     public function getInstances(): ?array {
@@ -749,7 +749,7 @@ class Event extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the cancelledOccurrences property value. Contains occurrenceId property values of cancelled instances in a recurring series, if the event is the series master. Instances in a recurring series that are cancelled are called cancelledOccurences.Returned only on $select in a Get operation which specifies the id of a series master event (that is, the seriesMasterId property value).
+     * Sets the cancelledOccurrences property value. Contains occurrenceId property values of canceled instances in a recurring series, if the event is the series master. Instances in a recurring series that are canceled are called cancelledOccurences.Returned only on $select in a Get operation which specifies the id of a series master event (that is, the seriesMasterId property value).
      * @param array<string>|null $value Value to set for the cancelledOccurrences property.
     */
     public function setCancelledOccurrences(?array $value): void {
@@ -805,7 +805,7 @@ class Event extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the instances property value. The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
+     * Sets the instances property value. The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but doesn't include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.
      * @param array<Event>|null $value Value to set for the instances property.
     */
     public function setInstances(?array $value): void {

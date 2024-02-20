@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureAuthorizationSystemResource extends AuthorizationSystemResource implements Parsable 
 {
     /**
-     * Instantiates a new azureAuthorizationSystemResource and sets the default values.
+     * Instantiates a new AzureAuthorizationSystemResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

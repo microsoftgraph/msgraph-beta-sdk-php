@@ -16,7 +16,7 @@ class PrivilegedRolesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?PrivilegedRolesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new privilegedRolesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PrivilegedRolesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PrivilegedRolesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PrivilegedRolesRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new privilegedRolesRequestBuilderGetQueryParameters.
+     * Instantiates a new PrivilegedRolesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

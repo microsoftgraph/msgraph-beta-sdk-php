@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceComplianceLocalActionLockDevice extends AndroidDeviceComplianceLocalActionBase implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceComplianceLocalActionLockDevice and sets the default values.
+     * Instantiates a new AndroidDeviceComplianceLocalActionLockDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();

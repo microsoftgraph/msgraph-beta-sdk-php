@@ -19,7 +19,7 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Back
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new authenticationConditionsApplications and sets the default values.
+     * Instantiates a new AuthenticationConditionsApplications and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
