@@ -76,6 +76,9 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
             'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
             'isMemberManagementRestricted' => fn(ParseNode $n) => $o->setIsMemberManagementRestricted($n->getBooleanValue()),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'membershipRule' => fn(ParseNode $n) => $o->setMembershipRule($n->getStringValue()),
+            'membershipRuleProcessingState' => fn(ParseNode $n) => $o->setMembershipRuleProcessingState($n->getStringValue()),
+            'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getStringValue()),
             'scopedRoleMembers' => fn(ParseNode $n) => $o->setScopedRoleMembers($n->getCollectionOfObjectValues([ScopedRoleMembership::class, 'createFromDiscriminatorValue'])),
             'visibility' => fn(ParseNode $n) => $o->setVisibility($n->getStringValue()),
         ]);
@@ -105,6 +108,42 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'members'");
+    }
+
+    /**
+     * Gets the membershipRule property value. Dynamic membership rule for the administrative unit. For more about the rules that you can use for dynamic administrative units and dynamic groups, see Using attributes to create advanced rules.
+     * @return string|null
+    */
+    public function getMembershipRule(): ?string {
+        $val = $this->getBackingStore()->get('membershipRule');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipRule'");
+    }
+
+    /**
+     * Gets the membershipRuleProcessingState property value. Used to control whether the dynamic membership rule is actively processed. Set to On when you want the dynamic membership rule to be active and Paused if you want to stop updating membership dynamically. If not set, the default behavior is Paused.
+     * @return string|null
+    */
+    public function getMembershipRuleProcessingState(): ?string {
+        $val = $this->getBackingStore()->get('membershipRuleProcessingState');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipRuleProcessingState'");
+    }
+
+    /**
+     * Gets the membershipType property value. Membership type for the administrative unit. Can be dynamic or assigned. If not set, the default behavior is assigned.
+     * @return string|null
+    */
+    public function getMembershipType(): ?string {
+        $val = $this->getBackingStore()->get('membershipType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'membershipType'");
     }
 
     /**
@@ -144,6 +183,9 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
         $writer->writeBooleanValue('isMemberManagementRestricted', $this->getIsMemberManagementRestricted());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('membershipRule', $this->getMembershipRule());
+        $writer->writeStringValue('membershipRuleProcessingState', $this->getMembershipRuleProcessingState());
+        $writer->writeStringValue('membershipType', $this->getMembershipType());
         $writer->writeCollectionOfObjectValues('scopedRoleMembers', $this->getScopedRoleMembers());
         $writer->writeStringValue('visibility', $this->getVisibility());
     }
@@ -186,6 +228,30 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
+    }
+
+    /**
+     * Sets the membershipRule property value. Dynamic membership rule for the administrative unit. For more about the rules that you can use for dynamic administrative units and dynamic groups, see Using attributes to create advanced rules.
+     * @param string|null $value Value to set for the membershipRule property.
+    */
+    public function setMembershipRule(?string $value): void {
+        $this->getBackingStore()->set('membershipRule', $value);
+    }
+
+    /**
+     * Sets the membershipRuleProcessingState property value. Used to control whether the dynamic membership rule is actively processed. Set to On when you want the dynamic membership rule to be active and Paused if you want to stop updating membership dynamically. If not set, the default behavior is Paused.
+     * @param string|null $value Value to set for the membershipRuleProcessingState property.
+    */
+    public function setMembershipRuleProcessingState(?string $value): void {
+        $this->getBackingStore()->set('membershipRuleProcessingState', $value);
+    }
+
+    /**
+     * Sets the membershipType property value. Membership type for the administrative unit. Can be dynamic or assigned. If not set, the default behavior is assigned.
+     * @param string|null $value Value to set for the membershipType property.
+    */
+    public function setMembershipType(?string $value): void {
+        $this->getBackingStore()->set('membershipType', $value);
     }
 
     /**

@@ -227,6 +227,7 @@ class BookingAppointment extends Entity implements Parsable
             'invoiceId' => fn(ParseNode $n) => $o->setInvoiceId($n->getStringValue()),
             'invoiceStatus' => fn(ParseNode $n) => $o->setInvoiceStatus($n->getEnumValue(BookingInvoiceStatus::class)),
             'invoiceUrl' => fn(ParseNode $n) => $o->setInvoiceUrl($n->getStringValue()),
+            'isCustomerAllowedToManageBooking' => fn(ParseNode $n) => $o->setIsCustomerAllowedToManageBooking($n->getBooleanValue()),
             'isLocationOnline' => fn(ParseNode $n) => $o->setIsLocationOnline($n->getBooleanValue()),
             'joinWebUrl' => fn(ParseNode $n) => $o->setJoinWebUrl($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
@@ -326,6 +327,18 @@ class BookingAppointment extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'invoiceUrl'");
+    }
+
+    /**
+     * Gets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @return bool|null
+    */
+    public function getIsCustomerAllowedToManageBooking(): ?bool {
+        $val = $this->getBackingStore()->get('isCustomerAllowedToManageBooking');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomerAllowedToManageBooking'");
     }
 
     /**
@@ -584,6 +597,7 @@ class BookingAppointment extends Entity implements Parsable
         $writer->writeStringValue('invoiceId', $this->getInvoiceId());
         $writer->writeEnumValue('invoiceStatus', $this->getInvoiceStatus());
         $writer->writeStringValue('invoiceUrl', $this->getInvoiceUrl());
+        $writer->writeBooleanValue('isCustomerAllowedToManageBooking', $this->getIsCustomerAllowedToManageBooking());
         $writer->writeBooleanValue('isLocationOnline', $this->getIsLocationOnline());
         $writer->writeStringValue('joinWebUrl', $this->getJoinWebUrl());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
@@ -763,6 +777,14 @@ class BookingAppointment extends Entity implements Parsable
     */
     public function setInvoiceUrl(?string $value): void {
         $this->getBackingStore()->set('invoiceUrl', $value);
+    }
+
+    /**
+     * Sets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @param bool|null $value Value to set for the isCustomerAllowedToManageBooking property.
+    */
+    public function setIsCustomerAllowedToManageBooking(?bool $value): void {
+        $this->getBackingStore()->set('isCustomerAllowedToManageBooking', $value);
     }
 
     /**

@@ -160,6 +160,7 @@ class BookingService extends BookingNamedEntity implements Parsable
             'defaultReminders' => fn(ParseNode $n) => $o->setDefaultReminders($n->getCollectionOfObjectValues([BookingReminder::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'isAnonymousJoinEnabled' => fn(ParseNode $n) => $o->setIsAnonymousJoinEnabled($n->getBooleanValue()),
+            'isCustomerAllowedToManageBooking' => fn(ParseNode $n) => $o->setIsCustomerAllowedToManageBooking($n->getBooleanValue()),
             'isHiddenFromCustomers' => fn(ParseNode $n) => $o->setIsHiddenFromCustomers($n->getBooleanValue()),
             'isLocationOnline' => fn(ParseNode $n) => $o->setIsLocationOnline($n->getBooleanValue()),
             'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
@@ -192,6 +193,18 @@ class BookingService extends BookingNamedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isAnonymousJoinEnabled'");
+    }
+
+    /**
+     * Gets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @return bool|null
+    */
+    public function getIsCustomerAllowedToManageBooking(): ?bool {
+        $val = $this->getBackingStore()->get('isCustomerAllowedToManageBooking');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomerAllowedToManageBooking'");
     }
 
     /**
@@ -356,6 +369,7 @@ class BookingService extends BookingNamedEntity implements Parsable
         $writer->writeCollectionOfObjectValues('defaultReminders', $this->getDefaultReminders());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeBooleanValue('isAnonymousJoinEnabled', $this->getIsAnonymousJoinEnabled());
+        $writer->writeBooleanValue('isCustomerAllowedToManageBooking', $this->getIsCustomerAllowedToManageBooking());
         $writer->writeBooleanValue('isHiddenFromCustomers', $this->getIsHiddenFromCustomers());
         $writer->writeBooleanValue('isLocationOnline', $this->getIsLocationOnline());
         $writer->writeStringValue('languageTag', $this->getLanguageTag());
@@ -447,6 +461,14 @@ class BookingService extends BookingNamedEntity implements Parsable
     */
     public function setIsAnonymousJoinEnabled(?bool $value): void {
         $this->getBackingStore()->set('isAnonymousJoinEnabled', $value);
+    }
+
+    /**
+     * Sets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @param bool|null $value Value to set for the isCustomerAllowedToManageBooking property.
+    */
+    public function setIsCustomerAllowedToManageBooking(?bool $value): void {
+        $this->getBackingStore()->set('isCustomerAllowedToManageBooking', $value);
     }
 
     /**

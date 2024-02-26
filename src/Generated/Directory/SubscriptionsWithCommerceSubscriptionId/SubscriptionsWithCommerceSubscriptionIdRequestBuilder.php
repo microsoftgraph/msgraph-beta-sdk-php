@@ -84,7 +84,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
     */
     public function toDeleteRequestInformation(?SubscriptionsWithCommerceSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(commerceSubscriptionId='{commerceSubscriptionId}')';
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(commerceSubscriptionId=\'{commerceSubscriptionId}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -124,7 +124,7 @@ class SubscriptionsWithCommerceSubscriptionIdRequestBuilder extends BaseRequestB
     */
     public function toPatchRequestInformation(CompanySubscription $body, ?SubscriptionsWithCommerceSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(commerceSubscriptionId='{commerceSubscriptionId}')';
+        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(commerceSubscriptionId=\'{commerceSubscriptionId}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

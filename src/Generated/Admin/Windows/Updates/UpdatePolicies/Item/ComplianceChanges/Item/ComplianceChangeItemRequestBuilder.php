@@ -39,11 +39,11 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a contentApproval object.
+     * Delete a complianceChange object.
      * @param ComplianceChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-contentapproval-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ComplianceChangeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -85,7 +85,7 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a contentApproval object.
+     * Delete a complianceChange object.
      * @param ComplianceChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

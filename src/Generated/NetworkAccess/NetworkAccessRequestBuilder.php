@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\AlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\ConnectivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringPolicies\FilteringPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\FilteringProfilesRequestBuilder;
@@ -26,6 +27,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class NetworkAccessRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the alerts property of the microsoft.graph.networkaccess.networkAccessRoot entity.
+    */
+    public function alerts(): AlertsRequestBuilder {
+        return new AlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the connectivity property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     */

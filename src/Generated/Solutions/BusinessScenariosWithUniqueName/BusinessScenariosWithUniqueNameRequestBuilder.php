@@ -86,7 +86,7 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios(uniqueName='{uniqueName}')';
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios(uniqueName=\'{uniqueName}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -126,7 +126,7 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(BusinessScenario $body, ?BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios(uniqueName='{uniqueName}')';
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios(uniqueName=\'{uniqueName}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

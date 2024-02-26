@@ -22,6 +22,7 @@ use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfile
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Rules\RulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\SecureScoreControlProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScores\SecureScoresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\SecurityActionsRequestBuilder;
@@ -152,6 +153,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function providerTenantSettings(): ProviderTenantSettingsRequestBuilder {
         return new ProviderTenantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the rules property of the microsoft.graph.security entity.
+    */
+    public function rules(): RulesRequestBuilder {
+        return new RulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -83,7 +83,7 @@ class SubjectsWithObjectIdRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?SubjectsWithObjectIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/subjects(objectId='{objectId}')';
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/subjects(objectId=\'{objectId}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class SubjectsWithObjectIdRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AccessPackageSubject $body, ?SubjectsWithObjectIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/subjects(objectId='{objectId}')';
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/subjects(objectId=\'{objectId}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

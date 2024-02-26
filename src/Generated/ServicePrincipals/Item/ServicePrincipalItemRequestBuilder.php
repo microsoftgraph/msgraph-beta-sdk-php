@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionCla
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DeletePasswordSingleSignOnCredentials\DeletePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Endpoints\EndpointsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentialsWithName\FederatedIdentityCredentialsWithNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetPasswordSingleSignOnCredentials\GetPasswordSingleSignOnCredentialsRequestBuilder;
@@ -275,6 +276,15 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
+     * @param string $name Alternate key of federatedIdentityCredential
+     * @return FederatedIdentityCredentialsWithNameRequestBuilder
+    */
+    public function federatedIdentityCredentialsWithName(string $name): FederatedIdentityCredentialsWithNameRequestBuilder {
+        return new FederatedIdentityCredentialsWithNameRequestBuilder($this->pathParameters, $this->requestAdapter, $name);
     }
 
     /**

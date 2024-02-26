@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Applications\Item\ConnectorGroup\ConnectorGro
 use Microsoft\Graph\Beta\Generated\Applications\Item\CreatedOnBehalfOf\CreatedOnBehalfOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\ExtensionPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentialsWithName\FederatedIdentityCredentialsWithNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
@@ -219,6 +220,15 @@ class ApplicationItemRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
+     * @param string $name Alternate key of federatedIdentityCredential
+     * @return FederatedIdentityCredentialsWithNameRequestBuilder
+    */
+    public function federatedIdentityCredentialsWithName(string $name): FederatedIdentityCredentialsWithNameRequestBuilder {
+        return new FederatedIdentityCredentialsWithNameRequestBuilder($this->pathParameters, $this->requestAdapter, $name);
     }
 
     /**

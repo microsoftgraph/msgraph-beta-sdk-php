@@ -319,6 +319,18 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the cloudClipboard property value. The cloudClipboard property
+     * @return CloudClipboardRoot|null
+    */
+    public function getCloudClipboard(): ?CloudClipboardRoot {
+        $val = $this->getBackingStore()->get('cloudClipboard');
+        if (is_null($val) || $val instanceof CloudClipboardRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudClipboard'");
+    }
+
+    /**
      * Gets the cloudPCs property value. The cloudPCs property
      * @return array<CloudPC>|null
     */
@@ -774,6 +786,7 @@ class User extends DirectoryObject implements Parsable
             'calendarView' => fn(ParseNode $n) => $o->setCalendarView($n->getCollectionOfObjectValues([Event::class, 'createFromDiscriminatorValue'])),
             'chats' => fn(ParseNode $n) => $o->setChats($n->getCollectionOfObjectValues([Chat::class, 'createFromDiscriminatorValue'])),
             'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
+            'cloudClipboard' => fn(ParseNode $n) => $o->setCloudClipboard($n->getObjectValue([CloudClipboardRoot::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'cloudRealtimeCommunicationInfo' => fn(ParseNode $n) => $o->setCloudRealtimeCommunicationInfo($n->getObjectValue([CloudRealtimeCommunicationInfo::class, 'createFromDiscriminatorValue'])),
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
@@ -2244,6 +2257,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('calendarView', $this->getCalendarView());
         $writer->writeCollectionOfObjectValues('chats', $this->getChats());
         $writer->writeStringValue('city', $this->getCity());
+        $writer->writeObjectValue('cloudClipboard', $this->getCloudClipboard());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('cloudRealtimeCommunicationInfo', $this->getCloudRealtimeCommunicationInfo());
         $writer->writeStringValue('companyName', $this->getCompanyName());
@@ -2550,6 +2564,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setCity(?string $value): void {
         $this->getBackingStore()->set('city', $value);
+    }
+
+    /**
+     * Sets the cloudClipboard property value. The cloudClipboard property
+     * @param CloudClipboardRoot|null $value Value to set for the cloudClipboard property.
+    */
+    public function setCloudClipboard(?CloudClipboardRoot $value): void {
+        $this->getBackingStore()->set('cloudClipboard', $value);
     }
 
     /**

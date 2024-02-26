@@ -24,6 +24,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ChangePassword\ChangePasswordReque
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\ChatsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudClipboard\CloudClipboardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\CloudPCsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\ContactFoldersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Contacts\ContactsRequestBuilder;
@@ -243,6 +244,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the cloudClipboard property of the microsoft.graph.user entity.
+    */
+    public function cloudClipboard(): CloudClipboardRequestBuilder {
+        return new CloudClipboardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

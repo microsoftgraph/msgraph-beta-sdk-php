@@ -68,6 +68,7 @@ class Place extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'geoCoordinates' => fn(ParseNode $n) => $o->setGeoCoordinates($n->getObjectValue([OutlookGeoCoordinates::class, 'createFromDiscriminatorValue'])),
             'phone' => fn(ParseNode $n) => $o->setPhone($n->getStringValue()),
+            'placeId' => fn(ParseNode $n) => $o->setPlaceId($n->getStringValue()),
         ]);
     }
 
@@ -96,6 +97,18 @@ class Place extends Entity implements Parsable
     }
 
     /**
+     * Gets the placeId property value. An alternate immutable unique identifier of the place.
+     * @return string|null
+    */
+    public function getPlaceId(): ?string {
+        $val = $this->getBackingStore()->get('placeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'placeId'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -105,6 +118,7 @@ class Place extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('geoCoordinates', $this->getGeoCoordinates());
         $writer->writeStringValue('phone', $this->getPhone());
+        $writer->writeStringValue('placeId', $this->getPlaceId());
     }
 
     /**
@@ -137,6 +151,14 @@ class Place extends Entity implements Parsable
     */
     public function setPhone(?string $value): void {
         $this->getBackingStore()->set('phone', $value);
+    }
+
+    /**
+     * Sets the placeId property value. An alternate immutable unique identifier of the place.
+     * @param string|null $value Value to set for the placeId property.
+    */
+    public function setPlaceId(?string $value): void {
+        $this->getBackingStore()->set('placeId', $value);
     }
 
 }

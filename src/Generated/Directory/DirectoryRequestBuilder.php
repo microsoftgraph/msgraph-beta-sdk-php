@@ -10,12 +10,14 @@ use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateA
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\CustomSecurityAttributeDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\DeletedItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials\DeviceLocalCredentialsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\ExternalUserProfiles\ExternalUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\FeatureRolloutPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\FederationConfigurations\FederationConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\ImpactedResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\InboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\OnPremisesSynchronizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\OutboundSharedUserProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\PendingExternalUserProfiles\PendingExternalUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
@@ -76,6 +78,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the externalUserProfiles property of the microsoft.graph.directory entity.
+    */
+    public function externalUserProfiles(): ExternalUserProfilesRequestBuilder {
+        return new ExternalUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.directory entity.
     */
     public function featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
@@ -115,6 +124,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function outboundSharedUserProfiles(): OutboundSharedUserProfilesRequestBuilder {
         return new OutboundSharedUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the pendingExternalUserProfiles property of the microsoft.graph.directory entity.
+    */
+    public function pendingExternalUserProfiles(): PendingExternalUserProfilesRequestBuilder {
+        return new PendingExternalUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

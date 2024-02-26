@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Activ
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Categories\CategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Deactivate\DeactivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\GradingCategory\GradingCategoryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\GradingScheme\GradingSchemeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Resources\ResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Rubric\RubricRequestBuilder;
@@ -52,6 +53,13 @@ class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder
     */
     public function gradingCategory(): GradingCategoryRequestBuilder {
         return new GradingCategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the gradingScheme property of the microsoft.graph.educationAssignment entity.
+    */
+    public function gradingScheme(): GradingSchemeRequestBuilder {
+        return new GradingSchemeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -126,7 +134,7 @@ class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, you will get an unknownFutureValue value in the response.
+     * Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, the response value for the status property is unknownFutureValue.
      * @param EducationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationAssignment|null>
      * @throws Exception
@@ -175,7 +183,7 @@ class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, you will get an unknownFutureValue value in the response.
+     * Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class. You can use the Prefer header in your request to get the inactive status in case the assignment is deactivated; otherwise, the response value for the status property is unknownFutureValue.
      * @param EducationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

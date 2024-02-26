@@ -106,7 +106,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. A rich text string describing the incident
+     * Gets the description property value. Description of the incident.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -197,7 +197,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identity that last modified the incident.
      * @return string|null
     */
     public function getLastModifiedBy(): ?string {
@@ -384,7 +384,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. A rich text string describing the incident
+     * Sets the description property value. Description of the incident.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -416,7 +416,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The identity that last modified the incident.
      * @param string|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?string $value): void {

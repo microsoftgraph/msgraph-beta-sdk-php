@@ -108,6 +108,20 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the externalUserProfiles property value. Collection of external user profiles that represent collaborators in the directory.
+     * @return array<ExternalUserProfile>|null
+    */
+    public function getExternalUserProfiles(): ?array {
+        $val = $this->getBackingStore()->get('externalUserProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExternalUserProfile::class);
+            /** @var array<ExternalUserProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalUserProfiles'");
+    }
+
+    /**
      * Gets the featureRolloutPolicies property value. The featureRolloutPolicies property
      * @return array<FeatureRolloutPolicy>|null
     */
@@ -148,12 +162,14 @@ class Directory extends Entity implements Parsable
             'customSecurityAttributeDefinitions' => fn(ParseNode $n) => $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues([CustomSecurityAttributeDefinition::class, 'createFromDiscriminatorValue'])),
             'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'deviceLocalCredentials' => fn(ParseNode $n) => $o->setDeviceLocalCredentials($n->getCollectionOfObjectValues([DeviceLocalCredentialInfo::class, 'createFromDiscriminatorValue'])),
+            'externalUserProfiles' => fn(ParseNode $n) => $o->setExternalUserProfiles($n->getCollectionOfObjectValues([ExternalUserProfile::class, 'createFromDiscriminatorValue'])),
             'featureRolloutPolicies' => fn(ParseNode $n) => $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues([FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'])),
             'federationConfigurations' => fn(ParseNode $n) => $o->setFederationConfigurations($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'inboundSharedUserProfiles' => fn(ParseNode $n) => $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues([InboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'onPremisesSynchronization' => fn(ParseNode $n) => $o->setOnPremisesSynchronization($n->getCollectionOfObjectValues([OnPremisesDirectorySynchronization::class, 'createFromDiscriminatorValue'])),
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
+            'pendingExternalUserProfiles' => fn(ParseNode $n) => $o->setPendingExternalUserProfiles($n->getCollectionOfObjectValues([PendingExternalUserProfile::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
@@ -217,6 +233,20 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the pendingExternalUserProfiles property value. Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+     * @return array<PendingExternalUserProfile>|null
+    */
+    public function getPendingExternalUserProfiles(): ?array {
+        $val = $this->getBackingStore()->get('pendingExternalUserProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PendingExternalUserProfile::class);
+            /** @var array<PendingExternalUserProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingExternalUserProfiles'");
+    }
+
+    /**
      * Gets the recommendations property value. List of recommended improvements to improve tenant posture.
      * @return array<Recommendation>|null
     */
@@ -270,12 +300,14 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('customSecurityAttributeDefinitions', $this->getCustomSecurityAttributeDefinitions());
         $writer->writeCollectionOfObjectValues('deletedItems', $this->getDeletedItems());
         $writer->writeCollectionOfObjectValues('deviceLocalCredentials', $this->getDeviceLocalCredentials());
+        $writer->writeCollectionOfObjectValues('externalUserProfiles', $this->getExternalUserProfiles());
         $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->getFeatureRolloutPolicies());
         $writer->writeCollectionOfObjectValues('federationConfigurations', $this->getFederationConfigurations());
         $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
         $writer->writeCollectionOfObjectValues('inboundSharedUserProfiles', $this->getInboundSharedUserProfiles());
         $writer->writeCollectionOfObjectValues('onPremisesSynchronization', $this->getOnPremisesSynchronization());
         $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->getOutboundSharedUserProfiles());
+        $writer->writeCollectionOfObjectValues('pendingExternalUserProfiles', $this->getPendingExternalUserProfiles());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
         $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
@@ -330,6 +362,14 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Sets the externalUserProfiles property value. Collection of external user profiles that represent collaborators in the directory.
+     * @param array<ExternalUserProfile>|null $value Value to set for the externalUserProfiles property.
+    */
+    public function setExternalUserProfiles(?array $value): void {
+        $this->getBackingStore()->set('externalUserProfiles', $value);
+    }
+
+    /**
      * Sets the featureRolloutPolicies property value. The featureRolloutPolicies property
      * @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
     */
@@ -375,6 +415,14 @@ class Directory extends Entity implements Parsable
     */
     public function setOutboundSharedUserProfiles(?array $value): void {
         $this->getBackingStore()->set('outboundSharedUserProfiles', $value);
+    }
+
+    /**
+     * Sets the pendingExternalUserProfiles property value. Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+     * @param array<PendingExternalUserProfile>|null $value Value to set for the pendingExternalUserProfiles property.
+    */
+    public function setPendingExternalUserProfiles(?array $value): void {
+        $this->getBackingStore()->set('pendingExternalUserProfiles', $value);
     }
 
     /**

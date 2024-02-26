@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ContactMergeSuggestions\C
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\RegionalAndLanguageSettings\RegionalAndLanguageSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ShiftPreferences\ShiftPreferencesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\WindowsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -46,6 +47,13 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function shiftPreferences(): ShiftPreferencesRequestBuilder {
         return new ShiftPreferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
+    */
+    public function windows(): WindowsRequestBuilder {
+        return new WindowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
