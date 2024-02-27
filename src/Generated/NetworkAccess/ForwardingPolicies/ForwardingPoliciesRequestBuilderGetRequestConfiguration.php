@@ -16,7 +16,7 @@ class ForwardingPoliciesRequestBuilderGetRequestConfiguration extends BaseReques
     public ?ForwardingPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new forwardingPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ForwardingPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ForwardingPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ForwardingPoliciesRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new forwardingPoliciesRequestBuilderGetQueryParameters.
+     * Instantiates a new ForwardingPoliciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

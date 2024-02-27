@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Parsable 
 {
     /**
-     * Instantiates a new openIdConnectIdentityProvider and sets the default values.
+     * Instantiates a new OpenIdConnectIdentityProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();

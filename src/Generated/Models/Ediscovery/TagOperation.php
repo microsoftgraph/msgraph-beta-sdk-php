@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TagOperation extends CaseOperation implements Parsable 
 {
     /**
-     * Instantiates a new tagOperation and sets the default values.
+     * Instantiates a new TagOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

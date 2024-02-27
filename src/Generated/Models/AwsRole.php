@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsRole extends AwsIdentity implements Parsable 
 {
     /**
-     * Instantiates a new awsRole and sets the default values.
+     * Instantiates a new AwsRole and sets the default values.
     */
     public function __construct() {
         parent::__construct();

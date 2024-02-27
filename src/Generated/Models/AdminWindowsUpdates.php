@@ -16,7 +16,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AdminWindowsUpdates extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new adminWindowsUpdates and sets the default values.
+     * Instantiates a new AdminWindowsUpdates and sets the default values.
     */
     public function __construct() {
         parent::__construct();

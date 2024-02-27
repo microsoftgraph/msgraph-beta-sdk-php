@@ -19,7 +19,7 @@ class GetConfigurationSettingDetailsReportPostRequestBody implements AdditionalD
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getConfigurationSettingDetailsReportPostRequestBody and sets the default values.
+     * Instantiates a new GetConfigurationSettingDetailsReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

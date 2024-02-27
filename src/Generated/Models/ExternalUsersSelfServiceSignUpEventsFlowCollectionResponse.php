@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ExternalUsersSelfServiceSignUpEventsFlowCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new externalUsersSelfServiceSignUpEventsFlowCollectionResponse and sets the default values.
+     * Instantiates a new ExternalUsersSelfServiceSignUpEventsFlowCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

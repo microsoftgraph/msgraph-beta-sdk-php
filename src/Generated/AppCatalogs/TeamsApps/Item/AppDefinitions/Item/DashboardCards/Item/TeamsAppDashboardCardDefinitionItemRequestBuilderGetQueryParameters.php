@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get dashboardCards from appCatalogs
+ * Dashboard cards specified in the Teams app manifest.
 */
 class TeamsAppDashboardCardDefinitionItemRequestBuilderGetQueryParameters 
 {

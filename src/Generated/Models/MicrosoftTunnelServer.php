@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftTunnelServer extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new microsoftTunnelServer and sets the default values.
+     * Instantiates a new MicrosoftTunnelServer and sets the default values.
     */
     public function __construct() {
         parent::__construct();

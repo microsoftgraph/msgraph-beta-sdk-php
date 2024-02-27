@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkMobileAppConfiguration and sets the default values.
+     * Instantiates a new AndroidForWorkMobileAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -20,7 +20,7 @@ class RemoveMembersPostRequestBody implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new removeMembersPostRequestBody and sets the default values.
+     * Instantiates a new RemoveMembersPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new advancedThreatProtectionOnboardingDeviceSettingState and sets the default values.
+     * Instantiates a new AdvancedThreatProtectionOnboardingDeviceSettingState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

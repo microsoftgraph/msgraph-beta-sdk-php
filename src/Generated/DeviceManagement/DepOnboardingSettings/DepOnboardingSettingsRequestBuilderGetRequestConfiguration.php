@@ -16,7 +16,7 @@ class DepOnboardingSettingsRequestBuilderGetRequestConfiguration extends BaseReq
     public ?DepOnboardingSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new depOnboardingSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DepOnboardingSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DepOnboardingSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DepOnboardingSettingsRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new depOnboardingSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new DepOnboardingSettingsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -18,7 +18,7 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deploymentSettings and sets the default values.
+     * Instantiates a new DeploymentSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

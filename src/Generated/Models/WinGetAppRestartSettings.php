@@ -21,7 +21,7 @@ class WinGetAppRestartSettings implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new winGetAppRestartSettings and sets the default values.
+     * Instantiates a new WinGetAppRestartSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

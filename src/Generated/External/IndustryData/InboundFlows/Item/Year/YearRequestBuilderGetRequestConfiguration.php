@@ -16,7 +16,7 @@ class YearRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?YearRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new yearRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new YearRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param YearRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class YearRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new yearRequestBuilderGetQueryParameters.
+     * Instantiates a new YearRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return YearRequestBuilderGetQueryParameters

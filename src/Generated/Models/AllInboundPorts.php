@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AllInboundPorts extends InboundPorts implements Parsable 
 {
     /**
-     * Instantiates a new allInboundPorts and sets the default values.
+     * Instantiates a new AllInboundPorts and sets the default values.
     */
     public function __construct() {
         parent::__construct();

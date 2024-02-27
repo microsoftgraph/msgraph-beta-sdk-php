@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DailyUserInsightMetricsRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new dailyUserInsightMetricsRoot and sets the default values.
+     * Instantiates a new DailyUserInsightMetricsRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -40,7 +40,7 @@ class DailyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeUsersBreakdown property value. Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
+     * Gets the activeUsersBreakdown property value. The activeUsersBreakdown property
      * @return array<ActiveUsersBreakdownMetric>|null
     */
     public function getActiveUsersBreakdown(): ?array {
@@ -196,7 +196,7 @@ class DailyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the activeUsersBreakdown property value. Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
+     * Sets the activeUsersBreakdown property value. The activeUsersBreakdown property
      * @param array<ActiveUsersBreakdownMetric>|null $value Value to set for the activeUsersBreakdown property.
     */
     public function setActiveUsersBreakdown(?array $value): void {

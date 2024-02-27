@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OverprovisionedServerlessFunctionFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new overprovisionedServerlessFunctionFinding and sets the default values.
+     * Instantiates a new OverprovisionedServerlessFunctionFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

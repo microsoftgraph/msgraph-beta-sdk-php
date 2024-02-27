@@ -19,7 +19,7 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new applicableContent and sets the default values.
+     * Instantiates a new ApplicableContent and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -82,7 +82,7 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the matchedDevices property value. Collection of devices and recommendations for applicable catalog content.
+     * Gets the matchedDevices property value. The matchedDevices property
      * @return array<ApplicableContentDeviceMatch>|null
     */
     public function getMatchedDevices(): ?array {
@@ -143,7 +143,7 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the matchedDevices property value. Collection of devices and recommendations for applicable catalog content.
+     * Sets the matchedDevices property value. The matchedDevices property
      * @param array<ApplicableContentDeviceMatch>|null $value Value to set for the matchedDevices property.
     */
     public function setMatchedDevices(?array $value): void {

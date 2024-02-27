@@ -21,7 +21,7 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Backed
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new securityBaselineContributingPolicy and sets the default values.
+     * Instantiates a new SecurityBaselineContributingPolicy and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

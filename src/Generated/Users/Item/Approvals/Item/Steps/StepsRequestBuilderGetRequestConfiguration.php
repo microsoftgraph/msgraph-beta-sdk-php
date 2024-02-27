@@ -16,7 +16,7 @@ class StepsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     public ?StepsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new stepsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new StepsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param StepsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class StepsRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     }
 
     /**
-     * Instantiates a new stepsRequestBuilderGetQueryParameters.
+     * Instantiates a new StepsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

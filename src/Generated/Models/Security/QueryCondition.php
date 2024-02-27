@@ -19,7 +19,7 @@ class QueryCondition implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new queryCondition and sets the default values.
+     * Instantiates a new QueryCondition and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -70,7 +70,7 @@ class QueryCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Timestamp of when the query in the custom detection rule was last updated.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -94,7 +94,7 @@ class QueryCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the queryText property value. The queryText property
+     * Gets the queryText property value. Contents of the query.
      * @return string|null
     */
     public function getQueryText(): ?string {
@@ -133,7 +133,7 @@ class QueryCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Timestamp of when the query in the custom detection rule was last updated.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -149,7 +149,7 @@ class QueryCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the queryText property value. The queryText property
+     * Sets the queryText property value. Contents of the query.
      * @param string|null $value Value to set for the queryText property.
     */
     public function setQueryText(?string $value): void {

@@ -16,7 +16,7 @@ class MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetReque
     public ?MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new microsoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetReque
     }
 
     /**
-     * Instantiates a new microsoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters.
+     * Instantiates a new MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

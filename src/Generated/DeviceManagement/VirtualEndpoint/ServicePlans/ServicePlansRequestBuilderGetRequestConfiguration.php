@@ -16,7 +16,7 @@ class ServicePlansRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?ServicePlansRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new servicePlansRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ServicePlansRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ServicePlansRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ServicePlansRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new servicePlansRequestBuilderGetQueryParameters.
+     * Instantiates a new ServicePlansRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

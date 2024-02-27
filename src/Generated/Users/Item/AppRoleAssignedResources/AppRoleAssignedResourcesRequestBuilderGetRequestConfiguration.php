@@ -16,7 +16,7 @@ class AppRoleAssignedResourcesRequestBuilderGetRequestConfiguration extends Base
     public ?AppRoleAssignedResourcesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new appRoleAssignedResourcesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AppRoleAssignedResourcesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AppRoleAssignedResourcesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AppRoleAssignedResourcesRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new appRoleAssignedResourcesRequestBuilderGetQueryParameters.
+     * Instantiates a new AppRoleAssignedResourcesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

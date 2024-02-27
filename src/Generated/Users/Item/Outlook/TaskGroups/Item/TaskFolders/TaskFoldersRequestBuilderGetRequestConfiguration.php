@@ -16,7 +16,7 @@ class TaskFoldersRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?TaskFoldersRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new taskFoldersRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TaskFoldersRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TaskFoldersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TaskFoldersRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new taskFoldersRequestBuilderGetQueryParameters.
+     * Instantiates a new TaskFoldersRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class DayNote extends ChangeTrackedEntity implements Parsable 
 {
     /**
-     * Instantiates a new dayNote and sets the default values.
+     * Instantiates a new DayNote and sets the default values.
     */
     public function __construct() {
         parent::__construct();

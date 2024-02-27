@@ -16,7 +16,7 @@ class ResponsepayloadRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?ResponsepayloadRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new responsepayloadRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ResponsepayloadRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ResponsepayloadRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ResponsepayloadRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new responsepayloadRequestBuilderGetQueryParameters.
+     * Instantiates a new ResponsepayloadRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ResponsepayloadRequestBuilderGetQueryParameters

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImpactedMailboxAsset extends ImpactedAsset implements Parsable 
 {
     /**
-     * Instantiates a new impactedMailboxAsset and sets the default values.
+     * Instantiates a new ImpactedMailboxAsset and sets the default values.
     */
     public function __construct() {
         parent::__construct();

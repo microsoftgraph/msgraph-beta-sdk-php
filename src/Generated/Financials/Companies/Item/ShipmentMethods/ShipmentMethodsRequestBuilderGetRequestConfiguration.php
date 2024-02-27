@@ -16,7 +16,7 @@ class ShipmentMethodsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?ShipmentMethodsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new shipmentMethodsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ShipmentMethodsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ShipmentMethodsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ShipmentMethodsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new shipmentMethodsRequestBuilderGetQueryParameters.
+     * Instantiates a new ShipmentMethodsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

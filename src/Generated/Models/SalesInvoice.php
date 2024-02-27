@@ -21,7 +21,7 @@ class SalesInvoice implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new salesInvoice and sets the default values.
+     * Instantiates a new SalesInvoice and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

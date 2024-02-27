@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OperationApprovalPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new operationApprovalPolicy and sets the default values.
+     * Instantiates a new OperationApprovalPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -86,12 +86,13 @@ class OperationApprovalPolicy extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'policyPlatform' => fn(ParseNode $n) => $o->setPolicyPlatform($n->getEnumValue(OperationApprovalPolicyPlatform::class)),
+            'policySet' => fn(ParseNode $n) => $o->setPolicySet($n->getObjectValue([OperationApprovalPolicySet::class, 'createFromDiscriminatorValue'])),
             'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(OperationApprovalPolicyType::class)),
         ]);
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Indicates the last DateTime that the policy was modified. The value cannot be modified and is automatically populated whenever values in the request are updated. For example, when the 'policyType' property changes from apps to scripts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. This property is read-only.
+     * Gets the lastModifiedDateTime property value. Indicates the last DateTime that the policy was modified. The value cannot be modified and is automatically populated whenever values in the request are updated. For example, when the 'policyType' property changes from `apps` to `scripts`. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. This property is read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -112,6 +113,18 @@ class OperationApprovalPolicy extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'policyPlatform'");
+    }
+
+    /**
+     * Gets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in user. This property is required, and is defined by the user in order to correctly show the expected experience.
+     * @return OperationApprovalPolicySet|null
+    */
+    public function getPolicySet(): ?OperationApprovalPolicySet {
+        $val = $this->getBackingStore()->get('policySet');
+        if (is_null($val) || $val instanceof OperationApprovalPolicySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policySet'");
     }
 
     /**
@@ -136,6 +149,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('policyPlatform', $this->getPolicyPlatform());
+        $writer->writeObjectValue('policySet', $this->getPolicySet());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
     }
 
@@ -164,7 +178,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Indicates the last DateTime that the policy was modified. The value cannot be modified and is automatically populated whenever values in the request are updated. For example, when the 'policyType' property changes from apps to scripts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. This property is read-only.
+     * Sets the lastModifiedDateTime property value. Indicates the last DateTime that the policy was modified. The value cannot be modified and is automatically populated whenever values in the request are updated. For example, when the 'policyType' property changes from `apps` to `scripts`. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. This property is read-only.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -177,6 +191,14 @@ class OperationApprovalPolicy extends Entity implements Parsable
     */
     public function setPolicyPlatform(?OperationApprovalPolicyPlatform $value): void {
         $this->getBackingStore()->set('policyPlatform', $value);
+    }
+
+    /**
+     * Sets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in user. This property is required, and is defined by the user in order to correctly show the expected experience.
+     * @param OperationApprovalPolicySet|null $value Value to set for the policySet property.
+    */
+    public function setPolicySet(?OperationApprovalPolicySet $value): void {
+        $this->getBackingStore()->set('policySet', $value);
     }
 
     /**

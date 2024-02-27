@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class User extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new user and sets the default values.
+     * Instantiates a new User and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -316,6 +316,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'city'");
+    }
+
+    /**
+     * Gets the cloudClipboard property value. The cloudClipboard property
+     * @return CloudClipboardRoot|null
+    */
+    public function getCloudClipboard(): ?CloudClipboardRoot {
+        $val = $this->getBackingStore()->get('cloudClipboard');
+        if (is_null($val) || $val instanceof CloudClipboardRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudClipboard'");
     }
 
     /**
@@ -774,6 +786,7 @@ class User extends DirectoryObject implements Parsable
             'calendarView' => fn(ParseNode $n) => $o->setCalendarView($n->getCollectionOfObjectValues([Event::class, 'createFromDiscriminatorValue'])),
             'chats' => fn(ParseNode $n) => $o->setChats($n->getCollectionOfObjectValues([Chat::class, 'createFromDiscriminatorValue'])),
             'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
+            'cloudClipboard' => fn(ParseNode $n) => $o->setCloudClipboard($n->getObjectValue([CloudClipboardRoot::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'cloudRealtimeCommunicationInfo' => fn(ParseNode $n) => $o->setCloudRealtimeCommunicationInfo($n->getObjectValue([CloudRealtimeCommunicationInfo::class, 'createFromDiscriminatorValue'])),
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
@@ -1009,7 +1022,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
+     * Gets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value.  Supports $filter (eq) with limitations.
      * @return array<ObjectIdentity>|null
     */
     public function getIdentities(): ?array {
@@ -2244,6 +2257,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('calendarView', $this->getCalendarView());
         $writer->writeCollectionOfObjectValues('chats', $this->getChats());
         $writer->writeStringValue('city', $this->getCity());
+        $writer->writeObjectValue('cloudClipboard', $this->getCloudClipboard());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('cloudRealtimeCommunicationInfo', $this->getCloudRealtimeCommunicationInfo());
         $writer->writeStringValue('companyName', $this->getCompanyName());
@@ -2553,6 +2567,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the cloudClipboard property value. The cloudClipboard property
+     * @param CloudClipboardRoot|null $value Value to set for the cloudClipboard property.
+    */
+    public function setCloudClipboard(?CloudClipboardRoot $value): void {
+        $this->getBackingStore()->set('cloudClipboard', $value);
+    }
+
+    /**
      * Sets the cloudPCs property value. The cloudPCs property
      * @param array<CloudPC>|null $value Value to set for the cloudPCs property.
     */
@@ -2841,7 +2863,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.
+     * Sets the identities property value. Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value.  Supports $filter (eq) with limitations.
      * @param array<ObjectIdentity>|null $value Value to set for the identities property.
     */
     public function setIdentities(?array $value): void {

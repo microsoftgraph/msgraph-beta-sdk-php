@@ -16,7 +16,7 @@ class UrlThreatsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?UrlThreatsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new urlThreatsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UrlThreatsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UrlThreatsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UrlThreatsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new urlThreatsRequestBuilderGetQueryParameters.
+     * Instantiates a new UrlThreatsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

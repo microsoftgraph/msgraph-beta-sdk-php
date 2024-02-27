@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthorityTemplate extends FilePlanDescriptorTemplate implements Parsable 
 {
     /**
-     * Instantiates a new authorityTemplate and sets the default values.
+     * Instantiates a new AuthorityTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerPlanConfigurationLocalization extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new plannerPlanConfigurationLocalization and sets the default values.
+     * Instantiates a new PlannerPlanConfigurationLocalization and sets the default values.
     */
     public function __construct() {
         parent::__construct();

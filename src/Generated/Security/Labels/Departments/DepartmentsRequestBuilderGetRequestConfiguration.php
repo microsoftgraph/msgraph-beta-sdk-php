@@ -16,7 +16,7 @@ class DepartmentsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?DepartmentsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new departmentsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DepartmentsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DepartmentsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DepartmentsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new departmentsRequestBuilderGetQueryParameters.
+     * Instantiates a new DepartmentsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

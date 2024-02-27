@@ -16,7 +16,7 @@ class ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration extends
     public ?ManagedDeviceComplianceTrendsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagedDeviceComplianceTrendsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration extends
     }
 
     /**
-     * Instantiates a new managedDeviceComplianceTrendsRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagedDeviceComplianceTrendsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

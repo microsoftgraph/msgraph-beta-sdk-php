@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RoleScopeTagAutoAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new roleScopeTagAutoAssignmentCollectionResponse and sets the default values.
+     * Instantiates a new RoleScopeTagAutoAssignmentCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

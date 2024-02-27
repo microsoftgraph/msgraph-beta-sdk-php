@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BulkUpload extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new bulkUpload and sets the default values.
+     * Instantiates a new BulkUpload and sets the default values.
     */
     public function __construct() {
         parent::__construct();

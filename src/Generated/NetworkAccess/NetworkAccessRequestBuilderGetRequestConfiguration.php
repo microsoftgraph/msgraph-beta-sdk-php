@@ -16,7 +16,7 @@ class NetworkAccessRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?NetworkAccessRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new networkAccessRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new NetworkAccessRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param NetworkAccessRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class NetworkAccessRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new networkAccessRequestBuilderGetQueryParameters.
+     * Instantiates a new NetworkAccessRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return NetworkAccessRequestBuilderGetQueryParameters

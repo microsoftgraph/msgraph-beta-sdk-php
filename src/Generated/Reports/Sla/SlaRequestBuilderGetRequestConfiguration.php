@@ -16,7 +16,7 @@ class SlaRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?SlaRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new slaRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SlaRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SlaRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SlaRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new slaRequestBuilderGetQueryParameters.
+     * Instantiates a new SlaRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return SlaRequestBuilderGetQueryParameters

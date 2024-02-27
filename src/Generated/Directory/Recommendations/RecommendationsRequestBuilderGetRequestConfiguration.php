@@ -16,7 +16,7 @@ class RecommendationsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?RecommendationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new recommendationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RecommendationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RecommendationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RecommendationsRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new recommendationsRequestBuilderGetQueryParameters.
+     * Instantiates a new RecommendationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -18,7 +18,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new channelModerationSettings and sets the default values.
+     * Instantiates a new ChannelModerationSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

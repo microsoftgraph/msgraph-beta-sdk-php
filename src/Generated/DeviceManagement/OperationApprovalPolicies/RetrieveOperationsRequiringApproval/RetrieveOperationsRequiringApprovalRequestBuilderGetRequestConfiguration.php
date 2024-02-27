@@ -16,7 +16,7 @@ class RetrieveOperationsRequiringApprovalRequestBuilderGetRequestConfiguration e
     public ?RetrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new retrieveOperationsRequiringApprovalRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RetrieveOperationsRequiringApprovalRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RetrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RetrieveOperationsRequiringApprovalRequestBuilderGetRequestConfiguration e
     }
 
     /**
-     * Instantiates a new retrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters.
+     * Instantiates a new RetrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

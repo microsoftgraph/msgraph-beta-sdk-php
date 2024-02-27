@@ -16,7 +16,7 @@ class MessageTracesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?MessageTracesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new messageTracesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MessageTracesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MessageTracesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MessageTracesRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new messageTracesRequestBuilderGetQueryParameters.
+     * Instantiates a new MessageTracesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

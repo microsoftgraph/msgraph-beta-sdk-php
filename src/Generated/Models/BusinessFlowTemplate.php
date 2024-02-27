@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessFlowTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new businessFlowTemplate and sets the default values.
+     * Instantiates a new BusinessFlowTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class DeviceImagesRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?DeviceImagesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deviceImagesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DeviceImagesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DeviceImagesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DeviceImagesRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new deviceImagesRequestBuilderGetQueryParameters.
+     * Instantiates a new DeviceImagesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

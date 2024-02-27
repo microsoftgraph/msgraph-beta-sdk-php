@@ -30,7 +30,7 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security/auditLog/queries/{auditLogQuery%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/security/auditLog/queries/{auditLogQuery%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -47,23 +47,22 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
     public function delete(?AuditLogQueryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
 
     /**
-     * Get queries from security
+     * Read the properties and relationships of an auditLogQuery object.
      * @param AuditLogQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditLogQuery|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-auditlogquery-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuditLogQueryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [AuditLogQuery::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -78,8 +77,7 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
     public function patch(AuditLogQuery $body, ?AuditLogQueryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [AuditLogQuery::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -91,7 +89,7 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AuditLogQueryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security/auditLog/queries/{auditLogQuery%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -103,7 +101,7 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get queries from security
+     * Read the properties and relationships of an auditLogQuery object.
      * @param AuditLogQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +129,7 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AuditLogQuery $body, ?AuditLogQueryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security/auditLog/queries/{auditLogQuery%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

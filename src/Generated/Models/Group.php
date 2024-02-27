@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Group extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new group and sets the default values.
+     * Instantiates a new Group and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -587,7 +587,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mail property value. The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the mail property value. The SMTP address for the group, for example, 'serviceadmins@contoso.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @return string|null
     */
     public function getMail(): ?string {
@@ -1533,7 +1533,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mail property value. The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the mail property value. The SMTP address for the group, for example, 'serviceadmins@contoso.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @param string|null $value Value to set for the mail property.
     */
     public function setMail(?string $value): void {

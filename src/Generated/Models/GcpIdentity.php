@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GcpIdentity extends AuthorizationSystemIdentity implements Parsable 
 {
     /**
-     * Instantiates a new gcpIdentity and sets the default values.
+     * Instantiates a new GcpIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

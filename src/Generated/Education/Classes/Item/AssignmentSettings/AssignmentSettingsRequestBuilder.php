@@ -4,7 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettin
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettings\DefaultGradingScheme\DefaultGradingSchemeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettings\GradingCategories\GradingCategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettings\GradingSchemes\GradingSchemesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentSettings;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -18,10 +20,24 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class AssignmentSettingsRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to manage the defaultGradingScheme property of the microsoft.graph.educationAssignmentSettings entity.
+    */
+    public function defaultGradingScheme(): DefaultGradingSchemeRequestBuilder {
+        return new DefaultGradingSchemeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the gradingCategories property of the microsoft.graph.educationAssignmentSettings entity.
     */
     public function gradingCategories(): GradingCategoriesRequestBuilder {
         return new GradingCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the gradingSchemes property of the microsoft.graph.educationAssignmentSettings entity.
+    */
+    public function gradingSchemes(): GradingSchemesRequestBuilder {
+        return new GradingSchemesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -30,7 +46,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -47,8 +63,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     public function delete(?AssignmentSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -63,8 +78,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     public function get(?AssignmentSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [EducationAssignmentSettings::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -80,8 +94,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     public function patch(EducationAssignmentSettings $body, ?AssignmentSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [EducationAssignmentSettings::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -93,7 +106,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AssignmentSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -133,7 +146,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(EducationAssignmentSettings $body, ?AssignmentSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

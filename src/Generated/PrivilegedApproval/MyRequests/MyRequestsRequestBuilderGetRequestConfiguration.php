@@ -16,7 +16,7 @@ class MyRequestsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?MyRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new myRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MyRequestsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MyRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,8 +27,9 @@ class MyRequestsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new myRequestsRequestBuilderGetQueryParameters.
+     * Instantiates a new MyRequestsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -37,8 +38,8 @@ class MyRequestsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
      * @param int|null $top Show only the first n items
      * @return MyRequestsRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): MyRequestsRequestBuilderGetQueryParameters {
-        return new MyRequestsRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): MyRequestsRequestBuilderGetQueryParameters {
+        return new MyRequestsRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
     }
 
 }

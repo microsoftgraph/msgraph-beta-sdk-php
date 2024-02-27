@@ -16,7 +16,7 @@ class ElevationRequestsRequestBuilderGetRequestConfiguration extends BaseRequest
     public ?ElevationRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new elevationRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ElevationRequestsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ElevationRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ElevationRequestsRequestBuilderGetRequestConfiguration extends BaseRequest
     }
 
     /**
-     * Instantiates a new elevationRequestsRequestBuilderGetQueryParameters.
+     * Instantiates a new ElevationRequestsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

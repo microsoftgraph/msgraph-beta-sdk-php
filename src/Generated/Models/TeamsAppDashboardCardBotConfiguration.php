@@ -18,7 +18,7 @@ class TeamsAppDashboardCardBotConfiguration implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamsAppDashboardCardBotConfiguration and sets the default values.
+     * Instantiates a new TeamsAppDashboardCardBotConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -56,7 +56,7 @@ class TeamsAppDashboardCardBotConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the botId property value. The botId property
+     * Gets the botId property value. The ID (usually a GUID) of the bot associated with the specific teamsAppDefinition. This is a unique app ID for the bot as registered with the Bot Framework.
      * @return string|null
     */
     public function getBotId(): ?string {
@@ -118,7 +118,7 @@ class TeamsAppDashboardCardBotConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the botId property value. The botId property
+     * Sets the botId property value. The ID (usually a GUID) of the bot associated with the specific teamsAppDefinition. This is a unique app ID for the bot as registered with the Bot Framework.
      * @param string|null $value Value to set for the botId property.
     */
     public function setBotId(?string $value): void {

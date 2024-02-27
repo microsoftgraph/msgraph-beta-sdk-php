@@ -19,7 +19,7 @@ class AwsStatement implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new awsStatement and sets the default values.
+     * Instantiates a new AwsStatement and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

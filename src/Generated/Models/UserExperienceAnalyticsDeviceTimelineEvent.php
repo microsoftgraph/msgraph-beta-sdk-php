@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceTimelineEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceTimelineEvent and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceTimelineEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

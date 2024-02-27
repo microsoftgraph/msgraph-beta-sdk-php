@@ -7,7 +7,9 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoomList;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Rooms\RoomsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\RoomsWithPlaceId\RoomsWithPlaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Workspaces\WorkspacesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\WorkspacesWithPlaceId\WorkspacesWithPlaceIdRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -38,7 +40,7 @@ class GraphRoomListRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/places/{place%2Did}/graph.roomList{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/places/{place%2Did}/graph.roomList{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -55,10 +57,18 @@ class GraphRoomListRequestBuilder extends BaseRequestBuilder
     public function get(?GraphRoomListRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [RoomList::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
+     * @param string $placeId Alternate key of room
+     * @return RoomsWithPlaceIdRequestBuilder
+    */
+    public function roomsWithPlaceId(string $placeId): RoomsWithPlaceIdRequestBuilder {
+        return new RoomsWithPlaceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $placeId);
     }
 
     /**
@@ -89,6 +99,15 @@ class GraphRoomListRequestBuilder extends BaseRequestBuilder
     */
     public function withUrl(string $rawUrl): GraphRoomListRequestBuilder {
         return new GraphRoomListRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.
+     * @param string $placeId Alternate key of workspace
+     * @return WorkspacesWithPlaceIdRequestBuilder
+    */
+    public function workspacesWithPlaceId(string $placeId): WorkspacesWithPlaceIdRequestBuilder {
+        return new WorkspacesWithPlaceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $placeId);
     }
 
 }

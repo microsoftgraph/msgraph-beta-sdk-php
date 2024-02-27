@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BusinessScenarioTaskCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new businessScenarioTaskCollectionResponse and sets the default values.
+     * Instantiates a new BusinessScenarioTaskCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

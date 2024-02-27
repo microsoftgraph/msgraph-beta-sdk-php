@@ -21,7 +21,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Pars
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidPermissionAction and sets the default values.
+     * Instantiates a new AndroidPermissionAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

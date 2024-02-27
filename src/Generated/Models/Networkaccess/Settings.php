@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Settings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new settings and sets the default values.
+     * Instantiates a new Settings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

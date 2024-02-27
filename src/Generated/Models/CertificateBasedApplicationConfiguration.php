@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CertificateBasedApplicationConfiguration extends TrustedCertificateAuthorityAsEntityBase implements Parsable 
 {
     /**
-     * Instantiates a new certificateBasedApplicationConfiguration and sets the default values.
+     * Instantiates a new CertificateBasedApplicationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

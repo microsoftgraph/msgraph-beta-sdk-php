@@ -16,7 +16,7 @@ class DescriptorsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?DescriptorsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new descriptorsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DescriptorsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DescriptorsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DescriptorsRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new descriptorsRequestBuilderGetQueryParameters.
+     * Instantiates a new DescriptorsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DescriptorsRequestBuilderGetQueryParameters

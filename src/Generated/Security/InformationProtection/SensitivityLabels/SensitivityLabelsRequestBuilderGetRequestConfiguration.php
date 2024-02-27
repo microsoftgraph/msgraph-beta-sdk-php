@@ -16,7 +16,7 @@ class SensitivityLabelsRequestBuilderGetRequestConfiguration extends BaseRequest
     public ?SensitivityLabelsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new sensitivityLabelsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SensitivityLabelsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SensitivityLabelsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SensitivityLabelsRequestBuilderGetRequestConfiguration extends BaseRequest
     }
 
     /**
-     * Instantiates a new sensitivityLabelsRequestBuilderGetQueryParameters.
+     * Instantiates a new SensitivityLabelsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

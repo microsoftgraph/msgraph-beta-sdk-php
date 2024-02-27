@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new macOSRedirectSingleSignOnExtension and sets the default values.
+     * Instantiates a new MacOSRedirectSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

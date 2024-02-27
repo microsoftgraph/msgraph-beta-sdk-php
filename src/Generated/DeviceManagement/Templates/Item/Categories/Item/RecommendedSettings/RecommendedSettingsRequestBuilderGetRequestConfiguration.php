@@ -16,7 +16,7 @@ class RecommendedSettingsRequestBuilderGetRequestConfiguration extends BaseReque
     public ?RecommendedSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new recommendedSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RecommendedSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RecommendedSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RecommendedSettingsRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new recommendedSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new RecommendedSettingsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

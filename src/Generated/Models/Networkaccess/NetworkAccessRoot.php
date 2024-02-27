@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class NetworkAccessRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new networkAccessRoot and sets the default values.
+     * Instantiates a new NetworkAccessRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -24,6 +24,20 @@ class NetworkAccessRoot extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): NetworkAccessRoot {
         return new NetworkAccessRoot();
+    }
+
+    /**
+     * Gets the alerts property value. The alerts property
+     * @return array<Alert>|null
+    */
+    public function getAlerts(): ?array {
+        $val = $this->getBackingStore()->get('alerts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Alert::class);
+            /** @var array<Alert>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alerts'");
     }
 
     /**
@@ -45,6 +59,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'alerts' => fn(ParseNode $n) => $o->setAlerts($n->getCollectionOfObjectValues([Alert::class, 'createFromDiscriminatorValue'])),
             'connectivity' => fn(ParseNode $n) => $o->setConnectivity($n->getObjectValue([Connectivity::class, 'createFromDiscriminatorValue'])),
             'filteringPolicies' => fn(ParseNode $n) => $o->setFilteringPolicies($n->getCollectionOfObjectValues([FilteringPolicy::class, 'createFromDiscriminatorValue'])),
             'filteringProfiles' => fn(ParseNode $n) => $o->setFilteringProfiles($n->getCollectionOfObjectValues([FilteringProfile::class, 'createFromDiscriminatorValue'])),
@@ -167,6 +182,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('alerts', $this->getAlerts());
         $writer->writeObjectValue('connectivity', $this->getConnectivity());
         $writer->writeCollectionOfObjectValues('filteringPolicies', $this->getFilteringPolicies());
         $writer->writeCollectionOfObjectValues('filteringProfiles', $this->getFilteringProfiles());
@@ -176,6 +192,14 @@ class NetworkAccessRoot extends Entity implements Parsable
         $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('tenantStatus', $this->getTenantStatus());
+    }
+
+    /**
+     * Sets the alerts property value. The alerts property
+     * @param array<Alert>|null $value Value to set for the alerts property.
+    */
+    public function setAlerts(?array $value): void {
+        $this->getBackingStore()->set('alerts', $value);
     }
 
     /**

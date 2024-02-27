@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProviderTenantSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new providerTenantSetting and sets the default values.
+     * Instantiates a new ProviderTenantSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();

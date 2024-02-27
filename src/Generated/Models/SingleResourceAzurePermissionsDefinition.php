@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SingleResourceAzurePermissionsDefinition extends PermissionsDefinition implements Parsable 
 {
     /**
-     * Instantiates a new singleResourceAzurePermissionsDefinition and sets the default values.
+     * Instantiates a new SingleResourceAzurePermissionsDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

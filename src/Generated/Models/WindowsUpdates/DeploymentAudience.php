@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeploymentAudience extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deploymentAudience and sets the default values.
+     * Instantiates a new DeploymentAudience and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class DeploymentAudience extends Entity implements Parsable
     }
 
     /**
-     * Gets the applicableContent property value. Content eligible to deploy to devices in the audience. Not nullable. Read-only.
+     * Gets the applicableContent property value. The applicableContent property
      * @return array<ApplicableContent>|null
     */
     public function getApplicableContent(): ?array {
@@ -93,7 +93,7 @@ class DeploymentAudience extends Entity implements Parsable
     }
 
     /**
-     * Sets the applicableContent property value. Content eligible to deploy to devices in the audience. Not nullable. Read-only.
+     * Sets the applicableContent property value. The applicableContent property
      * @param array<ApplicableContent>|null $value Value to set for the applicableContent property.
     */
     public function setApplicableContent(?array $value): void {

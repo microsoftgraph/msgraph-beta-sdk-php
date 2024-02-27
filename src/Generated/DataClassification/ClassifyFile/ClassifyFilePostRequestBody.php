@@ -20,7 +20,7 @@ class ClassifyFilePostRequestBody implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new classifyFilePostRequestBody and sets the default values.
+     * Instantiates a new ClassifyFilePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -16,7 +16,7 @@ class SensitivityPolicySettingsRequestBuilderGetRequestConfiguration extends Bas
     public ?SensitivityPolicySettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new sensitivityPolicySettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SensitivityPolicySettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SensitivityPolicySettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SensitivityPolicySettingsRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new sensitivityPolicySettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new SensitivityPolicySettingsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return SensitivityPolicySettingsRequestBuilderGetQueryParameters

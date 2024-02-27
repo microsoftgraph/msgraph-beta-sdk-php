@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureServicePrincipal extends AzureIdentity implements Parsable 
 {
     /**
-     * Instantiates a new azureServicePrincipal and sets the default values.
+     * Instantiates a new AzureServicePrincipal and sets the default values.
     */
     public function __construct() {
         parent::__construct();

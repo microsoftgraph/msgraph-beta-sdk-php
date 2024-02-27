@@ -16,7 +16,7 @@ class ProgramRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     public ?ProgramRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new programRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ProgramRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ProgramRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ProgramRequestBuilderGetRequestConfiguration extends BaseRequestConfigurat
     }
 
     /**
-     * Instantiates a new programRequestBuilderGetQueryParameters.
+     * Instantiates a new ProgramRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ProgramRequestBuilderGetQueryParameters

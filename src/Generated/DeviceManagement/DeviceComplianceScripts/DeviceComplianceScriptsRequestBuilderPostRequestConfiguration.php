@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class DeviceComplianceScriptsRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new deviceComplianceScriptsRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new DeviceComplianceScriptsRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

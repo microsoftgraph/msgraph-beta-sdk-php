@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RunGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new runGetResponse and sets the default values.
+     * Instantiates a new RunGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

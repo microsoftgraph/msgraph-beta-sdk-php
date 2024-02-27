@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImpactedDeviceAsset extends ImpactedAsset implements Parsable 
 {
     /**
-     * Instantiates a new impactedDeviceAsset and sets the default values.
+     * Instantiates a new ImpactedDeviceAsset and sets the default values.
     */
     public function __construct() {
         parent::__construct();

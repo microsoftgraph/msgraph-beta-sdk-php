@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Parsable 
 {
     /**
-     * Instantiates a new featureUpdateCatalogEntry and sets the default values.
+     * Instantiates a new FeatureUpdateCatalogEntry and sets the default values.
     */
     public function __construct() {
         parent::__construct();

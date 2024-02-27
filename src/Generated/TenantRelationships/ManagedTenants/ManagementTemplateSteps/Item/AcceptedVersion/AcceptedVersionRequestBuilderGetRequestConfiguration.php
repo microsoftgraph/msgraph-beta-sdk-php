@@ -16,7 +16,7 @@ class AcceptedVersionRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?AcceptedVersionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new acceptedVersionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AcceptedVersionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AcceptedVersionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AcceptedVersionRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new acceptedVersionRequestBuilderGetQueryParameters.
+     * Instantiates a new AcceptedVersionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AcceptedVersionRequestBuilderGetQueryParameters

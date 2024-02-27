@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SourceSystemDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new sourceSystemDefinition and sets the default values.
+     * Instantiates a new SourceSystemDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

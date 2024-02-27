@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new macOSWiFiConfiguration and sets the default values.
+     * Instantiates a new MacOSWiFiConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

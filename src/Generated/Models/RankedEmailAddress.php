@@ -18,7 +18,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new rankedEmailAddress and sets the default values.
+     * Instantiates a new RankedEmailAddress and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

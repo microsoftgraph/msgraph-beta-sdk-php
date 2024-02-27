@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingGroupCollectionInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationSettingGroupCollectionInstance and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationSettingGroupCollectionInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

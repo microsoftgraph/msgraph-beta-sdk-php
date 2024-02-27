@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnAttributeCollectionExternalUsersSelfServiceSignUp extends OnAttributeCollectionHandler implements Parsable 
 {
     /**
-     * Instantiates a new onAttributeCollectionExternalUsersSelfServiceSignUp and sets the default values.
+     * Instantiates a new OnAttributeCollectionExternalUsersSelfServiceSignUp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceComplianceTrend extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedDeviceComplianceTrend and sets the default values.
+     * Instantiates a new ManagedDeviceComplianceTrend and sets the default values.
     */
     public function __construct() {
         parent::__construct();

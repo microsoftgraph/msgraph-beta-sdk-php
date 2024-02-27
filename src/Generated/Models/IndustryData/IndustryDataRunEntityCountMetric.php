@@ -18,7 +18,7 @@ class IndustryDataRunEntityCountMetric implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new industryDataRunEntityCountMetric and sets the default values.
+     * Instantiates a new IndustryDataRunEntityCountMetric and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

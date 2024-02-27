@@ -16,7 +16,7 @@ class EducationalActivitiesRequestBuilderGetRequestConfiguration extends BaseReq
     public ?EducationalActivitiesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new educationalActivitiesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new EducationalActivitiesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param EducationalActivitiesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class EducationalActivitiesRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new educationalActivitiesRequestBuilderGetQueryParameters.
+     * Instantiates a new EducationalActivitiesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -16,7 +16,7 @@ class TenantTagsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?TenantTagsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new tenantTagsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TenantTagsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TenantTagsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TenantTagsRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new tenantTagsRequestBuilderGetQueryParameters.
+     * Instantiates a new TenantTagsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

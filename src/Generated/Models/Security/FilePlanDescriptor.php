@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilePlanDescriptor extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new filePlanDescriptor and sets the default values.
+     * Instantiates a new FilePlanDescriptor and sets the default values.
     */
     public function __construct() {
         parent::__construct();

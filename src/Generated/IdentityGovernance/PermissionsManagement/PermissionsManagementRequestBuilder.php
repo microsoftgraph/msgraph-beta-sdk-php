@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagemen
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges\PermissionsRequestChangesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\ScheduledPermissionsApprovals\ScheduledPermissionsApprovalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\ScheduledPermissionsRequests\ScheduledPermissionsRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PermissionsManagement;
@@ -26,6 +27,13 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the scheduledPermissionsApprovals property of the microsoft.graph.permissionsManagement entity.
+    */
+    public function scheduledPermissionsApprovals(): ScheduledPermissionsApprovalsRequestBuilder {
+        return new ScheduledPermissionsApprovalsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the scheduledPermissionsRequests property of the microsoft.graph.permissionsManagement entity.
     */
     public function scheduledPermissionsRequests(): ScheduledPermissionsRequestsRequestBuilder {
@@ -38,7 +46,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/permissionsManagement{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/permissionsManagement{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -55,8 +63,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     public function delete(?PermissionsManagementRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -70,8 +77,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     public function get(?PermissionsManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [PermissionsManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -86,8 +92,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     public function patch(PermissionsManagement $body, ?PermissionsManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [PermissionsManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -99,7 +104,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PermissionsManagementRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsManagement';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +144,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PermissionsManagement $body, ?PermissionsManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsManagement';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

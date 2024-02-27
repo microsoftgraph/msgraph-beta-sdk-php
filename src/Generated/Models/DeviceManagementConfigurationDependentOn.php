@@ -18,7 +18,7 @@ class DeviceManagementConfigurationDependentOn implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementConfigurationDependentOn and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationDependentOn and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

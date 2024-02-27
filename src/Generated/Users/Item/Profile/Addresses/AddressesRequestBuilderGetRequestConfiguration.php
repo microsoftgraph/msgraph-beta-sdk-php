@@ -16,7 +16,7 @@ class AddressesRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     public ?AddressesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new addressesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AddressesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AddressesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AddressesRequestBuilderGetRequestConfiguration extends BaseRequestConfigur
     }
 
     /**
-     * Instantiates a new addressesRequestBuilderGetQueryParameters.
+     * Instantiates a new AddressesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

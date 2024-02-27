@@ -6,7 +6,6 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventPresenter;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Presenters\Item\ProfilePhoto\ProfilePhotoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Presenters\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Presenters\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -20,13 +19,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the media for the solutionsRoot entity.
-    */
-    public function profilePhoto(): ProfilePhotoRequestBuilder {
-        return new ProfilePhotoRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the sessions property of the microsoft.graph.virtualEventPresenter entity.
     */
     public function sessions(): SessionsRequestBuilder {
@@ -39,7 +31,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}/presenters/{virtualEventPresenter%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}/presenters/{virtualEventPresenter%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,8 +48,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     public function delete(?VirtualEventPresenterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -71,8 +62,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     public function get(?VirtualEventPresenterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventPresenter::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -87,8 +77,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     public function patch(VirtualEventPresenter $body, ?VirtualEventPresenterItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventPresenter::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -109,7 +98,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?VirtualEventPresenterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}/presenters/{virtualEventPresenter%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -149,7 +138,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(VirtualEventPresenter $body, ?VirtualEventPresenterItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}/presenters/{virtualEventPresenter%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

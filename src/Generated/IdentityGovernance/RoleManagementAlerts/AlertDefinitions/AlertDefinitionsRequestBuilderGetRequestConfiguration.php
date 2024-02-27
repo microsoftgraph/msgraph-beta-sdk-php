@@ -16,7 +16,7 @@ class AlertDefinitionsRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?AlertDefinitionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new alertDefinitionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AlertDefinitionsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AlertDefinitionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AlertDefinitionsRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new alertDefinitionsRequestBuilderGetQueryParameters.
+     * Instantiates a new AlertDefinitionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

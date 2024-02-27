@@ -21,7 +21,7 @@ class Windows10XCustomSubjectAlternativeName implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windows10XCustomSubjectAlternativeName and sets the default values.
+     * Instantiates a new Windows10XCustomSubjectAlternativeName and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

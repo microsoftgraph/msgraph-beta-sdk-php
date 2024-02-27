@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new windows10XTrustedRootCertificate and sets the default values.
+     * Instantiates a new Windows10XTrustedRootCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

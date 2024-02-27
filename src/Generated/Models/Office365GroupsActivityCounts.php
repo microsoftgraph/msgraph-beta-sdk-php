@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365GroupsActivityCounts extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new office365GroupsActivityCounts and sets the default values.
+     * Instantiates a new Office365GroupsActivityCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();

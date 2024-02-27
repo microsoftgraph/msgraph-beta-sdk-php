@@ -16,7 +16,7 @@ class GraphSitePageRequestBuilderGetRequestConfiguration extends BaseRequestConf
     public ?GraphSitePageRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new graphSitePageRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GraphSitePageRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GraphSitePageRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GraphSitePageRequestBuilderGetRequestConfiguration extends BaseRequestConf
     }
 
     /**
-     * Instantiates a new graphSitePageRequestBuilderGetQueryParameters.
+     * Instantiates a new GraphSitePageRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return GraphSitePageRequestBuilderGetQueryParameters

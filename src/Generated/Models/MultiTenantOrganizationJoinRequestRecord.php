@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MultiTenantOrganizationJoinRequestRecord extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new multiTenantOrganizationJoinRequestRecord and sets the default values.
+     * Instantiates a new MultiTenantOrganizationJoinRequestRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();

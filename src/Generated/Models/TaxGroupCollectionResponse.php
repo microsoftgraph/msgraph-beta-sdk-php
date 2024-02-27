@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class TaxGroupCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new taxGroupCollectionResponse and sets the default values.
+     * Instantiates a new TaxGroupCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

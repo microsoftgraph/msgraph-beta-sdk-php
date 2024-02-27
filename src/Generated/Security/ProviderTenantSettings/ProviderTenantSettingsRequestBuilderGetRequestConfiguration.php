@@ -16,7 +16,7 @@ class ProviderTenantSettingsRequestBuilderGetRequestConfiguration extends BaseRe
     public ?ProviderTenantSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new providerTenantSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ProviderTenantSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ProviderTenantSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ProviderTenantSettingsRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new providerTenantSettingsRequestBuilderGetQueryParameters.
+     * Instantiates a new ProviderTenantSettingsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

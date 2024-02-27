@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 class OnlineMeeting extends OnlineMeetingBase implements Parsable 
 {
     /**
-     * Instantiates a new onlineMeeting and sets the default values.
+     * Instantiates a new OnlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -144,6 +144,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
             'isBroadcast' => fn(ParseNode $n) => $o->setIsBroadcast($n->getBooleanValue()),
             'joinUrl' => fn(ParseNode $n) => $o->setJoinUrl($n->getStringValue()),
             'meetingAttendanceReport' => fn(ParseNode $n) => $o->setMeetingAttendanceReport($n->getObjectValue([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
+            'meetingTemplateId' => fn(ParseNode $n) => $o->setMeetingTemplateId($n->getStringValue()),
             'participants' => fn(ParseNode $n) => $o->setParticipants($n->getObjectValue([MeetingParticipants::class, 'createFromDiscriminatorValue'])),
             'recording' => fn(ParseNode $n) => $o->setRecording($n->getBinaryContent()),
             'recordings' => fn(ParseNode $n) => $o->setRecordings($n->getCollectionOfObjectValues([CallRecording::class, 'createFromDiscriminatorValue'])),
@@ -187,6 +188,18 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingAttendanceReport'");
+    }
+
+    /**
+     * Gets the meetingTemplateId property value. The ID of the meeting template.
+     * @return string|null
+    */
+    public function getMeetingTemplateId(): ?string {
+        $val = $this->getBackingStore()->get('meetingTemplateId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingTemplateId'");
     }
 
     /**
@@ -282,6 +295,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
         $writer->writeBooleanValue('isBroadcast', $this->getIsBroadcast());
         $writer->writeStringValue('joinUrl', $this->getJoinUrl());
         $writer->writeObjectValue('meetingAttendanceReport', $this->getMeetingAttendanceReport());
+        $writer->writeStringValue('meetingTemplateId', $this->getMeetingTemplateId());
         $writer->writeObjectValue('participants', $this->getParticipants());
         $writer->writeBinaryContent('recording', $this->getRecording());
         $writer->writeCollectionOfObjectValues('recordings', $this->getRecordings());
@@ -376,6 +390,14 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     */
     public function setMeetingAttendanceReport(?MeetingAttendanceReport $value): void {
         $this->getBackingStore()->set('meetingAttendanceReport', $value);
+    }
+
+    /**
+     * Sets the meetingTemplateId property value. The ID of the meeting template.
+     * @param string|null $value Value to set for the meetingTemplateId property.
+    */
+    public function setMeetingTemplateId(?string $value): void {
+        $this->getBackingStore()->set('meetingTemplateId', $value);
     }
 
     /**

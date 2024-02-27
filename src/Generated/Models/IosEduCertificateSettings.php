@@ -22,7 +22,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new iosEduCertificateSettings and sets the default values.
+     * Instantiates a new IosEduCertificateSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Parsable 
 {
     /**
-     * Instantiates a new importedDeviceIdentityResult and sets the default values.
+     * Instantiates a new ImportedDeviceIdentityResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -82,6 +82,7 @@ use Microsoft\Graph\Beta\Generated\Organization\OrganizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PayloadResponse\PayloadResponseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\PlacesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\PlacesWithPlaceId\PlacesWithPlaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\PlannerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Privacy\PrivacyRequestBuilder;
@@ -980,6 +981,15 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function groupsWithUniqueName(string $uniqueName): GroupsWithUniqueNameRequestBuilder {
         return new GroupsWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
+    /**
+     * Provides operations to manage the collection of place entities.
+     * @param string $placeId Alternate key of place
+     * @return PlacesWithPlaceIdRequestBuilder
+    */
+    public function placesWithPlaceId(string $placeId): PlacesWithPlaceIdRequestBuilder {
+        return new PlacesWithPlaceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $placeId);
     }
 
     /**

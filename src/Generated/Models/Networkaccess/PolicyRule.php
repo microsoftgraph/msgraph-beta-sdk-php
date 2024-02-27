@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PolicyRule extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new policyRule and sets the default values.
+     * Instantiates a new PolicyRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

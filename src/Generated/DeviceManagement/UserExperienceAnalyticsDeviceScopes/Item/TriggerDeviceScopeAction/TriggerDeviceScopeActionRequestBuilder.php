@@ -40,8 +40,7 @@ class TriggerDeviceScopeActionRequestBuilder extends BaseRequestBuilder
     public function post(TriggerDeviceScopeActionPostRequestBody $body, ?TriggerDeviceScopeActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceScopeActionResult::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

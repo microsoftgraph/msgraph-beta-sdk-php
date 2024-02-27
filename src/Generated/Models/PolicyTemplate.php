@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PolicyTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new policyTemplate and sets the default values.
+     * Instantiates a new PolicyTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

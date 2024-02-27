@@ -19,7 +19,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new onPremisesApplicationSegment and sets the default values.
+     * Instantiates a new OnPremisesApplicationSegment and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
