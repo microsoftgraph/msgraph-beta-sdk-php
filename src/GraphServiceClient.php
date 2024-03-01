@@ -11,6 +11,7 @@ namespace Microsoft\Graph\Beta;
 use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 use Microsoft\Graph\Core\NationalCloud;
+use Microsoft\Kiota\Abstractions\Authentication\AuthenticationProvider;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Authentication\Oauth\ClientCredentialContext;
 use Microsoft\Kiota\Authentication\Oauth\TokenRequestContext;
@@ -65,6 +66,14 @@ class GraphServiceClient extends Generated\BaseGraphClient
         }
         $placeholder = new ClientCredentialContext('tenant', 'client', 'secret');
         return new GraphServiceClient($placeholder, [], 'placeholder', $requestAdapter);
+    }
+
+    public static function createWithAuthenticationProvider(
+        AuthenticationProvider $authenticationProvider,
+        string $nationalCloud = NationalCloud::GLOBAL
+    ): self
+    {
+        return GraphServiceClient::createWithRequestAdapter(new GraphRequestAdapter($authenticationProvider), $nationalCloud);
     }
 
     /**
