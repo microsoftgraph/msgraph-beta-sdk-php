@@ -16,7 +16,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration extends 
     public ?OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new onlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration extends 
     }
 
     /**
-     * Instantiates a new onlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters.
+     * Instantiates a new OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters

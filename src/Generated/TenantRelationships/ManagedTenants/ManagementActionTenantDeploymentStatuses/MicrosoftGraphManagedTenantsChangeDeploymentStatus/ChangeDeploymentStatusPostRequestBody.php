@@ -18,7 +18,7 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new changeDeploymentStatusPostRequestBody and sets the default values.
+     * Instantiates a new ChangeDeploymentStatusPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IosRedirectSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new iosRedirectSingleSignOnExtension and sets the default values.
+     * Instantiates a new IosRedirectSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MoveToDeletedItemsResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new moveToDeletedItemsResponseAction and sets the default values.
+     * Instantiates a new MoveToDeletedItemsResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

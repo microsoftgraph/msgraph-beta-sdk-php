@@ -19,7 +19,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcRemoteActionResult and sets the default values.
+     * Instantiates a new CloudPcRemoteActionResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppSupersedence extends MobileAppRelationship implements Parsable 
 {
     /**
-     * Instantiates a new mobileAppSupersedence and sets the default values.
+     * Instantiates a new MobileAppSupersedence and sets the default values.
     */
     public function __construct() {
         parent::__construct();

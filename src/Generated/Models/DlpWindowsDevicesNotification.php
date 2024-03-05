@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpWindowsDevicesNotification extends DlpNotification implements Parsable 
 {
     /**
-     * Instantiates a new dlpWindowsDevicesNotification and sets the default values.
+     * Instantiates a new DlpWindowsDevicesNotification and sets the default values.
     */
     public function __construct() {
         parent::__construct();

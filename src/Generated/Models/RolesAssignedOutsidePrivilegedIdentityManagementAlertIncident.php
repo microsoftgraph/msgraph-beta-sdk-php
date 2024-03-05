@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends UnifiedRoleManagementAlertIncident implements Parsable 
 {
     /**
-     * Instantiates a new rolesAssignedOutsidePrivilegedIdentityManagementAlertIncident and sets the default values.
+     * Instantiates a new RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();

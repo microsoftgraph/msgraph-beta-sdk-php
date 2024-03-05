@@ -19,7 +19,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new alertTemplate and sets the default values.
+     * Instantiates a new AlertTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -57,7 +57,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. Category assigned to the alert triggered by the custom detection rule.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -69,7 +69,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the alert triggered by the custom detection rule.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -106,7 +106,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the impactedAssets property value. The impactedAssets property
+     * Gets the impactedAssets property value. Which asset or assets were impacted based on the alert triggered by the custom detection rule.
      * @return array<ImpactedAsset>|null
     */
     public function getImpactedAssets(): ?array {
@@ -120,7 +120,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mitreTechniques property value. The mitreTechniques property
+     * Gets the mitreTechniques property value. MITRE technique assigned to the alert triggered by the custom detection rule.
      * @return array<string>|null
     */
     public function getMitreTechniques(): ?array {
@@ -146,7 +146,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the recommendedActions property value. The recommendedActions property
+     * Gets the recommendedActions property value. Recommended actions to mitigate the threat related to the alert triggered by the custom detection rule.
      * @return string|null
     */
     public function getRecommendedActions(): ?string {
@@ -170,7 +170,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Name of the alert triggered by the custom detection rule.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -214,7 +214,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. Category assigned to the alert triggered by the custom detection rule.
      * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
@@ -222,7 +222,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the alert triggered by the custom detection rule.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -230,7 +230,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the impactedAssets property value. The impactedAssets property
+     * Sets the impactedAssets property value. Which asset or assets were impacted based on the alert triggered by the custom detection rule.
      * @param array<ImpactedAsset>|null $value Value to set for the impactedAssets property.
     */
     public function setImpactedAssets(?array $value): void {
@@ -238,7 +238,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mitreTechniques property value. The mitreTechniques property
+     * Sets the mitreTechniques property value. MITRE technique assigned to the alert triggered by the custom detection rule.
      * @param array<string>|null $value Value to set for the mitreTechniques property.
     */
     public function setMitreTechniques(?array $value): void {
@@ -254,7 +254,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the recommendedActions property value. The recommendedActions property
+     * Sets the recommendedActions property value. Recommended actions to mitigate the threat related to the alert triggered by the custom detection rule.
      * @param string|null $value Value to set for the recommendedActions property.
     */
     public function setRecommendedActions(?string $value): void {
@@ -270,7 +270,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Name of the alert triggered by the custom detection rule.
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {

@@ -3,27 +3,17 @@
 namespace Microsoft\Graph\Beta\Generated\Models\CallRecords;
 
 use DateTime;
-use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Store\BackedModel;
-use Microsoft\Kiota\Abstractions\Store\BackingStore;
-use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable 
+class SmsLogRow extends CallLogRow implements Parsable 
 {
     /**
-     * @var BackingStore $backingStore Stores model information.
-    */
-    private BackingStore $backingStore;
-    
-    /**
-     * Instantiates a new smsLogRow and sets the default values.
+     * Instantiates a new SmsLogRow and sets the default values.
     */
     public function __construct() {
-        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
-        $this->setAdditionalData([]);
+        parent::__construct();
     }
 
     /**
@@ -33,27 +23,6 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SmsLogRow {
         return new SmsLogRow();
-    }
-
-    /**
-     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>|null
-    */
-    public function getAdditionalData(): ?array {
-        $val = $this->getBackingStore()->get('additionalData');
-        if (is_null($val) || is_array($val)) {
-            /** @var array<string, mixed>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
-    }
-
-    /**
-     * Gets the BackingStore property value. Stores model information.
-     * @return BackingStore
-    */
-    public function getBackingStore(): BackingStore {
-        return $this->backingStore;
     }
 
     /**
@@ -122,16 +91,13 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return  [
+        return array_merge(parent::getFieldDeserializers(), [
             'callCharge' => fn(ParseNode $n) => $o->setCallCharge($n->getStringValue()),
             'currency' => fn(ParseNode $n) => $o->setCurrency($n->getStringValue()),
             'destinationContext' => fn(ParseNode $n) => $o->setDestinationContext($n->getStringValue()),
             'destinationName' => fn(ParseNode $n) => $o->setDestinationName($n->getStringValue()),
             'destinationNumber' => fn(ParseNode $n) => $o->setDestinationNumber($n->getStringValue()),
-            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'licenseCapability' => fn(ParseNode $n) => $o->setLicenseCapability($n->getStringValue()),
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'otherPartyCountryCode' => fn(ParseNode $n) => $o->setOtherPartyCountryCode($n->getStringValue()),
             'sentDateTime' => fn(ParseNode $n) => $o->setSentDateTime($n->getDateTimeValue()),
             'smsId' => fn(ParseNode $n) => $o->setSmsId($n->getStringValue()),
             'smsType' => fn(ParseNode $n) => $o->setSmsType($n->getStringValue()),
@@ -139,22 +105,7 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
             'sourceNumber' => fn(ParseNode $n) => $o->setSourceNumber($n->getStringValue()),
             'tenantCountryCode' => fn(ParseNode $n) => $o->setTenantCountryCode($n->getStringValue()),
             'userCountryCode' => fn(ParseNode $n) => $o->setUserCountryCode($n->getStringValue()),
-            'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
-            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
-            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
-        ];
-    }
-
-    /**
-     * Gets the id property value. Unique identifier (GUID) for the SMS.
-     * @return string|null
-    */
-    public function getId(): ?string {
-        $val = $this->getBackingStore()->get('id');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
+        ]);
     }
 
     /**
@@ -167,30 +118,6 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseCapability'");
-    }
-
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        $val = $this->getBackingStore()->get('odataType');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
-    }
-
-    /**
-     * Gets the otherPartyCountryCode property value. For an outbound SMS, the country code of the receiver; otherwise (inbound SMS) the country code of the sender. For details, see ISO 3166-1 alpha-2.
-     * @return string|null
-    */
-    public function getOtherPartyCountryCode(): ?string {
-        $val = $this->getBackingStore()->get('otherPartyCountryCode');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'otherPartyCountryCode'");
     }
 
     /**
@@ -278,55 +205,17 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userDisplayName property value. Display name of the user.
-     * @return string|null
-    */
-    public function getUserDisplayName(): ?string {
-        $val = $this->getBackingStore()->get('userDisplayName');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
-    }
-
-    /**
-     * Gets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID.
-     * @return string|null
-    */
-    public function getUserId(): ?string {
-        $val = $this->getBackingStore()->get('userId');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
-    }
-
-    /**
-     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
-     * @return string|null
-    */
-    public function getUserPrincipalName(): ?string {
-        $val = $this->getBackingStore()->get('userPrincipalName');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
         $writer->writeStringValue('callCharge', $this->getCallCharge());
         $writer->writeStringValue('currency', $this->getCurrency());
         $writer->writeStringValue('destinationContext', $this->getDestinationContext());
         $writer->writeStringValue('destinationName', $this->getDestinationName());
         $writer->writeStringValue('destinationNumber', $this->getDestinationNumber());
-        $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('licenseCapability', $this->getLicenseCapability());
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeStringValue('otherPartyCountryCode', $this->getOtherPartyCountryCode());
         $writer->writeDateTimeValue('sentDateTime', $this->getSentDateTime());
         $writer->writeStringValue('smsId', $this->getSmsId());
         $writer->writeStringValue('smsType', $this->getSmsType());
@@ -334,26 +223,6 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('sourceNumber', $this->getSourceNumber());
         $writer->writeStringValue('tenantCountryCode', $this->getTenantCountryCode());
         $writer->writeStringValue('userCountryCode', $this->getUserCountryCode());
-        $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
-        $writer->writeStringValue('userId', $this->getUserId());
-        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
-        $writer->writeAdditionalData($this->getAdditionalData());
-    }
-
-    /**
-     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
-    */
-    public function setAdditionalData(?array $value): void {
-        $this->getBackingStore()->set('additionalData', $value);
-    }
-
-    /**
-     * Sets the BackingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
-    */
-    public function setBackingStore(BackingStore $value): void {
-        $this->backingStore = $value;
     }
 
     /**
@@ -397,35 +266,11 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the id property value. Unique identifier (GUID) for the SMS.
-     * @param string|null $value Value to set for the id property.
-    */
-    public function setId(?string $value): void {
-        $this->getBackingStore()->set('id', $value);
-    }
-
-    /**
      * Sets the licenseCapability property value. The license used for the SMS.
      * @param string|null $value Value to set for the licenseCapability property.
     */
     public function setLicenseCapability(?string $value): void {
         $this->getBackingStore()->set('licenseCapability', $value);
-    }
-
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the @odata.type property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
-    }
-
-    /**
-     * Sets the otherPartyCountryCode property value. For an outbound SMS, the country code of the receiver; otherwise (inbound SMS) the country code of the sender. For details, see ISO 3166-1 alpha-2.
-     * @param string|null $value Value to set for the otherPartyCountryCode property.
-    */
-    public function setOtherPartyCountryCode(?string $value): void {
-        $this->getBackingStore()->set('otherPartyCountryCode', $value);
     }
 
     /**
@@ -482,30 +327,6 @@ class SmsLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setUserCountryCode(?string $value): void {
         $this->getBackingStore()->set('userCountryCode', $value);
-    }
-
-    /**
-     * Sets the userDisplayName property value. Display name of the user.
-     * @param string|null $value Value to set for the userDisplayName property.
-    */
-    public function setUserDisplayName(?string $value): void {
-        $this->getBackingStore()->set('userDisplayName', $value);
-    }
-
-    /**
-     * Sets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID.
-     * @param string|null $value Value to set for the userId property.
-    */
-    public function setUserId(?string $value): void {
-        $this->getBackingStore()->set('userId', $value);
-    }
-
-    /**
-     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
-     * @param string|null $value Value to set for the userPrincipalName property.
-    */
-    public function setUserPrincipalName(?string $value): void {
-        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

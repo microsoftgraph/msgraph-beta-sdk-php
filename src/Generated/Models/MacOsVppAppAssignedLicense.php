@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOsVppAppAssignedLicense extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new macOsVppAppAssignedLicense and sets the default values.
+     * Instantiates a new MacOsVppAppAssignedLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();

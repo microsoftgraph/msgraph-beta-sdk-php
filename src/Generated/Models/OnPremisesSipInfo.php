@@ -18,7 +18,7 @@ class OnPremisesSipInfo implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new onPremisesSipInfo and sets the default values.
+     * Instantiates a new OnPremisesSipInfo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedDeviceEncryptionState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedDeviceEncryptionState and sets the default values.
+     * Instantiates a new ManagedDeviceEncryptionState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

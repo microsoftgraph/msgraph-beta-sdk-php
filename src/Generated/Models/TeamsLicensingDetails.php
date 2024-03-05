@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsLicensingDetails extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamsLicensingDetails and sets the default values.
+     * Instantiates a new TeamsLicensingDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

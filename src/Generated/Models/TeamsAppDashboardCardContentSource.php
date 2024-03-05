@@ -18,7 +18,7 @@ class TeamsAppDashboardCardContentSource implements AdditionalDataHolder, Backed
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamsAppDashboardCardContentSource and sets the default values.
+     * Instantiates a new TeamsAppDashboardCardContentSource and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -56,7 +56,7 @@ class TeamsAppDashboardCardContentSource implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the botConfiguration property value. The botConfiguration property
+     * Gets the botConfiguration property value. The configuration for the bot source. Required if sourceType is set to bot.
      * @return TeamsAppDashboardCardBotConfiguration|null
     */
     public function getBotConfiguration(): ?TeamsAppDashboardCardBotConfiguration {
@@ -93,7 +93,7 @@ class TeamsAppDashboardCardContentSource implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the sourceType property value. The sourceType property
+     * Gets the sourceType property value. Represents the type of source that powers the content of the dashboard card. The possible values are: bot, unknownFutureValue.
      * @return TeamsAppDashboardCardSourceType|null
     */
     public function getSourceType(): ?TeamsAppDashboardCardSourceType {
@@ -132,7 +132,7 @@ class TeamsAppDashboardCardContentSource implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the botConfiguration property value. The botConfiguration property
+     * Sets the botConfiguration property value. The configuration for the bot source. Required if sourceType is set to bot.
      * @param TeamsAppDashboardCardBotConfiguration|null $value Value to set for the botConfiguration property.
     */
     public function setBotConfiguration(?TeamsAppDashboardCardBotConfiguration $value): void {
@@ -148,7 +148,7 @@ class TeamsAppDashboardCardContentSource implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the sourceType property value. The sourceType property
+     * Sets the sourceType property value. Represents the type of source that powers the content of the dashboard card. The possible values are: bot, unknownFutureValue.
      * @param TeamsAppDashboardCardSourceType|null $value Value to set for the sourceType property.
     */
     public function setSourceType(?TeamsAppDashboardCardSourceType $value): void {

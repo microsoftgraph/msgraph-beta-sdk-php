@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PermissionGrantPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * Instantiates a new permissionGrantPolicy and sets the default values.
+     * Instantiates a new PermissionGrantPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -49,6 +49,7 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'excludes' => fn(ParseNode $n) => $o->setExcludes($n->getCollectionOfObjectValues([PermissionGrantConditionSet::class, 'createFromDiscriminatorValue'])),
             'includes' => fn(ParseNode $n) => $o->setIncludes($n->getCollectionOfObjectValues([PermissionGrantConditionSet::class, 'createFromDiscriminatorValue'])),
+            'resourceScopeType' => fn(ParseNode $n) => $o->setResourceScopeType($n->getEnumValue(ResourceScopeType::class)),
         ]);
     }
 
@@ -67,6 +68,18 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
     }
 
     /**
+     * Gets the resourceScopeType property value. The resource type the pre-approval policy applies to. Possible values: group for groups and teams, chat for chats, tenant for all supported resources in the tenant. Required.
+     * @return ResourceScopeType|null
+    */
+    public function getResourceScopeType(): ?ResourceScopeType {
+        $val = $this->getBackingStore()->get('resourceScopeType');
+        if (is_null($val) || $val instanceof ResourceScopeType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceScopeType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -74,6 +87,7 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('excludes', $this->getExcludes());
         $writer->writeCollectionOfObjectValues('includes', $this->getIncludes());
+        $writer->writeEnumValue('resourceScopeType', $this->getResourceScopeType());
     }
 
     /**
@@ -90,6 +104,14 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
     */
     public function setIncludes(?array $value): void {
         $this->getBackingStore()->set('includes', $value);
+    }
+
+    /**
+     * Sets the resourceScopeType property value. The resource type the pre-approval policy applies to. Possible values: group for groups and teams, chat for chats, tenant for all supported resources in the tenant. Required.
+     * @param ResourceScopeType|null $value Value to set for the resourceScopeType property.
+    */
+    public function setResourceScopeType(?ResourceScopeType $value): void {
+        $this->getBackingStore()->set('resourceScopeType', $value);
     }
 
 }

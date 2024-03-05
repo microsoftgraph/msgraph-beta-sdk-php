@@ -18,7 +18,7 @@ class OutOfOfficeSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new outOfOfficeSettings and sets the default values.
+     * Instantiates a new OutOfOfficeSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

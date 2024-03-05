@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnknownSource extends AuthorizationSystemIdentitySource implements Parsable 
 {
     /**
-     * Instantiates a new unknownSource and sets the default values.
+     * Instantiates a new UnknownSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

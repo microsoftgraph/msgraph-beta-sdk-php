@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WebCategory extends RuleDestination implements Parsable 
 {
     /**
-     * Instantiates a new webCategory and sets the default values.
+     * Instantiates a new WebCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

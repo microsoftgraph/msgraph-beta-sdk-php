@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpAddress extends RuleDestination implements Parsable 
 {
     /**
-     * Instantiates a new ipAddress and sets the default values.
+     * Instantiates a new IpAddress and sets the default values.
     */
     public function __construct() {
         parent::__construct();

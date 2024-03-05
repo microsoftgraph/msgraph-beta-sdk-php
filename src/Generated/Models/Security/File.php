@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class File extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new file and sets the default values.
+     * Instantiates a new File and sets the default values.
     */
     public function __construct() {
         parent::__construct();

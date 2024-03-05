@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SuperAwsRoleFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new superAwsRoleFinding and sets the default values.
+     * Instantiates a new SuperAwsRoleFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

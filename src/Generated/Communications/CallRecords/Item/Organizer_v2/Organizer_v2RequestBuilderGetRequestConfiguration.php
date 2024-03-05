@@ -16,7 +16,7 @@ class Organizer_v2RequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?Organizer_v2RequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new organizer_v2RequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new Organizer_v2RequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param Organizer_v2RequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class Organizer_v2RequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new organizer_v2RequestBuilderGetQueryParameters.
+     * Instantiates a new Organizer_v2RequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return Organizer_v2RequestBuilderGetQueryParameters

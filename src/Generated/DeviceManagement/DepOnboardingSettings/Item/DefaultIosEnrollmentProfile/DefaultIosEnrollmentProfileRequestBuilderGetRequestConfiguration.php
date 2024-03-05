@@ -16,7 +16,7 @@ class DefaultIosEnrollmentProfileRequestBuilderGetRequestConfiguration extends B
     public ?DefaultIosEnrollmentProfileRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new defaultIosEnrollmentProfileRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DefaultIosEnrollmentProfileRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DefaultIosEnrollmentProfileRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DefaultIosEnrollmentProfileRequestBuilderGetRequestConfiguration extends B
     }
 
     /**
-     * Instantiates a new defaultIosEnrollmentProfileRequestBuilderGetQueryParameters.
+     * Instantiates a new DefaultIosEnrollmentProfileRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return DefaultIosEnrollmentProfileRequestBuilderGetQueryParameters

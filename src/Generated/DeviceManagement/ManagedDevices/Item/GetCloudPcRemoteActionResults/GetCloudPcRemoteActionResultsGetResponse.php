@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetCloudPcRemoteActionResultsGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getCloudPcRemoteActionResultsGetResponse and sets the default values.
+     * Instantiates a new GetCloudPcRemoteActionResultsGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

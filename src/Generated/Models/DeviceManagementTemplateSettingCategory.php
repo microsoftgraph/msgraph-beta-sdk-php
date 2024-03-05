@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementTemplateSettingCategory and sets the default values.
+     * Instantiates a new DeviceManagementTemplateSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

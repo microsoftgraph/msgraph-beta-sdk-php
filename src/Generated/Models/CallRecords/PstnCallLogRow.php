@@ -3,27 +3,17 @@
 namespace Microsoft\Graph\Beta\Generated\Models\CallRecords;
 
 use DateTime;
-use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Store\BackedModel;
-use Microsoft\Kiota\Abstractions\Store\BackingStore;
-use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable 
+class PstnCallLogRow extends CallLogRow implements Parsable 
 {
     /**
-     * @var BackingStore $backingStore Stores model information.
-    */
-    private BackingStore $backingStore;
-    
-    /**
-     * Instantiates a new pstnCallLogRow and sets the default values.
+     * Instantiates a new PstnCallLogRow and sets the default values.
     */
     public function __construct() {
-        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
-        $this->setAdditionalData([]);
+        parent::__construct();
     }
 
     /**
@@ -33,27 +23,6 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PstnCallLogRow {
         return new PstnCallLogRow();
-    }
-
-    /**
-     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>|null
-    */
-    public function getAdditionalData(): ?array {
-        $val = $this->getBackingStore()->get('additionalData');
-        if (is_null($val) || is_array($val)) {
-            /** @var array<string, mixed>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
-    }
-
-    /**
-     * Gets the BackingStore property value. Stores model information.
-     * @return BackingStore
-    */
-    public function getBackingStore(): BackingStore {
-        return $this->backingStore;
     }
 
     /**
@@ -266,7 +235,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return  [
+        return array_merge(parent::getFieldDeserializers(), [
             'callDurationSource' => fn(ParseNode $n) => $o->setCallDurationSource($n->getEnumValue(PstnCallDurationSource::class)),
             'calleeNumber' => fn(ParseNode $n) => $o->setCalleeNumber($n->getStringValue()),
             'callerNumber' => fn(ParseNode $n) => $o->setCallerNumber($n->getStringValue()),
@@ -284,31 +253,13 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
             'destinationName' => fn(ParseNode $n) => $o->setDestinationName($n->getStringValue()),
             'duration' => fn(ParseNode $n) => $o->setDuration($n->getIntegerValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
-            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'inventoryType' => fn(ParseNode $n) => $o->setInventoryType($n->getStringValue()),
             'licenseCapability' => fn(ParseNode $n) => $o->setLicenseCapability($n->getStringValue()),
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operator' => fn(ParseNode $n) => $o->setOperator($n->getStringValue()),
-            'otherPartyCountryCode' => fn(ParseNode $n) => $o->setOtherPartyCountryCode($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'tenantCountryCode' => fn(ParseNode $n) => $o->setTenantCountryCode($n->getStringValue()),
             'usageCountryCode' => fn(ParseNode $n) => $o->setUsageCountryCode($n->getStringValue()),
-            'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
-            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
-            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
-        ];
-    }
-
-    /**
-     * Gets the id property value. Unique call identifier (GUID).
-     * @return string|null
-    */
-    public function getId(): ?string {
-        $val = $this->getBackingStore()->get('id');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
+        ]);
     }
 
     /**
@@ -336,19 +287,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        $val = $this->getBackingStore()->get('odataType');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
-    }
-
-    /**
-     * Gets the operator property value. The telecommunications operator that provided PSTN services for this call. This may be Microsoft, or it may be a third-party operator via the Operator Connect Program.
+     * Gets the operator property value. The telecommunications operator that provided PSTN services for this call. It may be Microsoft, or it may be a third-party operator via the Operator Connect Program.
      * @return string|null
     */
     public function getOperator(): ?string {
@@ -357,18 +296,6 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operator'");
-    }
-
-    /**
-     * Gets the otherPartyCountryCode property value. Country code of the caller for an incoming call, or callee for an outgoing call. For details, see ISO 3166-1 alpha-2.
-     * @return string|null
-    */
-    public function getOtherPartyCountryCode(): ?string {
-        $val = $this->getBackingStore()->get('otherPartyCountryCode');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'otherPartyCountryCode'");
     }
 
     /**
@@ -408,46 +335,11 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userDisplayName property value. Display name of the user.
-     * @return string|null
-    */
-    public function getUserDisplayName(): ?string {
-        $val = $this->getBackingStore()->get('userDisplayName');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDisplayName'");
-    }
-
-    /**
-     * Gets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID. This and other user info will be null/empty for bot call types (ucapin, ucapout).
-     * @return string|null
-    */
-    public function getUserId(): ?string {
-        $val = $this->getBackingStore()->get('userId');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
-    }
-
-    /**
-     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
-     * @return string|null
-    */
-    public function getUserPrincipalName(): ?string {
-        $val = $this->getBackingStore()->get('userPrincipalName');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
         $writer->writeEnumValue('callDurationSource', $this->getCallDurationSource());
         $writer->writeStringValue('calleeNumber', $this->getCalleeNumber());
         $writer->writeStringValue('callerNumber', $this->getCallerNumber());
@@ -465,35 +357,12 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('destinationName', $this->getDestinationName());
         $writer->writeIntegerValue('duration', $this->getDuration());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
-        $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('inventoryType', $this->getInventoryType());
         $writer->writeStringValue('licenseCapability', $this->getLicenseCapability());
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('operator', $this->getOperator());
-        $writer->writeStringValue('otherPartyCountryCode', $this->getOtherPartyCountryCode());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeStringValue('tenantCountryCode', $this->getTenantCountryCode());
         $writer->writeStringValue('usageCountryCode', $this->getUsageCountryCode());
-        $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
-        $writer->writeStringValue('userId', $this->getUserId());
-        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
-        $writer->writeAdditionalData($this->getAdditionalData());
-    }
-
-    /**
-     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
-    */
-    public function setAdditionalData(?array $value): void {
-        $this->getBackingStore()->set('additionalData', $value);
-    }
-
-    /**
-     * Sets the BackingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
-    */
-    public function setBackingStore(BackingStore $value): void {
-        $this->backingStore = $value;
     }
 
     /**
@@ -633,14 +502,6 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the id property value. Unique call identifier (GUID).
-     * @param string|null $value Value to set for the id property.
-    */
-    public function setId(?string $value): void {
-        $this->getBackingStore()->set('id', $value);
-    }
-
-    /**
      * Sets the inventoryType property value. User's phone number type, such as a service of toll-free number.
      * @param string|null $value Value to set for the inventoryType property.
     */
@@ -657,27 +518,11 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the @odata.type property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
-    }
-
-    /**
-     * Sets the operator property value. The telecommunications operator that provided PSTN services for this call. This may be Microsoft, or it may be a third-party operator via the Operator Connect Program.
+     * Sets the operator property value. The telecommunications operator that provided PSTN services for this call. It may be Microsoft, or it may be a third-party operator via the Operator Connect Program.
      * @param string|null $value Value to set for the operator property.
     */
     public function setOperator(?string $value): void {
         $this->getBackingStore()->set('operator', $value);
-    }
-
-    /**
-     * Sets the otherPartyCountryCode property value. Country code of the caller for an incoming call, or callee for an outgoing call. For details, see ISO 3166-1 alpha-2.
-     * @param string|null $value Value to set for the otherPartyCountryCode property.
-    */
-    public function setOtherPartyCountryCode(?string $value): void {
-        $this->getBackingStore()->set('otherPartyCountryCode', $value);
     }
 
     /**
@@ -702,30 +547,6 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setUsageCountryCode(?string $value): void {
         $this->getBackingStore()->set('usageCountryCode', $value);
-    }
-
-    /**
-     * Sets the userDisplayName property value. Display name of the user.
-     * @param string|null $value Value to set for the userDisplayName property.
-    */
-    public function setUserDisplayName(?string $value): void {
-        $this->getBackingStore()->set('userDisplayName', $value);
-    }
-
-    /**
-     * Sets the userId property value. The unique identifier (GUID) of the user in Microsoft Entra ID. This and other user info will be null/empty for bot call types (ucapin, ucapout).
-     * @param string|null $value Value to set for the userId property.
-    */
-    public function setUserId(?string $value): void {
-        $this->getBackingStore()->set('userId', $value);
-    }
-
-    /**
-     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
-     * @param string|null $value Value to set for the userPrincipalName property.
-    */
-    public function setUserPrincipalName(?string $value): void {
-        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

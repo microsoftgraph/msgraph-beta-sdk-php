@@ -16,7 +16,7 @@ class TemplateStepVersionRequestBuilderGetRequestConfiguration extends BaseReque
     public ?TemplateStepVersionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new templateStepVersionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TemplateStepVersionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TemplateStepVersionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TemplateStepVersionRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new templateStepVersionRequestBuilderGetQueryParameters.
+     * Instantiates a new TemplateStepVersionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return TemplateStepVersionRequestBuilderGetQueryParameters

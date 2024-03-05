@@ -22,7 +22,7 @@ class GetRoleScopeTagsByIdsWithIdsRequestBuilder extends BaseRequestBuilder
      * @param string|null $ids Usage: ids={ids}
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $ids = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/getRoleScopeTagsByIds(ids={ids}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/getRoleScopeTagsByIds(ids={ids}){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['ids'] = $ids;
@@ -41,8 +41,7 @@ class GetRoleScopeTagsByIdsWithIdsRequestBuilder extends BaseRequestBuilder
     public function get(?GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetRoleScopeTagsByIdsWithIdsGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

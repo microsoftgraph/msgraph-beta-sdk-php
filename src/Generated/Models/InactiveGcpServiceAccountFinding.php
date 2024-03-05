@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InactiveGcpServiceAccountFinding extends IdentityFinding implements Parsable 
 {
     /**
-     * Instantiates a new inactiveGcpServiceAccountFinding and sets the default values.
+     * Instantiates a new InactiveGcpServiceAccountFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

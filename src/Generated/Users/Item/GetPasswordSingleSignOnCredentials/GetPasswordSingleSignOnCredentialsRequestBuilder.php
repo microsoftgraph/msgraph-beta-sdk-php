@@ -30,22 +30,22 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action getPasswordSingleSignOnCredentials
+     * Get the list of password-based single sign-on credentials for a given user. This API returns the encrypted passwords as null or empty strings.
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetPasswordSingleSignOnCredentialsPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/user-getpasswordsinglesignoncredentials?view=graph-rest-1.0 Find more info here
     */
     public function post(?GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetPasswordSingleSignOnCredentialsPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Invoke action getPasswordSingleSignOnCredentials
+     * Get the list of password-based single sign-on credentials for a given user. This API returns the encrypted passwords as null or empty strings.
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

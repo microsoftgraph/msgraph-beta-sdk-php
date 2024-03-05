@@ -16,7 +16,7 @@ class GovernanceSubjectsRequestBuilderGetRequestConfiguration extends BaseReques
     public ?GovernanceSubjectsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new governanceSubjectsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GovernanceSubjectsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GovernanceSubjectsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GovernanceSubjectsRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new governanceSubjectsRequestBuilderGetQueryParameters.
+     * Instantiates a new GovernanceSubjectsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

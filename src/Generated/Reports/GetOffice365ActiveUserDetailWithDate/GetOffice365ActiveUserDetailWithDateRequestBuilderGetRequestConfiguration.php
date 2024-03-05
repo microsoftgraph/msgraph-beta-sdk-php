@@ -16,7 +16,7 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration 
     public ?GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,8 +27,9 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration 
     }
 
     /**
-     * Instantiates a new getOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters.
+     * Instantiates a new GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -37,8 +38,8 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration 
      * @param int|null $top Show only the first n items
      * @return GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters {
-        return new GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters {
+        return new GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
     }
 
 }

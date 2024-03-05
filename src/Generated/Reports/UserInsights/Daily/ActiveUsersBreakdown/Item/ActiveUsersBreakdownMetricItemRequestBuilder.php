@@ -22,7 +22,7 @@ class ActiveUsersBreakdownMetricItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/userInsights/daily/activeUsersBreakdown/{activeUsersBreakdownMetric%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/userInsights/daily/activeUsersBreakdown/{activeUsersBreakdownMetric%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -31,7 +31,7 @@ class ActiveUsersBreakdownMetricItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
+     * Get activeUsersBreakdown from reports
      * @param ActiveUsersBreakdownMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActiveUsersBreakdownMetric|null>
      * @throws Exception
@@ -39,14 +39,13 @@ class ActiveUsersBreakdownMetricItemRequestBuilder extends BaseRequestBuilder
     public function get(?ActiveUsersBreakdownMetricItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ActiveUsersBreakdownMetric::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
+     * Get activeUsersBreakdown from reports
      * @param ActiveUsersBreakdownMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

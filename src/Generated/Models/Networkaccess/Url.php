@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Url extends RuleDestination implements Parsable 
 {
     /**
-     * Instantiates a new url and sets the default values.
+     * Instantiates a new Url and sets the default values.
     */
     public function __construct() {
         parent::__construct();

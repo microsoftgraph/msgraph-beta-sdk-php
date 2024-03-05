@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of bookingBusiness objects that has been created for the tenant. This operation returns only the id and displayName of each Microsoft Bookings business in the collection. For performance considerations, it does not return other properties. You can get the other properties of a Bookings business by specifying its id in a GET operation. You can also query for Bookings businesses by specifying a string in a query parameter to do substring matching among the businesses of a tenant. For details, see Example 2.
+ * Get entities from bookingBusinesses
 */
 class BookingBusinessesRequestBuilderGetQueryParameters 
 {
@@ -58,7 +58,7 @@ class BookingBusinessesRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new bookingBusinessesRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new BookingBusinessesRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

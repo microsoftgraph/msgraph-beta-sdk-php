@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class ConnectorGroupsRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new connectorGroupsRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new ConnectorGroupsRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

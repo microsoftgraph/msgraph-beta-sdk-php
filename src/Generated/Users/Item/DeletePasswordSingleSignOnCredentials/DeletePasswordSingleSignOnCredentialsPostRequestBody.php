@@ -18,7 +18,7 @@ class DeletePasswordSingleSignOnCredentialsPostRequestBody implements Additional
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deletePasswordSingleSignOnCredentialsPostRequestBody and sets the default values.
+     * Instantiates a new DeletePasswordSingleSignOnCredentialsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

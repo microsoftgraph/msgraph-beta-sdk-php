@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskAutologon extends WindowsKioskUser implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskAutologon and sets the default values.
+     * Instantiates a new WindowsKioskAutologon and sets the default values.
     */
     public function __construct() {
         parent::__construct();

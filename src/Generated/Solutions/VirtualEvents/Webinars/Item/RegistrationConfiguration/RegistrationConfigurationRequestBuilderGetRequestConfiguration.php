@@ -16,7 +16,7 @@ class RegistrationConfigurationRequestBuilderGetRequestConfiguration extends Bas
     public ?RegistrationConfigurationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new registrationConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RegistrationConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RegistrationConfigurationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RegistrationConfigurationRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new registrationConfigurationRequestBuilderGetQueryParameters.
+     * Instantiates a new RegistrationConfigurationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return RegistrationConfigurationRequestBuilderGetQueryParameters

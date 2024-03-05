@@ -19,7 +19,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new conditionalAccessConditionSet and sets the default values.
+     * Instantiates a new ConditionalAccessConditionSet and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -61,6 +61,18 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
+     * Gets the authenticationFlows property value. Authentication flows included in the policy scope. For more information, see Conditional Access: Authentication flows.
+     * @return ConditionalAccessAuthenticationFlows|null
+    */
+    public function getAuthenticationFlows(): ?ConditionalAccessAuthenticationFlows {
+        $val = $this->getBackingStore()->get('authenticationFlows');
+        if (is_null($val) || $val instanceof ConditionalAccessAuthenticationFlows) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationFlows'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -81,7 +93,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync which includes EAS supported and unsupported platforms.
+     * Gets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.
      * @return array<ConditionalAccessClientApp>|null
     */
     public function getClientAppTypes(): ?array {
@@ -126,6 +138,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
         $o = $this;
         return  [
             'applications' => fn(ParseNode $n) => $o->setApplications($n->getObjectValue([ConditionalAccessApplications::class, 'createFromDiscriminatorValue'])),
+            'authenticationFlows' => fn(ParseNode $n) => $o->setAuthenticationFlows($n->getObjectValue([ConditionalAccessAuthenticationFlows::class, 'createFromDiscriminatorValue'])),
             'clientApplications' => fn(ParseNode $n) => $o->setClientApplications($n->getObjectValue([ConditionalAccessClientApplications::class, 'createFromDiscriminatorValue'])),
             'clientAppTypes' => fn(ParseNode $n) => $o->setClientAppTypes($n->getCollectionOfEnumValues(ConditionalAccessClientApp::class)),
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getObjectValue([ConditionalAccessDevices::class, 'createFromDiscriminatorValue'])),
@@ -236,6 +249,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('applications', $this->getApplications());
+        $writer->writeObjectValue('authenticationFlows', $this->getAuthenticationFlows());
         $writer->writeObjectValue('clientApplications', $this->getClientApplications());
         $writer->writeCollectionOfEnumValues('clientAppTypes', $this->getClientAppTypes());
         $writer->writeObjectValue('devices', $this->getDevices());
@@ -267,6 +281,14 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
+     * Sets the authenticationFlows property value. Authentication flows included in the policy scope. For more information, see Conditional Access: Authentication flows.
+     * @param ConditionalAccessAuthenticationFlows|null $value Value to set for the authenticationFlows property.
+    */
+    public function setAuthenticationFlows(?ConditionalAccessAuthenticationFlows $value): void {
+        $this->getBackingStore()->set('authenticationFlows', $value);
+    }
+
+    /**
      * Sets the BackingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -283,7 +305,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync which includes EAS supported and unsupported platforms.
+     * Sets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.
      * @param array<ConditionalAccessClientApp>|null $value Value to set for the clientAppTypes property.
     */
     public function setClientAppTypes(?array $value): void {

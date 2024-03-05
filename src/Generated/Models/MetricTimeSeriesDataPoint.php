@@ -22,7 +22,7 @@ class MetricTimeSeriesDataPoint implements AdditionalDataHolder, BackedModel, Pa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new metricTimeSeriesDataPoint and sets the default values.
+     * Instantiates a new MetricTimeSeriesDataPoint and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

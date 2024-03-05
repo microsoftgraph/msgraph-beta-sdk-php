@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationSegment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new applicationSegment and sets the default values.
+     * Instantiates a new ApplicationSegment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

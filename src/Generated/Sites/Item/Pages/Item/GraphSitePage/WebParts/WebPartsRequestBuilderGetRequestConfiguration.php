@@ -16,7 +16,7 @@ class WebPartsRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?WebPartsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new webPartsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WebPartsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WebPartsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WebPartsRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new webPartsRequestBuilderGetQueryParameters.
+     * Instantiates a new WebPartsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UserTeamwork extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userTeamwork and sets the default values.
+     * Instantiates a new UserTeamwork and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,7 +68,7 @@ class UserTeamwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the locale property value. Represents the chosen locale of a user in Microsoft Teams.
+     * Gets the locale property value. The chosen locale of a user in Microsoft Teams.
      * @return string|null
     */
     public function getLocale(): ?string {
@@ -80,7 +80,7 @@ class UserTeamwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the region property value. Represents the region of the user in Microsoft Teams.
+     * Gets the region property value. The region of the user in Microsoft Teams.
      * @return string|null
     */
     public function getRegion(): ?string {
@@ -120,7 +120,7 @@ class UserTeamwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the locale property value. Represents the chosen locale of a user in Microsoft Teams.
+     * Sets the locale property value. The chosen locale of a user in Microsoft Teams.
      * @param string|null $value Value to set for the locale property.
     */
     public function setLocale(?string $value): void {
@@ -128,7 +128,7 @@ class UserTeamwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the region property value. Represents the region of the user in Microsoft Teams.
+     * Sets the region property value. The region of the user in Microsoft Teams.
      * @param string|null $value Value to set for the region property.
     */
     public function setRegion(?string $value): void {

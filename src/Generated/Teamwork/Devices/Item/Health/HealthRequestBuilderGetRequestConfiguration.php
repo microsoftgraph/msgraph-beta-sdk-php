@@ -16,7 +16,7 @@ class HealthRequestBuilderGetRequestConfiguration extends BaseRequestConfigurati
     public ?HealthRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new healthRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new HealthRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param HealthRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class HealthRequestBuilderGetRequestConfiguration extends BaseRequestConfigurati
     }
 
     /**
-     * Instantiates a new healthRequestBuilderGetQueryParameters.
+     * Instantiates a new HealthRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return HealthRequestBuilderGetQueryParameters

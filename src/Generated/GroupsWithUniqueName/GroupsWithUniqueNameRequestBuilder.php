@@ -23,7 +23,7 @@ class GroupsWithUniqueNameRequestBuilder extends BaseRequestBuilder
      * @param string|null $uniqueName Alternate key of group
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $uniqueName = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/groups(uniqueName=\'{uniqueName}\'){?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/groups(uniqueName=\'{uniqueName}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['uniqueName'] = $uniqueName;
@@ -43,8 +43,7 @@ class GroupsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     public function delete(?GroupsWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -59,8 +58,7 @@ class GroupsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     public function get(?GroupsWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Group::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -76,8 +74,7 @@ class GroupsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     public function patch(Group $body, ?GroupsWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Group::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -89,7 +86,7 @@ class GroupsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?GroupsWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/groups(uniqueName=\'{uniqueName}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -129,7 +126,7 @@ class GroupsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Group $body, ?GroupsWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/groups(uniqueName=\'{uniqueName}\')';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

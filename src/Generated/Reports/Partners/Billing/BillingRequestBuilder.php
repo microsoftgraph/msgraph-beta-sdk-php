@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Partners\Billing\Billing;
 use Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Manifests\ManifestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Operations\OperationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Reconciliation\ReconciliationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Usage\UsageRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -34,6 +35,13 @@ class BillingRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the reconciliation property of the microsoft.graph.partners.billing.billing entity.
+    */
+    public function reconciliation(): ReconciliationRequestBuilder {
+        return new ReconciliationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the usage property of the microsoft.graph.partners.billing.billing entity.
     */
     public function usage(): UsageRequestBuilder {
@@ -46,7 +54,7 @@ class BillingRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/partners/billing{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/partners/billing{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -63,8 +71,7 @@ class BillingRequestBuilder extends BaseRequestBuilder
     public function delete(?BillingRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -78,8 +85,7 @@ class BillingRequestBuilder extends BaseRequestBuilder
     public function get(?BillingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Billing::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -94,8 +100,7 @@ class BillingRequestBuilder extends BaseRequestBuilder
     public function patch(Billing $body, ?BillingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Billing::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -107,7 +112,7 @@ class BillingRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?BillingRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/partners/billing';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -147,7 +152,7 @@ class BillingRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Billing $body, ?BillingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/partners/billing';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

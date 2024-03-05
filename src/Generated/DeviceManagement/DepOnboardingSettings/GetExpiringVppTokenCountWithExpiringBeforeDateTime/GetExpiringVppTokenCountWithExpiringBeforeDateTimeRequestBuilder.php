@@ -41,8 +41,7 @@ class GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder extends B
     public function get(?GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

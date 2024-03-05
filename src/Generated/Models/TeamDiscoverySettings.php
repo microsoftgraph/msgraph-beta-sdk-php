@@ -18,7 +18,7 @@ class TeamDiscoverySettings implements AdditionalDataHolder, BackedModel, Parsab
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamDiscoverySettings and sets the default values.
+     * Instantiates a new TeamDiscoverySettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

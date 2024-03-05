@@ -16,7 +16,7 @@ class ManagedTenantEmailNotificationsRequestBuilderGetRequestConfiguration exten
     public ?ManagedTenantEmailNotificationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managedTenantEmailNotificationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagedTenantEmailNotificationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagedTenantEmailNotificationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagedTenantEmailNotificationsRequestBuilderGetRequestConfiguration exten
     }
 
     /**
-     * Instantiates a new managedTenantEmailNotificationsRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagedTenantEmailNotificationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BranchSite extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new branchSite and sets the default values.
+     * Instantiates a new BranchSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();

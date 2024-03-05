@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class YearTimePeriodDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new yearTimePeriodDefinition and sets the default values.
+     * Instantiates a new YearTimePeriodDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

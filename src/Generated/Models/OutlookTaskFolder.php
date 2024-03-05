@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OutlookTaskFolder extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new outlookTaskFolder and sets the default values.
+     * Instantiates a new OutlookTaskFolder and sets the default values.
     */
     public function __construct() {
         parent::__construct();

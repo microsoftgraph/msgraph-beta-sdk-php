@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsIdentityAccessManagementKeyAgeFinding extends Finding implements Parsable 
 {
     /**
-     * Instantiates a new awsIdentityAccessManagementKeyAgeFinding and sets the default values.
+     * Instantiates a new AwsIdentityAccessManagementKeyAgeFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -22,7 +22,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Backe
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidDeviceOwnerUserFacingMessage and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerUserFacingMessage and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

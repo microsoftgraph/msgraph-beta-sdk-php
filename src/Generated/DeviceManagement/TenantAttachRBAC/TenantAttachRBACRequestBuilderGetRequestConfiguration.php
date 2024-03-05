@@ -16,7 +16,7 @@ class TenantAttachRBACRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?TenantAttachRBACRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new tenantAttachRBACRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TenantAttachRBACRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TenantAttachRBACRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TenantAttachRBACRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new tenantAttachRBACRequestBuilderGetQueryParameters.
+     * Instantiates a new TenantAttachRBACRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return TenantAttachRBACRequestBuilderGetQueryParameters

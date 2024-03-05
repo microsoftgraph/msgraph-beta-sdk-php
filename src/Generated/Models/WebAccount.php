@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WebAccount extends ItemFacet implements Parsable 
 {
     /**
-     * Instantiates a new webAccount and sets the default values.
+     * Instantiates a new WebAccount and sets the default values.
     */
     public function __construct() {
         parent::__construct();

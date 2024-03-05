@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeGetResponse and sets the default values.
+     * Instantiates a new GetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

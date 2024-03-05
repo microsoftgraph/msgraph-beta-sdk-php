@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DepOnboardingSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new depOnboardingSetting and sets the default values.
+     * Instantiates a new DepOnboardingSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();

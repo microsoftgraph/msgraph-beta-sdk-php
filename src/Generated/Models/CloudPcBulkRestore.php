@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcBulkRestore extends CloudPcBulkAction implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcBulkRestore and sets the default values.
+     * Instantiates a new CloudPcBulkRestore and sets the default values.
     */
     public function __construct() {
         parent::__construct();

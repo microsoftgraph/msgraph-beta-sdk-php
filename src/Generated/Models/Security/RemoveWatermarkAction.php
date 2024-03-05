@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RemoveWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new removeWatermarkAction and sets the default values.
+     * Instantiates a new RemoveWatermarkAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

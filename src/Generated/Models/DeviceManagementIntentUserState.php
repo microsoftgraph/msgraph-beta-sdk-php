@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntentUserState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementIntentUserState and sets the default values.
+     * Instantiates a new DeviceManagementIntentUserState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

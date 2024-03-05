@@ -43,7 +43,7 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/servicePrincipalCreationPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/servicePrincipalCreationPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -60,8 +60,7 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
     public function get(?ServicePrincipalCreationPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ServicePrincipalCreationPolicyCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -76,8 +75,7 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
     public function post(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ServicePrincipalCreationPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -111,7 +109,7 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/servicePrincipalCreationPolicies';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

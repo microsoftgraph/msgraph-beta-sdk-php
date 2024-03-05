@@ -19,7 +19,7 @@ class AccessPackageLocalizedContent implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new accessPackageLocalizedContent and sets the default values.
+     * Instantiates a new AccessPackageLocalizedContent and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

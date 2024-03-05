@@ -16,7 +16,7 @@ class CartToClassAssociationsRequestBuilderGetRequestConfiguration extends BaseR
     public ?CartToClassAssociationsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new cartToClassAssociationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CartToClassAssociationsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CartToClassAssociationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CartToClassAssociationsRequestBuilderGetRequestConfiguration extends BaseR
     }
 
     /**
-     * Instantiates a new cartToClassAssociationsRequestBuilderGetQueryParameters.
+     * Instantiates a new CartToClassAssociationsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

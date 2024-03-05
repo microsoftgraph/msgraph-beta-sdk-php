@@ -16,7 +16,7 @@ class TemplateInsightsRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?TemplateInsightsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new templateInsightsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TemplateInsightsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TemplateInsightsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TemplateInsightsRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new templateInsightsRequestBuilderGetQueryParameters.
+     * Instantiates a new TemplateInsightsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

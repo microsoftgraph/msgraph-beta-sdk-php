@@ -16,7 +16,7 @@ class FindRoomsWithRoomListRequestBuilderGetRequestConfiguration extends BaseReq
     public ?FindRoomsWithRoomListRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new findRoomsWithRoomListRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new FindRoomsWithRoomListRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param FindRoomsWithRoomListRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class FindRoomsWithRoomListRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new findRoomsWithRoomListRequestBuilderGetQueryParameters.
+     * Instantiates a new FindRoomsWithRoomListRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class InformationProtection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new informationProtection and sets the default values.
+     * Instantiates a new InformationProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

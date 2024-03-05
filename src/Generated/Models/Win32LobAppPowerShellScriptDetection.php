@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * Instantiates a new win32LobAppPowerShellScriptDetection and sets the default values.
+     * Instantiates a new Win32LobAppPowerShellScriptDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

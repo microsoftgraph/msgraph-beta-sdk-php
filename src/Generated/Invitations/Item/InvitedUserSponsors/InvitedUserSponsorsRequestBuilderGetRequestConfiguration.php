@@ -16,7 +16,7 @@ class InvitedUserSponsorsRequestBuilderGetRequestConfiguration extends BaseReque
     public ?InvitedUserSponsorsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new invitedUserSponsorsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new InvitedUserSponsorsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param InvitedUserSponsorsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class InvitedUserSponsorsRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new invitedUserSponsorsRequestBuilderGetQueryParameters.
+     * Instantiates a new InvitedUserSponsorsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

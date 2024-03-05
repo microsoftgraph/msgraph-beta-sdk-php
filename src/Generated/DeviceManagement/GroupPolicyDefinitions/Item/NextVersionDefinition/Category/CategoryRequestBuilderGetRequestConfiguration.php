@@ -16,7 +16,7 @@ class CategoryRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?CategoryRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new categoryRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CategoryRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CategoryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CategoryRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new categoryRequestBuilderGetQueryParameters.
+     * Instantiates a new CategoryRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return CategoryRequestBuilderGetQueryParameters

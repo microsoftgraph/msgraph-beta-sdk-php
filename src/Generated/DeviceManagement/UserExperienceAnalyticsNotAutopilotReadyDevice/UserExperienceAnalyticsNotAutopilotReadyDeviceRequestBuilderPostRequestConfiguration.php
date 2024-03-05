@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

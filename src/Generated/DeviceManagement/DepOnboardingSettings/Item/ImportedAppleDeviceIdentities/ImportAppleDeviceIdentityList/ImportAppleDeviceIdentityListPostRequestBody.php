@@ -20,7 +20,7 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new importAppleDeviceIdentityListPostRequestBody and sets the default values.
+     * Instantiates a new ImportAppleDeviceIdentityListPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

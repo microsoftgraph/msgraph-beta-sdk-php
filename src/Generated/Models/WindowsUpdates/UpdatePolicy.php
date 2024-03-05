@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class UpdatePolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new updatePolicy and sets the default values.
+     * Instantiates a new UpdatePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -43,7 +43,7 @@ class WindowsInformationProtectionWipeActionsRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/windowsInformationProtectionWipeActions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/windowsInformationProtectionWipeActions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -60,8 +60,7 @@ class WindowsInformationProtectionWipeActionsRequestBuilder extends BaseRequestB
     public function get(?WindowsInformationProtectionWipeActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [WindowsInformationProtectionWipeActionCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -76,8 +75,7 @@ class WindowsInformationProtectionWipeActionsRequestBuilder extends BaseRequestB
     public function post(WindowsInformationProtectionWipeAction $body, ?WindowsInformationProtectionWipeActionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [WindowsInformationProtectionWipeAction::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -111,7 +109,7 @@ class WindowsInformationProtectionWipeActionsRequestBuilder extends BaseRequestB
     */
     public function toPostRequestInformation(WindowsInformationProtectionWipeAction $body, ?WindowsInformationProtectionWipeActionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/windowsInformationProtectionWipeActions';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

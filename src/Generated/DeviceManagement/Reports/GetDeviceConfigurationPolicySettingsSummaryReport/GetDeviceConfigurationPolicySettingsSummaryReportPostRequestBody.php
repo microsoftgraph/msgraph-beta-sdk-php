@@ -19,7 +19,7 @@ class GetDeviceConfigurationPolicySettingsSummaryReportPostRequestBody implement
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getDeviceConfigurationPolicySettingsSummaryReportPostRequestBody and sets the default values.
+     * Instantiates a new GetDeviceConfigurationPolicySettingsSummaryReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

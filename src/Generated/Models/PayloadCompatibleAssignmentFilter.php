@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter implements Parsable 
 {
     /**
-     * Instantiates a new payloadCompatibleAssignmentFilter and sets the default values.
+     * Instantiates a new PayloadCompatibleAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

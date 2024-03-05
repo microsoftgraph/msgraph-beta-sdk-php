@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsAuthorizationSystemResource extends AuthorizationSystemResource implements Parsable 
 {
     /**
-     * Instantiates a new awsAuthorizationSystemResource and sets the default values.
+     * Instantiates a new AwsAuthorizationSystemResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Operations\Operatio
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Payloads\PayloadsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\SimulationAutomationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\SimulationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\TrainingCampaigns\TrainingCampaignsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings\TrainingsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -74,6 +75,13 @@ class AttackSimulationRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the trainingCampaigns property of the microsoft.graph.attackSimulationRoot entity.
+    */
+    public function trainingCampaigns(): TrainingCampaignsRequestBuilder {
+        return new TrainingCampaignsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the trainings property of the microsoft.graph.attackSimulationRoot entity.
     */
     public function trainings(): TrainingsRequestBuilder {
@@ -86,7 +94,7 @@ class AttackSimulationRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security/attackSimulation{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/security/attackSimulation{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -103,8 +111,7 @@ class AttackSimulationRequestBuilder extends BaseRequestBuilder
     public function delete(?AttackSimulationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -118,8 +125,7 @@ class AttackSimulationRequestBuilder extends BaseRequestBuilder
     public function get(?AttackSimulationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [AttackSimulationRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -134,8 +140,7 @@ class AttackSimulationRequestBuilder extends BaseRequestBuilder
     public function patch(AttackSimulationRoot $body, ?AttackSimulationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [AttackSimulationRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -147,7 +152,7 @@ class AttackSimulationRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AttackSimulationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security/attackSimulation';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -187,7 +192,7 @@ class AttackSimulationRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AttackSimulationRoot $body, ?AttackSimulationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security/attackSimulation';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

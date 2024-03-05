@@ -16,7 +16,7 @@ class UnbilledRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?UnbilledRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new unbilledRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UnbilledRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UnbilledRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UnbilledRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new unbilledRequestBuilderGetQueryParameters.
+     * Instantiates a new UnbilledRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return UnbilledRequestBuilderGetQueryParameters

@@ -40,7 +40,7 @@ class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBui
     public ?int $top = null;
     
     /**
-     * Instantiates a new microsoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

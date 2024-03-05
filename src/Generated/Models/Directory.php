@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Directory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new directory and sets the default values.
+     * Instantiates a new Directory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -80,7 +80,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedItems property value. The deletedItems property
+     * Gets the deletedItems property value. Recently deleted items. Read-only. Nullable.
      * @return array<DirectoryObject>|null
     */
     public function getDeletedItems(): ?array {
@@ -105,6 +105,20 @@ class Directory extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceLocalCredentials'");
+    }
+
+    /**
+     * Gets the externalUserProfiles property value. Collection of external user profiles that represent collaborators in the directory.
+     * @return array<ExternalUserProfile>|null
+    */
+    public function getExternalUserProfiles(): ?array {
+        $val = $this->getBackingStore()->get('externalUserProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExternalUserProfile::class);
+            /** @var array<ExternalUserProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalUserProfiles'");
     }
 
     /**
@@ -148,12 +162,14 @@ class Directory extends Entity implements Parsable
             'customSecurityAttributeDefinitions' => fn(ParseNode $n) => $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues([CustomSecurityAttributeDefinition::class, 'createFromDiscriminatorValue'])),
             'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'deviceLocalCredentials' => fn(ParseNode $n) => $o->setDeviceLocalCredentials($n->getCollectionOfObjectValues([DeviceLocalCredentialInfo::class, 'createFromDiscriminatorValue'])),
+            'externalUserProfiles' => fn(ParseNode $n) => $o->setExternalUserProfiles($n->getCollectionOfObjectValues([ExternalUserProfile::class, 'createFromDiscriminatorValue'])),
             'featureRolloutPolicies' => fn(ParseNode $n) => $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues([FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'])),
             'federationConfigurations' => fn(ParseNode $n) => $o->setFederationConfigurations($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'inboundSharedUserProfiles' => fn(ParseNode $n) => $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues([InboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'onPremisesSynchronization' => fn(ParseNode $n) => $o->setOnPremisesSynchronization($n->getCollectionOfObjectValues([OnPremisesDirectorySynchronization::class, 'createFromDiscriminatorValue'])),
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
+            'pendingExternalUserProfiles' => fn(ParseNode $n) => $o->setPendingExternalUserProfiles($n->getCollectionOfObjectValues([PendingExternalUserProfile::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
@@ -175,7 +191,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
+     * Gets the inboundSharedUserProfiles property value. A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
      * @return array<InboundSharedUserProfile>|null
     */
     public function getInboundSharedUserProfiles(): ?array {
@@ -217,6 +233,20 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the pendingExternalUserProfiles property value. Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+     * @return array<PendingExternalUserProfile>|null
+    */
+    public function getPendingExternalUserProfiles(): ?array {
+        $val = $this->getBackingStore()->get('pendingExternalUserProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PendingExternalUserProfile::class);
+            /** @var array<PendingExternalUserProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingExternalUserProfiles'");
+    }
+
+    /**
      * Gets the recommendations property value. List of recommended improvements to improve tenant posture.
      * @return array<Recommendation>|null
     */
@@ -245,7 +275,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptions property value. List of commercial subscriptions that an organization has acquired.
+     * Gets the subscriptions property value. List of commercial subscriptions that an organization has.
      * @return array<CompanySubscription>|null
     */
     public function getSubscriptions(): ?array {
@@ -270,12 +300,14 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('customSecurityAttributeDefinitions', $this->getCustomSecurityAttributeDefinitions());
         $writer->writeCollectionOfObjectValues('deletedItems', $this->getDeletedItems());
         $writer->writeCollectionOfObjectValues('deviceLocalCredentials', $this->getDeviceLocalCredentials());
+        $writer->writeCollectionOfObjectValues('externalUserProfiles', $this->getExternalUserProfiles());
         $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->getFeatureRolloutPolicies());
         $writer->writeCollectionOfObjectValues('federationConfigurations', $this->getFederationConfigurations());
         $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
         $writer->writeCollectionOfObjectValues('inboundSharedUserProfiles', $this->getInboundSharedUserProfiles());
         $writer->writeCollectionOfObjectValues('onPremisesSynchronization', $this->getOnPremisesSynchronization());
         $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->getOutboundSharedUserProfiles());
+        $writer->writeCollectionOfObjectValues('pendingExternalUserProfiles', $this->getPendingExternalUserProfiles());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
         $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
@@ -314,7 +346,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedItems property value. The deletedItems property
+     * Sets the deletedItems property value. Recently deleted items. Read-only. Nullable.
      * @param array<DirectoryObject>|null $value Value to set for the deletedItems property.
     */
     public function setDeletedItems(?array $value): void {
@@ -327,6 +359,14 @@ class Directory extends Entity implements Parsable
     */
     public function setDeviceLocalCredentials(?array $value): void {
         $this->getBackingStore()->set('deviceLocalCredentials', $value);
+    }
+
+    /**
+     * Sets the externalUserProfiles property value. Collection of external user profiles that represent collaborators in the directory.
+     * @param array<ExternalUserProfile>|null $value Value to set for the externalUserProfiles property.
+    */
+    public function setExternalUserProfiles(?array $value): void {
+        $this->getBackingStore()->set('externalUserProfiles', $value);
     }
 
     /**
@@ -354,7 +394,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
+     * Sets the inboundSharedUserProfiles property value. A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
      * @param array<InboundSharedUserProfile>|null $value Value to set for the inboundSharedUserProfiles property.
     */
     public function setInboundSharedUserProfiles(?array $value): void {
@@ -378,6 +418,14 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Sets the pendingExternalUserProfiles property value. Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+     * @param array<PendingExternalUserProfile>|null $value Value to set for the pendingExternalUserProfiles property.
+    */
+    public function setPendingExternalUserProfiles(?array $value): void {
+        $this->getBackingStore()->set('pendingExternalUserProfiles', $value);
+    }
+
+    /**
      * Sets the recommendations property value. List of recommended improvements to improve tenant posture.
      * @param array<Recommendation>|null $value Value to set for the recommendations property.
     */
@@ -394,7 +442,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptions property value. List of commercial subscriptions that an organization has acquired.
+     * Sets the subscriptions property value. List of commercial subscriptions that an organization has.
      * @param array<CompanySubscription>|null $value Value to set for the subscriptions property.
     */
     public function setSubscriptions(?array $value): void {

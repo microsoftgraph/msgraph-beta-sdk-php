@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new windowsWifiEnterpriseEAPConfiguration and sets the default values.
+     * Instantiates a new WindowsWifiEnterpriseEAPConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementConfigurationSimpleSettingValue implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationSecretSettingValue and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationSecretSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();

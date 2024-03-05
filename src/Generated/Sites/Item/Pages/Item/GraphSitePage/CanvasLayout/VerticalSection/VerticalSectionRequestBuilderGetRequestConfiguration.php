@@ -16,7 +16,7 @@ class VerticalSectionRequestBuilderGetRequestConfiguration extends BaseRequestCo
     public ?VerticalSectionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new verticalSectionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new VerticalSectionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param VerticalSectionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class VerticalSectionRequestBuilderGetRequestConfiguration extends BaseRequestCo
     }
 
     /**
-     * Instantiates a new verticalSectionRequestBuilderGetQueryParameters.
+     * Instantiates a new VerticalSectionRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return VerticalSectionRequestBuilderGetQueryParameters

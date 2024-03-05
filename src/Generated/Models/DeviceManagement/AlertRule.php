@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AlertRule extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new alertRule and sets the default values.
+     * Instantiates a new AlertRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

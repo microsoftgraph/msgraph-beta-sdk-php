@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class InsightSummaryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new insightSummaryCollectionResponse and sets the default values.
+     * Instantiates a new InsightSummaryCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
