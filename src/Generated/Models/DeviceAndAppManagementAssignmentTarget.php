@@ -21,7 +21,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceAndAppManagementAssignmentTarget and sets the default values.
+     * Instantiates a new DeviceAndAppManagementAssignmentTarget and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -44,7 +44,6 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
                 case '#microsoft.graph.configurationManagerCollectionAssignmentTarget': return new ConfigurationManagerCollectionAssignmentTarget();
                 case '#microsoft.graph.exclusionGroupAssignmentTarget': return new ExclusionGroupAssignmentTarget();
                 case '#microsoft.graph.groupAssignmentTarget': return new GroupAssignmentTarget();
-                case '#microsoft.graph.scopeTagGroupAssignmentTarget': return new ScopeTagGroupAssignmentTarget();
             }
         }
         return new DeviceAndAppManagementAssignmentTarget();

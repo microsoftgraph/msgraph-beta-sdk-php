@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GroupPolicyCategory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyCategory and sets the default values.
+     * Instantiates a new GroupPolicyCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

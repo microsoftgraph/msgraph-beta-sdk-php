@@ -18,7 +18,7 @@ class ExpediteSettings implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new expediteSettings and sets the default values.
+     * Instantiates a new ExpediteSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -81,7 +81,7 @@ class ExpediteSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isReadinessTest property value. The isReadinessTest property
+     * Gets the isReadinessTest property value. True indicates that the deployment is an expedite readiness test.
      * @return bool|null
     */
     public function getIsReadinessTest(): ?bool {
@@ -140,7 +140,7 @@ class ExpediteSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isReadinessTest property value. The isReadinessTest property
+     * Sets the isReadinessTest property value. True indicates that the deployment is an expedite readiness test.
      * @param bool|null $value Value to set for the isReadinessTest property.
     */
     public function setIsReadinessTest(?bool $value): void {

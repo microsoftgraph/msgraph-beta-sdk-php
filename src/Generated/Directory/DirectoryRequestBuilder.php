@@ -10,15 +10,19 @@ use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateA
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\CustomSecurityAttributeDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\DeletedItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials\DeviceLocalCredentialsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\ExternalUserProfiles\ExternalUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\FeatureRolloutPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\FederationConfigurations\FederationConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\ImpactedResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\InboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\OnPremisesSynchronizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\OutboundSharedUserProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\PendingExternalUserProfiles\PendingExternalUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithCommerceSubscriptionId\SubscriptionsWithCommerceSubscriptionIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithOcpSubscriptionId\SubscriptionsWithOcpSubscriptionIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Directory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -74,6 +78,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the externalUserProfiles property of the microsoft.graph.directory entity.
+    */
+    public function externalUserProfiles(): ExternalUserProfilesRequestBuilder {
+        return new ExternalUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.directory entity.
     */
     public function featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
@@ -116,6 +127,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the pendingExternalUserProfiles property of the microsoft.graph.directory entity.
+    */
+    public function pendingExternalUserProfiles(): PendingExternalUserProfilesRequestBuilder {
+        return new PendingExternalUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the recommendations property of the microsoft.graph.directory entity.
     */
     public function recommendations(): RecommendationsRequestBuilder {
@@ -142,7 +160,7 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -159,8 +177,7 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     public function get(?DirectoryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Directory::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -175,10 +192,27 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     public function patch(Directory $body, ?DirectoryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Directory::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
+     * @param string $commerceSubscriptionId Alternate key of companySubscription
+     * @return SubscriptionsWithCommerceSubscriptionIdRequestBuilder
+    */
+    public function subscriptionsWithCommerceSubscriptionId(string $commerceSubscriptionId): SubscriptionsWithCommerceSubscriptionIdRequestBuilder {
+        return new SubscriptionsWithCommerceSubscriptionIdRequestBuilder($this->pathParameters, $this->requestAdapter, $commerceSubscriptionId);
+    }
+
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
+     * @param string $ocpSubscriptionId Alternate key of companySubscription
+     * @return SubscriptionsWithOcpSubscriptionIdRequestBuilder
+    */
+    public function subscriptionsWithOcpSubscriptionId(string $ocpSubscriptionId): SubscriptionsWithOcpSubscriptionIdRequestBuilder {
+        return new SubscriptionsWithOcpSubscriptionIdRequestBuilder($this->pathParameters, $this->requestAdapter, $ocpSubscriptionId);
     }
 
     /**
@@ -210,7 +244,7 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Directory $body, ?DirectoryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

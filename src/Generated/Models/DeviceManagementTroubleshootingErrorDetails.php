@@ -22,7 +22,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceManagementTroubleshootingErrorDetails and sets the default values.
+     * Instantiates a new DeviceManagementTroubleshootingErrorDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -60,7 +60,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     }
 
     /**
-     * Gets the context property value. Not yet documented
+     * Gets the context property value. The context property
      * @return string|null
     */
     public function getContext(): ?string {
@@ -72,7 +72,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     }
 
     /**
-     * Gets the failure property value. Not yet documented
+     * Gets the failure property value. The failure property
      * @return string|null
     */
     public function getFailure(): ?string {
@@ -180,7 +180,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     }
 
     /**
-     * Sets the context property value. Not yet documented
+     * Sets the context property value. The context property
      * @param string|null $value Value to set for the context property.
     */
     public function setContext(?string $value): void {
@@ -188,7 +188,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     }
 
     /**
-     * Sets the failure property value. Not yet documented
+     * Sets the failure property value. The failure property
      * @param string|null $value Value to set for the failure property.
     */
     public function setFailure(?string $value): void {

@@ -19,7 +19,7 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new applicableContentDeviceMatch and sets the default values.
+     * Instantiates a new ApplicableContentDeviceMatch and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -57,7 +57,7 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. Collection of vendors who recommend the content.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -142,7 +142,7 @@ class ApplicableContentDeviceMatch implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. Collection of vendors who recommend the content.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {

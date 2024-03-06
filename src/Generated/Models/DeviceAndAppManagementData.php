@@ -22,7 +22,7 @@ class DeviceAndAppManagementData implements AdditionalDataHolder, BackedModel, P
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deviceAndAppManagementData and sets the default values.
+     * Instantiates a new DeviceAndAppManagementData and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -60,7 +60,7 @@ class DeviceAndAppManagementData implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the content property value. Not yet documented
+     * Gets the content property value. The content property
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -122,7 +122,7 @@ class DeviceAndAppManagementData implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the content property value. Not yet documented
+     * Sets the content property value. The content property
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {

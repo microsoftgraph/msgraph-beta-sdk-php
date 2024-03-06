@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
 class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new androidOmaCpConfiguration and sets the default values.
+     * Instantiates a new AndroidOmaCpConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

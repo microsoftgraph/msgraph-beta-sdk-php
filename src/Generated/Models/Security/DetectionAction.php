@@ -19,7 +19,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new detectionAction and sets the default values.
+     * Instantiates a new DetectionAction and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -95,7 +95,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the organizationalScope property value. The organizationalScope property
+     * Gets the organizationalScope property value. Groups to which the custom detection rule applies.
      * @return OrganizationalScope|null
     */
     public function getOrganizationalScope(): ?OrganizationalScope {
@@ -107,7 +107,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the responseActions property value. The responseActions property
+     * Gets the responseActions property value. Actions taken on impacted assets as set in the custom detection rule.
      * @return array<ResponseAction>|null
     */
     public function getResponseActions(): ?array {
@@ -165,7 +165,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the organizationalScope property value. The organizationalScope property
+     * Sets the organizationalScope property value. Groups to which the custom detection rule applies.
      * @param OrganizationalScope|null $value Value to set for the organizationalScope property.
     */
     public function setOrganizationalScope(?OrganizationalScope $value): void {
@@ -173,7 +173,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the responseActions property value. The responseActions property
+     * Sets the responseActions property value. Actions taken on impacted assets as set in the custom detection rule.
      * @param array<ResponseAction>|null $value Value to set for the responseActions property.
     */
     public function setResponseActions(?array $value): void {

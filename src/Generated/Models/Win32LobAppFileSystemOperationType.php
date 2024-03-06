@@ -12,4 +12,7 @@ class Win32LobAppFileSystemOperationType extends Enum {
     public const VERSION = 'version';
     public const SIZE_IN_M_B = 'sizeInMB';
     public const DOES_NOT_EXIST = 'doesNotExist';
+    public const SIZE_IN_BYTES = 'sizeInBytes';
+    public const APP_VERSION = 'appVersion';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

@@ -18,7 +18,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new governanceNotificationTemplate and sets the default values.
+     * Instantiates a new GovernanceNotificationTemplate and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

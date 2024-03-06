@@ -21,7 +21,7 @@ class EdgeHomeButtonConfiguration implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new edgeHomeButtonConfiguration and sets the default values.
+     * Instantiates a new EdgeHomeButtonConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

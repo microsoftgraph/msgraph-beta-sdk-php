@@ -6,8 +6,11 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEvent;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Cancel\CancelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Presenters\PresentersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\SessionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -19,10 +22,24 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class VirtualEventItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to call the cancel method.
+    */
+    public function cancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
     */
     public function presenters(): PresentersRequestBuilder {
         return new PresentersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the publish method.
+    */
+    public function publish(): PublishRequestBuilder {
+        return new PublishRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -38,7 +55,7 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -55,8 +72,7 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
     public function delete(?VirtualEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -70,8 +86,7 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
     public function get(?VirtualEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEvent::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -86,10 +101,18 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
     public function patch(VirtualEvent $body, ?VirtualEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEvent::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
+     * @param string $joinWebUrl Alternate key of virtualEventSession
+     * @return SessionsWithJoinWebUrlRequestBuilder
+    */
+    public function sessionsWithJoinWebUrl(string $joinWebUrl): SessionsWithJoinWebUrlRequestBuilder {
+        return new SessionsWithJoinWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $joinWebUrl);
     }
 
     /**
@@ -99,7 +122,7 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?VirtualEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +162,7 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(VirtualEvent $body, ?VirtualEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

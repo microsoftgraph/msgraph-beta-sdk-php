@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedAppleDeviceIdentity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new importedAppleDeviceIdentity and sets the default values.
+     * Instantiates a new ImportedAppleDeviceIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -117,7 +117,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSupervised property value. Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
+     * Gets the isSupervised property value. Indicates if the Apple device is supervised.
      * @return bool|null
     */
     public function getIsSupervised(): ?bool {
@@ -248,7 +248,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSupervised property value. Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
+     * Sets the isSupervised property value. Indicates if the Apple device is supervised.
      * @param bool|null $value Value to set for the isSupervised property.
     */
     public function setIsSupervised(?bool $value): void {

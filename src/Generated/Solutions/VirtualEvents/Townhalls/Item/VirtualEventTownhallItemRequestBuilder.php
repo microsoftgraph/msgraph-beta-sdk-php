@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VirtualEventTownhall;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Presenters\PresentersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Sessions\SessionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -38,7 +39,7 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -55,8 +56,7 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
     public function delete(?VirtualEventTownhallItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
@@ -70,8 +70,7 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
     public function get(?VirtualEventTownhallItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventTownhall::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -86,10 +85,18 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
     public function patch(VirtualEventTownhall $body, ?VirtualEventTownhallItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventTownhall::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
+     * @param string $joinWebUrl Alternate key of virtualEventSession
+     * @return SessionsWithJoinWebUrlRequestBuilder
+    */
+    public function sessionsWithJoinWebUrl(string $joinWebUrl): SessionsWithJoinWebUrlRequestBuilder {
+        return new SessionsWithJoinWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $joinWebUrl);
     }
 
     /**
@@ -99,7 +106,7 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?VirtualEventTownhallItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +146,7 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(VirtualEventTownhall $body, ?VirtualEventTownhallItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

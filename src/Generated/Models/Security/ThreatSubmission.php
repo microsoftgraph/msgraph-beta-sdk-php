@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ThreatSubmission extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new threatSubmission and sets the default values.
+     * Instantiates a new ThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MoveToJunkResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new moveToJunkResponseAction and sets the default values.
+     * Instantiates a new MoveToJunkResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

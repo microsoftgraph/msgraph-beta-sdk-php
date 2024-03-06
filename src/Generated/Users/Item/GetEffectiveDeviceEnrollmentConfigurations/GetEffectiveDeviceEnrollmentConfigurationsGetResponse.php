@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class GetEffectiveDeviceEnrollmentConfigurationsGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new getEffectiveDeviceEnrollmentConfigurationsGetResponse and sets the default values.
+     * Instantiates a new GetEffectiveDeviceEnrollmentConfigurationsGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

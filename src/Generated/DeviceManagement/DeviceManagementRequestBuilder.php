@@ -86,6 +86,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\IntentsRequestBuilde
 use Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\IntuneBrandingProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\IosUpdateStatuses\IosUpdateStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\MacOSSoftwareUpdateAccountSummariesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceCleanupRules\ManagedDeviceCleanupRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\ManagedDeviceEncryptionStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceOverview\ManagedDeviceOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\ManagedDevicesRequestBuilder;
@@ -98,6 +99,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnector
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\MonitoringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\NdesConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\NotificationMessageTemplatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\OperationApprovalPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\OperationApprovalRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\PrivilegeManagementElevationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\RemoteAssistancePartnersRequestBuilder;
@@ -743,6 +746,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the managedDeviceCleanupRules property of the microsoft.graph.deviceManagement entity.
+    */
+    public function managedDeviceCleanupRules(): ManagedDeviceCleanupRulesRequestBuilder {
+        return new ManagedDeviceCleanupRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the managedDeviceEncryptionStates property of the microsoft.graph.deviceManagement entity.
     */
     public function managedDeviceEncryptionStates(): ManagedDeviceEncryptionStatesRequestBuilder {
@@ -824,6 +834,20 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function notificationMessageTemplates(): NotificationMessageTemplatesRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the operationApprovalPolicies property of the microsoft.graph.deviceManagement entity.
+    */
+    public function operationApprovalPolicies(): OperationApprovalPoliciesRequestBuilder {
+        return new OperationApprovalPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the operationApprovalRequests property of the microsoft.graph.deviceManagement entity.
+    */
+    public function operationApprovalRequests(): OperationApprovalRequestsRequestBuilder {
+        return new OperationApprovalRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1420,7 +1444,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -1437,8 +1461,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     public function get(?DeviceManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -1489,8 +1512,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     public function patch(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -1533,7 +1555,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

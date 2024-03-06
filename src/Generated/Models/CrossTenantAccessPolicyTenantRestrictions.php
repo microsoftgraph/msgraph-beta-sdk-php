@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB2BSetting implements Parsable 
 {
     /**
-     * Instantiates a new crossTenantAccessPolicyTenantRestrictions and sets the default values.
+     * Instantiates a new CrossTenantAccessPolicyTenantRestrictions and sets the default values.
     */
     public function __construct() {
         parent::__construct();

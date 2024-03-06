@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CloudPcGalleryImage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcGalleryImage and sets the default values.
+     * Instantiates a new CloudPcGalleryImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The official display name of the gallery image. Read-only.
+     * Gets the displayName property value. The display name of this gallery image. For example, Windows 11 Enterprise + Microsoft 365 Apps 22H2. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -38,7 +38,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
+     * Gets the endDate property value. The date when the status of image becomes supportedWithWarning. Users can still provision new Cloud PCs if the current time is later than endDate and earlier than expirationDate. For example, assume the endDate of a gallery image is 2023-9-14 and expirationDate is 2024-3-14, users are able to provision new Cloud PCs if today is 2023-10-01. Read-only.
      * @return Date|null
     */
     public function getEndDate(): ?Date {
@@ -50,7 +50,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDate property value. The date when the image is no longer available. Read-only.
+     * Gets the expirationDate property value. The date when the image is no longer available. Users are unable to provision new Cloud PCs if the current time is later than expirationDate. The value is usually endDate plus six months. For example, if the startDate is 2025-10-14, the expirationDate is usually 2026-04-14. Read-only.
      * @return Date|null
     */
     public function getExpirationDate(): ?Date {
@@ -87,7 +87,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offer property value. The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * Gets the offer property value. The offer property
      * @return string|null
     */
     public function getOffer(): ?string {
@@ -99,7 +99,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offerDisplayName property value. The official display offer name of the gallery image. For example, Windows 10 Enterprise + OS Optimizations. Read-only.
+     * Gets the offerDisplayName property value. The offerDisplayName property
      * @return string|null
     */
     public function getOfferDisplayName(): ?string {
@@ -111,7 +111,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offerName property value. The offerName property
+     * Gets the offerName property value. The offer name of this gallery image that is passed to ARM to retrieve the image resource. Read-only.
      * @return string|null
     */
     public function getOfferName(): ?string {
@@ -123,7 +123,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * Gets the publisher property value. The publisher property
      * @return string|null
     */
     public function getPublisher(): ?string {
@@ -135,7 +135,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the publisherName property value. The publisherName property
+     * Gets the publisherName property value. The publisher name of this gallery image that is passed to ARM to retrieve the image resource. Read-only.
      * @return string|null
     */
     public function getPublisherName(): ?string {
@@ -147,7 +147,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendedSku property value. Recommended Cloud PC SKU for this gallery image. Read-only.
+     * Gets the recommendedSku property value. The recommendedSku property
      * @return string|null
     */
     public function getRecommendedSku(): ?string {
@@ -159,7 +159,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeInGB property value. The size of this image in gigabytes. Read-only.
+     * Gets the sizeInGB property value. Indicates the size of this image in gigabytes. For example, 64. Read-only.
      * @return int|null
     */
     public function getSizeInGB(): ?int {
@@ -171,7 +171,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sku property value. The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * Gets the sku property value. The sku property
      * @return string|null
     */
     public function getSku(): ?string {
@@ -183,7 +183,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the skuDisplayName property value. The official display stock keeping unit (SKU) name of this gallery image. For example, 2004. Read-only.
+     * Gets the skuDisplayName property value. The skuDisplayName property
      * @return string|null
     */
     public function getSkuDisplayName(): ?string {
@@ -195,7 +195,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the skuName property value. The skuName property
+     * Gets the skuName property value. The SKU name of this image that is passed to ARM to retrieve the image resource. Read-only.
      * @return string|null
     */
     public function getSkuName(): ?string {
@@ -207,7 +207,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDate property value. The date when the image becomes available. Read-only.
+     * Gets the startDate property value. The date when the Cloud PC image is available for provisioning new Cloud PCs. For example, 2022-09-20. Read-only.
      * @return Date|null
     */
     public function getStartDate(): ?Date {
@@ -219,7 +219,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
+     * Gets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. The default value is supported. Read-only.
      * @return CloudPcGalleryImageStatus|null
     */
     public function getStatus(): ?CloudPcGalleryImageStatus {
@@ -254,7 +254,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The official display name of the gallery image. Read-only.
+     * Sets the displayName property value. The display name of this gallery image. For example, Windows 11 Enterprise + Microsoft 365 Apps 22H2. Read-only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -262,7 +262,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
+     * Sets the endDate property value. The date when the status of image becomes supportedWithWarning. Users can still provision new Cloud PCs if the current time is later than endDate and earlier than expirationDate. For example, assume the endDate of a gallery image is 2023-9-14 and expirationDate is 2024-3-14, users are able to provision new Cloud PCs if today is 2023-10-01. Read-only.
      * @param Date|null $value Value to set for the endDate property.
     */
     public function setEndDate(?Date $value): void {
@@ -270,7 +270,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDate property value. The date when the image is no longer available. Read-only.
+     * Sets the expirationDate property value. The date when the image is no longer available. Users are unable to provision new Cloud PCs if the current time is later than expirationDate. The value is usually endDate plus six months. For example, if the startDate is 2025-10-14, the expirationDate is usually 2026-04-14. Read-only.
      * @param Date|null $value Value to set for the expirationDate property.
     */
     public function setExpirationDate(?Date $value): void {
@@ -278,7 +278,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the offer property value. The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * Sets the offer property value. The offer property
      * @param string|null $value Value to set for the offer property.
     */
     public function setOffer(?string $value): void {
@@ -286,7 +286,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the offerDisplayName property value. The official display offer name of the gallery image. For example, Windows 10 Enterprise + OS Optimizations. Read-only.
+     * Sets the offerDisplayName property value. The offerDisplayName property
      * @param string|null $value Value to set for the offerDisplayName property.
     */
     public function setOfferDisplayName(?string $value): void {
@@ -294,7 +294,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the offerName property value. The offerName property
+     * Sets the offerName property value. The offer name of this gallery image that is passed to ARM to retrieve the image resource. Read-only.
      * @param string|null $value Value to set for the offerName property.
     */
     public function setOfferName(?string $value): void {
@@ -302,7 +302,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * Sets the publisher property value. The publisher property
      * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
@@ -310,7 +310,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the publisherName property value. The publisherName property
+     * Sets the publisherName property value. The publisher name of this gallery image that is passed to ARM to retrieve the image resource. Read-only.
      * @param string|null $value Value to set for the publisherName property.
     */
     public function setPublisherName(?string $value): void {
@@ -318,7 +318,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the recommendedSku property value. Recommended Cloud PC SKU for this gallery image. Read-only.
+     * Sets the recommendedSku property value. The recommendedSku property
      * @param string|null $value Value to set for the recommendedSku property.
     */
     public function setRecommendedSku(?string $value): void {
@@ -326,7 +326,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeInGB property value. The size of this image in gigabytes. Read-only.
+     * Sets the sizeInGB property value. Indicates the size of this image in gigabytes. For example, 64. Read-only.
      * @param int|null $value Value to set for the sizeInGB property.
     */
     public function setSizeInGB(?int $value): void {
@@ -334,7 +334,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the sku property value. The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
+     * Sets the sku property value. The sku property
      * @param string|null $value Value to set for the sku property.
     */
     public function setSku(?string $value): void {
@@ -342,7 +342,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the skuDisplayName property value. The official display stock keeping unit (SKU) name of this gallery image. For example, 2004. Read-only.
+     * Sets the skuDisplayName property value. The skuDisplayName property
      * @param string|null $value Value to set for the skuDisplayName property.
     */
     public function setSkuDisplayName(?string $value): void {
@@ -350,7 +350,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the skuName property value. The skuName property
+     * Sets the skuName property value. The SKU name of this image that is passed to ARM to retrieve the image resource. Read-only.
      * @param string|null $value Value to set for the skuName property.
     */
     public function setSkuName(?string $value): void {
@@ -358,7 +358,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the startDate property value. The date when the image becomes available. Read-only.
+     * Sets the startDate property value. The date when the Cloud PC image is available for provisioning new Cloud PCs. For example, 2022-09-20. Read-only.
      * @param Date|null $value Value to set for the startDate property.
     */
     public function setStartDate(?Date $value): void {
@@ -366,7 +366,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
+     * Sets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. The default value is supported. Read-only.
      * @param CloudPcGalleryImageStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcGalleryImageStatus $value): void {

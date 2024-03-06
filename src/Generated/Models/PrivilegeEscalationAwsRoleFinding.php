@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegeEscalationAwsRoleFinding extends PrivilegeEscalationFinding implements Parsable 
 {
     /**
-     * Instantiates a new privilegeEscalationAwsRoleFinding and sets the default values.
+     * Instantiates a new PrivilegeEscalationAwsRoleFinding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

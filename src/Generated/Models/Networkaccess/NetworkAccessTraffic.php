@@ -19,7 +19,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new networkAccessTraffic and sets the default values.
+     * Instantiates a new NetworkAccessTraffic and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -70,6 +70,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'agentVersion'");
+    }
+
+    /**
+     * Gets the applicationSnapshot property value. The applicationSnapshot property
+     * @return ApplicationSnapshot|null
+    */
+    public function getApplicationSnapshot(): ?ApplicationSnapshot {
+        $val = $this->getBackingStore()->get('applicationSnapshot');
+        if (is_null($val) || $val instanceof ApplicationSnapshot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationSnapshot'");
     }
 
     /**
@@ -141,6 +153,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the destinationUrl property value. The destinationUrl property
+     * @return string|null
+    */
+    public function getDestinationUrl(): ?string {
+        $val = $this->getBackingStore()->get('destinationUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationUrl'");
+    }
+
+    /**
      * Gets the destinationWebCategory property value. The destinationWebCategory property
      * @return WebCategory|null
     */
@@ -209,11 +233,13 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         return  [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(FilteringPolicyAction::class)),
             'agentVersion' => fn(ParseNode $n) => $o->setAgentVersion($n->getStringValue()),
+            'applicationSnapshot' => fn(ParseNode $n) => $o->setApplicationSnapshot($n->getObjectValue([ApplicationSnapshot::class, 'createFromDiscriminatorValue'])),
             'connectionId' => fn(ParseNode $n) => $o->setConnectionId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'destinationFQDN' => fn(ParseNode $n) => $o->setDestinationFQDN($n->getStringValue()),
             'destinationIp' => fn(ParseNode $n) => $o->setDestinationIp($n->getStringValue()),
             'destinationPort' => fn(ParseNode $n) => $o->setDestinationPort($n->getIntegerValue()),
+            'destinationUrl' => fn(ParseNode $n) => $o->setDestinationUrl($n->getStringValue()),
             'destinationWebCategory' => fn(ParseNode $n) => $o->setDestinationWebCategory($n->getObjectValue([WebCategory::class, 'createFromDiscriminatorValue'])),
             'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getEnumValue(DeviceCategory::class)),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
@@ -229,6 +255,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
             'policyRuleId' => fn(ParseNode $n) => $o->setPolicyRuleId($n->getStringValue()),
             'policyRuleName' => fn(ParseNode $n) => $o->setPolicyRuleName($n->getStringValue()),
+            'privateAccessDetails' => fn(ParseNode $n) => $o->setPrivateAccessDetails($n->getObjectValue([PrivateAccessDetails::class, 'createFromDiscriminatorValue'])),
             'receivedBytes' => fn(ParseNode $n) => $o->setReceivedBytes($n->getIntegerValue()),
             'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
             'sentBytes' => fn(ParseNode $n) => $o->setSentBytes($n->getIntegerValue()),
@@ -236,6 +263,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'sourceIp' => fn(ParseNode $n) => $o->setSourceIp($n->getStringValue()),
             'sourcePort' => fn(ParseNode $n) => $o->setSourcePort($n->getIntegerValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'threatType' => fn(ParseNode $n) => $o->setThreatType($n->getStringValue()),
             'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
             'transactionId' => fn(ParseNode $n) => $o->setTransactionId($n->getStringValue()),
             'transportProtocol' => fn(ParseNode $n) => $o->setTransportProtocol($n->getEnumValue(NetworkingProtocol::class)),
@@ -365,6 +393,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the privateAccessDetails property value. The privateAccessDetails property
+     * @return PrivateAccessDetails|null
+    */
+    public function getPrivateAccessDetails(): ?PrivateAccessDetails {
+        $val = $this->getBackingStore()->get('privateAccessDetails');
+        if (is_null($val) || $val instanceof PrivateAccessDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privateAccessDetails'");
+    }
+
+    /**
      * Gets the receivedBytes property value. Represents the total number of bytes received in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @return int|null
     */
@@ -449,6 +489,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the threatType property value. The threatType property
+     * @return string|null
+    */
+    public function getThreatType(): ?string {
+        $val = $this->getBackingStore()->get('threatType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatType'");
+    }
+
+    /**
      * Gets the trafficType property value. The trafficType property
      * @return TrafficType|null
     */
@@ -515,11 +567,13 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('action', $this->getAction());
         $writer->writeStringValue('agentVersion', $this->getAgentVersion());
+        $writer->writeObjectValue('applicationSnapshot', $this->getApplicationSnapshot());
         $writer->writeStringValue('connectionId', $this->getConnectionId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('destinationFQDN', $this->getDestinationFQDN());
         $writer->writeStringValue('destinationIp', $this->getDestinationIp());
         $writer->writeIntegerValue('destinationPort', $this->getDestinationPort());
+        $writer->writeStringValue('destinationUrl', $this->getDestinationUrl());
         $writer->writeObjectValue('destinationWebCategory', $this->getDestinationWebCategory());
         $writer->writeEnumValue('deviceCategory', $this->getDeviceCategory());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
@@ -535,6 +589,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('policyName', $this->getPolicyName());
         $writer->writeStringValue('policyRuleId', $this->getPolicyRuleId());
         $writer->writeStringValue('policyRuleName', $this->getPolicyRuleName());
+        $writer->writeObjectValue('privateAccessDetails', $this->getPrivateAccessDetails());
         $writer->writeIntegerValue('receivedBytes', $this->getReceivedBytes());
         $writer->writeStringValue('resourceTenantId', $this->getResourceTenantId());
         $writer->writeIntegerValue('sentBytes', $this->getSentBytes());
@@ -542,6 +597,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('sourceIp', $this->getSourceIp());
         $writer->writeIntegerValue('sourcePort', $this->getSourcePort());
         $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('threatType', $this->getThreatType());
         $writer->writeEnumValue('trafficType', $this->getTrafficType());
         $writer->writeStringValue('transactionId', $this->getTransactionId());
         $writer->writeEnumValue('transportProtocol', $this->getTransportProtocol());
@@ -572,6 +628,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setAgentVersion(?string $value): void {
         $this->getBackingStore()->set('agentVersion', $value);
+    }
+
+    /**
+     * Sets the applicationSnapshot property value. The applicationSnapshot property
+     * @param ApplicationSnapshot|null $value Value to set for the applicationSnapshot property.
+    */
+    public function setApplicationSnapshot(?ApplicationSnapshot $value): void {
+        $this->getBackingStore()->set('applicationSnapshot', $value);
     }
 
     /**
@@ -620,6 +684,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setDestinationPort(?int $value): void {
         $this->getBackingStore()->set('destinationPort', $value);
+    }
+
+    /**
+     * Sets the destinationUrl property value. The destinationUrl property
+     * @param string|null $value Value to set for the destinationUrl property.
+    */
+    public function setDestinationUrl(?string $value): void {
+        $this->getBackingStore()->set('destinationUrl', $value);
     }
 
     /**
@@ -743,6 +815,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Sets the privateAccessDetails property value. The privateAccessDetails property
+     * @param PrivateAccessDetails|null $value Value to set for the privateAccessDetails property.
+    */
+    public function setPrivateAccessDetails(?PrivateAccessDetails $value): void {
+        $this->getBackingStore()->set('privateAccessDetails', $value);
+    }
+
+    /**
      * Sets the receivedBytes property value. Represents the total number of bytes received in a network communication or data transfer. Supports $filter (eq) and $orderby.
      * @param int|null $value Value to set for the receivedBytes property.
     */
@@ -796,6 +876,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
+    }
+
+    /**
+     * Sets the threatType property value. The threatType property
+     * @param string|null $value Value to set for the threatType property.
+    */
+    public function setThreatType(?string $value): void {
+        $this->getBackingStore()->set('threatType', $value);
     }
 
     /**

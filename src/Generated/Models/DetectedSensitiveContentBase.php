@@ -18,7 +18,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new detectedSensitiveContentBase and sets the default values.
+     * Instantiates a new DetectedSensitiveContentBase and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

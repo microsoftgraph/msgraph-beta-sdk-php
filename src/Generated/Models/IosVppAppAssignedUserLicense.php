@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosVppAppAssignedUserLicense extends IosVppAppAssignedLicense implements Parsable 
 {
     /**
-     * Instantiates a new iosVppAppAssignedUserLicense and sets the default values.
+     * Instantiates a new IosVppAppAssignedUserLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();

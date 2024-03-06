@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementSettingAppConstraint and sets the default values.
+     * Instantiates a new DeviceManagementSettingAppConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

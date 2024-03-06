@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyConfigurationAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new groupPolicyConfigurationAssignment and sets the default values.
+     * Instantiates a new GroupPolicyConfigurationAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

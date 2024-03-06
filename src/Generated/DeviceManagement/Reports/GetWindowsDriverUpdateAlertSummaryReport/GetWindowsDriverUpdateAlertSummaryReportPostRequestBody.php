@@ -19,7 +19,7 @@ class GetWindowsDriverUpdateAlertSummaryReportPostRequestBody implements Additio
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getWindowsDriverUpdateAlertSummaryReportPostRequestBody and sets the default values.
+     * Instantiates a new GetWindowsDriverUpdateAlertSummaryReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -84,6 +84,7 @@ use Microsoft\Graph\Beta\Generated\Models\IosUpdateDeviceStatus;
 use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateAccountSummary;
 use Microsoft\Graph\Beta\Generated\Models\ManagedAllDeviceCertificateState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
+use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupRule;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupSettings;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceEncryptionState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceOverview;
@@ -96,6 +97,8 @@ use Microsoft\Graph\Beta\Generated\Models\MobileThreatDefenseConnector;
 use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
 use Microsoft\Graph\Beta\Generated\Models\NotificationMessageTemplate;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesConditionalAccessSettings;
+use Microsoft\Graph\Beta\Generated\Models\OperationApprovalPolicy;
+use Microsoft\Graph\Beta\Generated\Models\OperationApprovalRequest;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevation;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationRequest;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAudit;
@@ -180,7 +183,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagement extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagement and sets the default values.
+     * Instantiates a new DeviceManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -1121,6 +1124,7 @@ class DeviceManagement extends Entity implements Parsable
             'lastReportAggregationDateTime' => fn(ParseNode $n) => $o->setLastReportAggregationDateTime($n->getDateTimeValue()),
             'legacyPcManangementEnabled' => fn(ParseNode $n) => $o->setLegacyPcManangementEnabled($n->getBooleanValue()),
             'macOSSoftwareUpdateAccountSummaries' => fn(ParseNode $n) => $o->setMacOSSoftwareUpdateAccountSummaries($n->getCollectionOfObjectValues([MacOSSoftwareUpdateAccountSummary::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceCleanupRules' => fn(ParseNode $n) => $o->setManagedDeviceCleanupRules($n->getCollectionOfObjectValues([ManagedDeviceCleanupRule::class, 'createFromDiscriminatorValue'])),
             'managedDeviceCleanupSettings' => fn(ParseNode $n) => $o->setManagedDeviceCleanupSettings($n->getObjectValue([ManagedDeviceCleanupSettings::class, 'createFromDiscriminatorValue'])),
             'managedDeviceEncryptionStates' => fn(ParseNode $n) => $o->setManagedDeviceEncryptionStates($n->getCollectionOfObjectValues([ManagedDeviceEncryptionState::class, 'createFromDiscriminatorValue'])),
             'managedDeviceOverview' => fn(ParseNode $n) => $o->setManagedDeviceOverview($n->getObjectValue([ManagedDeviceOverview::class, 'createFromDiscriminatorValue'])),
@@ -1135,6 +1139,8 @@ class DeviceManagement extends Entity implements Parsable
             'monitoring' => fn(ParseNode $n) => $o->setMonitoring($n->getObjectValue([Monitoring::class, 'createFromDiscriminatorValue'])),
             'ndesConnectors' => fn(ParseNode $n) => $o->setNdesConnectors($n->getCollectionOfObjectValues([NdesConnector::class, 'createFromDiscriminatorValue'])),
             'notificationMessageTemplates' => fn(ParseNode $n) => $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues([NotificationMessageTemplate::class, 'createFromDiscriminatorValue'])),
+            'operationApprovalPolicies' => fn(ParseNode $n) => $o->setOperationApprovalPolicies($n->getCollectionOfObjectValues([OperationApprovalPolicy::class, 'createFromDiscriminatorValue'])),
+            'operationApprovalRequests' => fn(ParseNode $n) => $o->setOperationApprovalRequests($n->getCollectionOfObjectValues([OperationApprovalRequest::class, 'createFromDiscriminatorValue'])),
             'privilegeManagementElevations' => fn(ParseNode $n) => $o->setPrivilegeManagementElevations($n->getCollectionOfObjectValues([PrivilegeManagementElevation::class, 'createFromDiscriminatorValue'])),
             'remoteActionAudits' => fn(ParseNode $n) => $o->setRemoteActionAudits($n->getCollectionOfObjectValues([RemoteActionAudit::class, 'createFromDiscriminatorValue'])),
             'remoteAssistancePartners' => fn(ParseNode $n) => $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues([RemoteAssistancePartner::class, 'createFromDiscriminatorValue'])),
@@ -1457,6 +1463,20 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the managedDeviceCleanupRules property value. Device cleanup rule V2
+     * @return array<ManagedDeviceCleanupRule>|null
+    */
+    public function getManagedDeviceCleanupRules(): ?array {
+        $val = $this->getBackingStore()->get('managedDeviceCleanupRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceCleanupRule::class);
+            /** @var array<ManagedDeviceCleanupRule>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceCleanupRules'");
+    }
+
+    /**
      * Gets the managedDeviceCleanupSettings property value. Device cleanup rule
      * @return ManagedDeviceCleanupSettings|null
     */
@@ -1642,6 +1662,34 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationMessageTemplates'");
+    }
+
+    /**
+     * Gets the operationApprovalPolicies property value. The Operation Approval Policies
+     * @return array<OperationApprovalPolicy>|null
+    */
+    public function getOperationApprovalPolicies(): ?array {
+        $val = $this->getBackingStore()->get('operationApprovalPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OperationApprovalPolicy::class);
+            /** @var array<OperationApprovalPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operationApprovalPolicies'");
+    }
+
+    /**
+     * Gets the operationApprovalRequests property value. The Operation Approval Requests
+     * @return array<OperationApprovalRequest>|null
+    */
+    public function getOperationApprovalRequests(): ?array {
+        $val = $this->getBackingStore()->get('operationApprovalRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OperationApprovalRequest::class);
+            /** @var array<OperationApprovalRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operationApprovalRequests'");
     }
 
     /**
@@ -2918,6 +2966,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('intuneBrandingProfiles', $this->getIntuneBrandingProfiles());
         $writer->writeCollectionOfObjectValues('iosUpdateStatuses', $this->getIosUpdateStatuses());
         $writer->writeCollectionOfObjectValues('macOSSoftwareUpdateAccountSummaries', $this->getMacOSSoftwareUpdateAccountSummaries());
+        $writer->writeCollectionOfObjectValues('managedDeviceCleanupRules', $this->getManagedDeviceCleanupRules());
         $writer->writeObjectValue('managedDeviceCleanupSettings', $this->getManagedDeviceCleanupSettings());
         $writer->writeCollectionOfObjectValues('managedDeviceEncryptionStates', $this->getManagedDeviceEncryptionStates());
         $writer->writeObjectValue('managedDeviceOverview', $this->getManagedDeviceOverview());
@@ -2932,6 +2981,8 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('monitoring', $this->getMonitoring());
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->getNdesConnectors());
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->getNotificationMessageTemplates());
+        $writer->writeCollectionOfObjectValues('operationApprovalPolicies', $this->getOperationApprovalPolicies());
+        $writer->writeCollectionOfObjectValues('operationApprovalRequests', $this->getOperationApprovalRequests());
         $writer->writeCollectionOfObjectValues('privilegeManagementElevations', $this->getPrivilegeManagementElevations());
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->getRemoteActionAudits());
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->getRemoteAssistancePartners());
@@ -3654,6 +3705,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Sets the managedDeviceCleanupRules property value. Device cleanup rule V2
+     * @param array<ManagedDeviceCleanupRule>|null $value Value to set for the managedDeviceCleanupRules property.
+    */
+    public function setManagedDeviceCleanupRules(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceCleanupRules', $value);
+    }
+
+    /**
      * Sets the managedDeviceCleanupSettings property value. Device cleanup rule
      * @param ManagedDeviceCleanupSettings|null $value Value to set for the managedDeviceCleanupSettings property.
     */
@@ -3763,6 +3822,22 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setNotificationMessageTemplates(?array $value): void {
         $this->getBackingStore()->set('notificationMessageTemplates', $value);
+    }
+
+    /**
+     * Sets the operationApprovalPolicies property value. The Operation Approval Policies
+     * @param array<OperationApprovalPolicy>|null $value Value to set for the operationApprovalPolicies property.
+    */
+    public function setOperationApprovalPolicies(?array $value): void {
+        $this->getBackingStore()->set('operationApprovalPolicies', $value);
+    }
+
+    /**
+     * Sets the operationApprovalRequests property value. The Operation Approval Requests
+     * @param array<OperationApprovalRequest>|null $value Value to set for the operationApprovalRequests property.
+    */
+    public function setOperationApprovalRequests(?array $value): void {
+        $this->getBackingStore()->set('operationApprovalRequests', $value);
     }
 
     /**

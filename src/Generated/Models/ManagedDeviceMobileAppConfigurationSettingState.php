@@ -22,7 +22,7 @@ class ManagedDeviceMobileAppConfigurationSettingState implements AdditionalDataH
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new managedDeviceMobileAppConfigurationSettingState and sets the default values.
+     * Instantiates a new ManagedDeviceMobileAppConfigurationSettingState and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

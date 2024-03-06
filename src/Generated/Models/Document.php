@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Document extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new document and sets the default values.
+     * Instantiates a new Document and sets the default values.
     */
     public function __construct() {
         parent::__construct();

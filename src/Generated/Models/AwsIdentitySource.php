@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsIdentitySource extends PermissionsDefinitionIdentitySource implements Parsable 
 {
     /**
-     * Instantiates a new awsIdentitySource and sets the default values.
+     * Instantiates a new AwsIdentitySource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

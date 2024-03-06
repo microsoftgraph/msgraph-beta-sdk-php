@@ -1,0 +1,39 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\Item;
+
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
+use Microsoft\Kiota\Abstractions\RequestOption;
+
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
+class OperationApprovalPolicyItemRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration 
+{
+    /**
+     * @var OperationApprovalPolicyItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?OperationApprovalPolicyItemRequestBuilderGetQueryParameters $queryParameters = null;
+    
+    /**
+     * Instantiates a new OperationApprovalPolicyItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param OperationApprovalPolicyItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?OperationApprovalPolicyItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new OperationApprovalPolicyItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return OperationApprovalPolicyItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): OperationApprovalPolicyItemRequestBuilderGetQueryParameters {
+        return new OperationApprovalPolicyItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+}

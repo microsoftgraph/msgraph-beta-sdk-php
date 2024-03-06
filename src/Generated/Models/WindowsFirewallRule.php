@@ -22,7 +22,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windowsFirewallRule and sets the default values.
+     * Instantiates a new WindowsFirewallRule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ReviewSet extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new reviewSet and sets the default values.
+     * Instantiates a new ReviewSet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerGlobalProxyAutoConfig and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerGlobalProxyAutoConfig and sets the default values.
     */
     public function __construct() {
         parent::__construct();

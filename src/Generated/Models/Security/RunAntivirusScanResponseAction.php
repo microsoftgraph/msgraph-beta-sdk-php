@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RunAntivirusScanResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new runAntivirusScanResponseAction and sets the default values.
+     * Instantiates a new RunAntivirusScanResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

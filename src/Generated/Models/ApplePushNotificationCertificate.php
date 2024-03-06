@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplePushNotificationCertificate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new applePushNotificationCertificate and sets the default values.
+     * Instantiates a new ApplePushNotificationCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,7 +41,7 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificate property value. Not yet documented
+     * Gets the certificate property value. The certificate property
      * @return string|null
     */
     public function getCertificate(): ?string {
@@ -166,7 +166,7 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificate property value. Not yet documented
+     * Sets the certificate property value. The certificate property
      * @param string|null $value Value to set for the certificate property.
     */
     public function setCertificate(?string $value): void {

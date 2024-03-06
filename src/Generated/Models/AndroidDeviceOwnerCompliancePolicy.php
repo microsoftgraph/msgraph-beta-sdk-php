@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerCompliancePolicy and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -90,6 +90,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
             'passwordRequired' => fn(ParseNode $n) => $o->setPasswordRequired($n->getBooleanValue()),
             'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
             'requireNoPendingSystemUpdates' => fn(ParseNode $n) => $o->setRequireNoPendingSystemUpdates($n->getBooleanValue()),
+            'securityRequiredAndroidSafetyNetEvaluationType' => fn(ParseNode $n) => $o->setSecurityRequiredAndroidSafetyNetEvaluationType($n->getEnumValue(AndroidSafetyNetEvaluationType::class)),
             'securityRequireIntuneAppIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireIntuneAppIntegrity($n->getBooleanValue()),
             'securityRequireSafetyNetAttestationBasicIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireSafetyNetAttestationBasicIntegrity($n->getBooleanValue()),
             'securityRequireSafetyNetAttestationCertifiedDevice' => fn(ParseNode $n) => $o->setSecurityRequireSafetyNetAttestationCertifiedDevice($n->getBooleanValue()),
@@ -290,6 +291,18 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
+     * Gets the securityRequiredAndroidSafetyNetEvaluationType property value. Require a specific Play Integrity evaluation type for compliance.
+     * @return AndroidSafetyNetEvaluationType|null
+    */
+    public function getSecurityRequiredAndroidSafetyNetEvaluationType(): ?AndroidSafetyNetEvaluationType {
+        $val = $this->getBackingStore()->get('securityRequiredAndroidSafetyNetEvaluationType');
+        if (is_null($val) || $val instanceof AndroidSafetyNetEvaluationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityRequiredAndroidSafetyNetEvaluationType'");
+    }
+
+    /**
      * Gets the securityRequireIntuneAppIntegrity property value. If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
      * @return bool|null
     */
@@ -302,7 +315,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the SafetyNet basic integrity check.
+     * Gets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the Play Integrity basic integrity check.
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationBasicIntegrity(): ?bool {
@@ -314,7 +327,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the SafetyNet certified device check.
+     * Gets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the Play Integrity device integrity check.
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationCertifiedDevice(): ?bool {
@@ -362,6 +375,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
         $writer->writeBooleanValue('passwordRequired', $this->getPasswordRequired());
         $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());
         $writer->writeBooleanValue('requireNoPendingSystemUpdates', $this->getRequireNoPendingSystemUpdates());
+        $writer->writeEnumValue('securityRequiredAndroidSafetyNetEvaluationType', $this->getSecurityRequiredAndroidSafetyNetEvaluationType());
         $writer->writeBooleanValue('securityRequireIntuneAppIntegrity', $this->getSecurityRequireIntuneAppIntegrity());
         $writer->writeBooleanValue('securityRequireSafetyNetAttestationBasicIntegrity', $this->getSecurityRequireSafetyNetAttestationBasicIntegrity());
         $writer->writeBooleanValue('securityRequireSafetyNetAttestationCertifiedDevice', $this->getSecurityRequireSafetyNetAttestationCertifiedDevice());
@@ -521,6 +535,14 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
+     * Sets the securityRequiredAndroidSafetyNetEvaluationType property value. Require a specific Play Integrity evaluation type for compliance.
+     * @param AndroidSafetyNetEvaluationType|null $value Value to set for the securityRequiredAndroidSafetyNetEvaluationType property.
+    */
+    public function setSecurityRequiredAndroidSafetyNetEvaluationType(?AndroidSafetyNetEvaluationType $value): void {
+        $this->getBackingStore()->set('securityRequiredAndroidSafetyNetEvaluationType', $value);
+    }
+
+    /**
      * Sets the securityRequireIntuneAppIntegrity property value. If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
      * @param bool|null $value Value to set for the securityRequireIntuneAppIntegrity property.
     */
@@ -529,7 +551,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the SafetyNet basic integrity check.
+     * Sets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the Play Integrity basic integrity check.
      * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationBasicIntegrity property.
     */
     public function setSecurityRequireSafetyNetAttestationBasicIntegrity(?bool $value): void {
@@ -537,7 +559,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the SafetyNet certified device check.
+     * Sets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the Play Integrity device integrity check.
      * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationCertifiedDevice property.
     */
     public function setSecurityRequireSafetyNetAttestationCertifiedDevice(?bool $value): void {

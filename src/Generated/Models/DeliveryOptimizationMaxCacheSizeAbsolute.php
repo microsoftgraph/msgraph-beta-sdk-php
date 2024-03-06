@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationMaxCacheSizeAbsolute extends DeliveryOptimizationMaxCacheSize implements Parsable 
 {
     /**
-     * Instantiates a new deliveryOptimizationMaxCacheSizeAbsolute and sets the default values.
+     * Instantiates a new DeliveryOptimizationMaxCacheSizeAbsolute and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -19,7 +19,7 @@ class DeleteTiIndicatorsByExternalIdPostRequestBody implements AdditionalDataHol
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new deleteTiIndicatorsByExternalIdPostRequestBody and sets the default values.
+     * Instantiates a new DeleteTiIndicatorsByExternalIdPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

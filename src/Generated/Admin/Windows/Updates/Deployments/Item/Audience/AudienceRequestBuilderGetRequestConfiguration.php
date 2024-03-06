@@ -16,7 +16,7 @@ class AudienceRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     public ?AudienceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new audienceRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AudienceRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AudienceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AudienceRequestBuilderGetRequestConfiguration extends BaseRequestConfigura
     }
 
     /**
-     * Instantiates a new audienceRequestBuilderGetQueryParameters.
+     * Instantiates a new AudienceRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AudienceRequestBuilderGetQueryParameters

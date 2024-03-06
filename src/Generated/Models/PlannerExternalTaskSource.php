@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable 
 {
     /**
-     * Instantiates a new plannerExternalTaskSource and sets the default values.
+     * Instantiates a new PlannerExternalTaskSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

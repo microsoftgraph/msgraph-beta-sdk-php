@@ -18,7 +18,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new keyValue and sets the default values.
+     * Instantiates a new KeyValue and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -69,7 +69,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the key property value. Key.
+     * Gets the key property value. Contains the name of the field that a value is associated with.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -93,7 +93,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. Value.
+     * Gets the value property value. Contains the corresponding value for the specified key.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -132,7 +132,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the key property value. Key.
+     * Sets the key property value. Contains the name of the field that a value is associated with.
      * @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value): void {
@@ -148,7 +148,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. Value.
+     * Sets the value property value. Contains the corresponding value for the specified key.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

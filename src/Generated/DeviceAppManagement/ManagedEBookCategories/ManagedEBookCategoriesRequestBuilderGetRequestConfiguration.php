@@ -16,7 +16,7 @@ class ManagedEBookCategoriesRequestBuilderGetRequestConfiguration extends BaseRe
     public ?ManagedEBookCategoriesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managedEBookCategoriesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagedEBookCategoriesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagedEBookCategoriesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagedEBookCategoriesRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new managedEBookCategoriesRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagedEBookCategoriesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

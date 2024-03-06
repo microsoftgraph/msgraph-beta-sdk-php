@@ -6,11 +6,12 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TeamsAppDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamsAppDefinition and sets the default values.
+     * Instantiates a new TeamsAppDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +27,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedInstallationScopes property value. A collection of scopes where the Teams app can be installed. Possible values are:team—Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat—Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data.  personal—Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
+     * Gets the allowedInstallationScopes property value. A collection of scopes where the Teams app can be installed. Possible values are:team—Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat—Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data. personal—Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
      * @return TeamsAppInstallationScopes|null
     */
     public function getAllowedInstallationScopes(): ?TeamsAppInstallationScopes {
@@ -98,6 +99,20 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the dashboardCards property value. Dashboard cards specified in the Teams app manifest.
+     * @return array<TeamsAppDashboardCardDefinition>|null
+    */
+    public function getDashboardCards(): ?array {
+        $val = $this->getBackingStore()->get('dashboardCards');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamsAppDashboardCardDefinition::class);
+            /** @var array<TeamsAppDashboardCardDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dashboardCards'");
+    }
+
+    /**
      * Gets the description property value. The description property
      * @return string|null
     */
@@ -134,6 +149,7 @@ class TeamsAppDefinition extends Entity implements Parsable
             'bot' => fn(ParseNode $n) => $o->setBot($n->getObjectValue([TeamworkBot::class, 'createFromDiscriminatorValue'])),
             'colorIcon' => fn(ParseNode $n) => $o->setColorIcon($n->getObjectValue([TeamsAppIcon::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'dashboardCards' => fn(ParseNode $n) => $o->setDashboardCards($n->getCollectionOfObjectValues([TeamsAppDashboardCardDefinition::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -170,7 +186,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted—The specific version of the Teams app has been submitted and is under review. published—The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
+     * Gets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted—The specific version of the Teams app has been submitted and is under review. published - The request to publish the specific version of the Teams app has been approved by the admin and the app is published. rejected - The request to publish the specific version of the Teams app was rejected by the admin.
      * @return TeamsAppPublishingState|null
     */
     public function getPublishingState(): ?TeamsAppPublishingState {
@@ -229,6 +245,7 @@ class TeamsAppDefinition extends Entity implements Parsable
         $writer->writeObjectValue('bot', $this->getBot());
         $writer->writeObjectValue('colorIcon', $this->getColorIcon());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeCollectionOfObjectValues('dashboardCards', $this->getDashboardCards());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
@@ -240,7 +257,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedInstallationScopes property value. A collection of scopes where the Teams app can be installed. Possible values are:team—Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat—Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data.  personal—Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
+     * Sets the allowedInstallationScopes property value. A collection of scopes where the Teams app can be installed. Possible values are:team—Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat—Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data. personal—Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
      * @param TeamsAppInstallationScopes|null $value Value to set for the allowedInstallationScopes property.
     */
     public function setAllowedInstallationScopes(?TeamsAppInstallationScopes $value): void {
@@ -288,6 +305,14 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
+     * Sets the dashboardCards property value. Dashboard cards specified in the Teams app manifest.
+     * @param array<TeamsAppDashboardCardDefinition>|null $value Value to set for the dashboardCards property.
+    */
+    public function setDashboardCards(?array $value): void {
+        $this->getBackingStore()->set('dashboardCards', $value);
+    }
+
+    /**
      * Sets the description property value. The description property
      * @param string|null $value Value to set for the description property.
     */
@@ -320,7 +345,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted—The specific version of the Teams app has been submitted and is under review. published—The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
+     * Sets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted—The specific version of the Teams app has been submitted and is under review. published - The request to publish the specific version of the Teams app has been approved by the admin and the app is published. rejected - The request to publish the specific version of the Teams app was rejected by the admin.
      * @param TeamsAppPublishingState|null $value Value to set for the publishingState property.
     */
     public function setPublishingState(?TeamsAppPublishingState $value): void {

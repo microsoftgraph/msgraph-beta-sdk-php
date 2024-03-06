@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Reports extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new reports and sets the default values.
+     * Instantiates a new Reports and sets the default values.
     */
     public function __construct() {
         parent::__construct();

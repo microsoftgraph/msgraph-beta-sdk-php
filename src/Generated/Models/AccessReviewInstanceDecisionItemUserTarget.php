@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDecisionItemTarget implements Parsable 
 {
     /**
-     * Instantiates a new accessReviewInstanceDecisionItemUserTarget and sets the default values.
+     * Instantiates a new AccessReviewInstanceDecisionItemUserTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();

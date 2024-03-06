@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MobileApp extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new mobileApp and sets the default values.
+     * Instantiates a new MobileApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -57,6 +57,7 @@ class MobileApp extends Entity implements Parsable
                 case '#microsoft.graph.mobileLobApp': return new MobileLobApp();
                 case '#microsoft.graph.officeSuiteApp': return new OfficeSuiteApp();
                 case '#microsoft.graph.webApp': return new WebApp();
+                case '#microsoft.graph.win32CatalogApp': return new Win32CatalogApp();
                 case '#microsoft.graph.win32LobApp': return new Win32LobApp();
                 case '#microsoft.graph.windowsAppX': return new WindowsAppX();
                 case '#microsoft.graph.windowsMicrosoftEdgeApp': return new WindowsMicrosoftEdgeApp();

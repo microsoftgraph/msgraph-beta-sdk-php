@@ -22,7 +22,7 @@ class OrganizationSettingsRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new organizationSettingsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new OrganizationSettingsRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

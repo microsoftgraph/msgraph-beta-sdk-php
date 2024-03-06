@@ -16,7 +16,7 @@ class GraphAndroidForWorkAppRequestBuilderGetRequestConfiguration extends BaseRe
     public ?GraphAndroidForWorkAppRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new graphAndroidForWorkAppRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GraphAndroidForWorkAppRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GraphAndroidForWorkAppRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GraphAndroidForWorkAppRequestBuilderGetRequestConfiguration extends BaseRe
     }
 
     /**
-     * Instantiates a new graphAndroidForWorkAppRequestBuilderGetQueryParameters.
+     * Instantiates a new GraphAndroidForWorkAppRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return GraphAndroidForWorkAppRequestBuilderGetQueryParameters

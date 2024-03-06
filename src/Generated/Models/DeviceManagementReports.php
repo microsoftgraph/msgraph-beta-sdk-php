@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementReports extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementReports and sets the default values.
+     * Instantiates a new DeviceManagementReports and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +29,7 @@ class DeviceManagementReports extends Entity implements Parsable
     }
 
     /**
-     * Gets the cachedReportConfigurations property value. Entity representing the configuration of a cached report
+     * Gets the cachedReportConfigurations property value. Entity representing the configuration of a cached report.
      * @return array<DeviceManagementCachedReportConfiguration>|null
     */
     public function getCachedReportConfigurations(): ?array {
@@ -43,7 +43,7 @@ class DeviceManagementReports extends Entity implements Parsable
     }
 
     /**
-     * Gets the exportJobs property value. Entity representing a job to export a report
+     * Gets the exportJobs property value. Entity representing a job to export a report.
      * @return array<DeviceManagementExportJob>|null
     */
     public function getExportJobs(): ?array {
@@ -79,7 +79,7 @@ class DeviceManagementReports extends Entity implements Parsable
     }
 
     /**
-     * Sets the cachedReportConfigurations property value. Entity representing the configuration of a cached report
+     * Sets the cachedReportConfigurations property value. Entity representing the configuration of a cached report.
      * @param array<DeviceManagementCachedReportConfiguration>|null $value Value to set for the cachedReportConfigurations property.
     */
     public function setCachedReportConfigurations(?array $value): void {
@@ -87,7 +87,7 @@ class DeviceManagementReports extends Entity implements Parsable
     }
 
     /**
-     * Sets the exportJobs property value. Entity representing a job to export a report
+     * Sets the exportJobs property value. Entity representing a job to export a report.
      * @param array<DeviceManagementExportJob>|null $value Value to set for the exportJobs property.
     */
     public function setExportJobs(?array $value): void {

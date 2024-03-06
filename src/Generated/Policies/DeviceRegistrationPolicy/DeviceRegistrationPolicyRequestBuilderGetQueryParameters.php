@@ -16,7 +16,7 @@ class DeviceRegistrationPolicyRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new deviceRegistrationPolicyRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new DeviceRegistrationPolicyRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $select Select properties to be returned
     */
     public function __construct(?array $select = null) {

@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Psr\Http\Message\StreamInterface;
 
 class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -18,7 +19,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new virtualEventPresenterDetails and sets the default values.
+     * Instantiates a new VirtualEventPresenterDetails and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -92,6 +93,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
             'linkedInProfileWebUrl' => fn(ParseNode $n) => $o->setLinkedInProfileWebUrl($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'personalSiteWebUrl' => fn(ParseNode $n) => $o->setPersonalSiteWebUrl($n->getStringValue()),
+            'photo' => fn(ParseNode $n) => $o->setPhoto($n->getBinaryContent()),
             'twitterProfileWebUrl' => fn(ParseNode $n) => $o->setTwitterProfileWebUrl($n->getStringValue()),
         ];
     }
@@ -145,6 +147,18 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
+     * Gets the photo property value. The content stream of the presenter's photo.
+     * @return StreamInterface|null
+    */
+    public function getPhoto(): ?StreamInterface {
+        $val = $this->getBackingStore()->get('photo');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'photo'");
+    }
+
+    /**
      * Gets the twitterProfileWebUrl property value. The presenter's Twitter profile URL.
      * @return string|null
     */
@@ -167,6 +181,7 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
         $writer->writeStringValue('linkedInProfileWebUrl', $this->getLinkedInProfileWebUrl());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('personalSiteWebUrl', $this->getPersonalSiteWebUrl());
+        $writer->writeBinaryContent('photo', $this->getPhoto());
         $writer->writeStringValue('twitterProfileWebUrl', $this->getTwitterProfileWebUrl());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -233,6 +248,14 @@ class VirtualEventPresenterDetails implements AdditionalDataHolder, BackedModel,
     */
     public function setPersonalSiteWebUrl(?string $value): void {
         $this->getBackingStore()->set('personalSiteWebUrl', $value);
+    }
+
+    /**
+     * Sets the photo property value. The content stream of the presenter's photo.
+     * @param StreamInterface|null $value Value to set for the photo property.
+    */
+    public function setPhoto(?StreamInterface $value): void {
+        $this->getBackingStore()->set('photo', $value);
     }
 
     /**

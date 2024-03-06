@@ -19,7 +19,7 @@ class GenerateServerLogCollectionRequestPostRequestBody implements AdditionalDat
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new generateServerLogCollectionRequestPostRequestBody and sets the default values.
+     * Instantiates a new GenerateServerLogCollectionRequestPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

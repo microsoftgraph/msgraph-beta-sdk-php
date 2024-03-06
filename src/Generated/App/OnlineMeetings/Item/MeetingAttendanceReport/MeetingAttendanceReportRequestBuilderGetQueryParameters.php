@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\MeetingAttendan
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report is generated for that session.
+ * Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.
 */
 class MeetingAttendanceReportRequestBuilderGetQueryParameters 
 {
@@ -22,7 +22,7 @@ class MeetingAttendanceReportRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new meetingAttendanceReportRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new MeetingAttendanceReportRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

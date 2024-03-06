@@ -16,7 +16,7 @@ class ShareRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     public ?ShareRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new shareRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ShareRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ShareRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ShareRequestBuilderGetRequestConfiguration extends BaseRequestConfiguratio
     }
 
     /**
-     * Instantiates a new shareRequestBuilderGetQueryParameters.
+     * Instantiates a new ShareRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ShareRequestBuilderGetQueryParameters

@@ -58,7 +58,7 @@ class UsageRightsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new usageRightsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new UsageRightsRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

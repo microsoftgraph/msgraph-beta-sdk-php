@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class IosScepCertificateProfile extends IosCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new iosScepCertificateProfile and sets the default values.
+     * Instantiates a new IosScepCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

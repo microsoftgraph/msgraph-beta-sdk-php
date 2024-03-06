@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class NetworkAccessTrafficCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new networkAccessTrafficCollectionResponse and sets the default values.
+     * Instantiates a new NetworkAccessTrafficCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

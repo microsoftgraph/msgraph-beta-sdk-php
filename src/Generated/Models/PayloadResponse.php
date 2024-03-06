@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PayloadResponse extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new payloadResponse and sets the default values.
+     * Instantiates a new PayloadResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

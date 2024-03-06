@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedTenantAlert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedTenantAlert and sets the default values.
+     * Instantiates a new ManagedTenantAlert and sets the default values.
     */
     public function __construct() {
         parent::__construct();

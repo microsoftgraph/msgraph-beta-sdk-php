@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OnPremisesAgentGroup extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new onPremisesAgentGroup and sets the default values.
+     * Instantiates a new OnPremisesAgentGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -145,6 +145,7 @@ use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter\MonthlyPri
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\MonthlyPrintUsageByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\MonthlyPrintUsageSummariesByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\Partners\PartnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\ServiceActivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities\ServicePrincipalSignInActivitiesRequestBuilder;
@@ -338,6 +339,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the partners property of the microsoft.graph.reportRoot entity.
+    */
+    public function partners(): PartnersRequestBuilder {
+        return new PartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
     */
     public function security(): SecurityRequestBuilder {
@@ -385,7 +393,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -402,8 +410,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -1450,8 +1457,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     public function patch(ReportRoot $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -1485,7 +1491,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ReportRoot $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

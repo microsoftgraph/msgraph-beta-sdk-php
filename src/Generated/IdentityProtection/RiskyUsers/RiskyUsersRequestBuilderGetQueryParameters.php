@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a collection of riskyUser objects.
+ * Retrieve the properties and relationships of a riskyUser object.
 */
 class RiskyUsersRequestBuilderGetQueryParameters 
 {
@@ -58,7 +58,7 @@ class RiskyUsersRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new riskyUsersRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new RiskyUsersRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

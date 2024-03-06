@@ -18,7 +18,7 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new userExperienceSettings and sets the default values.
+     * Instantiates a new UserExperienceSettings and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -76,6 +76,7 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
         return  [
             'daysUntilForcedReboot' => fn(ParseNode $n) => $o->setDaysUntilForcedReboot($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'offerAsOptional' => fn(ParseNode $n) => $o->setOfferAsOptional($n->getBooleanValue()),
         ];
     }
 
@@ -92,12 +93,25 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
+     * Gets the offerAsOptional property value. Specifies whether the update is offered as Optional rather than Required.
+     * @return bool|null
+    */
+    public function getOfferAsOptional(): ?bool {
+        $val = $this->getBackingStore()->get('offerAsOptional');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offerAsOptional'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('daysUntilForcedReboot', $this->getDaysUntilForcedReboot());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('offerAsOptional', $this->getOfferAsOptional());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -131,6 +145,14 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the offerAsOptional property value. Specifies whether the update is offered as Optional rather than Required.
+     * @param bool|null $value Value to set for the offerAsOptional property.
+    */
+    public function setOfferAsOptional(?bool $value): void {
+        $this->getBackingStore()->set('offerAsOptional', $value);
     }
 
 }

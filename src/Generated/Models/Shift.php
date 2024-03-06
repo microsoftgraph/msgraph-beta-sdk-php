@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Shift extends ChangeTrackedEntity implements Parsable 
 {
     /**
-     * Instantiates a new shift and sets the default values.
+     * Instantiates a new Shift and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftShift property value. Draft changes in the shift are only visible to managers until they are shared.
+     * Gets the draftShift property value. Draft changes in the shift. Draft changes are only visible to managers. The changes are visible to employees when they're shared, which copies the changes from the draftShift to the sharedShift property.
      * @return ShiftItem|null
     */
     public function getDraftShift(): ?ShiftItem {
@@ -47,8 +47,11 @@ class Shift extends ChangeTrackedEntity implements Parsable
             'draftShift' => fn(ParseNode $n) => $o->setDraftShift($n->getObjectValue([ShiftItem::class, 'createFromDiscriminatorValue'])),
             'isStagedForDeletion' => fn(ParseNode $n) => $o->setIsStagedForDeletion($n->getBooleanValue()),
             'schedulingGroupId' => fn(ParseNode $n) => $o->setSchedulingGroupId($n->getStringValue()),
+            'schedulingGroupInfo' => fn(ParseNode $n) => $o->setSchedulingGroupInfo($n->getObjectValue([SchedulingGroupInfo::class, 'createFromDiscriminatorValue'])),
             'sharedShift' => fn(ParseNode $n) => $o->setSharedShift($n->getObjectValue([ShiftItem::class, 'createFromDiscriminatorValue'])),
+            'teamInfo' => fn(ParseNode $n) => $o->setTeamInfo($n->getObjectValue([ShiftsTeamInfo::class, 'createFromDiscriminatorValue'])),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userInfo' => fn(ParseNode $n) => $o->setUserInfo($n->getObjectValue([ShiftsUserInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -77,7 +80,19 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers.
+     * Gets the schedulingGroupInfo property value. Information of the scheduling group the shift is part of.
+     * @return SchedulingGroupInfo|null
+    */
+    public function getSchedulingGroupInfo(): ?SchedulingGroupInfo {
+        $val = $this->getBackingStore()->get('schedulingGroupInfo');
+        if (is_null($val) || $val instanceof SchedulingGroupInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'schedulingGroupInfo'");
+    }
+
+    /**
+     * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Updates to the sharedShift property send notifications to users in the Teams client.
      * @return ShiftItem|null
     */
     public function getSharedShift(): ?ShiftItem {
@@ -86,6 +101,18 @@ class Shift extends ChangeTrackedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedShift'");
+    }
+
+    /**
+     * Gets the teamInfo property value. Information of the team that the shift is in.
+     * @return ShiftsTeamInfo|null
+    */
+    public function getTeamInfo(): ?ShiftsTeamInfo {
+        $val = $this->getBackingStore()->get('teamInfo');
+        if (is_null($val) || $val instanceof ShiftsTeamInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamInfo'");
     }
 
     /**
@@ -98,6 +125,18 @@ class Shift extends ChangeTrackedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
+    }
+
+    /**
+     * Gets the userInfo property value. Information of the user assigned to the shift.
+     * @return ShiftsUserInfo|null
+    */
+    public function getUserInfo(): ?ShiftsUserInfo {
+        $val = $this->getBackingStore()->get('userInfo');
+        if (is_null($val) || $val instanceof ShiftsUserInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userInfo'");
     }
 
     /**
@@ -114,7 +153,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftShift property value. Draft changes in the shift are only visible to managers until they are shared.
+     * Sets the draftShift property value. Draft changes in the shift. Draft changes are only visible to managers. The changes are visible to employees when they're shared, which copies the changes from the draftShift to the sharedShift property.
      * @param ShiftItem|null $value Value to set for the draftShift property.
     */
     public function setDraftShift(?ShiftItem $value): void {
@@ -138,11 +177,27 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers.
+     * Sets the schedulingGroupInfo property value. Information of the scheduling group the shift is part of.
+     * @param SchedulingGroupInfo|null $value Value to set for the schedulingGroupInfo property.
+    */
+    public function setSchedulingGroupInfo(?SchedulingGroupInfo $value): void {
+        $this->getBackingStore()->set('schedulingGroupInfo', $value);
+    }
+
+    /**
+     * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Updates to the sharedShift property send notifications to users in the Teams client.
      * @param ShiftItem|null $value Value to set for the sharedShift property.
     */
     public function setSharedShift(?ShiftItem $value): void {
         $this->getBackingStore()->set('sharedShift', $value);
+    }
+
+    /**
+     * Sets the teamInfo property value. Information of the team that the shift is in.
+     * @param ShiftsTeamInfo|null $value Value to set for the teamInfo property.
+    */
+    public function setTeamInfo(?ShiftsTeamInfo $value): void {
+        $this->getBackingStore()->set('teamInfo', $value);
     }
 
     /**
@@ -151,6 +206,14 @@ class Shift extends ChangeTrackedEntity implements Parsable
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
+    }
+
+    /**
+     * Sets the userInfo property value. Information of the user assigned to the shift.
+     * @param ShiftsUserInfo|null $value Value to set for the userInfo property.
+    */
+    public function setUserInfo(?ShiftsUserInfo $value): void {
+        $this->getBackingStore()->set('userInfo', $value);
     }
 
 }

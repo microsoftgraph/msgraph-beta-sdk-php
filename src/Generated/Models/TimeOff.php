@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TimeOff extends ChangeTrackedEntity implements Parsable 
 {
     /**
-     * Instantiates a new timeOff and sets the default values.
+     * Instantiates a new TimeOff and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the draftTimeOff property value. Draft changes in the timeOff are only visible to managers until they're shared.
+     * Gets the draftTimeOff property value. The draft version of this timeOff item that is viewable by managers. It must be shared before it is visible to team members. Required.
      * @return TimeOffItem|null
     */
     public function getDraftTimeOff(): ?TimeOffItem {
@@ -47,7 +47,9 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
             'draftTimeOff' => fn(ParseNode $n) => $o->setDraftTimeOff($n->getObjectValue([TimeOffItem::class, 'createFromDiscriminatorValue'])),
             'isStagedForDeletion' => fn(ParseNode $n) => $o->setIsStagedForDeletion($n->getBooleanValue()),
             'sharedTimeOff' => fn(ParseNode $n) => $o->setSharedTimeOff($n->getObjectValue([TimeOffItem::class, 'createFromDiscriminatorValue'])),
+            'teamInfo' => fn(ParseNode $n) => $o->setTeamInfo($n->getObjectValue([ShiftsTeamInfo::class, 'createFromDiscriminatorValue'])),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userInfo' => fn(ParseNode $n) => $o->setUserInfo($n->getObjectValue([ShiftsUserInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -64,7 +66,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers.
+     * Gets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers. Updates to the sharedTimeOff property send notifications to users in the Teams client. Required.
      * @return TimeOffItem|null
     */
     public function getSharedTimeOff(): ?TimeOffItem {
@@ -73,6 +75,18 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedTimeOff'");
+    }
+
+    /**
+     * Gets the teamInfo property value. Information of the team that the timeOff is in.
+     * @return ShiftsTeamInfo|null
+    */
+    public function getTeamInfo(): ?ShiftsTeamInfo {
+        $val = $this->getBackingStore()->get('teamInfo');
+        if (is_null($val) || $val instanceof ShiftsTeamInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'teamInfo'");
     }
 
     /**
@@ -88,6 +102,18 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
+     * Gets the userInfo property value. Information of the user assigned to the timeOff.
+     * @return ShiftsUserInfo|null
+    */
+    public function getUserInfo(): ?ShiftsUserInfo {
+        $val = $this->getBackingStore()->get('userInfo');
+        if (is_null($val) || $val instanceof ShiftsUserInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userInfo'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -100,7 +126,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the draftTimeOff property value. Draft changes in the timeOff are only visible to managers until they're shared.
+     * Sets the draftTimeOff property value. The draft version of this timeOff item that is viewable by managers. It must be shared before it is visible to team members. Required.
      * @param TimeOffItem|null $value Value to set for the draftTimeOff property.
     */
     public function setDraftTimeOff(?TimeOffItem $value): void {
@@ -116,11 +142,19 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers.
+     * Sets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers. Updates to the sharedTimeOff property send notifications to users in the Teams client. Required.
      * @param TimeOffItem|null $value Value to set for the sharedTimeOff property.
     */
     public function setSharedTimeOff(?TimeOffItem $value): void {
         $this->getBackingStore()->set('sharedTimeOff', $value);
+    }
+
+    /**
+     * Sets the teamInfo property value. Information of the team that the timeOff is in.
+     * @param ShiftsTeamInfo|null $value Value to set for the teamInfo property.
+    */
+    public function setTeamInfo(?ShiftsTeamInfo $value): void {
+        $this->getBackingStore()->set('teamInfo', $value);
     }
 
     /**
@@ -129,6 +163,14 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
+    }
+
+    /**
+     * Sets the userInfo property value. Information of the user assigned to the timeOff.
+     * @param ShiftsUserInfo|null $value Value to set for the userInfo property.
+    */
+    public function setUserInfo(?ShiftsUserInfo $value): void {
+        $this->getBackingStore()->set('userInfo', $value);
     }
 
 }

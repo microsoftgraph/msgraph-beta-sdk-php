@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InitiateInvestigationResponseAction extends ResponseAction implements Parsable 
 {
     /**
-     * Instantiates a new initiateInvestigationResponseAction and sets the default values.
+     * Instantiates a new InitiateInvestigationResponseAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

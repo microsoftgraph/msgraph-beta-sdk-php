@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsRequest
 use Microsoft\Graph\Beta\Generated\Communications\Calls\CallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\GetPresencesByUserId\GetPresencesByUserIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\OnlineMeetingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Presences\PresencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudCommunications;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -62,7 +63,7 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/communications{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/communications{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -79,10 +80,18 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
     public function get(?CommunicationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CloudCommunications::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+     * @param string $joinWebUrl Alternate key of onlineMeeting
+     * @return OnlineMeetingsWithJoinWebUrlRequestBuilder
+    */
+    public function onlineMeetingsWithJoinWebUrl(string $joinWebUrl): OnlineMeetingsWithJoinWebUrlRequestBuilder {
+        return new OnlineMeetingsWithJoinWebUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $joinWebUrl);
     }
 
     /**
@@ -95,8 +104,7 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
     public function patch(CloudCommunications $body, ?CommunicationsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CloudCommunications::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -130,7 +138,7 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CloudCommunications $body, ?CommunicationsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/communications';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

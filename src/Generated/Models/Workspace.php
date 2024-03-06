@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Workspace extends Place implements Parsable 
 {
     /**
-     * Instantiates a new workspace and sets the default values.
+     * Instantiates a new Workspace and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -149,7 +149,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the tags property value. Specifies additional features of the workspace, for example, details like the type of view or furniture type.
+     * Gets the tags property value. Specifies other features of the workspace; for example, the type of view or furniture type.
      * @return array<string>|null
     */
     public function getTags(): ?array {
@@ -244,7 +244,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Sets the tags property value. Specifies additional features of the workspace, for example, details like the type of view or furniture type.
+     * Sets the tags property value. Specifies other features of the workspace; for example, the type of view or furniture type.
      * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {

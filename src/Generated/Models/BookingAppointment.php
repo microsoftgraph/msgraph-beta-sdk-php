@@ -15,7 +15,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingAppointment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new bookingAppointment and sets the default values.
+     * Instantiates a new BookingAppointment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +55,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the appointmentLabel property value. Custom label that can be stamped on this appointment by users.
+     * Gets the appointmentLabel property value. Custom label that can be stamped on this appointment by the user.
      * @return string|null
     */
     public function getAppointmentLabel(): ?string {
@@ -67,7 +67,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the appointment was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -227,6 +227,7 @@ class BookingAppointment extends Entity implements Parsable
             'invoiceId' => fn(ParseNode $n) => $o->setInvoiceId($n->getStringValue()),
             'invoiceStatus' => fn(ParseNode $n) => $o->setInvoiceStatus($n->getEnumValue(BookingInvoiceStatus::class)),
             'invoiceUrl' => fn(ParseNode $n) => $o->setInvoiceUrl($n->getStringValue()),
+            'isCustomerAllowedToManageBooking' => fn(ParseNode $n) => $o->setIsCustomerAllowedToManageBooking($n->getBooleanValue()),
             'isLocationOnline' => fn(ParseNode $n) => $o->setIsLocationOnline($n->getBooleanValue()),
             'joinWebUrl' => fn(ParseNode $n) => $o->setJoinWebUrl($n->getStringValue()),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
@@ -329,6 +330,18 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
+     * Gets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @return bool|null
+    */
+    public function getIsCustomerAllowedToManageBooking(): ?bool {
+        $val = $this->getBackingStore()->get('isCustomerAllowedToManageBooking');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomerAllowedToManageBooking'");
+    }
+
+    /**
      * Gets the isLocationOnline property value. True indicates that the appointment will be held online. Default value is false.
      * @return bool|null
     */
@@ -353,7 +366,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the booking business was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -584,6 +597,7 @@ class BookingAppointment extends Entity implements Parsable
         $writer->writeStringValue('invoiceId', $this->getInvoiceId());
         $writer->writeEnumValue('invoiceStatus', $this->getInvoiceStatus());
         $writer->writeStringValue('invoiceUrl', $this->getInvoiceUrl());
+        $writer->writeBooleanValue('isCustomerAllowedToManageBooking', $this->getIsCustomerAllowedToManageBooking());
         $writer->writeBooleanValue('isLocationOnline', $this->getIsLocationOnline());
         $writer->writeStringValue('joinWebUrl', $this->getJoinWebUrl());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
@@ -622,7 +636,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the appointmentLabel property value. Custom label that can be stamped on this appointment by users.
+     * Sets the appointmentLabel property value. Custom label that can be stamped on this appointment by the user.
      * @param string|null $value Value to set for the appointmentLabel property.
     */
     public function setAppointmentLabel(?string $value): void {
@@ -630,7 +644,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the appointment was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -766,6 +780,14 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
+     * Sets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @param bool|null $value Value to set for the isCustomerAllowedToManageBooking property.
+    */
+    public function setIsCustomerAllowedToManageBooking(?bool $value): void {
+        $this->getBackingStore()->set('isCustomerAllowedToManageBooking', $value);
+    }
+
+    /**
      * Sets the isLocationOnline property value. True indicates that the appointment will be held online. Default value is false.
      * @param bool|null $value Value to set for the isLocationOnline property.
     */
@@ -782,7 +804,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the booking business was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\SolutionsRoot;
 use Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\BookingBusinessesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BookingCurrencies\BookingCurrenciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenariosWithUniqueName\BusinessScenariosWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\VirtualEventsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -49,12 +50,21 @@ class SolutionsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the businessScenarios property of the microsoft.graph.solutionsRoot entity.
+     * @param string $uniqueName Alternate key of businessScenario
+     * @return BusinessScenariosWithUniqueNameRequestBuilder
+    */
+    public function businessScenariosWithUniqueName(string $uniqueName): BusinessScenariosWithUniqueNameRequestBuilder {
+        return new BusinessScenariosWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
+    /**
      * Instantiates a new SolutionsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -71,8 +81,7 @@ class SolutionsRequestBuilder extends BaseRequestBuilder
     public function get(?SolutionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [SolutionsRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -87,8 +96,7 @@ class SolutionsRequestBuilder extends BaseRequestBuilder
     public function patch(SolutionsRoot $body, ?SolutionsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [SolutionsRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -122,7 +130,7 @@ class SolutionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(SolutionsRoot $body, ?SolutionsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

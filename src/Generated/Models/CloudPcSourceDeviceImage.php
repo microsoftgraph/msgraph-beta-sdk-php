@@ -18,7 +18,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcSourceDeviceImage and sets the default values.
+     * Instantiates a new CloudPcSourceDeviceImage and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -56,7 +56,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the displayName property value. The display name for the source image.
+     * Gets the displayName property value. The display name for the source image. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -84,7 +84,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the id property value. The ID of the source image.
+     * Gets the id property value. The id property
      * @return string|null
     */
     public function getId(): ?string {
@@ -108,7 +108,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the resourceId property value. The resourceId property
+     * Gets the resourceId property value. The fully qualified unique identifier (ID) of the source image resource in Azure. The ID format is: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'. Read-only.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -120,7 +120,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the subscriptionDisplayName property value. The display name of subscription that hosts the source image.
+     * Gets the subscriptionDisplayName property value. The display name of the subscription that hosts the source image. Read-only.
      * @return string|null
     */
     public function getSubscriptionDisplayName(): ?string {
@@ -132,7 +132,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the subscriptionId property value. The ID of subscription that hosts the source image.
+     * Gets the subscriptionId property value. The unique identifier (ID) of the subscription that hosts the source image. Read-only.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -174,7 +174,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the displayName property value. The display name for the source image.
+     * Sets the displayName property value. The display name for the source image. Read-only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -182,7 +182,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the id property value. The ID of the source image.
+     * Sets the id property value. The id property
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
@@ -198,7 +198,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the resourceId property value. The resourceId property
+     * Sets the resourceId property value. The fully qualified unique identifier (ID) of the source image resource in Azure. The ID format is: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'. Read-only.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
@@ -206,7 +206,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the subscriptionDisplayName property value. The display name of subscription that hosts the source image.
+     * Sets the subscriptionDisplayName property value. The display name of the subscription that hosts the source image. Read-only.
      * @param string|null $value Value to set for the subscriptionDisplayName property.
     */
     public function setSubscriptionDisplayName(?string $value): void {
@@ -214,7 +214,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the subscriptionId property value. The ID of subscription that hosts the source image.
+     * Sets the subscriptionId property value. The unique identifier (ID) of the subscription that hosts the source image. Read-only.
      * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {

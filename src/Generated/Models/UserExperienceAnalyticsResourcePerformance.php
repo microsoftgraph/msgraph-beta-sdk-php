@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsResourcePerformance and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsResourcePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,6 +37,30 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'averageSpikeTimeScore'");
+    }
+
+    /**
+     * Gets the cpuClockSpeedInMHz property value. The clock speed of the processor, in MHz. Valid values 0 to 1000000
+     * @return float|null
+    */
+    public function getCpuClockSpeedInMHz(): ?float {
+        $val = $this->getBackingStore()->get('cpuClockSpeedInMHz');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuClockSpeedInMHz'");
+    }
+
+    /**
+     * Gets the cpuDisplayName property value. The name of the processor on the device, For example, 11th Gen Intel(R) Core(TM) i7.
+     * @return string|null
+    */
+    public function getCpuDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('cpuDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuDisplayName'");
     }
 
     /**
@@ -124,6 +148,18 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     }
 
     /**
+     * Gets the diskType property value. The diskType property
+     * @return DiskType|null
+    */
+    public function getDiskType(): ?DiskType {
+        $val = $this->getBackingStore()->get('diskType');
+        if (is_null($val) || $val instanceof DiskType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'diskType'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -131,6 +167,8 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'averageSpikeTimeScore' => fn(ParseNode $n) => $o->setAverageSpikeTimeScore($n->getIntegerValue()),
+            'cpuClockSpeedInMHz' => fn(ParseNode $n) => $o->setCpuClockSpeedInMHz($n->getFloatValue()),
+            'cpuDisplayName' => fn(ParseNode $n) => $o->setCpuDisplayName($n->getStringValue()),
             'cpuSpikeTimePercentage' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentage($n->getFloatValue()),
             'cpuSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentageThreshold($n->getFloatValue()),
             'cpuSpikeTimeScore' => fn(ParseNode $n) => $o->setCpuSpikeTimeScore($n->getIntegerValue()),
@@ -138,12 +176,41 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'deviceResourcePerformanceScore' => fn(ParseNode $n) => $o->setDeviceResourcePerformanceScore($n->getIntegerValue()),
+            'diskType' => fn(ParseNode $n) => $o->setDiskType($n->getEnumValue(DiskType::class)),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
+            'machineType' => fn(ParseNode $n) => $o->setMachineType($n->getEnumValue(UserExperienceAnalyticsMachineType::class)),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
             'ramSpikeTimePercentage' => fn(ParseNode $n) => $o->setRamSpikeTimePercentage($n->getFloatValue()),
             'ramSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setRamSpikeTimePercentageThreshold($n->getFloatValue()),
             'ramSpikeTimeScore' => fn(ParseNode $n) => $o->setRamSpikeTimeScore($n->getIntegerValue()),
+            'totalProcessorCoreCount' => fn(ParseNode $n) => $o->setTotalProcessorCoreCount($n->getIntegerValue()),
+            'totalRamInMB' => fn(ParseNode $n) => $o->setTotalRamInMB($n->getFloatValue()),
         ]);
+    }
+
+    /**
+     * Gets the healthStatus property value. The healthStatus property
+     * @return UserExperienceAnalyticsHealthState|null
+    */
+    public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
+        $val = $this->getBackingStore()->get('healthStatus');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsHealthState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
+    }
+
+    /**
+     * Gets the machineType property value. Indicates if machine is physical or virtual. Possible values are: physical or virtual
+     * @return UserExperienceAnalyticsMachineType|null
+    */
+    public function getMachineType(): ?UserExperienceAnalyticsMachineType {
+        $val = $this->getBackingStore()->get('machineType');
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsMachineType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'machineType'");
     }
 
     /**
@@ -207,12 +274,38 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     }
 
     /**
+     * Gets the totalProcessorCoreCount property value. The count of cores of the processor of device. Valid values 0 to 512
+     * @return int|null
+    */
+    public function getTotalProcessorCoreCount(): ?int {
+        $val = $this->getBackingStore()->get('totalProcessorCoreCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalProcessorCoreCount'");
+    }
+
+    /**
+     * Gets the totalRamInMB property value. The total RAM of the device, in MB. Valid values 0 to 1000000
+     * @return float|null
+    */
+    public function getTotalRamInMB(): ?float {
+        $val = $this->getBackingStore()->get('totalRamInMB');
+        if (is_null($val) || is_float($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalRamInMB'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('averageSpikeTimeScore', $this->getAverageSpikeTimeScore());
+        $writer->writeFloatValue('cpuClockSpeedInMHz', $this->getCpuClockSpeedInMHz());
+        $writer->writeStringValue('cpuDisplayName', $this->getCpuDisplayName());
         $writer->writeFloatValue('cpuSpikeTimePercentage', $this->getCpuSpikeTimePercentage());
         $writer->writeFloatValue('cpuSpikeTimePercentageThreshold', $this->getCpuSpikeTimePercentageThreshold());
         $writer->writeIntegerValue('cpuSpikeTimeScore', $this->getCpuSpikeTimeScore());
@@ -220,11 +313,16 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeIntegerValue('deviceResourcePerformanceScore', $this->getDeviceResourcePerformanceScore());
+        $writer->writeEnumValue('diskType', $this->getDiskType());
+        $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
+        $writer->writeEnumValue('machineType', $this->getMachineType());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeFloatValue('ramSpikeTimePercentage', $this->getRamSpikeTimePercentage());
         $writer->writeFloatValue('ramSpikeTimePercentageThreshold', $this->getRamSpikeTimePercentageThreshold());
         $writer->writeIntegerValue('ramSpikeTimeScore', $this->getRamSpikeTimeScore());
+        $writer->writeIntegerValue('totalProcessorCoreCount', $this->getTotalProcessorCoreCount());
+        $writer->writeFloatValue('totalRamInMB', $this->getTotalRamInMB());
     }
 
     /**
@@ -233,6 +331,22 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     */
     public function setAverageSpikeTimeScore(?int $value): void {
         $this->getBackingStore()->set('averageSpikeTimeScore', $value);
+    }
+
+    /**
+     * Sets the cpuClockSpeedInMHz property value. The clock speed of the processor, in MHz. Valid values 0 to 1000000
+     * @param float|null $value Value to set for the cpuClockSpeedInMHz property.
+    */
+    public function setCpuClockSpeedInMHz(?float $value): void {
+        $this->getBackingStore()->set('cpuClockSpeedInMHz', $value);
+    }
+
+    /**
+     * Sets the cpuDisplayName property value. The name of the processor on the device, For example, 11th Gen Intel(R) Core(TM) i7.
+     * @param string|null $value Value to set for the cpuDisplayName property.
+    */
+    public function setCpuDisplayName(?string $value): void {
+        $this->getBackingStore()->set('cpuDisplayName', $value);
     }
 
     /**
@@ -292,6 +406,30 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     }
 
     /**
+     * Sets the diskType property value. The diskType property
+     * @param DiskType|null $value Value to set for the diskType property.
+    */
+    public function setDiskType(?DiskType $value): void {
+        $this->getBackingStore()->set('diskType', $value);
+    }
+
+    /**
+     * Sets the healthStatus property value. The healthStatus property
+     * @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
+    */
+    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
+        $this->getBackingStore()->set('healthStatus', $value);
+    }
+
+    /**
+     * Sets the machineType property value. Indicates if machine is physical or virtual. Possible values are: physical or virtual
+     * @param UserExperienceAnalyticsMachineType|null $value Value to set for the machineType property.
+    */
+    public function setMachineType(?UserExperienceAnalyticsMachineType $value): void {
+        $this->getBackingStore()->set('machineType', $value);
+    }
+
+    /**
      * Sets the manufacturer property value. The user experience analytics device manufacturer.
      * @param string|null $value Value to set for the manufacturer property.
     */
@@ -329,6 +467,22 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     */
     public function setRamSpikeTimeScore(?int $value): void {
         $this->getBackingStore()->set('ramSpikeTimeScore', $value);
+    }
+
+    /**
+     * Sets the totalProcessorCoreCount property value. The count of cores of the processor of device. Valid values 0 to 512
+     * @param int|null $value Value to set for the totalProcessorCoreCount property.
+    */
+    public function setTotalProcessorCoreCount(?int $value): void {
+        $this->getBackingStore()->set('totalProcessorCoreCount', $value);
+    }
+
+    /**
+     * Sets the totalRamInMB property value. The total RAM of the device, in MB. Valid values 0 to 1000000
+     * @param float|null $value Value to set for the totalRamInMB property.
+    */
+    public function setTotalRamInMB(?float $value): void {
+        $this->getBackingStore()->set('totalRamInMB', $value);
     }
 
 }

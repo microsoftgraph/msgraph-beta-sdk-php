@@ -30,7 +30,7 @@ class UndoDeleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a  deletedChat to an active chat.
+     * Restore a deletedChat to an active chat.
      * @param UndoDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -39,14 +39,13 @@ class UndoDeleteRequestBuilder extends BaseRequestBuilder
     public function post(?UndoDeleteRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
 
     /**
-     * Restore a  deletedChat to an active chat.
+     * Restore a deletedChat to an active chat.
      * @param UndoDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

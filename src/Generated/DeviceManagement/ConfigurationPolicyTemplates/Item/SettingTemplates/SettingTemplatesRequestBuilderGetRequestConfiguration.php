@@ -16,7 +16,7 @@ class SettingTemplatesRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?SettingTemplatesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new settingTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SettingTemplatesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SettingTemplatesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SettingTemplatesRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new settingTemplatesRequestBuilderGetQueryParameters.
+     * Instantiates a new SettingTemplatesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

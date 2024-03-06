@@ -19,7 +19,7 @@ class ExactMatchClassificationResult implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new exactMatchClassificationResult and sets the default values.
+     * Instantiates a new ExactMatchClassificationResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

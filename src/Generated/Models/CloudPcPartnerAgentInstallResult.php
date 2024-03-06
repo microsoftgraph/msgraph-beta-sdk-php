@@ -18,7 +18,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcPartnerAgentInstallResult and sets the default values.
+     * Instantiates a new CloudPcPartnerAgentInstallResult and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -56,7 +56,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the errorMessage property value. The errorMessage property
+     * Gets the errorMessage property value. Contains a detailed error message when the partner agent installation failed.
      * @return string|null
     */
     public function getErrorMessage(): ?string {
@@ -96,7 +96,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known.  The default value is 'FALSE'
+     * Gets the isThirdPartyPartner property value. Indicates whether the partner agent is a third party. When true, the agent is a third-party (non-Microsoft) agent and when false, the agent is a Microsoft agent or isn't known.  The default value is false.
      * @return bool|null
     */
     public function getIsThirdPartyPartner(): ?bool {
@@ -132,7 +132,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known. The default value is 'FALSE'
+     * Gets the retriable property value. Indicates whether the partner agent installation should be retried. The default value is false.
      * @return bool|null
     */
     public function getRetriable(): ?bool {
@@ -174,7 +174,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the errorMessage property value. The errorMessage property
+     * Sets the errorMessage property value. Contains a detailed error message when the partner agent installation failed.
      * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
@@ -190,7 +190,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known.  The default value is 'FALSE'
+     * Sets the isThirdPartyPartner property value. Indicates whether the partner agent is a third party. When true, the agent is a third-party (non-Microsoft) agent and when false, the agent is a Microsoft agent or isn't known.  The default value is false.
      * @param bool|null $value Value to set for the isThirdPartyPartner property.
     */
     public function setIsThirdPartyPartner(?bool $value): void {
@@ -214,7 +214,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE' the agent is a third-party (non-Microsoft) agent and when 'FALSE' the agent is a Microsoft agent or isn't known. The default value is 'FALSE'
+     * Sets the retriable property value. Indicates whether the partner agent installation should be retried. The default value is false.
      * @param bool|null $value Value to set for the retriable property.
     */
     public function setRetriable(?bool $value): void {

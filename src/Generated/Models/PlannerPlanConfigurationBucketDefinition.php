@@ -18,7 +18,7 @@ class PlannerPlanConfigurationBucketDefinition implements AdditionalDataHolder, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerPlanConfigurationBucketDefinition and sets the default values.
+     * Instantiates a new PlannerPlanConfigurationBucketDefinition and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
+ * Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment's originId. Supports $expand.
 */
 class AccessPackageResourceEnvironmentRequestBuilderGetQueryParameters 
 {
@@ -22,7 +22,7 @@ class AccessPackageResourceEnvironmentRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new accessPackageResourceEnvironmentRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new AccessPackageResourceEnvironmentRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

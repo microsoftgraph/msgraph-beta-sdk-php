@@ -16,7 +16,7 @@ class PreTokenIssuanceRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?PreTokenIssuanceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new preTokenIssuanceRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PreTokenIssuanceRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PreTokenIssuanceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PreTokenIssuanceRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new preTokenIssuanceRequestBuilderGetQueryParameters.
+     * Instantiates a new PreTokenIssuanceRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return PreTokenIssuanceRequestBuilderGetQueryParameters

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AwsPermissionsDefinition extends PermissionsDefinition implements Parsable 
 {
     /**
-     * Instantiates a new awsPermissionsDefinition and sets the default values.
+     * Instantiates a new AwsPermissionsDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

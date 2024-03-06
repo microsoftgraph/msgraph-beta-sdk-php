@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NoEntitlementsDataCollection extends EntitlementsDataCollectionInfo implements Parsable 
 {
     /**
-     * Instantiates a new noEntitlementsDataCollection and sets the default values.
+     * Instantiates a new NoEntitlementsDataCollection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

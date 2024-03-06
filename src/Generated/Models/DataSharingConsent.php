@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DataSharingConsent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new dataSharingConsent and sets the default values.
+     * Instantiates a new DataSharingConsent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RoleScopeTagAutoAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new roleScopeTagAutoAssignment and sets the default values.
+     * Instantiates a new RoleScopeTagAutoAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

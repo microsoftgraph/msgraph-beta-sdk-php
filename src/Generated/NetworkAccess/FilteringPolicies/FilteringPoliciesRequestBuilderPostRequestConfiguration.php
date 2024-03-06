@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 class FilteringPoliciesRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new filteringPoliciesRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new FilteringPoliciesRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

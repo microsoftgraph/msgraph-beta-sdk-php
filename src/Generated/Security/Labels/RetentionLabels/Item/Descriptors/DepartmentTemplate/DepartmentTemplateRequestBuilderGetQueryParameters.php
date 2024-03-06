@@ -22,7 +22,7 @@ class DepartmentTemplateRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new departmentTemplateRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new DepartmentTemplateRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DayNoteCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new dayNoteCollectionResponse and sets the default values.
+     * Instantiates a new DayNoteCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the authenticationCombinationConfiguration objects for an authentication strength policy. authenticationCombinationConfiguration represents requirements placed on specific authentication method combinations that require specified variants of those authentication methods to be used when authenticating. Currently, only fido2combinationConfigurations objects are supported. authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
+ * Get the authenticationCombinationConfiguration objects for an authentication strength policy. The objects can be of one or more of the following derived types:* fido2combinationConfigurations* x509certificatecombinationconfiguration authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
 */
 class CombinationConfigurationsRequestBuilderGetQueryParameters 
 {
@@ -58,7 +58,7 @@ class CombinationConfigurationsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new combinationConfigurationsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new CombinationConfigurationsRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

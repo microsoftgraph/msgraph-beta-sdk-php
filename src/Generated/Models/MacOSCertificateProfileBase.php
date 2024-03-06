@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new macOSCertificateProfileBase and sets the default values.
+     * Instantiates a new MacOSCertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AuthenticationCombinationConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new authenticationCombinationConfiguration and sets the default values.
+     * Instantiates a new AuthenticationCombinationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -34,7 +34,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
+     * Gets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object defined for the authenticationStrengthPolicy. For fido2combinationConfigurations use 'fido2', for x509certificatecombinationconfiguration use 'x509CertificateSingleFactor' or 'x509CertificateMultiFactor'.
      * @return array<AuthenticationMethodModes>|null
     */
     public function getAppliesToCombinations(): ?array {
@@ -68,7 +68,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
+     * Sets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object defined for the authenticationStrengthPolicy. For fido2combinationConfigurations use 'fido2', for x509certificatecombinationconfiguration use 'x509CertificateSingleFactor' or 'x509CertificateMultiFactor'.
      * @param array<AuthenticationMethodModes>|null $value Value to set for the appliesToCombinations property.
     */
     public function setAppliesToCombinations(?array $value): void {

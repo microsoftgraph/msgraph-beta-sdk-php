@@ -18,7 +18,7 @@ class GetGlobalScriptHighestAvailableVersionPostResponse implements AdditionalDa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getGlobalScriptHighestAvailableVersionPostResponse and sets the default values.
+     * Instantiates a new GetGlobalScriptHighestAvailableVersionPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

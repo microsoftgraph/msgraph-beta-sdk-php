@@ -16,7 +16,7 @@ class QnasRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?QnasRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new qnasRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new QnasRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param QnasRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class QnasRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new qnasRequestBuilderGetQueryParameters.
+     * Instantiates a new QnasRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

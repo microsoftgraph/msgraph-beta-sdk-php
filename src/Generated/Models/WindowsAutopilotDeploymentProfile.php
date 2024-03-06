@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsAutopilotDeploymentProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsAutopilotDeploymentProfile and sets the default values.
+     * Instantiates a new WindowsAutopilotDeploymentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

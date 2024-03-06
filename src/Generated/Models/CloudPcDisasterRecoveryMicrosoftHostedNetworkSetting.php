@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting extends CloudPcDisasterRecoveryNetworkSetting implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcDisasterRecoveryMicrosoftHostedNetworkSetting and sets the default values.
+     * Instantiates a new CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();

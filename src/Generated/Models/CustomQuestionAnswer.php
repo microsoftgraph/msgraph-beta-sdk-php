@@ -18,7 +18,7 @@ class CustomQuestionAnswer implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new customQuestionAnswer and sets the default values.
+     * Instantiates a new CustomQuestionAnswer and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

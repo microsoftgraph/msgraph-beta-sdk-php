@@ -19,7 +19,7 @@ class GetConfigurationPolicyDeviceSummaryReportPostRequestBody implements Additi
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getConfigurationPolicyDeviceSummaryReportPostRequestBody and sets the default values.
+     * Instantiates a new GetConfigurationPolicyDeviceSummaryReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

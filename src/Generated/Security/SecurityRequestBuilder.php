@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationReq
 use Microsoft\Graph\Beta\Generated\Security\AuditLog\AuditLogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Collaboration\CollaborationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\FileSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\HostSecurityProfilesRequestBuilder;
@@ -21,6 +22,7 @@ use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfile
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Rules\RulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\SecureScoreControlProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScores\SecureScoresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\SecurityActionsRequestBuilder;
@@ -84,6 +86,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the collaboration property of the microsoft.graph.security entity.
+    */
+    public function collaboration(): CollaborationRequestBuilder {
+        return new CollaborationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the domainSecurityProfiles property of the microsoft.graph.security entity.
     */
     public function domainSecurityProfiles(): DomainSecurityProfilesRequestBuilder {
@@ -144,6 +153,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function providerTenantSettings(): ProviderTenantSettingsRequestBuilder {
         return new ProviderTenantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the rules property of the microsoft.graph.security entity.
+    */
+    public function rules(): RulesRequestBuilder {
+        return new RulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -222,7 +238,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security{?%24select,%24expand}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/security{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -239,8 +255,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     public function get(?SecurityRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Security::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -255,8 +270,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     public function patch(Security $body, ?SecurityRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Security::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -290,7 +304,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Security $body, ?SecurityRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

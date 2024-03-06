@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\CommunitiesReq
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\EngagementAsyncOperations\EngagementAsyncOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\GoalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivitiesWithExternalcourseActivityId\LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmployeeExperience;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -79,10 +80,18 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     public function get(?EmployeeExperienceRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [EmployeeExperience::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+     * @param string $externalcourseActivityId Alternate key of learningCourseActivity
+     * @return LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+    */
+    public function learningCourseActivitiesWithExternalcourseActivityId(string $externalcourseActivityId): LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder {
+        return new LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder($this->pathParameters, $this->requestAdapter, $externalcourseActivityId);
     }
 
     /**
@@ -95,8 +104,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     public function patch(EmployeeExperience $body, ?EmployeeExperienceRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [EmployeeExperience::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -130,7 +138,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(EmployeeExperience $body, ?EmployeeExperienceRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/employeeExperience';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

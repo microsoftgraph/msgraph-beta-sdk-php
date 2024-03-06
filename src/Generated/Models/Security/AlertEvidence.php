@@ -20,7 +20,7 @@ class AlertEvidence implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new alertEvidence and sets the default values.
+     * Instantiates a new AlertEvidence and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -47,8 +47,15 @@ class AlertEvidence implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.containerImageEvidence': return new ContainerImageEvidence();
                 case '#microsoft.graph.security.containerRegistryEvidence': return new ContainerRegistryEvidence();
                 case '#microsoft.graph.security.deviceEvidence': return new DeviceEvidence();
+                case '#microsoft.graph.security.dnsEvidence': return new DnsEvidence();
                 case '#microsoft.graph.security.fileEvidence': return new FileEvidence();
+                case '#microsoft.graph.security.fileHashEvidence': return new FileHashEvidence();
+                case '#microsoft.graph.security.gitHubOrganizationEvidence': return new GitHubOrganizationEvidence();
+                case '#microsoft.graph.security.gitHubRepoEvidence': return new GitHubRepoEvidence();
+                case '#microsoft.graph.security.gitHubUserEvidence': return new GitHubUserEvidence();
                 case '#microsoft.graph.security.googleCloudResourceEvidence': return new GoogleCloudResourceEvidence();
+                case '#microsoft.graph.security.hostLogonSessionEvidence': return new HostLogonSessionEvidence();
+                case '#microsoft.graph.security.ioTDeviceEvidence': return new IoTDeviceEvidence();
                 case '#microsoft.graph.security.ipEvidence': return new IpEvidence();
                 case '#microsoft.graph.security.kubernetesClusterEvidence': return new KubernetesClusterEvidence();
                 case '#microsoft.graph.security.kubernetesControllerEvidence': return new KubernetesControllerEvidence();
@@ -59,11 +66,17 @@ class AlertEvidence implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.kubernetesServiceEvidence': return new KubernetesServiceEvidence();
                 case '#microsoft.graph.security.mailboxEvidence': return new MailboxEvidence();
                 case '#microsoft.graph.security.mailClusterEvidence': return new MailClusterEvidence();
+                case '#microsoft.graph.security.malwareEvidence': return new MalwareEvidence();
+                case '#microsoft.graph.security.networkConnectionEvidence': return new NetworkConnectionEvidence();
+                case '#microsoft.graph.security.nicEvidence': return new NicEvidence();
                 case '#microsoft.graph.security.oauthApplicationEvidence': return new OauthApplicationEvidence();
                 case '#microsoft.graph.security.processEvidence': return new ProcessEvidence();
                 case '#microsoft.graph.security.registryKeyEvidence': return new RegistryKeyEvidence();
                 case '#microsoft.graph.security.registryValueEvidence': return new RegistryValueEvidence();
+                case '#microsoft.graph.security.sasTokenEvidence': return new SasTokenEvidence();
                 case '#microsoft.graph.security.securityGroupEvidence': return new SecurityGroupEvidence();
+                case '#microsoft.graph.security.servicePrincipalEvidence': return new ServicePrincipalEvidence();
+                case '#microsoft.graph.security.submissionMailEvidence': return new SubmissionMailEvidence();
                 case '#microsoft.graph.security.urlEvidence': return new UrlEvidence();
                 case '#microsoft.graph.security.userEvidence': return new UserEvidence();
             }

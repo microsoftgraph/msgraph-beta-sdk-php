@@ -21,7 +21,7 @@ class AndroidDeviceOwnerSilentCertificateAccess implements AdditionalDataHolder,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new androidDeviceOwnerSilentCertificateAccess and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerSilentCertificateAccess and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

@@ -16,7 +16,7 @@ class TenantStatusRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?TenantStatusRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new tenantStatusRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new TenantStatusRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param TenantStatusRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class TenantStatusRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new tenantStatusRequestBuilderGetQueryParameters.
+     * Instantiates a new TenantStatusRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return TenantStatusRequestBuilderGetQueryParameters

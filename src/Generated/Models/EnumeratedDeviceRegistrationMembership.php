@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class EnumeratedDeviceRegistrationMembership extends DeviceRegistrationMembership implements Parsable 
 {
     /**
-     * Instantiates a new enumeratedDeviceRegistrationMembership and sets the default values.
+     * Instantiates a new EnumeratedDeviceRegistrationMembership and sets the default values.
     */
     public function __construct() {
         parent::__construct();

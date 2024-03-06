@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DispositionReviewStageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new dispositionReviewStageCollectionResponse and sets the default values.
+     * Instantiates a new DispositionReviewStageCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

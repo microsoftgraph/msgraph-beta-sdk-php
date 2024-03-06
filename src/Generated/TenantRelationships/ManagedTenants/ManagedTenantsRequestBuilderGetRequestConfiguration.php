@@ -16,7 +16,7 @@ class ManagedTenantsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     public ?ManagedTenantsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managedTenantsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ManagedTenantsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ManagedTenantsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ManagedTenantsRequestBuilderGetRequestConfiguration extends BaseRequestCon
     }
 
     /**
-     * Instantiates a new managedTenantsRequestBuilderGetQueryParameters.
+     * Instantiates a new ManagedTenantsRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ManagedTenantsRequestBuilderGetQueryParameters

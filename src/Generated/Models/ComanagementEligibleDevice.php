@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new comanagementEligibleDevice and sets the default values.
+     * Instantiates a new ComanagementEligibleDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();

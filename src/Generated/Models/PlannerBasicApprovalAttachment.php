@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerBasicApprovalAttachment extends PlannerBaseApprovalAttachment implements Parsable 
 {
     /**
-     * Instantiates a new plannerBasicApprovalAttachment and sets the default values.
+     * Instantiates a new PlannerBasicApprovalAttachment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -18,7 +18,7 @@ class IdentitySource implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new identitySource and sets the default values.
+     * Instantiates a new IdentitySource and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -39,6 +39,7 @@ class IdentitySource implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.crossCloudAzureActiveDirectoryTenant': return new CrossCloudAzureActiveDirectoryTenant();
                 case '#microsoft.graph.domainIdentitySource': return new DomainIdentitySource();
                 case '#microsoft.graph.externalDomainFederation': return new ExternalDomainFederation();
+                case '#microsoft.graph.socialIdentitySource': return new SocialIdentitySource();
             }
         }
         return new IdentitySource();

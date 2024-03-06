@@ -16,7 +16,7 @@ class WindowsQualityUpdateProfilesRequestBuilderGetRequestConfiguration extends 
     public ?WindowsQualityUpdateProfilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new windowsQualityUpdateProfilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new WindowsQualityUpdateProfilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param WindowsQualityUpdateProfilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class WindowsQualityUpdateProfilesRequestBuilderGetRequestConfiguration extends 
     }
 
     /**
-     * Instantiates a new windowsQualityUpdateProfilesRequestBuilderGetQueryParameters.
+     * Instantiates a new WindowsQualityUpdateProfilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

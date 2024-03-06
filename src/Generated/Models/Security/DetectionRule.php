@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DetectionRule extends ProtectionRule implements Parsable 
 {
     /**
-     * Instantiates a new detectionRule and sets the default values.
+     * Instantiates a new DetectionRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the detectionAction property value. The detectionAction property
+     * Gets the detectionAction property value. Complex type representing the actions taken when a detection is made by this rule.
      * @return DetectionAction|null
     */
     public function getDetectionAction(): ?DetectionAction {
@@ -38,6 +38,18 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
+     * Gets the detectorId property value. The ID of the detector that triggered the alert. Also see the 'detectorId' field in microsoft.graph.security.alert.
+     * @return string|null
+    */
+    public function getDetectorId(): ?string {
+        $val = $this->getBackingStore()->get('detectorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectorId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -45,6 +57,7 @@ class DetectionRule extends ProtectionRule implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'detectionAction' => fn(ParseNode $n) => $o->setDetectionAction($n->getObjectValue([DetectionAction::class, 'createFromDiscriminatorValue'])),
+            'detectorId' => fn(ParseNode $n) => $o->setDetectorId($n->getStringValue()),
             'lastRunDetails' => fn(ParseNode $n) => $o->setLastRunDetails($n->getObjectValue([RunDetails::class, 'createFromDiscriminatorValue'])),
             'queryCondition' => fn(ParseNode $n) => $o->setQueryCondition($n->getObjectValue([QueryCondition::class, 'createFromDiscriminatorValue'])),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RuleSchedule::class, 'createFromDiscriminatorValue'])),
@@ -52,7 +65,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the lastRunDetails property value. The lastRunDetails property
+     * Gets the lastRunDetails property value. Complex type holding details about the last run of this rule.
      * @return RunDetails|null
     */
     public function getLastRunDetails(): ?RunDetails {
@@ -64,7 +77,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the queryCondition property value. The queryCondition property
+     * Gets the queryCondition property value. Complex type holding data about the advanced hunting query of this rule.
      * @return QueryCondition|null
     */
     public function getQueryCondition(): ?QueryCondition {
@@ -76,7 +89,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Gets the schedule property value. The schedule property
+     * Gets the schedule property value. Complex type holding data about the triggering schedule of this rule.
      * @return RuleSchedule|null
     */
     public function getSchedule(): ?RuleSchedule {
@@ -94,13 +107,14 @@ class DetectionRule extends ProtectionRule implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('detectionAction', $this->getDetectionAction());
+        $writer->writeStringValue('detectorId', $this->getDetectorId());
         $writer->writeObjectValue('lastRunDetails', $this->getLastRunDetails());
         $writer->writeObjectValue('queryCondition', $this->getQueryCondition());
         $writer->writeObjectValue('schedule', $this->getSchedule());
     }
 
     /**
-     * Sets the detectionAction property value. The detectionAction property
+     * Sets the detectionAction property value. Complex type representing the actions taken when a detection is made by this rule.
      * @param DetectionAction|null $value Value to set for the detectionAction property.
     */
     public function setDetectionAction(?DetectionAction $value): void {
@@ -108,7 +122,15 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the lastRunDetails property value. The lastRunDetails property
+     * Sets the detectorId property value. The ID of the detector that triggered the alert. Also see the 'detectorId' field in microsoft.graph.security.alert.
+     * @param string|null $value Value to set for the detectorId property.
+    */
+    public function setDetectorId(?string $value): void {
+        $this->getBackingStore()->set('detectorId', $value);
+    }
+
+    /**
+     * Sets the lastRunDetails property value. Complex type holding details about the last run of this rule.
      * @param RunDetails|null $value Value to set for the lastRunDetails property.
     */
     public function setLastRunDetails(?RunDetails $value): void {
@@ -116,7 +138,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the queryCondition property value. The queryCondition property
+     * Sets the queryCondition property value. Complex type holding data about the advanced hunting query of this rule.
      * @param QueryCondition|null $value Value to set for the queryCondition property.
     */
     public function setQueryCondition(?QueryCondition $value): void {
@@ -124,7 +146,7 @@ class DetectionRule extends ProtectionRule implements Parsable
     }
 
     /**
-     * Sets the schedule property value. The schedule property
+     * Sets the schedule property value. Complex type holding data about the triggering schedule of this rule.
      * @param RuleSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RuleSchedule $value): void {

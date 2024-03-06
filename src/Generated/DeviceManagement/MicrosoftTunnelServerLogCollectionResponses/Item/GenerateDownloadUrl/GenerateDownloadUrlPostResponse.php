@@ -18,7 +18,7 @@ class GenerateDownloadUrlPostResponse implements AdditionalDataHolder, BackedMod
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new generateDownloadUrlPostResponse and sets the default values.
+     * Instantiates a new GenerateDownloadUrlPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

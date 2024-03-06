@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppDependency extends MobileAppRelationship implements Parsable 
 {
     /**
-     * Instantiates a new mobileAppDependency and sets the default values.
+     * Instantiates a new MobileAppDependency and sets the default values.
     */
     public function __construct() {
         parent::__construct();

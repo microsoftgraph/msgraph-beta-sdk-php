@@ -16,7 +16,7 @@ class AuthorizationSystemRequestBuilderGetRequestConfiguration extends BaseReque
     public ?AuthorizationSystemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new authorizationSystemRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AuthorizationSystemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AuthorizationSystemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AuthorizationSystemRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new authorizationSystemRequestBuilderGetQueryParameters.
+     * Instantiates a new AuthorizationSystemRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AuthorizationSystemRequestBuilderGetQueryParameters

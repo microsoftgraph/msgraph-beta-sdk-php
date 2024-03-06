@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class WindowsPhone81SCEPCertificateProfile extends WindowsPhone81CertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new windowsPhone81SCEPCertificateProfile and sets the default values.
+     * Instantiates a new WindowsPhone81SCEPCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

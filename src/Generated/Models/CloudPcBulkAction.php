@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class CloudPcBulkAction extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcBulkAction and sets the default values.
+     * Instantiates a new CloudPcBulkAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,7 +110,20 @@ class CloudPcBulkAction extends Entity implements Parsable
             },
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'scheduledDuringMaintenanceWindow' => fn(ParseNode $n) => $o->setScheduledDuringMaintenanceWindow($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the scheduledDuringMaintenanceWindow property value. The scheduledDuringMaintenanceWindow property
+     * @return bool|null
+    */
+    public function getScheduledDuringMaintenanceWindow(): ?bool {
+        $val = $this->getBackingStore()->get('scheduledDuringMaintenanceWindow');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scheduledDuringMaintenanceWindow'");
     }
 
     /**
@@ -123,6 +136,7 @@ class CloudPcBulkAction extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('cloudPcIds', $this->getCloudPcIds());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('scheduledDuringMaintenanceWindow', $this->getScheduledDuringMaintenanceWindow());
     }
 
     /**
@@ -155,6 +169,14 @@ class CloudPcBulkAction extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the scheduledDuringMaintenanceWindow property value. The scheduledDuringMaintenanceWindow property
+     * @param bool|null $value Value to set for the scheduledDuringMaintenanceWindow property.
+    */
+    public function setScheduledDuringMaintenanceWindow(?bool $value): void {
+        $this->getBackingStore()->set('scheduledDuringMaintenanceWindow', $value);
     }
 
 }

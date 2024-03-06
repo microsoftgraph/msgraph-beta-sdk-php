@@ -41,8 +41,7 @@ class MicrosoftGraphManagedTenantsAssignTagRequestBuilder extends BaseRequestBui
     public function post(AssignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [TenantTag::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InternetAccessForwardingRule extends ForwardingRule implements Parsable 
 {
     /**
-     * Instantiates a new internetAccessForwardingRule and sets the default values.
+     * Instantiates a new InternetAccessForwardingRule and sets the default values.
     */
     public function __construct() {
         parent::__construct();

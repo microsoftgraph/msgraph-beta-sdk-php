@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AuditLogQuery extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new auditLogQuery and sets the default values.
+     * Instantiates a new AuditLogQuery and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -28,7 +28,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the administrativeUnitIdFilters property value. The administrativeUnitIdFilters property
+     * Gets the administrativeUnitIdFilters property value. The administrative units tagged to an audit log record.
      * @return array<string>|null
     */
     public function getAdministrativeUnitIdFilters(): ?array {
@@ -42,7 +42,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the saved audit log query.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -119,7 +119,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the filterEndDateTime property value. The filterEndDateTime property
+     * Gets the filterEndDateTime property value. The end date of the date range in the query.
      * @return DateTime|null
     */
     public function getFilterEndDateTime(): ?DateTime {
@@ -131,7 +131,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the filterStartDateTime property value. The filterStartDateTime property
+     * Gets the filterStartDateTime property value. The start date of the date range in the query.
      * @return DateTime|null
     */
     public function getFilterStartDateTime(): ?DateTime {
@@ -143,7 +143,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the ipAddressFilters property value. The ipAddressFilters property
+     * Gets the ipAddressFilters property value. The IP address of the device that was used when the activity was logged.
      * @return array<string>|null
     */
     public function getIpAddressFilters(): ?array {
@@ -157,7 +157,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the keywordFilter property value. The keywordFilter property
+     * Gets the keywordFilter property value. Free text field to search non-indexed properties of the audit log.
      * @return string|null
     */
     public function getKeywordFilter(): ?string {
@@ -169,7 +169,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the objectIdFilters property value. The objectIdFilters property
+     * Gets the objectIdFilters property value. For SharePoint and OneDrive for Business activity, the full path name of the file or folder accessed by the user. For Exchange admin audit logging, the name of the object that was modified by the cmdlet.
      * @return array<string>|null
     */
     public function getObjectIdFilters(): ?array {
@@ -183,7 +183,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the operationFilters property value. The operationFilters property
+     * Gets the operationFilters property value. The name of the user or admin activity. For a description of the most common operations/activities, see Search the audit log in the Office 365 Protection Center.
      * @return array<string>|null
     */
     public function getOperationFilters(): ?array {
@@ -197,7 +197,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the records property value. The records property
+     * Gets the records property value. An individual audit log record.
      * @return array<AuditLogRecord>|null
     */
     public function getRecords(): ?array {
@@ -211,7 +211,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the recordTypeFilters property value. The recordTypeFilters property
+     * Gets the recordTypeFilters property value. The type of operation indicated by the record. The possible values are: exchangeAdmin, exchangeItem, exchangeItemGroup, sharePoint, syntheticProbe, sharePointFileOperation, oneDrive, azureActiveDirectory, azureActiveDirectoryAccountLogon, dataCenterSecurityCmdlet, complianceDLPSharePoint, sway, complianceDLPExchange, sharePointSharingOperation, azureActiveDirectoryStsLogon, skypeForBusinessPSTNUsage, skypeForBusinessUsersBlocked, securityComplianceCenterEOPCmdlet, exchangeAggregatedOperation, powerBIAudit, crm, yammer, skypeForBusinessCmdlets, discovery, microsoftTeams, threatIntelligence, mailSubmission, microsoftFlow, aeD, microsoftStream, complianceDLPSharePointClassification, threatFinder, project, sharePointListOperation, sharePointCommentOperation, dataGovernance, kaizala, securityComplianceAlerts, threatIntelligenceUrl, securityComplianceInsights, mipLabel, workplaceAnalytics, powerAppsApp, powerAppsPlan, threatIntelligenceAtpContent, labelContentExplorer, teamsHealthcare, exchangeItemAggregated, hygieneEvent, dataInsightsRestApiAudit, informationBarrierPolicyApplication, sharePointListItemOperation, sharePointContentTypeOperation, sharePointFieldOperation, microsoftTeamsAdmin, hrSignal, microsoftTeamsDevice, microsoftTeamsAnalytics, informationWorkerProtection, campaign, dlpEndpoint, airInvestigation, quarantine, microsoftForms, applicationAudit, complianceSupervisionExchange, customerKeyServiceEncryption, officeNative, mipAutoLabelSharePointItem, mipAutoLabelSharePointPolicyLocation, microsoftTeamsShifts, secureScore, mipAutoLabelExchangeItem, cortanaBriefing, search, wdatpAlerts, powerPlatformAdminDlp, powerPlatformAdminEnvironment, mdatpAudit, sensitivityLabelPolicyMatch, sensitivityLabelAction, sensitivityLabeledFileAction, attackSim, airManualInvestigation, securityComplianceRBAC, userTraining, airAdminActionInvestigation, mstic, physicalBadgingSignal, teamsEasyApprovals, aipDiscover, aipSensitivityLabelAction, aipProtectionAction, aipFileDeleted, aipHeartBeat, mcasAlerts, onPremisesFileShareScannerDlp, onPremisesSharePointScannerDlp, exchangeSearch, sharePointSearch, privacyDataMinimization, labelAnalyticsAggregate, myAnalyticsSettings, securityComplianceUserChange, complianceDLPExchangeClassification, complianceDLPEndpoint, mipExactDataMatch, msdeResponseActions, msdeGeneralSettings, msdeIndicatorsSettings, ms365DCustomDetection, msdeRolesSettings, mapgAlerts, mapgPolicy, mapgRemediation, privacyRemediationAction, privacyDigestEmail, mipAutoLabelSimulationProgress, mipAutoLabelSimulationCompletion, mipAutoLabelProgressFeedback, dlpSensitiveInformationType, mipAutoLabelSimulationStatistics, largeContentMetadata, microsoft365Group, cdpMlInferencingResult, filteringMailMetadata, cdpClassificationMailItem, cdpClassificationDocument, officeScriptsRunAction, filteringPostMailDeliveryAction, cdpUnifiedFeedback, tenantAllowBlockList, consumptionResource, healthcareSignal, dlpImportResult, cdpCompliancePolicyExecution, multiStageDisposition, privacyDataMatch, filteringDocMetadata, filteringEmailFeatures, powerBIDlp, filteringUrlInfo, filteringAttachmentInfo, coreReportingSettings, complianceConnector, powerPlatformLockboxResourceAccessRequest, powerPlatformLockboxResourceCommand, cdpPredictiveCodingLabel, cdpCompliancePolicyUserFeedback, webpageActivityEndpoint, omePortal, cmImprovementActionChange, filteringUrlClick, mipLabelAnalyticsAuditRecord, filteringEntityEvent, filteringRuleHits, filteringMailSubmission, labelExplorer, microsoftManagedServicePlatform, powerPlatformServiceActivity, scorePlatformGenericAuditRecord, filteringTimeTravelDocMetadata, alert, alertStatus, alertIncident, incidentStatus, case, caseInvestigation, recordsManagement, privacyRemediation, dataShareOperation, cdpDlpSensitive, ehrConnector, filteringMailGradingResult, publicFolder, privacyTenantAuditHistoryRecord, aipScannerDiscoverEvent, eduDataLakeDownloadOperation, m365ComplianceConnector, microsoftGraphDataConnectOperation, microsoftPurview, filteringEmailContentFeatures, powerPagesSite, powerAppsResource, plannerPlan, plannerCopyPlan, plannerTask, plannerRoster, plannerPlanList, plannerTaskList, plannerTenantSettings, projectForTheWebProject, projectForTheWebTask, projectForTheWebRoadmap, projectForTheWebRoadmapItem, projectForTheWebProjectSettings, projectForTheWebRoadmapSettings, quarantineMetadata, microsoftTodoAudit, timeTravelFilteringDocMetadata, teamsQuarantineMetadata, sharePointAppPermissionOperation, microsoftTeamsSensitivityLabelAction, filteringTeamsMetadata, filteringTeamsUrlInfo, filteringTeamsPostDeliveryAction, mdcAssessments, mdcRegulatoryComplianceStandards, mdcRegulatoryComplianceControls, mdcRegulatoryComplianceAssessments, mdcSecurityConnectors, mdaDataSecuritySignal, vivaGoals, filteringRuntimeInfo, attackSimAdmin, microsoftGraphDataConnectConsent, filteringAtpDetonationInfo, privacyPortal, managedTenants, unifiedSimulationMatchedItem, unifiedSimulationSummary, updateQuarantineMetadata, ms365DSuppressionRule, purviewDataMapOperation, filteringUrlPostClickAction, irmUserDefinedDetectionSignal, teamsUpdates, plannerRosterSensitivityLabel, ms365DIncident, filteringDelistingMetadata, complianceDLPSharePointClassificationExtended, microsoftDefenderForIdentityAudit, supervisoryReviewDayXInsight, defenderExpertsforXDRAdmin, cdpEdgeBlockedMessage, hostedRpa, cdpContentExplorerAggregateRecord, cdpHygieneAttachmentInfo, cdpHygieneSummary, cdpPostMailDeliveryAction, cdpEmailFeatures, cdpHygieneUrlInfo, cdpUrlClick, cdpPackageManagerHygieneEvent, filteringDocScan, timeTravelFilteringDocScan, mapgOnboard, unknownFutureValue.
      * @return array<AuditLogRecordType>|null
     */
     public function getRecordTypeFilters(): ?array {
@@ -239,7 +239,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Describes the current status of the query. The possible values are: notStarted, running, succeeded, failed, cancelled, unknownFutureValue.
      * @return AuditLogQueryStatus|null
     */
     public function getStatus(): ?AuditLogQueryStatus {
@@ -251,7 +251,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the userPrincipalNameFilters property value. The userPrincipalNameFilters property
+     * Gets the userPrincipalNameFilters property value. The UPN (user principal name) of the user who performed the action (specified in the operation property) that resulted in the record being logged; for example, myname@mydomain_name.
      * @return array<string>|null
     */
     public function getUserPrincipalNameFilters(): ?array {
@@ -286,7 +286,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the administrativeUnitIdFilters property value. The administrativeUnitIdFilters property
+     * Sets the administrativeUnitIdFilters property value. The administrative units tagged to an audit log record.
      * @param array<string>|null $value Value to set for the administrativeUnitIdFilters property.
     */
     public function setAdministrativeUnitIdFilters(?array $value): void {
@@ -294,7 +294,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the saved audit log query.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -302,7 +302,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the filterEndDateTime property value. The filterEndDateTime property
+     * Sets the filterEndDateTime property value. The end date of the date range in the query.
      * @param DateTime|null $value Value to set for the filterEndDateTime property.
     */
     public function setFilterEndDateTime(?DateTime $value): void {
@@ -310,7 +310,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the filterStartDateTime property value. The filterStartDateTime property
+     * Sets the filterStartDateTime property value. The start date of the date range in the query.
      * @param DateTime|null $value Value to set for the filterStartDateTime property.
     */
     public function setFilterStartDateTime(?DateTime $value): void {
@@ -318,7 +318,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the ipAddressFilters property value. The ipAddressFilters property
+     * Sets the ipAddressFilters property value. The IP address of the device that was used when the activity was logged.
      * @param array<string>|null $value Value to set for the ipAddressFilters property.
     */
     public function setIpAddressFilters(?array $value): void {
@@ -326,7 +326,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the keywordFilter property value. The keywordFilter property
+     * Sets the keywordFilter property value. Free text field to search non-indexed properties of the audit log.
      * @param string|null $value Value to set for the keywordFilter property.
     */
     public function setKeywordFilter(?string $value): void {
@@ -334,7 +334,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the objectIdFilters property value. The objectIdFilters property
+     * Sets the objectIdFilters property value. For SharePoint and OneDrive for Business activity, the full path name of the file or folder accessed by the user. For Exchange admin audit logging, the name of the object that was modified by the cmdlet.
      * @param array<string>|null $value Value to set for the objectIdFilters property.
     */
     public function setObjectIdFilters(?array $value): void {
@@ -342,7 +342,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the operationFilters property value. The operationFilters property
+     * Sets the operationFilters property value. The name of the user or admin activity. For a description of the most common operations/activities, see Search the audit log in the Office 365 Protection Center.
      * @param array<string>|null $value Value to set for the operationFilters property.
     */
     public function setOperationFilters(?array $value): void {
@@ -350,7 +350,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the records property value. The records property
+     * Sets the records property value. An individual audit log record.
      * @param array<AuditLogRecord>|null $value Value to set for the records property.
     */
     public function setRecords(?array $value): void {
@@ -358,7 +358,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the recordTypeFilters property value. The recordTypeFilters property
+     * Sets the recordTypeFilters property value. The type of operation indicated by the record. The possible values are: exchangeAdmin, exchangeItem, exchangeItemGroup, sharePoint, syntheticProbe, sharePointFileOperation, oneDrive, azureActiveDirectory, azureActiveDirectoryAccountLogon, dataCenterSecurityCmdlet, complianceDLPSharePoint, sway, complianceDLPExchange, sharePointSharingOperation, azureActiveDirectoryStsLogon, skypeForBusinessPSTNUsage, skypeForBusinessUsersBlocked, securityComplianceCenterEOPCmdlet, exchangeAggregatedOperation, powerBIAudit, crm, yammer, skypeForBusinessCmdlets, discovery, microsoftTeams, threatIntelligence, mailSubmission, microsoftFlow, aeD, microsoftStream, complianceDLPSharePointClassification, threatFinder, project, sharePointListOperation, sharePointCommentOperation, dataGovernance, kaizala, securityComplianceAlerts, threatIntelligenceUrl, securityComplianceInsights, mipLabel, workplaceAnalytics, powerAppsApp, powerAppsPlan, threatIntelligenceAtpContent, labelContentExplorer, teamsHealthcare, exchangeItemAggregated, hygieneEvent, dataInsightsRestApiAudit, informationBarrierPolicyApplication, sharePointListItemOperation, sharePointContentTypeOperation, sharePointFieldOperation, microsoftTeamsAdmin, hrSignal, microsoftTeamsDevice, microsoftTeamsAnalytics, informationWorkerProtection, campaign, dlpEndpoint, airInvestigation, quarantine, microsoftForms, applicationAudit, complianceSupervisionExchange, customerKeyServiceEncryption, officeNative, mipAutoLabelSharePointItem, mipAutoLabelSharePointPolicyLocation, microsoftTeamsShifts, secureScore, mipAutoLabelExchangeItem, cortanaBriefing, search, wdatpAlerts, powerPlatformAdminDlp, powerPlatformAdminEnvironment, mdatpAudit, sensitivityLabelPolicyMatch, sensitivityLabelAction, sensitivityLabeledFileAction, attackSim, airManualInvestigation, securityComplianceRBAC, userTraining, airAdminActionInvestigation, mstic, physicalBadgingSignal, teamsEasyApprovals, aipDiscover, aipSensitivityLabelAction, aipProtectionAction, aipFileDeleted, aipHeartBeat, mcasAlerts, onPremisesFileShareScannerDlp, onPremisesSharePointScannerDlp, exchangeSearch, sharePointSearch, privacyDataMinimization, labelAnalyticsAggregate, myAnalyticsSettings, securityComplianceUserChange, complianceDLPExchangeClassification, complianceDLPEndpoint, mipExactDataMatch, msdeResponseActions, msdeGeneralSettings, msdeIndicatorsSettings, ms365DCustomDetection, msdeRolesSettings, mapgAlerts, mapgPolicy, mapgRemediation, privacyRemediationAction, privacyDigestEmail, mipAutoLabelSimulationProgress, mipAutoLabelSimulationCompletion, mipAutoLabelProgressFeedback, dlpSensitiveInformationType, mipAutoLabelSimulationStatistics, largeContentMetadata, microsoft365Group, cdpMlInferencingResult, filteringMailMetadata, cdpClassificationMailItem, cdpClassificationDocument, officeScriptsRunAction, filteringPostMailDeliveryAction, cdpUnifiedFeedback, tenantAllowBlockList, consumptionResource, healthcareSignal, dlpImportResult, cdpCompliancePolicyExecution, multiStageDisposition, privacyDataMatch, filteringDocMetadata, filteringEmailFeatures, powerBIDlp, filteringUrlInfo, filteringAttachmentInfo, coreReportingSettings, complianceConnector, powerPlatformLockboxResourceAccessRequest, powerPlatformLockboxResourceCommand, cdpPredictiveCodingLabel, cdpCompliancePolicyUserFeedback, webpageActivityEndpoint, omePortal, cmImprovementActionChange, filteringUrlClick, mipLabelAnalyticsAuditRecord, filteringEntityEvent, filteringRuleHits, filteringMailSubmission, labelExplorer, microsoftManagedServicePlatform, powerPlatformServiceActivity, scorePlatformGenericAuditRecord, filteringTimeTravelDocMetadata, alert, alertStatus, alertIncident, incidentStatus, case, caseInvestigation, recordsManagement, privacyRemediation, dataShareOperation, cdpDlpSensitive, ehrConnector, filteringMailGradingResult, publicFolder, privacyTenantAuditHistoryRecord, aipScannerDiscoverEvent, eduDataLakeDownloadOperation, m365ComplianceConnector, microsoftGraphDataConnectOperation, microsoftPurview, filteringEmailContentFeatures, powerPagesSite, powerAppsResource, plannerPlan, plannerCopyPlan, plannerTask, plannerRoster, plannerPlanList, plannerTaskList, plannerTenantSettings, projectForTheWebProject, projectForTheWebTask, projectForTheWebRoadmap, projectForTheWebRoadmapItem, projectForTheWebProjectSettings, projectForTheWebRoadmapSettings, quarantineMetadata, microsoftTodoAudit, timeTravelFilteringDocMetadata, teamsQuarantineMetadata, sharePointAppPermissionOperation, microsoftTeamsSensitivityLabelAction, filteringTeamsMetadata, filteringTeamsUrlInfo, filteringTeamsPostDeliveryAction, mdcAssessments, mdcRegulatoryComplianceStandards, mdcRegulatoryComplianceControls, mdcRegulatoryComplianceAssessments, mdcSecurityConnectors, mdaDataSecuritySignal, vivaGoals, filteringRuntimeInfo, attackSimAdmin, microsoftGraphDataConnectConsent, filteringAtpDetonationInfo, privacyPortal, managedTenants, unifiedSimulationMatchedItem, unifiedSimulationSummary, updateQuarantineMetadata, ms365DSuppressionRule, purviewDataMapOperation, filteringUrlPostClickAction, irmUserDefinedDetectionSignal, teamsUpdates, plannerRosterSensitivityLabel, ms365DIncident, filteringDelistingMetadata, complianceDLPSharePointClassificationExtended, microsoftDefenderForIdentityAudit, supervisoryReviewDayXInsight, defenderExpertsforXDRAdmin, cdpEdgeBlockedMessage, hostedRpa, cdpContentExplorerAggregateRecord, cdpHygieneAttachmentInfo, cdpHygieneSummary, cdpPostMailDeliveryAction, cdpEmailFeatures, cdpHygieneUrlInfo, cdpUrlClick, cdpPackageManagerHygieneEvent, filteringDocScan, timeTravelFilteringDocScan, mapgOnboard, unknownFutureValue.
      * @param array<AuditLogRecordType>|null $value Value to set for the recordTypeFilters property.
     */
     public function setRecordTypeFilters(?array $value): void {
@@ -374,7 +374,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Describes the current status of the query. The possible values are: notStarted, running, succeeded, failed, cancelled, unknownFutureValue.
      * @param AuditLogQueryStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AuditLogQueryStatus $value): void {
@@ -382,7 +382,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPrincipalNameFilters property value. The userPrincipalNameFilters property
+     * Sets the userPrincipalNameFilters property value. The UPN (user principal name) of the user who performed the action (specified in the operation property) that resulted in the record being logged; for example, myname@mydomain_name.
      * @param array<string>|null $value Value to set for the userPrincipalNameFilters property.
     */
     public function setUserPrincipalNameFilters(?array $value): void {

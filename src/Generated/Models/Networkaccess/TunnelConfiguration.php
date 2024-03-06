@@ -18,7 +18,7 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new tunnelConfiguration and sets the default values.
+     * Instantiates a new TunnelConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -72,6 +72,7 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
+            'zoneRedundancyPreSharedKey' => fn(ParseNode $n) => $o->setZoneRedundancyPreSharedKey($n->getStringValue()),
         ];
     }
 
@@ -100,12 +101,25 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the zoneRedundancyPreSharedKey property value. The zoneRedundancyPreSharedKey property
+     * @return string|null
+    */
+    public function getZoneRedundancyPreSharedKey(): ?string {
+        $val = $this->getBackingStore()->get('zoneRedundancyPreSharedKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zoneRedundancyPreSharedKey'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('preSharedKey', $this->getPreSharedKey());
+        $writer->writeStringValue('zoneRedundancyPreSharedKey', $this->getZoneRedundancyPreSharedKey());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -139,6 +153,14 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setPreSharedKey(?string $value): void {
         $this->getBackingStore()->set('preSharedKey', $value);
+    }
+
+    /**
+     * Sets the zoneRedundancyPreSharedKey property value. The zoneRedundancyPreSharedKey property
+     * @param string|null $value Value to set for the zoneRedundancyPreSharedKey property.
+    */
+    public function setZoneRedundancyPreSharedKey(?string $value): void {
+        $this->getBackingStore()->set('zoneRedundancyPreSharedKey', $value);
     }
 
 }

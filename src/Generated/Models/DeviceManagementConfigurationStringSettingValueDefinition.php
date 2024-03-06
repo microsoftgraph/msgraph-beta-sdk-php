@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationStringSettingValueDefinition and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationStringSettingValueDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -67,7 +67,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
+     * Gets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
      * @return DeviceManagementConfigurationStringFormat|null
     */
     public function getFormat(): ?DeviceManagementConfigurationStringFormat {
@@ -103,7 +103,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
+     * Gets the maximumLength property value. Maximum length of string
      * @return int|null
     */
     public function getMaximumLength(): ?int {
@@ -115,7 +115,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
+     * Gets the minimumLength property value. Minimum length of string
      * @return int|null
     */
     public function getMinimumLength(): ?int {
@@ -149,7 +149,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
+     * Sets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
      * @param DeviceManagementConfigurationStringFormat|null $value Value to set for the format property.
     */
     public function setFormat(?DeviceManagementConfigurationStringFormat $value): void {
@@ -173,7 +173,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
+     * Sets the maximumLength property value. Maximum length of string
      * @param int|null $value Value to set for the maximumLength property.
     */
     public function setMaximumLength(?int $value): void {
@@ -181,7 +181,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
+     * Sets the minimumLength property value. Minimum length of string
      * @param int|null $value Value to set for the minimumLength property.
     */
     public function setMinimumLength(?int $value): void {

@@ -18,7 +18,7 @@ class GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse implements A
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse and sets the default values.
+     * Instantiates a new GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

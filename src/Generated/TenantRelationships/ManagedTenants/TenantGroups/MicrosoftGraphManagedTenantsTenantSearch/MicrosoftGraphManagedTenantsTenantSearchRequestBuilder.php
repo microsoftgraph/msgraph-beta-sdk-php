@@ -39,8 +39,7 @@ class MicrosoftGraphManagedTenantsTenantSearchRequestBuilder extends BaseRequest
     public function post(TenantSearchPostRequestBody $body, ?MicrosoftGraphManagedTenantsTenantSearchRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [TenantSearchPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MacOSCredentialSingleSignOnExtension extends MacOSSingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new macOSCredentialSingleSignOnExtension and sets the default values.
+     * Instantiates a new MacOSCredentialSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class MobileLobApp extends MobileApp implements Parsable 
 {
     /**
-     * Instantiates a new mobileLobApp and sets the default values.
+     * Instantiates a new MobileLobApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,6 +35,7 @@ class MobileLobApp extends MobileApp implements Parsable
                 case '#microsoft.graph.macOSDmgApp': return new MacOSDmgApp();
                 case '#microsoft.graph.macOSLobApp': return new MacOSLobApp();
                 case '#microsoft.graph.macOSPkgApp': return new MacOSPkgApp();
+                case '#microsoft.graph.win32CatalogApp': return new Win32CatalogApp();
                 case '#microsoft.graph.win32LobApp': return new Win32LobApp();
                 case '#microsoft.graph.windowsAppX': return new WindowsAppX();
                 case '#microsoft.graph.windowsMobileMSI': return new WindowsMobileMSI();

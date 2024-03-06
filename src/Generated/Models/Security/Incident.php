@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Incident extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new incident and sets the default values.
+     * Instantiates a new Incident and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -92,7 +92,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the customTags property value. Array of custom tags associated with an incident.
+     * Gets the customTags property value. The collection of custom tags that are associated with an incident.
      * @return array<string>|null
     */
     public function getCustomTags(): ?array {
@@ -106,7 +106,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the incident.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -197,7 +197,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identity that last modified the incident.
      * @return string|null
     */
     public function getLastModifiedBy(): ?string {
@@ -221,7 +221,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendedActions property value. The recommendedActions property
+     * Gets the recommendedActions property value. A rich text string that represents the actions that are reccomnded to take in order to resolve the incident
      * @return string|null
     */
     public function getRecommendedActions(): ?string {
@@ -233,7 +233,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendedHuntingQueries property value. The recommendedHuntingQueries property
+     * Gets the recommendedHuntingQueries property value. List of hunting Kusto Query Language (KQL) queries related to the incident
      * @return array<RecommendedHuntingQuery>|null
     */
     public function getRecommendedHuntingQueries(): ?array {
@@ -283,7 +283,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the systemTags property value. The systemTags property
+     * Gets the systemTags property value. The collection of system tags that are associated with the incident.
      * @return array<string>|null
     */
     public function getSystemTags(): ?array {
@@ -376,7 +376,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the customTags property value. Array of custom tags associated with an incident.
+     * Sets the customTags property value. The collection of custom tags that are associated with an incident.
      * @param array<string>|null $value Value to set for the customTags property.
     */
     public function setCustomTags(?array $value): void {
@@ -384,7 +384,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the incident.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -416,7 +416,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The identity that last modified the incident.
      * @param string|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?string $value): void {
@@ -432,7 +432,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the recommendedActions property value. The recommendedActions property
+     * Sets the recommendedActions property value. A rich text string that represents the actions that are reccomnded to take in order to resolve the incident
      * @param string|null $value Value to set for the recommendedActions property.
     */
     public function setRecommendedActions(?string $value): void {
@@ -440,7 +440,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the recommendedHuntingQueries property value. The recommendedHuntingQueries property
+     * Sets the recommendedHuntingQueries property value. List of hunting Kusto Query Language (KQL) queries related to the incident
      * @param array<RecommendedHuntingQuery>|null $value Value to set for the recommendedHuntingQueries property.
     */
     public function setRecommendedHuntingQueries(?array $value): void {
@@ -472,7 +472,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the systemTags property value. The systemTags property
+     * Sets the systemTags property value. The collection of system tags that are associated with the incident.
      * @param array<string>|null $value Value to set for the systemTags property.
     */
     public function setSystemTags(?array $value): void {

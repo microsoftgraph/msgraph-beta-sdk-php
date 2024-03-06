@@ -22,7 +22,7 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, BackedMo
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new windows10AppsForceUpdateSchedule and sets the default values.
+     * Instantiates a new Windows10AppsForceUpdateSchedule and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

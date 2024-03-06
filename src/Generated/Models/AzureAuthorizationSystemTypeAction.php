@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureAuthorizationSystemTypeAction extends AuthorizationSystemTypeAction implements Parsable 
 {
     /**
-     * Instantiates a new azureAuthorizationSystemTypeAction and sets the default values.
+     * Instantiates a new AzureAuthorizationSystemTypeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

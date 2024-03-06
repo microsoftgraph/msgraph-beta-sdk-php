@@ -18,7 +18,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new domainRegistrant and sets the default values.
+     * Instantiates a new DomainRegistrant and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

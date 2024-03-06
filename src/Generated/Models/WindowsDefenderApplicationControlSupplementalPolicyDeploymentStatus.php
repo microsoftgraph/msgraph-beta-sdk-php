@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus and sets the default values.
+     * Instantiates a new WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();

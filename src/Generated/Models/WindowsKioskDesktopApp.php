@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * Instantiates a new windowsKioskDesktopApp and sets the default values.
+     * Instantiates a new WindowsKioskDesktopApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();

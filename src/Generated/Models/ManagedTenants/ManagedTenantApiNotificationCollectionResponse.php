@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ManagedTenantApiNotificationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new managedTenantApiNotificationCollectionResponse and sets the default values.
+     * Instantiates a new ManagedTenantApiNotificationCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();

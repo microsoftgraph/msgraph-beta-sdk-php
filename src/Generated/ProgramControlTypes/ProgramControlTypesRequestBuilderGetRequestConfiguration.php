@@ -16,7 +16,7 @@ class ProgramControlTypesRequestBuilderGetRequestConfiguration extends BaseReque
     public ?ProgramControlTypesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new programControlTypesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ProgramControlTypesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ProgramControlTypesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ProgramControlTypesRequestBuilderGetRequestConfiguration extends BaseReque
     }
 
     /**
-     * Instantiates a new programControlTypesRequestBuilderGetQueryParameters.
+     * Instantiates a new ProgramControlTypesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

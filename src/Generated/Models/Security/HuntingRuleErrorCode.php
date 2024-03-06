@@ -14,4 +14,5 @@ class HuntingRuleErrorCode extends Enum {
     public const ALERT_REPORT_NOT_FOUND = 'alertReportNotFound';
     public const PARTIAL_ROWS_FAILED = 'partialRowsFailed';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const NO_IMPACTED_ENTITY = 'noImpactedEntity';
 }

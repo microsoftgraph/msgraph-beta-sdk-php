@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class PlannerUser extends PlannerDelta implements Parsable 
 {
     /**
-     * Instantiates a new plannerUser and sets the default values.
+     * Instantiates a new PlannerUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,12 +75,27 @@ class PlannerUser extends PlannerDelta implements Parsable
             'all' => fn(ParseNode $n) => $o->setAll($n->getCollectionOfObjectValues([PlannerDelta::class, 'createFromDiscriminatorValue'])),
             'favoritePlanReferences' => fn(ParseNode $n) => $o->setFavoritePlanReferences($n->getObjectValue([PlannerFavoritePlanReferenceCollection::class, 'createFromDiscriminatorValue'])),
             'favoritePlans' => fn(ParseNode $n) => $o->setFavoritePlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
+            'myDayTasks' => fn(ParseNode $n) => $o->setMyDayTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
             'plans' => fn(ParseNode $n) => $o->setPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
             'recentPlanReferences' => fn(ParseNode $n) => $o->setRecentPlanReferences($n->getObjectValue([PlannerRecentPlanReferenceCollection::class, 'createFromDiscriminatorValue'])),
             'recentPlans' => fn(ParseNode $n) => $o->setRecentPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
             'rosterPlans' => fn(ParseNode $n) => $o->setRosterPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the myDayTasks property value. The myDayTasks property
+     * @return array<PlannerTask>|null
+    */
+    public function getMyDayTasks(): ?array {
+        $val = $this->getBackingStore()->get('myDayTasks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerTask::class);
+            /** @var array<PlannerTask>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'myDayTasks'");
     }
 
     /**
@@ -160,6 +175,7 @@ class PlannerUser extends PlannerDelta implements Parsable
         $writer->writeCollectionOfObjectValues('all', $this->getAll());
         $writer->writeObjectValue('favoritePlanReferences', $this->getFavoritePlanReferences());
         $writer->writeCollectionOfObjectValues('favoritePlans', $this->getFavoritePlans());
+        $writer->writeCollectionOfObjectValues('myDayTasks', $this->getMyDayTasks());
         $writer->writeCollectionOfObjectValues('plans', $this->getPlans());
         $writer->writeObjectValue('recentPlanReferences', $this->getRecentPlanReferences());
         $writer->writeCollectionOfObjectValues('recentPlans', $this->getRecentPlans());
@@ -189,6 +205,14 @@ class PlannerUser extends PlannerDelta implements Parsable
     */
     public function setFavoritePlans(?array $value): void {
         $this->getBackingStore()->set('favoritePlans', $value);
+    }
+
+    /**
+     * Sets the myDayTasks property value. The myDayTasks property
+     * @param array<PlannerTask>|null $value Value to set for the myDayTasks property.
+    */
+    public function setMyDayTasks(?array $value): void {
+        $this->getBackingStore()->set('myDayTasks', $value);
     }
 
     /**
