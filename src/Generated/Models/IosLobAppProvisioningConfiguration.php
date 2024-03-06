@@ -15,7 +15,7 @@ use Psr\Http\Message\StreamInterface;
 class IosLobAppProvisioningConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new iosLobAppProvisioningConfiguration and sets the default values.
+     * Instantiates a new IosLobAppProvisioningConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

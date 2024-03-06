@@ -16,7 +16,7 @@ class EdiscoveryRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?EdiscoveryRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new ediscoveryRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new EdiscoveryRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param EdiscoveryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class EdiscoveryRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new ediscoveryRequestBuilderGetQueryParameters.
+     * Instantiates a new EdiscoveryRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return EdiscoveryRequestBuilderGetQueryParameters

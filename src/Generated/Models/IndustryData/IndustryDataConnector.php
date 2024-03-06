@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IndustryDataConnector extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new industryDataConnector and sets the default values.
+     * Instantiates a new IndustryDataConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

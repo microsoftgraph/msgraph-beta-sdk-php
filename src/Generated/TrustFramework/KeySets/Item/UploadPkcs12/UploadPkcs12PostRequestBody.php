@@ -18,7 +18,7 @@ class UploadPkcs12PostRequestBody implements AdditionalDataHolder, BackedModel, 
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new uploadPkcs12PostRequestBody and sets the default values.
+     * Instantiates a new UploadPkcs12PostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

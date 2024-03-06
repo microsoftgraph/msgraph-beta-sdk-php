@@ -13,4 +13,5 @@ class SimulationAttackTechnique extends Enum {
     public const LINK_TO_MALWARE_FILE = 'linkToMalwareFile';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const O_AUTH_CONSENT_GRANT = 'oAuthConsentGrant';
+    public const PHISH_TRAINING = 'phishTraining';
 }

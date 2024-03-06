@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of recycleBinItem resources in the recyleBin of the specified SharePoint site.
+ * Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
 */
 class ItemsRequestBuilderGetQueryParameters 
 {
@@ -58,7 +58,7 @@ class ItemsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new itemsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new ItemsRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

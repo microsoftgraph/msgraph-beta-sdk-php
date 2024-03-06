@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DefaultAuditData extends AuditData implements Parsable 
 {
     /**
-     * Instantiates a new defaultAuditData and sets the default values.
+     * Instantiates a new DefaultAuditData and sets the default values.
     */
     public function __construct() {
         parent::__construct();

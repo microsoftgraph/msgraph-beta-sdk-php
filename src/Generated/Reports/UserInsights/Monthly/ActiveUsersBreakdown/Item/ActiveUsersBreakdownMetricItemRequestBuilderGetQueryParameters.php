@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\ActiveUser
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Insights for the breakdown of users who were active on apps registered in the tenant for a specified period.
+ * Get activeUsersBreakdown from reports
 */
 class ActiveUsersBreakdownMetricItemRequestBuilderGetQueryParameters 
 {

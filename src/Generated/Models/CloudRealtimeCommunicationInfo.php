@@ -18,7 +18,7 @@ class CloudRealtimeCommunicationInfo implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudRealtimeCommunicationInfo and sets the default values.
+     * Instantiates a new CloudRealtimeCommunicationInfo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

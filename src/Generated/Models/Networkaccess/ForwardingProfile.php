@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
 
+use Microsoft\Graph\Beta\Generated\Models\ServicePrincipal;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -10,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ForwardingProfile extends Profile implements Parsable 
 {
     /**
-     * Instantiates a new forwardingProfile and sets the default values.
+     * Instantiates a new ForwardingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -49,6 +50,7 @@ class ForwardingProfile extends Profile implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'associations' => fn(ParseNode $n) => $o->setAssociations($n->getCollectionOfObjectValues([Association::class, 'createFromDiscriminatorValue'])),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'servicePrincipal' => fn(ParseNode $n) => $o->setServicePrincipal($n->getObjectValue([ServicePrincipal::class, 'createFromDiscriminatorValue'])),
             'trafficForwardingType' => fn(ParseNode $n) => $o->setTrafficForwardingType($n->getEnumValue(TrafficForwardingType::class)),
         ]);
     }
@@ -63,6 +65,18 @@ class ForwardingProfile extends Profile implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
+    }
+
+    /**
+     * Gets the servicePrincipal property value. The servicePrincipal property
+     * @return ServicePrincipal|null
+    */
+    public function getServicePrincipal(): ?ServicePrincipal {
+        $val = $this->getBackingStore()->get('servicePrincipal');
+        if (is_null($val) || $val instanceof ServicePrincipal) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePrincipal'");
     }
 
     /**
@@ -85,6 +99,7 @@ class ForwardingProfile extends Profile implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('associations', $this->getAssociations());
         $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeObjectValue('servicePrincipal', $this->getServicePrincipal());
         $writer->writeEnumValue('trafficForwardingType', $this->getTrafficForwardingType());
     }
 
@@ -102,6 +117,14 @@ class ForwardingProfile extends Profile implements Parsable
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
+    }
+
+    /**
+     * Sets the servicePrincipal property value. The servicePrincipal property
+     * @param ServicePrincipal|null $value Value to set for the servicePrincipal property.
+    */
+    public function setServicePrincipal(?ServicePrincipal $value): void {
+        $this->getBackingStore()->set('servicePrincipal', $value);
     }
 
     /**

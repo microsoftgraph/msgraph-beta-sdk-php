@@ -39,8 +39,7 @@ class CreateGooglePlayWebTokenRequestBuilder extends BaseRequestBuilder
     public function post(CreateGooglePlayWebTokenPostRequestBody $body, ?CreateGooglePlayWebTokenRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CreateGooglePlayWebTokenPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

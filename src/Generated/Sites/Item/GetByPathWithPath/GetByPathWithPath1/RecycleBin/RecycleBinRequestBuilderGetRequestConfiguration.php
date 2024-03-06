@@ -16,7 +16,7 @@ class RecycleBinRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?RecycleBinRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new recycleBinRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RecycleBinRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RecycleBinRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RecycleBinRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new recycleBinRequestBuilderGetQueryParameters.
+     * Instantiates a new RecycleBinRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return RecycleBinRequestBuilderGetQueryParameters

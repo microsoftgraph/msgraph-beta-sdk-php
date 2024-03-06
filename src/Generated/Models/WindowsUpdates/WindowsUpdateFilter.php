@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsUpdateFilter extends SoftwareUpdateFilter implements Parsable 
 {
     /**
-     * Instantiates a new windowsUpdateFilter and sets the default values.
+     * Instantiates a new WindowsUpdateFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

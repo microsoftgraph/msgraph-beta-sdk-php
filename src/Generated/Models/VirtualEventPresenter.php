@@ -6,12 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
-use Psr\Http\Message\StreamInterface;
 
 class VirtualEventPresenter extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventPresenter and sets the default values.
+     * Instantiates a new VirtualEventPresenter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,20 +45,19 @@ class VirtualEventPresenter extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
-            'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
+            'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'presenterDetails' => fn(ParseNode $n) => $o->setPresenterDetails($n->getObjectValue([VirtualEventPresenterDetails::class, 'createFromDiscriminatorValue'])),
-            'profilePhoto' => fn(ParseNode $n) => $o->setProfilePhoto($n->getBinaryContent()),
             'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the identity property value. Identity information of the presenter.
-     * @return CommunicationsUserIdentity|null
+     * Gets the identity property value. Identity information of the presenter. The supported identites are: communicationsGuestIdentity and communicationsUserIdentity.
+     * @return Identity|null
     */
-    public function getIdentity(): ?CommunicationsUserIdentity {
+    public function getIdentity(): ?Identity {
         $val = $this->getBackingStore()->get('identity');
-        if (is_null($val) || $val instanceof CommunicationsUserIdentity) {
+        if (is_null($val) || $val instanceof Identity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identity'");
@@ -75,18 +73,6 @@ class VirtualEventPresenter extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'presenterDetails'");
-    }
-
-    /**
-     * Gets the profilePhoto property value. The profilePhoto property
-     * @return StreamInterface|null
-    */
-    public function getProfilePhoto(): ?StreamInterface {
-        $val = $this->getBackingStore()->get('profilePhoto');
-        if (is_null($val) || $val instanceof StreamInterface) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'profilePhoto'");
     }
 
     /**
@@ -112,7 +98,6 @@ class VirtualEventPresenter extends Entity implements Parsable
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeObjectValue('identity', $this->getIdentity());
         $writer->writeObjectValue('presenterDetails', $this->getPresenterDetails());
-        $writer->writeBinaryContent('profilePhoto', $this->getProfilePhoto());
         $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
     }
 
@@ -125,10 +110,10 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Sets the identity property value. Identity information of the presenter.
-     * @param CommunicationsUserIdentity|null $value Value to set for the identity property.
+     * Sets the identity property value. Identity information of the presenter. The supported identites are: communicationsGuestIdentity and communicationsUserIdentity.
+     * @param Identity|null $value Value to set for the identity property.
     */
-    public function setIdentity(?CommunicationsUserIdentity $value): void {
+    public function setIdentity(?Identity $value): void {
         $this->getBackingStore()->set('identity', $value);
     }
 
@@ -138,14 +123,6 @@ class VirtualEventPresenter extends Entity implements Parsable
     */
     public function setPresenterDetails(?VirtualEventPresenterDetails $value): void {
         $this->getBackingStore()->set('presenterDetails', $value);
-    }
-
-    /**
-     * Sets the profilePhoto property value. The profilePhoto property
-     * @param StreamInterface|null $value Value to set for the profilePhoto property.
-    */
-    public function setProfilePhoto(?StreamInterface $value): void {
-        $this->getBackingStore()->set('profilePhoto', $value);
     }
 
     /**

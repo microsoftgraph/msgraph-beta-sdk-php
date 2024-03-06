@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EngagementAsyncOperation extends LongRunningOperation implements Parsable 
 {
     /**
-     * Instantiates a new engagementAsyncOperation and sets the default values.
+     * Instantiates a new EngagementAsyncOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

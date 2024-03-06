@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEventRegistrationCustomQuestion extends VirtualEventRegistrationQuestionBase implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventRegistrationCustomQuestion and sets the default values.
+     * Instantiates a new VirtualEventRegistrationCustomQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

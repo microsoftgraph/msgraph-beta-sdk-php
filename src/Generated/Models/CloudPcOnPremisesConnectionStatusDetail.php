@@ -20,7 +20,7 @@ class CloudPcOnPremisesConnectionStatusDetail implements AdditionalDataHolder, B
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new cloudPcOnPremisesConnectionStatusDetail and sets the default values.
+     * Instantiates a new CloudPcOnPremisesConnectionStatusDetail and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

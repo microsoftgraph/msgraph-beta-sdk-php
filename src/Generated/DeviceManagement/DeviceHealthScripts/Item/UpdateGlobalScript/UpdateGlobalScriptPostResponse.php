@@ -18,7 +18,7 @@ class UpdateGlobalScriptPostResponse implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new updateGlobalScriptPostResponse and sets the default values.
+     * Instantiates a new UpdateGlobalScriptPostResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

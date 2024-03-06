@@ -14,7 +14,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationPolicy and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

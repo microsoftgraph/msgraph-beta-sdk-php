@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecureSignInSessionControl extends ConditionalAccessSessionControl implements Parsable 
 {
     /**
-     * Instantiates a new secureSignInSessionControl and sets the default values.
+     * Instantiates a new SecureSignInSessionControl and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AndroidForWorkImportedPFXCertificateProfile extends AndroidCertificateProfileBase implements Parsable 
 {
     /**
-     * Instantiates a new androidForWorkImportedPFXCertificateProfile and sets the default values.
+     * Instantiates a new AndroidForWorkImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

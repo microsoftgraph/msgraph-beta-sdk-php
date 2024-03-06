@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AuditLogRecord extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new auditLogRecord and sets the default values.
+     * Instantiates a new AuditLogRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();

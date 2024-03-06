@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementComplianceActionItem extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementComplianceActionItem and sets the default values.
+     * Instantiates a new DeviceManagementComplianceActionItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

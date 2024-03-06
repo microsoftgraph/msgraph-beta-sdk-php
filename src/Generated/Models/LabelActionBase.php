@@ -18,7 +18,7 @@ class LabelActionBase implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new labelActionBase and sets the default values.
+     * Instantiates a new LabelActionBase and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

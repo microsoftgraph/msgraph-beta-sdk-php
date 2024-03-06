@@ -16,7 +16,7 @@ class PlatformCredentialMethodsRequestBuilderGetRequestConfiguration extends Bas
     public ?PlatformCredentialMethodsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new platformCredentialMethodsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new PlatformCredentialMethodsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param PlatformCredentialMethodsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class PlatformCredentialMethodsRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new platformCredentialMethodsRequestBuilderGetQueryParameters.
+     * Instantiates a new PlatformCredentialMethodsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

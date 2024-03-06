@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PermissionsCreepIndexDistribution extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new permissionsCreepIndexDistribution and sets the default values.
+     * Instantiates a new PermissionsCreepIndexDistribution and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class RemoteActionAuditsRequestBuilderGetRequestConfiguration extends BaseReques
     public ?RemoteActionAuditsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new remoteActionAuditsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RemoteActionAuditsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RemoteActionAuditsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RemoteActionAuditsRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new remoteActionAuditsRequestBuilderGetQueryParameters.
+     * Instantiates a new RemoteActionAuditsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

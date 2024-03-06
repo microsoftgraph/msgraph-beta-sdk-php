@@ -37,4 +37,5 @@ class Region extends Enum {
     public const JAPAN_EAST = 'japanEast';
     public const JAPAN_WEST = 'japanWest';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const KOREA_SOUTH = 'koreaSouth';
 }

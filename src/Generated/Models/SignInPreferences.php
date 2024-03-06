@@ -18,7 +18,7 @@ class SignInPreferences implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new signInPreferences and sets the default values.
+     * Instantiates a new SignInPreferences and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

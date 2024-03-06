@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GcpGroup extends GcpIdentity implements Parsable 
 {
     /**
-     * Instantiates a new gcpGroup and sets the default values.
+     * Instantiates a new GcpGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();

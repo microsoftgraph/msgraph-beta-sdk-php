@@ -16,7 +16,7 @@ class JournalLinesRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     public ?JournalLinesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new journalLinesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new JournalLinesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param JournalLinesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class JournalLinesRequestBuilderGetRequestConfiguration extends BaseRequestConfi
     }
 
     /**
-     * Instantiates a new journalLinesRequestBuilderGetQueryParameters.
+     * Instantiates a new JournalLinesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

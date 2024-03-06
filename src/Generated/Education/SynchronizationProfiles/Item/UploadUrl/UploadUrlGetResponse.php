@@ -18,7 +18,7 @@ class UploadUrlGetResponse implements AdditionalDataHolder, BackedModel, Parsabl
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new uploadUrlGetResponse and sets the default values.
+     * Instantiates a new UploadUrlGetResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

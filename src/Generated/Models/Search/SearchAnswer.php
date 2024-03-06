@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SearchAnswer extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new searchAnswer and sets the default values.
+     * Instantiates a new SearchAnswer and sets the default values.
     */
     public function __construct() {
         parent::__construct();

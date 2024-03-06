@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Schedule extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new schedule and sets the default values.
+     * Instantiates a new Schedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -73,6 +73,8 @@ class Schedule extends Entity implements Parsable
             'activitiesIncludedWhenCopyingShiftsEnabled' => fn(ParseNode $n) => $o->setActivitiesIncludedWhenCopyingShiftsEnabled($n->getBooleanValue()),
             'dayNotes' => fn(ParseNode $n) => $o->setDayNotes($n->getCollectionOfObjectValues([DayNote::class, 'createFromDiscriminatorValue'])),
             'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'isCrossLocationShiftRequestApprovalRequired' => fn(ParseNode $n) => $o->setIsCrossLocationShiftRequestApprovalRequired($n->getBooleanValue()),
+            'isCrossLocationShiftsEnabled' => fn(ParseNode $n) => $o->setIsCrossLocationShiftsEnabled($n->getBooleanValue()),
             'offerShiftRequests' => fn(ParseNode $n) => $o->setOfferShiftRequests($n->getCollectionOfObjectValues([OfferShiftRequest::class, 'createFromDiscriminatorValue'])),
             'offerShiftRequestsEnabled' => fn(ParseNode $n) => $o->setOfferShiftRequestsEnabled($n->getBooleanValue()),
             'openShiftChangeRequests' => fn(ParseNode $n) => $o->setOpenShiftChangeRequests($n->getCollectionOfObjectValues([OpenShiftChangeRequest::class, 'createFromDiscriminatorValue'])),
@@ -82,6 +84,7 @@ class Schedule extends Entity implements Parsable
             'provisionStatusCode' => fn(ParseNode $n) => $o->setProvisionStatusCode($n->getStringValue()),
             'schedulingGroups' => fn(ParseNode $n) => $o->setSchedulingGroups($n->getCollectionOfObjectValues([SchedulingGroup::class, 'createFromDiscriminatorValue'])),
             'shifts' => fn(ParseNode $n) => $o->setShifts($n->getCollectionOfObjectValues([Shift::class, 'createFromDiscriminatorValue'])),
+            'shiftsRoleDefinitions' => fn(ParseNode $n) => $o->setShiftsRoleDefinitions($n->getCollectionOfObjectValues([ShiftsRoleDefinition::class, 'createFromDiscriminatorValue'])),
             'startDayOfWeek' => fn(ParseNode $n) => $o->setStartDayOfWeek($n->getEnumValue(DayOfWeek::class)),
             'swapShiftsChangeRequests' => fn(ParseNode $n) => $o->setSwapShiftsChangeRequests($n->getCollectionOfObjectValues([SwapShiftsChangeRequest::class, 'createFromDiscriminatorValue'])),
             'swapShiftsRequestsEnabled' => fn(ParseNode $n) => $o->setSwapShiftsRequestsEnabled($n->getBooleanValue()),
@@ -102,6 +105,30 @@ class Schedule extends Entity implements Parsable
                 $this->setWorkforceIntegrationIds($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the isCrossLocationShiftRequestApprovalRequired property value. Indicates whether approval is required by a manager of this schedule for cross location shift requests.
+     * @return bool|null
+    */
+    public function getIsCrossLocationShiftRequestApprovalRequired(): ?bool {
+        $val = $this->getBackingStore()->get('isCrossLocationShiftRequestApprovalRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCrossLocationShiftRequestApprovalRequired'");
+    }
+
+    /**
+     * Gets the isCrossLocationShiftsEnabled property value. Indicates whether the cross-location marketplace feature is enabled for this schedule.
+     * @return bool|null
+    */
+    public function getIsCrossLocationShiftsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isCrossLocationShiftsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCrossLocationShiftsEnabled'");
     }
 
     /**
@@ -223,7 +250,21 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDayOfWeek property value. Indicates the start day of the week.
+     * Gets the shiftsRoleDefinitions property value. The definitions of the roles in the schedule.
+     * @return array<ShiftsRoleDefinition>|null
+    */
+    public function getShiftsRoleDefinitions(): ?array {
+        $val = $this->getBackingStore()->get('shiftsRoleDefinitions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ShiftsRoleDefinition::class);
+            /** @var array<ShiftsRoleDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shiftsRoleDefinitions'");
+    }
+
+    /**
+     * Gets the startDayOfWeek property value. Indicates the start day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
      * @return DayOfWeek|null
     */
     public function getStartDayOfWeek(): ?DayOfWeek {
@@ -365,7 +406,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the workforceIntegrationIds property value. The Ids for the workforce integrations associated with this schedule.
+     * Gets the workforceIntegrationIds property value. The IDs for the workforce integrations associated with this schedule.
      * @return array<string>|null
     */
     public function getWorkforceIntegrationIds(): ?array {
@@ -387,6 +428,8 @@ class Schedule extends Entity implements Parsable
         $writer->writeBooleanValue('activitiesIncludedWhenCopyingShiftsEnabled', $this->getActivitiesIncludedWhenCopyingShiftsEnabled());
         $writer->writeCollectionOfObjectValues('dayNotes', $this->getDayNotes());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
+        $writer->writeBooleanValue('isCrossLocationShiftRequestApprovalRequired', $this->getIsCrossLocationShiftRequestApprovalRequired());
+        $writer->writeBooleanValue('isCrossLocationShiftsEnabled', $this->getIsCrossLocationShiftsEnabled());
         $writer->writeCollectionOfObjectValues('offerShiftRequests', $this->getOfferShiftRequests());
         $writer->writeBooleanValue('offerShiftRequestsEnabled', $this->getOfferShiftRequestsEnabled());
         $writer->writeCollectionOfObjectValues('openShiftChangeRequests', $this->getOpenShiftChangeRequests());
@@ -394,6 +437,7 @@ class Schedule extends Entity implements Parsable
         $writer->writeBooleanValue('openShiftsEnabled', $this->getOpenShiftsEnabled());
         $writer->writeCollectionOfObjectValues('schedulingGroups', $this->getSchedulingGroups());
         $writer->writeCollectionOfObjectValues('shifts', $this->getShifts());
+        $writer->writeCollectionOfObjectValues('shiftsRoleDefinitions', $this->getShiftsRoleDefinitions());
         $writer->writeEnumValue('startDayOfWeek', $this->getStartDayOfWeek());
         $writer->writeCollectionOfObjectValues('swapShiftsChangeRequests', $this->getSwapShiftsChangeRequests());
         $writer->writeBooleanValue('swapShiftsRequestsEnabled', $this->getSwapShiftsRequestsEnabled());
@@ -430,6 +474,22 @@ class Schedule extends Entity implements Parsable
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
+    }
+
+    /**
+     * Sets the isCrossLocationShiftRequestApprovalRequired property value. Indicates whether approval is required by a manager of this schedule for cross location shift requests.
+     * @param bool|null $value Value to set for the isCrossLocationShiftRequestApprovalRequired property.
+    */
+    public function setIsCrossLocationShiftRequestApprovalRequired(?bool $value): void {
+        $this->getBackingStore()->set('isCrossLocationShiftRequestApprovalRequired', $value);
+    }
+
+    /**
+     * Sets the isCrossLocationShiftsEnabled property value. Indicates whether the cross-location marketplace feature is enabled for this schedule.
+     * @param bool|null $value Value to set for the isCrossLocationShiftsEnabled property.
+    */
+    public function setIsCrossLocationShiftsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isCrossLocationShiftsEnabled', $value);
     }
 
     /**
@@ -505,7 +565,15 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the startDayOfWeek property value. Indicates the start day of the week.
+     * Sets the shiftsRoleDefinitions property value. The definitions of the roles in the schedule.
+     * @param array<ShiftsRoleDefinition>|null $value Value to set for the shiftsRoleDefinitions property.
+    */
+    public function setShiftsRoleDefinitions(?array $value): void {
+        $this->getBackingStore()->set('shiftsRoleDefinitions', $value);
+    }
+
+    /**
+     * Sets the startDayOfWeek property value. Indicates the start day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
      * @param DayOfWeek|null $value Value to set for the startDayOfWeek property.
     */
     public function setStartDayOfWeek(?DayOfWeek $value): void {
@@ -593,7 +661,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the workforceIntegrationIds property value. The Ids for the workforce integrations associated with this schedule.
+     * Sets the workforceIntegrationIds property value. The IDs for the workforce integrations associated with this schedule.
      * @param array<string>|null $value Value to set for the workforceIntegrationIds property.
     */
     public function setWorkforceIntegrationIds(?array $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
+ * Get the externalMeetingRegistration details associated with an onlineMeeting.
 */
 class RegistrationRequestBuilderGetQueryParameters 
 {
@@ -22,7 +22,7 @@ class RegistrationRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new registrationRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new RegistrationRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

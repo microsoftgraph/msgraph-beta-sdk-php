@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomAuthenticationExtension extends CustomCalloutExtension implements Parsable 
 {
     /**
-     * Instantiates a new customAuthenticationExtension and sets the default values.
+     * Instantiates a new CustomAuthenticationExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

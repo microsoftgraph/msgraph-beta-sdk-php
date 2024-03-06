@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new mobileAppProvisioningConfigGroupAssignment and sets the default values.
+     * Instantiates a new MobileAppProvisioningConfigGroupAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

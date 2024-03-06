@@ -16,7 +16,7 @@ class InboundSharedUserProfilesRequestBuilderGetRequestConfiguration extends Bas
     public ?InboundSharedUserProfilesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new inboundSharedUserProfilesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new InboundSharedUserProfilesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param InboundSharedUserProfilesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class InboundSharedUserProfilesRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new inboundSharedUserProfilesRequestBuilderGetQueryParameters.
+     * Instantiates a new InboundSharedUserProfilesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

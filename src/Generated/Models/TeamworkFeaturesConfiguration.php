@@ -18,7 +18,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new teamworkFeaturesConfiguration and sets the default values.
+     * Instantiates a new TeamworkFeaturesConfiguration and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

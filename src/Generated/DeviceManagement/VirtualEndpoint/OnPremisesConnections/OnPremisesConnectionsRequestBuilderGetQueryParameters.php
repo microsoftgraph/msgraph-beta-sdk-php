@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPrem
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List properties and relationships of the cloudPcOnPremisesConnection objects.
+ * Get a list of the cloudPcOnPremisesConnection objects and their properties.
 */
 class OnPremisesConnectionsRequestBuilderGetQueryParameters 
 {
@@ -58,7 +58,7 @@ class OnPremisesConnectionsRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new onPremisesConnectionsRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new OnPremisesConnectionsRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

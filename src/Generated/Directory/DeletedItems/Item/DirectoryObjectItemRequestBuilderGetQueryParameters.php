@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get deletedItems from directory
+ * Recently deleted items. Read-only. Nullable.
 */
 class DirectoryObjectItemRequestBuilderGetQueryParameters 
 {

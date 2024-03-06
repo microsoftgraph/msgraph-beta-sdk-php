@@ -16,7 +16,7 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration 
     public ?GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration 
     }
 
     /**
-     * Instantiates a new getStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters.
+     * Instantiates a new GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

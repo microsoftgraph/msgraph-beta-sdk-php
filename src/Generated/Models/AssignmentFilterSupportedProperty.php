@@ -22,7 +22,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new assignmentFilterSupportedProperty and sets the default values.
+     * Instantiates a new AssignmentFilterSupportedProperty and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

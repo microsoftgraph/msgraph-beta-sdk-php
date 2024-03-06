@@ -39,8 +39,7 @@ class CancelApprovalRequestBuilder extends BaseRequestBuilder
     public function post(CancelApprovalPostRequestBody $body, ?CancelApprovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CancelApprovalPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

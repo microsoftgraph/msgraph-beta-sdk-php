@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SamlIdentitySource extends PermissionsDefinitionIdentitySource implements Parsable 
 {
     /**
-     * Instantiates a new samlIdentitySource and sets the default values.
+     * Instantiates a new SamlIdentitySource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

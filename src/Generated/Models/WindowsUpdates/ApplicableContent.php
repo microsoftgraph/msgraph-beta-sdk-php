@@ -19,7 +19,7 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new applicableContent and sets the default values.
+     * Instantiates a new ApplicableContent and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -57,7 +57,7 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the catalogEntry property value. The catalogEntry property
+     * Gets the catalogEntry property value. Catalog entry for the update or content.
      * @return CatalogEntry|null
     */
     public function getCatalogEntry(): ?CatalogEntry {
@@ -69,6 +69,18 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the catalogEntryId property value. ID of the catalog entry for the applicable content.
+     * @return string|null
+    */
+    public function getCatalogEntryId(): ?string {
+        $val = $this->getBackingStore()->get('catalogEntryId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'catalogEntryId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -76,6 +88,7 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'catalogEntry' => fn(ParseNode $n) => $o->setCatalogEntry($n->getObjectValue([CatalogEntry::class, 'createFromDiscriminatorValue'])),
+            'catalogEntryId' => fn(ParseNode $n) => $o->setCatalogEntryId($n->getStringValue()),
             'matchedDevices' => fn(ParseNode $n) => $o->setMatchedDevices($n->getCollectionOfObjectValues([ApplicableContentDeviceMatch::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -113,6 +126,7 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('catalogEntry', $this->getCatalogEntry());
+        $writer->writeStringValue('catalogEntryId', $this->getCatalogEntryId());
         $writer->writeCollectionOfObjectValues('matchedDevices', $this->getMatchedDevices());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -135,11 +149,19 @@ class ApplicableContent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the catalogEntry property value. The catalogEntry property
+     * Sets the catalogEntry property value. Catalog entry for the update or content.
      * @param CatalogEntry|null $value Value to set for the catalogEntry property.
     */
     public function setCatalogEntry(?CatalogEntry $value): void {
         $this->getBackingStore()->set('catalogEntry', $value);
+    }
+
+    /**
+     * Sets the catalogEntryId property value. ID of the catalog entry for the applicable content.
+     * @param string|null $value Value to set for the catalogEntryId property.
+    */
+    public function setCatalogEntryId(?string $value): void {
+        $this->getBackingStore()->set('catalogEntryId', $value);
     }
 
     /**

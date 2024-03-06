@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagementAppHealthSummary extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsManagementAppHealthSummary and sets the default values.
+     * Instantiates a new WindowsManagementAppHealthSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

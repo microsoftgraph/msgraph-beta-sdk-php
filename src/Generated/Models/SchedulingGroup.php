@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class SchedulingGroup extends ChangeTrackedEntity implements Parsable 
 {
     /**
-     * Instantiates a new schedulingGroup and sets the default values.
+     * Instantiates a new SchedulingGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -27,7 +27,7 @@ class SchedulingGroup extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the code property value. The code for the schedulingGroup to represent an external identifier.
+     * Gets the code property value. The code for the schedulingGroup to represent an external identifier. This field must be unique within the team in Microsoft Teams and uses an alphanumeric format, with a maximum of 100 characters.
      * @return string|null
     */
     public function getCode(): ?string {
@@ -109,7 +109,7 @@ class SchedulingGroup extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the code property value. The code for the schedulingGroup to represent an external identifier.
+     * Sets the code property value. The code for the schedulingGroup to represent an external identifier. This field must be unique within the team in Microsoft Teams and uses an alphanumeric format, with a maximum of 100 characters.
      * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {

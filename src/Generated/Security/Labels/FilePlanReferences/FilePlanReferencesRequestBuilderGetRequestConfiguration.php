@@ -16,7 +16,7 @@ class FilePlanReferencesRequestBuilderGetRequestConfiguration extends BaseReques
     public ?FilePlanReferencesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new filePlanReferencesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new FilePlanReferencesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param FilePlanReferencesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class FilePlanReferencesRequestBuilderGetRequestConfiguration extends BaseReques
     }
 
     /**
-     * Instantiates a new filePlanReferencesRequestBuilderGetQueryParameters.
+     * Instantiates a new FilePlanReferencesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -19,7 +19,7 @@ class GetRemoteAssistanceSessionsReportPostRequestBody implements AdditionalData
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getRemoteAssistanceSessionsReportPostRequestBody and sets the default values.
+     * Instantiates a new GetRemoteAssistanceSessionsReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

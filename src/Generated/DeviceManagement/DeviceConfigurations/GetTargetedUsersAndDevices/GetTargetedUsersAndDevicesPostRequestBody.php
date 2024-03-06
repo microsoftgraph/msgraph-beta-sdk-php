@@ -19,7 +19,7 @@ class GetTargetedUsersAndDevicesPostRequestBody implements AdditionalDataHolder,
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getTargetedUsersAndDevicesPostRequestBody and sets the default values.
+     * Instantiates a new GetTargetedUsersAndDevicesPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

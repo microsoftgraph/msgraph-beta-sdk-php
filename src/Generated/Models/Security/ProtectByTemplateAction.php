@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectByTemplateAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * Instantiates a new protectByTemplateAction and sets the default values.
+     * Instantiates a new ProtectByTemplateAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();

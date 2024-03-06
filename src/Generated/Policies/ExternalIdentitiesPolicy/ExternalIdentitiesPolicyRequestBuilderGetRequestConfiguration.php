@@ -16,7 +16,7 @@ class ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration extends Base
     public ?ExternalIdentitiesPolicyRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new externalIdentitiesPolicyRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ExternalIdentitiesPolicyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration extends Base
     }
 
     /**
-     * Instantiates a new externalIdentitiesPolicyRequestBuilderGetQueryParameters.
+     * Instantiates a new ExternalIdentitiesPolicyRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ExternalIdentitiesPolicyRequestBuilderGetQueryParameters

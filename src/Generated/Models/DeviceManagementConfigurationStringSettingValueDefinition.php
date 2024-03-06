@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationStringSettingValueDefinition and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationStringSettingValueDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

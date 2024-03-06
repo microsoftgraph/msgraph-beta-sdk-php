@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class AttackSimulationRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new attackSimulationRoot and sets the default values.
+     * Instantiates a new AttackSimulationRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -53,6 +53,7 @@ class AttackSimulationRoot extends Entity implements Parsable
             'payloads' => fn(ParseNode $n) => $o->setPayloads($n->getCollectionOfObjectValues([Payload::class, 'createFromDiscriminatorValue'])),
             'simulationAutomations' => fn(ParseNode $n) => $o->setSimulationAutomations($n->getCollectionOfObjectValues([SimulationAutomation::class, 'createFromDiscriminatorValue'])),
             'simulations' => fn(ParseNode $n) => $o->setSimulations($n->getCollectionOfObjectValues([Simulation::class, 'createFromDiscriminatorValue'])),
+            'trainingCampaigns' => fn(ParseNode $n) => $o->setTrainingCampaigns($n->getCollectionOfObjectValues([TrainingCampaign::class, 'createFromDiscriminatorValue'])),
             'trainings' => fn(ParseNode $n) => $o->setTrainings($n->getCollectionOfObjectValues([Training::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -142,6 +143,20 @@ class AttackSimulationRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the trainingCampaigns property value. The trainingCampaigns property
+     * @return array<TrainingCampaign>|null
+    */
+    public function getTrainingCampaigns(): ?array {
+        $val = $this->getBackingStore()->get('trainingCampaigns');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TrainingCampaign::class);
+            /** @var array<TrainingCampaign>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trainingCampaigns'");
+    }
+
+    /**
      * Gets the trainings property value. Represents details about attack simulation trainings.
      * @return array<Training>|null
     */
@@ -168,6 +183,7 @@ class AttackSimulationRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
         $writer->writeCollectionOfObjectValues('simulationAutomations', $this->getSimulationAutomations());
         $writer->writeCollectionOfObjectValues('simulations', $this->getSimulations());
+        $writer->writeCollectionOfObjectValues('trainingCampaigns', $this->getTrainingCampaigns());
         $writer->writeCollectionOfObjectValues('trainings', $this->getTrainings());
     }
 
@@ -225,6 +241,14 @@ class AttackSimulationRoot extends Entity implements Parsable
     */
     public function setSimulations(?array $value): void {
         $this->getBackingStore()->set('simulations', $value);
+    }
+
+    /**
+     * Sets the trainingCampaigns property value. The trainingCampaigns property
+     * @param array<TrainingCampaign>|null $value Value to set for the trainingCampaigns property.
+    */
+    public function setTrainingCampaigns(?array $value): void {
+        $this->getBackingStore()->set('trainingCampaigns', $value);
     }
 
     /**

@@ -10,4 +10,5 @@ class PlannerTaskCompletionRequirements extends Enum {
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const FORM_COMPLETION = 'formCompletion';
     public const APPROVAL_COMPLETION = 'approvalCompletion';
+    public const COMPLETION_IN_HOSTED_APP = 'completionInHostedApp';
 }

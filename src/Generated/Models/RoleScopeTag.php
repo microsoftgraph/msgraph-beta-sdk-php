@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class RoleScopeTag extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new roleScopeTag and sets the default values.
+     * Instantiates a new RoleScopeTag and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -16,7 +16,7 @@ class DomainJoinConnectorsRequestBuilderGetRequestConfiguration extends BaseRequ
     public ?DomainJoinConnectorsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new domainJoinConnectorsRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new DomainJoinConnectorsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param DomainJoinConnectorsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class DomainJoinConnectorsRequestBuilderGetRequestConfiguration extends BaseRequ
     }
 
     /**
-     * Instantiates a new domainJoinConnectorsRequestBuilderGetQueryParameters.
+     * Instantiates a new DomainJoinConnectorsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -16,7 +16,7 @@ class CurrenciesRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     public ?CurrenciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new currenciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CurrenciesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CurrenciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CurrenciesRequestBuilderGetRequestConfiguration extends BaseRequestConfigu
     }
 
     /**
-     * Instantiates a new currenciesRequestBuilderGetQueryParameters.
+     * Instantiates a new CurrenciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

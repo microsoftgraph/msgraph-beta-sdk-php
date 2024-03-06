@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Community extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new community and sets the default values.
+     * Instantiates a new Community and sets the default values.
     */
     public function __construct() {
         parent::__construct();

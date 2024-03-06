@@ -40,8 +40,7 @@ class DeviceRegistrationPolicyRequestBuilder extends BaseRequestBuilder
     public function get(?DeviceRegistrationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceRegistrationPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -57,8 +56,7 @@ class DeviceRegistrationPolicyRequestBuilder extends BaseRequestBuilder
     public function patch(DeviceRegistrationPolicy $body, ?DeviceRegistrationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceRegistrationPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
@@ -92,7 +90,7 @@ class DeviceRegistrationPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceRegistrationPolicy $body, ?DeviceRegistrationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/deviceRegistrationPolicy';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -19,7 +19,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new sensitiveContentLocation and sets the default values.
+     * Instantiates a new SensitiveContentLocation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

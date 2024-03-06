@@ -16,7 +16,7 @@ class RecentPlansRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     public ?RecentPlansRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new recentPlansRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new RecentPlansRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param RecentPlansRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class RecentPlansRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     }
 
     /**
-     * Instantiates a new recentPlansRequestBuilderGetQueryParameters.
+     * Instantiates a new RecentPlansRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

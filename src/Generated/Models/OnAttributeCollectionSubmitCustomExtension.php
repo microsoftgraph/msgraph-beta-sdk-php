@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnAttributeCollectionSubmitCustomExtension extends CustomAuthenticationExtension implements Parsable 
 {
     /**
-     * Instantiates a new onAttributeCollectionSubmitCustomExtension and sets the default values.
+     * Instantiates a new OnAttributeCollectionSubmitCustomExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

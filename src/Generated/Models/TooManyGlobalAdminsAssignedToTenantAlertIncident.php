@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TooManyGlobalAdminsAssignedToTenantAlertIncident extends UnifiedRoleManagementAlertIncident implements Parsable 
 {
     /**
-     * Instantiates a new tooManyGlobalAdminsAssignedToTenantAlertIncident and sets the default values.
+     * Instantiates a new TooManyGlobalAdminsAssignedToTenantAlertIncident and sets the default values.
     */
     public function __construct() {
         parent::__construct();

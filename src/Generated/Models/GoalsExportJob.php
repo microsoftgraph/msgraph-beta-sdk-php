@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class GoalsExportJob extends LongRunningOperation implements Parsable 
 {
     /**
-     * Instantiates a new goalsExportJob and sets the default values.
+     * Instantiates a new GoalsExportJob and sets the default values.
     */
     public function __construct() {
         parent::__construct();

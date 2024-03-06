@@ -16,7 +16,7 @@ class AccessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration exten
     public ?AccessPackageResourceRoleScopesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageResourceRoleScopesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration exten
     }
 
     /**
-     * Instantiates a new accessPackageResourceRoleScopesRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageResourceRoleScopesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

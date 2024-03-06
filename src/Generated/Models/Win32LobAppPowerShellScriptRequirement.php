@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement implements Parsable 
 {
     /**
-     * Instantiates a new win32LobAppPowerShellScriptRequirement and sets the default values.
+     * Instantiates a new Win32LobAppPowerShellScriptRequirement and sets the default values.
     */
     public function __construct() {
         parent::__construct();

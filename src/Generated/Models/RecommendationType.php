@@ -42,4 +42,7 @@ class RecommendationType extends Enum {
     public const ADAL_TO_MSAL_MIGRATION = 'adalToMsalMigration';
     public const OWNERLESS_APPS = 'ownerlessApps';
     public const INACTIVE_GUESTS = 'inactiveGuests';
+    public const AAD_GRAPH_DEPRECATION_APPLICATION = 'aadGraphDeprecationApplication';
+    public const AAD_GRAPH_DEPRECATION_SERVICE_PRINCIPAL = 'aadGraphDeprecationServicePrincipal';
+    public const MFA_SERVER_DEPRECATION = 'mfaServerDeprecation';
 }

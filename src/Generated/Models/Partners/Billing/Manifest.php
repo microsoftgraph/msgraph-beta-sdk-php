@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Manifest extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new manifest and sets the default values.
+     * Instantiates a new Manifest and sets the default values.
     */
     public function __construct() {
         parent::__construct();

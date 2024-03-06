@@ -16,7 +16,7 @@ class ItemRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     public ?ItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new itemRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new ItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param ItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class ItemRequestBuilderGetRequestConfiguration extends BaseRequestConfiguration
     }
 
     /**
-     * Instantiates a new itemRequestBuilderGetQueryParameters.
+     * Instantiates a new ItemRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return ItemRequestBuilderGetQueryParameters

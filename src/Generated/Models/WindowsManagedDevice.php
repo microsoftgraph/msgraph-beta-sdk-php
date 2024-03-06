@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagedDevice extends ManagedDevice implements Parsable 
 {
     /**
-     * Instantiates a new windowsManagedDevice and sets the default values.
+     * Instantiates a new WindowsManagedDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();

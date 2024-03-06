@@ -16,7 +16,7 @@ class AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration 
     public ?AccessPackageAssignmentResourceRolesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new accessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AccessPackageAssignmentResourceRolesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration 
     }
 
     /**
-     * Instantiates a new accessPackageAssignmentResourceRolesRequestBuilderGetQueryParameters.
+     * Instantiates a new AccessPackageAssignmentResourceRolesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

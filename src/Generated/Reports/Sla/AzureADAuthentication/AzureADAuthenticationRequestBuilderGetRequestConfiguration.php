@@ -16,7 +16,7 @@ class AzureADAuthenticationRequestBuilderGetRequestConfiguration extends BaseReq
     public ?AzureADAuthenticationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new azureADAuthenticationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new AzureADAuthenticationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param AzureADAuthenticationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class AzureADAuthenticationRequestBuilderGetRequestConfiguration extends BaseReq
     }
 
     /**
-     * Instantiates a new azureADAuthenticationRequestBuilderGetQueryParameters.
+     * Instantiates a new AzureADAuthenticationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return AzureADAuthenticationRequestBuilderGetQueryParameters

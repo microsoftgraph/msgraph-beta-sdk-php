@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppDashboardCardDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamsAppDashboardCardDefinition and sets the default values.
+     * Instantiates a new TeamsAppDashboardCardDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +25,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentSource property value. The contentSource property
+     * Gets the contentSource property value. The configuration for the source of the card content. Required.
      * @return TeamsAppDashboardCardContentSource|null
     */
     public function getContentSource(): ?TeamsAppDashboardCardContentSource {
@@ -37,7 +37,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the defaultSize property value. The defaultSize property
+     * Gets the defaultSize property value. The size of the card. The possible values are: medium, large, unknownFutureValue. Required.
      * @return TeamsAppDashboardCardSize|null
     */
     public function getDefaultSize(): ?TeamsAppDashboardCardSize {
@@ -49,7 +49,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description for the card. Required.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -61,7 +61,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the card. Required.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -89,7 +89,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the icon property value. The icon property
+     * Gets the icon property value. Configuration for the display of the icon in the card picker. If neither this nor any of its properties (iconUrl and officeUIFabricIconName) are specified, the color icon of the app is used. Optional.
      * @return TeamsAppDashboardCardIcon|null
     */
     public function getIcon(): ?TeamsAppDashboardCardIcon {
@@ -101,7 +101,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the pickerGroupId property value. The pickerGroupId property
+     * Gets the pickerGroupId property value. ID for the group in the card picker. Required.
      * @return string|null
     */
     public function getPickerGroupId(): ?string {
@@ -127,7 +127,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentSource property value. The contentSource property
+     * Sets the contentSource property value. The configuration for the source of the card content. Required.
      * @param TeamsAppDashboardCardContentSource|null $value Value to set for the contentSource property.
     */
     public function setContentSource(?TeamsAppDashboardCardContentSource $value): void {
@@ -135,7 +135,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the defaultSize property value. The defaultSize property
+     * Sets the defaultSize property value. The size of the card. The possible values are: medium, large, unknownFutureValue. Required.
      * @param TeamsAppDashboardCardSize|null $value Value to set for the defaultSize property.
     */
     public function setDefaultSize(?TeamsAppDashboardCardSize $value): void {
@@ -143,7 +143,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description for the card. Required.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -151,7 +151,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the card. Required.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -159,7 +159,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the icon property value. The icon property
+     * Sets the icon property value. Configuration for the display of the icon in the card picker. If neither this nor any of its properties (iconUrl and officeUIFabricIconName) are specified, the color icon of the app is used. Optional.
      * @param TeamsAppDashboardCardIcon|null $value Value to set for the icon property.
     */
     public function setIcon(?TeamsAppDashboardCardIcon $value): void {
@@ -167,7 +167,7 @@ class TeamsAppDashboardCardDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the pickerGroupId property value. The pickerGroupId property
+     * Sets the pickerGroupId property value. ID for the group in the card picker. Required.
      * @param string|null $value Value to set for the pickerGroupId property.
     */
     public function setPickerGroupId(?string $value): void {

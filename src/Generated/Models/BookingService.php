@@ -15,7 +15,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class BookingService extends BookingNamedEntity implements Parsable 
 {
     /**
-     * Instantiates a new bookingService and sets the default values.
+     * Instantiates a new BookingService and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -44,7 +44,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date, time and timezone when the Service was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -160,6 +160,7 @@ class BookingService extends BookingNamedEntity implements Parsable
             'defaultReminders' => fn(ParseNode $n) => $o->setDefaultReminders($n->getCollectionOfObjectValues([BookingReminder::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'isAnonymousJoinEnabled' => fn(ParseNode $n) => $o->setIsAnonymousJoinEnabled($n->getBooleanValue()),
+            'isCustomerAllowedToManageBooking' => fn(ParseNode $n) => $o->setIsCustomerAllowedToManageBooking($n->getBooleanValue()),
             'isHiddenFromCustomers' => fn(ParseNode $n) => $o->setIsHiddenFromCustomers($n->getBooleanValue()),
             'isLocationOnline' => fn(ParseNode $n) => $o->setIsLocationOnline($n->getBooleanValue()),
             'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
@@ -183,7 +184,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the isAnonymousJoinEnabled property value. True if an anonymousJoinWebUrl(webrtcUrl) will be generated for the appointment booked for this service.
+     * Gets the isAnonymousJoinEnabled property value. Indicates if an anonymousJoinWebUrl(webrtcUrl) is generated for the appointment booked for this service. The default value is false.
      * @return bool|null
     */
     public function getIsAnonymousJoinEnabled(): ?bool {
@@ -192,6 +193,18 @@ class BookingService extends BookingNamedEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isAnonymousJoinEnabled'");
+    }
+
+    /**
+     * Gets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @return bool|null
+    */
+    public function getIsCustomerAllowedToManageBooking(): ?bool {
+        $val = $this->getBackingStore()->get('isCustomerAllowedToManageBooking');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomerAllowedToManageBooking'");
     }
 
     /**
@@ -207,7 +220,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the isLocationOnline property value. True indicates that the appointments for the service will be held online. Default value is false.
+     * Gets the isLocationOnline property value. Indicates that the appointments for the service are held online. The default value is false.
      * @return bool|null
     */
     public function getIsLocationOnline(): ?bool {
@@ -231,7 +244,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date, time and timezone when the Service  was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -356,6 +369,7 @@ class BookingService extends BookingNamedEntity implements Parsable
         $writer->writeCollectionOfObjectValues('defaultReminders', $this->getDefaultReminders());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeBooleanValue('isAnonymousJoinEnabled', $this->getIsAnonymousJoinEnabled());
+        $writer->writeBooleanValue('isCustomerAllowedToManageBooking', $this->getIsCustomerAllowedToManageBooking());
         $writer->writeBooleanValue('isHiddenFromCustomers', $this->getIsHiddenFromCustomers());
         $writer->writeBooleanValue('isLocationOnline', $this->getIsLocationOnline());
         $writer->writeStringValue('languageTag', $this->getLanguageTag());
@@ -378,7 +392,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date, time and timezone when the Service was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -442,11 +456,19 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the isAnonymousJoinEnabled property value. True if an anonymousJoinWebUrl(webrtcUrl) will be generated for the appointment booked for this service.
+     * Sets the isAnonymousJoinEnabled property value. Indicates if an anonymousJoinWebUrl(webrtcUrl) is generated for the appointment booked for this service. The default value is false.
      * @param bool|null $value Value to set for the isAnonymousJoinEnabled property.
     */
     public function setIsAnonymousJoinEnabled(?bool $value): void {
         $this->getBackingStore()->set('isAnonymousJoinEnabled', $value);
+    }
+
+    /**
+     * Sets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * @param bool|null $value Value to set for the isCustomerAllowedToManageBooking property.
+    */
+    public function setIsCustomerAllowedToManageBooking(?bool $value): void {
+        $this->getBackingStore()->set('isCustomerAllowedToManageBooking', $value);
     }
 
     /**
@@ -458,7 +480,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the isLocationOnline property value. True indicates that the appointments for the service will be held online. Default value is false.
+     * Sets the isLocationOnline property value. Indicates that the appointments for the service are held online. The default value is false.
      * @param bool|null $value Value to set for the isLocationOnline property.
     */
     public function setIsLocationOnline(?bool $value): void {
@@ -474,7 +496,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date, time and timezone when the Service  was last updated.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {

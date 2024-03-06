@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Alert extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new alert and sets the default values.
+     * Instantiates a new Alert and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -89,6 +89,7 @@ class Alert extends Entity implements Parsable
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'firstImpactedDateTime' => fn(ParseNode $n) => $o->setFirstImpactedDateTime($n->getDateTimeValue()),
+            'relatedResources' => fn(ParseNode $n) => $o->setRelatedResources($n->getCollectionOfObjectValues([RelatedResource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -105,6 +106,20 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Gets the relatedResources property value. The relatedResources property
+     * @return array<RelatedResource>|null
+    */
+    public function getRelatedResources(): ?array {
+        $val = $this->getBackingStore()->get('relatedResources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RelatedResource::class);
+            /** @var array<RelatedResource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relatedResources'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -115,6 +130,7 @@ class Alert extends Entity implements Parsable
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeDateTimeValue('firstImpactedDateTime', $this->getFirstImpactedDateTime());
+        $writer->writeCollectionOfObjectValues('relatedResources', $this->getRelatedResources());
     }
 
     /**
@@ -155,6 +171,14 @@ class Alert extends Entity implements Parsable
     */
     public function setFirstImpactedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('firstImpactedDateTime', $value);
+    }
+
+    /**
+     * Sets the relatedResources property value. The relatedResources property
+     * @param array<RelatedResource>|null $value Value to set for the relatedResources property.
+    */
+    public function setRelatedResources(?array $value): void {
+        $this->getBackingStore()->set('relatedResources', $value);
     }
 
 }

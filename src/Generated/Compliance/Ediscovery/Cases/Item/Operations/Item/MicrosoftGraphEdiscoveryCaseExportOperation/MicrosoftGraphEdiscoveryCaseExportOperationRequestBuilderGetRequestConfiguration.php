@@ -16,7 +16,7 @@ class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfigu
     public ?MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new microsoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfigu
     }
 
     /**
-     * Instantiates a new microsoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters.
+     * Instantiates a new MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters

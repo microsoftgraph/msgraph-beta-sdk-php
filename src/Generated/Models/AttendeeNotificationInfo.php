@@ -18,7 +18,7 @@ class AttendeeNotificationInfo implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new attendeeNotificationInfo and sets the default values.
+     * Instantiates a new AttendeeNotificationInfo and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -81,7 +81,7 @@ class AttendeeNotificationInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the phoneNumber property value. The phoneNumber property
+     * Gets the phoneNumber property value. The phone number of the external attendee. Required.
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
@@ -93,7 +93,7 @@ class AttendeeNotificationInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the timeZone property value. The timeZone property
+     * Gets the timeZone property value. The time zone of the external attendee. The timeZone property can be set to any of the time zones currently supported by Windows. Required.
      * @return string|null
     */
     public function getTimeZone(): ?string {
@@ -140,7 +140,7 @@ class AttendeeNotificationInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the phoneNumber property value. The phoneNumber property
+     * Sets the phoneNumber property value. The phone number of the external attendee. Required.
      * @param string|null $value Value to set for the phoneNumber property.
     */
     public function setPhoneNumber(?string $value): void {
@@ -148,7 +148,7 @@ class AttendeeNotificationInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the timeZone property value. The timeZone property
+     * Sets the timeZone property value. The time zone of the external attendee. The timeZone property can be set to any of the time zones currently supported by Windows. Required.
      * @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value): void {

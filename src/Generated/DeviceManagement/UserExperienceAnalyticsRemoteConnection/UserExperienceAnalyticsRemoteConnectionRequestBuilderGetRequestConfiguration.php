@@ -16,7 +16,7 @@ class UserExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfigurati
     public ?UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class UserExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfigurati
     }
 
     /**
-     * Instantiates a new userExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters.
+     * Instantiates a new UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

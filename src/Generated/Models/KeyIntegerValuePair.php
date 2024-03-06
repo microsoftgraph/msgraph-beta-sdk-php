@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KeyIntegerValuePair extends KeyTypedValuePair implements Parsable 
 {
     /**
-     * Instantiates a new keyIntegerValuePair and sets the default values.
+     * Instantiates a new KeyIntegerValuePair and sets the default values.
     */
     public function __construct() {
         parent::__construct();

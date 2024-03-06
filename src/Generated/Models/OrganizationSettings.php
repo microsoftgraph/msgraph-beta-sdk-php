@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OrganizationSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new organizationSettings and sets the default values.
+     * Instantiates a new OrganizationSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

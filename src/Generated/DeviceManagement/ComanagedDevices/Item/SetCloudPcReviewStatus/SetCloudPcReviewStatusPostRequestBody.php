@@ -19,7 +19,7 @@ class SetCloudPcReviewStatusPostRequestBody implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new setCloudPcReviewStatusPostRequestBody and sets the default values.
+     * Instantiates a new SetCloudPcReviewStatusPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

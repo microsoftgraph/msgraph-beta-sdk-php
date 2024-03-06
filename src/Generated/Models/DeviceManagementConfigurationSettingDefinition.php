@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class DeviceManagementConfigurationSettingDefinition extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementConfigurationSettingDefinition and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

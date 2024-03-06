@@ -18,7 +18,7 @@ class ApprovePostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new approvePostRequestBody and sets the default values.
+     * Instantiates a new ApprovePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

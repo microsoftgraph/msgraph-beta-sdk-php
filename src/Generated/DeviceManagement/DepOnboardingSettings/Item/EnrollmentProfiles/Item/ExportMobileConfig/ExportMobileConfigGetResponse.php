@@ -18,7 +18,7 @@ class ExportMobileConfigGetResponse implements AdditionalDataHolder, BackedModel
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new exportMobileConfigGetResponse and sets the default values.
+     * Instantiates a new ExportMobileConfigGetResponse and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

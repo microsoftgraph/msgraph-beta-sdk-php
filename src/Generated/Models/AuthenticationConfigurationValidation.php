@@ -19,7 +19,7 @@ class AuthenticationConfigurationValidation implements AdditionalDataHolder, Bac
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new authenticationConfigurationValidation and sets the default values.
+     * Instantiates a new AuthenticationConfigurationValidation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

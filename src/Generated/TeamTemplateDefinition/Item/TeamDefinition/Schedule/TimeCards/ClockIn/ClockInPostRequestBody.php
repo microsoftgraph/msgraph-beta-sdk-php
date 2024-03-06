@@ -19,7 +19,7 @@ class ClockInPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new clockInPostRequestBody and sets the default values.
+     * Instantiates a new ClockInPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

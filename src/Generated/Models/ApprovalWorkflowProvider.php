@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class ApprovalWorkflowProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new approvalWorkflowProvider and sets the default values.
+     * Instantiates a new ApprovalWorkflowProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();

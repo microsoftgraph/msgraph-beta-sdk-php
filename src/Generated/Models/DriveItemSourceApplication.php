@@ -12,5 +12,8 @@ class DriveItemSourceApplication extends Enum {
     public const STREAM = 'stream';
     public const POWER_POINT = 'powerPoint';
     public const OFFICE = 'office';
+    public const LOKI = 'loki';
+    public const LOOP = 'loop';
+    public const OTHER = 'other';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class Training extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new training and sets the default values.
+     * Instantiates a new Training and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,6 +63,18 @@ class Training extends Entity implements Parsable
     }
 
     /**
+     * Gets the customUrl property value. The customUrl property
+     * @return string|null
+    */
+    public function getCustomUrl(): ?string {
+        $val = $this->getBackingStore()->get('customUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customUrl'");
+    }
+
+    /**
      * Gets the description property value. The description for the training.
      * @return string|null
     */
@@ -108,6 +120,7 @@ class Training extends Entity implements Parsable
             'availabilityStatus' => fn(ParseNode $n) => $o->setAvailabilityStatus($n->getEnumValue(TrainingAvailabilityStatus::class)),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([EmailIdentity::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'customUrl' => fn(ParseNode $n) => $o->setCustomUrl($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'durationInMinutes' => fn(ParseNode $n) => $o->setDurationInMinutes($n->getIntegerValue()),
@@ -247,6 +260,7 @@ class Training extends Entity implements Parsable
         $writer->writeEnumValue('availabilityStatus', $this->getAvailabilityStatus());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('customUrl', $this->getCustomUrl());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('durationInMinutes', $this->getDurationInMinutes());
@@ -282,6 +296,14 @@ class Training extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the customUrl property value. The customUrl property
+     * @param string|null $value Value to set for the customUrl property.
+    */
+    public function setCustomUrl(?string $value): void {
+        $this->getBackingStore()->set('customUrl', $value);
     }
 
     /**

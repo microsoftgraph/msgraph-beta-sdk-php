@@ -10,10 +10,11 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class VirtualEventTownhall extends VirtualEvent implements Parsable 
 {
     /**
-     * Instantiates a new virtualEventTownhall and sets the default values.
+     * Instantiates a new VirtualEventTownhall and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.virtualEventTownhall');
     }
 
     /**
@@ -60,20 +61,20 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(MeetingAudience::class)),
             'coOrganizers' => fn(ParseNode $n) => $o->setCoOrganizers($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
-            'invitedAttendees' => fn(ParseNode $n) => $o->setInvitedAttendees($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
+            'invitedAttendees' => fn(ParseNode $n) => $o->setInvitedAttendees($n->getCollectionOfObjectValues([Identity::class, 'createFromDiscriminatorValue'])),
             'isInviteOnly' => fn(ParseNode $n) => $o->setIsInviteOnly($n->getBooleanValue()),
         ]);
     }
 
     /**
      * Gets the invitedAttendees property value. The invitedAttendees property
-     * @return array<CommunicationsUserIdentity>|null
+     * @return array<Identity>|null
     */
     public function getInvitedAttendees(): ?array {
         $val = $this->getBackingStore()->get('invitedAttendees');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, CommunicationsUserIdentity::class);
-            /** @var array<CommunicationsUserIdentity>|null $val */
+            TypeUtils::validateCollectionValues($val, Identity::class);
+            /** @var array<Identity>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'invitedAttendees'");
@@ -121,7 +122,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
 
     /**
      * Sets the invitedAttendees property value. The invitedAttendees property
-     * @param array<CommunicationsUserIdentity>|null $value Value to set for the invitedAttendees property.
+     * @param array<Identity>|null $value Value to set for the invitedAttendees property.
     */
     public function setInvitedAttendees(?array $value): void {
         $this->getBackingStore()->set('invitedAttendees', $value);

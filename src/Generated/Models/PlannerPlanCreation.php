@@ -18,7 +18,7 @@ class PlannerPlanCreation implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new plannerPlanCreation and sets the default values.
+     * Instantiates a new PlannerPlanCreation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

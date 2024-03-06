@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 class OutlookTask extends OutlookItem implements Parsable 
 {
     /**
-     * Instantiates a new outlookTask and sets the default values.
+     * Instantiates a new OutlookTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();

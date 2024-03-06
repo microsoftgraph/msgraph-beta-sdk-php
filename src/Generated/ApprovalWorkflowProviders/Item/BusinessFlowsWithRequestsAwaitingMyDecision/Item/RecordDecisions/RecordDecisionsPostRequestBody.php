@@ -18,7 +18,7 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, BackedMode
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new recordDecisionsPostRequestBody and sets the default values.
+     * Instantiates a new RecordDecisionsPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

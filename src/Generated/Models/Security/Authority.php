@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Authority extends FilePlanDescriptorBase implements Parsable 
 {
     /**
-     * Instantiates a new authority and sets the default values.
+     * Instantiates a new Authority and sets the default values.
     */
     public function __construct() {
         parent::__construct();

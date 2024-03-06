@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdgeHomeButtonLoadsStartPage extends EdgeHomeButtonConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new edgeHomeButtonLoadsStartPage and sets the default values.
+     * Instantiates a new EdgeHomeButtonLoadsStartPage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

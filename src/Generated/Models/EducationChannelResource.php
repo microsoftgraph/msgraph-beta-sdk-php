@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationChannelResource extends EducationResource implements Parsable 
 {
     /**
-     * Instantiates a new educationChannelResource and sets the default values.
+     * Instantiates a new EducationChannelResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

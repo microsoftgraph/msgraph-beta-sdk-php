@@ -38,8 +38,7 @@ class ImportOffice365DeviceConfigurationPoliciesRequestBuilder extends BaseReque
     public function post(?ImportOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
-                '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ImportOffice365DeviceConfigurationPoliciesPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }

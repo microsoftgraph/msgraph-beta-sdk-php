@@ -16,7 +16,7 @@ class GetManagedAppBlockedUsersRequestBuilderGetRequestConfiguration extends Bas
     public ?GetManagedAppBlockedUsersRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new getManagedAppBlockedUsersRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new GetManagedAppBlockedUsersRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param GetManagedAppBlockedUsersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class GetManagedAppBlockedUsersRequestBuilderGetRequestConfiguration extends Bas
     }
 
     /**
-     * Instantiates a new getManagedAppBlockedUsersRequestBuilderGetQueryParameters.
+     * Instantiates a new GetManagedAppBlockedUsersRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
      * @param string|null $search Search items by search phrases

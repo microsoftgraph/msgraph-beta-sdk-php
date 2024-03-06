@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceCertificateState extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedDeviceCertificateState and sets the default values.
+     * Instantiates a new ManagedDeviceCertificateState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

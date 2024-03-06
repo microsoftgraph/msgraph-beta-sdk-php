@@ -19,7 +19,7 @@ class GetConfigurationPolicyDevicesReportPostRequestBody implements AdditionalDa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new getConfigurationPolicyDevicesReportPostRequestBody and sets the default values.
+     * Instantiates a new GetConfigurationPolicyDevicesReportPostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();

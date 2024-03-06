@@ -16,7 +16,7 @@ class CloudPcsOverviewRequestBuilderGetRequestConfiguration extends BaseRequestC
     public ?CloudPcsOverviewRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new cloudPcsOverviewRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new CloudPcsOverviewRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param CloudPcsOverviewRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class CloudPcsOverviewRequestBuilderGetRequestConfiguration extends BaseRequestC
     }
 
     /**
-     * Instantiates a new cloudPcsOverviewRequestBuilderGetQueryParameters.
+     * Instantiates a new CloudPcsOverviewRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

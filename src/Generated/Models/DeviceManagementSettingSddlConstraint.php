@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingSddlConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementSettingSddlConstraint and sets the default values.
+     * Instantiates a new DeviceManagementSettingSddlConstraint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

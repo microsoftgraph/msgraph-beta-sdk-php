@@ -16,7 +16,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration ex
     public ?SubscriptionsWithOcpSubscriptionIdRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new subscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration and sets the default values.
+     * Instantiates a new SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
      * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
@@ -27,7 +27,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration ex
     }
 
     /**
-     * Instantiates a new subscriptionsWithOcpSubscriptionIdRequestBuilderGetQueryParameters.
+     * Instantiates a new SubscriptionsWithOcpSubscriptionIdRequestBuilderGetQueryParameters.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return SubscriptionsWithOcpSubscriptionIdRequestBuilderGetQueryParameters
