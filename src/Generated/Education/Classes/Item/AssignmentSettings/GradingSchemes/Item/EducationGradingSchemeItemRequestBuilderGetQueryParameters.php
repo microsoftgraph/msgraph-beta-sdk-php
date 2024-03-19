@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettin
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get gradingSchemes from education
+ * Read the properties and relationships of an educationGradingScheme object.
 */
 class EducationGradingSchemeItemRequestBuilderGetQueryParameters 
 {

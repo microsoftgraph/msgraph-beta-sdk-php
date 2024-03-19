@@ -56,7 +56,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the compositeAuthentication property value. The compositeAuthentication property
+     * Gets the compositeAuthentication property value. A value used by Microsoft 365 to combine email authentication such as SPF, DKIM, and DMARC, to determine whether the message is authentic.
      * @return string|null
     */
     public function getCompositeAuthentication(): ?string {
@@ -68,7 +68,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the dkim property value. The dkim property
+     * Gets the dkim property value. DomainKeys identified mail (DKIM). Indicates whether it was pass/fail/soft fail.
      * @return string|null
     */
     public function getDkim(): ?string {
@@ -80,7 +80,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the dmarc property value. The dmarc property
+     * Gets the dmarc property value. Domain-based Message Authentication. Indicates whether it was pass/fail/soft fail.
      * @return string|null
     */
     public function getDmarc(): ?string {
@@ -119,7 +119,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the senderPolicyFramework property value. The senderPolicyFramework property
+     * Gets the senderPolicyFramework property value. Sender Policy Framework (SPF). Indicates whether it was pass/fail/soft fail.
      * @return string|null
     */
     public function getSenderPolicyFramework(): ?string {
@@ -160,7 +160,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the compositeAuthentication property value. The compositeAuthentication property
+     * Sets the compositeAuthentication property value. A value used by Microsoft 365 to combine email authentication such as SPF, DKIM, and DMARC, to determine whether the message is authentic.
      * @param string|null $value Value to set for the compositeAuthentication property.
     */
     public function setCompositeAuthentication(?string $value): void {
@@ -168,7 +168,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the dkim property value. The dkim property
+     * Sets the dkim property value. DomainKeys identified mail (DKIM). Indicates whether it was pass/fail/soft fail.
      * @param string|null $value Value to set for the dkim property.
     */
     public function setDkim(?string $value): void {
@@ -176,7 +176,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the dmarc property value. The dmarc property
+     * Sets the dmarc property value. Domain-based Message Authentication. Indicates whether it was pass/fail/soft fail.
      * @param string|null $value Value to set for the dmarc property.
     */
     public function setDmarc(?string $value): void {
@@ -192,7 +192,7 @@ class AnalyzedEmailAuthenticationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the senderPolicyFramework property value. The senderPolicyFramework property
+     * Sets the senderPolicyFramework property value. Sender Policy Framework (SPF). Indicates whether it was pass/fail/soft fail.
      * @param string|null $value Value to set for the senderPolicyFramework property.
     */
     public function setSenderPolicyFramework(?string $value): void {

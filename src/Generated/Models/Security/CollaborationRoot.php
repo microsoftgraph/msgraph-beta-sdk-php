@@ -27,7 +27,7 @@ class CollaborationRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the analyzedEmails property value. The analyzedEmails property
+     * Gets the analyzedEmails property value. Contains metadata for analyzed emails.
      * @return array<AnalyzedEmail>|null
     */
     public function getAnalyzedEmails(): ?array {
@@ -61,7 +61,7 @@ class CollaborationRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the analyzedEmails property value. The analyzedEmails property
+     * Sets the analyzedEmails property value. Contains metadata for analyzed emails.
      * @param array<AnalyzedEmail>|null $value Value to set for the analyzedEmails property.
     */
     public function setAnalyzedEmails(?array $value): void {

@@ -49,7 +49,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the analysisDateTime property value. The analysisDateTime property
+     * Gets the analysisDateTime property value. The time of detonation.
      * @return DateTime|null
     */
     public function getAnalysisDateTime(): ?DateTime {
@@ -69,7 +69,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationChain property value. The detonationChain property
+     * Gets the detonationChain property value. The chain of detonation.
      * @return DetonationChain|null
     */
     public function getDetonationChain(): ?DetonationChain {
@@ -81,7 +81,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationObservables property value. The detonationObservables property
+     * Gets the detonationObservables property value. All observables in the detonation tree.
      * @return DetonationObservables|null
     */
     public function getDetonationObservables(): ?DetonationObservables {
@@ -93,7 +93,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationVerdict property value. The detonationVerdict property
+     * Gets the detonationVerdict property value. The verdict of the detonation.
      * @return string|null
     */
     public function getDetonationVerdict(): ?string {
@@ -105,7 +105,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationVerdictReason property value. The detonationVerdictReason property
+     * Gets the detonationVerdictReason property value. The reason for the verdict of the detonation.
      * @return string|null
     */
     public function getDetonationVerdictReason(): ?string {
@@ -167,7 +167,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the analysisDateTime property value. The analysisDateTime property
+     * Sets the analysisDateTime property value. The time of detonation.
      * @param DateTime|null $value Value to set for the analysisDateTime property.
     */
     public function setAnalysisDateTime(?DateTime $value): void {
@@ -183,7 +183,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationChain property value. The detonationChain property
+     * Sets the detonationChain property value. The chain of detonation.
      * @param DetonationChain|null $value Value to set for the detonationChain property.
     */
     public function setDetonationChain(?DetonationChain $value): void {
@@ -191,7 +191,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationObservables property value. The detonationObservables property
+     * Sets the detonationObservables property value. All observables in the detonation tree.
      * @param DetonationObservables|null $value Value to set for the detonationObservables property.
     */
     public function setDetonationObservables(?DetonationObservables $value): void {
@@ -199,7 +199,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationVerdict property value. The detonationVerdict property
+     * Sets the detonationVerdict property value. The verdict of the detonation.
      * @param string|null $value Value to set for the detonationVerdict property.
     */
     public function setDetonationVerdict(?string $value): void {
@@ -207,7 +207,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationVerdictReason property value. The detonationVerdictReason property
+     * Sets the detonationVerdictReason property value. The reason for the verdict of the detonation.
      * @param string|null $value Value to set for the detonationVerdictReason property.
     */
     public function setDetonationVerdictReason(?string $value): void {

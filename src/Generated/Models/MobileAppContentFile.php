@@ -30,7 +30,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the azureStorageUri property value. Indicates the Azure Storage URI that the file is uploaded to. Created by the service upon receiving a valid mobileAppContentFile. Read-only.
+     * Gets the azureStorageUri property value. Indicates the Azure Storage URI that the file is uploaded to. Created by the service upon receiving a valid mobileAppContentFile. Read-only. This property is read-only.
      * @return string|null
     */
     public function getAzureStorageUri(): ?string {
@@ -42,7 +42,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the azureStorageUriExpirationDateTime property value. Indicates the date and time when the Azure storage URI expires, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+     * Gets the azureStorageUriExpirationDateTime property value. Indicates the date and time when the Azure storage URI expires, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only. This property is read-only.
      * @return DateTime|null
     */
     public function getAzureStorageUriExpirationDateTime(): ?DateTime {
@@ -54,7 +54,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Indicates created date and time associated with app content file, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+     * Gets the createdDateTime property value. Indicates created date and time associated with app content file, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only. This property is read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -89,7 +89,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the isCommitted property value. A value indicating whether the file is committed. A committed app content file has been fully uploaded and validated by the Intune service. TRUE means that app content file is committed, FALSE means that app content file is not committed. Defaults to FALSE. Read-only.
+     * Gets the isCommitted property value. A value indicating whether the file is committed. A committed app content file has been fully uploaded and validated by the Intune service. TRUE means that app content file is committed, FALSE means that app content file is not committed. Defaults to FALSE. Read-only. This property is read-only.
      * @return bool|null
     */
     public function getIsCommitted(): ?bool {
@@ -173,7 +173,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes.
+     * Gets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. Valid values 0 to 9.22337203685478E+18
      * @return int|null
     */
     public function getSizeEncryptedInBytes(): ?int {
@@ -185,7 +185,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeInBytes property value. Indicates the original size of the file, in bytes.
+     * Gets the sizeInBytes property value. Indicates the original size of the file, in bytes. Valid values 0 to 9.22337203685478E+18
      * @return int|null
     */
     public function getSizeInBytes(): ?int {
@@ -214,10 +214,6 @@ class MobileAppContentFile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureStorageUri', $this->getAzureStorageUri());
-        $writer->writeDateTimeValue('azureStorageUriExpirationDateTime', $this->getAzureStorageUriExpirationDateTime());
-        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeBooleanValue('isCommitted', $this->getIsCommitted());
         $writer->writeBooleanValue('isDependency', $this->getIsDependency());
         $writer->writeBooleanValue('isFrameworkFile', $this->getIsFrameworkFile());
         $writer->writeBinaryContent('manifest', $this->getManifest());
@@ -230,7 +226,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the azureStorageUri property value. Indicates the Azure Storage URI that the file is uploaded to. Created by the service upon receiving a valid mobileAppContentFile. Read-only.
+     * Sets the azureStorageUri property value. Indicates the Azure Storage URI that the file is uploaded to. Created by the service upon receiving a valid mobileAppContentFile. Read-only. This property is read-only.
      * @param string|null $value Value to set for the azureStorageUri property.
     */
     public function setAzureStorageUri(?string $value): void {
@@ -238,7 +234,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the azureStorageUriExpirationDateTime property value. Indicates the date and time when the Azure storage URI expires, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+     * Sets the azureStorageUriExpirationDateTime property value. Indicates the date and time when the Azure storage URI expires, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only. This property is read-only.
      * @param DateTime|null $value Value to set for the azureStorageUriExpirationDateTime property.
     */
     public function setAzureStorageUriExpirationDateTime(?DateTime $value): void {
@@ -246,7 +242,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Indicates created date and time associated with app content file, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+     * Sets the createdDateTime property value. Indicates created date and time associated with app content file, in ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only. This property is read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -254,7 +250,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the isCommitted property value. A value indicating whether the file is committed. A committed app content file has been fully uploaded and validated by the Intune service. TRUE means that app content file is committed, FALSE means that app content file is not committed. Defaults to FALSE. Read-only.
+     * Sets the isCommitted property value. A value indicating whether the file is committed. A committed app content file has been fully uploaded and validated by the Intune service. TRUE means that app content file is committed, FALSE means that app content file is not committed. Defaults to FALSE. Read-only. This property is read-only.
      * @param bool|null $value Value to set for the isCommitted property.
     */
     public function setIsCommitted(?bool $value): void {
@@ -310,7 +306,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes.
+     * Sets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. Valid values 0 to 9.22337203685478E+18
      * @param int|null $value Value to set for the sizeEncryptedInBytes property.
     */
     public function setSizeEncryptedInBytes(?int $value): void {
@@ -318,7 +314,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeInBytes property value. Indicates the original size of the file, in bytes.
+     * Sets the sizeInBytes property value. Indicates the original size of the file, in bytes. Valid values 0 to 9.22337203685478E+18
      * @param int|null $value Value to set for the sizeInBytes property.
     */
     public function setSizeInBytes(?int $value): void {

@@ -49,7 +49,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the additionalDetail property value. The additionalDetail property
+     * Gets the additionalDetail property value. More details about the health check or the recommended action. Read-only.
      * @return string|null
     */
     public function getAdditionalDetail(): ?string {
@@ -61,7 +61,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the additionalDetails property value. More details about the health check or the recommended action.
+     * Gets the additionalDetails property value. The additionalDetails property
      * @return string|null
     */
     public function getAdditionalDetails(): ?string {
@@ -223,7 +223,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the additionalDetail property value. The additionalDetail property
+     * Sets the additionalDetail property value. More details about the health check or the recommended action. Read-only.
      * @param string|null $value Value to set for the additionalDetail property.
     */
     public function setAdditionalDetail(?string $value): void {
@@ -231,7 +231,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the additionalDetails property value. More details about the health check or the recommended action.
+     * Sets the additionalDetails property value. The additionalDetails property
      * @param string|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?string $value): void {

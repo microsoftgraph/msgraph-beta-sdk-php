@@ -28,7 +28,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertIds property value. The alertIds property
+     * Gets the alertIds property value. A collection of values that contain the IDs of any alerts associated with the email.
      * @return array<string>|null
     */
     public function getAlertIds(): ?array {
@@ -42,7 +42,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the attachments property value. The attachments property
+     * Gets the attachments property value. A collection of the attachments in the email.
      * @return array<AnalyzedEmailAttachment>|null
     */
     public function getAttachments(): ?array {
@@ -56,7 +56,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the attachmentsCount property value. The attachmentsCount property
+     * Gets the attachmentsCount property value. The number of attachments in the email.
      * @return int|null
     */
     public function getAttachmentsCount(): ?int {
@@ -68,7 +68,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationDetails property value. The authenticationDetails property
+     * Gets the authenticationDetails property value. The authentication details associated with the email.
      * @return AnalyzedEmailAuthenticationDetail|null
     */
     public function getAuthenticationDetails(): ?AnalyzedEmailAuthenticationDetail {
@@ -80,7 +80,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the bulkComplaintLevel property value. The bulkComplaintLevel property
+     * Gets the bulkComplaintLevel property value. The bulk complaint level of the email. A higher level is more likely to be spam.
      * @return string|null
     */
     public function getBulkComplaintLevel(): ?string {
@@ -92,7 +92,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the contexts property value. The contexts property
+     * Gets the contexts property value. Provides context of the email.
      * @return array<string>|null
     */
     public function getContexts(): ?array {
@@ -106,7 +106,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectionMethods property value. The detectionMethods property
+     * Gets the detectionMethods property value. The methods of detection used.
      * @return array<string>|null
     */
     public function getDetectionMethods(): ?array {
@@ -120,7 +120,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the directionality property value. The directionality property
+     * Gets the directionality property value. The direction of the emails. The possible values are: unknown, inbound, outbound, intraOrg, unknownFutureValue.
      * @return AntispamDirectionality|null
     */
     public function getDirectionality(): ?AntispamDirectionality {
@@ -132,7 +132,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the distributionList property value. The distributionList property
+     * Gets the distributionList property value. The distribution list details to which the email was sent.
      * @return string|null
     */
     public function getDistributionList(): ?string {
@@ -144,7 +144,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the emailClusterId property value. The emailClusterId property
+     * Gets the emailClusterId property value. The identifier for the group of similar emails clustered based on heuristic analysis of their content.
      * @return string|null
     */
     public function getEmailClusterId(): ?string {
@@ -156,7 +156,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the exchangeTransportRules property value. The exchangeTransportRules property
+     * Gets the exchangeTransportRules property value. The name of the Exchange transport rules (ETRs) associated with the email.
      * @return array<AnalyzedEmailExchangeTransportRuleInfo>|null
     */
     public function getExchangeTransportRules(): ?array {
@@ -245,7 +245,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the internetMessageId property value. The internetMessageId property
+     * Gets the internetMessageId property value. A public-facing identifier for the email that is sent. The message ID is in the format specified by RFC2822.
      * @return string|null
     */
     public function getInternetMessageId(): ?string {
@@ -257,7 +257,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the language property value. The language property
+     * Gets the language property value. The detected language of the email content.
      * @return string|null
     */
     public function getLanguage(): ?string {
@@ -269,7 +269,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the latestDelivery property value. The latestDelivery property
+     * Gets the latestDelivery property value. The latest delivery details of the email.
      * @return AnalyzedEmailDeliveryDetail|null
     */
     public function getLatestDelivery(): ?AnalyzedEmailDeliveryDetail {
@@ -281,7 +281,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the loggedDateTime property value. The loggedDateTime property
+     * Gets the loggedDateTime property value. Date-time when the email record was logged.
      * @return DateTime|null
     */
     public function getLoggedDateTime(): ?DateTime {
@@ -293,7 +293,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the networkMessageId property value. The networkMessageId property
+     * Gets the networkMessageId property value. An internal identifier for the email generated by Microsoft 365.
      * @return string|null
     */
     public function getNetworkMessageId(): ?string {
@@ -305,7 +305,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the originalDelivery property value. The originalDelivery property
+     * Gets the originalDelivery property value. The original delivery details of the email.
      * @return AnalyzedEmailDeliveryDetail|null
     */
     public function getOriginalDelivery(): ?AnalyzedEmailDeliveryDetail {
@@ -317,7 +317,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the overrideSources property value. The overrideSources property
+     * Gets the overrideSources property value. An aggregated list of all overrides with source on email.
      * @return array<string>|null
     */
     public function getOverrideSources(): ?array {
@@ -331,7 +331,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the phishConfidenceLevel property value. The phishConfidenceLevel property
+     * Gets the phishConfidenceLevel property value. The phish confidence level associated with the email
      * @return string|null
     */
     public function getPhishConfidenceLevel(): ?string {
@@ -343,7 +343,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the policy property value. The policy property
+     * Gets the policy property value. The action policy that took effect.
      * @return string|null
     */
     public function getPolicy(): ?string {
@@ -355,7 +355,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyAction property value. The policyAction property
+     * Gets the policyAction property value. The action taken on the email based on the configured policy.
      * @return string|null
     */
     public function getPolicyAction(): ?string {
@@ -367,7 +367,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the recipientEmailAddresses property value. The recipientEmailAddresses property
+     * Gets the recipientEmailAddresses property value. Contains the email addresses of the recipients.
      * @return array<string>|null
     */
     public function getRecipientEmailAddresses(): ?array {
@@ -381,7 +381,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the returnPath property value. The returnPath property
+     * Gets the returnPath property value. A field that indicates where and how bounced emails are processed.
      * @return string|null
     */
     public function getReturnPath(): ?string {
@@ -393,7 +393,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the senderDetail property value. The senderDetail property
+     * Gets the senderDetail property value. Sender details of the email.
      * @return AnalyzedEmailSenderDetail|null
     */
     public function getSenderDetail(): ?AnalyzedEmailSenderDetail {
@@ -405,7 +405,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeInBytes property value. The sizeInBytes property
+     * Gets the sizeInBytes property value. Size of the email in bytes.
      * @return int|null
     */
     public function getSizeInBytes(): ?int {
@@ -417,7 +417,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the spamConfidenceLevel property value. The spamConfidenceLevel property
+     * Gets the spamConfidenceLevel property value. Spam confidence of the email.
      * @return string|null
     */
     public function getSpamConfidenceLevel(): ?string {
@@ -429,7 +429,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. Subject of the email.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -441,7 +441,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the threatType property value. The threatType property
+     * Gets the threatType property value. Indicates the threat types. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
      * @return ThreatType|null
     */
     public function getThreatType(): ?ThreatType {
@@ -453,7 +453,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the urls property value. The urls property
+     * Gets the urls property value. A collection of the URLs in the email.
      * @return array<AnalyzedEmailUrl>|null
     */
     public function getUrls(): ?array {
@@ -467,7 +467,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the urlsCount property value. The urlsCount property
+     * Gets the urlsCount property value. The number of URLs in the email.
      * @return int|null
     */
     public function getUrlsCount(): ?int {
@@ -517,7 +517,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertIds property value. The alertIds property
+     * Sets the alertIds property value. A collection of values that contain the IDs of any alerts associated with the email.
      * @param array<string>|null $value Value to set for the alertIds property.
     */
     public function setAlertIds(?array $value): void {
@@ -525,7 +525,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the attachments property value. The attachments property
+     * Sets the attachments property value. A collection of the attachments in the email.
      * @param array<AnalyzedEmailAttachment>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value): void {
@@ -533,7 +533,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the attachmentsCount property value. The attachmentsCount property
+     * Sets the attachmentsCount property value. The number of attachments in the email.
      * @param int|null $value Value to set for the attachmentsCount property.
     */
     public function setAttachmentsCount(?int $value): void {
@@ -541,7 +541,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationDetails property value. The authenticationDetails property
+     * Sets the authenticationDetails property value. The authentication details associated with the email.
      * @param AnalyzedEmailAuthenticationDetail|null $value Value to set for the authenticationDetails property.
     */
     public function setAuthenticationDetails(?AnalyzedEmailAuthenticationDetail $value): void {
@@ -549,7 +549,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the bulkComplaintLevel property value. The bulkComplaintLevel property
+     * Sets the bulkComplaintLevel property value. The bulk complaint level of the email. A higher level is more likely to be spam.
      * @param string|null $value Value to set for the bulkComplaintLevel property.
     */
     public function setBulkComplaintLevel(?string $value): void {
@@ -557,7 +557,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the contexts property value. The contexts property
+     * Sets the contexts property value. Provides context of the email.
      * @param array<string>|null $value Value to set for the contexts property.
     */
     public function setContexts(?array $value): void {
@@ -565,7 +565,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectionMethods property value. The detectionMethods property
+     * Sets the detectionMethods property value. The methods of detection used.
      * @param array<string>|null $value Value to set for the detectionMethods property.
     */
     public function setDetectionMethods(?array $value): void {
@@ -573,7 +573,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the directionality property value. The directionality property
+     * Sets the directionality property value. The direction of the emails. The possible values are: unknown, inbound, outbound, intraOrg, unknownFutureValue.
      * @param AntispamDirectionality|null $value Value to set for the directionality property.
     */
     public function setDirectionality(?AntispamDirectionality $value): void {
@@ -581,7 +581,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the distributionList property value. The distributionList property
+     * Sets the distributionList property value. The distribution list details to which the email was sent.
      * @param string|null $value Value to set for the distributionList property.
     */
     public function setDistributionList(?string $value): void {
@@ -589,7 +589,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the emailClusterId property value. The emailClusterId property
+     * Sets the emailClusterId property value. The identifier for the group of similar emails clustered based on heuristic analysis of their content.
      * @param string|null $value Value to set for the emailClusterId property.
     */
     public function setEmailClusterId(?string $value): void {
@@ -597,7 +597,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the exchangeTransportRules property value. The exchangeTransportRules property
+     * Sets the exchangeTransportRules property value. The name of the Exchange transport rules (ETRs) associated with the email.
      * @param array<AnalyzedEmailExchangeTransportRuleInfo>|null $value Value to set for the exchangeTransportRules property.
     */
     public function setExchangeTransportRules(?array $value): void {
@@ -605,7 +605,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the internetMessageId property value. The internetMessageId property
+     * Sets the internetMessageId property value. A public-facing identifier for the email that is sent. The message ID is in the format specified by RFC2822.
      * @param string|null $value Value to set for the internetMessageId property.
     */
     public function setInternetMessageId(?string $value): void {
@@ -613,7 +613,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the language property value. The language property
+     * Sets the language property value. The detected language of the email content.
      * @param string|null $value Value to set for the language property.
     */
     public function setLanguage(?string $value): void {
@@ -621,7 +621,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the latestDelivery property value. The latestDelivery property
+     * Sets the latestDelivery property value. The latest delivery details of the email.
      * @param AnalyzedEmailDeliveryDetail|null $value Value to set for the latestDelivery property.
     */
     public function setLatestDelivery(?AnalyzedEmailDeliveryDetail $value): void {
@@ -629,7 +629,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the loggedDateTime property value. The loggedDateTime property
+     * Sets the loggedDateTime property value. Date-time when the email record was logged.
      * @param DateTime|null $value Value to set for the loggedDateTime property.
     */
     public function setLoggedDateTime(?DateTime $value): void {
@@ -637,7 +637,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the networkMessageId property value. The networkMessageId property
+     * Sets the networkMessageId property value. An internal identifier for the email generated by Microsoft 365.
      * @param string|null $value Value to set for the networkMessageId property.
     */
     public function setNetworkMessageId(?string $value): void {
@@ -645,7 +645,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the originalDelivery property value. The originalDelivery property
+     * Sets the originalDelivery property value. The original delivery details of the email.
      * @param AnalyzedEmailDeliveryDetail|null $value Value to set for the originalDelivery property.
     */
     public function setOriginalDelivery(?AnalyzedEmailDeliveryDetail $value): void {
@@ -653,7 +653,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the overrideSources property value. The overrideSources property
+     * Sets the overrideSources property value. An aggregated list of all overrides with source on email.
      * @param array<string>|null $value Value to set for the overrideSources property.
     */
     public function setOverrideSources(?array $value): void {
@@ -661,7 +661,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the phishConfidenceLevel property value. The phishConfidenceLevel property
+     * Sets the phishConfidenceLevel property value. The phish confidence level associated with the email
      * @param string|null $value Value to set for the phishConfidenceLevel property.
     */
     public function setPhishConfidenceLevel(?string $value): void {
@@ -669,7 +669,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the policy property value. The policy property
+     * Sets the policy property value. The action policy that took effect.
      * @param string|null $value Value to set for the policy property.
     */
     public function setPolicy(?string $value): void {
@@ -677,7 +677,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyAction property value. The policyAction property
+     * Sets the policyAction property value. The action taken on the email based on the configured policy.
      * @param string|null $value Value to set for the policyAction property.
     */
     public function setPolicyAction(?string $value): void {
@@ -685,7 +685,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the recipientEmailAddresses property value. The recipientEmailAddresses property
+     * Sets the recipientEmailAddresses property value. Contains the email addresses of the recipients.
      * @param array<string>|null $value Value to set for the recipientEmailAddresses property.
     */
     public function setRecipientEmailAddresses(?array $value): void {
@@ -693,7 +693,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the returnPath property value. The returnPath property
+     * Sets the returnPath property value. A field that indicates where and how bounced emails are processed.
      * @param string|null $value Value to set for the returnPath property.
     */
     public function setReturnPath(?string $value): void {
@@ -701,7 +701,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the senderDetail property value. The senderDetail property
+     * Sets the senderDetail property value. Sender details of the email.
      * @param AnalyzedEmailSenderDetail|null $value Value to set for the senderDetail property.
     */
     public function setSenderDetail(?AnalyzedEmailSenderDetail $value): void {
@@ -709,7 +709,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeInBytes property value. The sizeInBytes property
+     * Sets the sizeInBytes property value. Size of the email in bytes.
      * @param int|null $value Value to set for the sizeInBytes property.
     */
     public function setSizeInBytes(?int $value): void {
@@ -717,7 +717,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the spamConfidenceLevel property value. The spamConfidenceLevel property
+     * Sets the spamConfidenceLevel property value. Spam confidence of the email.
      * @param string|null $value Value to set for the spamConfidenceLevel property.
     */
     public function setSpamConfidenceLevel(?string $value): void {
@@ -725,7 +725,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. Subject of the email.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
@@ -733,7 +733,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the threatType property value. The threatType property
+     * Sets the threatType property value. Indicates the threat types. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
      * @param ThreatType|null $value Value to set for the threatType property.
     */
     public function setThreatType(?ThreatType $value): void {
@@ -741,7 +741,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the urls property value. The urls property
+     * Sets the urls property value. A collection of the URLs in the email.
      * @param array<AnalyzedEmailUrl>|null $value Value to set for the urls property.
     */
     public function setUrls(?array $value): void {
@@ -749,7 +749,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the urlsCount property value. The urlsCount property
+     * Sets the urlsCount property value. The number of URLs in the email.
      * @param int|null $value Value to set for the urlsCount property.
     */
     public function setUrlsCount(?int $value): void {

@@ -173,16 +173,6 @@ class MobileAppInstallSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('failedDeviceCount', $this->getFailedDeviceCount());
-        $writer->writeIntegerValue('failedUserCount', $this->getFailedUserCount());
-        $writer->writeIntegerValue('installedDeviceCount', $this->getInstalledDeviceCount());
-        $writer->writeIntegerValue('installedUserCount', $this->getInstalledUserCount());
-        $writer->writeIntegerValue('notApplicableDeviceCount', $this->getNotApplicableDeviceCount());
-        $writer->writeIntegerValue('notApplicableUserCount', $this->getNotApplicableUserCount());
-        $writer->writeIntegerValue('notInstalledDeviceCount', $this->getNotInstalledDeviceCount());
-        $writer->writeIntegerValue('notInstalledUserCount', $this->getNotInstalledUserCount());
-        $writer->writeIntegerValue('pendingInstallDeviceCount', $this->getPendingInstallDeviceCount());
-        $writer->writeIntegerValue('pendingInstallUserCount', $this->getPendingInstallUserCount());
     }
 
     /**

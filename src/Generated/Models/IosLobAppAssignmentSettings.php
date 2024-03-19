@@ -67,7 +67,7 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements
     }
 
     /**
-     * Gets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
+     * Gets the uninstallOnDeviceRemoval property value. When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune. By default, property is set to null which internally is treated as TRUE.
      * @return bool|null
     */
     public function getUninstallOnDeviceRemoval(): ?bool {
@@ -79,7 +79,7 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements
     }
 
     /**
-     * Gets the vpnConfigurationId property value. The VPN Configuration Id to apply for this app.
+     * Gets the vpnConfigurationId property value. This is the unique identifier (Id) of the VPN Configuration to apply to the app.
      * @return string|null
     */
     public function getVpnConfigurationId(): ?string {
@@ -119,7 +119,7 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements
     }
 
     /**
-     * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
+     * Sets the uninstallOnDeviceRemoval property value. When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune. By default, property is set to null which internally is treated as TRUE.
      * @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
     public function setUninstallOnDeviceRemoval(?bool $value): void {
@@ -127,7 +127,7 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements
     }
 
     /**
-     * Sets the vpnConfigurationId property value. The VPN Configuration Id to apply for this app.
+     * Sets the vpnConfigurationId property value. This is the unique identifier (Id) of the VPN Configuration to apply to the app.
      * @param string|null $value Value to set for the vpnConfigurationId property.
     */
     public function setVpnConfigurationId(?string $value): void {

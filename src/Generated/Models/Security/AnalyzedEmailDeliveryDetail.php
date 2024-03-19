@@ -35,7 +35,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the action property value. The action property
+     * Gets the action property value. The delivery action of the email. The possible values are: unknown, deliveredToJunk, delivered, blocked, replaced, unknownFutureValue.
      * @return DeliveryAction|null
     */
     public function getAction(): ?DeliveryAction {
@@ -81,7 +81,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the location property value. The location property
+     * Gets the location property value. The delivery location of the email. The possible values are: unknown, inboxfolder, junkFolder, deletedFolder, quarantine, onpremexternal, failed, dropped, others, unknownFutureValue.
      * @return DeliveryLocation|null
     */
     public function getLocation(): ?DeliveryLocation {
@@ -116,7 +116,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the action property value. The action property
+     * Sets the action property value. The delivery action of the email. The possible values are: unknown, deliveredToJunk, delivered, blocked, replaced, unknownFutureValue.
      * @param DeliveryAction|null $value Value to set for the action property.
     */
     public function setAction(?DeliveryAction $value): void {
@@ -140,7 +140,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the location property value. The location property
+     * Sets the location property value. The delivery location of the email. The possible values are: unknown, inboxfolder, junkFolder, deletedFolder, quarantine, onpremexternal, failed, dropped, others, unknownFutureValue.
      * @param DeliveryLocation|null $value Value to set for the location property.
     */
     public function setLocation(?DeliveryLocation $value): void {

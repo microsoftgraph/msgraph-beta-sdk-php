@@ -252,7 +252,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the imAddresses property value. The imAddresses property
+     * Gets the imAddresses property value. The contact's instant messaging (IM) addresses.
      * @return array<string>|null
     */
     public function getImAddresses(): ?array {
@@ -266,7 +266,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the initials property value. The initials property
+     * Gets the initials property value. The contact's initials.
      * @return string|null
     */
     public function getInitials(): ?string {
@@ -290,7 +290,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the jobTitle property value. The jobTitle property
+     * Gets the jobTitle property value. The contact’s job title.
      * @return string|null
     */
     public function getJobTitle(): ?string {
@@ -302,7 +302,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the manager property value. The manager property
+     * Gets the manager property value. The name of the contact's manager.
      * @return string|null
     */
     public function getManager(): ?string {
@@ -314,7 +314,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the middleName property value. The middleName property
+     * Gets the middleName property value. The contact's middle name.
      * @return string|null
     */
     public function getMiddleName(): ?string {
@@ -340,7 +340,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the nickName property value. The nickName property
+     * Gets the nickName property value. The contact's nickname.
      * @return string|null
     */
     public function getNickName(): ?string {
@@ -352,7 +352,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the officeLocation property value. The officeLocation property
+     * Gets the officeLocation property value. The location of the contact's office.
      * @return string|null
     */
     public function getOfficeLocation(): ?string {
@@ -364,7 +364,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the parentFolderId property value. The parentFolderId property
+     * Gets the parentFolderId property value. The ID of the contact's parent folder.
      * @return string|null
     */
     public function getParentFolderId(): ?string {
@@ -376,7 +376,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the personalNotes property value. The personalNotes property
+     * Gets the personalNotes property value. The user's notes about the contact.
      * @return string|null
     */
     public function getPersonalNotes(): ?string {
@@ -388,7 +388,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the phones property value. The phones property
+     * Gets the phones property value. Phone numbers associated with the contact, for example, home phone, mobile phone, and business phone.
      * @return array<Phone>|null
     */
     public function getPhones(): ?array {
@@ -414,7 +414,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the postalAddresses property value. The postalAddresses property
+     * Gets the postalAddresses property value. Addresses associated with the contact, for example, home address and business address.
      * @return array<PhysicalAddress>|null
     */
     public function getPostalAddresses(): ?array {
@@ -428,7 +428,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the profession property value. The profession property
+     * Gets the profession property value. The contact's profession.
      * @return string|null
     */
     public function getProfession(): ?string {
@@ -454,7 +454,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the spouseName property value. The spouseName property
+     * Gets the spouseName property value. The name of the contact's spouse/partner.
      * @return string|null
     */
     public function getSpouseName(): ?string {
@@ -466,7 +466,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the surname property value. The surname property
+     * Gets the surname property value. The contact's surname.
      * @return string|null
     */
     public function getSurname(): ?string {
@@ -478,7 +478,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. The contact's title.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -490,7 +490,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the websites property value. The websites property
+     * Gets the websites property value. Web sites associated with the contact.
      * @return array<Website>|null
     */
     public function getWebsites(): ?array {
@@ -504,7 +504,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the weddingAnniversary property value. The weddingAnniversary property
+     * Gets the weddingAnniversary property value. The contact's wedding anniversary.
      * @return Date|null
     */
     public function getWeddingAnniversary(): ?Date {
@@ -516,7 +516,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the yomiCompanyName property value. The yomiCompanyName property
+     * Gets the yomiCompanyName property value. The phonetic Japanese company name of the contact.
      * @return string|null
     */
     public function getYomiCompanyName(): ?string {
@@ -528,7 +528,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the yomiGivenName property value. The yomiGivenName property
+     * Gets the yomiGivenName property value. The phonetic Japanese given name (first name) of the contact.
      * @return string|null
     */
     public function getYomiGivenName(): ?string {
@@ -540,7 +540,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the yomiSurname property value. The yomiSurname property
+     * Gets the yomiSurname property value. The phonetic Japanese surname (last name)  of the contact.
      * @return string|null
     */
     public function getYomiSurname(): ?string {
@@ -701,7 +701,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the imAddresses property value. The imAddresses property
+     * Sets the imAddresses property value. The contact's instant messaging (IM) addresses.
      * @param array<string>|null $value Value to set for the imAddresses property.
     */
     public function setImAddresses(?array $value): void {
@@ -709,7 +709,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the initials property value. The initials property
+     * Sets the initials property value. The contact's initials.
      * @param string|null $value Value to set for the initials property.
     */
     public function setInitials(?string $value): void {
@@ -725,7 +725,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the jobTitle property value. The jobTitle property
+     * Sets the jobTitle property value. The contact’s job title.
      * @param string|null $value Value to set for the jobTitle property.
     */
     public function setJobTitle(?string $value): void {
@@ -733,7 +733,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the manager property value. The manager property
+     * Sets the manager property value. The name of the contact's manager.
      * @param string|null $value Value to set for the manager property.
     */
     public function setManager(?string $value): void {
@@ -741,7 +741,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the middleName property value. The middleName property
+     * Sets the middleName property value. The contact's middle name.
      * @param string|null $value Value to set for the middleName property.
     */
     public function setMiddleName(?string $value): void {
@@ -757,7 +757,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the nickName property value. The nickName property
+     * Sets the nickName property value. The contact's nickname.
      * @param string|null $value Value to set for the nickName property.
     */
     public function setNickName(?string $value): void {
@@ -765,7 +765,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the officeLocation property value. The officeLocation property
+     * Sets the officeLocation property value. The location of the contact's office.
      * @param string|null $value Value to set for the officeLocation property.
     */
     public function setOfficeLocation(?string $value): void {
@@ -773,7 +773,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the parentFolderId property value. The parentFolderId property
+     * Sets the parentFolderId property value. The ID of the contact's parent folder.
      * @param string|null $value Value to set for the parentFolderId property.
     */
     public function setParentFolderId(?string $value): void {
@@ -781,7 +781,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the personalNotes property value. The personalNotes property
+     * Sets the personalNotes property value. The user's notes about the contact.
      * @param string|null $value Value to set for the personalNotes property.
     */
     public function setPersonalNotes(?string $value): void {
@@ -789,7 +789,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the phones property value. The phones property
+     * Sets the phones property value. Phone numbers associated with the contact, for example, home phone, mobile phone, and business phone.
      * @param array<Phone>|null $value Value to set for the phones property.
     */
     public function setPhones(?array $value): void {
@@ -805,7 +805,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the postalAddresses property value. The postalAddresses property
+     * Sets the postalAddresses property value. Addresses associated with the contact, for example, home address and business address.
      * @param array<PhysicalAddress>|null $value Value to set for the postalAddresses property.
     */
     public function setPostalAddresses(?array $value): void {
@@ -813,7 +813,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the profession property value. The profession property
+     * Sets the profession property value. The contact's profession.
      * @param string|null $value Value to set for the profession property.
     */
     public function setProfession(?string $value): void {
@@ -829,7 +829,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the spouseName property value. The spouseName property
+     * Sets the spouseName property value. The name of the contact's spouse/partner.
      * @param string|null $value Value to set for the spouseName property.
     */
     public function setSpouseName(?string $value): void {
@@ -837,7 +837,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the surname property value. The surname property
+     * Sets the surname property value. The contact's surname.
      * @param string|null $value Value to set for the surname property.
     */
     public function setSurname(?string $value): void {
@@ -845,7 +845,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. The contact's title.
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
@@ -853,7 +853,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the websites property value. The websites property
+     * Sets the websites property value. Web sites associated with the contact.
      * @param array<Website>|null $value Value to set for the websites property.
     */
     public function setWebsites(?array $value): void {
@@ -861,7 +861,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the weddingAnniversary property value. The weddingAnniversary property
+     * Sets the weddingAnniversary property value. The contact's wedding anniversary.
      * @param Date|null $value Value to set for the weddingAnniversary property.
     */
     public function setWeddingAnniversary(?Date $value): void {
@@ -869,7 +869,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the yomiCompanyName property value. The yomiCompanyName property
+     * Sets the yomiCompanyName property value. The phonetic Japanese company name of the contact.
      * @param string|null $value Value to set for the yomiCompanyName property.
     */
     public function setYomiCompanyName(?string $value): void {
@@ -877,7 +877,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the yomiGivenName property value. The yomiGivenName property
+     * Sets the yomiGivenName property value. The phonetic Japanese given name (first name) of the contact.
      * @param string|null $value Value to set for the yomiGivenName property.
     */
     public function setYomiGivenName(?string $value): void {
@@ -885,7 +885,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the yomiSurname property value. The yomiSurname property
+     * Sets the yomiSurname property value. The phonetic Japanese surname (last name)  of the contact.
      * @param string|null $value Value to set for the yomiSurname property.
     */
     public function setYomiSurname(?string $value): void {

@@ -196,7 +196,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Gets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * Gets the isCustomerAllowedToManageBooking property value. Indicates that the customer can manage bookings created by the staff. The default value is false.
      * @return bool|null
     */
     public function getIsCustomerAllowedToManageBooking(): ?bool {
@@ -464,7 +464,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     }
 
     /**
-     * Sets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * Sets the isCustomerAllowedToManageBooking property value. Indicates that the customer can manage bookings created by the staff. The default value is false.
      * @param bool|null $value Value to set for the isCustomerAllowedToManageBooking property.
     */
     public function setIsCustomerAllowedToManageBooking(?bool $value): void {

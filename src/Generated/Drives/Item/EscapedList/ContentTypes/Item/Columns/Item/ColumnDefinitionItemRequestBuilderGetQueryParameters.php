@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\ContentTypes\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the metadata for a [site][], [list][] or [contentType][] [column][columnDefinition].
+ * Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
 */
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {

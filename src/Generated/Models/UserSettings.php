@@ -115,7 +115,7 @@ class UserSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the windows property value. The windows property
+     * Gets the windows property value. The Windows settings of the user stored in the cloud.
      * @return array<WindowsSetting>|null
     */
     public function getWindows(): ?array {
@@ -192,7 +192,7 @@ class UserSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the windows property value. The windows property
+     * Sets the windows property value. The Windows settings of the user stored in the cloud.
      * @param array<WindowsSetting>|null $value Value to set for the windows property.
     */
     public function setWindows(?array $value): void {

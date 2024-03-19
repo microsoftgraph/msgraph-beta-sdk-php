@@ -56,7 +56,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the defaultPercentage property value. The defaultPercentage property
+     * Gets the defaultPercentage property value. The midpoint of the grade range.
      * @return float|null
     */
     public function getDefaultPercentage(): ?float {
@@ -68,7 +68,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the grading scheme.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -94,7 +94,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the minPercentage property value. The minPercentage property
+     * Gets the minPercentage property value. The minimum percentage of the total points needed to achieve this grade.
      * @return float|null
     */
     public function getMinPercentage(): ?float {
@@ -146,7 +146,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the defaultPercentage property value. The defaultPercentage property
+     * Sets the defaultPercentage property value. The midpoint of the grade range.
      * @param float|null $value Value to set for the defaultPercentage property.
     */
     public function setDefaultPercentage(?float $value): void {
@@ -154,7 +154,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the grading scheme.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -162,7 +162,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the minPercentage property value. The minPercentage property
+     * Sets the minPercentage property value. The minimum percentage of the total points needed to achieve this grade.
      * @param float|null $value Value to set for the minPercentage property.
     */
     public function setMinPercentage(?float $value): void {

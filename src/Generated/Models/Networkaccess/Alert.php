@@ -88,21 +88,8 @@ class Alert extends Entity implements Parsable
             'alertType' => fn(ParseNode $n) => $o->setAlertType($n->getEnumValue(AlertType::class)),
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'firstImpactedDateTime' => fn(ParseNode $n) => $o->setFirstImpactedDateTime($n->getDateTimeValue()),
             'relatedResources' => fn(ParseNode $n) => $o->setRelatedResources($n->getCollectionOfObjectValues([RelatedResource::class, 'createFromDiscriminatorValue'])),
         ]);
-    }
-
-    /**
-     * Gets the firstImpactedDateTime property value. The firstImpactedDateTime property
-     * @return DateTime|null
-    */
-    public function getFirstImpactedDateTime(): ?DateTime {
-        $val = $this->getBackingStore()->get('firstImpactedDateTime');
-        if (is_null($val) || $val instanceof DateTime) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstImpactedDateTime'");
     }
 
     /**
@@ -129,7 +116,6 @@ class Alert extends Entity implements Parsable
         $writer->writeEnumValue('alertType', $this->getAlertType());
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeStringValue('description', $this->getDescription());
-        $writer->writeDateTimeValue('firstImpactedDateTime', $this->getFirstImpactedDateTime());
         $writer->writeCollectionOfObjectValues('relatedResources', $this->getRelatedResources());
     }
 
@@ -163,14 +149,6 @@ class Alert extends Entity implements Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
-    }
-
-    /**
-     * Sets the firstImpactedDateTime property value. The firstImpactedDateTime property
-     * @param DateTime|null $value Value to set for the firstImpactedDateTime property.
-    */
-    public function setFirstImpactedDateTime(?DateTime $value): void {
-        $this->getBackingStore()->set('firstImpactedDateTime', $value);
     }
 
     /**

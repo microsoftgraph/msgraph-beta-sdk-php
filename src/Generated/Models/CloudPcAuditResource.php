@@ -79,6 +79,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
             'modifiedProperties' => fn(ParseNode $n) => $o->setModifiedProperties($n->getCollectionOfObjectValues([CloudPcAuditProperty::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'resourceType' => fn(ParseNode $n) => $o->setResourceType($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
     }
@@ -122,6 +123,18 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the resourceType property value. The resourceType property
+     * @return string|null
+    */
+    public function getResourceType(): ?string {
+        $val = $this->getBackingStore()->get('resourceType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceType'");
+    }
+
+    /**
      * Gets the type property value. The type of the audit resource.
      * @return string|null
     */
@@ -142,6 +155,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeCollectionOfObjectValues('modifiedProperties', $this->getModifiedProperties());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('resourceId', $this->getResourceId());
+        $writer->writeStringValue('resourceType', $this->getResourceType());
         $writer->writeStringValue('type', $this->getType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -192,6 +206,14 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);
+    }
+
+    /**
+     * Sets the resourceType property value. The resourceType property
+     * @param string|null $value Value to set for the resourceType property.
+    */
+    public function setResourceType(?string $value): void {
+        $this->getBackingStore()->set('resourceType', $value);
     }
 
     /**

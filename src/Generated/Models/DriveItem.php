@@ -92,7 +92,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the content property value. The content stream, if the item represents a file.
+     * Gets the content property value. The content property
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -602,7 +602,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the content property value. The content stream, if the item represents a file.
+     * Sets the content property value. The content property
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {

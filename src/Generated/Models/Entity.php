@@ -237,6 +237,8 @@ use Microsoft\Graph\Beta\Generated\Models\Security\VulnerabilityComponent;
 use Microsoft\Graph\Beta\Generated\Models\Security\WhoisBaseRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\WhoisHistoryRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\WhoisRecord;
+use Microsoft\Graph\Beta\Generated\Models\TeamsUserConfiguration\TeamsAdminRoot;
+use Microsoft\Graph\Beta\Generated\Models\TeamsUserConfiguration\UserConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Group;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Relation;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Set;
@@ -1286,6 +1288,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.microsoftTunnelSite': return new MicrosoftTunnelSite();
                 case '#microsoft.graph.mobileApp': return new MobileApp();
                 case '#microsoft.graph.mobileAppAssignment': return new MobileAppAssignment();
+                case '#microsoft.graph.mobileAppCatalogPackage': return new MobileAppCatalogPackage();
                 case '#microsoft.graph.mobileAppCategory': return new MobileAppCategory();
                 case '#microsoft.graph.mobileAppContent': return new MobileAppContent();
                 case '#microsoft.graph.mobileAppContentFile': return new MobileAppContentFile();
@@ -1812,6 +1815,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.teamsAsyncOperation': return new TeamsAsyncOperation();
                 case '#microsoft.graph.teamsTab': return new TeamsTab();
                 case '#microsoft.graph.teamsTemplate': return new TeamsTemplate();
+                case '#microsoft.graph.teamsUserConfiguration.teamsAdminRoot': return new TeamsAdminRoot();
                 case '#microsoft.graph.teamTemplate': return new TeamTemplate();
                 case '#microsoft.graph.teamTemplateDefinition': return new TeamTemplateDefinition();
                 case '#microsoft.graph.teamwork': return new Teamwork();
@@ -1996,6 +2000,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.webPart': return new WebPart();
                 case '#microsoft.graph.win32CatalogApp': return new Win32CatalogApp();
                 case '#microsoft.graph.win32LobApp': return new Win32LobApp();
+                case '#microsoft.graph.win32MobileAppCatalogPackage': return new Win32MobileAppCatalogPackage();
                 case '#microsoft.graph.windows10CertificateProfileBase': return new Windows10CertificateProfileBase();
                 case '#microsoft.graph.windows10CompliancePolicy': return new Windows10CompliancePolicy();
                 case '#microsoft.graph.windows10CustomConfiguration': return new Windows10CustomConfiguration();

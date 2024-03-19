@@ -55,7 +55,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the appointmentLabel property value. Custom label that can be stamped on this appointment by the user.
+     * Gets the appointmentLabel property value. The user can stamp a custom label on the appointment.
      * @return string|null
     */
     public function getAppointmentLabel(): ?string {
@@ -67,7 +67,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The date, time and timezone when the appointment was created.
+     * Gets the createdDateTime property value. The date, time, and timezone when the appointment was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -330,7 +330,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * Gets the isCustomerAllowedToManageBooking property value. Indicates that the customer can manage bookings created by the staff. The default value is false.
      * @return bool|null
     */
     public function getIsCustomerAllowedToManageBooking(): ?bool {
@@ -342,7 +342,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the isLocationOnline property value. True indicates that the appointment will be held online. Default value is false.
+     * Gets the isLocationOnline property value. Indicates that the appointment is held online. The default value is false.
      * @return bool|null
     */
     public function getIsLocationOnline(): ?bool {
@@ -476,7 +476,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the selfServiceAppointmentId property value. An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer.
+     * Gets the selfServiceAppointmentId property value. Another tracking ID for the appointment, if the appointment was created directly by the customer on the scheduling page, as opposed to by a staff member on behalf of customer.
      * @return string|null
     */
     public function getSelfServiceAppointmentId(): ?string {
@@ -636,7 +636,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the appointmentLabel property value. Custom label that can be stamped on this appointment by the user.
+     * Sets the appointmentLabel property value. The user can stamp a custom label on the appointment.
      * @param string|null $value Value to set for the appointmentLabel property.
     */
     public function setAppointmentLabel(?string $value): void {
@@ -644,7 +644,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The date, time and timezone when the appointment was created.
+     * Sets the createdDateTime property value. The date, time, and timezone when the appointment was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -780,7 +780,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the isCustomerAllowedToManageBooking property value. The isCustomerAllowedToManageBooking property
+     * Sets the isCustomerAllowedToManageBooking property value. Indicates that the customer can manage bookings created by the staff. The default value is false.
      * @param bool|null $value Value to set for the isCustomerAllowedToManageBooking property.
     */
     public function setIsCustomerAllowedToManageBooking(?bool $value): void {
@@ -788,7 +788,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the isLocationOnline property value. True indicates that the appointment will be held online. Default value is false.
+     * Sets the isLocationOnline property value. Indicates that the appointment is held online. The default value is false.
      * @param bool|null $value Value to set for the isLocationOnline property.
     */
     public function setIsLocationOnline(?bool $value): void {
@@ -876,7 +876,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the selfServiceAppointmentId property value. An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer.
+     * Sets the selfServiceAppointmentId property value. Another tracking ID for the appointment, if the appointment was created directly by the customer on the scheduling page, as opposed to by a staff member on behalf of customer.
      * @param string|null $value Value to set for the selfServiceAppointmentId property.
     */
     public function setSelfServiceAppointmentId(?string $value): void {

@@ -30,11 +30,12 @@ class MicrosoftGraphSecurityRemediateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action remediate
+     * Remove a potential threat from end users' mailboxes. Remediation means to take prescribed action against a threat. This API can trigger email purge actions like move to junk, move to deleted items, soft delete, hard delete, or move to Inbox. This API enables scenarios and use cases such as SOAR integration, playbooks, and automations. For more information read email remediation, trigger action and track actions. If there is false positives admins can take move to inbox action.
      * @param RemediatePostRequestBody $body The request body
      * @param MicrosoftGraphSecurityRemediateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-analyzedemail-remediate?view=graph-rest-1.0 Find more info here
     */
     public function post(RemediatePostRequestBody $body, ?MicrosoftGraphSecurityRemediateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class MicrosoftGraphSecurityRemediateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action remediate
+     * Remove a potential threat from end users' mailboxes. Remediation means to take prescribed action against a threat. This API can trigger email purge actions like move to junk, move to deleted items, soft delete, hard delete, or move to Inbox. This API enables scenarios and use cases such as SOAR integration, playbooks, and automations. For more information read email remediation, trigger action and track actions. If there is false positives admins can take move to inbox action.
      * @param RemediatePostRequestBody $body The request body
      * @param MicrosoftGraphSecurityRemediateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -29,7 +29,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the appIdentifier property value. The Identity Name.
+     * Gets the appIdentifier property value. The Identity Name. This property is read-only.
      * @return string|null
     */
     public function getAppIdentifier(): ?string {
@@ -68,7 +68,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the packageId property value. The package identifier.
+     * Gets the packageId property value. The package identifier. This property is read-only.
      * @return string|null
     */
     public function getPackageId(): ?string {
@@ -109,15 +109,13 @@ class AndroidForWorkApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appIdentifier', $this->getAppIdentifier());
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
-        $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
         $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());
     }
 
     /**
-     * Sets the appIdentifier property value. The Identity Name.
+     * Sets the appIdentifier property value. The Identity Name. This property is read-only.
      * @param string|null $value Value to set for the appIdentifier property.
     */
     public function setAppIdentifier(?string $value): void {
@@ -133,7 +131,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the packageId property value. The package identifier.
+     * Sets the packageId property value. The package identifier. This property is read-only.
      * @param string|null $value Value to set for the packageId property.
     */
     public function setPackageId(?string $value): void {

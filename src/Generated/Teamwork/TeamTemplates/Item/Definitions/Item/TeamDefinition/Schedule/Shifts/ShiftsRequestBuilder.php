@@ -52,7 +52,7 @@ class ShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of shift instances in a schedule.
+     * The shifts in the schedule.
      * @param ShiftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ShiftCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class ShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of shift instances in a schedule.
+     * The shifts in the schedule.
      * @param ShiftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
