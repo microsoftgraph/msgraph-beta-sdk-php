@@ -109,6 +109,7 @@ class DeviceAppManagement extends Entity implements Parsable
             'microsoftStoreForBusinessLastCompletedApplicationSyncTime' => fn(ParseNode $n) => $o->setMicrosoftStoreForBusinessLastCompletedApplicationSyncTime($n->getDateTimeValue()),
             'microsoftStoreForBusinessLastSuccessfulSyncDateTime' => fn(ParseNode $n) => $o->setMicrosoftStoreForBusinessLastSuccessfulSyncDateTime($n->getDateTimeValue()),
             'microsoftStoreForBusinessPortalSelection' => fn(ParseNode $n) => $o->setMicrosoftStoreForBusinessPortalSelection($n->getEnumValue(MicrosoftStoreForBusinessPortalSelectionOptions::class)),
+            'mobileAppCatalogPackages' => fn(ParseNode $n) => $o->setMobileAppCatalogPackages($n->getCollectionOfObjectValues([MobileAppCatalogPackage::class, 'createFromDiscriminatorValue'])),
             'mobileAppCategories' => fn(ParseNode $n) => $o->setMobileAppCategories($n->getCollectionOfObjectValues([MobileAppCategory::class, 'createFromDiscriminatorValue'])),
             'mobileAppConfigurations' => fn(ParseNode $n) => $o->setMobileAppConfigurations($n->getCollectionOfObjectValues([ManagedDeviceMobileAppConfiguration::class, 'createFromDiscriminatorValue'])),
             'mobileApps' => fn(ParseNode $n) => $o->setMobileApps($n->getCollectionOfObjectValues([MobileApp::class, 'createFromDiscriminatorValue'])),
@@ -295,6 +296,20 @@ class DeviceAppManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftStoreForBusinessPortalSelection'");
+    }
+
+    /**
+     * Gets the mobileAppCatalogPackages property value. MobileAppCatalogPackage entities.
+     * @return array<MobileAppCatalogPackage>|null
+    */
+    public function getMobileAppCatalogPackages(): ?array {
+        $val = $this->getBackingStore()->get('mobileAppCatalogPackages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileAppCatalogPackage::class);
+            /** @var array<MobileAppCatalogPackage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppCatalogPackages'");
     }
 
     /**
@@ -498,6 +513,7 @@ class DeviceAppManagement extends Entity implements Parsable
         $writer->writeDateTimeValue('microsoftStoreForBusinessLastCompletedApplicationSyncTime', $this->getMicrosoftStoreForBusinessLastCompletedApplicationSyncTime());
         $writer->writeDateTimeValue('microsoftStoreForBusinessLastSuccessfulSyncDateTime', $this->getMicrosoftStoreForBusinessLastSuccessfulSyncDateTime());
         $writer->writeEnumValue('microsoftStoreForBusinessPortalSelection', $this->getMicrosoftStoreForBusinessPortalSelection());
+        $writer->writeCollectionOfObjectValues('mobileAppCatalogPackages', $this->getMobileAppCatalogPackages());
         $writer->writeCollectionOfObjectValues('mobileAppCategories', $this->getMobileAppCategories());
         $writer->writeCollectionOfObjectValues('mobileAppConfigurations', $this->getMobileAppConfigurations());
         $writer->writeCollectionOfObjectValues('mobileApps', $this->getMobileApps());
@@ -647,6 +663,14 @@ class DeviceAppManagement extends Entity implements Parsable
     */
     public function setMicrosoftStoreForBusinessPortalSelection(?MicrosoftStoreForBusinessPortalSelectionOptions $value): void {
         $this->getBackingStore()->set('microsoftStoreForBusinessPortalSelection', $value);
+    }
+
+    /**
+     * Sets the mobileAppCatalogPackages property value. MobileAppCatalogPackage entities.
+     * @param array<MobileAppCatalogPackage>|null $value Value to set for the mobileAppCatalogPackages property.
+    */
+    public function setMobileAppCatalogPackages(?array $value): void {
+        $this->getBackingStore()->set('mobileAppCatalogPackages', $value);
     }
 
     /**

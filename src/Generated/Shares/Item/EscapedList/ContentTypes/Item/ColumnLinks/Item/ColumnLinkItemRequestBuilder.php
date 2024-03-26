@@ -45,7 +45,7 @@ class ColumnLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of columns that are required by this content type
+     * The collection of columns that are required by this content type.
      * @param ColumnLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnLink|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class ColumnLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of columns that are required by this content type
+     * The collection of columns that are required by this content type.
      * @param ColumnLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

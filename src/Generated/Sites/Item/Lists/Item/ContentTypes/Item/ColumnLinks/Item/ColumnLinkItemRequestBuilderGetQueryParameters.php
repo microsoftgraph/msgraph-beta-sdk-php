@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of columns that are required by this content type
+ * The collection of columns that are required by this content type.
 */
 class ColumnLinkItemRequestBuilderGetQueryParameters 
 {

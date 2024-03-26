@@ -25,6 +25,18 @@ class CloudPcFrontLineServicePlan extends Entity implements Parsable
     }
 
     /**
+     * Gets the allotmentLicensesCount property value. The allotmentLicensesCount property
+     * @return int|null
+    */
+    public function getAllotmentLicensesCount(): ?int {
+        $val = $this->getBackingStore()->get('allotmentLicensesCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allotmentLicensesCount'");
+    }
+
+    /**
      * Gets the displayName property value. The display name of the front-line service plan. For example, 2vCPU/8GB/128GB Front-line or 4vCPU/16GB/256GB Front-line.
      * @return string|null
     */
@@ -43,6 +55,7 @@ class CloudPcFrontLineServicePlan extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allotmentLicensesCount' => fn(ParseNode $n) => $o->setAllotmentLicensesCount($n->getIntegerValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'totalCount' => fn(ParseNode $n) => $o->setTotalCount($n->getIntegerValue()),
             'usedCount' => fn(ParseNode $n) => $o->setUsedCount($n->getIntegerValue()),
@@ -79,9 +92,18 @@ class CloudPcFrontLineServicePlan extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeIntegerValue('allotmentLicensesCount', $this->getAllotmentLicensesCount());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('totalCount', $this->getTotalCount());
         $writer->writeIntegerValue('usedCount', $this->getUsedCount());
+    }
+
+    /**
+     * Sets the allotmentLicensesCount property value. The allotmentLicensesCount property
+     * @param int|null $value Value to set for the allotmentLicensesCount property.
+    */
+    public function setAllotmentLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('allotmentLicensesCount', $value);
     }
 
     /**

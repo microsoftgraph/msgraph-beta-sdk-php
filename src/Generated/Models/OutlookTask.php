@@ -129,7 +129,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the importance property value. The importance property
+     * Gets the importance property value. The importance of the event. Possible values are: low, normal, high.
      * @return Importance|null
     */
     public function getImportance(): ?Importance {
@@ -141,7 +141,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the isReminderOn property value. The isReminderOn property
+     * Gets the isReminderOn property value. Set to true if an alert is set to remind the user of the task.
      * @return bool|null
     */
     public function getIsReminderOn(): ?bool {
@@ -167,7 +167,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the owner property value. The owner property
+     * Gets the owner property value. The name of the person who created the task.
      * @return string|null
     */
     public function getOwner(): ?string {
@@ -179,7 +179,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the parentFolderId property value. The parentFolderId property
+     * Gets the parentFolderId property value. The unique identifier for the task's parent folder.
      * @return string|null
     */
     public function getParentFolderId(): ?string {
@@ -191,7 +191,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the recurrence property value. The recurrence property
+     * Gets the recurrence property value. The recurrence pattern for the task.
      * @return PatternedRecurrence|null
     */
     public function getRecurrence(): ?PatternedRecurrence {
@@ -203,7 +203,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the reminderDateTime property value. The reminderDateTime property
+     * Gets the reminderDateTime property value. The date and time for a reminder alert of the task to occur.
      * @return DateTimeTimeZone|null
     */
     public function getReminderDateTime(): ?DateTimeTimeZone {
@@ -215,7 +215,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the sensitivity property value. The sensitivity property
+     * Gets the sensitivity property value. Indicates the level of privacy for the task. Possible values are: normal, personal, private, confidential.
      * @return Sensitivity|null
     */
     public function getSensitivity(): ?Sensitivity {
@@ -241,7 +241,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. The date in the specified time zone when the task is to begin.
      * @return DateTimeTimeZone|null
     */
     public function getStartDateTime(): ?DateTimeTimeZone {
@@ -253,7 +253,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
      * @return TaskStatus|null
     */
     public function getStatus(): ?TaskStatus {
@@ -265,7 +265,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. A brief description or title of the task.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -351,7 +351,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the importance property value. The importance property
+     * Sets the importance property value. The importance of the event. Possible values are: low, normal, high.
      * @param Importance|null $value Value to set for the importance property.
     */
     public function setImportance(?Importance $value): void {
@@ -359,7 +359,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the isReminderOn property value. The isReminderOn property
+     * Sets the isReminderOn property value. Set to true if an alert is set to remind the user of the task.
      * @param bool|null $value Value to set for the isReminderOn property.
     */
     public function setIsReminderOn(?bool $value): void {
@@ -375,7 +375,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the owner property value. The owner property
+     * Sets the owner property value. The name of the person who created the task.
      * @param string|null $value Value to set for the owner property.
     */
     public function setOwner(?string $value): void {
@@ -383,7 +383,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the parentFolderId property value. The parentFolderId property
+     * Sets the parentFolderId property value. The unique identifier for the task's parent folder.
      * @param string|null $value Value to set for the parentFolderId property.
     */
     public function setParentFolderId(?string $value): void {
@@ -391,7 +391,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the recurrence property value. The recurrence property
+     * Sets the recurrence property value. The recurrence pattern for the task.
      * @param PatternedRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?PatternedRecurrence $value): void {
@@ -399,7 +399,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the reminderDateTime property value. The reminderDateTime property
+     * Sets the reminderDateTime property value. The date and time for a reminder alert of the task to occur.
      * @param DateTimeTimeZone|null $value Value to set for the reminderDateTime property.
     */
     public function setReminderDateTime(?DateTimeTimeZone $value): void {
@@ -407,7 +407,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the sensitivity property value. The sensitivity property
+     * Sets the sensitivity property value. Indicates the level of privacy for the task. Possible values are: normal, personal, private, confidential.
      * @param Sensitivity|null $value Value to set for the sensitivity property.
     */
     public function setSensitivity(?Sensitivity $value): void {
@@ -423,7 +423,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. The date in the specified time zone when the task is to begin.
      * @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTimeTimeZone $value): void {
@@ -431,7 +431,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
      * @param TaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?TaskStatus $value): void {
@@ -439,7 +439,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. A brief description or title of the task.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {

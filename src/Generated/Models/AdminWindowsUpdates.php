@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Catalog;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Deployment;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudience;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ResourceConnection;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicy;
@@ -81,10 +82,25 @@ class AdminWindowsUpdates extends Entity implements Parsable
             'catalog' => fn(ParseNode $n) => $o->setCatalog($n->getObjectValue([Catalog::class, 'createFromDiscriminatorValue'])),
             'deploymentAudiences' => fn(ParseNode $n) => $o->setDeploymentAudiences($n->getCollectionOfObjectValues([DeploymentAudience::class, 'createFromDiscriminatorValue'])),
             'deployments' => fn(ParseNode $n) => $o->setDeployments($n->getCollectionOfObjectValues([Deployment::class, 'createFromDiscriminatorValue'])),
+            'products' => fn(ParseNode $n) => $o->setProducts($n->getCollectionOfObjectValues([Product::class, 'createFromDiscriminatorValue'])),
             'resourceConnections' => fn(ParseNode $n) => $o->setResourceConnections($n->getCollectionOfObjectValues([ResourceConnection::class, 'createFromDiscriminatorValue'])),
             'updatableAssets' => fn(ParseNode $n) => $o->setUpdatableAssets($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
             'updatePolicies' => fn(ParseNode $n) => $o->setUpdatePolicies($n->getCollectionOfObjectValues([UpdatePolicy::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the products property value. A collection of Windows products.
+     * @return array<Product>|null
+    */
+    public function getProducts(): ?array {
+        $val = $this->getBackingStore()->get('products');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Product::class);
+            /** @var array<Product>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'products'");
     }
 
     /**
@@ -138,6 +154,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
         $writer->writeObjectValue('catalog', $this->getCatalog());
         $writer->writeCollectionOfObjectValues('deploymentAudiences', $this->getDeploymentAudiences());
         $writer->writeCollectionOfObjectValues('deployments', $this->getDeployments());
+        $writer->writeCollectionOfObjectValues('products', $this->getProducts());
         $writer->writeCollectionOfObjectValues('resourceConnections', $this->getResourceConnections());
         $writer->writeCollectionOfObjectValues('updatableAssets', $this->getUpdatableAssets());
         $writer->writeCollectionOfObjectValues('updatePolicies', $this->getUpdatePolicies());
@@ -165,6 +182,14 @@ class AdminWindowsUpdates extends Entity implements Parsable
     */
     public function setDeployments(?array $value): void {
         $this->getBackingStore()->set('deployments', $value);
+    }
+
+    /**
+     * Sets the products property value. A collection of Windows products.
+     * @param array<Product>|null $value Value to set for the products property.
+    */
+    public function setProducts(?array $value): void {
+        $this->getBackingStore()->set('products', $value);
     }
 
     /**

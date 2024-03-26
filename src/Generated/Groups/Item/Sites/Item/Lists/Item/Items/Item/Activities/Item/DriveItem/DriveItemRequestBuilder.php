@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\Activities\Item\DriveItem\Content\ContentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\Activities\Item\DriveItem\ContentStream\ContentStreamRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DriveItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -22,6 +23,13 @@ class DriveItemRequestBuilder extends BaseRequestBuilder
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the group entity.
+    */
+    public function contentStream(): ContentStreamRequestBuilder {
+        return new ContentStreamRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -73,7 +73,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the customAvailabilities property value. collection of custom availabilities for a given time range.
+     * Gets the customAvailabilities property value. Custom availability of the service in a given time frame of the service.
      * @return array<BookingsAvailabilityWindow>|null
     */
     public function getCustomAvailabilities(): ?array {
@@ -106,7 +106,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the generalAvailability property value. General availability 
+     * Gets the generalAvailability property value. General availability of the service defined by the scheduling policy.
      * @return BookingsAvailability|null
     */
     public function getGeneralAvailability(): ?BookingsAvailability {
@@ -231,7 +231,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the customAvailabilities property value. collection of custom availabilities for a given time range.
+     * Sets the customAvailabilities property value. Custom availability of the service in a given time frame of the service.
      * @param array<BookingsAvailabilityWindow>|null $value Value to set for the customAvailabilities property.
     */
     public function setCustomAvailabilities(?array $value): void {
@@ -239,7 +239,7 @@ class BookingSchedulingPolicy implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the generalAvailability property value. General availability 
+     * Sets the generalAvailability property value. General availability of the service defined by the scheduling policy.
      * @param BookingsAvailability|null $value Value to set for the generalAvailability property.
     */
     public function setGeneralAvailability(?BookingsAvailability $value): void {

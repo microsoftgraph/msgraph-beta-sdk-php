@@ -9,6 +9,8 @@ use Microsoft\Graph\Beta\Generated\Models\VirtualEventWebinar;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Presenters\PresentersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\RegistrationConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\RegistrationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationsWithEmail\RegistrationsWithEmailRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationsWithUserId\RegistrationsWithUserIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -105,6 +107,24 @@ class VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEventWebinar::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
+     * @param string $email Alternate key of virtualEventRegistration
+     * @return RegistrationsWithEmailRequestBuilder
+    */
+    public function registrationsWithEmail(string $email): RegistrationsWithEmailRequestBuilder {
+        return new RegistrationsWithEmailRequestBuilder($this->pathParameters, $this->requestAdapter, $email);
+    }
+
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
+     * @param string $userId Alternate key of virtualEventRegistration
+     * @return RegistrationsWithUserIdRequestBuilder
+    */
+    public function registrationsWithUserId(string $userId): RegistrationsWithUserIdRequestBuilder {
+        return new RegistrationsWithUserIdRequestBuilder($this->pathParameters, $this->requestAdapter, $userId);
     }
 
     /**

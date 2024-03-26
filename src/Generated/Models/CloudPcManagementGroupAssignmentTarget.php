@@ -26,12 +26,38 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     }
 
     /**
+     * Gets the allotmentDisplayName property value. The allotmentDisplayName property
+     * @return string|null
+    */
+    public function getAllotmentDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('allotmentDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allotmentDisplayName'");
+    }
+
+    /**
+     * Gets the allotmentLicensesCount property value. The allotmentLicensesCount property
+     * @return int|null
+    */
+    public function getAllotmentLicensesCount(): ?int {
+        $val = $this->getBackingStore()->get('allotmentLicensesCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allotmentLicensesCount'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allotmentDisplayName' => fn(ParseNode $n) => $o->setAllotmentDisplayName($n->getStringValue()),
+            'allotmentLicensesCount' => fn(ParseNode $n) => $o->setAllotmentLicensesCount($n->getIntegerValue()),
             'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
             'servicePlanId' => fn(ParseNode $n) => $o->setServicePlanId($n->getStringValue()),
         ]);
@@ -67,8 +93,26 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('allotmentDisplayName', $this->getAllotmentDisplayName());
+        $writer->writeIntegerValue('allotmentLicensesCount', $this->getAllotmentLicensesCount());
         $writer->writeStringValue('groupId', $this->getGroupId());
         $writer->writeStringValue('servicePlanId', $this->getServicePlanId());
+    }
+
+    /**
+     * Sets the allotmentDisplayName property value. The allotmentDisplayName property
+     * @param string|null $value Value to set for the allotmentDisplayName property.
+    */
+    public function setAllotmentDisplayName(?string $value): void {
+        $this->getBackingStore()->set('allotmentDisplayName', $value);
+    }
+
+    /**
+     * Sets the allotmentLicensesCount property value. The allotmentLicensesCount property
+     * @param int|null $value Value to set for the allotmentLicensesCount property.
+    */
+    public function setAllotmentLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('allotmentLicensesCount', $value);
     }
 
     /**

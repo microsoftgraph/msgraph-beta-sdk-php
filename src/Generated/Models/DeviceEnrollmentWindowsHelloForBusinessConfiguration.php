@@ -41,7 +41,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Gets the enhancedSignInSecurity property value. Setting to configure Enahcned sign-in security. Default is enabled on one secure modality (face or fingerprint)
+     * Gets the enhancedSignInSecurity property value. Setting to configure Enhanced sign-in security. Default is Not Configured
      * @return int|null
     */
     public function getEnhancedSignInSecurity(): ?int {
@@ -251,7 +251,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Sets the enhancedSignInSecurity property value. Setting to configure Enahcned sign-in security. Default is enabled on one secure modality (face or fingerprint)
+     * Sets the enhancedSignInSecurity property value. Setting to configure Enhanced sign-in security. Default is Not Configured
      * @param int|null $value Value to set for the enhancedSignInSecurity property.
     */
     public function setEnhancedSignInSecurity(?int $value): void {

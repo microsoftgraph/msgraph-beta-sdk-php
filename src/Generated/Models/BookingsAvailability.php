@@ -76,7 +76,7 @@ class BookingsAvailability implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the businessHours property value. The hours of operation in a week. This is set to null if the availability type is not customWeeklyHours
+     * Gets the businessHours property value. The hours of operation in a week. The business hours value is set to null if the availability type isn't customWeeklyHours.
      * @return array<BookingWorkHours>|null
     */
     public function getBusinessHours(): ?array {
@@ -150,7 +150,7 @@ class BookingsAvailability implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the businessHours property value. The hours of operation in a week. This is set to null if the availability type is not customWeeklyHours
+     * Sets the businessHours property value. The hours of operation in a week. The business hours value is set to null if the availability type isn't customWeeklyHours.
      * @param array<BookingWorkHours>|null $value Value to set for the businessHours property.
     */
     public function setBusinessHours(?array $value): void {

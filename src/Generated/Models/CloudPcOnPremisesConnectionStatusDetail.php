@@ -58,7 +58,7 @@ class CloudPcOnPremisesConnectionStatusDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. The end time of the connection health check. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class CloudPcOnPremisesConnectionStatusDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the healthChecks property value. The healthChecks property
+     * Gets the healthChecks property value. All checks that are done on the connection.
      * @return array<CloudPcOnPremisesConnectionHealthCheck>|null
     */
     public function getHealthChecks(): ?array {
@@ -110,7 +110,7 @@ class CloudPcOnPremisesConnectionStatusDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. The start time of the connection health check. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -150,7 +150,7 @@ class CloudPcOnPremisesConnectionStatusDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. The end time of the connection health check. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
@@ -158,7 +158,7 @@ class CloudPcOnPremisesConnectionStatusDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the healthChecks property value. The healthChecks property
+     * Sets the healthChecks property value. All checks that are done on the connection.
      * @param array<CloudPcOnPremisesConnectionHealthCheck>|null $value Value to set for the healthChecks property.
     */
     public function setHealthChecks(?array $value): void {
@@ -174,7 +174,7 @@ class CloudPcOnPremisesConnectionStatusDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. The start time of the connection health check. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {

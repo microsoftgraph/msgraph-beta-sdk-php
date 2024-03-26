@@ -52,7 +52,7 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of timeOffReasons in a schedule.
+     * The set of reasons for a time off in the schedule.
      * @param TimeOffReasonsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOffReasonCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of timeOffReasons in a schedule.
+     * The set of reasons for a time off in the schedule.
      * @param TimeOffReasonsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

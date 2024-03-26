@@ -49,7 +49,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabledInOrganization property value. true if the specified type of insights are enabled for the organization; false if the specified type of insights are disabled for all users without exceptions. Default is true. Optional.
+     * Gets the isEnabledInOrganization property value. true if the specified type of insights is enabled for the organization; false if the specified type of insights is disabled for all users without exceptions. Default is true. Optional.
      * @return bool|null
     */
     public function getIsEnabledInOrganization(): ?bool {
@@ -79,7 +79,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabledInOrganization property value. true if the specified type of insights are enabled for the organization; false if the specified type of insights are disabled for all users without exceptions. Default is true. Optional.
+     * Sets the isEnabledInOrganization property value. true if the specified type of insights is enabled for the organization; false if the specified type of insights is disabled for all users without exceptions. Default is true. Optional.
      * @param bool|null $value Value to set for the isEnabledInOrganization property.
     */
     public function setIsEnabledInOrganization(?bool $value): void {

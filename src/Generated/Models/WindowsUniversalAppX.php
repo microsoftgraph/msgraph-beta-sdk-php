@@ -54,7 +54,7 @@ class WindowsUniversalAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the committedContainedApps property value. The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+     * Gets the committedContainedApps property value. The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app. This property is read-only.
      * @return array<MobileContainedApp>|null
     */
     public function getCommittedContainedApps(): ?array {
@@ -192,7 +192,7 @@ class WindowsUniversalAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the committedContainedApps property value. The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+     * Sets the committedContainedApps property value. The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app. This property is read-only.
      * @param array<MobileContainedApp>|null $value Value to set for the committedContainedApps property.
     */
     public function setCommittedContainedApps(?array $value): void {

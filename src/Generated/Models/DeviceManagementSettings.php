@@ -194,6 +194,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
             'enhancedJailBreak' => fn(ParseNode $n) => $o->setEnhancedJailBreak($n->getBooleanValue()),
             'ignoreDevicesForUnsupportedSettingsEnabled' => fn(ParseNode $n) => $o->setIgnoreDevicesForUnsupportedSettingsEnabled($n->getBooleanValue()),
             'isScheduledActionEnabled' => fn(ParseNode $n) => $o->setIsScheduledActionEnabled($n->getBooleanValue()),
+            'm365AppDiagnosticsEnabled' => fn(ParseNode $n) => $o->setM365AppDiagnosticsEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'secureByDefault' => fn(ParseNode $n) => $o->setSecureByDefault($n->getBooleanValue()),
         ];
@@ -221,6 +222,18 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isScheduledActionEnabled'");
+    }
+
+    /**
+     * Gets the m365AppDiagnosticsEnabled property value. The property to determine if M365 App log collection is enabled for account. When TRUE it indicates that M365 app log collection is enabled for account.  When FALSE it indicates that M365 app log collection is disabled for account. Default value is FALSE
+     * @return bool|null
+    */
+    public function getM365AppDiagnosticsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('m365AppDiagnosticsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'm365AppDiagnosticsEnabled'");
     }
 
     /**
@@ -264,6 +277,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
         $writer->writeBooleanValue('enhancedJailBreak', $this->getEnhancedJailBreak());
         $writer->writeBooleanValue('ignoreDevicesForUnsupportedSettingsEnabled', $this->getIgnoreDevicesForUnsupportedSettingsEnabled());
         $writer->writeBooleanValue('isScheduledActionEnabled', $this->getIsScheduledActionEnabled());
+        $writer->writeBooleanValue('m365AppDiagnosticsEnabled', $this->getM365AppDiagnosticsEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('secureByDefault', $this->getSecureByDefault());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -379,6 +393,14 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
     */
     public function setIsScheduledActionEnabled(?bool $value): void {
         $this->getBackingStore()->set('isScheduledActionEnabled', $value);
+    }
+
+    /**
+     * Sets the m365AppDiagnosticsEnabled property value. The property to determine if M365 App log collection is enabled for account. When TRUE it indicates that M365 app log collection is enabled for account.  When FALSE it indicates that M365 app log collection is disabled for account. Default value is FALSE
+     * @param bool|null $value Value to set for the m365AppDiagnosticsEnabled property.
+    */
+    public function setM365AppDiagnosticsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('m365AppDiagnosticsEnabled', $value);
     }
 
     /**

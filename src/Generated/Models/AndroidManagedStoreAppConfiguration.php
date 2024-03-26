@@ -30,7 +30,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     }
 
     /**
-     * Gets the appSupportsOemConfig property value. Whether or not this AppConfig is an OEMConfig policy.
+     * Gets the appSupportsOemConfig property value. Whether or not this AppConfig is an OEMConfig policy. This property is read-only.
      * @return bool|null
     */
     public function getAppSupportsOemConfig(): ?bool {
@@ -125,7 +125,6 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('appSupportsOemConfig', $this->getAppSupportsOemConfig());
         $writer->writeBooleanValue('connectedAppsEnabled', $this->getConnectedAppsEnabled());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeStringValue('payloadJson', $this->getPayloadJson());
@@ -134,7 +133,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     }
 
     /**
-     * Sets the appSupportsOemConfig property value. Whether or not this AppConfig is an OEMConfig policy.
+     * Sets the appSupportsOemConfig property value. Whether or not this AppConfig is an OEMConfig policy. This property is read-only.
      * @param bool|null $value Value to set for the appSupportsOemConfig property.
     */
     public function setAppSupportsOemConfig(?bool $value): void {

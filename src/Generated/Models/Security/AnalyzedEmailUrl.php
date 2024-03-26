@@ -56,7 +56,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detectionMethod property value. The detectionMethod property
+     * Gets the detectionMethod property value. The method used to detect threats in the URL.
      * @return string|null
     */
     public function getDetectionMethod(): ?string {
@@ -68,7 +68,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationDetails property value. The detonationDetails property
+     * Gets the detonationDetails property value. Detonation data associated with the URL.
      * @return DetonationDetails|null
     */
     public function getDetonationDetails(): ?DetonationDetails {
@@ -107,7 +107,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the threatType property value. The threatType property
+     * Gets the threatType property value. The type of threat associated with the URL. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
      * @return ThreatType|null
     */
     public function getThreatType(): ?ThreatType {
@@ -119,7 +119,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. The URL that is found in the email. This is full URL string, including query parameters.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -160,7 +160,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detectionMethod property value. The detectionMethod property
+     * Sets the detectionMethod property value. The method used to detect threats in the URL.
      * @param string|null $value Value to set for the detectionMethod property.
     */
     public function setDetectionMethod(?string $value): void {
@@ -168,7 +168,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationDetails property value. The detonationDetails property
+     * Sets the detonationDetails property value. Detonation data associated with the URL.
      * @param DetonationDetails|null $value Value to set for the detonationDetails property.
     */
     public function setDetonationDetails(?DetonationDetails $value): void {
@@ -184,7 +184,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the threatType property value. The threatType property
+     * Sets the threatType property value. The type of threat associated with the URL. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
      * @param ThreatType|null $value Value to set for the threatType property.
     */
     public function setThreatType(?ThreatType $value): void {
@@ -192,7 +192,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. The URL that is found in the email. This is full URL string, including query parameters.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

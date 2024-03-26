@@ -57,7 +57,7 @@ class DetonationObservables implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the contactedIps property value. The contactedIps property
+     * Gets the contactedIps property value. The list of all contacted IPs in the detonation.
      * @return array<string>|null
     */
     public function getContactedIps(): ?array {
@@ -71,7 +71,7 @@ class DetonationObservables implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the contactedUrls property value. The contactedUrls property
+     * Gets the contactedUrls property value. The list of all URLs found in the detonation.
      * @return array<string>|null
     */
     public function getContactedUrls(): ?array {
@@ -85,7 +85,7 @@ class DetonationObservables implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the droppedfiles property value. The droppedfiles property
+     * Gets the droppedfiles property value. The list of all dropped files in the detonation.
      * @return array<string>|null
     */
     public function getDroppedfiles(): ?array {
@@ -174,7 +174,7 @@ class DetonationObservables implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the contactedIps property value. The contactedIps property
+     * Sets the contactedIps property value. The list of all contacted IPs in the detonation.
      * @param array<string>|null $value Value to set for the contactedIps property.
     */
     public function setContactedIps(?array $value): void {
@@ -182,7 +182,7 @@ class DetonationObservables implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the contactedUrls property value. The contactedUrls property
+     * Sets the contactedUrls property value. The list of all URLs found in the detonation.
      * @param array<string>|null $value Value to set for the contactedUrls property.
     */
     public function setContactedUrls(?array $value): void {
@@ -190,7 +190,7 @@ class DetonationObservables implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the droppedfiles property value. The droppedfiles property
+     * Sets the droppedfiles property value. The list of all dropped files in the detonation.
      * @param array<string>|null $value Value to set for the droppedfiles property.
     */
     public function setDroppedfiles(?array $value): void {

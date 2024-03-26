@@ -5,9 +5,11 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Assign\AssignRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\AssignJustInTimeConfiguration\AssignJustInTimeConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\CreateCopy\CreateCopyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Reorder\ReorderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\RetrieveJustInTimeConfiguration\RetrieveJustInTimeConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\RetrieveLatestUpgradeDefaultBaselinePolicy\RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicy;
@@ -30,6 +32,13 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder extends BaseRequestB
     }
     
     /**
+     * Provides operations to call the assignJustInTimeConfiguration method.
+    */
+    public function assignJustInTimeConfiguration(): AssignJustInTimeConfigurationRequestBuilder {
+        return new AssignJustInTimeConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
@@ -48,6 +57,13 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder extends BaseRequestB
     */
     public function reorder(): ReorderRequestBuilder {
         return new ReorderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveJustInTimeConfiguration method.
+    */
+    public function retrieveJustInTimeConfiguration(): RetrieveJustInTimeConfigurationRequestBuilder {
+        return new RetrieveJustInTimeConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -27,7 +27,7 @@ class BookingsAvailabilityWindow extends BookingsAvailability implements Parsabl
     }
 
     /**
-     * Gets the endDate property value. Allow customers to end date of availability window.
+     * Gets the endDate property value. End date of the availability window.
      * @return Date|null
     */
     public function getEndDate(): ?Date {
@@ -51,7 +51,7 @@ class BookingsAvailabilityWindow extends BookingsAvailability implements Parsabl
     }
 
     /**
-     * Gets the startDate property value. Allow customers to start date of availability window.
+     * Gets the startDate property value. Start date of the availability window.
      * @return Date|null
     */
     public function getStartDate(): ?Date {
@@ -73,7 +73,7 @@ class BookingsAvailabilityWindow extends BookingsAvailability implements Parsabl
     }
 
     /**
-     * Sets the endDate property value. Allow customers to end date of availability window.
+     * Sets the endDate property value. End date of the availability window.
      * @param Date|null $value Value to set for the endDate property.
     */
     public function setEndDate(?Date $value): void {
@@ -81,7 +81,7 @@ class BookingsAvailabilityWindow extends BookingsAvailability implements Parsabl
     }
 
     /**
-     * Sets the startDate property value. Allow customers to start date of availability window.
+     * Sets the startDate property value. Start date of the availability window.
      * @param Date|null $value Value to set for the startDate property.
     */
     public function setStartDate(?Date $value): void {

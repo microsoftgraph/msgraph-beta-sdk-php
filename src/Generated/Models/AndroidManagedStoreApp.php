@@ -49,7 +49,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the appStoreUrl property value. The Play for Work Store app URL.
+     * Gets the appStoreUrl property value. The Play for Work Store app URL. This property is read-only.
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
@@ -61,7 +61,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the appTracks property value. The tracks that are visible to this enterprise.
+     * Gets the appTracks property value. The tracks that are visible to this enterprise. This property is read-only.
      * @return array<AndroidManagedStoreAppTrack>|null
     */
     public function getAppTracks(): ?array {
@@ -94,7 +94,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the isPrivate property value. Indicates whether the app is only available to a given enterprise's users.
+     * Gets the isPrivate property value. Indicates whether the app is only available to a given enterprise's users. This property is read-only.
      * @return bool|null
     */
     public function getIsPrivate(): ?bool {
@@ -118,7 +118,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the packageId property value. The package identifier.
+     * Gets the packageId property value. The package identifier. This property is read-only.
      * @return string|null
     */
     public function getPackageId(): ?string {
@@ -130,7 +130,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the supportsOemConfig property value. Whether this app supports OEMConfig policy.
+     * Gets the supportsOemConfig property value. Whether this app supports OEMConfig policy. This property is read-only.
      * @return bool|null
     */
     public function getSupportsOemConfig(): ?bool {
@@ -142,7 +142,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the totalLicenseCount property value. The total number of VPP licenses.
+     * Gets the totalLicenseCount property value. The total number of VPP licenses. This property is read-only.
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
@@ -154,7 +154,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the usedLicenseCount property value. The number of VPP licenses in use.
+     * Gets the usedLicenseCount property value. The number of VPP licenses in use. This property is read-only.
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
@@ -172,14 +172,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('appIdentifier', $this->getAppIdentifier());
-        $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
-        $writer->writeCollectionOfObjectValues('appTracks', $this->getAppTracks());
-        $writer->writeBooleanValue('isPrivate', $this->getIsPrivate());
         $writer->writeBooleanValue('isSystemApp', $this->getIsSystemApp());
-        $writer->writeStringValue('packageId', $this->getPackageId());
-        $writer->writeBooleanValue('supportsOemConfig', $this->getSupportsOemConfig());
-        $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
-        $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());
     }
 
     /**
@@ -191,7 +184,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the appStoreUrl property value. The Play for Work Store app URL.
+     * Sets the appStoreUrl property value. The Play for Work Store app URL. This property is read-only.
      * @param string|null $value Value to set for the appStoreUrl property.
     */
     public function setAppStoreUrl(?string $value): void {
@@ -199,7 +192,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the appTracks property value. The tracks that are visible to this enterprise.
+     * Sets the appTracks property value. The tracks that are visible to this enterprise. This property is read-only.
      * @param array<AndroidManagedStoreAppTrack>|null $value Value to set for the appTracks property.
     */
     public function setAppTracks(?array $value): void {
@@ -207,7 +200,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the isPrivate property value. Indicates whether the app is only available to a given enterprise's users.
+     * Sets the isPrivate property value. Indicates whether the app is only available to a given enterprise's users. This property is read-only.
      * @param bool|null $value Value to set for the isPrivate property.
     */
     public function setIsPrivate(?bool $value): void {
@@ -223,7 +216,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the packageId property value. The package identifier.
+     * Sets the packageId property value. The package identifier. This property is read-only.
      * @param string|null $value Value to set for the packageId property.
     */
     public function setPackageId(?string $value): void {
@@ -231,7 +224,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the supportsOemConfig property value. Whether this app supports OEMConfig policy.
+     * Sets the supportsOemConfig property value. Whether this app supports OEMConfig policy. This property is read-only.
      * @param bool|null $value Value to set for the supportsOemConfig property.
     */
     public function setSupportsOemConfig(?bool $value): void {
@@ -239,7 +232,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the totalLicenseCount property value. The total number of VPP licenses.
+     * Sets the totalLicenseCount property value. The total number of VPP licenses. This property is read-only.
      * @param int|null $value Value to set for the totalLicenseCount property.
     */
     public function setTotalLicenseCount(?int $value): void {
@@ -247,7 +240,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the usedLicenseCount property value. The number of VPP licenses in use.
+     * Sets the usedLicenseCount property value. The number of VPP licenses in use. This property is read-only.
      * @param int|null $value Value to set for the usedLicenseCount property.
     */
     public function setUsedLicenseCount(?int $value): void {

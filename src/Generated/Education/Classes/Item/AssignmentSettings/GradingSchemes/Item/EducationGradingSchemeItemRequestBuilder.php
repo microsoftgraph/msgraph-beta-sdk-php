@@ -31,10 +31,11 @@ class EducationGradingSchemeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property gradingSchemes for education
+     * Delete an educationGradingScheme object.
      * @param EducationGradingSchemeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationgradingscheme-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EducationGradingSchemeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class EducationGradingSchemeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get gradingSchemes from education
+     * Read the properties and relationships of an educationGradingScheme object.
      * @param EducationGradingSchemeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationGradingScheme|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationgradingscheme-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EducationGradingSchemeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +76,7 @@ class EducationGradingSchemeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property gradingSchemes for education
+     * Delete an educationGradingScheme object.
      * @param EducationGradingSchemeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +94,7 @@ class EducationGradingSchemeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get gradingSchemes from education
+     * Read the properties and relationships of an educationGradingScheme object.
      * @param EducationGradingSchemeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

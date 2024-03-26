@@ -32,7 +32,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream, if the item represents a file.
+     * Get content for the navigation property children from drives
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
@@ -49,7 +49,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream, if the item represents a file.
+     * Update content for the navigation property children in drives
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveItem|null>
@@ -64,7 +64,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream, if the item represents a file.
+     * Get content for the navigation property children from drives
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -85,7 +85,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The content stream, if the item represents a file.
+     * Update content for the navigation property children in drives
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

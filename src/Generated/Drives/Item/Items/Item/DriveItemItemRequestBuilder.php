@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkin\CheckinRequest
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkout\CheckoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\ChildrenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Content\ContentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ContentStream\ContentStreamRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Copy\CopyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreatedByUser\CreatedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateLink\CreateLinkRequestBuilder;
@@ -94,6 +95,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the drive entity.
+    */
+    public function contentStream(): ContentStreamRequestBuilder {
+        return new ContentStreamRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

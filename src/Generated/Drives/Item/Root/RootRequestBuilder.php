@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Root;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Root\Content\ContentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Root\ContentStream\ContentStreamRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DriveItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -22,6 +23,13 @@ class RootRequestBuilder extends BaseRequestBuilder
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the drive entity.
+    */
+    public function contentStream(): ContentStreamRequestBuilder {
+        return new ContentStreamRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

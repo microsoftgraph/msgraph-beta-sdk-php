@@ -30,7 +30,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the allowDeviceResetOnInstallFailure property value. Allow or block device reset on installation failure
+     * Gets the allowDeviceResetOnInstallFailure property value. When TRUE, allows device reset on installation failure. When false, reset is blocked. The default is false.
      * @return bool|null
     */
     public function getAllowDeviceResetOnInstallFailure(): ?bool {
@@ -42,7 +42,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the allowDeviceUseOnInstallFailure property value. Allow the user to continue using the device on installation failure
+     * Gets the allowDeviceUseOnInstallFailure property value. When TRUE, allows the user to continue using the device on installation failure. When false, blocks the user on installation failure. The default is false.
      * @return bool|null
     */
     public function getAllowDeviceUseOnInstallFailure(): ?bool {
@@ -54,7 +54,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the allowLogCollectionOnInstallFailure property value. Allow or block log collection on installation failure
+     * Gets the allowLogCollectionOnInstallFailure property value. When TRUE, allows log collection on installation failure. When false, log collection is not allowed. The default is false.
      * @return bool|null
     */
     public function getAllowLogCollectionOnInstallFailure(): ?bool {
@@ -66,7 +66,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the allowNonBlockingAppInstallation property value. Install all required apps as non blocking apps during white glove
+     * Gets the allowNonBlockingAppInstallation property value. When TRUE, ESP (Enrollment Status Page) installs all required apps targeted during technician phase and ignores any failures for non-blocking apps. When FALSE, ESP fails on any error during app install. The default is false.
      * @return bool|null
     */
     public function getAllowNonBlockingAppInstallation(): ?bool {
@@ -78,7 +78,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the blockDeviceSetupRetryByUser property value. Allow the user to retry the setup on installation failure
+     * Gets the blockDeviceSetupRetryByUser property value. When TRUE, blocks user from retrying the setup on installation failure. When false, user is allowed to retry. The default is false.
      * @return bool|null
     */
     public function getBlockDeviceSetupRetryByUser(): ?bool {
@@ -90,7 +90,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the customErrorMessage property value. Set custom error message to show upon installation failure
+     * Gets the customErrorMessage property value. The custom error message to show upon installation failure. Max length is 10000. example: 'Setup could not be completed. Please try again or contact your support person for help.'
      * @return string|null
     */
     public function getCustomErrorMessage(): ?string {
@@ -102,7 +102,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the disableUserStatusTrackingAfterFirstUser property value. Only show installation progress for first user post enrollment
+     * Gets the disableUserStatusTrackingAfterFirstUser property value. When TRUE, disables showing installation progress for first user post enrollment. When false, enables showing progress. The default is false.
      * @return bool|null
     */
     public function getDisableUserStatusTrackingAfterFirstUser(): ?bool {
@@ -143,7 +143,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the installProgressTimeoutInMinutes property value. Set installation progress timeout in minutes
+     * Gets the installProgressTimeoutInMinutes property value. The installation progress timeout in minutes. Default is 60 minutes.
      * @return int|null
     */
     public function getInstallProgressTimeoutInMinutes(): ?int {
@@ -167,7 +167,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the selectedMobileAppIds property value. Selected applications to track the installation status
+     * Gets the selectedMobileAppIds property value. Selected applications to track the installation status. It is in the form of an array of GUIDs.
      * @return array<string>|null
     */
     public function getSelectedMobileAppIds(): ?array {
@@ -181,7 +181,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the showInstallationProgress property value. Show or hide installation progress to user
+     * Gets the showInstallationProgress property value. When TRUE, shows installation progress to user. When false, hides installation progress. The default is false.
      * @return bool|null
     */
     public function getShowInstallationProgress(): ?bool {
@@ -193,7 +193,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Gets the trackInstallProgressForAutopilotOnly property value. Only show installation progress for Autopilot enrollment scenarios
+     * Gets the trackInstallProgressForAutopilotOnly property value. When TRUE, installation progress is tracked for only Autopilot enrollment scenarios. When false, other scenarios are tracked as well. The default is false.
      * @return bool|null
     */
     public function getTrackInstallProgressForAutopilotOnly(): ?bool {
@@ -225,7 +225,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the allowDeviceResetOnInstallFailure property value. Allow or block device reset on installation failure
+     * Sets the allowDeviceResetOnInstallFailure property value. When TRUE, allows device reset on installation failure. When false, reset is blocked. The default is false.
      * @param bool|null $value Value to set for the allowDeviceResetOnInstallFailure property.
     */
     public function setAllowDeviceResetOnInstallFailure(?bool $value): void {
@@ -233,7 +233,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the allowDeviceUseOnInstallFailure property value. Allow the user to continue using the device on installation failure
+     * Sets the allowDeviceUseOnInstallFailure property value. When TRUE, allows the user to continue using the device on installation failure. When false, blocks the user on installation failure. The default is false.
      * @param bool|null $value Value to set for the allowDeviceUseOnInstallFailure property.
     */
     public function setAllowDeviceUseOnInstallFailure(?bool $value): void {
@@ -241,7 +241,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the allowLogCollectionOnInstallFailure property value. Allow or block log collection on installation failure
+     * Sets the allowLogCollectionOnInstallFailure property value. When TRUE, allows log collection on installation failure. When false, log collection is not allowed. The default is false.
      * @param bool|null $value Value to set for the allowLogCollectionOnInstallFailure property.
     */
     public function setAllowLogCollectionOnInstallFailure(?bool $value): void {
@@ -249,7 +249,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the allowNonBlockingAppInstallation property value. Install all required apps as non blocking apps during white glove
+     * Sets the allowNonBlockingAppInstallation property value. When TRUE, ESP (Enrollment Status Page) installs all required apps targeted during technician phase and ignores any failures for non-blocking apps. When FALSE, ESP fails on any error during app install. The default is false.
      * @param bool|null $value Value to set for the allowNonBlockingAppInstallation property.
     */
     public function setAllowNonBlockingAppInstallation(?bool $value): void {
@@ -257,7 +257,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the blockDeviceSetupRetryByUser property value. Allow the user to retry the setup on installation failure
+     * Sets the blockDeviceSetupRetryByUser property value. When TRUE, blocks user from retrying the setup on installation failure. When false, user is allowed to retry. The default is false.
      * @param bool|null $value Value to set for the blockDeviceSetupRetryByUser property.
     */
     public function setBlockDeviceSetupRetryByUser(?bool $value): void {
@@ -265,7 +265,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the customErrorMessage property value. Set custom error message to show upon installation failure
+     * Sets the customErrorMessage property value. The custom error message to show upon installation failure. Max length is 10000. example: 'Setup could not be completed. Please try again or contact your support person for help.'
      * @param string|null $value Value to set for the customErrorMessage property.
     */
     public function setCustomErrorMessage(?string $value): void {
@@ -273,7 +273,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the disableUserStatusTrackingAfterFirstUser property value. Only show installation progress for first user post enrollment
+     * Sets the disableUserStatusTrackingAfterFirstUser property value. When TRUE, disables showing installation progress for first user post enrollment. When false, enables showing progress. The default is false.
      * @param bool|null $value Value to set for the disableUserStatusTrackingAfterFirstUser property.
     */
     public function setDisableUserStatusTrackingAfterFirstUser(?bool $value): void {
@@ -281,7 +281,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the installProgressTimeoutInMinutes property value. Set installation progress timeout in minutes
+     * Sets the installProgressTimeoutInMinutes property value. The installation progress timeout in minutes. Default is 60 minutes.
      * @param int|null $value Value to set for the installProgressTimeoutInMinutes property.
     */
     public function setInstallProgressTimeoutInMinutes(?int $value): void {
@@ -297,7 +297,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the selectedMobileAppIds property value. Selected applications to track the installation status
+     * Sets the selectedMobileAppIds property value. Selected applications to track the installation status. It is in the form of an array of GUIDs.
      * @param array<string>|null $value Value to set for the selectedMobileAppIds property.
     */
     public function setSelectedMobileAppIds(?array $value): void {
@@ -305,7 +305,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the showInstallationProgress property value. Show or hide installation progress to user
+     * Sets the showInstallationProgress property value. When TRUE, shows installation progress to user. When false, hides installation progress. The default is false.
      * @param bool|null $value Value to set for the showInstallationProgress property.
     */
     public function setShowInstallationProgress(?bool $value): void {
@@ -313,7 +313,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
-     * Sets the trackInstallProgressForAutopilotOnly property value. Only show installation progress for Autopilot enrollment scenarios
+     * Sets the trackInstallProgressForAutopilotOnly property value. When TRUE, installation progress is tracked for only Autopilot enrollment scenarios. When false, other scenarios are tracked as well. The default is false.
      * @param bool|null $value Value to set for the trackInstallProgressForAutopilotOnly property.
     */
     public function setTrackInstallProgressForAutopilotOnly(?bool $value): void {
