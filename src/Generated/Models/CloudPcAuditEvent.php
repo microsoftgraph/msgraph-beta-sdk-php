@@ -75,7 +75,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityType property value. The type of activity that was performed. Read-only.
+     * Gets the activityType property value. The type of the activity that was performed. Read-only.
      * @return string|null
     */
     public function getActivityType(): ?string {
@@ -123,7 +123,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the correlationId property value. The client request identifier, used to correlate activity within the system. Read-only.
+     * Gets the correlationId property value. The client request ID that is used to correlate activity within the system. Read-only.
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -233,7 +233,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityType property value. The type of activity that was performed. Read-only.
+     * Sets the activityType property value. The type of the activity that was performed. Read-only.
      * @param string|null $value Value to set for the activityType property.
     */
     public function setActivityType(?string $value): void {
@@ -265,7 +265,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the correlationId property value. The client request identifier, used to correlate activity within the system. Read-only.
+     * Sets the correlationId property value. The client request ID that is used to correlate activity within the system. Read-only.
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {

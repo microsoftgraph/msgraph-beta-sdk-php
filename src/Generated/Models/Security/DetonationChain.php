@@ -57,7 +57,7 @@ class DetonationChain implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the childNodes property value. The childNodes property
+     * Gets the childNodes property value. A list of all child nodes in the chain.
      * @return array<DetonationChain>|null
     */
     public function getChildNodes(): ?array {
@@ -96,7 +96,7 @@ class DetonationChain implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The value of the chain.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -135,7 +135,7 @@ class DetonationChain implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the childNodes property value. The childNodes property
+     * Sets the childNodes property value. A list of all child nodes in the chain.
      * @param array<DetonationChain>|null $value Value to set for the childNodes property.
     */
     public function setChildNodes(?array $value): void {
@@ -151,7 +151,7 @@ class DetonationChain implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The value of the chain.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

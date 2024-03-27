@@ -31,7 +31,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an acronym object.
+     * Delete an acronym object.
      * @param AcronymItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -77,7 +77,7 @@ class AcronymItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an acronym object.
+     * Delete an acronym object.
      * @param AcronymItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPat
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Analytics about the view activities that took place in this site.
+ * Analytics about the view activities that took place on this site.
 */
 class AnalyticsRequestBuilderGetQueryParameters 
 {

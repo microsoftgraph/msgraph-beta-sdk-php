@@ -31,7 +31,7 @@ class ExternalColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
      * @param ExternalColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinitionCollectionResponse|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class ExternalColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
      * @param ExternalColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

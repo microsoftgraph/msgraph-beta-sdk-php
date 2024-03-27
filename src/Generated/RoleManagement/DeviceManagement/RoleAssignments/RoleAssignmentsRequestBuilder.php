@@ -56,7 +56,7 @@ class RoleAssignmentsRequestBuilder extends BaseRequestBuilder
      * @param RoleAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleAssignmentMultipleCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/rbacapplicationmultiple-list-roleassignments?view=graph-rest-1.0 Find more info here
     */
     public function get(?RoleAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -52,7 +52,7 @@ class ChildrenRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Return a collection of DriveItems in the children relationship of a DriveItem. DriveItems with a non-null folder or package facet can have one or more child DriveItems.
+     * Return a collection of driveItems in the children relationship of a driveItem. DriveItems with a non-null folder or package facet can have one or more child driveItems.
      * @param ChildrenRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveItemCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class ChildrenRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Return a collection of DriveItems in the children relationship of a DriveItem. DriveItems with a non-null folder or package facet can have one or more child DriveItems.
+     * Return a collection of driveItems in the children relationship of a driveItem. DriveItems with a non-null folder or package facet can have one or more child driveItems.
      * @param ChildrenRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

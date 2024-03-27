@@ -28,6 +28,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudClipboard\CloudClipboardReque
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\CloudPCsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\ContactFoldersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Contacts\ContactsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ConvertExternalToInternalMemberUser\ConvertExternalToInternalMemberUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\CreatedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeletePasswordSingleSignOnCredentials\DeletePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\DeviceEnrollmentConfigurationsRequestBuilder;
@@ -272,6 +273,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the convertExternalToInternalMemberUser method.
+    */
+    public function convertExternalToInternalMemberUser(): ConvertExternalToInternalMemberUserRequestBuilder {
+        return new ConvertExternalToInternalMemberUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

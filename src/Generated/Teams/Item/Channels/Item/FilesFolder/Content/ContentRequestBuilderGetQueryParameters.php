@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\FilesFolder\Co
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The content stream, if the item represents a file.
+ * Get content for the navigation property filesFolder from teams
 */
 class ContentRequestBuilderGetQueryParameters 
 {

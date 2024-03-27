@@ -78,7 +78,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the isAllDay property value. The isAllDay property
+     * Gets the isAllDay property value. Indicates whether the event lasts the entire day. Adjusting this property requires adjusting the startDateTime and endDateTime properties of the event as well.
      * @return bool|null
     */
     public function getIsAllDay(): ?bool {
@@ -90,7 +90,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the isDelegated property value. The isDelegated property
+     * Gets the isDelegated property value. True if this meeting request is accessible to a delegate, false otherwise. Default is false.
      * @return bool|null
     */
     public function getIsDelegated(): ?bool {
@@ -102,7 +102,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the isOutOfDate property value. The isOutOfDate property
+     * Gets the isOutOfDate property value. Indicates whether this meeting request has been made out-of-date by a more recent request.
      * @return bool|null
     */
     public function getIsOutOfDate(): ?bool {
@@ -114,7 +114,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the location property value. The location property
+     * Gets the location property value. The location of the requested meeting.
      * @return Location|null
     */
     public function getLocation(): ?Location {
@@ -126,7 +126,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the meetingMessageType property value. The meetingMessageType property
+     * Gets the meetingMessageType property value. The type of event message: none, meetingRequest, meetingCancelled, meetingAccepted, meetingTentativelyAccepted, meetingDeclined.
      * @return MeetingMessageType|null
     */
     public function getMeetingMessageType(): ?MeetingMessageType {
@@ -138,7 +138,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the recurrence property value. The recurrence property
+     * Gets the recurrence property value. The recurrence pattern of the requested meeting.
      * @return PatternedRecurrence|null
     */
     public function getRecurrence(): ?PatternedRecurrence {
@@ -150,7 +150,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. The start time of the requested meeting.
      * @return DateTimeTimeZone|null
     */
     public function getStartDateTime(): ?DateTimeTimeZone {
@@ -162,7 +162,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. The type of requested meeting: singleInstance, occurence, exception, seriesMaster.
      * @return EventType|null
     */
     public function getType(): ?EventType {
@@ -208,7 +208,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the isAllDay property value. The isAllDay property
+     * Sets the isAllDay property value. Indicates whether the event lasts the entire day. Adjusting this property requires adjusting the startDateTime and endDateTime properties of the event as well.
      * @param bool|null $value Value to set for the isAllDay property.
     */
     public function setIsAllDay(?bool $value): void {
@@ -216,7 +216,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the isDelegated property value. The isDelegated property
+     * Sets the isDelegated property value. True if this meeting request is accessible to a delegate, false otherwise. Default is false.
      * @param bool|null $value Value to set for the isDelegated property.
     */
     public function setIsDelegated(?bool $value): void {
@@ -224,7 +224,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the isOutOfDate property value. The isOutOfDate property
+     * Sets the isOutOfDate property value. Indicates whether this meeting request has been made out-of-date by a more recent request.
      * @param bool|null $value Value to set for the isOutOfDate property.
     */
     public function setIsOutOfDate(?bool $value): void {
@@ -232,7 +232,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the location property value. The location property
+     * Sets the location property value. The location of the requested meeting.
      * @param Location|null $value Value to set for the location property.
     */
     public function setLocation(?Location $value): void {
@@ -240,7 +240,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the meetingMessageType property value. The meetingMessageType property
+     * Sets the meetingMessageType property value. The type of event message: none, meetingRequest, meetingCancelled, meetingAccepted, meetingTentativelyAccepted, meetingDeclined.
      * @param MeetingMessageType|null $value Value to set for the meetingMessageType property.
     */
     public function setMeetingMessageType(?MeetingMessageType $value): void {
@@ -248,7 +248,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the recurrence property value. The recurrence property
+     * Sets the recurrence property value. The recurrence pattern of the requested meeting.
      * @param PatternedRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?PatternedRecurrence $value): void {
@@ -256,7 +256,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. The start time of the requested meeting.
      * @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTimeTimeZone $value): void {
@@ -264,7 +264,7 @@ class EventMessage extends Message implements Parsable
     }
 
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. The type of requested meeting: singleInstance, occurence, exception, seriesMaster.
      * @param EventType|null $value Value to set for the type property.
     */
     public function setType(?EventType $value): void {

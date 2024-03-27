@@ -26,7 +26,7 @@ class EducationGradingScheme extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the grading scheme.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -51,7 +51,7 @@ class EducationGradingScheme extends Entity implements Parsable
     }
 
     /**
-     * Gets the grades property value. The grades property
+     * Gets the grades property value. The grades that make up the scheme.
      * @return array<EducationGradingSchemeGrade>|null
     */
     public function getGrades(): ?array {
@@ -65,7 +65,7 @@ class EducationGradingScheme extends Entity implements Parsable
     }
 
     /**
-     * Gets the hidePointsDuringGrading property value. The hidePointsDuringGrading property
+     * Gets the hidePointsDuringGrading property value. The display setting for the UI. Indicates whether teachers can grade with points in addition to letter grades.
      * @return bool|null
     */
     public function getHidePointsDuringGrading(): ?bool {
@@ -88,7 +88,7 @@ class EducationGradingScheme extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the grading scheme.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -96,7 +96,7 @@ class EducationGradingScheme extends Entity implements Parsable
     }
 
     /**
-     * Sets the grades property value. The grades property
+     * Sets the grades property value. The grades that make up the scheme.
      * @param array<EducationGradingSchemeGrade>|null $value Value to set for the grades property.
     */
     public function setGrades(?array $value): void {
@@ -104,7 +104,7 @@ class EducationGradingScheme extends Entity implements Parsable
     }
 
     /**
-     * Sets the hidePointsDuringGrading property value. The hidePointsDuringGrading property
+     * Sets the hidePointsDuringGrading property value. The display setting for the UI. Indicates whether teachers can grade with points in addition to letter grades.
      * @param bool|null $value Value to set for the hidePointsDuringGrading property.
     */
     public function setHidePointsDuringGrading(?bool $value): void {

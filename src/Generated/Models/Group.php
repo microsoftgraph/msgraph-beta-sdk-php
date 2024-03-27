@@ -941,7 +941,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the resourceBehaviorOptions property value. Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This can be set only as part of creation (POST). For the list of possible values, see Set Microsoft 365 group behaviors and provisioning options.
+     * Gets the resourceBehaviorOptions property value. Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This property can be set only as part of creation (POST). For the list of possible values, see Microsoft 365 group behaviors and provisioning options.
      * @return array<string>|null
     */
     public function getResourceBehaviorOptions(): ?array {
@@ -955,7 +955,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the resourceProvisioningOptions property value. Specifies the group resources that are associated with the Microsoft 365 group. The possible value is Team. For more information, see Set Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.
+     * Gets the resourceProvisioningOptions property value. Specifies the group resources that are associated with the Microsoft 365 group. The possible value is Team. For more information, see Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.
      * @return array<string>|null
     */
     public function getResourceProvisioningOptions(): ?array {
@@ -1101,7 +1101,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the uniqueName property value. The uniqueName property
+     * Gets the uniqueName property value. The unique identifier that can be assigned to a group and used as an alternate key. Immutable. Read-only.
      * @return string|null
     */
     public function getUniqueName(): ?string {
@@ -1757,7 +1757,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the resourceBehaviorOptions property value. Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This can be set only as part of creation (POST). For the list of possible values, see Set Microsoft 365 group behaviors and provisioning options.
+     * Sets the resourceBehaviorOptions property value. Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This property can be set only as part of creation (POST). For the list of possible values, see Microsoft 365 group behaviors and provisioning options.
      * @param array<string>|null $value Value to set for the resourceBehaviorOptions property.
     */
     public function setResourceBehaviorOptions(?array $value): void {
@@ -1765,7 +1765,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the resourceProvisioningOptions property value. Specifies the group resources that are associated with the Microsoft 365 group. The possible value is Team. For more information, see Set Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.
+     * Sets the resourceProvisioningOptions property value. Specifies the group resources that are associated with the Microsoft 365 group. The possible value is Team. For more information, see Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.
      * @param array<string>|null $value Value to set for the resourceProvisioningOptions property.
     */
     public function setResourceProvisioningOptions(?array $value): void {
@@ -1853,7 +1853,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the uniqueName property value. The uniqueName property
+     * Sets the uniqueName property value. The unique identifier that can be assigned to a group and used as an alternate key. Immutable. Read-only.
      * @param string|null $value Value to set for the uniqueName property.
     */
     public function setUniqueName(?string $value): void {

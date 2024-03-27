@@ -27,6 +27,7 @@ class WindowsUpdateFilter extends SoftwareUpdateFilter implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.windowsUpdates.driverUpdateFilter': return new DriverUpdateFilter();
+                case '#microsoft.graph.windowsUpdates.qualityUpdateFilter': return new QualityUpdateFilter();
             }
         }
         return new WindowsUpdateFilter();

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\Items\Item\Content;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The content stream, if the item represents a file.
+ * Get content for the navigation property items from shares
 */
 class ContentRequestBuilderGetQueryParameters 
 {

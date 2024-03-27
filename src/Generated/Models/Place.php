@@ -73,7 +73,7 @@ class Place extends Entity implements Parsable
     }
 
     /**
-     * Gets the geoCoordinates property value. Specifies the place location in latitude, longitude and (optionally) altitude coordinates.
+     * Gets the geoCoordinates property value. Specifies the place location in latitude, longitude, and (optionally) altitude coordinates.
      * @return OutlookGeoCoordinates|null
     */
     public function getGeoCoordinates(): ?OutlookGeoCoordinates {
@@ -97,7 +97,7 @@ class Place extends Entity implements Parsable
     }
 
     /**
-     * Gets the placeId property value. An alternate immutable unique identifier of the place.
+     * Gets the placeId property value. A unique, immutable identifier for the place. Read-only. The value of this identifier is equal to the ExternalDirectoryObjectId returned from the Get-Mailbox cmdlet.
      * @return string|null
     */
     public function getPlaceId(): ?string {
@@ -138,7 +138,7 @@ class Place extends Entity implements Parsable
     }
 
     /**
-     * Sets the geoCoordinates property value. Specifies the place location in latitude, longitude and (optionally) altitude coordinates.
+     * Sets the geoCoordinates property value. Specifies the place location in latitude, longitude, and (optionally) altitude coordinates.
      * @param OutlookGeoCoordinates|null $value Value to set for the geoCoordinates property.
     */
     public function setGeoCoordinates(?OutlookGeoCoordinates $value): void {
@@ -154,7 +154,7 @@ class Place extends Entity implements Parsable
     }
 
     /**
-     * Sets the placeId property value. An alternate immutable unique identifier of the place.
+     * Sets the placeId property value. A unique, immutable identifier for the place. Read-only. The value of this identifier is equal to the ExternalDirectoryObjectId returned from the Get-Mailbox cmdlet.
      * @param string|null $value Value to set for the placeId property.
     */
     public function setPlaceId(?string $value): void {

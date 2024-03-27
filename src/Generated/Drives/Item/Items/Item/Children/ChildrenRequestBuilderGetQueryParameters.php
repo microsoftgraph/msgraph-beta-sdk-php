@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Return a collection of DriveItems in the children relationship of a DriveItem. DriveItems with a non-null folder or package facet can have one or more child DriveItems.
+ * Return a collection of driveItems in the children relationship of a driveItem. DriveItems with a non-null folder or package facet can have one or more child driveItems.
 */
 class ChildrenRequestBuilderGetQueryParameters 
 {

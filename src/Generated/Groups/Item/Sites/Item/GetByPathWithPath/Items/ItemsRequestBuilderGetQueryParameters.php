@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPat
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Used to address any item contained in this site. This collection cannot be enumerated.
+ * Used to address any item contained in this site. This collection can't be enumerated.
 */
 class ItemsRequestBuilderGetQueryParameters 
 {

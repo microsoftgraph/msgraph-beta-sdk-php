@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphAndroidForWorkApp\GraphAndroidForWorkAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphAndroidLobApp\GraphAndroidLobAppRequestBuilder;
@@ -233,6 +234,15 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
+    }
+
+    /**
+     * Provides operations to call the convertFromMobileAppCatalogPackage method.
+     * @param string $mobileAppCatalogPackageId Usage: mobileAppCatalogPackageId='{mobileAppCatalogPackageId}'
+     * @return ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder
+    */
+    public function convertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId(string $mobileAppCatalogPackageId): ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder {
+        return new ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder($this->pathParameters, $this->requestAdapter, $mobileAppCatalogPackageId);
     }
 
     /**

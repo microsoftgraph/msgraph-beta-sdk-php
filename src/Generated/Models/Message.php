@@ -230,7 +230,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the importance property value. The importance property
+     * Gets the importance property value. The importance of the message. The possible values are: low, normal, and high.
      * @return Importance|null
     */
     public function getImportance(): ?Importance {
@@ -242,7 +242,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the inferenceClassification property value. The inferenceClassification property
+     * Gets the inferenceClassification property value. The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. Possible values are: focused, other.
      * @return InferenceClassificationType|null
     */
     public function getInferenceClassification(): ?InferenceClassificationType {
@@ -254,7 +254,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the internetMessageHeaders property value. The internetMessageHeaders property
+     * Gets the internetMessageHeaders property value. A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.
      * @return array<InternetMessageHeader>|null
     */
     public function getInternetMessageHeaders(): ?array {
@@ -268,7 +268,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the internetMessageId property value. The internetMessageId property
+     * Gets the internetMessageId property value. The message ID in the format specified by RFC5322. Updatable only if isDraft is true.
      * @return string|null
     */
     public function getInternetMessageId(): ?string {
@@ -280,7 +280,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the isDeliveryReceiptRequested property value. The isDeliveryReceiptRequested property
+     * Gets the isDeliveryReceiptRequested property value. Indicates whether a read receipt is requested for the message.
      * @return bool|null
     */
     public function getIsDeliveryReceiptRequested(): ?bool {
@@ -292,7 +292,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the isDraft property value. The isDraft property
+     * Gets the isDraft property value. Indicates whether the message is a draft. A message is a draft if it hasn't been sent yet.
      * @return bool|null
     */
     public function getIsDraft(): ?bool {
@@ -304,7 +304,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the isRead property value. The isRead property
+     * Gets the isRead property value. Indicates whether the message has been read.
      * @return bool|null
     */
     public function getIsRead(): ?bool {
@@ -316,7 +316,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the isReadReceiptRequested property value. The isReadReceiptRequested property
+     * Gets the isReadReceiptRequested property value. Indicates whether a read receipt is requested for the message.
      * @return bool|null
     */
     public function getIsReadReceiptRequested(): ?bool {
@@ -342,7 +342,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the mentionsPreview property value. The mentionsPreview property
+     * Gets the mentionsPreview property value. Information about mentions in the message. When processing a GET /messages request, the server sets this property and includes it in the response by default. The server returns null if there are no mentions in the message. Optional.
      * @return MentionsPreview|null
     */
     public function getMentionsPreview(): ?MentionsPreview {
@@ -368,7 +368,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the parentFolderId property value. The parentFolderId property
+     * Gets the parentFolderId property value. The unique identifier for the message's parent mailFolder.
      * @return string|null
     */
     public function getParentFolderId(): ?string {
@@ -380,7 +380,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the receivedDateTime property value. The receivedDateTime property
+     * Gets the receivedDateTime property value. The date and time the message was received.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getReceivedDateTime(): ?DateTime {
@@ -392,7 +392,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the replyTo property value. The replyTo property
+     * Gets the replyTo property value. The email addresses to use when replying.
      * @return array<Recipient>|null
     */
     public function getReplyTo(): ?array {
@@ -406,7 +406,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the sender property value. The sender property
+     * Gets the sender property value. The account that is actually used to generate the message. In most cases, this value is the same as the from property. You can set this property to a different value when sending a message from a shared mailbox, for a shared calendar, or as a delegate. In any case, the value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.
      * @return Recipient|null
     */
     public function getSender(): ?Recipient {
@@ -418,7 +418,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the sentDateTime property value. The sentDateTime property
+     * Gets the sentDateTime property value. The date and time the message was sent.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getSentDateTime(): ?DateTime {
@@ -444,7 +444,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. The subject of the message.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -456,7 +456,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the toRecipients property value. The toRecipients property
+     * Gets the toRecipients property value. The To: recipients for the message.
      * @return array<Recipient>|null
     */
     public function getToRecipients(): ?array {
@@ -470,7 +470,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the uniqueBody property value. The uniqueBody property
+     * Gets the uniqueBody property value. The part of the body of the message that is unique to the current message. uniqueBody is not returned by default but can be retrieved for a given message by use of the ?$select=uniqueBody query. It can be in HTML or text format.
      * @return ItemBody|null
     */
     public function getUniqueBody(): ?ItemBody {
@@ -482,7 +482,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the unsubscribeData property value. The unsubscribeData property
+     * Gets the unsubscribeData property value. The valid entries parsed from the List-Unsubscribe header.  This is the data for the mail command in the List-Unsubscribe header if UnsubscribeEnabled property is true.
      * @return array<string>|null
     */
     public function getUnsubscribeData(): ?array {
@@ -496,7 +496,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the unsubscribeEnabled property value. The unsubscribeEnabled property
+     * Gets the unsubscribeEnabled property value. Indicates whether the message is enabled for unsubscribe.  Its valueTrue if the list-Unsubscribe header conforms to rfc-2369.
      * @return bool|null
     */
     public function getUnsubscribeEnabled(): ?bool {
@@ -508,7 +508,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the webLink property value. The webLink property
+     * Gets the webLink property value. The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, the browser shows the message in the Outlook on the web review pane.The message opens in the browser if you are signed in to your mailbox via Outlook on the web. You are prompted to sign in if you are not already signed in with the browser.This URL cannot be accessed from within an iFrame.
      * @return string|null
     */
     public function getWebLink(): ?string {
@@ -650,7 +650,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the importance property value. The importance property
+     * Sets the importance property value. The importance of the message. The possible values are: low, normal, and high.
      * @param Importance|null $value Value to set for the importance property.
     */
     public function setImportance(?Importance $value): void {
@@ -658,7 +658,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the inferenceClassification property value. The inferenceClassification property
+     * Sets the inferenceClassification property value. The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. Possible values are: focused, other.
      * @param InferenceClassificationType|null $value Value to set for the inferenceClassification property.
     */
     public function setInferenceClassification(?InferenceClassificationType $value): void {
@@ -666,7 +666,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the internetMessageHeaders property value. The internetMessageHeaders property
+     * Sets the internetMessageHeaders property value. A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.
      * @param array<InternetMessageHeader>|null $value Value to set for the internetMessageHeaders property.
     */
     public function setInternetMessageHeaders(?array $value): void {
@@ -674,7 +674,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the internetMessageId property value. The internetMessageId property
+     * Sets the internetMessageId property value. The message ID in the format specified by RFC5322. Updatable only if isDraft is true.
      * @param string|null $value Value to set for the internetMessageId property.
     */
     public function setInternetMessageId(?string $value): void {
@@ -682,7 +682,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the isDeliveryReceiptRequested property value. The isDeliveryReceiptRequested property
+     * Sets the isDeliveryReceiptRequested property value. Indicates whether a read receipt is requested for the message.
      * @param bool|null $value Value to set for the isDeliveryReceiptRequested property.
     */
     public function setIsDeliveryReceiptRequested(?bool $value): void {
@@ -690,7 +690,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the isDraft property value. The isDraft property
+     * Sets the isDraft property value. Indicates whether the message is a draft. A message is a draft if it hasn't been sent yet.
      * @param bool|null $value Value to set for the isDraft property.
     */
     public function setIsDraft(?bool $value): void {
@@ -698,7 +698,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the isRead property value. The isRead property
+     * Sets the isRead property value. Indicates whether the message has been read.
      * @param bool|null $value Value to set for the isRead property.
     */
     public function setIsRead(?bool $value): void {
@@ -706,7 +706,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the isReadReceiptRequested property value. The isReadReceiptRequested property
+     * Sets the isReadReceiptRequested property value. Indicates whether a read receipt is requested for the message.
      * @param bool|null $value Value to set for the isReadReceiptRequested property.
     */
     public function setIsReadReceiptRequested(?bool $value): void {
@@ -722,7 +722,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the mentionsPreview property value. The mentionsPreview property
+     * Sets the mentionsPreview property value. Information about mentions in the message. When processing a GET /messages request, the server sets this property and includes it in the response by default. The server returns null if there are no mentions in the message. Optional.
      * @param MentionsPreview|null $value Value to set for the mentionsPreview property.
     */
     public function setMentionsPreview(?MentionsPreview $value): void {
@@ -738,7 +738,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the parentFolderId property value. The parentFolderId property
+     * Sets the parentFolderId property value. The unique identifier for the message's parent mailFolder.
      * @param string|null $value Value to set for the parentFolderId property.
     */
     public function setParentFolderId(?string $value): void {
@@ -746,7 +746,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the receivedDateTime property value. The receivedDateTime property
+     * Sets the receivedDateTime property value. The date and time the message was received.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the receivedDateTime property.
     */
     public function setReceivedDateTime(?DateTime $value): void {
@@ -754,7 +754,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the replyTo property value. The replyTo property
+     * Sets the replyTo property value. The email addresses to use when replying.
      * @param array<Recipient>|null $value Value to set for the replyTo property.
     */
     public function setReplyTo(?array $value): void {
@@ -762,7 +762,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the sender property value. The sender property
+     * Sets the sender property value. The account that is actually used to generate the message. In most cases, this value is the same as the from property. You can set this property to a different value when sending a message from a shared mailbox, for a shared calendar, or as a delegate. In any case, the value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.
      * @param Recipient|null $value Value to set for the sender property.
     */
     public function setSender(?Recipient $value): void {
@@ -770,7 +770,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the sentDateTime property value. The sentDateTime property
+     * Sets the sentDateTime property value. The date and time the message was sent.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the sentDateTime property.
     */
     public function setSentDateTime(?DateTime $value): void {
@@ -786,7 +786,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. The subject of the message.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
@@ -794,7 +794,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the toRecipients property value. The toRecipients property
+     * Sets the toRecipients property value. The To: recipients for the message.
      * @param array<Recipient>|null $value Value to set for the toRecipients property.
     */
     public function setToRecipients(?array $value): void {
@@ -802,7 +802,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the uniqueBody property value. The uniqueBody property
+     * Sets the uniqueBody property value. The part of the body of the message that is unique to the current message. uniqueBody is not returned by default but can be retrieved for a given message by use of the ?$select=uniqueBody query. It can be in HTML or text format.
      * @param ItemBody|null $value Value to set for the uniqueBody property.
     */
     public function setUniqueBody(?ItemBody $value): void {
@@ -810,7 +810,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the unsubscribeData property value. The unsubscribeData property
+     * Sets the unsubscribeData property value. The valid entries parsed from the List-Unsubscribe header.  This is the data for the mail command in the List-Unsubscribe header if UnsubscribeEnabled property is true.
      * @param array<string>|null $value Value to set for the unsubscribeData property.
     */
     public function setUnsubscribeData(?array $value): void {
@@ -818,7 +818,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the unsubscribeEnabled property value. The unsubscribeEnabled property
+     * Sets the unsubscribeEnabled property value. Indicates whether the message is enabled for unsubscribe.  Its valueTrue if the list-Unsubscribe header conforms to rfc-2369.
      * @param bool|null $value Value to set for the unsubscribeEnabled property.
     */
     public function setUnsubscribeEnabled(?bool $value): void {
@@ -826,7 +826,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the webLink property value. The webLink property
+     * Sets the webLink property value. The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, the browser shows the message in the Outlook on the web review pane.The message opens in the browser if you are signed in to your mailbox via Outlook on the web. You are prompted to sign in if you are not already signed in with the browser.This URL cannot be accessed from within an iFrame.
      * @param string|null $value Value to set for the webLink property.
     */
     public function setWebLink(?string $value): void {

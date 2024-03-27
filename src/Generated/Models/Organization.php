@@ -54,7 +54,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the businessPhones property value. Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
+     * Gets the businessPhones property value. Telephone number for the organization. Although this property is a string collection, only one number can be set.
      * @return array<string>|null
     */
     public function getBusinessPhones(): ?array {
@@ -130,7 +130,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the createdDateTime property value. Timestamp of when the organization was created. The value can't be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -264,12 +264,13 @@ class Organization extends DirectoryObject implements Parsable
                 /** @var array<string>|null $val */
                 $this->setTechnicalNotificationMails($val);
             },
+            'tenantType' => fn(ParseNode $n) => $o->setTenantType($n->getStringValue()),
             'verifiedDomains' => fn(ParseNode $n) => $o->setVerifiedDomains($n->getCollectionOfObjectValues([VerifiedDomain::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the isMultipleDataLocationsForServicesEnabled property value. true if organization is Multi-Geo enabled; false if organization is not Multi-Geo enabled; null (default). Read-only. For more information, see OneDrive Online Multi-Geo.
+     * Gets the isMultipleDataLocationsForServicesEnabled property value. true if organization is Multi-Geo enabled; false if organization isn't Multi-Geo enabled; null (default). Read-only. For more information, see OneDrive Online Multi-Geo.
      * @return bool|null
     */
     public function getIsMultipleDataLocationsForServicesEnabled(): ?bool {
@@ -331,7 +332,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null, if this object isn't synced from on-premises active directory (default).
      * @return bool|null
     */
     public function getOnPremisesSyncEnabled(): ?bool {
@@ -379,7 +380,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 code; for example, en.
      * @return string|null
     */
     public function getPreferredLanguage(): ?string {
@@ -495,6 +496,18 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the tenantType property value. Not nullable. Can be one of the following types:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C An identity access management (IAM) service that serves business-to-consumer (B2C) scenarios.   CIAM - A customer identity & access management (CIAM) solution that provides an integrated platform to serve consumers, partners, and citizen scenarios.
+     * @return string|null
+    */
+    public function getTenantType(): ?string {
+        $val = $this->getBackingStore()->get('tenantType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantType'");
+    }
+
+    /**
      * Gets the verifiedDomains property value. The collection of domains associated with this tenant. Not nullable.
      * @return array<VerifiedDomain>|null
     */
@@ -545,6 +558,7 @@ class Organization extends DirectoryObject implements Parsable
         $writer->writeStringValue('state', $this->getState());
         $writer->writeStringValue('street', $this->getStreet());
         $writer->writeCollectionOfPrimitiveValues('technicalNotificationMails', $this->getTechnicalNotificationMails());
+        $writer->writeStringValue('tenantType', $this->getTenantType());
         $writer->writeCollectionOfObjectValues('verifiedDomains', $this->getVerifiedDomains());
     }
 
@@ -565,7 +579,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the businessPhones property value. Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
+     * Sets the businessPhones property value. Telephone number for the organization. Although this property is a string collection, only one number can be set.
      * @param array<string>|null $value Value to set for the businessPhones property.
     */
     public function setBusinessPhones(?array $value): void {
@@ -613,7 +627,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the createdDateTime property value. Timestamp of when the organization was created. The value can't be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -653,7 +667,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isMultipleDataLocationsForServicesEnabled property value. true if organization is Multi-Geo enabled; false if organization is not Multi-Geo enabled; null (default). Read-only. For more information, see OneDrive Online Multi-Geo.
+     * Sets the isMultipleDataLocationsForServicesEnabled property value. true if organization is Multi-Geo enabled; false if organization isn't Multi-Geo enabled; null (default). Read-only. For more information, see OneDrive Online Multi-Geo.
      * @param bool|null $value Value to set for the isMultipleDataLocationsForServicesEnabled property.
     */
     public function setIsMultipleDataLocationsForServicesEnabled(?bool $value): void {
@@ -693,7 +707,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null, if this object isn't synced from on-premises active directory (default).
      * @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
     public function setOnPremisesSyncEnabled(?bool $value): void {
@@ -725,7 +739,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 code; for example, en.
      * @param string|null $value Value to set for the preferredLanguage property.
     */
     public function setPreferredLanguage(?string $value): void {
@@ -794,6 +808,14 @@ class Organization extends DirectoryObject implements Parsable
     */
     public function setTechnicalNotificationMails(?array $value): void {
         $this->getBackingStore()->set('technicalNotificationMails', $value);
+    }
+
+    /**
+     * Sets the tenantType property value. Not nullable. Can be one of the following types:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C An identity access management (IAM) service that serves business-to-consumer (B2C) scenarios.   CIAM - A customer identity & access management (CIAM) solution that provides an integrated platform to serve consumers, partners, and citizen scenarios.
+     * @param string|null $value Value to set for the tenantType property.
+    */
+    public function setTenantType(?string $value): void {
+        $this->getBackingStore()->set('tenantType', $value);
     }
 
     /**

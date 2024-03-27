@@ -16,6 +16,7 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppStatuses\Manage
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBookCategories\ManagedEBookCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\ManagedEBooksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies\MdmWindowsInformationProtectionPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCatalogPackages\MobileAppCatalogPackagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCategories\MobileAppCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppConfigurations\MobileAppConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\MobileAppsRequestBuilder;
@@ -124,6 +125,13 @@ class DeviceAppManagementRequestBuilder extends BaseRequestBuilder
     */
     public function mdmWindowsInformationProtectionPolicies(): MdmWindowsInformationProtectionPoliciesRequestBuilder {
         return new MdmWindowsInformationProtectionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the mobileAppCatalogPackages property of the microsoft.graph.deviceAppManagement entity.
+    */
+    public function mobileAppCatalogPackages(): MobileAppCatalogPackagesRequestBuilder {
+        return new MobileAppCatalogPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

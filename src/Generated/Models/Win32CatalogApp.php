@@ -35,8 +35,22 @@ class Win32CatalogApp extends Win32LobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'latestUpgradeCatalogPackage' => fn(ParseNode $n) => $o->setLatestUpgradeCatalogPackage($n->getObjectValue([MobileAppCatalogPackage::class, 'createFromDiscriminatorValue'])),
             'mobileAppCatalogPackageId' => fn(ParseNode $n) => $o->setMobileAppCatalogPackageId($n->getStringValue()),
+            'referencedCatalogPackage' => fn(ParseNode $n) => $o->setReferencedCatalogPackage($n->getObjectValue([MobileAppCatalogPackage::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the latestUpgradeCatalogPackage property value. The latest available catalog package the app is upgradeable to. This property is read-only.
+     * @return MobileAppCatalogPackage|null
+    */
+    public function getLatestUpgradeCatalogPackage(): ?MobileAppCatalogPackage {
+        $val = $this->getBackingStore()->get('latestUpgradeCatalogPackage');
+        if (is_null($val) || $val instanceof MobileAppCatalogPackage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'latestUpgradeCatalogPackage'");
     }
 
     /**
@@ -52,12 +66,34 @@ class Win32CatalogApp extends Win32LobApp implements Parsable
     }
 
     /**
+     * Gets the referencedCatalogPackage property value. The current catalog package the app is synced from. This property is read-only.
+     * @return MobileAppCatalogPackage|null
+    */
+    public function getReferencedCatalogPackage(): ?MobileAppCatalogPackage {
+        $val = $this->getBackingStore()->get('referencedCatalogPackage');
+        if (is_null($val) || $val instanceof MobileAppCatalogPackage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'referencedCatalogPackage'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('latestUpgradeCatalogPackage', $this->getLatestUpgradeCatalogPackage());
         $writer->writeStringValue('mobileAppCatalogPackageId', $this->getMobileAppCatalogPackageId());
+        $writer->writeObjectValue('referencedCatalogPackage', $this->getReferencedCatalogPackage());
+    }
+
+    /**
+     * Sets the latestUpgradeCatalogPackage property value. The latest available catalog package the app is upgradeable to. This property is read-only.
+     * @param MobileAppCatalogPackage|null $value Value to set for the latestUpgradeCatalogPackage property.
+    */
+    public function setLatestUpgradeCatalogPackage(?MobileAppCatalogPackage $value): void {
+        $this->getBackingStore()->set('latestUpgradeCatalogPackage', $value);
     }
 
     /**
@@ -66,6 +102,14 @@ class Win32CatalogApp extends Win32LobApp implements Parsable
     */
     public function setMobileAppCatalogPackageId(?string $value): void {
         $this->getBackingStore()->set('mobileAppCatalogPackageId', $value);
+    }
+
+    /**
+     * Sets the referencedCatalogPackage property value. The current catalog package the app is synced from. This property is read-only.
+     * @param MobileAppCatalogPackage|null $value Value to set for the referencedCatalogPackage property.
+    */
+    public function setReferencedCatalogPackage(?MobileAppCatalogPackage $value): void {
+        $this->getBackingStore()->set('referencedCatalogPackage', $value);
     }
 
 }

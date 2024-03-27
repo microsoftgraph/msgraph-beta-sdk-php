@@ -22,6 +22,13 @@ class ConditionalAccessPolicy extends Entity implements Parsable
      * @return ConditionalAccessPolicy
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessPolicy {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.conditionalAccessWhatIfPolicy': return new ConditionalAccessWhatIfPolicy();
+            }
+        }
         return new ConditionalAccessPolicy();
     }
 

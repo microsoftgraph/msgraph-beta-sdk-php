@@ -75,9 +75,22 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
         $o = $this;
         return  [
             'daysUntilForcedReboot' => fn(ParseNode $n) => $o->setDaysUntilForcedReboot($n->getIntegerValue()),
+            'isHotpatchEnabled' => fn(ParseNode $n) => $o->setIsHotpatchEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'offerAsOptional' => fn(ParseNode $n) => $o->setOfferAsOptional($n->getBooleanValue()),
         ];
+    }
+
+    /**
+     * Gets the isHotpatchEnabled property value. The isHotpatchEnabled property
+     * @return bool|null
+    */
+    public function getIsHotpatchEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isHotpatchEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHotpatchEnabled'");
     }
 
     /**
@@ -110,6 +123,7 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('daysUntilForcedReboot', $this->getDaysUntilForcedReboot());
+        $writer->writeBooleanValue('isHotpatchEnabled', $this->getIsHotpatchEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('offerAsOptional', $this->getOfferAsOptional());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -137,6 +151,14 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setDaysUntilForcedReboot(?int $value): void {
         $this->getBackingStore()->set('daysUntilForcedReboot', $value);
+    }
+
+    /**
+     * Sets the isHotpatchEnabled property value. The isHotpatchEnabled property
+     * @param bool|null $value Value to set for the isHotpatchEnabled property.
+    */
+    public function setIsHotpatchEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isHotpatchEnabled', $value);
     }
 
     /**

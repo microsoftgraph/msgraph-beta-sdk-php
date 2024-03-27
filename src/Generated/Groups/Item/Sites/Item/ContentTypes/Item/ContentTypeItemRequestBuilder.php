@@ -141,7 +141,7 @@ class ContentTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a [content type][contentType].
+     * Update contentType
      * @param ContentType $body The request body
      * @param ContentTypeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentType|null>
@@ -196,7 +196,7 @@ class ContentTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a [content type][contentType].
+     * Update contentType
      * @param ContentType $body The request body
      * @param ContentTypeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

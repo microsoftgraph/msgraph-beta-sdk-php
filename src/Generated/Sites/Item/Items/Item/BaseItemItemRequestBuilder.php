@@ -31,7 +31,7 @@ class BaseItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Used to address any item contained in this site. This collection cannot be enumerated.
+     * Used to address any item contained in this site. This collection can't be enumerated.
      * @param BaseItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BaseItem|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class BaseItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Used to address any item contained in this site. This collection cannot be enumerated.
+     * Used to address any item contained in this site. This collection can't be enumerated.
      * @param BaseItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
