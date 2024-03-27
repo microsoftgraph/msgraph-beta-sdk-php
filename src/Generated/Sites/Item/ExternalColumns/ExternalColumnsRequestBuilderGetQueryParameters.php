@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\ExternalColumns;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+ * The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
 */
 class ExternalColumnsRequestBuilderGetQueryParameters 
 {

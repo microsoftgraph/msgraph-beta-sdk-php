@@ -79,7 +79,7 @@ class MobileAppAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceId property value. The identifier of the source of the assignment.
+     * Gets the sourceId property value. The identifier of the source of the assignment. This property is read-only.
      * @return string|null
     */
     public function getSourceId(): ?string {
@@ -111,7 +111,6 @@ class MobileAppAssignment extends Entity implements Parsable
         $writer->writeEnumValue('intent', $this->getIntent());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeEnumValue('source', $this->getSource());
-        $writer->writeStringValue('sourceId', $this->getSourceId());
         $writer->writeObjectValue('target', $this->getTarget());
     }
 
@@ -140,7 +139,7 @@ class MobileAppAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceId property value. The identifier of the source of the assignment.
+     * Sets the sourceId property value. The identifier of the source of the assignment. This property is read-only.
      * @param string|null $value Value to set for the sourceId property.
     */
     public function setSourceId(?string $value): void {

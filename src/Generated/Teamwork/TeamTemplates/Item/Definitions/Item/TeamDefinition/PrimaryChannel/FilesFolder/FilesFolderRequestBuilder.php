@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\DriveItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\PrimaryChannel\FilesFolder\Content\ContentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\PrimaryChannel\FilesFolder\ContentStream\ContentStreamRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,6 +23,13 @@ class FilesFolderRequestBuilder extends BaseRequestBuilder
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the teamwork entity.
+    */
+    public function contentStream(): ContentStreamRequestBuilder {
+        return new ContentStreamRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

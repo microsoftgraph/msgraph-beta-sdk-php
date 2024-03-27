@@ -52,7 +52,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of columns, represented as [columnDefinition][columnDefinition] resources, in a [list][list].
+     * The collection of field definitions for this list.
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinitionCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a column for a [list][list] with a request that specifies a [columnDefinition][columnDefinition].
+     * Create columnDefinition
      * @param ColumnDefinition $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinition|null>
@@ -83,7 +83,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of columns, represented as [columnDefinition][columnDefinition] resources, in a [list][list].
+     * The collection of field definitions for this list.
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a column for a [list][list] with a request that specifies a [columnDefinition][columnDefinition].
+     * Create columnDefinition
      * @param ColumnDefinition $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

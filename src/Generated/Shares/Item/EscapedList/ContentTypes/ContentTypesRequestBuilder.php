@@ -76,7 +76,7 @@ class ContentTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of [contentType][contentType] resources in a [list][].
+     * The collection of content types present in this list.
      * @param ContentTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentTypeCollectionResponse|null>
      * @throws Exception
@@ -106,7 +106,7 @@ class ContentTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of [contentType][contentType] resources in a [list][].
+     * The collection of content types present in this list.
      * @param ContentTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

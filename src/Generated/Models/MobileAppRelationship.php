@@ -51,7 +51,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetDisplayName property value. The target mobile app's display name.
+     * Gets the targetDisplayName property value. The target mobile app's display name. This property is read-only.
      * @return string|null
     */
     public function getTargetDisplayName(): ?string {
@@ -63,7 +63,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetDisplayVersion property value. The target mobile app's display version.
+     * Gets the targetDisplayVersion property value. The target mobile app's display version. This property is read-only.
      * @return string|null
     */
     public function getTargetDisplayVersion(): ?string {
@@ -87,7 +87,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetPublisher property value. The target mobile app's publisher.
+     * Gets the targetPublisher property value. The target mobile app's publisher. This property is read-only.
      * @return string|null
     */
     public function getTargetPublisher(): ?string {
@@ -116,15 +116,12 @@ class MobileAppRelationship extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('targetDisplayName', $this->getTargetDisplayName());
-        $writer->writeStringValue('targetDisplayVersion', $this->getTargetDisplayVersion());
         $writer->writeStringValue('targetId', $this->getTargetId());
-        $writer->writeStringValue('targetPublisher', $this->getTargetPublisher());
         $writer->writeEnumValue('targetType', $this->getTargetType());
     }
 
     /**
-     * Sets the targetDisplayName property value. The target mobile app's display name.
+     * Sets the targetDisplayName property value. The target mobile app's display name. This property is read-only.
      * @param string|null $value Value to set for the targetDisplayName property.
     */
     public function setTargetDisplayName(?string $value): void {
@@ -132,7 +129,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetDisplayVersion property value. The target mobile app's display version.
+     * Sets the targetDisplayVersion property value. The target mobile app's display version. This property is read-only.
      * @param string|null $value Value to set for the targetDisplayVersion property.
     */
     public function setTargetDisplayVersion(?string $value): void {
@@ -148,7 +145,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetPublisher property value. The target mobile app's publisher.
+     * Sets the targetPublisher property value. The target mobile app's publisher. This property is read-only.
      * @param string|null $value Value to set for the targetPublisher property.
     */
     public function setTargetPublisher(?string $value): void {

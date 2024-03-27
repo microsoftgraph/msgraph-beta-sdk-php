@@ -52,7 +52,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of columns, represented as [columnDefinition][columnDefinition] resources, in a [content type][contentType].
+     * The collection of column definitions for this content type.
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinitionCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a column to a [content type][contentType] in a site or list by specifying a [columnDefinition][columnDefinition].
+     * Create columnDefinition for a content type
      * @param ColumnDefinition $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinition|null>
@@ -83,7 +83,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the collection of columns, represented as [columnDefinition][columnDefinition] resources, in a [content type][contentType].
+     * The collection of column definitions for this content type.
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a column to a [content type][contentType] in a site or list by specifying a [columnDefinition][columnDefinition].
+     * Create columnDefinition for a content type
      * @param ColumnDefinition $body The request body
      * @param ColumnsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

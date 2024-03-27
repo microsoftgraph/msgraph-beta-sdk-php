@@ -29,7 +29,7 @@ class SearchEntity extends Entity implements Parsable
     }
 
     /**
-     * Gets the acronyms property value. Administrative answer in Microsoft Search results to define common acronyms in a organization.
+     * Gets the acronyms property value. Administrative answer in Microsoft Search results to define common acronyms in an organization.
      * @return array<Acronym>|null
     */
     public function getAcronyms(): ?array {
@@ -70,7 +70,7 @@ class SearchEntity extends Entity implements Parsable
     }
 
     /**
-     * Gets the qnas property value. Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+     * Gets the qnas property value. Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
      * @return array<Qna>|null
     */
     public function getQnas(): ?array {
@@ -95,7 +95,7 @@ class SearchEntity extends Entity implements Parsable
     }
 
     /**
-     * Sets the acronyms property value. Administrative answer in Microsoft Search results to define common acronyms in a organization.
+     * Sets the acronyms property value. Administrative answer in Microsoft Search results to define common acronyms in an organization.
      * @param array<Acronym>|null $value Value to set for the acronyms property.
     */
     public function setAcronyms(?array $value): void {
@@ -111,7 +111,7 @@ class SearchEntity extends Entity implements Parsable
     }
 
     /**
-     * Sets the qnas property value. Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+     * Sets the qnas property value. Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
      * @param array<Qna>|null $value Value to set for the qnas property.
     */
     public function setQnas(?array $value): void {

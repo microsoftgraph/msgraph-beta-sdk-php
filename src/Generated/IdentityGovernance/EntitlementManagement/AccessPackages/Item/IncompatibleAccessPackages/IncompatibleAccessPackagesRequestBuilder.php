@@ -59,7 +59,7 @@ class IncompatibleAccessPackagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
+     * Retrieve a list of the accessPackage objects marked as incompatible on an accessPackage.  
      * @param IncompatibleAccessPackagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCollectionResponse|null>
      * @throws Exception
@@ -74,7 +74,7 @@ class IncompatibleAccessPackagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
+     * Retrieve a list of the accessPackage objects marked as incompatible on an accessPackage.  
      * @param IncompatibleAccessPackagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

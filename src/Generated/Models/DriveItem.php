@@ -92,7 +92,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the content property value. The content stream, if the item represents a file.
+     * Gets the content property value. The content property
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -101,6 +101,18 @@ class DriveItem extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'content'");
+    }
+
+    /**
+     * Gets the contentStream property value. The content stream, if the item represents a file.
+     * @return StreamInterface|null
+    */
+    public function getContentStream(): ?StreamInterface {
+        $val = $this->getBackingStore()->get('contentStream');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentStream'");
     }
 
     /**
@@ -140,6 +152,7 @@ class DriveItem extends BaseItem implements Parsable
             'bundle' => fn(ParseNode $n) => $o->setBundle($n->getObjectValue([Bundle::class, 'createFromDiscriminatorValue'])),
             'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([DriveItem::class, 'createFromDiscriminatorValue'])),
             'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'contentStream' => fn(ParseNode $n) => $o->setContentStream($n->getBinaryContent()),
             'cTag' => fn(ParseNode $n) => $o->setCTag($n->getStringValue()),
             'deleted' => fn(ParseNode $n) => $o->setDeleted($n->getObjectValue([Deleted::class, 'createFromDiscriminatorValue'])),
             'file' => fn(ParseNode $n) => $o->setFile($n->getObjectValue([File::class, 'createFromDiscriminatorValue'])),
@@ -529,6 +542,7 @@ class DriveItem extends BaseItem implements Parsable
         $writer->writeObjectValue('bundle', $this->getBundle());
         $writer->writeCollectionOfObjectValues('children', $this->getChildren());
         $writer->writeBinaryContent('content', $this->getContent());
+        $writer->writeBinaryContent('contentStream', $this->getContentStream());
         $writer->writeStringValue('cTag', $this->getCTag());
         $writer->writeObjectValue('deleted', $this->getDeleted());
         $writer->writeObjectValue('file', $this->getFile());
@@ -602,11 +616,19 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the content property value. The content stream, if the item represents a file.
+     * Sets the content property value. The content property
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
+    }
+
+    /**
+     * Sets the contentStream property value. The content stream, if the item represents a file.
+     * @param StreamInterface|null $value Value to set for the contentStream property.
+    */
+    public function setContentStream(?StreamInterface $value): void {
+        $this->getBackingStore()->set('contentStream', $value);
     }
 
     /**

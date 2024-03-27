@@ -121,6 +121,7 @@ use Microsoft\Graph\Beta\Generated\TermStore\TermStoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ThreatSubmission\ThreatSubmissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\TrustFrameworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\UsersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Workplace\WorkplaceRequestBuilder;
 use Microsoft\Kiota\Abstractions\ApiClientBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -918,6 +919,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function users(): UsersRequestBuilder {
         return new UsersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the workplace singleton.
+    */
+    public function workplace(): WorkplaceRequestBuilder {
+        return new WorkplaceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

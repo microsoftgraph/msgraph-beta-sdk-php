@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The content stream, if the item represents a file.
+ * Get content for the navigation property filesFolder from teamTemplateDefinition
 */
 class ContentRequestBuilderGetQueryParameters 
 {

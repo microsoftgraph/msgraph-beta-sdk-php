@@ -59,7 +59,7 @@ class IncompatibleGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of the group objects that have been marked as incompatible on an accessPackage.  
+     * Retrieve a list of the group objects marked as incompatible on an accessPackage.  
      * @param IncompatibleGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupCollectionResponse|null>
      * @throws Exception
@@ -74,7 +74,7 @@ class IncompatibleGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of the group objects that have been marked as incompatible on an accessPackage.  
+     * Retrieve a list of the group objects marked as incompatible on an accessPackage.  
      * @param IncompatibleGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

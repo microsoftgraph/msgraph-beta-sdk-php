@@ -84,7 +84,7 @@ class AndroidManagedStoreAppTrack implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the trackAlias property value. Friendly name for track.
+     * Gets the trackAlias property value. Friendly name for track. This property is read-only.
      * @return string|null
     */
     public function getTrackAlias(): ?string {
@@ -96,7 +96,7 @@ class AndroidManagedStoreAppTrack implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the trackId property value. Unique track identifier.
+     * Gets the trackId property value. Unique track identifier. This property is read-only.
      * @return string|null
     */
     public function getTrackId(): ?string {
@@ -113,8 +113,6 @@ class AndroidManagedStoreAppTrack implements AdditionalDataHolder, BackedModel, 
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeStringValue('trackAlias', $this->getTrackAlias());
-        $writer->writeStringValue('trackId', $this->getTrackId());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -143,7 +141,7 @@ class AndroidManagedStoreAppTrack implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the trackAlias property value. Friendly name for track.
+     * Sets the trackAlias property value. Friendly name for track. This property is read-only.
      * @param string|null $value Value to set for the trackAlias property.
     */
     public function setTrackAlias(?string $value): void {
@@ -151,7 +149,7 @@ class AndroidManagedStoreAppTrack implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the trackId property value. Unique track identifier.
+     * Sets the trackId property value. Unique track identifier. This property is read-only.
      * @param string|null $value Value to set for the trackId property.
     */
     public function setTrackId(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Activities\Item\DriveItem\C
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The content stream, if the item represents a file.
+ * Get content for the navigation property driveItem from drives
 */
 class ContentRequestBuilderGetQueryParameters 
 {

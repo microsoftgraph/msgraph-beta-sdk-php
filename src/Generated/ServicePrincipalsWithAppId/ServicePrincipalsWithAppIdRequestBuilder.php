@@ -64,12 +64,12 @@ class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of servicePrincipal object.
+     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipal|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/serviceprincipal-upsert?view=graph-rest-1.0 Find more info here
     */
     public function patch(ServicePrincipal $body, ?ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -119,7 +119,7 @@ class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of servicePrincipal object.
+     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

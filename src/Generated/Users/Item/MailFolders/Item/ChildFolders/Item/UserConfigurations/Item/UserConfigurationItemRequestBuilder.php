@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolder
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\TeamsUserConfiguration\UserConfiguration;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

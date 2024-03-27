@@ -56,7 +56,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the detonationDetails property value. The detonationDetails property
+     * Gets the detonationDetails property value. The detonation details of the attachment.
      * @return DetonationDetails|null
     */
     public function getDetonationDetails(): ?DetonationDetails {
@@ -85,7 +85,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the fileName property value. The fileName property
+     * Gets the fileName property value. The name of the attachment in the email.
      * @return string|null
     */
     public function getFileName(): ?string {
@@ -97,7 +97,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the fileType property value. The fileType property
+     * Gets the fileType property value. The type of the attachment in the email.
      * @return string|null
     */
     public function getFileType(): ?string {
@@ -121,7 +121,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the sha256 property value. The sha256 property
+     * Gets the sha256 property value. The SHA256 file hash of the attachment.
      * @return string|null
     */
     public function getSha256(): ?string {
@@ -133,7 +133,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the threatName property value. The threatName property
+     * Gets the threatName property value. The threat name associated with the threat type.
      * @return string|null
     */
     public function getThreatName(): ?string {
@@ -145,7 +145,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the threatType property value. The threatType property
+     * Gets the threatType property value. The threat type associated with the attachment. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
      * @return ThreatType|null
     */
     public function getThreatType(): ?ThreatType {
@@ -188,7 +188,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the detonationDetails property value. The detonationDetails property
+     * Sets the detonationDetails property value. The detonation details of the attachment.
      * @param DetonationDetails|null $value Value to set for the detonationDetails property.
     */
     public function setDetonationDetails(?DetonationDetails $value): void {
@@ -196,7 +196,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the fileName property value. The fileName property
+     * Sets the fileName property value. The name of the attachment in the email.
      * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
@@ -204,7 +204,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the fileType property value. The fileType property
+     * Sets the fileType property value. The type of the attachment in the email.
      * @param string|null $value Value to set for the fileType property.
     */
     public function setFileType(?string $value): void {
@@ -220,7 +220,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the sha256 property value. The sha256 property
+     * Sets the sha256 property value. The SHA256 file hash of the attachment.
      * @param string|null $value Value to set for the sha256 property.
     */
     public function setSha256(?string $value): void {
@@ -228,7 +228,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the threatName property value. The threatName property
+     * Sets the threatName property value. The threat name associated with the threat type.
      * @param string|null $value Value to set for the threatName property.
     */
     public function setThreatName(?string $value): void {
@@ -236,7 +236,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the threatType property value. The threatType property
+     * Sets the threatType property value. The threat type associated with the attachment. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
      * @param ThreatType|null $value Value to set for the threatType property.
     */
     public function setThreatType(?ThreatType $value): void {

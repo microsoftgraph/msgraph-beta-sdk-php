@@ -74,7 +74,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectionType property value. The connectionType property
+     * Gets the connectionType property value. Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue.
      * @return CloudPcOnPremisesConnectionType|null
     */
     public function getConnectionType(): ?CloudPcOnPremisesConnectionType {
@@ -147,7 +147,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthCheckStatusDetail property value. The healthCheckStatusDetail property
+     * Gets the healthCheckStatusDetail property value. Indicates the results of health checks performed on the on-premises connection. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
      * @return CloudPcOnPremisesConnectionStatusDetail|null
     */
     public function getHealthCheckStatusDetail(): ?CloudPcOnPremisesConnectionStatusDetail {
@@ -245,7 +245,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptionId property value. The ID of the target Azure subscription that’s associated with your tenant.
+     * Gets the subscriptionId property value. The ID of the target Azure subscription associated with your tenant.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -269,7 +269,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. Specifies how the provisioned Cloud PC is joined to Microsoft Entra ID. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Gets the type property value. The type property
      * @return CloudPcOnPremisesConnectionType|null
     */
     public function getType(): ?CloudPcOnPremisesConnectionType {
@@ -293,7 +293,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the virtualNetworkLocation property value. Indicates resource location of the virtual target network. Read-only, computed value.
+     * Gets the virtualNetworkLocation property value. Indicates the resource location of the virtual target network. Read-only, computed value.
      * @return string|null
     */
     public function getVirtualNetworkLocation(): ?string {
@@ -365,7 +365,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectionType property value. The connectionType property
+     * Sets the connectionType property value. Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue.
      * @param CloudPcOnPremisesConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?CloudPcOnPremisesConnectionType $value): void {
@@ -389,7 +389,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthCheckStatusDetail property value. The healthCheckStatusDetail property
+     * Sets the healthCheckStatusDetail property value. Indicates the results of health checks performed on the on-premises connection. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
      * @param CloudPcOnPremisesConnectionStatusDetail|null $value Value to set for the healthCheckStatusDetail property.
     */
     public function setHealthCheckStatusDetail(?CloudPcOnPremisesConnectionStatusDetail $value): void {
@@ -453,7 +453,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptionId property value. The ID of the target Azure subscription that’s associated with your tenant.
+     * Sets the subscriptionId property value. The ID of the target Azure subscription associated with your tenant.
      * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
@@ -469,7 +469,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. Specifies how the provisioned Cloud PC is joined to Microsoft Entra ID. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Sets the type property value. The type property
      * @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcOnPremisesConnectionType $value): void {
@@ -485,7 +485,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the virtualNetworkLocation property value. Indicates resource location of the virtual target network. Read-only, computed value.
+     * Sets the virtualNetworkLocation property value. Indicates the resource location of the virtual target network. Read-only, computed value.
      * @param string|null $value Value to set for the virtualNetworkLocation property.
     */
     public function setVirtualNetworkLocation(?string $value): void {

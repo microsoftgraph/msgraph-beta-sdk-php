@@ -70,7 +70,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the fromAddress property value. The fromAddress property
+     * Gets the fromAddress property value. The sender email address in the mail From header, also known as the envelope sender or the P1 sender.
      * @return string|null
     */
     public function getFromAddress(): ?string {
@@ -82,7 +82,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the ipv4 property value. The ipv4 property
+     * Gets the ipv4 property value. The IPv4 address of the last detected mail server that relayed the message.
      * @return string|null
     */
     public function getIpv4(): ?string {
@@ -94,7 +94,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the mailFromAddress property value. The mailFromAddress property
+     * Gets the mailFromAddress property value. The sender email address in the From header, which is visible to email recipients on their email clients. Also known as P2 sender.
      * @return string|null
     */
     public function getMailFromAddress(): ?string {
@@ -146,7 +146,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the fromAddress property value. The fromAddress property
+     * Sets the fromAddress property value. The sender email address in the mail From header, also known as the envelope sender or the P1 sender.
      * @param string|null $value Value to set for the fromAddress property.
     */
     public function setFromAddress(?string $value): void {
@@ -154,7 +154,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the ipv4 property value. The ipv4 property
+     * Sets the ipv4 property value. The IPv4 address of the last detected mail server that relayed the message.
      * @param string|null $value Value to set for the ipv4 property.
     */
     public function setIpv4(?string $value): void {
@@ -162,7 +162,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the mailFromAddress property value. The mailFromAddress property
+     * Sets the mailFromAddress property value. The sender email address in the From header, which is visible to email recipients on their email clients. Also known as P2 sender.
      * @param string|null $value Value to set for the mailFromAddress property.
     */
     public function setMailFromAddress(?string $value): void {

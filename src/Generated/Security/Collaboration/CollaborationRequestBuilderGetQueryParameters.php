@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Collaboration;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get collaboration from security
+ * Enables read and other actions on collaborative entities in Microsoft Defender.
 */
 class CollaborationRequestBuilderGetQueryParameters 
 {

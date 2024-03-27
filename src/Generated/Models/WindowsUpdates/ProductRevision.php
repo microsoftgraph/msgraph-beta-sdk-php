@@ -27,6 +27,18 @@ class ProductRevision extends Entity implements Parsable
     }
 
     /**
+     * Gets the catalogEntry property value. The catalogEntry property
+     * @return CatalogEntry|null
+    */
+    public function getCatalogEntry(): ?CatalogEntry {
+        $val = $this->getBackingStore()->get('catalogEntry');
+        if (is_null($val) || $val instanceof CatalogEntry) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'catalogEntry'");
+    }
+
+    /**
      * Gets the displayName property value. The display name of the content. Read-only.
      * @return string|null
     */
@@ -45,6 +57,7 @@ class ProductRevision extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'catalogEntry' => fn(ParseNode $n) => $o->setCatalogEntry($n->getObjectValue([CatalogEntry::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'knowledgeBaseArticle' => fn(ParseNode $n) => $o->setKnowledgeBaseArticle($n->getObjectValue([KnowledgeBaseArticle::class, 'createFromDiscriminatorValue'])),
             'osBuild' => fn(ParseNode $n) => $o->setOsBuild($n->getObjectValue([BuildVersionDetails::class, 'createFromDiscriminatorValue'])),
@@ -120,12 +133,21 @@ class ProductRevision extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('catalogEntry', $this->getCatalogEntry());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('knowledgeBaseArticle', $this->getKnowledgeBaseArticle());
         $writer->writeObjectValue('osBuild', $this->getOsBuild());
         $writer->writeStringValue('product', $this->getProduct());
         $writer->writeDateTimeValue('releaseDateTime', $this->getReleaseDateTime());
         $writer->writeStringValue('version', $this->getVersion());
+    }
+
+    /**
+     * Sets the catalogEntry property value. The catalogEntry property
+     * @param CatalogEntry|null $value Value to set for the catalogEntry property.
+    */
+    public function setCatalogEntry(?CatalogEntry $value): void {
+        $this->getBackingStore()->set('catalogEntry', $value);
     }
 
     /**

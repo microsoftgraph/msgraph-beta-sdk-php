@@ -123,7 +123,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the reservedKeywords property value. Unique keywords that will guarantee the search answer is triggered.
+     * Gets the reservedKeywords property value. Unique keywords that guarantee the search answer is triggered.
      * @return array<string>|null
     */
     public function getReservedKeywords(): ?array {
@@ -189,7 +189,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the reservedKeywords property value. Unique keywords that will guarantee the search answer is triggered.
+     * Sets the reservedKeywords property value. Unique keywords that guarantee the search answer is triggered.
      * @param array<string>|null $value Value to set for the reservedKeywords property.
     */
     public function setReservedKeywords(?array $value): void {

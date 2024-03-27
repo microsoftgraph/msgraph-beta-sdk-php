@@ -28,7 +28,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the availabilityEndDateTime property value. Timestamp of when the bookmark will stop to appear as a search result. Set as null for always available.
+     * Gets the availabilityEndDateTime property value. Date and time when the bookmark stops appearing as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getAvailabilityEndDateTime(): ?DateTime {
@@ -40,7 +40,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the availabilityStartDateTime property value. Timestamp of when the bookmark will start to appear as a search result. Set as null for always available.
+     * Gets the availabilityStartDateTime property value. Date and time when the bookmark starts to appear as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getAvailabilityStartDateTime(): ?DateTime {
@@ -115,7 +115,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the groupIds property value. List of security groups able to view this bookmark.
+     * Gets the groupIds property value. The list of security groups that are able to view this bookmark.
      * @return array<string>|null
     */
     public function getGroupIds(): ?array {
@@ -129,7 +129,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the isSuggested property value. True if this bookmark was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
+     * Gets the isSuggested property value. True if this bookmark was suggested to the admin, by a user, or was mined and suggested by Microsoft. Read-only.
      * @return bool|null
     */
     public function getIsSuggested(): ?bool {
@@ -153,7 +153,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the languageTags property value. A list of language names that are geographically specific and that this bookmark can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
+     * Gets the languageTags property value. A list of geographically specific language names in which this bookmark can be viewed. Each language tag value follows the pattern {language}-{region}. For example, en-us is English as used in the United States. For the list of possible values, see Supported language tags.
      * @return array<string>|null
     */
     public function getLanguageTags(): ?array {
@@ -167,7 +167,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the platforms property value. List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
+     * Gets the platforms property value. List of devices and operating systems that are able to view this bookmark. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      * @return array<DevicePlatformType>|null
     */
     public function getPlatforms(): ?array {
@@ -181,7 +181,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the powerAppIds property value. List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks, such as to enter vacation time or to report expenses on the search results page.
+     * Gets the powerAppIds property value. List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks directly on the search results page, such as entering vacation time or reporting expenses.
      * @return array<string>|null
     */
     public function getPowerAppIds(): ?array {
@@ -207,7 +207,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the targetedVariations property value. Variations of a bookmark for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
+     * Gets the targetedVariations property value. Variations of a bookmark for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings apply to all variations.
      * @return array<AnswerVariant>|null
     */
     public function getTargetedVariations(): ?array {
@@ -240,7 +240,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the availabilityEndDateTime property value. Timestamp of when the bookmark will stop to appear as a search result. Set as null for always available.
+     * Sets the availabilityEndDateTime property value. Date and time when the bookmark stops appearing as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the availabilityEndDateTime property.
     */
     public function setAvailabilityEndDateTime(?DateTime $value): void {
@@ -248,7 +248,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the availabilityStartDateTime property value. Timestamp of when the bookmark will start to appear as a search result. Set as null for always available.
+     * Sets the availabilityStartDateTime property value. Date and time when the bookmark starts to appear as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the availabilityStartDateTime property.
     */
     public function setAvailabilityStartDateTime(?DateTime $value): void {
@@ -264,7 +264,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the groupIds property value. List of security groups able to view this bookmark.
+     * Sets the groupIds property value. The list of security groups that are able to view this bookmark.
      * @param array<string>|null $value Value to set for the groupIds property.
     */
     public function setGroupIds(?array $value): void {
@@ -272,7 +272,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the isSuggested property value. True if this bookmark was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
+     * Sets the isSuggested property value. True if this bookmark was suggested to the admin, by a user, or was mined and suggested by Microsoft. Read-only.
      * @param bool|null $value Value to set for the isSuggested property.
     */
     public function setIsSuggested(?bool $value): void {
@@ -288,7 +288,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the languageTags property value. A list of language names that are geographically specific and that this bookmark can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
+     * Sets the languageTags property value. A list of geographically specific language names in which this bookmark can be viewed. Each language tag value follows the pattern {language}-{region}. For example, en-us is English as used in the United States. For the list of possible values, see Supported language tags.
      * @param array<string>|null $value Value to set for the languageTags property.
     */
     public function setLanguageTags(?array $value): void {
@@ -296,7 +296,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the platforms property value. List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
+     * Sets the platforms property value. List of devices and operating systems that are able to view this bookmark. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      * @param array<DevicePlatformType>|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?array $value): void {
@@ -304,7 +304,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the powerAppIds property value. List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks, such as to enter vacation time or to report expenses on the search results page.
+     * Sets the powerAppIds property value. List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks directly on the search results page, such as entering vacation time or reporting expenses.
      * @param array<string>|null $value Value to set for the powerAppIds property.
     */
     public function setPowerAppIds(?array $value): void {
@@ -320,7 +320,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the targetedVariations property value. Variations of a bookmark for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
+     * Sets the targetedVariations property value. Variations of a bookmark for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings apply to all variations.
      * @param array<AnswerVariant>|null $value Value to set for the targetedVariations property.
     */
     public function setTargetedVariations(?array $value): void {

@@ -42,7 +42,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Gets the supersededAppCount property value. The total number of apps directly or indirectly superseded by the child app.
+     * Gets the supersededAppCount property value. The total number of apps directly or indirectly superseded by the child app. This property is read-only.
      * @return int|null
     */
     public function getSupersededAppCount(): ?int {
@@ -66,7 +66,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Gets the supersedingAppCount property value. The total number of apps directly or indirectly superseding the parent app.
+     * Gets the supersedingAppCount property value. The total number of apps directly or indirectly superseding the parent app. This property is read-only.
      * @return int|null
     */
     public function getSupersedingAppCount(): ?int {
@@ -83,13 +83,11 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('supersededAppCount', $this->getSupersededAppCount());
         $writer->writeEnumValue('supersedenceType', $this->getSupersedenceType());
-        $writer->writeIntegerValue('supersedingAppCount', $this->getSupersedingAppCount());
     }
 
     /**
-     * Sets the supersededAppCount property value. The total number of apps directly or indirectly superseded by the child app.
+     * Sets the supersededAppCount property value. The total number of apps directly or indirectly superseded by the child app. This property is read-only.
      * @param int|null $value Value to set for the supersededAppCount property.
     */
     public function setSupersededAppCount(?int $value): void {
@@ -105,7 +103,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Sets the supersedingAppCount property value. The total number of apps directly or indirectly superseding the parent app.
+     * Sets the supersedingAppCount property value. The total number of apps directly or indirectly superseding the parent app. This property is read-only.
      * @param int|null $value Value to set for the supersedingAppCount property.
     */
     public function setSupersedingAppCount(?int $value): void {

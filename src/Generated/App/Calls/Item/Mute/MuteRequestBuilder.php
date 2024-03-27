@@ -31,7 +31,7 @@ class MuteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Allows the application to mute itself. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more details about how to handle mute operations, see muteParticipantOperation
+     * Allows the application to mute itself. This is a server mute, meaning that the server drops all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
      * @param MutePostRequestBody $body The request body
      * @param MuteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MuteParticipantOperation|null>
@@ -47,7 +47,7 @@ class MuteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Allows the application to mute itself. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more details about how to handle mute operations, see muteParticipantOperation
+     * Allows the application to mute itself. This is a server mute, meaning that the server drops all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
      * @param MutePostRequestBody $body The request body
      * @param MuteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -39,7 +39,7 @@ class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a [column][columndefinition] from a [site][], [list][] or [content type][contentType].
+     * Delete columnDefinition
      * @param ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -54,7 +54,7 @@ class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the metadata for a [site][], [list][] or [contentType][] [column][columnDefinition].
+     * Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
      * @param ColumnDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinition|null>
      * @throws Exception
@@ -69,7 +69,7 @@ class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a [site][], [list][] or [content type][contentType] [column][columnDefinition].
+     * Update columnDefinition
      * @param ColumnDefinition $body The request body
      * @param ColumnDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ColumnDefinition|null>
@@ -85,7 +85,7 @@ class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Remove a [column][columndefinition] from a [site][], [list][] or [content type][contentType].
+     * Delete columnDefinition
      * @param ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +103,7 @@ class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the metadata for a [site][], [list][] or [contentType][] [column][columnDefinition].
+     * Retrieve the metadata for a [site][], [list][], or [contentType][] [column][columnDefinition].
      * @param ColumnDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +124,7 @@ class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a [site][], [list][] or [content type][contentType] [column][columnDefinition].
+     * Update columnDefinition
      * @param ColumnDefinition $body The request body
      * @param ColumnDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

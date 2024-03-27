@@ -351,7 +351,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the supersededAppCount property value. The total number of apps this app is directly or indirectly superseded by.
+     * Gets the supersededAppCount property value. The total number of apps this app is directly or indirectly superseded by. This property is read-only.
      * @return int|null
     */
     public function getSupersededAppCount(): ?int {
@@ -363,7 +363,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the supersedingAppCount property value. The total number of apps this app directly or indirectly supersedes.
+     * Gets the supersedingAppCount property value. The total number of apps this app directly or indirectly supersedes. This property is read-only.
      * @return int|null
     */
     public function getSupersedingAppCount(): ?int {
@@ -394,16 +394,12 @@ class MobileApp extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeCollectionOfObjectValues('categories', $this->getCategories());
-        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeIntegerValue('dependentAppCount', $this->getDependentAppCount());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('developer', $this->getDeveloper());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('informationUrl', $this->getInformationUrl());
-        $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
         $writer->writeBooleanValue('isFeatured', $this->getIsFeatured());
         $writer->writeObjectValue('largeIcon', $this->getLargeIcon());
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('notes', $this->getNotes());
         $writer->writeStringValue('owner', $this->getOwner());
         $writer->writeStringValue('privacyInformationUrl', $this->getPrivacyInformationUrl());
@@ -411,9 +407,6 @@ class MobileApp extends Entity implements Parsable
         $writer->writeEnumValue('publishingState', $this->getPublishingState());
         $writer->writeCollectionOfObjectValues('relationships', $this->getRelationships());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
-        $writer->writeIntegerValue('supersededAppCount', $this->getSupersededAppCount());
-        $writer->writeIntegerValue('supersedingAppCount', $this->getSupersedingAppCount());
-        $writer->writeIntegerValue('uploadState', $this->getUploadState());
     }
 
     /**
@@ -569,7 +562,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the supersededAppCount property value. The total number of apps this app is directly or indirectly superseded by.
+     * Sets the supersededAppCount property value. The total number of apps this app is directly or indirectly superseded by. This property is read-only.
      * @param int|null $value Value to set for the supersededAppCount property.
     */
     public function setSupersededAppCount(?int $value): void {
@@ -577,7 +570,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the supersedingAppCount property value. The total number of apps this app directly or indirectly supersedes.
+     * Sets the supersedingAppCount property value. The total number of apps this app directly or indirectly supersedes. This property is read-only.
      * @param int|null $value Value to set for the supersedingAppCount property.
     */
     public function setSupersedingAppCount(?int $value): void {

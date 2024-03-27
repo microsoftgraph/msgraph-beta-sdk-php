@@ -74,7 +74,7 @@ class CallsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed.
+     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You need to register the calling bot and go through the list of permissions needed.
      * @param Call $body The request body
      * @param CallsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Call|null>
@@ -111,7 +111,7 @@ class CallsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed.
+     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You need to register the calling bot and go through the list of permissions needed.
      * @param Call $body The request body
      * @param CallsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
