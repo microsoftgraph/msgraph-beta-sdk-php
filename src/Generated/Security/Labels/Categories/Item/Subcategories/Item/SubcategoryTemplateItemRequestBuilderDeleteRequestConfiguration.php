@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\SubCategories\Item;
+namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\Subcategories\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
@@ -8,10 +8,10 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class SubCategoryTemplateItemRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
+class SubcategoryTemplateItemRequestBuilderDeleteRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new SubCategoryTemplateItemRequestBuilderPatchRequestConfiguration and sets the default values.
+     * Instantiates a new SubcategoryTemplateItemRequestBuilderDeleteRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

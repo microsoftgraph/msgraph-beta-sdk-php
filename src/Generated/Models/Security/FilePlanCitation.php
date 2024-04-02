@@ -6,10 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Citation extends FilePlanDescriptorBase implements Parsable 
+class FilePlanCitation extends FilePlanDescriptorBase implements Parsable 
 {
     /**
-     * Instantiates a new Citation and sets the default values.
+     * Instantiates a new FilePlanCitation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -18,14 +18,14 @@ class Citation extends FilePlanDescriptorBase implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return Citation
+     * @return FilePlanCitation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Citation {
-        return new Citation();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): FilePlanCitation {
+        return new FilePlanCitation();
     }
 
     /**
-     * Gets the citationJurisdiction property value. Represents the jurisdiction or agency that published the citation.
+     * Gets the citationJurisdiction property value. The citationJurisdiction property
      * @return string|null
     */
     public function getCitationJurisdiction(): ?string {
@@ -37,7 +37,7 @@ class Citation extends FilePlanDescriptorBase implements Parsable
     }
 
     /**
-     * Gets the citationUrl property value. Represents the URL to the published citation.
+     * Gets the citationUrl property value. The citationUrl property
      * @return string|null
     */
     public function getCitationUrl(): ?string {
@@ -71,7 +71,7 @@ class Citation extends FilePlanDescriptorBase implements Parsable
     }
 
     /**
-     * Sets the citationJurisdiction property value. Represents the jurisdiction or agency that published the citation.
+     * Sets the citationJurisdiction property value. The citationJurisdiction property
      * @param string|null $value Value to set for the citationJurisdiction property.
     */
     public function setCitationJurisdiction(?string $value): void {
@@ -79,7 +79,7 @@ class Citation extends FilePlanDescriptorBase implements Parsable
     }
 
     /**
-     * Sets the citationUrl property value. Represents the URL to the published citation.
+     * Sets the citationUrl property value. The citationUrl property
      * @param string|null $value Value to set for the citationUrl property.
     */
     public function setCitationUrl(?string $value): void {

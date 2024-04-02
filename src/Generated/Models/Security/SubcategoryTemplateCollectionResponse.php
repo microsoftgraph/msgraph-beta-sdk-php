@@ -8,10 +8,10 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class SubCategoryTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
+class SubcategoryTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new SubCategoryTemplateCollectionResponse and sets the default values.
+     * Instantiates a new SubcategoryTemplateCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -20,10 +20,10 @@ class SubCategoryTemplateCollectionResponse extends BaseCollectionPaginationCoun
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return SubCategoryTemplateCollectionResponse
+     * @return SubcategoryTemplateCollectionResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SubCategoryTemplateCollectionResponse {
-        return new SubCategoryTemplateCollectionResponse();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SubcategoryTemplateCollectionResponse {
+        return new SubcategoryTemplateCollectionResponse();
     }
 
     /**
@@ -33,19 +33,19 @@ class SubCategoryTemplateCollectionResponse extends BaseCollectionPaginationCoun
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([SubCategoryTemplate::class, 'createFromDiscriminatorValue'])),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([SubcategoryTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the value property value. The value property
-     * @return array<SubCategoryTemplate>|null
+     * @return array<SubcategoryTemplate>|null
     */
     public function getValue(): ?array {
         $val = $this->getBackingStore()->get('value');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, SubCategoryTemplate::class);
-            /** @var array<SubCategoryTemplate>|null $val */
+            TypeUtils::validateCollectionValues($val, SubcategoryTemplate::class);
+            /** @var array<SubcategoryTemplate>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
@@ -62,7 +62,7 @@ class SubCategoryTemplateCollectionResponse extends BaseCollectionPaginationCoun
 
     /**
      * Sets the value property value. The value property
-     * @param array<SubCategoryTemplate>|null $value Value to set for the value property.
+     * @param array<SubcategoryTemplate>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\SubCategories;
+namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\Subcategories;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of subcategories subCategoryTemplate associated with a category template.
+ * Get subcategories from security
 */
-class SubCategoriesRequestBuilderGetQueryParameters 
+class SubcategoriesRequestBuilderGetQueryParameters 
 {
     /**
      * @QueryParameter("%24count")
@@ -58,7 +58,7 @@ class SubCategoriesRequestBuilderGetQueryParameters
     public ?int $top = null;
     
     /**
-     * Instantiates a new SubCategoriesRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new SubcategoriesRequestBuilderGetQueryParameters and sets the default values.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values

@@ -45,7 +45,7 @@ class TrainingLanguageDetailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Language specific details on a training.
+     * Details about the language used in the training.
      * @param TrainingLanguageDetailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrainingLanguageDetail|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class TrainingLanguageDetailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Language specific details on a training.
+     * Details about the language used in the training.
      * @param TrainingLanguageDetailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -6,6 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class UserCountMetric extends Entity implements Parsable 
 {
@@ -58,7 +59,22 @@ class UserCountMetric extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
             'factDate' => fn(ParseNode $n) => $o->setFactDate($n->getDateValue()),
+            'languages' => fn(ParseNode $n) => $o->setLanguages($n->getCollectionOfObjectValues([LanguageMetric::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the languages property value. The languages property
+     * @return array<LanguageMetric>|null
+    */
+    public function getLanguages(): ?array {
+        $val = $this->getBackingStore()->get('languages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LanguageMetric::class);
+            /** @var array<LanguageMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languages'");
     }
 
     /**
@@ -69,6 +85,7 @@ class UserCountMetric extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('count', $this->getCount());
         $writer->writeDateValue('factDate', $this->getFactDate());
+        $writer->writeCollectionOfObjectValues('languages', $this->getLanguages());
     }
 
     /**
@@ -85,6 +102,14 @@ class UserCountMetric extends Entity implements Parsable
     */
     public function setFactDate(?Date $value): void {
         $this->getBackingStore()->set('factDate', $value);
+    }
+
+    /**
+     * Sets the languages property value. The languages property
+     * @param array<LanguageMetric>|null $value Value to set for the languages property.
+    */
+    public function setLanguages(?array $value): void {
+        $this->getBackingStore()->set('languages', $value);
     }
 
 }

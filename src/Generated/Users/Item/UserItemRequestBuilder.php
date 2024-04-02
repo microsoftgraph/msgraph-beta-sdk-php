@@ -63,6 +63,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\InferenceClassification\InferenceC
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Insights\InsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InvalidateAllRefreshTokens\InvalidateAllRefreshTokensRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\InvitedBy\InvitedByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\IsManagedAppUserBlocked\IsManagedAppUserBlockedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\JoinedGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedTeams\JoinedTeamsRequestBuilder;
@@ -497,6 +498,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function invalidateAllRefreshTokens(): InvalidateAllRefreshTokensRequestBuilder {
         return new InvalidateAllRefreshTokensRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the invitedBy property of the microsoft.graph.user entity.
+    */
+    public function invitedBy(): InvitedByRequestBuilder {
+        return new InvitedByRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -223,7 +223,7 @@ use Microsoft\Graph\Beta\Generated\Models\Security\Search;
 use Microsoft\Graph\Beta\Generated\Models\Security\Security;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Models\Security\SslCertificate;
-use Microsoft\Graph\Beta\Generated\Models\Security\SubCategoryTemplate;
+use Microsoft\Graph\Beta\Generated\Models\Security\SubcategoryTemplate;
 use Microsoft\Graph\Beta\Generated\Models\Security\Subdomain;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatIntelligence;
 use Microsoft\Graph\Beta\Generated\Models\Security\ThreatSubmission;
@@ -1278,6 +1278,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.messageRule': return new MessageRule();
                 case '#microsoft.graph.messageTrace': return new MessageTrace();
                 case '#microsoft.graph.mfaCompletionMetric': return new MfaCompletionMetric();
+                case '#microsoft.graph.mfaFailure': return new MfaFailure();
                 case '#microsoft.graph.microsoftAccountUserConversationMember': return new MicrosoftAccountUserConversationMember();
                 case '#microsoft.graph.microsoftApplicationDataAccessSettings': return new MicrosoftApplicationDataAccessSettings();
                 case '#microsoft.graph.microsoftAuthenticatorAuthenticationMethod': return new MicrosoftAuthenticatorAuthenticationMethod();
@@ -1699,7 +1700,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.sensitivityLabel': return new SensitivityLabel();
                 case '#microsoft.graph.security.siteSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\SiteSource();
                 case '#microsoft.graph.security.sslCertificate': return new SslCertificate();
-                case '#microsoft.graph.security.subCategoryTemplate': return new SubCategoryTemplate();
+                case '#microsoft.graph.security.subcategoryTemplate': return new SubcategoryTemplate();
                 case '#microsoft.graph.security.subdomain': return new Subdomain();
                 case '#microsoft.graph.security.tag': return new \Microsoft\Graph\Beta\Generated\Models\Security\Tag();
                 case '#microsoft.graph.security.threatIntelligence': return new ThreatIntelligence();

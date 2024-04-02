@@ -192,7 +192,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastRemoteActionResult property value. The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, and Troubleshoot.
+     * Gets the lastRemoteActionResult property value. The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, Troubleshoot.
      * @return CloudPcRemoteActionResult|null
     */
     public function getLastRemoteActionResult(): ?CloudPcRemoteActionResult {
@@ -240,7 +240,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue.
+     * Gets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, unknownFutureValue.
      * @return CloudPcOperatingSystem|null
     */
     public function getOsVersion(): ?CloudPcOperatingSystem {
@@ -266,7 +266,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff and unknown. This property only supports shift work Cloud PCs.
+     * Gets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff, unknown. This property only supports shift work Cloud PCs.
      * @return CloudPcPowerState|null
     */
     public function getPowerState(): ?CloudPcPowerState {
@@ -388,7 +388,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue.
+     * Gets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, unknownFutureValue.
      * @return CloudPcUserAccountType|null
     */
     public function getUserAccountType(): ?CloudPcUserAccountType {
@@ -528,7 +528,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastRemoteActionResult property value. The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, and Troubleshoot.
+     * Sets the lastRemoteActionResult property value. The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, Troubleshoot.
      * @param CloudPcRemoteActionResult|null $value Value to set for the lastRemoteActionResult property.
     */
     public function setLastRemoteActionResult(?CloudPcRemoteActionResult $value): void {
@@ -560,7 +560,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue.
+     * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, unknownFutureValue.
      * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?CloudPcOperatingSystem $value): void {
@@ -576,7 +576,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff and unknown. This property only supports shift work Cloud PCs.
+     * Sets the powerState property value. The power state of a Cloud PC. The possible values are: running, poweredOff, unknown. This property only supports shift work Cloud PCs.
      * @param CloudPcPowerState|null $value Value to set for the powerState property.
     */
     public function setPowerState(?CloudPcPowerState $value): void {
@@ -656,7 +656,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue.
+     * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, unknownFutureValue.
      * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
     public function setUserAccountType(?CloudPcUserAccountType $value): void {

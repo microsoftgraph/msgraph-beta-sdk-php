@@ -27,11 +27,11 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Gets the authority property value. Represents the file plan descriptor of type authority applied to a particular retention label.
-     * @return Authority|null
+     * @return FilePlanAuthority|null
     */
-    public function getAuthority(): ?Authority {
+    public function getAuthority(): ?FilePlanAuthority {
         $val = $this->getBackingStore()->get('authority');
-        if (is_null($val) || $val instanceof Authority) {
+        if (is_null($val) || $val instanceof FilePlanAuthority) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'authority'");
@@ -51,11 +51,11 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Gets the category property value. The category property
-     * @return AppliedCategory|null
+     * @return FilePlanAppliedCategory|null
     */
-    public function getCategory(): ?AppliedCategory {
+    public function getCategory(): ?FilePlanAppliedCategory {
         $val = $this->getBackingStore()->get('category');
-        if (is_null($val) || $val instanceof AppliedCategory) {
+        if (is_null($val) || $val instanceof FilePlanAppliedCategory) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
@@ -75,11 +75,11 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Gets the citation property value. Represents the file plan descriptor of type citation applied to a particular retention label.
-     * @return Citation|null
+     * @return FilePlanCitation|null
     */
-    public function getCitation(): ?Citation {
+    public function getCitation(): ?FilePlanCitation {
         $val = $this->getBackingStore()->get('citation');
-        if (is_null($val) || $val instanceof Citation) {
+        if (is_null($val) || $val instanceof FilePlanCitation) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'citation'");
@@ -99,11 +99,11 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Gets the department property value. Represents the file plan descriptor of type department applied to a particular retention label.
-     * @return Department|null
+     * @return FilePlanDepartment|null
     */
-    public function getDepartment(): ?Department {
+    public function getDepartment(): ?FilePlanDepartment {
         $val = $this->getBackingStore()->get('department');
-        if (is_null($val) || $val instanceof Department) {
+        if (is_null($val) || $val instanceof FilePlanDepartment) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'department'");
@@ -128,13 +128,13 @@ class FilePlanDescriptor extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authority' => fn(ParseNode $n) => $o->setAuthority($n->getObjectValue([Authority::class, 'createFromDiscriminatorValue'])),
+            'authority' => fn(ParseNode $n) => $o->setAuthority($n->getObjectValue([FilePlanAuthority::class, 'createFromDiscriminatorValue'])),
             'authorityTemplate' => fn(ParseNode $n) => $o->setAuthorityTemplate($n->getObjectValue([AuthorityTemplate::class, 'createFromDiscriminatorValue'])),
-            'category' => fn(ParseNode $n) => $o->setCategory($n->getObjectValue([AppliedCategory::class, 'createFromDiscriminatorValue'])),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getObjectValue([FilePlanAppliedCategory::class, 'createFromDiscriminatorValue'])),
             'categoryTemplate' => fn(ParseNode $n) => $o->setCategoryTemplate($n->getObjectValue([CategoryTemplate::class, 'createFromDiscriminatorValue'])),
-            'citation' => fn(ParseNode $n) => $o->setCitation($n->getObjectValue([Citation::class, 'createFromDiscriminatorValue'])),
+            'citation' => fn(ParseNode $n) => $o->setCitation($n->getObjectValue([FilePlanCitation::class, 'createFromDiscriminatorValue'])),
             'citationTemplate' => fn(ParseNode $n) => $o->setCitationTemplate($n->getObjectValue([CitationTemplate::class, 'createFromDiscriminatorValue'])),
-            'department' => fn(ParseNode $n) => $o->setDepartment($n->getObjectValue([Department::class, 'createFromDiscriminatorValue'])),
+            'department' => fn(ParseNode $n) => $o->setDepartment($n->getObjectValue([FilePlanDepartment::class, 'createFromDiscriminatorValue'])),
             'departmentTemplate' => fn(ParseNode $n) => $o->setDepartmentTemplate($n->getObjectValue([DepartmentTemplate::class, 'createFromDiscriminatorValue'])),
             'filePlanReference' => fn(ParseNode $n) => $o->setFilePlanReference($n->getObjectValue([FilePlanReference::class, 'createFromDiscriminatorValue'])),
             'filePlanReferenceTemplate' => fn(ParseNode $n) => $o->setFilePlanReferenceTemplate($n->getObjectValue([FilePlanReferenceTemplate::class, 'createFromDiscriminatorValue'])),
@@ -185,9 +185,9 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Sets the authority property value. Represents the file plan descriptor of type authority applied to a particular retention label.
-     * @param Authority|null $value Value to set for the authority property.
+     * @param FilePlanAuthority|null $value Value to set for the authority property.
     */
-    public function setAuthority(?Authority $value): void {
+    public function setAuthority(?FilePlanAuthority $value): void {
         $this->getBackingStore()->set('authority', $value);
     }
 
@@ -201,9 +201,9 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     * @param AppliedCategory|null $value Value to set for the category property.
+     * @param FilePlanAppliedCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?AppliedCategory $value): void {
+    public function setCategory(?FilePlanAppliedCategory $value): void {
         $this->getBackingStore()->set('category', $value);
     }
 
@@ -217,9 +217,9 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Sets the citation property value. Represents the file plan descriptor of type citation applied to a particular retention label.
-     * @param Citation|null $value Value to set for the citation property.
+     * @param FilePlanCitation|null $value Value to set for the citation property.
     */
-    public function setCitation(?Citation $value): void {
+    public function setCitation(?FilePlanCitation $value): void {
         $this->getBackingStore()->set('citation', $value);
     }
 
@@ -233,9 +233,9 @@ class FilePlanDescriptor extends Entity implements Parsable
 
     /**
      * Sets the department property value. Represents the file plan descriptor of type department applied to a particular retention label.
-     * @param Department|null $value Value to set for the department property.
+     * @param FilePlanDepartment|null $value Value to set for the department property.
     */
-    public function setDepartment(?Department $value): void {
+    public function setDepartment(?FilePlanDepartment $value): void {
         $this->getBackingStore()->set('department', $value);
     }
 

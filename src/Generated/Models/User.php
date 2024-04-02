@@ -851,6 +851,7 @@ class User extends DirectoryObject implements Parsable
                 /** @var array<string>|null $val */
                 $this->setInterests($val);
             },
+            'invitedBy' => fn(ParseNode $n) => $o->setInvitedBy($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'isLicenseReconciliationNeeded' => fn(ParseNode $n) => $o->setIsLicenseReconciliationNeeded($n->getBooleanValue()),
             'isManagementRestricted' => fn(ParseNode $n) => $o->setIsManagementRestricted($n->getBooleanValue()),
             'isResourceAccount' => fn(ParseNode $n) => $o->setIsResourceAccount($n->getBooleanValue()),
@@ -1111,6 +1112,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'interests'");
+    }
+
+    /**
+     * Gets the invitedBy property value. The invitedBy property
+     * @return DirectoryObject|null
+    */
+    public function getInvitedBy(): ?DirectoryObject {
+        $val = $this->getBackingStore()->get('invitedBy');
+        if (is_null($val) || $val instanceof DirectoryObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'invitedBy'");
     }
 
     /**
@@ -2192,7 +2205,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the userType property value. A String value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
+     * Gets the userType property value. A String value that can be used to classify user types in your directory. The possible values are Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
      * @return string|null
     */
     public function getUserType(): ?string {
@@ -2301,6 +2314,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
         $writer->writeObjectValue('insights', $this->getInsights());
         $writer->writeCollectionOfPrimitiveValues('interests', $this->getInterests());
+        $writer->writeObjectValue('invitedBy', $this->getInvitedBy());
         $writer->writeBooleanValue('isLicenseReconciliationNeeded', $this->getIsLicenseReconciliationNeeded());
         $writer->writeBooleanValue('isManagementRestricted', $this->getIsManagementRestricted());
         $writer->writeBooleanValue('isResourceAccount', $this->getIsResourceAccount());
@@ -2916,6 +2930,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setInterests(?array $value): void {
         $this->getBackingStore()->set('interests', $value);
+    }
+
+    /**
+     * Sets the invitedBy property value. The invitedBy property
+     * @param DirectoryObject|null $value Value to set for the invitedBy property.
+    */
+    public function setInvitedBy(?DirectoryObject $value): void {
+        $this->getBackingStore()->set('invitedBy', $value);
     }
 
     /**
@@ -3591,7 +3613,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the userType property value. A String value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
+     * Sets the userType property value. A String value that can be used to classify user types in your directory. The possible values are Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
      * @param string|null $value Value to set for the userType property.
     */
     public function setUserType(?string $value): void {

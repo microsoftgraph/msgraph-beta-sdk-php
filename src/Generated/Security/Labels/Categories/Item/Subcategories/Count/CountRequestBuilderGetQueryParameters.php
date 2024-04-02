@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\SubCategories\Count;
+namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\Subcategories\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

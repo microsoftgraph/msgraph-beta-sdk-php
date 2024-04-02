@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\SubCategories\Item;
+namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a subCategoryTemplate object.
+ * When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
 */
-class SubCategoryTemplateItemRequestBuilderGetQueryParameters 
+class DispositionReviewStageStageNumberItemRequestBuilderGetQueryParameters 
 {
     /**
      * @QueryParameter("%24expand")
@@ -22,7 +22,7 @@ class SubCategoryTemplateItemRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new SubCategoryTemplateItemRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new DispositionReviewStageStageNumberItemRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

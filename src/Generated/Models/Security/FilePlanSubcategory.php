@@ -6,10 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SubCategoryTemplate extends FilePlanDescriptorTemplate implements Parsable 
+class FilePlanSubcategory extends FilePlanDescriptorBase implements Parsable 
 {
     /**
-     * Instantiates a new SubCategoryTemplate and sets the default values.
+     * Instantiates a new FilePlanSubcategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -18,10 +18,10 @@ class SubCategoryTemplate extends FilePlanDescriptorTemplate implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return SubCategoryTemplate
+     * @return FilePlanSubcategory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SubCategoryTemplate {
-        return new SubCategoryTemplate();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): FilePlanSubcategory {
+        return new FilePlanSubcategory();
     }
 
     /**

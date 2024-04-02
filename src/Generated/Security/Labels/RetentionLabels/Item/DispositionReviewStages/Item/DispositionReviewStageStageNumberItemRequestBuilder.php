@@ -14,15 +14,15 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 /**
  * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
 */
-class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder 
+class DispositionReviewStageStageNumberItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Instantiates a new DispositionReviewStageItemRequestBuilder and sets the default values.
+     * Instantiates a new DispositionReviewStageStageNumberItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2DstageNumber}{?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property dispositionReviewStages for security
-     * @param DispositionReviewStageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DispositionReviewStageStageNumberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DispositionReviewStageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DispositionReviewStageStageNumberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
-     * @param DispositionReviewStageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DispositionReviewStageStageNumberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DispositionReviewStage|null>
      * @throws Exception
     */
-    public function get(?DispositionReviewStageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DispositionReviewStageStageNumberItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property dispositionReviewStages in security
      * @param DispositionReviewStage $body The request body
-     * @param DispositionReviewStageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DispositionReviewStageStageNumberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DispositionReviewStage|null>
      * @throws Exception
     */
-    public function patch(DispositionReviewStage $body, ?DispositionReviewStageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DispositionReviewStage $body, ?DispositionReviewStageStageNumberItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,12 +75,12 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property dispositionReviewStages for security
-     * @param DispositionReviewStageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DispositionReviewStageStageNumberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DispositionReviewStageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DispositionReviewStageStageNumberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2Did}';
+        $requestInfo->urlTemplate = '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2DstageNumber}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -93,10 +93,10 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
-     * @param DispositionReviewStageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DispositionReviewStageStageNumberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DispositionReviewStageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DispositionReviewStageStageNumberItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,12 +115,12 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property dispositionReviewStages in security
      * @param DispositionReviewStage $body The request body
-     * @param DispositionReviewStageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DispositionReviewStageStageNumberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DispositionReviewStage $body, ?DispositionReviewStageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DispositionReviewStage $body, ?DispositionReviewStageStageNumberItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2Did}';
+        $requestInfo->urlTemplate = '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2DstageNumber}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {
@@ -135,10 +135,10 @@ class DispositionReviewStageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param string $rawUrl The raw URL to use for the request builder.
-     * @return DispositionReviewStageItemRequestBuilder
+     * @return DispositionReviewStageStageNumberItemRequestBuilder
     */
-    public function withUrl(string $rawUrl): DispositionReviewStageItemRequestBuilder {
-        return new DispositionReviewStageItemRequestBuilder($rawUrl, $this->requestAdapter);
+    public function withUrl(string $rawUrl): DispositionReviewStageStageNumberItemRequestBuilder {
+        return new DispositionReviewStageStageNumberItemRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

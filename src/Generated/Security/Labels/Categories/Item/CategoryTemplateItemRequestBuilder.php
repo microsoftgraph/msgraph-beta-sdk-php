@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\CategoryTemplate;
-use Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\SubCategories\SubCategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\Subcategories\SubcategoriesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -18,10 +18,10 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class CategoryTemplateItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the subCategories property of the microsoft.graph.security.categoryTemplate entity.
+     * Provides operations to manage the subcategories property of the microsoft.graph.security.categoryTemplate entity.
     */
-    public function subCategories(): SubCategoriesRequestBuilder {
-        return new SubCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function subcategories(): SubcategoriesRequestBuilder {
+        return new SubcategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

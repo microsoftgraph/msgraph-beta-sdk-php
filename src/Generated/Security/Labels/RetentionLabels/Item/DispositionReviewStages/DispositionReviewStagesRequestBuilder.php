@@ -8,7 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\DispositionReviewStage;
 use Microsoft\Graph\Beta\Generated\Models\Security\DispositionReviewStageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Item\DispositionReviewStageItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Item\DispositionReviewStageStageNumberItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -28,13 +28,13 @@ class DispositionReviewStagesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
-     * @param string $dispositionReviewStageId The unique identifier of dispositionReviewStage
-     * @return DispositionReviewStageItemRequestBuilder
+     * @param string $dispositionReviewStageStageNumber The unique identifier of dispositionReviewStage
+     * @return DispositionReviewStageStageNumberItemRequestBuilder
     */
-    public function byDispositionReviewStageId(string $dispositionReviewStageId): DispositionReviewStageItemRequestBuilder {
+    public function byDispositionReviewStageStageNumber(string $dispositionReviewStageStageNumber): DispositionReviewStageStageNumberItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['dispositionReviewStage%2Did'] = $dispositionReviewStageId;
-        return new DispositionReviewStageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['dispositionReviewStage%2DstageNumber'] = $dispositionReviewStageStageNumber;
+        return new DispositionReviewStageStageNumberItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
