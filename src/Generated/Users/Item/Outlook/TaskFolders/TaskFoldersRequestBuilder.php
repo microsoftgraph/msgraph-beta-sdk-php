@@ -111,7 +111,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(OutlookTaskFolder $body, ?TaskFoldersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/outlook/taskFolders';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

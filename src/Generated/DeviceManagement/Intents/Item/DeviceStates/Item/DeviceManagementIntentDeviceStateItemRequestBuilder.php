@@ -80,7 +80,7 @@ class DeviceManagementIntentDeviceStateItemRequestBuilder extends BaseRequestBui
     */
     public function toDeleteRequestInformation(?DeviceManagementIntentDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}/deviceStates/{deviceManagementIntentDeviceState%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DeviceManagementIntentDeviceStateItemRequestBuilder extends BaseRequestBui
     */
     public function toPatchRequestInformation(DeviceManagementIntentDeviceState $body, ?DeviceManagementIntentDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}/deviceStates/{deviceManagementIntentDeviceState%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

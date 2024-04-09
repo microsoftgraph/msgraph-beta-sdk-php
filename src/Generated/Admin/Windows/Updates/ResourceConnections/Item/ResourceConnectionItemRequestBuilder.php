@@ -46,11 +46,11 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an operationalInsightsConnection object.
+     * Read the properties and relationships of a resourceConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ResourceConnection|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-resourceconnection-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ResourceConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +82,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ResourceConnectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/resourceConnections/{resourceConnection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -94,7 +94,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an operationalInsightsConnection object.
+     * Read the properties and relationships of a resourceConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ResourceConnection $body, ?ResourceConnectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/resourceConnections/{resourceConnection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

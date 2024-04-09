@@ -91,7 +91,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?BusinessScenarioItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -131,7 +131,7 @@ class BusinessScenarioItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(BusinessScenario $body, ?BusinessScenarioItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

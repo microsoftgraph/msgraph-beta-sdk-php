@@ -167,7 +167,7 @@ class ComanagedDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagedDevice $body, ?ComanagedDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

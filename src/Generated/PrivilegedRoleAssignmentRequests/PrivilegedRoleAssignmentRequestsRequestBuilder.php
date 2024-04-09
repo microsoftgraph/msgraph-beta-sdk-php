@@ -117,7 +117,7 @@ class PrivilegedRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PrivilegedRoleAssignmentRequest $body, ?PrivilegedRoleAssignmentRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/privilegedRoleAssignmentRequests';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

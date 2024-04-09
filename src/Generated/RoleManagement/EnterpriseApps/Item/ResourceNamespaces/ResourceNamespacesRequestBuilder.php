@@ -110,7 +110,7 @@ class ResourceNamespacesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(UnifiedRbacResourceNamespace $body, ?ResourceNamespacesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/roleManagement/enterpriseApps/{rbacApplication%2Did}/resourceNamespaces';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

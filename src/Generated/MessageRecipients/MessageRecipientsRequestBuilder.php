@@ -109,7 +109,7 @@ class MessageRecipientsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MessageRecipient $body, ?MessageRecipientsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/messageRecipients';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

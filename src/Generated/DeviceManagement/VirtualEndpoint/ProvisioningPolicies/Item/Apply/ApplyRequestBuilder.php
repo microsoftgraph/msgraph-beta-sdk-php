@@ -30,11 +30,12 @@ class ApplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action apply
+     * Apply the current provisioning policy configuration to all Cloud PC devices under a specified policy. Currently, the region is the only policy setting that you can apply.
      * @param ApplyPostRequestBody $body The request body
      * @param ApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-apply?view=graph-rest-1.0 Find more info here
     */
     public function post(ApplyPostRequestBody $body, ?ApplyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ApplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action apply
+     * Apply the current provisioning policy configuration to all Cloud PC devices under a specified policy. Currently, the region is the only policy setting that you can apply.
      * @param ApplyPostRequestBody $body The request body
      * @param ApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

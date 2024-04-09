@@ -47,11 +47,11 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an azureDataLakeConnector object.
+     * Delete an industryDataConnector object.
      * @param IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -93,13 +93,13 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an azureDataLakeConnector object.
+     * Delete an industryDataConnector object.
      * @param IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/dataConnectors/{industryDataConnector%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +139,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(IndustryDataConnector $body, ?IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/dataConnectors/{industryDataConnector%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

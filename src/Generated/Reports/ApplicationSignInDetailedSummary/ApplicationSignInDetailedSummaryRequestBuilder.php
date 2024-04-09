@@ -110,7 +110,7 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/applicationSignInDetailedSummary';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

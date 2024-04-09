@@ -83,7 +83,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     */
     public function toDeleteRequestInformation(?PlannerPlanConfigurationLocalizationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration/localizations/{plannerPlanConfigurationLocalization%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class PlannerPlanConfigurationLocalizationItemRequestBuilder extends BaseRequest
     */
     public function toPatchRequestInformation(PlannerPlanConfigurationLocalization $body, ?PlannerPlanConfigurationLocalizationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration/localizations/{plannerPlanConfigurationLocalization%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

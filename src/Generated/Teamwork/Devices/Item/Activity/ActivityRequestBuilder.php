@@ -81,7 +81,7 @@ class ActivityRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ActivityRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/activity';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class ActivityRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(TeamworkDeviceActivity $body, ?ActivityRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/activity';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

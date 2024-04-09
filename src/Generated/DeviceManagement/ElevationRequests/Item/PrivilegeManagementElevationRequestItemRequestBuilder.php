@@ -104,7 +104,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     */
     public function toDeleteRequestInformation(?PrivilegeManagementElevationRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -144,7 +144,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     */
     public function toPatchRequestInformation(PrivilegeManagementElevationRequest $body, ?PrivilegeManagementElevationRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

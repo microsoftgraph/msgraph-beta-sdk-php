@@ -81,7 +81,7 @@ class QuotaRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?QuotaRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/connections/{externalConnection%2Did}/quota';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class QuotaRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ConnectionQuota $body, ?QuotaRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/connections/{externalConnection%2Did}/quota';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

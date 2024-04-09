@@ -80,7 +80,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/education/me/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}/dependentResources/{educationAssignmentResource%2Did1}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(EducationAssignmentResource $body, ?EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/education/me/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}/dependentResources/{educationAssignmentResource%2Did1}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

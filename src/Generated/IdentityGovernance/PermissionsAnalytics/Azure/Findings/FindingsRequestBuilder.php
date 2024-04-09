@@ -109,7 +109,7 @@ class FindingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(Finding $body, ?FindingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsAnalytics/azure/findings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

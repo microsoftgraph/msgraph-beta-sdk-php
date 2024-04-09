@@ -35,12 +35,12 @@ class FilePlanDescriptorBase implements AdditionalDataHolder, BackedModel, Parsa
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.security.appliedCategory': return new AppliedCategory();
-                case '#microsoft.graph.security.authority': return new Authority();
-                case '#microsoft.graph.security.citation': return new Citation();
-                case '#microsoft.graph.security.department': return new Department();
+                case '#microsoft.graph.security.filePlanAppliedCategory': return new FilePlanAppliedCategory();
+                case '#microsoft.graph.security.filePlanAuthority': return new FilePlanAuthority();
+                case '#microsoft.graph.security.filePlanCitation': return new FilePlanCitation();
+                case '#microsoft.graph.security.filePlanDepartment': return new FilePlanDepartment();
                 case '#microsoft.graph.security.filePlanReference': return new FilePlanReference();
-                case '#microsoft.graph.security.subCategory': return new SubCategory();
+                case '#microsoft.graph.security.filePlanSubcategory': return new FilePlanSubcategory();
             }
         }
         return new FilePlanDescriptorBase();
@@ -68,7 +68,7 @@ class FilePlanDescriptorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the displayName property value. Unique string that defines the name for each file plan descriptor associated with a particular retention label.
+     * Gets the displayName property value. Unique string that defines the name for the file plan descriptor associated with a particular retention label.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -130,7 +130,7 @@ class FilePlanDescriptorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the displayName property value. Unique string that defines the name for each file plan descriptor associated with a particular retention label.
+     * Sets the displayName property value. Unique string that defines the name for the file plan descriptor associated with a particular retention label.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

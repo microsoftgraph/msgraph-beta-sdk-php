@@ -80,7 +80,7 @@ class CatalogEntryItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CatalogEntryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/catalog/entries/{catalogEntry%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class CatalogEntryItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CatalogEntry $body, ?CatalogEntryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/catalog/entries/{catalogEntry%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

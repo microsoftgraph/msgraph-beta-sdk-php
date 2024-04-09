@@ -109,7 +109,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(TeamTemplateDefinition $body, ?DefinitionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

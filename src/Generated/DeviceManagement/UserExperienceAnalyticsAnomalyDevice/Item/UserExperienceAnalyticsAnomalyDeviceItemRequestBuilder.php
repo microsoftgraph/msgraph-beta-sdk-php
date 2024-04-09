@@ -80,7 +80,7 @@ class UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder extends BaseRequest
     */
     public function toDeleteRequestInformation(?UserExperienceAnalyticsAnomalyDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsAnomalyDevice/{userExperienceAnalyticsAnomalyDevice%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder extends BaseRequest
     */
     public function toPatchRequestInformation(UserExperienceAnalyticsAnomalyDevice $body, ?UserExperienceAnalyticsAnomalyDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsAnomalyDevice/{userExperienceAnalyticsAnomalyDevice%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

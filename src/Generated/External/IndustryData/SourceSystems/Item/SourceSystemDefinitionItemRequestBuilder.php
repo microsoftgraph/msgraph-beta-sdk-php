@@ -83,7 +83,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/sourceSystems/{sourceSystemDefinition%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(SourceSystemDefinition $body, ?SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/sourceSystems/{sourceSystemDefinition%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

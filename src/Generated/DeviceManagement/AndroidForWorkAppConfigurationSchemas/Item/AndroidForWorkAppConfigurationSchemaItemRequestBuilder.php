@@ -80,7 +80,7 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
     */
     public function toDeleteRequestInformation(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidForWorkAppConfigurationSchemas/{androidForWorkAppConfigurationSchema%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
     */
     public function toPatchRequestInformation(AndroidForWorkAppConfigurationSchema $body, ?AndroidForWorkAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidForWorkAppConfigurationSchemas/{androidForWorkAppConfigurationSchema%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

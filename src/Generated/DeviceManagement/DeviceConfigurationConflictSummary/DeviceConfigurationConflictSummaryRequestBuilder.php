@@ -109,7 +109,7 @@ class DeviceConfigurationConflictSummaryRequestBuilder extends BaseRequestBuilde
     */
     public function toPostRequestInformation(DeviceConfigurationConflictSummary $body, ?DeviceConfigurationConflictSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceConfigurationConflictSummary';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -78,11 +78,11 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatableAsset object.
+     * Read the properties of an azureADDevice object.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAsset|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-updatableasset-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-azureaddevice-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UpdatableAssetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -114,7 +114,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?UpdatableAssetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/updatableAssets/{updatableAsset%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -126,7 +126,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatableAsset object.
+     * Read the properties of an azureADDevice object.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -154,7 +154,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(UpdatableAsset $body, ?UpdatableAssetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/updatableAssets/{updatableAsset%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

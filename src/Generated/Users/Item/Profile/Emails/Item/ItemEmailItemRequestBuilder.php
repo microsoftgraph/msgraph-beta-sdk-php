@@ -83,7 +83,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ItemEmailItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/emails/{itemEmail%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ItemEmail $body, ?ItemEmailItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/emails/{itemEmail%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

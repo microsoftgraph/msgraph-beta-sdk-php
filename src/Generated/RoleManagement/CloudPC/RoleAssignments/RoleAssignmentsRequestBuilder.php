@@ -111,7 +111,7 @@ class RoleAssignmentsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(UnifiedRoleAssignmentMultiple $body, ?RoleAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/roleManagement/cloudPC/roleAssignments';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

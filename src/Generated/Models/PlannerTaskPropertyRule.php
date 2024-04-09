@@ -221,7 +221,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the forms property value. The forms property
+     * Gets the forms property value. Rules and restrictions for forms. Allowed overrides are userCreated and applicationCreated. The following are the accepted values for the default rule and individual overrides: allow, add, addResponse, remove, update, block.
      * @return PlannerFieldRules|null
     */
     public function getForms(): ?PlannerFieldRules {
@@ -438,7 +438,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Sets the forms property value. The forms property
+     * Sets the forms property value. Rules and restrictions for forms. Allowed overrides are userCreated and applicationCreated. The following are the accepted values for the default rule and individual overrides: allow, add, addResponse, remove, update, block.
      * @param PlannerFieldRules|null $value Value to set for the forms property.
     */
     public function setForms(?PlannerFieldRules $value): void {

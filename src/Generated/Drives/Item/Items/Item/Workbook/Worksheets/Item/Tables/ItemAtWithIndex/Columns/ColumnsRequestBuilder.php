@@ -36,7 +36,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
      * @param ColumnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookTableColumnCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0 Find more info here
     */
     public function get(?ColumnsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,7 +91,7 @@ class ColumnsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(WorkbookTableColumn $body, ?ColumnsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/itemAt(index={index})/columns';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

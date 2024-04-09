@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Workplace\SensorDevicesWithDeviceId;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get sensorDevices from workplace
+ * Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
 */
 class SensorDevicesWithDeviceIdRequestBuilderGetQueryParameters 
 {

@@ -110,7 +110,7 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(RemoteNetworkHealthEvent $body, ?RemoteNetworksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/remoteNetworks';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

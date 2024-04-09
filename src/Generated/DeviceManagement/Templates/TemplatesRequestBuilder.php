@@ -117,7 +117,7 @@ class TemplatesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementTemplate $body, ?TemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/templates';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

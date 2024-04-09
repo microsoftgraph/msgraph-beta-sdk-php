@@ -88,7 +88,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/mobilityManagementPolicies/{mobilityManagementPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/mobilityManagementPolicies/{mobilityManagementPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -52,7 +52,7 @@ class RelationshipsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of relationships for this mobile app.
+     * The set of direct relationships for this app.
      * @param RelationshipsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppRelationshipCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class RelationshipsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of relationships for this mobile app.
+     * The set of direct relationships for this app.
      * @param RelationshipsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,7 +109,7 @@ class RelationshipsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MobileAppRelationship $body, ?RelationshipsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.macOSLobApp/relationships';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

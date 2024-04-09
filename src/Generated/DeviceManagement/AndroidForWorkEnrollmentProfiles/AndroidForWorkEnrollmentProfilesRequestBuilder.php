@@ -109,7 +109,7 @@ class AndroidForWorkEnrollmentProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidForWorkEnrollmentProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -110,7 +110,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ForwardingProfile $body, ?ForwardingProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/forwardingProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

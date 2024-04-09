@@ -120,7 +120,7 @@ class PendingAccessReviewInstancesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AccessReviewInstance $body, ?PendingAccessReviewInstancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

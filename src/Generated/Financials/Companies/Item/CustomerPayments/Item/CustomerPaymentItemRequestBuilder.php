@@ -88,7 +88,7 @@ class CustomerPaymentItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CustomerPaymentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/customerPayments/{customerPayment%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class CustomerPaymentItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CustomerPayment $body, ?CustomerPaymentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/customerPayments/{customerPayment%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -81,7 +81,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
     */
     public function toDeleteRequestInformation(?CrossCloudGovernmentOrganizationMappingRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/crossCloudGovernmentOrganizationMapping';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
     */
     public function toPatchRequestInformation(CloudPcCrossCloudGovernmentOrganizationMapping $body, ?CrossCloudGovernmentOrganizationMappingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/crossCloudGovernmentOrganizationMapping';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

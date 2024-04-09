@@ -82,7 +82,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/accessReviews/policy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AccessReviewPolicy $body, ?PolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/accessReviews/policy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

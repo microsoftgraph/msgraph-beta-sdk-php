@@ -111,7 +111,7 @@ class AccessReviewsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AccessReview $body, ?AccessReviewsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/accessReviews';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

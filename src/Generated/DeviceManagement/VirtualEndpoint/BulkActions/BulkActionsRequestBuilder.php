@@ -109,7 +109,7 @@ class BulkActionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CloudPcBulkAction $body, ?BulkActionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/bulkActions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

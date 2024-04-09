@@ -117,7 +117,7 @@ class PrivilegedApprovalRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PrivilegedApproval $body, ?PrivilegedApprovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/privilegedApproval';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

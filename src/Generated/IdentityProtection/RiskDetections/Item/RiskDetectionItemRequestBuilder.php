@@ -45,11 +45,11 @@ class RiskDetectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a riskDetection object.
+     * Retrieve the properties of a collection of riskDetection objects.
      * @param RiskDetectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskDetection|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RiskDetectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +81,7 @@ class RiskDetectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RiskDetectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityProtection/riskDetections/{riskDetection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -93,7 +93,7 @@ class RiskDetectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a riskDetection object.
+     * Retrieve the properties of a collection of riskDetection objects.
      * @param RiskDetectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +121,7 @@ class RiskDetectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RiskDetection $body, ?RiskDetectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityProtection/riskDetections/{riskDetection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

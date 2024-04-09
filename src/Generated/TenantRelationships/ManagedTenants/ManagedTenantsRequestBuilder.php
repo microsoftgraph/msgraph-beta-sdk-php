@@ -376,7 +376,7 @@ class ManagedTenantsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ManagedTenantsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -416,7 +416,7 @@ class ManagedTenantsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ManagedTenant $body, ?ManagedTenantsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

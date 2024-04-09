@@ -119,7 +119,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AccessPackageCatalog $body, ?AccessPackageCatalogsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageCatalogs';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

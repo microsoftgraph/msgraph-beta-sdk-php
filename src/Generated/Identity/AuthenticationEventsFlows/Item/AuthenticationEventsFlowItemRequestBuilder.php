@@ -99,7 +99,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AuthenticationEventsFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +139,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AuthenticationEventsFlow $body, ?AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

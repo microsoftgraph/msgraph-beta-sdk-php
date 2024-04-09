@@ -122,7 +122,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -162,7 +162,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeploymentAudience $body, ?DeploymentAudienceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

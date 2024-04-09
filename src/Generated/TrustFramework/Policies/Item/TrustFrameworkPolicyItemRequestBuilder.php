@@ -89,7 +89,7 @@ class TrustFrameworkPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?TrustFrameworkPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/trustFramework/policies/{trustFrameworkPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -129,7 +129,7 @@ class TrustFrameworkPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(TrustFrameworkPolicy $body, ?TrustFrameworkPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/trustFramework/policies/{trustFrameworkPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

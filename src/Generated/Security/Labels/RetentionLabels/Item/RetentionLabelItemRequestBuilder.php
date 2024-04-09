@@ -106,7 +106,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RetentionLabelItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -146,7 +146,7 @@ class RetentionLabelItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RetentionLabel $body, ?RetentionLabelItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

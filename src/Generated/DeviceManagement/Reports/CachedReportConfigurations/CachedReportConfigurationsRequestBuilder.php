@@ -109,7 +109,7 @@ class CachedReportConfigurationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementCachedReportConfiguration $body, ?CachedReportConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/reports/cachedReportConfigurations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

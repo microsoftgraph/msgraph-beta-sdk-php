@@ -110,7 +110,7 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ReferenceDefinition $body, ?ReferenceDefinitionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/referenceDefinitions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

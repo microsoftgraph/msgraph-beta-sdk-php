@@ -83,7 +83,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?SkillProficiencyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/skills/{skillProficiency%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class SkillProficiencyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(SkillProficiency $body, ?SkillProficiencyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/skills/{skillProficiency%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

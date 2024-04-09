@@ -80,7 +80,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?DeviceLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/deviceLinks/{deviceLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceLink $body, ?DeviceLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/deviceLinks/{deviceLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

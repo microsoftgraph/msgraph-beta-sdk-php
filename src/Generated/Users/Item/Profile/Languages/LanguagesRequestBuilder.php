@@ -111,7 +111,7 @@ class LanguagesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(LanguageProficiency $body, ?LanguagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/languages';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

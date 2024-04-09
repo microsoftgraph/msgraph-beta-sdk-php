@@ -109,7 +109,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(TeamsAsyncOperation $body, ?OperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/operations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

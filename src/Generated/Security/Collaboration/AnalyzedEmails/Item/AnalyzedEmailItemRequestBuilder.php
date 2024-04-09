@@ -81,7 +81,7 @@ class AnalyzedEmailItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AnalyzedEmailItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/collaboration/analyzedEmails/{analyzedEmail%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class AnalyzedEmailItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AnalyzedEmail $body, ?AnalyzedEmailItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/collaboration/analyzedEmails/{analyzedEmail%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

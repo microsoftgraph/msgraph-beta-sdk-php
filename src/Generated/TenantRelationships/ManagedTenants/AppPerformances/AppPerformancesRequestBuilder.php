@@ -109,7 +109,7 @@ class AppPerformancesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AppPerformance $body, ?AppPerformancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/appPerformances';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

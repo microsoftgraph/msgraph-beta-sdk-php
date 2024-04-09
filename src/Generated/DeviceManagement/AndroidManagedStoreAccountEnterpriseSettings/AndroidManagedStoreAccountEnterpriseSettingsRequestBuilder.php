@@ -144,7 +144,7 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
     */
     public function toDeleteRequestInformation(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -184,7 +184,7 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
     */
     public function toPatchRequestInformation(AndroidManagedStoreAccountEnterpriseSettings $body, ?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

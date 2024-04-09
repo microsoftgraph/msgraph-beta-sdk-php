@@ -96,7 +96,7 @@ class CompanyInformationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CompanyInformation $body, ?CompanyInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/companyInformation/{companyInformation%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

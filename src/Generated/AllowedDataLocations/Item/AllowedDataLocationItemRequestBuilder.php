@@ -80,7 +80,7 @@ class AllowedDataLocationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AllowedDataLocationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/allowedDataLocations/{allowedDataLocation%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class AllowedDataLocationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AllowedDataLocation $body, ?AllowedDataLocationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/allowedDataLocations/{allowedDataLocation%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

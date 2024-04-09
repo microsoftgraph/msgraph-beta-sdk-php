@@ -80,7 +80,7 @@ class AppPerformanceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AppPerformanceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/appPerformances/{appPerformance%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class AppPerformanceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AppPerformance $body, ?AppPerformanceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/appPerformances/{appPerformance%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

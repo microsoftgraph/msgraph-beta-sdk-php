@@ -143,7 +143,7 @@ class AssignmentFiltersRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceAndAppManagementAssignmentFilter $body, ?AssignmentFiltersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/assignmentFilters';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

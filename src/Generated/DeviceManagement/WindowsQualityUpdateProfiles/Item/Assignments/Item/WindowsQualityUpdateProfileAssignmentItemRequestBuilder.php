@@ -80,7 +80,7 @@ class WindowsQualityUpdateProfileAssignmentItemRequestBuilder extends BaseReques
     */
     public function toDeleteRequestInformation(?WindowsQualityUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsQualityUpdateProfiles/{windowsQualityUpdateProfile%2Did}/assignments/{windowsQualityUpdateProfileAssignment%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class WindowsQualityUpdateProfileAssignmentItemRequestBuilder extends BaseReques
     */
     public function toPatchRequestInformation(WindowsQualityUpdateProfileAssignment $body, ?WindowsQualityUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsQualityUpdateProfiles/{windowsQualityUpdateProfile%2Did}/assignments/{windowsQualityUpdateProfileAssignment%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

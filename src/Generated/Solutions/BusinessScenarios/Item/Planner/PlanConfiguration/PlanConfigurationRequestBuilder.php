@@ -90,7 +90,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PlanConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -130,7 +130,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PlannerPlanConfiguration $body, ?PlanConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/planConfiguration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

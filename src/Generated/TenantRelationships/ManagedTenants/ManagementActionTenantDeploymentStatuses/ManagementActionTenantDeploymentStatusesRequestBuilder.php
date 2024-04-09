@@ -118,7 +118,7 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     */
     public function toPostRequestInformation(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementActionTenantDeploymentStatuses';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

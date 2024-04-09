@@ -109,7 +109,7 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AccessPackageSubject $body, ?SubjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/subjects';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

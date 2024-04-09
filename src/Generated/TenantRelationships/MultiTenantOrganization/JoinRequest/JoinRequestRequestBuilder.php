@@ -90,7 +90,7 @@ class JoinRequestRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MultiTenantOrganizationJoinRequestRecord $body, ?JoinRequestRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/multiTenantOrganization/joinRequest';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

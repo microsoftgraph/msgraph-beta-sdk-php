@@ -80,7 +80,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
     */
     public function toDeleteRequestInformation(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthRuntimeDetails';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
     */
     public function toPatchRequestInformation(UserExperienceAnalyticsBatteryHealthRuntimeDetails $body, ?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthRuntimeDetails';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

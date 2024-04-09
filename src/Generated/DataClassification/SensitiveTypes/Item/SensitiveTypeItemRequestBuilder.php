@@ -80,7 +80,7 @@ class SensitiveTypeItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?SensitiveTypeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/sensitiveTypes/{sensitiveType%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class SensitiveTypeItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(SensitiveType $body, ?SensitiveTypeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/sensitiveTypes/{sensitiveType%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

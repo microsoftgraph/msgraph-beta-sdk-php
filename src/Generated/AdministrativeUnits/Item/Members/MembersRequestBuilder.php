@@ -166,7 +166,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DirectoryObject $body, ?MembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/administrativeUnits/{administrativeUnit%2Did}/members';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -109,7 +109,7 @@ class ExactMatchUploadAgentsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ExactMatchUploadAgent $body, ?ExactMatchUploadAgentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/exactMatchUploadAgents';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

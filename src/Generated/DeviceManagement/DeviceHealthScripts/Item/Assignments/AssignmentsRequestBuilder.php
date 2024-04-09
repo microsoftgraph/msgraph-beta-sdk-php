@@ -109,7 +109,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceHealthScriptAssignment $body, ?AssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/assignments';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

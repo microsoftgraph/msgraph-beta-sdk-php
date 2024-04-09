@@ -67,12 +67,12 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow:
+     * Create a new inboundFileFlow object. The following prerequisite resources are required when you create an inboundFileFlow:
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-post?view=graph-rest-1.0 Find more info here
     */
     public function post(InboundFlow $body, ?InboundFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -104,14 +104,14 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow:
+     * Create a new inboundFileFlow object. The following prerequisite resources are required when you create an inboundFileFlow:
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPostRequestInformation(InboundFlow $body, ?InboundFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/inboundFlows';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

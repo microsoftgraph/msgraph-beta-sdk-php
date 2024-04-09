@@ -80,7 +80,7 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?DataLossPreventionPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/informationProtection/dataLossPreventionPolicies/{dataLossPreventionPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DataLossPreventionPolicy $body, ?DataLossPreventionPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/informationProtection/dataLossPreventionPolicies/{dataLossPreventionPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

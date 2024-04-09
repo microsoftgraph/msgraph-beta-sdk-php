@@ -45,10 +45,11 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get itemInsights from admin
+     * Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InsightsSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/peopleadminsettings-list-iteminsights?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemInsightsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in admin
+     * Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
      * @param InsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InsightsSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/insightssettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(InsightsSettings $body, ?ItemInsightsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -80,7 +82,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ItemInsightsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/people/itemInsights';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -92,7 +94,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get itemInsights from admin
+     * Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,14 +115,14 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in admin
+     * Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
      * @param InsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPatchRequestInformation(InsightsSettings $body, ?ItemInsightsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/people/itemInsights';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

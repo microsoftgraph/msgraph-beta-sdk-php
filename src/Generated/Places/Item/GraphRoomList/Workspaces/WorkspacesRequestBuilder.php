@@ -109,7 +109,7 @@ class WorkspacesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(Workspace $body, ?WorkspacesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/places/{place%2Did}/graph.roomList/workspaces';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

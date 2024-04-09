@@ -109,7 +109,7 @@ class ExactMatchDataStoresRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ExactMatchDataStore $body, ?ExactMatchDataStoresRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/exactMatchDataStores';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

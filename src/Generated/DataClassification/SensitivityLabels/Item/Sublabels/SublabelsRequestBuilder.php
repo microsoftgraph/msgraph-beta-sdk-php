@@ -117,7 +117,7 @@ class SublabelsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(SensitivityLabel $body, ?SublabelsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/sensitivityLabels/{sensitivityLabel%2Did}/sublabels';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

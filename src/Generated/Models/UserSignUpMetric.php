@@ -26,6 +26,18 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
+     * Gets the appId property value. The appId property
+     * @return string|null
+    */
+    public function getAppId(): ?string {
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
+    }
+
+    /**
      * Gets the count property value. The total number of users who signed up in the specified period. Supports $filter (eq).
      * @return int|null
     */
@@ -35,6 +47,18 @@ class UserSignUpMetric extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'count'");
+    }
+
+    /**
+     * Gets the country property value. The country property
+     * @return string|null
+    */
+    public function getCountry(): ?string {
+        $val = $this->getBackingStore()->get('country');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'country'");
     }
 
     /**
@@ -56,10 +80,38 @@ class UserSignUpMetric extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
+            'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'factDate' => fn(ParseNode $n) => $o->setFactDate($n->getDateValue()),
+            'identityProvider' => fn(ParseNode $n) => $o->setIdentityProvider($n->getStringValue()),
+            'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
             'os' => fn(ParseNode $n) => $o->setOs($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the identityProvider property value. The identityProvider property
+     * @return string|null
+    */
+    public function getIdentityProvider(): ?string {
+        $val = $this->getBackingStore()->get('identityProvider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityProvider'");
+    }
+
+    /**
+     * Gets the language property value. The language property
+     * @return string|null
+    */
+    public function getLanguage(): ?string {
+        $val = $this->getBackingStore()->get('language');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'language'");
     }
 
     /**
@@ -80,9 +132,21 @@ class UserSignUpMetric extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeIntegerValue('count', $this->getCount());
+        $writer->writeStringValue('country', $this->getCountry());
         $writer->writeDateValue('factDate', $this->getFactDate());
+        $writer->writeStringValue('identityProvider', $this->getIdentityProvider());
+        $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeStringValue('os', $this->getOs());
+    }
+
+    /**
+     * Sets the appId property value. The appId property
+     * @param string|null $value Value to set for the appId property.
+    */
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
@@ -94,11 +158,35 @@ class UserSignUpMetric extends Entity implements Parsable
     }
 
     /**
+     * Sets the country property value. The country property
+     * @param string|null $value Value to set for the country property.
+    */
+    public function setCountry(?string $value): void {
+        $this->getBackingStore()->set('country', $value);
+    }
+
+    /**
      * Sets the factDate property value. The date of the user insight.
      * @param Date|null $value Value to set for the factDate property.
     */
     public function setFactDate(?Date $value): void {
         $this->getBackingStore()->set('factDate', $value);
+    }
+
+    /**
+     * Sets the identityProvider property value. The identityProvider property
+     * @param string|null $value Value to set for the identityProvider property.
+    */
+    public function setIdentityProvider(?string $value): void {
+        $this->getBackingStore()->set('identityProvider', $value);
+    }
+
+    /**
+     * Sets the language property value. The language property
+     * @param string|null $value Value to set for the language property.
+    */
+    public function setLanguage(?string $value): void {
+        $this->getBackingStore()->set('language', $value);
     }
 
     /**

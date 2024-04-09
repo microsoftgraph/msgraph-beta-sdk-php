@@ -109,7 +109,7 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/groupPolicyMigrationReports/{groupPolicyMigrationReport%2Did}/unsupportedGroupPolicyExtensions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

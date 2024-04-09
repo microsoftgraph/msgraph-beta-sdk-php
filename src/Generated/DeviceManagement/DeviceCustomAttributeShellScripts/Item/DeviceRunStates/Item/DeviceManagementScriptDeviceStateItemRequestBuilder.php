@@ -88,7 +88,7 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
     */
     public function toDeleteRequestInformation(?DeviceManagementScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceCustomAttributeShellScripts/{deviceCustomAttributeShellScript%2Did}/deviceRunStates/{deviceManagementScriptDeviceState%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
     */
     public function toPatchRequestInformation(DeviceManagementScriptDeviceState $body, ?DeviceManagementScriptDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceCustomAttributeShellScripts/{deviceCustomAttributeShellScript%2Did}/deviceRunStates/{deviceManagementScriptDeviceState%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

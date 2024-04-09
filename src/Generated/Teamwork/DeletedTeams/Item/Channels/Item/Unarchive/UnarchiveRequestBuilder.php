@@ -30,10 +30,11 @@ class UnarchiveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action unarchive
+     * Restore an archived channel. Unarchiving restores the ability for users to send messages and edit the channel. Channels are archived via the archive API. Unarchiving is an asynchronous operation; a channel is unarchived when the asynchronous unarchive operation completes successfully, which might occur after this method responds.
      * @param UnarchiveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/channel-unarchive?view=graph-rest-1.0 Find more info here
     */
     public function post(?UnarchiveRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class UnarchiveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action unarchive
+     * Restore an archived channel. Unarchiving restores the ability for users to send messages and edit the channel. Channels are archived via the archive API. Unarchiving is an asynchronous operation; a channel is unarchived when the asynchronous unarchive operation completes successfully, which might occur after this method responds.
      * @param UnarchiveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

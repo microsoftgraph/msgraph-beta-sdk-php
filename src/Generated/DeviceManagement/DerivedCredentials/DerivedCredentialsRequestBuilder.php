@@ -109,7 +109,7 @@ class DerivedCredentialsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementDerivedCredentialSettings $body, ?DerivedCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/derivedCredentials';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

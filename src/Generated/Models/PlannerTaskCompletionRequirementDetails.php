@@ -94,7 +94,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the formsRequirement property value. The formsRequirement property
+     * Gets the formsRequirement property value. Information about the requirements for completing the forms.
      * @return PlannerFormsRequirement|null
     */
     public function getFormsRequirement(): ?PlannerFormsRequirement {
@@ -162,7 +162,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the formsRequirement property value. The formsRequirement property
+     * Sets the formsRequirement property value. Information about the requirements for completing the forms.
      * @param PlannerFormsRequirement|null $value Value to set for the formsRequirement property.
     */
     public function setFormsRequirement(?PlannerFormsRequirement $value): void {

@@ -96,7 +96,7 @@ class ExactMatchDataStoreItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ExactMatchDataStoreItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -136,7 +136,7 @@ class ExactMatchDataStoreItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ExactMatchDataStore $body, ?ExactMatchDataStoreItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

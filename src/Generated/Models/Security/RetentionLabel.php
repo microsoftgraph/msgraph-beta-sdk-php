@@ -29,7 +29,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionAfterRetentionPeriod property value. Specifies the action to take on a document with this label applied during the retention period. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
+     * Gets the actionAfterRetentionPeriod property value. Specifies the action to take on the labeled document after the period specified by the retentionDuration property expires. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
      * @return ActionAfterRetentionPeriod|null
     */
     public function getActionAfterRetentionPeriod(): ?ActionAfterRetentionPeriod {
@@ -287,7 +287,7 @@ class RetentionLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionAfterRetentionPeriod property value. Specifies the action to take on a document with this label applied during the retention period. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
+     * Sets the actionAfterRetentionPeriod property value. Specifies the action to take on the labeled document after the period specified by the retentionDuration property expires. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
      * @param ActionAfterRetentionPeriod|null $value Value to set for the actionAfterRetentionPeriod property.
     */
     public function setActionAfterRetentionPeriod(?ActionAfterRetentionPeriod $value): void {

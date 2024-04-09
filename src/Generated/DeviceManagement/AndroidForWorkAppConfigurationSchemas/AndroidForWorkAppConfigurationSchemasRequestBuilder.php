@@ -109,7 +109,7 @@ class AndroidForWorkAppConfigurationSchemasRequestBuilder extends BaseRequestBui
     */
     public function toPostRequestInformation(AndroidForWorkAppConfigurationSchema $body, ?AndroidForWorkAppConfigurationSchemasRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidForWorkAppConfigurationSchemas';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

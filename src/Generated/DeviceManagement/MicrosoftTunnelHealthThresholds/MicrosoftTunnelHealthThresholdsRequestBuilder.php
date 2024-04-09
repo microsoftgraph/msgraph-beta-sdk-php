@@ -109,7 +109,7 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/microsoftTunnelHealthThresholds';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

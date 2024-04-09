@@ -80,7 +80,7 @@ class IpSecurityProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?IpSecurityProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/ipSecurityProfiles/{ipSecurityProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class IpSecurityProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(IpSecurityProfile $body, ?IpSecurityProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/ipSecurityProfiles/{ipSecurityProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

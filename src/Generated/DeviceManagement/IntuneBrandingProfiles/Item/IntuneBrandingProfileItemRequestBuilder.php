@@ -96,7 +96,7 @@ class IntuneBrandingProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?IntuneBrandingProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/intuneBrandingProfiles/{intuneBrandingProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -136,7 +136,7 @@ class IntuneBrandingProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(IntuneBrandingProfile $body, ?IntuneBrandingProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/intuneBrandingProfiles/{intuneBrandingProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

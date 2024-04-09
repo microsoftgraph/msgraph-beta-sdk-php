@@ -109,7 +109,7 @@ class ReusableSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementConfigurationSettingDefinition $body, ?ReusableSettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/reusableSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

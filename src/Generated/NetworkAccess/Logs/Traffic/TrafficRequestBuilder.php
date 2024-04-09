@@ -110,7 +110,7 @@ class TrafficRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(NetworkAccessTraffic $body, ?TrafficRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/traffic';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

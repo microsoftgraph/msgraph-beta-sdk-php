@@ -80,7 +80,7 @@ class ParentRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ParentRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/informationProtection/sensitivityLabels/{sensitivityLabel%2Did}/parent';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class ParentRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(SensitivityLabel $body, ?ParentRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/informationProtection/sensitivityLabels/{sensitivityLabel%2Did}/parent';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

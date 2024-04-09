@@ -109,7 +109,7 @@ class DataSharingConsentsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DataSharingConsent $body, ?DataSharingConsentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/dataSharingConsents';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -117,7 +117,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CaseOperation $body, ?OperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/operations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

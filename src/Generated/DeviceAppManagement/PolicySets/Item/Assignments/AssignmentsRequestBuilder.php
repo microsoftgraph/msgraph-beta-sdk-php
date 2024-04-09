@@ -109,7 +109,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PolicySetAssignment $body, ?AssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/policySets/{policySet%2Did}/assignments';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

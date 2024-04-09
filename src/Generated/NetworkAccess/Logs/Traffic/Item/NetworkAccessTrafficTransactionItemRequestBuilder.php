@@ -80,7 +80,7 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
     */
     public function toDeleteRequestInformation(?NetworkAccessTrafficTransactionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/traffic/{networkAccessTraffic%2DtransactionId}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
     */
     public function toPatchRequestInformation(NetworkAccessTraffic $body, ?NetworkAccessTrafficTransactionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/traffic/{networkAccessTraffic%2DtransactionId}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

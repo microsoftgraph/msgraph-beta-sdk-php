@@ -84,7 +84,7 @@ class RegistrationsWithUserIdRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RegistrationsWithUserIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(userId=\'{userId}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -124,7 +124,7 @@ class RegistrationsWithUserIdRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(VirtualEventRegistration $body, ?RegistrationsWithUserIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(userId=\'{userId}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

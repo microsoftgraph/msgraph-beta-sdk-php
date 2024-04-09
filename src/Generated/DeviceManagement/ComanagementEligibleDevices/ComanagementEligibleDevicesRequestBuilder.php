@@ -109,7 +109,7 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagementEligibleDevices';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -45,11 +45,11 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the federatedTokenValidationPolicy objects and their properties.
+     * Read the properties and relationships of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedTokenValidationPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/policyroot-list-federatedtokenvalidationpolicy?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/federatedtokenvalidationpolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +82,7 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?FederatedTokenValidationPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/federatedTokenValidationPolicy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -94,7 +94,7 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the federatedTokenValidationPolicy objects and their properties.
+     * Read the properties and relationships of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(FederatedTokenValidationPolicy $body, ?FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/federatedTokenValidationPolicy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

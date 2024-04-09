@@ -80,7 +80,7 @@ class ServiceNowConnectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ServiceNowConnectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/serviceNowConnections/{serviceNowConnection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class ServiceNowConnectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ServiceNowConnection $body, ?ServiceNowConnectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/serviceNowConnections/{serviceNowConnection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

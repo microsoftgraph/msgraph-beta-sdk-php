@@ -110,7 +110,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ReviewSet $body, ?ReviewSetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

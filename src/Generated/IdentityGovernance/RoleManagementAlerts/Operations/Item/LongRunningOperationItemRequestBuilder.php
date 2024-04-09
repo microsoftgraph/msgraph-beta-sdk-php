@@ -80,7 +80,7 @@ class LongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?LongRunningOperationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/roleManagementAlerts/operations/{longRunningOperation%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class LongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(LongRunningOperation $body, ?LongRunningOperationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/roleManagementAlerts/operations/{longRunningOperation%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

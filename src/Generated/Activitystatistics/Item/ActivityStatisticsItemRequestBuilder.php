@@ -80,7 +80,7 @@ class ActivityStatisticsItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ActivityStatisticsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/activitystatistics/{activityStatistics%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class ActivityStatisticsItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ActivityStatistics $body, ?ActivityStatisticsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/activitystatistics/{activityStatistics%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

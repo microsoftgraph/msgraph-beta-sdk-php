@@ -110,7 +110,7 @@ class ServicePlansRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CloudPcServicePlan $body, ?ServicePlansRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/servicePlans';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

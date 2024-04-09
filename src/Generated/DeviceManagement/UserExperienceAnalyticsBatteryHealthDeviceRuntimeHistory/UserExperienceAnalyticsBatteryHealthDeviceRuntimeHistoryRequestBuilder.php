@@ -109,7 +109,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder ext
     */
     public function toPostRequestInformation(UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory $body, ?UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

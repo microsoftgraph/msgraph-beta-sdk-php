@@ -99,7 +99,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?InboundFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/inboundFlows/{inboundFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +139,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(InboundFlow $body, ?InboundFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/inboundFlows/{inboundFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

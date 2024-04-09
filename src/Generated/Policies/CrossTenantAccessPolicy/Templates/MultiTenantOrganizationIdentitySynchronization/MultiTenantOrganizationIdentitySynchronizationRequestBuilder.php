@@ -90,7 +90,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     */
     public function toDeleteRequestInformation(?MultiTenantOrganizationIdentitySynchronizationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationIdentitySynchronization';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -130,7 +130,7 @@ class MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseR
     */
     public function toPatchRequestInformation(MultiTenantOrganizationIdentitySyncPolicyTemplate $body, ?MultiTenantOrganizationIdentitySynchronizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationIdentitySynchronization';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

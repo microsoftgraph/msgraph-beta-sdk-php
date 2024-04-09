@@ -153,7 +153,7 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ListItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/sites/{site%2Did}/lists/{list%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -193,7 +193,7 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(EscapedList $body, ?ListItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/sites/{site%2Did}/lists/{list%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

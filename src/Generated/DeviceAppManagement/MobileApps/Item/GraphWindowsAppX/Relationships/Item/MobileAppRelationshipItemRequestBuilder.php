@@ -45,7 +45,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of relationships for this mobile app.
+     * The set of direct relationships for this app.
      * @param MobileAppRelationshipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppRelationship|null>
      * @throws Exception
@@ -80,7 +80,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?MobileAppRelationshipItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsAppX/relationships/{mobileAppRelationship%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -92,7 +92,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of relationships for this mobile app.
+     * The set of direct relationships for this app.
      * @param MobileAppRelationshipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +120,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MobileAppRelationship $body, ?MobileAppRelationshipItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsAppX/relationships/{mobileAppRelationship%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

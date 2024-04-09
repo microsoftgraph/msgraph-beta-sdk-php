@@ -112,7 +112,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder exte
     */
     public function toDeleteRequestInformation(?WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -152,7 +152,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder exte
     */
     public function toPatchRequestInformation(WindowsDefenderApplicationControlSupplementalPolicy $body, ?WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

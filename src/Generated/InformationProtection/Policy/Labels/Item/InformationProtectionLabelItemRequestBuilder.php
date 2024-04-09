@@ -81,7 +81,7 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?InformationProtectionLabelItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/informationProtection/policy/labels/{informationProtectionLabel%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(InformationProtectionLabel $body, ?InformationProtectionLabelItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/informationProtection/policy/labels/{informationProtectionLabel%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

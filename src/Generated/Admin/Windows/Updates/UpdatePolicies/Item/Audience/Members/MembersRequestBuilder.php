@@ -142,7 +142,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(UpdatableAsset $body, ?MembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/audience/members';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

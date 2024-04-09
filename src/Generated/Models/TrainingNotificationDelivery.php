@@ -56,7 +56,7 @@ class TrainingNotificationDelivery implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the failedMessageDeliveryCount property value. The failedMessageDeliveryCount property
+     * Gets the failedMessageDeliveryCount property value. The number of users to whom mails couldn't be delivered.
      * @return int|null
     */
     public function getFailedMessageDeliveryCount(): ?int {
@@ -94,7 +94,7 @@ class TrainingNotificationDelivery implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the resolvedTargetsCount property value. The resolvedTargetsCount property
+     * Gets the resolvedTargetsCount property value. The number of users whose email address was successfully resolved from target users.
      * @return int|null
     */
     public function getResolvedTargetsCount(): ?int {
@@ -106,7 +106,7 @@ class TrainingNotificationDelivery implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the successfulMessageDeliveryCount property value. The successfulMessageDeliveryCount property
+     * Gets the successfulMessageDeliveryCount property value. The number of users who received a mail while the training campaign was in the 'in progress' state.
      * @return int|null
     */
     public function getSuccessfulMessageDeliveryCount(): ?int {
@@ -146,7 +146,7 @@ class TrainingNotificationDelivery implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the failedMessageDeliveryCount property value. The failedMessageDeliveryCount property
+     * Sets the failedMessageDeliveryCount property value. The number of users to whom mails couldn't be delivered.
      * @param int|null $value Value to set for the failedMessageDeliveryCount property.
     */
     public function setFailedMessageDeliveryCount(?int $value): void {
@@ -162,7 +162,7 @@ class TrainingNotificationDelivery implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the resolvedTargetsCount property value. The resolvedTargetsCount property
+     * Sets the resolvedTargetsCount property value. The number of users whose email address was successfully resolved from target users.
      * @param int|null $value Value to set for the resolvedTargetsCount property.
     */
     public function setResolvedTargetsCount(?int $value): void {
@@ -170,7 +170,7 @@ class TrainingNotificationDelivery implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the successfulMessageDeliveryCount property value. The successfulMessageDeliveryCount property
+     * Sets the successfulMessageDeliveryCount property value. The number of users who received a mail while the training campaign was in the 'in progress' state.
      * @param int|null $value Value to set for the successfulMessageDeliveryCount property.
     */
     public function setSuccessfulMessageDeliveryCount(?int $value): void {

@@ -117,6 +117,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the description property value. The description property
+     * @return string|null
+    */
+    public function getDescription(): ?string {
+        $val = $this->getBackingStore()->get('description');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
+    }
+
+    /**
      * Gets the destinationFQDN property value. Represents the Fully Qualified Domain Name (FQDN) of the destination host or server in a network communication. Supports $filter (eq) and $orderby.
      * @return string|null
     */
@@ -236,6 +248,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'applicationSnapshot' => fn(ParseNode $n) => $o->setApplicationSnapshot($n->getObjectValue([ApplicationSnapshot::class, 'createFromDiscriminatorValue'])),
             'connectionId' => fn(ParseNode $n) => $o->setConnectionId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'destinationFQDN' => fn(ParseNode $n) => $o->setDestinationFQDN($n->getStringValue()),
             'destinationIp' => fn(ParseNode $n) => $o->setDestinationIp($n->getStringValue()),
             'destinationPort' => fn(ParseNode $n) => $o->setDestinationPort($n->getIntegerValue()),
@@ -570,6 +583,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeObjectValue('applicationSnapshot', $this->getApplicationSnapshot());
         $writer->writeStringValue('connectionId', $this->getConnectionId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('destinationFQDN', $this->getDestinationFQDN());
         $writer->writeStringValue('destinationIp', $this->getDestinationIp());
         $writer->writeIntegerValue('destinationPort', $this->getDestinationPort());
@@ -660,6 +674,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the description property value. The description property
+     * @param string|null $value Value to set for the description property.
+    */
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**

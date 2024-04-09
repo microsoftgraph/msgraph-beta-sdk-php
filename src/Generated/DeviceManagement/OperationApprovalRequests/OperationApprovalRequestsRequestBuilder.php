@@ -143,7 +143,7 @@ class OperationApprovalRequestsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(OperationApprovalRequest $body, ?OperationApprovalRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/operationApprovalRequests';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

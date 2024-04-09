@@ -80,7 +80,7 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RemoteNetworkHealthEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/remoteNetworks/{remoteNetworkHealthEvent%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RemoteNetworkHealthEvent $body, ?RemoteNetworkHealthEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/remoteNetworks/{remoteNetworkHealthEvent%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

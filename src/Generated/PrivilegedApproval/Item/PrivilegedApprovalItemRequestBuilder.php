@@ -96,7 +96,7 @@ class PrivilegedApprovalItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PrivilegedApprovalItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/privilegedApproval/{privilegedApproval%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -136,7 +136,7 @@ class PrivilegedApprovalItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PrivilegedApproval $body, ?PrivilegedApprovalItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/privilegedApproval/{privilegedApproval%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

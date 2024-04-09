@@ -84,9 +84,35 @@ class AuthenticationsMetric extends Entity implements Parsable
             'attemptsCount' => fn(ParseNode $n) => $o->setAttemptsCount($n->getIntegerValue()),
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'factDate' => fn(ParseNode $n) => $o->setFactDate($n->getDateValue()),
+            'identityProvider' => fn(ParseNode $n) => $o->setIdentityProvider($n->getStringValue()),
+            'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
             'os' => fn(ParseNode $n) => $o->setOs($n->getStringValue()),
             'successCount' => fn(ParseNode $n) => $o->setSuccessCount($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the identityProvider property value. The identityProvider property
+     * @return string|null
+    */
+    public function getIdentityProvider(): ?string {
+        $val = $this->getBackingStore()->get('identityProvider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityProvider'");
+    }
+
+    /**
+     * Gets the language property value. The language property
+     * @return string|null
+    */
+    public function getLanguage(): ?string {
+        $val = $this->getBackingStore()->get('language');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'language'");
     }
 
     /**
@@ -123,6 +149,8 @@ class AuthenticationsMetric extends Entity implements Parsable
         $writer->writeIntegerValue('attemptsCount', $this->getAttemptsCount());
         $writer->writeStringValue('country', $this->getCountry());
         $writer->writeDateValue('factDate', $this->getFactDate());
+        $writer->writeStringValue('identityProvider', $this->getIdentityProvider());
+        $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeStringValue('os', $this->getOs());
         $writer->writeIntegerValue('successCount', $this->getSuccessCount());
     }
@@ -157,6 +185,22 @@ class AuthenticationsMetric extends Entity implements Parsable
     */
     public function setFactDate(?Date $value): void {
         $this->getBackingStore()->set('factDate', $value);
+    }
+
+    /**
+     * Sets the identityProvider property value. The identityProvider property
+     * @param string|null $value Value to set for the identityProvider property.
+    */
+    public function setIdentityProvider(?string $value): void {
+        $this->getBackingStore()->set('identityProvider', $value);
+    }
+
+    /**
+     * Sets the language property value. The language property
+     * @param string|null $value Value to set for the language property.
+    */
+    public function setLanguage(?string $value): void {
+        $this->getBackingStore()->set('language', $value);
     }
 
     /**

@@ -80,7 +80,7 @@ class MobileAppIntentAndStateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?MobileAppIntentAndStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/mobileAppIntentAndStates/{mobileAppIntentAndState%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class MobileAppIntentAndStateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MobileAppIntentAndState $body, ?MobileAppIntentAndStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/mobileAppIntentAndStates/{mobileAppIntentAndState%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

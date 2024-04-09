@@ -81,7 +81,7 @@ class UrlThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?UrlThreatSubmissionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/threatSubmission/urlThreats/{urlThreatSubmission%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class UrlThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(UrlThreatSubmission $body, ?UrlThreatSubmissionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/threatSubmission/urlThreats/{urlThreatSubmission%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

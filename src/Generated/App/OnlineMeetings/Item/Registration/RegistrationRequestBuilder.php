@@ -99,7 +99,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RegistrationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/registration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -139,7 +139,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MeetingRegistration $body, ?RegistrationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/registration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

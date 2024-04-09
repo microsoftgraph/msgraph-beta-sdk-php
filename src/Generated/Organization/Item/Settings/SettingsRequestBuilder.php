@@ -112,7 +112,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?SettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -152,7 +152,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(OrganizationSettings $body, ?SettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

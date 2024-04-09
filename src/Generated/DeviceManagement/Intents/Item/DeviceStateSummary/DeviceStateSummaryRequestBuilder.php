@@ -80,7 +80,7 @@ class DeviceStateSummaryRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?DeviceStateSummaryRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}/deviceStateSummary';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DeviceStateSummaryRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceManagementIntentDeviceStateSummary $body, ?DeviceStateSummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}/deviceStateSummary';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

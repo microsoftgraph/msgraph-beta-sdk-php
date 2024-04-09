@@ -96,7 +96,7 @@ class TenantAttachRBACRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?TenantAttachRBACRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/tenantAttachRBAC';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -136,7 +136,7 @@ class TenantAttachRBACRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(TenantAttachRBAC $body, ?TenantAttachRBACRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/tenantAttachRBAC';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

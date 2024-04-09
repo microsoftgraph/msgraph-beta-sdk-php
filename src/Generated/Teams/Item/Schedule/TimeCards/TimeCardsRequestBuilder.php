@@ -119,7 +119,7 @@ class TimeCardsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(TimeCard $body, ?TimeCardsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teams/{team%2Did}/schedule/timeCards';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

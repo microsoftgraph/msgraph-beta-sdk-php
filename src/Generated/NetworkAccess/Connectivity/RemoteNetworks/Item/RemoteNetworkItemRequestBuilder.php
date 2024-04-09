@@ -104,7 +104,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RemoteNetworkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -144,7 +144,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RemoteNetwork $body, ?RemoteNetworkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

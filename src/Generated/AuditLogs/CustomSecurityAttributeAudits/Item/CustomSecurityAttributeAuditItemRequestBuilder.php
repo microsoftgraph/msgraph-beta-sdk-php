@@ -80,7 +80,7 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CustomSecurityAttributeAuditItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/auditLogs/customSecurityAttributeAudits/{customSecurityAttributeAudit%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CustomSecurityAttributeAudit $body, ?CustomSecurityAttributeAuditItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/auditLogs/customSecurityAttributeAudits/{customSecurityAttributeAudit%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

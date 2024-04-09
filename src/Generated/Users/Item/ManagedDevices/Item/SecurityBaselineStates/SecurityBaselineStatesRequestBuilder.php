@@ -109,7 +109,7 @@ class SecurityBaselineStatesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(SecurityBaselineState $body, ?SecurityBaselineStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/securityBaselineStates';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

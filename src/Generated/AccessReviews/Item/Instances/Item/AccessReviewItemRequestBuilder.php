@@ -101,7 +101,7 @@ class AccessReviewItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
+     * The collection of access reviews instances past, present, and future, if this object is a recurring access review.
      * @param AccessReviewItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReview|null>
      * @throws Exception
@@ -136,7 +136,7 @@ class AccessReviewItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AccessReviewItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/accessReviews/{accessReview%2Did}/instances/{accessReview%2Did1}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -148,7 +148,7 @@ class AccessReviewItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
+     * The collection of access reviews instances past, present, and future, if this object is a recurring access review.
      * @param AccessReviewItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -176,7 +176,7 @@ class AccessReviewItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AccessReview $body, ?AccessReviewItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/accessReviews/{accessReview%2Did}/instances/{accessReview%2Did1}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

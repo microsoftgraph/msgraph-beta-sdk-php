@@ -80,7 +80,7 @@ class DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder extends Base
     */
     public function toDeleteRequestInformation(?DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/autopilotEvents/{deviceManagementAutopilotEvent%2Did}/policyStatusDetails/{deviceManagementAutopilotPolicyStatusDetail%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder extends Base
     */
     public function toPatchRequestInformation(DeviceManagementAutopilotPolicyStatusDetail $body, ?DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/autopilotEvents/{deviceManagementAutopilotEvent%2Did}/policyStatusDetails/{deviceManagementAutopilotPolicyStatusDetail%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

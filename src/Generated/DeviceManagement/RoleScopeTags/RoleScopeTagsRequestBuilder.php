@@ -125,7 +125,7 @@ class RoleScopeTagsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(RoleScopeTag $body, ?RoleScopeTagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/roleScopeTags';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

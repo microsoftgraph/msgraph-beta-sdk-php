@@ -115,7 +115,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?UnifiedRoleAssignmentMultipleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/roleManagement/cloudPC/roleAssignments/{unifiedRoleAssignmentMultiple%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -155,7 +155,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(UnifiedRoleAssignmentMultiple $body, ?UnifiedRoleAssignmentMultipleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/roleManagement/cloudPC/roleAssignments/{unifiedRoleAssignmentMultiple%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -80,7 +80,7 @@ class EducationSynchronizationErrorItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?EducationSynchronizationErrorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/errors/{educationSynchronizationError%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class EducationSynchronizationErrorItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(EducationSynchronizationError $body, ?EducationSynchronizationErrorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/errors/{educationSynchronizationError%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -96,7 +96,7 @@ class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -136,7 +136,7 @@ class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(NotificationMessageTemplate $body, ?NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

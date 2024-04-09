@@ -109,7 +109,7 @@ class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(LocalizedNotificationMessage $body, ?LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

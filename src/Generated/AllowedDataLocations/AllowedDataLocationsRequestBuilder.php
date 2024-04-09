@@ -109,7 +109,7 @@ class AllowedDataLocationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AllowedDataLocation $body, ?AllowedDataLocationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/allowedDataLocations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

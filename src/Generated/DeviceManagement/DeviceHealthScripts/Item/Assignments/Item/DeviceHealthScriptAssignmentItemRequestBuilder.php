@@ -80,7 +80,7 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?DeviceHealthScriptAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/assignments/{deviceHealthScriptAssignment%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceHealthScriptAssignment $body, ?DeviceHealthScriptAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/assignments/{deviceHealthScriptAssignment%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

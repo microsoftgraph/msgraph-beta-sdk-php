@@ -109,7 +109,7 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder extends BaseRequ
     */
     public function toPostRequestInformation(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponsesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/microsoftTunnelServerLogCollectionResponses';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

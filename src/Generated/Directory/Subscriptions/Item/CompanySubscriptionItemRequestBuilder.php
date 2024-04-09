@@ -81,7 +81,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CompanySubscriptionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions/{companySubscription%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class CompanySubscriptionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CompanySubscription $body, ?CompanySubscriptionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions/{companySubscription%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

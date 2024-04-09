@@ -109,7 +109,7 @@ class DeviceAppPerformancesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceAppPerformance $body, ?DeviceAppPerformancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/deviceAppPerformances';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

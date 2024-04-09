@@ -112,7 +112,7 @@ class RoleManagementAlertsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RoleManagementAlertsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/roleManagementAlerts';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -152,7 +152,7 @@ class RoleManagementAlertsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RoleManagementAlert $body, ?RoleManagementAlertsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/roleManagementAlerts';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

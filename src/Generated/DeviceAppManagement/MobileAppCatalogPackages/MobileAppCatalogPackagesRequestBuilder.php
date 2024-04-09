@@ -109,7 +109,7 @@ class MobileAppCatalogPackagesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MobileAppCatalogPackage $body, ?MobileAppCatalogPackagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/mobileAppCatalogPackages';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

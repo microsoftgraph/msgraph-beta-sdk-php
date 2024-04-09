@@ -106,7 +106,7 @@ class WorkplaceRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Workplace $body, ?WorkplaceRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/workplace';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

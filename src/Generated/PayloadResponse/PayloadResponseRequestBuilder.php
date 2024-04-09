@@ -109,7 +109,7 @@ class PayloadResponseRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PayloadResponse $body, ?PayloadResponseRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/payloadResponse';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

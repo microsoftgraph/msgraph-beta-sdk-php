@@ -109,7 +109,7 @@ class ManagedDeviceCleanupRulesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagedDeviceCleanupRule $body, ?ManagedDeviceCleanupRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/managedDeviceCleanupRules';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -109,7 +109,7 @@ class RoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(GovernanceRoleAssignmentRequest $body, ?RoleAssignmentRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/governanceResources/{governanceResource%2Did}/roleAssignmentRequests';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

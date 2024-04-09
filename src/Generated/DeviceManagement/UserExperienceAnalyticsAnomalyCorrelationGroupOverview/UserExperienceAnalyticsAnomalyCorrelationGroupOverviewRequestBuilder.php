@@ -109,7 +109,7 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder exten
     */
     public function toPostRequestInformation(UserExperienceAnalyticsAnomalyCorrelationGroupOverview $body, ?UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsAnomalyCorrelationGroupOverview';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {
