@@ -25,7 +25,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the approvalAttachment property value. The approvalAttachment property
+     * Gets the approvalAttachment property value. Detailed information about the approval that is attached to the task.
      * @return PlannerBaseApprovalAttachment|null
     */
     public function getApprovalAttachment(): ?PlannerBaseApprovalAttachment {
@@ -91,7 +91,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the forms property value. The forms property
+     * Gets the forms property value. Read-only. Represents a dictionary of data about the forms associated with a task. Each entry in the dictionary is a key-value pair, and the value is a plannerFormReference object.
      * @return PlannerFormsDictionary|null
     */
     public function getForms(): ?PlannerFormsDictionary {
@@ -155,7 +155,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the approvalAttachment property value. The approvalAttachment property
+     * Sets the approvalAttachment property value. Detailed information about the approval that is attached to the task.
      * @param PlannerBaseApprovalAttachment|null $value Value to set for the approvalAttachment property.
     */
     public function setApprovalAttachment(?PlannerBaseApprovalAttachment $value): void {
@@ -187,7 +187,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the forms property value. The forms property
+     * Sets the forms property value. Read-only. Represents a dictionary of data about the forms associated with a task. Each entry in the dictionary is a key-value pair, and the value is a plannerFormReference object.
      * @param PlannerFormsDictionary|null $value Value to set for the forms property.
     */
     public function setForms(?PlannerFormsDictionary $value): void {

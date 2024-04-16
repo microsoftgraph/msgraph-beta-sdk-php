@@ -26,7 +26,7 @@ class PlannerBasicApprovalAttachment extends PlannerBaseApprovalAttachment imple
     }
 
     /**
-     * Gets the approvalId property value. The approvalId property
+     * Gets the approvalId property value. Read-only. The identifier of the approval in the approval service.
      * @return string|null
     */
     public function getApprovalId(): ?string {
@@ -58,7 +58,7 @@ class PlannerBasicApprovalAttachment extends PlannerBaseApprovalAttachment imple
     }
 
     /**
-     * Sets the approvalId property value. The approvalId property
+     * Sets the approvalId property value. Read-only. The identifier of the approval in the approval service.
      * @param string|null $value Value to set for the approvalId property.
     */
     public function setApprovalId(?string $value): void {

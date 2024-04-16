@@ -109,7 +109,7 @@ class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder extends BaseRequ
     */
     public function toPostRequestInformation(BusinessFlow $body, ?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlowsWithRequestsAwaitingMyDecision';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

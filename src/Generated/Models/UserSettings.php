@@ -74,6 +74,7 @@ class UserSettings extends Entity implements Parsable
             'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([UserInsightsSettings::class, 'createFromDiscriminatorValue'])),
             'regionalAndLanguageSettings' => fn(ParseNode $n) => $o->setRegionalAndLanguageSettings($n->getObjectValue([RegionalAndLanguageSettings::class, 'createFromDiscriminatorValue'])),
             'shiftPreferences' => fn(ParseNode $n) => $o->setShiftPreferences($n->getObjectValue([ShiftPreferences::class, 'createFromDiscriminatorValue'])),
+            'storage' => fn(ParseNode $n) => $o->setStorage($n->getObjectValue([UserStorage::class, 'createFromDiscriminatorValue'])),
             'windows' => fn(ParseNode $n) => $o->setWindows($n->getCollectionOfObjectValues([WindowsSetting::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -115,6 +116,18 @@ class UserSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the storage property value. The storage property
+     * @return UserStorage|null
+    */
+    public function getStorage(): ?UserStorage {
+        $val = $this->getBackingStore()->get('storage');
+        if (is_null($val) || $val instanceof UserStorage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storage'");
+    }
+
+    /**
      * Gets the windows property value. The Windows settings of the user stored in the cloud.
      * @return array<WindowsSetting>|null
     */
@@ -140,6 +153,7 @@ class UserSettings extends Entity implements Parsable
         $writer->writeObjectValue('itemInsights', $this->getItemInsights());
         $writer->writeObjectValue('regionalAndLanguageSettings', $this->getRegionalAndLanguageSettings());
         $writer->writeObjectValue('shiftPreferences', $this->getShiftPreferences());
+        $writer->writeObjectValue('storage', $this->getStorage());
         $writer->writeCollectionOfObjectValues('windows', $this->getWindows());
     }
 
@@ -189,6 +203,14 @@ class UserSettings extends Entity implements Parsable
     */
     public function setShiftPreferences(?ShiftPreferences $value): void {
         $this->getBackingStore()->set('shiftPreferences', $value);
+    }
+
+    /**
+     * Sets the storage property value. The storage property
+     * @param UserStorage|null $value Value to set for the storage property.
+    */
+    public function setStorage(?UserStorage $value): void {
+        $this->getBackingStore()->set('storage', $value);
     }
 
     /**

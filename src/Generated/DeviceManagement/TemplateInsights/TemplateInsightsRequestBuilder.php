@@ -109,7 +109,7 @@ class TemplateInsightsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementTemplateInsightsDefinition $body, ?TemplateInsightsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/templateInsights';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

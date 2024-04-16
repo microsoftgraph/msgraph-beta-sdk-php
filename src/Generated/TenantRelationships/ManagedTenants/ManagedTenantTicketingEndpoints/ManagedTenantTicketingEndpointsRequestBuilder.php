@@ -109,7 +109,7 @@ class ManagedTenantTicketingEndpointsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagedTenantTicketingEndpoint $body, ?ManagedTenantTicketingEndpointsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managedTenantTicketingEndpoints';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

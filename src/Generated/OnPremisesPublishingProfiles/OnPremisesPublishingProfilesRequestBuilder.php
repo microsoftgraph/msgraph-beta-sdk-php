@@ -109,7 +109,7 @@ class OnPremisesPublishingProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/onPremisesPublishingProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

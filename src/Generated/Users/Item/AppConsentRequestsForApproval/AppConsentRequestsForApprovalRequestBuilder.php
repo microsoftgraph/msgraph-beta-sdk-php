@@ -119,7 +119,7 @@ class AppConsentRequestsForApprovalRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AppConsentRequest $body, ?AppConsentRequestsForApprovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/appConsentRequestsForApproval';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

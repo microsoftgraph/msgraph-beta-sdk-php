@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetwor
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get links from networkAccess
+ * List of connectivity configurations for deviceLink objects.
 */
 class ConnectivityConfigurationLinkItemRequestBuilderGetQueryParameters 
 {

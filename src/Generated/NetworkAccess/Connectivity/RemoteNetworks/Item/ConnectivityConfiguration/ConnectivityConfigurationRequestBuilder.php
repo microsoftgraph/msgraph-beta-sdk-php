@@ -53,7 +53,7 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connectivityConfiguration from networkAccess
+     * Specifies the connectivity details of all device links associated with a remote network.
      * @param ConnectivityConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetworkConnectivityConfiguration|null>
      * @throws Exception
@@ -88,7 +88,7 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ConnectivityConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/connectivityConfiguration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -100,7 +100,7 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connectivityConfiguration from networkAccess
+     * Specifies the connectivity details of all device links associated with a remote network.
      * @param ConnectivityConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -128,7 +128,7 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RemoteNetworkConnectivityConfiguration $body, ?ConnectivityConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/connectivityConfiguration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

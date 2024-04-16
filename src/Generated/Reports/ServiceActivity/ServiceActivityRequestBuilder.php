@@ -136,7 +136,7 @@ class ServiceActivityRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ServiceActivityRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/serviceActivity';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -176,7 +176,7 @@ class ServiceActivityRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ServiceActivity $body, ?ServiceActivityRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/serviceActivity';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

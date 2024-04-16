@@ -109,7 +109,7 @@ class PolicyRulesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PolicyRule $body, ?PolicyRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/forwardingPolicies/{forwardingPolicy%2Did}/policyRules';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

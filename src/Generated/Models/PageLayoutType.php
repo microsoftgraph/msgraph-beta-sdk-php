@@ -9,4 +9,6 @@ class PageLayoutType extends Enum {
     public const ARTICLE = 'article';
     public const HOME = 'home';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const NEWS_LINK = 'newsLink';
+    public const VIDEO_NEWS_LINK = 'videoNewsLink';
 }

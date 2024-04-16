@@ -82,7 +82,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CrossTenantAccessRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/settings/crossTenantAccess';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CrossTenantAccessSettings $body, ?CrossTenantAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/settings/crossTenantAccess';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

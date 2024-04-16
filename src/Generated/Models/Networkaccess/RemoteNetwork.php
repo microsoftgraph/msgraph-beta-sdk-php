@@ -28,19 +28,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the bandwidthCapacity property value. The bandwidthCapacity property
-     * @return int|null
-    */
-    public function getBandwidthCapacity(): ?int {
-        $val = $this->getBackingStore()->get('bandwidthCapacity');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'bandwidthCapacity'");
-    }
-
-    /**
-     * Gets the connectivityConfiguration property value. The connectivityConfiguration property
+     * Gets the connectivityConfiguration property value. Specifies the connectivity details of all device links associated with a remote network.
      * @return RemoteNetworkConnectivityConfiguration|null
     */
     public function getConnectivityConfiguration(): ?RemoteNetworkConnectivityConfiguration {
@@ -52,31 +40,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectivityState property value. The connectivityState property
-     * @return ConnectivityState|null
-    */
-    public function getConnectivityState(): ?ConnectivityState {
-        $val = $this->getBackingStore()->get('connectivityState');
-        if (is_null($val) || $val instanceof ConnectivityState) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectivityState'");
-    }
-
-    /**
-     * Gets the country property value. The country property
-     * @return string|null
-    */
-    public function getCountry(): ?string {
-        $val = $this->getBackingStore()->get('country');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'country'");
-    }
-
-    /**
-     * Gets the deviceLinks property value. The deviceLinks property
+     * Gets the deviceLinks property value. Each unique CPE device associated with a remote network is specified. Supports $expand.
      * @return array<DeviceLink>|null
     */
     public function getDeviceLinks(): ?array {
@@ -96,10 +60,7 @@ class RemoteNetwork extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bandwidthCapacity' => fn(ParseNode $n) => $o->setBandwidthCapacity($n->getIntegerValue()),
             'connectivityConfiguration' => fn(ParseNode $n) => $o->setConnectivityConfiguration($n->getObjectValue([RemoteNetworkConnectivityConfiguration::class, 'createFromDiscriminatorValue'])),
-            'connectivityState' => fn(ParseNode $n) => $o->setConnectivityState($n->getEnumValue(ConnectivityState::class)),
-            'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'deviceLinks' => fn(ParseNode $n) => $o->setDeviceLinks($n->getCollectionOfObjectValues([DeviceLink::class, 'createFromDiscriminatorValue'])),
             'forwardingProfiles' => fn(ParseNode $n) => $o->setForwardingProfiles($n->getCollectionOfObjectValues([ForwardingProfile::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -110,7 +71,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingProfiles property value. The forwardingProfiles property
+     * Gets the forwardingProfiles property value. Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
      * @return array<ForwardingProfile>|null
     */
     public function getForwardingProfiles(): ?array {
@@ -124,7 +85,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. last modified time.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -136,7 +97,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -160,7 +121,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. Remote network version.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -177,10 +138,7 @@ class RemoteNetwork extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('bandwidthCapacity', $this->getBandwidthCapacity());
         $writer->writeObjectValue('connectivityConfiguration', $this->getConnectivityConfiguration());
-        $writer->writeEnumValue('connectivityState', $this->getConnectivityState());
-        $writer->writeStringValue('country', $this->getCountry());
         $writer->writeCollectionOfObjectValues('deviceLinks', $this->getDeviceLinks());
         $writer->writeCollectionOfObjectValues('forwardingProfiles', $this->getForwardingProfiles());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
@@ -190,15 +148,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the bandwidthCapacity property value. The bandwidthCapacity property
-     * @param int|null $value Value to set for the bandwidthCapacity property.
-    */
-    public function setBandwidthCapacity(?int $value): void {
-        $this->getBackingStore()->set('bandwidthCapacity', $value);
-    }
-
-    /**
-     * Sets the connectivityConfiguration property value. The connectivityConfiguration property
+     * Sets the connectivityConfiguration property value. Specifies the connectivity details of all device links associated with a remote network.
      * @param RemoteNetworkConnectivityConfiguration|null $value Value to set for the connectivityConfiguration property.
     */
     public function setConnectivityConfiguration(?RemoteNetworkConnectivityConfiguration $value): void {
@@ -206,23 +156,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectivityState property value. The connectivityState property
-     * @param ConnectivityState|null $value Value to set for the connectivityState property.
-    */
-    public function setConnectivityState(?ConnectivityState $value): void {
-        $this->getBackingStore()->set('connectivityState', $value);
-    }
-
-    /**
-     * Sets the country property value. The country property
-     * @param string|null $value Value to set for the country property.
-    */
-    public function setCountry(?string $value): void {
-        $this->getBackingStore()->set('country', $value);
-    }
-
-    /**
-     * Sets the deviceLinks property value. The deviceLinks property
+     * Sets the deviceLinks property value. Each unique CPE device associated with a remote network is specified. Supports $expand.
      * @param array<DeviceLink>|null $value Value to set for the deviceLinks property.
     */
     public function setDeviceLinks(?array $value): void {
@@ -230,7 +164,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingProfiles property value. The forwardingProfiles property
+     * Sets the forwardingProfiles property value. Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
      * @param array<ForwardingProfile>|null $value Value to set for the forwardingProfiles property.
     */
     public function setForwardingProfiles(?array $value): void {
@@ -238,7 +172,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. last modified time.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -246,7 +180,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -262,7 +196,7 @@ class RemoteNetwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. Remote network version.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

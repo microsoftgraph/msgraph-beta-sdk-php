@@ -36,6 +36,7 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceComplianceScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationConflictSummary;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationDeviceStateSummary;
+use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationProfile;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationUserStateSummary;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCustomAttributeShellScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceEnrollmentConfiguration;
@@ -76,6 +77,8 @@ use Microsoft\Graph\Beta\Generated\Models\GroupPolicyDefinitionFile;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyMigrationReport;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyObjectFile;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyUploadedDefinitionFile;
+use Microsoft\Graph\Beta\Generated\Models\HardwareConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\HardwarePasswordInfo;
 use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentity;
 use Microsoft\Graph\Beta\Generated\Models\ImportedWindowsAutopilotDeviceIdentity;
 use Microsoft\Graph\Beta\Generated\Models\IntuneBrand;
@@ -807,6 +810,20 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceConfigurationProfiles property value. Profile Id of the object.
+     * @return array<DeviceConfigurationProfile>|null
+    */
+    public function getDeviceConfigurationProfiles(): ?array {
+        $val = $this->getBackingStore()->get('deviceConfigurationProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceConfigurationProfile::class);
+            /** @var array<DeviceConfigurationProfile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationProfiles'");
+    }
+
+    /**
      * Gets the deviceConfigurationRestrictedAppsViolations property value. Restricted apps violations for this account.
      * @return array<RestrictedAppsViolation>|null
     */
@@ -1090,6 +1107,7 @@ class DeviceManagement extends Entity implements Parsable
             'deviceComplianceScripts' => fn(ParseNode $n) => $o->setDeviceComplianceScripts($n->getCollectionOfObjectValues([DeviceComplianceScript::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationConflictSummary' => fn(ParseNode $n) => $o->setDeviceConfigurationConflictSummary($n->getCollectionOfObjectValues([DeviceConfigurationConflictSummary::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationDeviceStateSummaries' => fn(ParseNode $n) => $o->setDeviceConfigurationDeviceStateSummaries($n->getObjectValue([DeviceConfigurationDeviceStateSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceConfigurationProfiles' => fn(ParseNode $n) => $o->setDeviceConfigurationProfiles($n->getCollectionOfObjectValues([DeviceConfigurationProfile::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationRestrictedAppsViolations' => fn(ParseNode $n) => $o->setDeviceConfigurationRestrictedAppsViolations($n->getCollectionOfObjectValues([RestrictedAppsViolation::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurations' => fn(ParseNode $n) => $o->setDeviceConfigurations($n->getCollectionOfObjectValues([DeviceConfiguration::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationsAllManagedDeviceCertificateStates' => fn(ParseNode $n) => $o->setDeviceConfigurationsAllManagedDeviceCertificateStates($n->getCollectionOfObjectValues([ManagedAllDeviceCertificateState::class, 'createFromDiscriminatorValue'])),
@@ -1114,6 +1132,8 @@ class DeviceManagement extends Entity implements Parsable
             'groupPolicyMigrationReports' => fn(ParseNode $n) => $o->setGroupPolicyMigrationReports($n->getCollectionOfObjectValues([GroupPolicyMigrationReport::class, 'createFromDiscriminatorValue'])),
             'groupPolicyObjectFiles' => fn(ParseNode $n) => $o->setGroupPolicyObjectFiles($n->getCollectionOfObjectValues([GroupPolicyObjectFile::class, 'createFromDiscriminatorValue'])),
             'groupPolicyUploadedDefinitionFiles' => fn(ParseNode $n) => $o->setGroupPolicyUploadedDefinitionFiles($n->getCollectionOfObjectValues([GroupPolicyUploadedDefinitionFile::class, 'createFromDiscriminatorValue'])),
+            'hardwareConfigurations' => fn(ParseNode $n) => $o->setHardwareConfigurations($n->getCollectionOfObjectValues([HardwareConfiguration::class, 'createFromDiscriminatorValue'])),
+            'hardwarePasswordInfo' => fn(ParseNode $n) => $o->setHardwarePasswordInfo($n->getCollectionOfObjectValues([HardwarePasswordInfo::class, 'createFromDiscriminatorValue'])),
             'importedDeviceIdentities' => fn(ParseNode $n) => $o->setImportedDeviceIdentities($n->getCollectionOfObjectValues([ImportedDeviceIdentity::class, 'createFromDiscriminatorValue'])),
             'importedWindowsAutopilotDeviceIdentities' => fn(ParseNode $n) => $o->setImportedWindowsAutopilotDeviceIdentities($n->getCollectionOfObjectValues([ImportedWindowsAutopilotDeviceIdentity::class, 'createFromDiscriminatorValue'])),
             'intents' => fn(ParseNode $n) => $o->setIntents($n->getCollectionOfObjectValues([DeviceManagementIntent::class, 'createFromDiscriminatorValue'])),
@@ -1328,6 +1348,34 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'groupPolicyUploadedDefinitionFiles'");
+    }
+
+    /**
+     * Gets the hardwareConfigurations property value. The hardware configurations for this account.
+     * @return array<HardwareConfiguration>|null
+    */
+    public function getHardwareConfigurations(): ?array {
+        $val = $this->getBackingStore()->get('hardwareConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HardwareConfiguration::class);
+            /** @var array<HardwareConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwareConfigurations'");
+    }
+
+    /**
+     * Gets the hardwarePasswordInfo property value. The hardware password info for this account.
+     * @return array<HardwarePasswordInfo>|null
+    */
+    public function getHardwarePasswordInfo(): ?array {
+        $val = $this->getBackingStore()->get('hardwarePasswordInfo');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HardwarePasswordInfo::class);
+            /** @var array<HardwarePasswordInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwarePasswordInfo'");
     }
 
     /**
@@ -2934,6 +2982,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceComplianceScripts', $this->getDeviceComplianceScripts());
         $writer->writeCollectionOfObjectValues('deviceConfigurationConflictSummary', $this->getDeviceConfigurationConflictSummary());
         $writer->writeObjectValue('deviceConfigurationDeviceStateSummaries', $this->getDeviceConfigurationDeviceStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceConfigurationProfiles', $this->getDeviceConfigurationProfiles());
         $writer->writeCollectionOfObjectValues('deviceConfigurationRestrictedAppsViolations', $this->getDeviceConfigurationRestrictedAppsViolations());
         $writer->writeCollectionOfObjectValues('deviceConfigurations', $this->getDeviceConfigurations());
         $writer->writeCollectionOfObjectValues('deviceConfigurationsAllManagedDeviceCertificateStates', $this->getDeviceConfigurationsAllManagedDeviceCertificateStates());
@@ -2958,6 +3007,8 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('groupPolicyMigrationReports', $this->getGroupPolicyMigrationReports());
         $writer->writeCollectionOfObjectValues('groupPolicyObjectFiles', $this->getGroupPolicyObjectFiles());
         $writer->writeCollectionOfObjectValues('groupPolicyUploadedDefinitionFiles', $this->getGroupPolicyUploadedDefinitionFiles());
+        $writer->writeCollectionOfObjectValues('hardwareConfigurations', $this->getHardwareConfigurations());
+        $writer->writeCollectionOfObjectValues('hardwarePasswordInfo', $this->getHardwarePasswordInfo());
         $writer->writeCollectionOfObjectValues('importedDeviceIdentities', $this->getImportedDeviceIdentities());
         $writer->writeCollectionOfObjectValues('importedWindowsAutopilotDeviceIdentities', $this->getImportedWindowsAutopilotDeviceIdentities());
         $writer->writeCollectionOfObjectValues('intents', $this->getIntents());
@@ -3433,6 +3484,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Sets the deviceConfigurationProfiles property value. Profile Id of the object.
+     * @param array<DeviceConfigurationProfile>|null $value Value to set for the deviceConfigurationProfiles property.
+    */
+    public function setDeviceConfigurationProfiles(?array $value): void {
+        $this->getBackingStore()->set('deviceConfigurationProfiles', $value);
+    }
+
+    /**
      * Sets the deviceConfigurationRestrictedAppsViolations property value. Restricted apps violations for this account.
      * @param array<RestrictedAppsViolation>|null $value Value to set for the deviceConfigurationRestrictedAppsViolations property.
     */
@@ -3622,6 +3681,22 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setGroupPolicyUploadedDefinitionFiles(?array $value): void {
         $this->getBackingStore()->set('groupPolicyUploadedDefinitionFiles', $value);
+    }
+
+    /**
+     * Sets the hardwareConfigurations property value. The hardware configurations for this account.
+     * @param array<HardwareConfiguration>|null $value Value to set for the hardwareConfigurations property.
+    */
+    public function setHardwareConfigurations(?array $value): void {
+        $this->getBackingStore()->set('hardwareConfigurations', $value);
+    }
+
+    /**
+     * Sets the hardwarePasswordInfo property value. The hardware password info for this account.
+     * @param array<HardwarePasswordInfo>|null $value Value to set for the hardwarePasswordInfo property.
+    */
+    public function setHardwarePasswordInfo(?array $value): void {
+        $this->getBackingStore()->set('hardwarePasswordInfo', $value);
     }
 
     /**

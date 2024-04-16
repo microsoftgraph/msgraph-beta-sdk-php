@@ -110,7 +110,7 @@ class WindowsProtectionStatesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(WindowsProtectionState $body, ?WindowsProtectionStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/windowsProtectionStates';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -110,7 +110,7 @@ class InboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(InboundSharedUserProfile $body, ?InboundSharedUserProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/inboundSharedUserProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

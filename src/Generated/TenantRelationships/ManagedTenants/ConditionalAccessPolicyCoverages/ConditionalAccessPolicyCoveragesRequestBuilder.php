@@ -110,7 +110,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoveragesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/conditionalAccessPolicyCoverages';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

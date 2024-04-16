@@ -109,7 +109,7 @@ class WindowsManagedAppProtectionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/windowsManagedAppProtections';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

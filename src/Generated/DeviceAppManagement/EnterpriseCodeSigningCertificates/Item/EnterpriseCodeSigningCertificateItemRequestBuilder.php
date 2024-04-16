@@ -80,7 +80,7 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
     */
     public function toDeleteRequestInformation(?EnterpriseCodeSigningCertificateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/enterpriseCodeSigningCertificates/{enterpriseCodeSigningCertificate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
     */
     public function toPatchRequestInformation(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/enterpriseCodeSigningCertificates/{enterpriseCodeSigningCertificate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

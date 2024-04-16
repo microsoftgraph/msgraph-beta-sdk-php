@@ -109,7 +109,7 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder extends BaseRequ
     */
     public function toPostRequestInformation(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollectionTenantSummaries';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -110,7 +110,7 @@ class FrontLineServicePlansRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CloudPcFrontLineServicePlan $body, ?FrontLineServicePlansRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/frontLineServicePlans';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

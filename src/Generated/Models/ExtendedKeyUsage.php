@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
 /**
- * The Custom Extended Key Usage definition
+ * Complex type that represents the extended key usage of a certificate. This is shared complex type.
 */
 class ExtendedKeyUsage implements AdditionalDataHolder, BackedModel, Parsable 
 {

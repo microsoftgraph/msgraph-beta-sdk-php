@@ -27,7 +27,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the branches property value. Branches represent locations for connectivity.
+     * Gets the branches property value. Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
      * @return array<BranchSite>|null
     */
     public function getBranches(): ?array {
@@ -54,7 +54,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the remoteNetworks property value. The remoteNetworks property
+     * Gets the remoteNetworks property value. Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @return array<RemoteNetwork>|null
     */
     public function getRemoteNetworks(): ?array {
@@ -93,7 +93,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the branches property value. Branches represent locations for connectivity.
+     * Sets the branches property value. Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
      * @param array<BranchSite>|null $value Value to set for the branches property.
     */
     public function setBranches(?array $value): void {
@@ -101,7 +101,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the remoteNetworks property value. The remoteNetworks property
+     * Sets the remoteNetworks property value. Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @param array<RemoteNetwork>|null $value Value to set for the remoteNetworks property.
     */
     public function setRemoteNetworks(?array $value): void {

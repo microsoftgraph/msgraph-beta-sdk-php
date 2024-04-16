@@ -31,10 +31,11 @@ class TrainingCampaignItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property trainingCampaigns for security
+     * Delete a trainingCampaign object.
      * @param TrainingCampaignItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/attacksimulationroot-delete-trainingcampaigns?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TrainingCampaignItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class TrainingCampaignItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get trainingCampaigns from security
+     * Read the properties and relationships of a trainingCampaign object.
      * @param TrainingCampaignItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrainingCampaign|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trainingcampaign-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TrainingCampaignItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class TrainingCampaignItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property trainingCampaigns in security
+     * Update the properties of a trainingCampaign object.
      * @param TrainingCampaign $body The request body
      * @param TrainingCampaignItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrainingCampaign|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trainingcampaign-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TrainingCampaign $body, ?TrainingCampaignItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,13 +77,13 @@ class TrainingCampaignItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property trainingCampaigns for security
+     * Delete a trainingCampaign object.
      * @param TrainingCampaignItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?TrainingCampaignItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/attackSimulation/trainingCampaigns/{trainingCampaign%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -92,7 +95,7 @@ class TrainingCampaignItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get trainingCampaigns from security
+     * Read the properties and relationships of a trainingCampaign object.
      * @param TrainingCampaignItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,14 +116,14 @@ class TrainingCampaignItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property trainingCampaigns in security
+     * Update the properties of a trainingCampaign object.
      * @param TrainingCampaign $body The request body
      * @param TrainingCampaignItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPatchRequestInformation(TrainingCampaign $body, ?TrainingCampaignItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/attackSimulation/trainingCampaigns/{trainingCampaign%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -81,7 +81,7 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
     */
     public function toDeleteRequestInformation(?ApplicationSignInDetailedSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/applicationSignInDetailedSummary/{applicationSignInDetailedSummary%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
     */
     public function toPatchRequestInformation(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/applicationSignInDetailedSummary/{applicationSignInDetailedSummary%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

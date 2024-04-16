@@ -89,7 +89,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?OutboundSharedUserProfileUserItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -129,7 +129,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(OutboundSharedUserProfile $body, ?OutboundSharedUserProfileUserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

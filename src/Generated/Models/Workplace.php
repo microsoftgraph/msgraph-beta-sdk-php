@@ -81,7 +81,7 @@ class Workplace implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sensorDevices property value. The sensorDevices property
+     * Gets the sensorDevices property value. A collection of sensor devices.
      * @return array<WorkplaceSensorDevice>|null
     */
     public function getSensorDevices(): ?array {
@@ -129,7 +129,7 @@ class Workplace implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sensorDevices property value. The sensorDevices property
+     * Sets the sensorDevices property value. A collection of sensor devices.
      * @param array<WorkplaceSensorDevice>|null $value Value to set for the sensorDevices property.
     */
     public function setSensorDevices(?array $value): void {

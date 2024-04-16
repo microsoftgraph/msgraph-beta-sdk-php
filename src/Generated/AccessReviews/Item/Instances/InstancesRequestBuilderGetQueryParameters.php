@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of access reviews instances past, present and future, if this object is a recurring access review.
+ * The collection of access reviews instances past, present, and future, if this object is a recurring access review.
 */
 class InstancesRequestBuilderGetQueryParameters 
 {

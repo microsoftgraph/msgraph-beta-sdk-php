@@ -26,7 +26,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalIp property value. The external IP address as detected by the the connector server. Read-only.
+     * Gets the externalIp property value. The external IP address as detected by the connector server. Read-only.
      * @return string|null
     */
     public function getExternalIp(): ?string {
@@ -53,7 +53,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Gets the machineName property value. The machine name the connector is installed and running on.
+     * Gets the machineName property value. The name of the computer on which the connector is installed and runs on.
      * @return string|null
     */
     public function getMachineName(): ?string {
@@ -91,7 +91,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The version of the connector.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -116,7 +116,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalIp property value. The external IP address as detected by the the connector server. Read-only.
+     * Sets the externalIp property value. The external IP address as detected by the connector server. Read-only.
      * @param string|null $value Value to set for the externalIp property.
     */
     public function setExternalIp(?string $value): void {
@@ -124,7 +124,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Sets the machineName property value. The machine name the connector is installed and running on.
+     * Sets the machineName property value. The name of the computer on which the connector is installed and runs on.
      * @param string|null $value Value to set for the machineName property.
     */
     public function setMachineName(?string $value): void {
@@ -148,7 +148,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The version of the connector.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

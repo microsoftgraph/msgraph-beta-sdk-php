@@ -109,7 +109,7 @@ class EngagementAsyncOperationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(EngagementAsyncOperation $body, ?EngagementAsyncOperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/employeeExperience/engagementAsyncOperations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

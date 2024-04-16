@@ -80,7 +80,7 @@ class RemoteActionAuditItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RemoteActionAuditItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/remoteActionAudits/{remoteActionAudit%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class RemoteActionAuditItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RemoteActionAudit $body, ?RemoteActionAuditItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/remoteActionAudits/{remoteActionAudit%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

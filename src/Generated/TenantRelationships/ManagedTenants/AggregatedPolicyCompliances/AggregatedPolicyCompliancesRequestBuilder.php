@@ -110,7 +110,7 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/aggregatedPolicyCompliances';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

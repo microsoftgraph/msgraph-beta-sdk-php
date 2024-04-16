@@ -110,7 +110,7 @@ class RecordsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AuditLogRecord $body, ?RecordsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/auditLog/queries/{auditLogQuery%2Did}/records';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

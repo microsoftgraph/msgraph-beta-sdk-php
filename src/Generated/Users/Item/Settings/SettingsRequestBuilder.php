@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ContactMergeSuggestions\C
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\RegionalAndLanguageSettings\RegionalAndLanguageSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ShiftPreferences\ShiftPreferencesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Storage\StorageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\WindowsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -47,6 +48,13 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function shiftPreferences(): ShiftPreferencesRequestBuilder {
         return new ShiftPreferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the storage property of the microsoft.graph.userSettings entity.
+    */
+    public function storage(): StorageRequestBuilder {
+        return new StorageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -120,7 +128,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?SettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/settings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -160,7 +168,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(UserSettings $body, ?SettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/settings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

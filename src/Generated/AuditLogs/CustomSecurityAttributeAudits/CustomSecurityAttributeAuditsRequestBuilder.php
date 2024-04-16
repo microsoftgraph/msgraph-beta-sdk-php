@@ -110,7 +110,7 @@ class CustomSecurityAttributeAuditsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CustomSecurityAttributeAudit $body, ?CustomSecurityAttributeAuditsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/auditLogs/customSecurityAttributeAudits';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

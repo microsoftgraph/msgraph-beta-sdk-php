@@ -111,7 +111,7 @@ class FilePlanReferencesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(FilePlanReferenceTemplate $body, ?FilePlanReferencesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/filePlanReferences';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

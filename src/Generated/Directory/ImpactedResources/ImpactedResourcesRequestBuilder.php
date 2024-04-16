@@ -109,7 +109,7 @@ class ImpactedResourcesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ImpactedResource $body, ?ImpactedResourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/impactedResources';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -80,7 +80,7 @@ class CartToClassAssociationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CartToClassAssociationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/cartToClassAssociations/{cartToClassAssociation%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class CartToClassAssociationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CartToClassAssociation $body, ?CartToClassAssociationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/cartToClassAssociations/{cartToClassAssociation%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

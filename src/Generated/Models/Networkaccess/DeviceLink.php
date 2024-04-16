@@ -27,7 +27,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
+     * Gets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a device link. The possible values are:250,500,750,1000.
      * @return BandwidthCapacityInMbps|null
     */
     public function getBandwidthCapacityInMbps(): ?BandwidthCapacityInMbps {
@@ -81,7 +81,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Gets the ipAddress property value. Specifies the client IPv4 of the link
+     * Gets the ipAddress property value. The public IP address of your CPE (customer premise equipment) device.
      * @return string|null
     */
     public function getIpAddress(): ?string {
@@ -157,7 +157,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a branch site. The possible values are:250,500,750,1000.
+     * Sets the bandwidthCapacityInMbps property value. Determines the maximum allowed Mbps (megabits per second) bandwidth from a device link. The possible values are:250,500,750,1000.
      * @param BandwidthCapacityInMbps|null $value Value to set for the bandwidthCapacityInMbps property.
     */
     public function setBandwidthCapacityInMbps(?BandwidthCapacityInMbps $value): void {
@@ -181,7 +181,7 @@ class DeviceLink extends Entity implements Parsable
     }
 
     /**
-     * Sets the ipAddress property value. Specifies the client IPv4 of the link
+     * Sets the ipAddress property value. The public IP address of your CPE (customer premise equipment) device.
      * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {

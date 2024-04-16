@@ -87,7 +87,7 @@ class PlannerBaseApprovalAttachment implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Status of the approval. The possible values are: requested, approved, rejected, cancelled, unknownFutureValue. Read-only.
      * @return PlannerApprovalStatus|null
     */
     public function getStatus(): ?PlannerApprovalStatus {
@@ -133,7 +133,7 @@ class PlannerBaseApprovalAttachment implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Status of the approval. The possible values are: requested, approved, rejected, cancelled, unknownFutureValue. Read-only.
      * @param PlannerApprovalStatus|null $value Value to set for the status property.
     */
     public function setStatus(?PlannerApprovalStatus $value): void {

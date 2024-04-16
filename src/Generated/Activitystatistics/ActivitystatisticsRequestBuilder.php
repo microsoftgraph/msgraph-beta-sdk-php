@@ -109,7 +109,7 @@ class ActivitystatisticsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ActivityStatistics $body, ?ActivitystatisticsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/activitystatistics';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

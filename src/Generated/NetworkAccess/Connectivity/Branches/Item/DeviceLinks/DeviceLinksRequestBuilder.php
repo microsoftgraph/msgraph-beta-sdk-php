@@ -111,7 +111,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceLink $body, ?DeviceLinksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/deviceLinks';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -176,7 +176,7 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(NetworkAccessRoot $body, ?NetworkAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

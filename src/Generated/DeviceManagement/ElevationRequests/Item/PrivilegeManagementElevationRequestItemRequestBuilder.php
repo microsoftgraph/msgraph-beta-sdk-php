@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\Approve\ApproveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\Deny\DenyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\GetAllElevationRequests\GetAllElevationRequestsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\Revoke\RevokeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationRequest;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -38,6 +39,13 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     */
     public function getAllElevationRequests(): GetAllElevationRequestsRequestBuilder {
         return new GetAllElevationRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the revoke method.
+    */
+    public function revoke(): RevokeRequestBuilder {
+        return new RevokeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -104,7 +112,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     */
     public function toDeleteRequestInformation(?PrivilegeManagementElevationRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -144,7 +152,7 @@ class PrivilegeManagementElevationRequestItemRequestBuilder extends BaseRequestB
     */
     public function toPatchRequestInformation(PrivilegeManagementElevationRequest $body, ?PrivilegeManagementElevationRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

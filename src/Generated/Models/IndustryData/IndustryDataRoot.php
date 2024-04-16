@@ -51,6 +51,7 @@ class IndustryDataRoot extends Entity implements Parsable
             'dataConnectors' => fn(ParseNode $n) => $o->setDataConnectors($n->getCollectionOfObjectValues([IndustryDataConnector::class, 'createFromDiscriminatorValue'])),
             'inboundFlows' => fn(ParseNode $n) => $o->setInboundFlows($n->getCollectionOfObjectValues([InboundFlow::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([LongRunningOperation::class, 'createFromDiscriminatorValue'])),
+            'outboundProvisioningFlowSets' => fn(ParseNode $n) => $o->setOutboundProvisioningFlowSets($n->getCollectionOfObjectValues([OutboundProvisioningFlowSet::class, 'createFromDiscriminatorValue'])),
             'referenceDefinitions' => fn(ParseNode $n) => $o->setReferenceDefinitions($n->getCollectionOfObjectValues([ReferenceDefinition::class, 'createFromDiscriminatorValue'])),
             'roleGroups' => fn(ParseNode $n) => $o->setRoleGroups($n->getCollectionOfObjectValues([RoleGroup::class, 'createFromDiscriminatorValue'])),
             'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([IndustryDataRun::class, 'createFromDiscriminatorValue'])),
@@ -85,6 +86,20 @@ class IndustryDataRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
+    }
+
+    /**
+     * Gets the outboundProvisioningFlowSets property value. The outboundProvisioningFlowSets property
+     * @return array<OutboundProvisioningFlowSet>|null
+    */
+    public function getOutboundProvisioningFlowSets(): ?array {
+        $val = $this->getBackingStore()->get('outboundProvisioningFlowSets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OutboundProvisioningFlowSet::class);
+            /** @var array<OutboundProvisioningFlowSet>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outboundProvisioningFlowSets'");
     }
 
     /**
@@ -166,6 +181,7 @@ class IndustryDataRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('dataConnectors', $this->getDataConnectors());
         $writer->writeCollectionOfObjectValues('inboundFlows', $this->getInboundFlows());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
+        $writer->writeCollectionOfObjectValues('outboundProvisioningFlowSets', $this->getOutboundProvisioningFlowSets());
         $writer->writeCollectionOfObjectValues('referenceDefinitions', $this->getReferenceDefinitions());
         $writer->writeCollectionOfObjectValues('roleGroups', $this->getRoleGroups());
         $writer->writeCollectionOfObjectValues('runs', $this->getRuns());
@@ -195,6 +211,14 @@ class IndustryDataRoot extends Entity implements Parsable
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
+    }
+
+    /**
+     * Sets the outboundProvisioningFlowSets property value. The outboundProvisioningFlowSets property
+     * @param array<OutboundProvisioningFlowSet>|null $value Value to set for the outboundProvisioningFlowSets property.
+    */
+    public function setOutboundProvisioningFlowSets(?array $value): void {
+        $this->getBackingStore()->set('outboundProvisioningFlowSets', $value);
     }
 
     /**

@@ -42,6 +42,18 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
+     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * @return ManagedAppRemediationAction|null
+    */
+    public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
+        $val = $this->getBackingStore()->get('appActionIfAccountIsClockedOut');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfAccountIsClockedOut'");
+    }
+
+    /**
      * Gets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
@@ -80,7 +92,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
      * @return string|null
     */
     public function getCustomBrowserProtocol(): ?string {
@@ -187,6 +199,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowedIosDeviceModels' => fn(ParseNode $n) => $o->setAllowedIosDeviceModels($n->getStringValue()),
+            'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfIosDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfIosDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appDataEncryptionType' => fn(ParseNode $n) => $o->setAppDataEncryptionType($n->getEnumValue(ManagedAppDataEncryptionType::class)),
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([ManagedMobileApp::class, 'createFromDiscriminatorValue'])),
@@ -328,6 +341,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('allowedIosDeviceModels', $this->getAllowedIosDeviceModels());
+        $writer->writeEnumValue('appActionIfAccountIsClockedOut', $this->getAppActionIfAccountIsClockedOut());
         $writer->writeEnumValue('appActionIfIosDeviceModelNotAllowed', $this->getAppActionIfIosDeviceModelNotAllowed());
         $writer->writeEnumValue('appDataEncryptionType', $this->getAppDataEncryptionType());
         $writer->writeCollectionOfObjectValues('apps', $this->getApps());
@@ -358,6 +372,14 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
+     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
+    */
+    public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfAccountIsClockedOut', $value);
+    }
+
+    /**
      * Sets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
     */
@@ -382,7 +404,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
      * @param string|null $value Value to set for the customBrowserProtocol property.
     */
     public function setCustomBrowserProtocol(?string $value): void {

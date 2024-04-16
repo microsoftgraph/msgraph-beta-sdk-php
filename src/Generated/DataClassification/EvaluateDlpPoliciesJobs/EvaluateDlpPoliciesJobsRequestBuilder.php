@@ -109,7 +109,7 @@ class EvaluateDlpPoliciesJobsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(JobResponseBase $body, ?EvaluateDlpPoliciesJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/evaluateDlpPoliciesJobs';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

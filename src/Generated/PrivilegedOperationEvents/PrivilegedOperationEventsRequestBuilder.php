@@ -109,7 +109,7 @@ class PrivilegedOperationEventsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PrivilegedOperationEvent $body, ?PrivilegedOperationEventsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/privilegedOperationEvents';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

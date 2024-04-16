@@ -45,10 +45,11 @@ class CloudPcBulkActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get bulkActions from deviceManagement
+     * Read the properties and relationships of a cloudPcBulkAction object.
      * @param CloudPcBulkActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcBulkAction|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcbulkaction-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcBulkActionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -80,7 +81,7 @@ class CloudPcBulkActionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CloudPcBulkActionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/bulkActions/{cloudPcBulkAction%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -92,7 +93,7 @@ class CloudPcBulkActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get bulkActions from deviceManagement
+     * Read the properties and relationships of a cloudPcBulkAction object.
      * @param CloudPcBulkActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +121,7 @@ class CloudPcBulkActionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CloudPcBulkAction $body, ?CloudPcBulkActionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/bulkActions/{cloudPcBulkAction%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

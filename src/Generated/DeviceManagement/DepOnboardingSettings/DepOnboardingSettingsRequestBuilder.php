@@ -119,7 +119,7 @@ class DepOnboardingSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DepOnboardingSetting $body, ?DepOnboardingSettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/depOnboardingSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

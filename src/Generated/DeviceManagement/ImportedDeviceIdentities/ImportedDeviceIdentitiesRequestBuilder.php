@@ -125,7 +125,7 @@ class ImportedDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ImportedDeviceIdentity $body, ?ImportedDeviceIdentitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/importedDeviceIdentities';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

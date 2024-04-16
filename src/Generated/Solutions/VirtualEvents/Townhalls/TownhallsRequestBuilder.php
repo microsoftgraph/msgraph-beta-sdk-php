@@ -130,7 +130,7 @@ class TownhallsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(VirtualEventTownhall $body, ?TownhallsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/townhalls';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

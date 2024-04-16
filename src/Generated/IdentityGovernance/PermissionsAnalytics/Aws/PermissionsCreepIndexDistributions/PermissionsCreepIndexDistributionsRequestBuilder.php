@@ -110,7 +110,7 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
     */
     public function toPostRequestInformation(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsAnalytics/aws/permissionsCreepIndexDistributions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

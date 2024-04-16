@@ -109,7 +109,7 @@ class DeviceAppManagementTasksRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceAppManagementTask $body, ?DeviceAppManagementTasksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/deviceAppManagementTasks';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

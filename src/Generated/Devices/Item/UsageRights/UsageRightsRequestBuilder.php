@@ -110,7 +110,7 @@ class UsageRightsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(UsageRight $body, ?UsageRightsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/devices/{device%2Did}/usageRights';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -109,7 +109,7 @@ class MonthlyPrintUsageSummariesByPrinterRequestBuilder extends BaseRequestBuild
     */
     public function toPostRequestInformation(PrintUsageByPrinter $body, ?MonthlyPrintUsageSummariesByPrinterRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/monthlyPrintUsageSummariesByPrinter';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

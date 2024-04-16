@@ -178,10 +178,14 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
             'enableWhiteGlove' => fn(ParseNode $n) => $o->setEnableWhiteGlove($n->getBooleanValue()),
             'enrollmentStatusScreenSettings' => fn(ParseNode $n) => $o->setEnrollmentStatusScreenSettings($n->getObjectValue([WindowsEnrollmentStatusScreenSettings::class, 'createFromDiscriminatorValue'])),
             'extractHardwareHash' => fn(ParseNode $n) => $o->setExtractHardwareHash($n->getBooleanValue()),
+            'hardwareHashExtractionEnabled' => fn(ParseNode $n) => $o->setHardwareHashExtractionEnabled($n->getBooleanValue()),
             'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
             'managementServiceAppId' => fn(ParseNode $n) => $o->setManagementServiceAppId($n->getStringValue()),
+            'outOfBoxExperienceSetting' => fn(ParseNode $n) => $o->setOutOfBoxExperienceSetting($n->getObjectValue([OutOfBoxExperienceSetting::class, 'createFromDiscriminatorValue'])),
             'outOfBoxExperienceSettings' => fn(ParseNode $n) => $o->setOutOfBoxExperienceSettings($n->getObjectValue([OutOfBoxExperienceSettings::class, 'createFromDiscriminatorValue'])),
+            'preprovisioningAllowed' => fn(ParseNode $n) => $o->setPreprovisioningAllowed($n->getBooleanValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -191,6 +195,18 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
                 $this->setRoleScopeTagIds($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the hardwareHashExtractionEnabled property value. Indicates whether the profile supports the extraction of hardware hash values and registration of the device into Windows Autopilot. When TRUE, indicates if hardware extraction and Windows Autopilot registration will happen on the next successful check-in. When FALSE, hardware hash extraction and Windows Autopilot registration will not happen. Default value is FALSE. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @return bool|null
+    */
+    public function getHardwareHashExtractionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('hardwareHashExtractionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwareHashExtractionEnabled'");
     }
 
     /**
@@ -218,6 +234,18 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the locale property value. The locale (language) to be used when configuring the device. E.g. en-US. The default value is os-default. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @return string|null
+    */
+    public function getLocale(): ?string {
+        $val = $this->getBackingStore()->get('locale');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locale'");
+    }
+
+    /**
      * Gets the managementServiceAppId property value. AzureAD management app ID used during client device-based enrollment discovery
      * @return string|null
     */
@@ -230,6 +258,18 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the outOfBoxExperienceSetting property value. The Windows Autopilot Deployment Profile settings used by the device for the out-of-box experience. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @return OutOfBoxExperienceSetting|null
+    */
+    public function getOutOfBoxExperienceSetting(): ?OutOfBoxExperienceSetting {
+        $val = $this->getBackingStore()->get('outOfBoxExperienceSetting');
+        if (is_null($val) || $val instanceof OutOfBoxExperienceSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'outOfBoxExperienceSetting'");
+    }
+
+    /**
      * Gets the outOfBoxExperienceSettings property value. Out of box experience setting
      * @return OutOfBoxExperienceSettings|null
     */
@@ -239,6 +279,18 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'outOfBoxExperienceSettings'");
+    }
+
+    /**
+     * Gets the preprovisioningAllowed property value. Indicates whether the user is allowed to use Windows Autopilot for pre-provisioned deployment mode during Out of Box experience (OOBE). When TRUE, indicates that Windows Autopilot for pre-provisioned deployment mode for OOBE is allowed to be used. When false, Windows Autopilot for pre-provisioned deployment mode for OOBE is not allowed. The default is FALSE.
+     * @return bool|null
+    */
+    public function getPreprovisioningAllowed(): ?bool {
+        $val = $this->getBackingStore()->get('preprovisioningAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preprovisioningAllowed'");
     }
 
     /**
@@ -271,10 +323,14 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
         $writer->writeBooleanValue('enableWhiteGlove', $this->getEnableWhiteGlove());
         $writer->writeObjectValue('enrollmentStatusScreenSettings', $this->getEnrollmentStatusScreenSettings());
         $writer->writeBooleanValue('extractHardwareHash', $this->getExtractHardwareHash());
+        $writer->writeBooleanValue('hardwareHashExtractionEnabled', $this->getHardwareHashExtractionEnabled());
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('locale', $this->getLocale());
         $writer->writeStringValue('managementServiceAppId', $this->getManagementServiceAppId());
+        $writer->writeObjectValue('outOfBoxExperienceSetting', $this->getOutOfBoxExperienceSetting());
         $writer->writeObjectValue('outOfBoxExperienceSettings', $this->getOutOfBoxExperienceSettings());
+        $writer->writeBooleanValue('preprovisioningAllowed', $this->getPreprovisioningAllowed());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 
@@ -359,6 +415,14 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     }
 
     /**
+     * Sets the hardwareHashExtractionEnabled property value. Indicates whether the profile supports the extraction of hardware hash values and registration of the device into Windows Autopilot. When TRUE, indicates if hardware extraction and Windows Autopilot registration will happen on the next successful check-in. When FALSE, hardware hash extraction and Windows Autopilot registration will not happen. Default value is FALSE. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @param bool|null $value Value to set for the hardwareHashExtractionEnabled property.
+    */
+    public function setHardwareHashExtractionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('hardwareHashExtractionEnabled', $value);
+    }
+
+    /**
      * Sets the language property value. Language configured on the device
      * @param string|null $value Value to set for the language property.
     */
@@ -375,6 +439,14 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     }
 
     /**
+     * Sets the locale property value. The locale (language) to be used when configuring the device. E.g. en-US. The default value is os-default. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @param string|null $value Value to set for the locale property.
+    */
+    public function setLocale(?string $value): void {
+        $this->getBackingStore()->set('locale', $value);
+    }
+
+    /**
      * Sets the managementServiceAppId property value. AzureAD management app ID used during client device-based enrollment discovery
      * @param string|null $value Value to set for the managementServiceAppId property.
     */
@@ -383,11 +455,27 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     }
 
     /**
+     * Sets the outOfBoxExperienceSetting property value. The Windows Autopilot Deployment Profile settings used by the device for the out-of-box experience. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @param OutOfBoxExperienceSetting|null $value Value to set for the outOfBoxExperienceSetting property.
+    */
+    public function setOutOfBoxExperienceSetting(?OutOfBoxExperienceSetting $value): void {
+        $this->getBackingStore()->set('outOfBoxExperienceSetting', $value);
+    }
+
+    /**
      * Sets the outOfBoxExperienceSettings property value. Out of box experience setting
      * @param OutOfBoxExperienceSettings|null $value Value to set for the outOfBoxExperienceSettings property.
     */
     public function setOutOfBoxExperienceSettings(?OutOfBoxExperienceSettings $value): void {
         $this->getBackingStore()->set('outOfBoxExperienceSettings', $value);
+    }
+
+    /**
+     * Sets the preprovisioningAllowed property value. Indicates whether the user is allowed to use Windows Autopilot for pre-provisioned deployment mode during Out of Box experience (OOBE). When TRUE, indicates that Windows Autopilot for pre-provisioned deployment mode for OOBE is allowed to be used. When false, Windows Autopilot for pre-provisioned deployment mode for OOBE is not allowed. The default is FALSE.
+     * @param bool|null $value Value to set for the preprovisioningAllowed property.
+    */
+    public function setPreprovisioningAllowed(?bool $value): void {
+        $this->getBackingStore()->set('preprovisioningAllowed', $value);
     }
 
     /**

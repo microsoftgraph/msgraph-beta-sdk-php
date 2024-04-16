@@ -60,10 +60,11 @@ class SensorDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorDevices from workplace
+     * Get a list of all workplace sensor devices created for a tenant.
      * @param SensorDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkplaceSensorDeviceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplace-list-sensordevices?view=graph-rest-1.0 Find more info here
     */
     public function get(?SensorDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,11 +75,12 @@ class SensorDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to sensorDevices for workplace
+     * Create a new workplace sensor device.
      * @param WorkplaceSensorDevice $body The request body
      * @param SensorDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkplaceSensorDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplace-post-sensordevices?view=graph-rest-1.0 Find more info here
     */
     public function post(WorkplaceSensorDevice $body, ?SensorDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -89,7 +91,7 @@ class SensorDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorDevices from workplace
+     * Get a list of all workplace sensor devices created for a tenant.
      * @param SensorDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -110,14 +112,14 @@ class SensorDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to sensorDevices for workplace
+     * Create a new workplace sensor device.
      * @param WorkplaceSensorDevice $body The request body
      * @param SensorDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPostRequestInformation(WorkplaceSensorDevice $body, ?SensorDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/workplace/sensorDevices';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

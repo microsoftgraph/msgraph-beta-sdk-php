@@ -110,7 +110,7 @@ class TenantsCustomizedInformationRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(TenantCustomizedInformation $body, ?TenantsCustomizedInformationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/tenantsCustomizedInformation';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

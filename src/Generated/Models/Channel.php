@@ -51,7 +51,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.
+     * Gets the displayName property value. Channel name as it appears to the user in Microsoft Teams. The maximum length is 50 characters.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -113,7 +113,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the isArchived property value. The isArchived property
+     * Gets the isArchived property value. Indicates whether the channel is archived. Read-only.
      * @return bool|null
     */
     public function getIsArchived(): ?bool {
@@ -151,7 +151,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
+     * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
      * @return ChannelMembershipType|null
     */
     public function getMembershipType(): ?ChannelMembershipType {
@@ -203,7 +203,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the summary property value. Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.
+     * Gets the summary property value. Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property is only returned if it appears in the $select clause of the Get channel method.
      * @return ChannelSummary|null
     */
     public function getSummary(): ?ChannelSummary {
@@ -241,7 +241,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
+     * Gets the webUrl property value. A hyperlink to the channel in Microsoft Teams. This URL is supplied when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -293,7 +293,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.
+     * Sets the displayName property value. Channel name as it appears to the user in Microsoft Teams. The maximum length is 50 characters.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -317,7 +317,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the isArchived property value. The isArchived property
+     * Sets the isArchived property value. Indicates whether the channel is archived. Read-only.
      * @param bool|null $value Value to set for the isArchived property.
     */
     public function setIsArchived(?bool $value): void {
@@ -341,7 +341,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
+     * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
      * @param ChannelMembershipType|null $value Value to set for the membershipType property.
     */
     public function setMembershipType(?ChannelMembershipType $value): void {
@@ -373,7 +373,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the summary property value. Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.
+     * Sets the summary property value. Contains summary information about the channel, including number of guests, members, owners, and an indicator for members from other tenants. The summary property is only returned if it appears in the $select clause of the Get channel method.
      * @param ChannelSummary|null $value Value to set for the summary property.
     */
     public function setSummary(?ChannelSummary $value): void {
@@ -397,7 +397,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
+     * Sets the webUrl property value. A hyperlink to the channel in Microsoft Teams. This URL is supplied when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

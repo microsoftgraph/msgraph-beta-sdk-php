@@ -143,7 +143,7 @@ class AttackSimulationRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the trainingCampaigns property value. The trainingCampaigns property
+     * Gets the trainingCampaigns property value. Represents a training campaign in a tenant.
      * @return array<TrainingCampaign>|null
     */
     public function getTrainingCampaigns(): ?array {
@@ -244,7 +244,7 @@ class AttackSimulationRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the trainingCampaigns property value. The trainingCampaigns property
+     * Sets the trainingCampaigns property value. Represents a training campaign in a tenant.
      * @param array<TrainingCampaign>|null $value Value to set for the trainingCampaigns property.
     */
     public function setTrainingCampaigns(?array $value): void {

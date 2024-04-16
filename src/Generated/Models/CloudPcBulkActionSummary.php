@@ -56,7 +56,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the failedCount property value. The failedCount property
+     * Gets the failedCount property value. The number of Cloud PCs where the action failed.
      * @return int|null
     */
     public function getFailedCount(): ?int {
@@ -84,7 +84,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the inProgressCount property value. The inProgressCount property
+     * Gets the inProgressCount property value. The number of Cloud PCs where the action is in progress.
      * @return int|null
     */
     public function getInProgressCount(): ?int {
@@ -96,7 +96,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the notSupportedCount property value. The notSupportedCount property
+     * Gets the notSupportedCount property value. The number of Cloud PCs where the action isn't supported.
      * @return int|null
     */
     public function getNotSupportedCount(): ?int {
@@ -120,7 +120,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the pendingCount property value. The pendingCount property
+     * Gets the pendingCount property value. The number of Cloud PCs where the action is pending.
      * @return int|null
     */
     public function getPendingCount(): ?int {
@@ -132,7 +132,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the successfulCount property value. The successfulCount property
+     * Gets the successfulCount property value. The number of Cloud PCs where the action is successful.
      * @return int|null
     */
     public function getSuccessfulCount(): ?int {
@@ -174,7 +174,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the failedCount property value. The failedCount property
+     * Sets the failedCount property value. The number of Cloud PCs where the action failed.
      * @param int|null $value Value to set for the failedCount property.
     */
     public function setFailedCount(?int $value): void {
@@ -182,7 +182,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the inProgressCount property value. The inProgressCount property
+     * Sets the inProgressCount property value. The number of Cloud PCs where the action is in progress.
      * @param int|null $value Value to set for the inProgressCount property.
     */
     public function setInProgressCount(?int $value): void {
@@ -190,7 +190,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the notSupportedCount property value. The notSupportedCount property
+     * Sets the notSupportedCount property value. The number of Cloud PCs where the action isn't supported.
      * @param int|null $value Value to set for the notSupportedCount property.
     */
     public function setNotSupportedCount(?int $value): void {
@@ -206,7 +206,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the pendingCount property value. The pendingCount property
+     * Sets the pendingCount property value. The number of Cloud PCs where the action is pending.
      * @param int|null $value Value to set for the pendingCount property.
     */
     public function setPendingCount(?int $value): void {
@@ -214,7 +214,7 @@ class CloudPcBulkActionSummary implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the successfulCount property value. The successfulCount property
+     * Sets the successfulCount property value. The number of Cloud PCs where the action is successful.
      * @param int|null $value Value to set for the successfulCount property.
     */
     public function setSuccessfulCount(?int $value): void {

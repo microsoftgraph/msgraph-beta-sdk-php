@@ -109,7 +109,7 @@ class DefaultUserRoleOverridesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DefaultUserRoleOverride $body, ?DefaultUserRoleOverridesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/authorizationPolicy/{authorizationPolicy%2Did}/defaultUserRoleOverrides';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

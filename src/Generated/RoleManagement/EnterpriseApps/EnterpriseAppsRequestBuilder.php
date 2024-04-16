@@ -109,7 +109,7 @@ class EnterpriseAppsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(RbacApplication $body, ?EnterpriseAppsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/roleManagement/enterpriseApps';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

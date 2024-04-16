@@ -109,7 +109,7 @@ class WindowsDriverUpdateProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(WindowsDriverUpdateProfile $body, ?WindowsDriverUpdateProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsDriverUpdateProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

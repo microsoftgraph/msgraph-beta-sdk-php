@@ -57,7 +57,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the boolValue property value. The value of the sensor.
+     * Gets the boolValue property value. The value of the sensor can be true or false. Use it for sensors that report binary values, such as occupancy or heartbeat.
      * @return bool|null
     */
     public function getBoolValue(): ?bool {
@@ -69,7 +69,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the deviceId property value. The unique identifier of the device.
+     * Gets the deviceId property value. The user-defined unique identifier of the device provided at the time of creation. Don't use the system generated identifier of the device.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -98,7 +98,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the intValue property value. The value of the sensor.
+     * Gets the intValue property value. The value of the sensor as an integer. Use it for sensors that report numerical values, such as people count.
      * @return int|null
     */
     public function getIntValue(): ?int {
@@ -122,7 +122,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the sensorId property value. The unique identifier of a sensor within the device. If the sensor Id is not provided, the sensorType will be used as sensorId.
+     * Gets the sensorId property value. The user-defined unique identifier of the sensor on the device. Optional. If the device has multiple sensors of the same type, the property must be provided to identify each sensor. If the device has unique sensor types, the property can be omitted. The default value is the sensor type.
      * @return string|null
     */
     public function getSensorId(): ?string {
@@ -146,7 +146,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the timestamp property value. The timestamp at which the sensor value was observed.
+     * Gets the timestamp property value. The date and time when the sensor measured and reported its value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getTimestamp(): ?DateTime {
@@ -189,7 +189,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the boolValue property value. The value of the sensor.
+     * Sets the boolValue property value. The value of the sensor can be true or false. Use it for sensors that report binary values, such as occupancy or heartbeat.
      * @param bool|null $value Value to set for the boolValue property.
     */
     public function setBoolValue(?bool $value): void {
@@ -197,7 +197,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the deviceId property value. The unique identifier of the device.
+     * Sets the deviceId property value. The user-defined unique identifier of the device provided at the time of creation. Don't use the system generated identifier of the device.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -205,7 +205,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the intValue property value. The value of the sensor.
+     * Sets the intValue property value. The value of the sensor as an integer. Use it for sensors that report numerical values, such as people count.
      * @param int|null $value Value to set for the intValue property.
     */
     public function setIntValue(?int $value): void {
@@ -221,7 +221,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the sensorId property value. The unique identifier of a sensor within the device. If the sensor Id is not provided, the sensorType will be used as sensorId.
+     * Sets the sensorId property value. The user-defined unique identifier of the sensor on the device. Optional. If the device has multiple sensors of the same type, the property must be provided to identify each sensor. If the device has unique sensor types, the property can be omitted. The default value is the sensor type.
      * @param string|null $value Value to set for the sensorId property.
     */
     public function setSensorId(?string $value): void {
@@ -237,7 +237,7 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the timestamp property value. The timestamp at which the sensor value was observed.
+     * Sets the timestamp property value. The date and time when the sensor measured and reported its value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the timestamp property.
     */
     public function setTimestamp(?DateTime $value): void {
