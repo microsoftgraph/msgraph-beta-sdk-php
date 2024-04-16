@@ -110,7 +110,7 @@ class CloudPcsOverviewRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CloudPcOverview $body, ?CloudPcsOverviewRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/cloudPcsOverview';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

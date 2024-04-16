@@ -109,7 +109,7 @@ class ZebraFotaDeploymentsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ZebraFotaDeployment $body, ?ZebraFotaDeploymentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/zebraFotaDeployments';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

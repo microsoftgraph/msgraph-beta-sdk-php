@@ -109,7 +109,7 @@ class SharedEmailDomainInvitationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/domains/{domain%2Did}/sharedEmailDomainInvitations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -88,7 +88,7 @@ class PlannerFormsRequirement implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the requiredForms property value. The requiredForms property
+     * Gets the requiredForms property value. Read-only. A collection of keys from the plannerFormsDictionary that identify the plannerFormReference objects that specify the requirements to complete the plannerTask.
      * @return array<string>|null
     */
     public function getRequiredForms(): ?array {
@@ -136,7 +136,7 @@ class PlannerFormsRequirement implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the requiredForms property value. The requiredForms property
+     * Sets the requiredForms property value. Read-only. A collection of keys from the plannerFormsDictionary that identify the plannerFormReference objects that specify the requirements to complete the plannerTask.
      * @param array<string>|null $value Value to set for the requiredForms property.
     */
     public function setRequiredForms(?array $value): void {

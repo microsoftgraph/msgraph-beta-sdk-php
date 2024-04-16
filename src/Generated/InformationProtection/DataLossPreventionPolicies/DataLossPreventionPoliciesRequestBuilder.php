@@ -117,7 +117,7 @@ class DataLossPreventionPoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DataLossPreventionPolicy $body, ?DataLossPreventionPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/informationProtection/dataLossPreventionPolicies';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

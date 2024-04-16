@@ -109,7 +109,7 @@ class SensitiveTypesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(SensitiveType $body, ?SensitiveTypesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/sensitiveTypes';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

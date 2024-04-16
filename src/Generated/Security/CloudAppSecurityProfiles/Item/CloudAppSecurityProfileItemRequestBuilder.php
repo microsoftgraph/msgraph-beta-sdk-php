@@ -80,7 +80,7 @@ class CloudAppSecurityProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?CloudAppSecurityProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/cloudAppSecurityProfiles/{cloudAppSecurityProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class CloudAppSecurityProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CloudAppSecurityProfile $body, ?CloudAppSecurityProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/cloudAppSecurityProfiles/{cloudAppSecurityProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

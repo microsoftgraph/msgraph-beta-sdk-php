@@ -106,7 +106,7 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/multiTenantOrganization';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

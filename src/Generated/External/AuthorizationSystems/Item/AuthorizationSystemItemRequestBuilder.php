@@ -88,7 +88,7 @@ class AuthorizationSystemItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?AuthorizationSystemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class AuthorizationSystemItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AuthorizationSystem $body, ?AuthorizationSystemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

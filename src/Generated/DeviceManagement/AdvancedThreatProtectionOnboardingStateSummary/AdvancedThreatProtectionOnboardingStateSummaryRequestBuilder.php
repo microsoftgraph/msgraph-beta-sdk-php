@@ -88,7 +88,7 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
     */
     public function toDeleteRequestInformation(?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/advancedThreatProtectionOnboardingStateSummary';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
     */
     public function toPatchRequestInformation(AdvancedThreatProtectionOnboardingStateSummary $body, ?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/advancedThreatProtectionOnboardingStateSummary';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

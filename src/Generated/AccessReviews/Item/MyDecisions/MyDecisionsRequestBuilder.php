@@ -110,7 +110,7 @@ class MyDecisionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AccessReviewDecision $body, ?MyDecisionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/accessReviews/{accessReview%2Did}/myDecisions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

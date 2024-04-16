@@ -34,7 +34,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the activeChecklistItemCount property value. Number of checklist items with value set to false, representing incomplete items.
+     * Gets the activeChecklistItemCount property value. The number of checklist items with value set to false, representing incomplete items.
      * @return int|null
     */
     public function getActiveChecklistItemCount(): ?int {
@@ -46,7 +46,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the appliedCategories property value. The categories to which the task has been applied. See applied Categories for possible values.
+     * Gets the appliedCategories property value. The categories to which the task is applied. See plannerAppliedCategories resource type for possible values.
      * @return PlannerAppliedCategories|null
     */
     public function getAppliedCategories(): ?PlannerAppliedCategories {
@@ -82,7 +82,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the assigneePriority property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * Gets the assigneePriority property value. A hint that is used to order items of this type in a list view. For more information, see Using order hints in Planner.
      * @return string|null
     */
     public function getAssigneePriority(): ?string {
@@ -106,7 +106,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the bucketId property value. Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.
+     * Gets the bucketId property value. Bucket ID to which the task belongs. The bucket needs to be in the same plan as the task. The value of the bucketId property is 28 characters long and case-sensitive. Format validation is done on the service.
      * @return string|null
     */
     public function getBucketId(): ?string {
@@ -130,7 +130,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the checklistItemCount property value. Number of checklist items that are present on the task.
+     * Gets the checklistItemCount property value. The number of checklist items that are present on the task.
      * @return int|null
     */
     public function getChecklistItemCount(): ?int {
@@ -142,7 +142,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the completedBy property value. Identity of the user that completed the task.
+     * Gets the completedBy property value. The identity of the user that completed the task.
      * @return IdentitySet|null
     */
     public function getCompletedBy(): ?IdentitySet {
@@ -154,7 +154,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the completedDateTime property value. Read-only. The date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -166,7 +166,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the conversationThreadId property value. Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.
+     * Gets the conversationThreadId property value. The thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.
      * @return string|null
     */
     public function getConversationThreadId(): ?string {
@@ -178,7 +178,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. Identity of the user that created the task.
+     * Gets the createdBy property value. The identity of the user who created the task.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -190,7 +190,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the createdDateTime property value. Read-only. The date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -202,7 +202,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the creationSource property value. Contains information about the origin of the task.
+     * Gets the creationSource property value. Information about the origin of the task.
      * @return PlannerTaskCreation|null
     */
     public function getCreationSource(): ?PlannerTaskCreation {
@@ -214,7 +214,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the details property value. Read-only. Nullable. Additional details about the task.
+     * Gets the details property value. Read-only. Nullable. More details about the task.
      * @return PlannerTaskDetails|null
     */
     public function getDetails(): ?PlannerTaskDetails {
@@ -226,7 +226,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the dueDateTime property value. The date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
@@ -280,7 +280,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the hasDescription property value. Read-only. Value is true if the details object of the task has a nonempty description and false otherwise.
+     * Gets the hasDescription property value. Read-only. This value is true if the details object of the task has a nonempty description. Otherwise,false.
      * @return bool|null
     */
     public function getHasDescription(): ?bool {
@@ -304,7 +304,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the isOnMyDay property value. The isOnMyDay property
+     * Gets the isOnMyDay property value. A Boolean value that indicates whether to show this task in the MyDay view. true to show the task. Otherwise, false.
      * @return bool|null
     */
     public function getIsOnMyDay(): ?bool {
@@ -316,7 +316,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the isOnMyDayLastModifiedDate property value. The isOnMyDayLastModifiedDate property
+     * Gets the isOnMyDayLastModifiedDate property value. Read-only. The date on which task is added to or removed from MyDay.
      * @return Date|null
     */
     public function getIsOnMyDayLastModifiedDate(): ?Date {
@@ -328,7 +328,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * Gets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in Plannern.
      * @return string|null
     */
     public function getOrderHint(): ?string {
@@ -340,7 +340,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the percentComplete property value. Percentage of task completion. When set to 100, the task is considered completed.
+     * Gets the percentComplete property value. The percentage of task completion. When set to 100, the task is completed.
      * @return int|null
     */
     public function getPercentComplete(): ?int {
@@ -364,7 +364,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
+     * Gets the previewType property value. The type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
      * @return PlannerPreviewType|null
     */
     public function getPreviewType(): ?PlannerPreviewType {
@@ -376,7 +376,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the priority property value. Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
+     * Gets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'. Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -424,7 +424,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue. Read-only. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
+     * Gets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
      * @return PlannerTaskCompletionRequirements|null
     */
     public function getSpecifiedCompletionRequirements(): ?PlannerTaskCompletionRequirements {
@@ -500,7 +500,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the activeChecklistItemCount property value. Number of checklist items with value set to false, representing incomplete items.
+     * Sets the activeChecklistItemCount property value. The number of checklist items with value set to false, representing incomplete items.
      * @param int|null $value Value to set for the activeChecklistItemCount property.
     */
     public function setActiveChecklistItemCount(?int $value): void {
@@ -508,7 +508,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the appliedCategories property value. The categories to which the task has been applied. See applied Categories for possible values.
+     * Sets the appliedCategories property value. The categories to which the task is applied. See plannerAppliedCategories resource type for possible values.
      * @param PlannerAppliedCategories|null $value Value to set for the appliedCategories property.
     */
     public function setAppliedCategories(?PlannerAppliedCategories $value): void {
@@ -532,7 +532,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the assigneePriority property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * Sets the assigneePriority property value. A hint that is used to order items of this type in a list view. For more information, see Using order hints in Planner.
      * @param string|null $value Value to set for the assigneePriority property.
     */
     public function setAssigneePriority(?string $value): void {
@@ -548,7 +548,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the bucketId property value. Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.
+     * Sets the bucketId property value. Bucket ID to which the task belongs. The bucket needs to be in the same plan as the task. The value of the bucketId property is 28 characters long and case-sensitive. Format validation is done on the service.
      * @param string|null $value Value to set for the bucketId property.
     */
     public function setBucketId(?string $value): void {
@@ -564,7 +564,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the checklistItemCount property value. Number of checklist items that are present on the task.
+     * Sets the checklistItemCount property value. The number of checklist items that are present on the task.
      * @param int|null $value Value to set for the checklistItemCount property.
     */
     public function setChecklistItemCount(?int $value): void {
@@ -572,7 +572,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the completedBy property value. Identity of the user that completed the task.
+     * Sets the completedBy property value. The identity of the user that completed the task.
      * @param IdentitySet|null $value Value to set for the completedBy property.
     */
     public function setCompletedBy(?IdentitySet $value): void {
@@ -580,7 +580,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the completedDateTime property value. Read-only. The date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
@@ -588,7 +588,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the conversationThreadId property value. Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.
+     * Sets the conversationThreadId property value. The thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.
      * @param string|null $value Value to set for the conversationThreadId property.
     */
     public function setConversationThreadId(?string $value): void {
@@ -596,7 +596,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. Identity of the user that created the task.
+     * Sets the createdBy property value. The identity of the user who created the task.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -604,7 +604,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the createdDateTime property value. Read-only. The date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -612,7 +612,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the creationSource property value. Contains information about the origin of the task.
+     * Sets the creationSource property value. Information about the origin of the task.
      * @param PlannerTaskCreation|null $value Value to set for the creationSource property.
     */
     public function setCreationSource(?PlannerTaskCreation $value): void {
@@ -620,7 +620,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the details property value. Read-only. Nullable. Additional details about the task.
+     * Sets the details property value. Read-only. Nullable. More details about the task.
      * @param PlannerTaskDetails|null $value Value to set for the details property.
     */
     public function setDetails(?PlannerTaskDetails $value): void {
@@ -628,7 +628,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the dueDateTime property value. The date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
@@ -636,7 +636,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the hasDescription property value. Read-only. Value is true if the details object of the task has a nonempty description and false otherwise.
+     * Sets the hasDescription property value. Read-only. This value is true if the details object of the task has a nonempty description. Otherwise,false.
      * @param bool|null $value Value to set for the hasDescription property.
     */
     public function setHasDescription(?bool $value): void {
@@ -652,7 +652,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the isOnMyDay property value. The isOnMyDay property
+     * Sets the isOnMyDay property value. A Boolean value that indicates whether to show this task in the MyDay view. true to show the task. Otherwise, false.
      * @param bool|null $value Value to set for the isOnMyDay property.
     */
     public function setIsOnMyDay(?bool $value): void {
@@ -660,7 +660,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the isOnMyDayLastModifiedDate property value. The isOnMyDayLastModifiedDate property
+     * Sets the isOnMyDayLastModifiedDate property value. Read-only. The date on which task is added to or removed from MyDay.
      * @param Date|null $value Value to set for the isOnMyDayLastModifiedDate property.
     */
     public function setIsOnMyDayLastModifiedDate(?Date $value): void {
@@ -668,7 +668,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * Sets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in Plannern.
      * @param string|null $value Value to set for the orderHint property.
     */
     public function setOrderHint(?string $value): void {
@@ -676,7 +676,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the percentComplete property value. Percentage of task completion. When set to 100, the task is considered completed.
+     * Sets the percentComplete property value. The percentage of task completion. When set to 100, the task is completed.
      * @param int|null $value Value to set for the percentComplete property.
     */
     public function setPercentComplete(?int $value): void {
@@ -692,7 +692,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
+     * Sets the previewType property value. The type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
      * @param PlannerPreviewType|null $value Value to set for the previewType property.
     */
     public function setPreviewType(?PlannerPreviewType $value): void {
@@ -700,7 +700,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the priority property value. Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
+     * Sets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'. Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
@@ -732,7 +732,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue. Read-only. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
+     * Sets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
      * @param PlannerTaskCompletionRequirements|null $value Value to set for the specifiedCompletionRequirements property.
     */
     public function setSpecifiedCompletionRequirements(?PlannerTaskCompletionRequirements $value): void {

@@ -83,7 +83,7 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/pendingExternalUserProfiles/{pendingExternalUserProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PendingExternalUserProfile $body, ?PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/pendingExternalUserProfiles/{pendingExternalUserProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

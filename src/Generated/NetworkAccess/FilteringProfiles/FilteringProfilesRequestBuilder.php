@@ -110,7 +110,7 @@ class FilteringProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(FilteringProfile $body, ?FilteringProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/filteringProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -81,7 +81,7 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
     */
     public function toDeleteRequestInformation(?ServicePrincipalSignInActivityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/servicePrincipalSignInActivities/{servicePrincipalSignInActivity%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -121,7 +121,7 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
     */
     public function toPatchRequestInformation(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/servicePrincipalSignInActivities/{servicePrincipalSignInActivity%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -109,7 +109,7 @@ class RemoteActionAuditsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(RemoteActionAudit $body, ?RemoteActionAuditsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/remoteActionAudits';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

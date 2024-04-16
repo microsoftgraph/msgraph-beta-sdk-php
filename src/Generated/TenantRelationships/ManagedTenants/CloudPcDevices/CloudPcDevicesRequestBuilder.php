@@ -110,7 +110,7 @@ class CloudPcDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CloudPcDevice $body, ?CloudPcDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/cloudPcDevices';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -109,7 +109,7 @@ class AutopilotEventsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementAutopilotEvent $body, ?AutopilotEventsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/autopilotEvents';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

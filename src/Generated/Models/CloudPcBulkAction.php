@@ -43,7 +43,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionSummary property value. The actionSummary property
+     * Gets the actionSummary property value. Run summary of this bulk action.
      * @return CloudPcBulkActionSummary|null
     */
     public function getActionSummary(): ?CloudPcBulkActionSummary {
@@ -69,7 +69,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the bulk action was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -81,7 +81,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Name of the bulk action.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -115,7 +115,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduledDuringMaintenanceWindow property value. The scheduledDuringMaintenanceWindow property
+     * Gets the scheduledDuringMaintenanceWindow property value. Indicates whether the bulk actions can be initiated during maintenance window. When true, bulk action will use maintenance window to schedule action, When false means bulk action will not use the maintenance window. Default value is false.
      * @return bool|null
     */
     public function getScheduledDuringMaintenanceWindow(): ?bool {
@@ -140,7 +140,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionSummary property value. The actionSummary property
+     * Sets the actionSummary property value. Run summary of this bulk action.
      * @param CloudPcBulkActionSummary|null $value Value to set for the actionSummary property.
     */
     public function setActionSummary(?CloudPcBulkActionSummary $value): void {
@@ -156,7 +156,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the bulk action was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -164,7 +164,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Name of the bulk action.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -172,7 +172,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduledDuringMaintenanceWindow property value. The scheduledDuringMaintenanceWindow property
+     * Sets the scheduledDuringMaintenanceWindow property value. Indicates whether the bulk actions can be initiated during maintenance window. When true, bulk action will use maintenance window to schedule action, When false means bulk action will not use the maintenance window. Default value is false.
      * @param bool|null $value Value to set for the scheduledDuringMaintenanceWindow property.
     */
     public function setScheduledDuringMaintenanceWindow(?bool $value): void {

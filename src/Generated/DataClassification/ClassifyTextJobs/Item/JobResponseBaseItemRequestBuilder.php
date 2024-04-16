@@ -80,7 +80,7 @@ class JobResponseBaseItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?JobResponseBaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/classifyTextJobs/{jobResponseBase%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class JobResponseBaseItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(JobResponseBase $body, ?JobResponseBaseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/classifyTextJobs/{jobResponseBase%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -83,7 +83,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     */
     public function toDeleteRequestInformation(?FederatedIdentityCredentialsWithNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials(name=\'{name}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     */
     public function toPatchRequestInformation(FederatedIdentityCredential $body, ?FederatedIdentityCredentialsWithNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials(name=\'{name}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -27,7 +27,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the appliedCategories property value. Rules and restrictions for applied categories. This value does not currently support overrides. Accepted values for the default rule and individual overrides are allow, block.
+     * Gets the appliedCategories property value. Rules and restrictions for applied categories. This value doesn't currently support overrides. Accepted values for the default rule and individual overrides are allow, block.
      * @return PlannerFieldRules|null
     */
     public function getAppliedCategories(): ?PlannerFieldRules {
@@ -39,7 +39,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the approvalAttachment property value. The approvalAttachment property
+     * Gets the approvalAttachment property value. Rules and restrictions for approval. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are: allow, add, remove, block.
      * @return PlannerFieldRules|null
     */
     public function getApprovalAttachment(): ?PlannerFieldRules {
@@ -221,7 +221,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the forms property value. The forms property
+     * Gets the forms property value. Rules and restrictions for forms. Allowed overrides are userCreated and applicationCreated. The following are the accepted values for the default rule and individual overrides: allow, add, addResponse, remove, update, block.
      * @return PlannerFieldRules|null
     */
     public function getForms(): ?PlannerFieldRules {
@@ -382,7 +382,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Sets the appliedCategories property value. Rules and restrictions for applied categories. This value does not currently support overrides. Accepted values for the default rule and individual overrides are allow, block.
+     * Sets the appliedCategories property value. Rules and restrictions for applied categories. This value doesn't currently support overrides. Accepted values for the default rule and individual overrides are allow, block.
      * @param PlannerFieldRules|null $value Value to set for the appliedCategories property.
     */
     public function setAppliedCategories(?PlannerFieldRules $value): void {
@@ -390,7 +390,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Sets the approvalAttachment property value. The approvalAttachment property
+     * Sets the approvalAttachment property value. Rules and restrictions for approval. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are: allow, add, remove, block.
      * @param PlannerFieldRules|null $value Value to set for the approvalAttachment property.
     */
     public function setApprovalAttachment(?PlannerFieldRules $value): void {
@@ -438,7 +438,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Sets the forms property value. The forms property
+     * Sets the forms property value. Rules and restrictions for forms. Allowed overrides are userCreated and applicationCreated. The following are the accepted values for the default rule and individual overrides: allow, add, addResponse, remove, update, block.
      * @param PlannerFieldRules|null $value Value to set for the forms property.
     */
     public function setForms(?PlannerFieldRules $value): void {

@@ -109,7 +109,7 @@ class WdacSupplementalPoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(WindowsDefenderApplicationControlSupplementalPolicy $body, ?WdacSupplementalPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/wdacSupplementalPolicies';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

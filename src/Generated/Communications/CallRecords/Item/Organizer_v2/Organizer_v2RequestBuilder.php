@@ -80,7 +80,7 @@ class Organizer_v2RequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?Organizer_v2RequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/communications/callRecords/{callRecord%2Did}/organizer_v2';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class Organizer_v2RequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Organizer $body, ?Organizer_v2RequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/communications/callRecords/{callRecord%2Did}/organizer_v2';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

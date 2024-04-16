@@ -61,7 +61,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingProfiles from networkAccess
+     * Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingProfile|null>
      * @throws Exception
@@ -96,7 +96,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ForwardingProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/forwardingProfiles/{forwardingProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -108,7 +108,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forwardingProfiles from networkAccess
+     * Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +136,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ForwardingProfile $body, ?ForwardingProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/forwardingProfiles/{forwardingProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

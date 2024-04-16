@@ -109,7 +109,7 @@ class PrinterSharesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PrinterShare $body, ?PrinterSharesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/print/printerShares';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

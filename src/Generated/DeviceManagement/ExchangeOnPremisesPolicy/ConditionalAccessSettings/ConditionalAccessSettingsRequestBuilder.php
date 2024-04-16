@@ -80,7 +80,7 @@ class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ConditionalAccessSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/exchangeOnPremisesPolicy/conditionalAccessSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(OnPremisesConditionalAccessSettings $body, ?ConditionalAccessSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/exchangeOnPremisesPolicy/conditionalAccessSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

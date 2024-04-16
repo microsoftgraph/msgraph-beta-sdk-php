@@ -80,7 +80,7 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
     */
     public function toDeleteRequestInformation(?CredentialUserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/credentialUserRegistrationDetails/{credentialUserRegistrationDetails%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
     */
     public function toPatchRequestInformation(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/credentialUserRegistrationDetails/{credentialUserRegistrationDetails%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

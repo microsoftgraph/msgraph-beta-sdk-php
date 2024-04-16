@@ -33,14 +33,14 @@ class FilePlanDescriptorTemplate extends Entity implements Parsable
                 case '#microsoft.graph.security.citationTemplate': return new CitationTemplate();
                 case '#microsoft.graph.security.departmentTemplate': return new DepartmentTemplate();
                 case '#microsoft.graph.security.filePlanReferenceTemplate': return new FilePlanReferenceTemplate();
-                case '#microsoft.graph.security.subCategoryTemplate': return new SubCategoryTemplate();
+                case '#microsoft.graph.security.subcategoryTemplate': return new SubcategoryTemplate();
             }
         }
         return new FilePlanDescriptorTemplate();
     }
 
     /**
-     * Gets the createdBy property value. Represents the user who created the filePlanDescriptorTemplate column.
+     * Gets the createdBy property value. Represents the user who created the filePlanDescriptorTemplate column. Read-only.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -52,7 +52,7 @@ class FilePlanDescriptorTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Represents the date and time in which the filePlanDescriptorTemplate is created.
+     * Gets the createdDateTime property value. Represents the date and time in which the filePlanDescriptorTemplate is created. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -100,7 +100,7 @@ class FilePlanDescriptorTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. Represents the user who created the filePlanDescriptorTemplate column.
+     * Sets the createdBy property value. Represents the user who created the filePlanDescriptorTemplate column. Read-only.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -108,7 +108,7 @@ class FilePlanDescriptorTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Represents the date and time in which the filePlanDescriptorTemplate is created.
+     * Sets the createdDateTime property value. Represents the date and time in which the filePlanDescriptorTemplate is created. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {

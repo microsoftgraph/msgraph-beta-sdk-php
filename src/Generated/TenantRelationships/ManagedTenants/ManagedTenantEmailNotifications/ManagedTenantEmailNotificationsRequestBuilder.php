@@ -109,7 +109,7 @@ class ManagedTenantEmailNotificationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managedTenantEmailNotifications';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

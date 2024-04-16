@@ -38,7 +38,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceId property value. The unique identifier of the device set by the user.
+     * Gets the deviceId property value. The user-defined unique identifier of the device provided at the time of creation.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -89,7 +89,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the ipV4Address property value. The IPv4 Address of the device.
+     * Gets the ipV4Address property value. The IPv4 address of the device.
      * @return string|null
     */
     public function getIpV4Address(): ?string {
@@ -101,7 +101,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the ipV6Address property value. The IPv6 Address of the device.
+     * Gets the ipV6Address property value. The IPv6 address of the device.
      * @return string|null
     */
     public function getIpV6Address(): ?string {
@@ -137,7 +137,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the placeId property value. The unique identifier of the place where the device is located.
+     * Gets the placeId property value. The unique identifier of the place where the device is located. If the device is installed in a room equipped with a mailbox, this property should match the ExternalDirectoryObjectId or Microsoft Entra object ID of the room mailbox.
      * @return string|null
     */
     public function getPlaceId(): ?string {
@@ -149,7 +149,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensors property value. A list of sensors associated with the device. Sensors can measure physical quantities such as temperature, humidity, occupancy,         etc.
+     * Gets the sensors property value. A list of sensors associated with the device that collect and report data about physical or environmental conditions, such as occupancy, people count, inferred occupancy, temperature, and more.
      * @return array<WorkplaceSensor>|null
     */
     public function getSensors(): ?array {
@@ -203,7 +203,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceId property value. The unique identifier of the device set by the user.
+     * Sets the deviceId property value. The user-defined unique identifier of the device provided at the time of creation.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -219,7 +219,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the ipV4Address property value. The IPv4 Address of the device.
+     * Sets the ipV4Address property value. The IPv4 address of the device.
      * @param string|null $value Value to set for the ipV4Address property.
     */
     public function setIpV4Address(?string $value): void {
@@ -227,7 +227,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the ipV6Address property value. The IPv6 Address of the device.
+     * Sets the ipV6Address property value. The IPv6 address of the device.
      * @param string|null $value Value to set for the ipV6Address property.
     */
     public function setIpV6Address(?string $value): void {
@@ -251,7 +251,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the placeId property value. The unique identifier of the place where the device is located.
+     * Sets the placeId property value. The unique identifier of the place where the device is located. If the device is installed in a room equipped with a mailbox, this property should match the ExternalDirectoryObjectId or Microsoft Entra object ID of the room mailbox.
      * @param string|null $value Value to set for the placeId property.
     */
     public function setPlaceId(?string $value): void {
@@ -259,7 +259,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensors property value. A list of sensors associated with the device. Sensors can measure physical quantities such as temperature, humidity, occupancy,         etc.
+     * Sets the sensors property value. A list of sensors associated with the device that collect and report data about physical or environmental conditions, such as occupancy, people count, inferred occupancy, temperature, and more.
      * @param array<WorkplaceSensor>|null $value Value to set for the sensors property.
     */
     public function setSensors(?array $value): void {

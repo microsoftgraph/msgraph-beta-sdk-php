@@ -110,7 +110,7 @@ class RecommendationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(Recommendation $body, ?RecommendationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/recommendations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

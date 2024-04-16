@@ -32,22 +32,22 @@ class CategoryTemplate extends FilePlanDescriptorTemplate implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'subCategories' => fn(ParseNode $n) => $o->setSubCategories($n->getCollectionOfObjectValues([SubCategoryTemplate::class, 'createFromDiscriminatorValue'])),
+            'subcategories' => fn(ParseNode $n) => $o->setSubcategories($n->getCollectionOfObjectValues([SubcategoryTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the subCategories property value. Represents all subcategories under a particular category.
-     * @return array<SubCategoryTemplate>|null
+     * Gets the subcategories property value. The subcategories property
+     * @return array<SubcategoryTemplate>|null
     */
-    public function getSubCategories(): ?array {
-        $val = $this->getBackingStore()->get('subCategories');
+    public function getSubcategories(): ?array {
+        $val = $this->getBackingStore()->get('subcategories');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, SubCategoryTemplate::class);
-            /** @var array<SubCategoryTemplate>|null $val */
+            TypeUtils::validateCollectionValues($val, SubcategoryTemplate::class);
+            /** @var array<SubcategoryTemplate>|null $val */
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'subCategories'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subcategories'");
     }
 
     /**
@@ -56,15 +56,15 @@ class CategoryTemplate extends FilePlanDescriptorTemplate implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('subCategories', $this->getSubCategories());
+        $writer->writeCollectionOfObjectValues('subcategories', $this->getSubcategories());
     }
 
     /**
-     * Sets the subCategories property value. Represents all subcategories under a particular category.
-     * @param array<SubCategoryTemplate>|null $value Value to set for the subCategories property.
+     * Sets the subcategories property value. The subcategories property
+     * @param array<SubcategoryTemplate>|null $value Value to set for the subcategories property.
     */
-    public function setSubCategories(?array $value): void {
-        $this->getBackingStore()->set('subCategories', $value);
+    public function setSubcategories(?array $value): void {
+        $this->getBackingStore()->set('subcategories', $value);
     }
 
 }

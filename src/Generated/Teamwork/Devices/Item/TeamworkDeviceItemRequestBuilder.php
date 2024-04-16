@@ -137,7 +137,7 @@ class TeamworkDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?TeamworkDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -177,7 +177,7 @@ class TeamworkDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(TeamworkDevice $body, ?TeamworkDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

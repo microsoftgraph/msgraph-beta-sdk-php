@@ -110,7 +110,7 @@ class DetectionRulesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DetectionRule $body, ?DetectionRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/rules/detectionRules';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

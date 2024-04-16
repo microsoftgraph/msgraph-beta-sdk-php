@@ -109,7 +109,7 @@ class GovernanceRoleSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(GovernanceRoleSetting $body, ?GovernanceRoleSettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/governanceRoleSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

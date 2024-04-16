@@ -109,7 +109,7 @@ class DailyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PrintUsageByUser $body, ?DailyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/dailyPrintUsageSummariesByUser';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

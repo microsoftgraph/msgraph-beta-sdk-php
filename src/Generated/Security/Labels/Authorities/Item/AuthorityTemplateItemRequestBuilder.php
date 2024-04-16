@@ -31,11 +31,10 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a authorityTemplate object.
+     * Delete navigation property authorities for security
      * @param AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-authorities?view=graph-rest-1.0 Find more info here
     */
     public function delete(?AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -76,13 +75,13 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a authorityTemplate object.
+     * Delete navigation property authorities for security
      * @param AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?AuthorityTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/authorities/{authorityTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +121,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(AuthorityTemplate $body, ?AuthorityTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/authorities/{authorityTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -109,7 +109,7 @@ class GroupPolicyDefinitionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(GroupPolicyDefinition $body, ?GroupPolicyDefinitionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/groupPolicyDefinitions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

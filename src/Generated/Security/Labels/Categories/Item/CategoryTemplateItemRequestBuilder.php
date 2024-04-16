@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\CategoryTemplate;
-use Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\SubCategories\SubCategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\Categories\Item\Subcategories\SubcategoriesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -18,10 +18,10 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class CategoryTemplateItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the subCategories property of the microsoft.graph.security.categoryTemplate entity.
+     * Provides operations to manage the subcategories property of the microsoft.graph.security.categoryTemplate entity.
     */
-    public function subCategories(): SubCategoriesRequestBuilder {
-        return new SubCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function subcategories(): SubcategoriesRequestBuilder {
+        return new SubcategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -39,11 +39,10 @@ class CategoryTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a categoryTemplate object.
+     * Delete navigation property categories for security
      * @param CategoryTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-categories?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CategoryTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -84,13 +83,13 @@ class CategoryTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a categoryTemplate object.
+     * Delete navigation property categories for security
      * @param CategoryTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?CategoryTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/categories/{categoryTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -130,7 +129,7 @@ class CategoryTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CategoryTemplate $body, ?CategoryTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/categories/{categoryTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

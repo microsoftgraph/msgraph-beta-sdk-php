@@ -83,7 +83,7 @@ class SessionsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?SessionsWithJoinWebUrlRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}/sessions(joinWebUrl=\'{joinWebUrl}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class SessionsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(VirtualEventSession $body, ?SessionsWithJoinWebUrlRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}/sessions(joinWebUrl=\'{joinWebUrl}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

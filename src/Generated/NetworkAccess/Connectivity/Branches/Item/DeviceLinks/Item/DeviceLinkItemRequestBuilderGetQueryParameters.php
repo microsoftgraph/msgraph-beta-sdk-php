@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the device link associated with a specific branch.
+ * Each unique CPE device associated with a branch is specified. Supports $expand.
 */
 class DeviceLinkItemRequestBuilderGetQueryParameters 
 {

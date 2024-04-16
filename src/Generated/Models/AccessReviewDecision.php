@@ -26,7 +26,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessRecommendation property value. The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
+     * Gets the accessRecommendation property value. The feature- generated recommendation shown to the reviewer, one of: Approve, Deny, NotAvailable.
      * @return string|null
     */
     public function getAccessRecommendation(): ?string {
@@ -74,7 +74,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Gets the applyResult property value. The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
+     * Gets the applyResult property value. The outcome of applying the decision, one of: NotApplied, Success, Failed, NotFound, NotSupported.
      * @return string|null
     */
     public function getApplyResult(): ?string {
@@ -170,7 +170,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessRecommendation property value. The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
+     * Sets the accessRecommendation property value. The feature- generated recommendation shown to the reviewer, one of: Approve, Deny, NotAvailable.
      * @param string|null $value Value to set for the accessRecommendation property.
     */
     public function setAccessRecommendation(?string $value): void {
@@ -202,7 +202,7 @@ class AccessReviewDecision extends Entity implements Parsable
     }
 
     /**
-     * Sets the applyResult property value. The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
+     * Sets the applyResult property value. The outcome of applying the decision, one of: NotApplied, Success, Failed, NotFound, NotSupported.
      * @param string|null $value Value to set for the applyResult property.
     */
     public function setApplyResult(?string $value): void {

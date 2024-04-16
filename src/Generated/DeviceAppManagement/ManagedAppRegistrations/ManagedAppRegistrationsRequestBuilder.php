@@ -117,7 +117,7 @@ class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagedAppRegistration $body, ?ManagedAppRegistrationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/managedAppRegistrations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

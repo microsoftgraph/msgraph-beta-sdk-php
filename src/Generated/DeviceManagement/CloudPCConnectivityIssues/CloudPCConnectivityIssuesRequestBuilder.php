@@ -109,7 +109,7 @@ class CloudPCConnectivityIssuesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CloudPCConnectivityIssue $body, ?CloudPCConnectivityIssuesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/cloudPCConnectivityIssues';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

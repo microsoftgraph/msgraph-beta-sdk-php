@@ -109,7 +109,7 @@ class WindowsFeatureUpdateProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(WindowsFeatureUpdateProfile $body, ?WindowsFeatureUpdateProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsFeatureUpdateProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

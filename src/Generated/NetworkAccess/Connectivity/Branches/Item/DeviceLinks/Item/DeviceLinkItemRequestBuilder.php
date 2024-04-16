@@ -31,7 +31,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them.
+     * Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,11 +46,10 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the device link associated with a specific branch.
+     * Each unique CPE device associated with a branch is specified. Supports $expand.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-devicelink-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,7 +60,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch.
+     * Update the device link associated with a specific branch or remote network.
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
@@ -77,13 +76,13 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch and the CPE device, effectively removing the connection and associated configuration between them.
+     * Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?DeviceLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/deviceLinks/{deviceLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -95,7 +94,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the device link associated with a specific branch.
+     * Each unique CPE device associated with a branch is specified. Supports $expand.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,14 +115,14 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch.
+     * Update the device link associated with a specific branch or remote network.
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPatchRequestInformation(DeviceLink $body, ?DeviceLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/deviceLinks/{deviceLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

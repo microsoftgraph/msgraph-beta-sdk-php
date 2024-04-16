@@ -52,7 +52,7 @@ class LinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get links from networkAccess
+     * List of connectivity configurations for deviceLink objects.
      * @param LinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectivityConfigurationLinkCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class LinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get links from networkAccess
+     * List of connectivity configurations for deviceLink objects.
      * @param LinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,7 +109,7 @@ class LinksRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ConnectivityConfigurationLink $body, ?LinksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/connectivityConfiguration/links';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

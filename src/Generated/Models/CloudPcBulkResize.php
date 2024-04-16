@@ -37,7 +37,7 @@ class CloudPcBulkResize extends CloudPcBulkAction implements Parsable
     }
 
     /**
-     * Gets the targetServicePlanId property value. The targetServicePlanId property
+     * Gets the targetServicePlanId property value. The target service plan ID of the resize configuration with new vCPU and storage size.
      * @return string|null
     */
     public function getTargetServicePlanId(): ?string {
@@ -58,7 +58,7 @@ class CloudPcBulkResize extends CloudPcBulkAction implements Parsable
     }
 
     /**
-     * Sets the targetServicePlanId property value. The targetServicePlanId property
+     * Sets the targetServicePlanId property value. The target service plan ID of the resize configuration with new vCPU and storage size.
      * @param string|null $value Value to set for the targetServicePlanId property.
     */
     public function setTargetServicePlanId(?string $value): void {

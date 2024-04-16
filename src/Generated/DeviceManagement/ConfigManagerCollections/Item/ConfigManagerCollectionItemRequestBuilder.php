@@ -80,7 +80,7 @@ class ConfigManagerCollectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ConfigManagerCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/configManagerCollections/{configManagerCollection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class ConfigManagerCollectionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ConfigManagerCollection $body, ?ConfigManagerCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/configManagerCollections/{configManagerCollection%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

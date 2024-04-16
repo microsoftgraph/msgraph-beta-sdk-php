@@ -109,7 +109,7 @@ class ZebraFotaArtifactsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ZebraFotaArtifact $body, ?ZebraFotaArtifactsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/zebraFotaArtifacts';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

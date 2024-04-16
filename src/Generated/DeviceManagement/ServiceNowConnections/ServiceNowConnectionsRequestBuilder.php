@@ -109,7 +109,7 @@ class ServiceNowConnectionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ServiceNowConnection $body, ?ServiceNowConnectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/serviceNowConnections';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

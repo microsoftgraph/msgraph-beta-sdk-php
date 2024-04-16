@@ -80,7 +80,7 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?UserCredentialUsageDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/userCredentialUsageDetails/{userCredentialUsageDetails%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(UserCredentialUsageDetails $body, ?UserCredentialUsageDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/userCredentialUsageDetails/{userCredentialUsageDetails%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -98,7 +98,7 @@ class DeviceHealthScriptStatesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceHealthScriptPolicyState $body, ?DeviceHealthScriptStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/deviceHealthScriptStates';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

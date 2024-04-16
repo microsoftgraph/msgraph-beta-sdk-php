@@ -56,7 +56,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the completedUsersCount property value. The completedUsersCount property
+     * Gets the completedUsersCount property value. The number of users who completed all the trainings before the due date.
      * @return int|null
     */
     public function getCompletedUsersCount(): ?int {
@@ -84,7 +84,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the inProgressUsersCount property value. The inProgressUsersCount property
+     * Gets the inProgressUsersCount property value. The number of users who started at least one training.
      * @return int|null
     */
     public function getInProgressUsersCount(): ?int {
@@ -96,7 +96,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the notCompletedUsersCount property value. The notCompletedUsersCount property
+     * Gets the notCompletedUsersCount property value. The number of users who didn't complete all the trainings before the due date.
      * @return int|null
     */
     public function getNotCompletedUsersCount(): ?int {
@@ -108,7 +108,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the notStartedUsersCount property value. The notStartedUsersCount property
+     * Gets the notStartedUsersCount property value. The number of users who didn't start any training.
      * @return int|null
     */
     public function getNotStartedUsersCount(): ?int {
@@ -132,7 +132,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the previouslyAssignedUsersCount property value. The previouslyAssignedUsersCount property
+     * Gets the previouslyAssignedUsersCount property value. The number of users who are already assigned the same training.
      * @return int|null
     */
     public function getPreviouslyAssignedUsersCount(): ?int {
@@ -174,7 +174,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the completedUsersCount property value. The completedUsersCount property
+     * Sets the completedUsersCount property value. The number of users who completed all the trainings before the due date.
      * @param int|null $value Value to set for the completedUsersCount property.
     */
     public function setCompletedUsersCount(?int $value): void {
@@ -182,7 +182,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the inProgressUsersCount property value. The inProgressUsersCount property
+     * Sets the inProgressUsersCount property value. The number of users who started at least one training.
      * @param int|null $value Value to set for the inProgressUsersCount property.
     */
     public function setInProgressUsersCount(?int $value): void {
@@ -190,7 +190,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the notCompletedUsersCount property value. The notCompletedUsersCount property
+     * Sets the notCompletedUsersCount property value. The number of users who didn't complete all the trainings before the due date.
      * @param int|null $value Value to set for the notCompletedUsersCount property.
     */
     public function setNotCompletedUsersCount(?int $value): void {
@@ -198,7 +198,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the notStartedUsersCount property value. The notStartedUsersCount property
+     * Sets the notStartedUsersCount property value. The number of users who didn't start any training.
      * @param int|null $value Value to set for the notStartedUsersCount property.
     */
     public function setNotStartedUsersCount(?int $value): void {
@@ -214,7 +214,7 @@ class UserTrainingCompletionSummary implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the previouslyAssignedUsersCount property value. The previouslyAssignedUsersCount property
+     * Sets the previouslyAssignedUsersCount property value. The number of users who are already assigned the same training.
      * @param int|null $value Value to set for the previouslyAssignedUsersCount property.
     */
     public function setPreviouslyAssignedUsersCount(?int $value): void {

@@ -52,7 +52,7 @@ class InstancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
+     * The collection of access reviews instances past, present, and future, if this object is a recurring access review.
      * @param InstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class InstancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
+     * The collection of access reviews instances past, present, and future, if this object is a recurring access review.
      * @param InstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,7 +109,7 @@ class InstancesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AccessReview $body, ?InstancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/accessReviews/{accessReview%2Did}/instances';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

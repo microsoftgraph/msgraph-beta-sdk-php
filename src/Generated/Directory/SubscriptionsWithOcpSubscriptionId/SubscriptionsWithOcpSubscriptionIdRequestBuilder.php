@@ -84,7 +84,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     */
     public function toDeleteRequestInformation(?SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -124,7 +124,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     */
     public function toPatchRequestInformation(CompanySubscription $body, ?SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\')';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

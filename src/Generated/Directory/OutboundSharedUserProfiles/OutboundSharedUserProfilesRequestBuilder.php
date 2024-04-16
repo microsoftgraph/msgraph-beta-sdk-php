@@ -110,7 +110,7 @@ class OutboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(OutboundSharedUserProfile $body, ?OutboundSharedUserProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/outboundSharedUserProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

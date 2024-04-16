@@ -109,7 +109,7 @@ class GovernanceSubjectsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(GovernanceSubject $body, ?GovernanceSubjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/governanceSubjects';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

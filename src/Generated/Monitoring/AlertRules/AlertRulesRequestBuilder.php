@@ -111,7 +111,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AlertRule $body, ?AlertRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/monitoring/alertRules';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

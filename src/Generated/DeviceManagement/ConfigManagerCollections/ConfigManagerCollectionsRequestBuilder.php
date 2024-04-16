@@ -119,7 +119,7 @@ class ConfigManagerCollectionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ConfigManagerCollection $body, ?ConfigManagerCollectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/configManagerCollections';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

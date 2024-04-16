@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\AppliedPolicies\AppliedPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\IntendedPolicies\IntendedPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests\ManagedAppLogCollectionRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedAppRegistration;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -31,6 +32,13 @@ class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
     */
     public function intendedPolicies(): IntendedPoliciesRequestBuilder {
         return new IntendedPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the managedAppLogCollectionRequests property of the microsoft.graph.managedAppRegistration entity.
+    */
+    public function managedAppLogCollectionRequests(): ManagedAppLogCollectionRequestsRequestBuilder {
+        return new ManagedAppLogCollectionRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -104,7 +112,7 @@ class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ManagedAppRegistrationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -144,7 +152,7 @@ class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ManagedAppRegistration $body, ?ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

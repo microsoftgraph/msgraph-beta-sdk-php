@@ -52,7 +52,7 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get remoteNetworks from networkAccess
+     * Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @param RemoteNetworksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetworkCollectionResponse|null>
      * @throws Exception
@@ -66,11 +66,12 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to remoteNetworks for networkAccess
+     * Create a new remote network.
      * @param RemoteNetwork $body The request body
      * @param RemoteNetworksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetwork|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-connectivity-post-remotenetworks?view=graph-rest-1.0 Find more info here
     */
     public function post(RemoteNetwork $body, ?RemoteNetworksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +82,7 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get remoteNetworks from networkAccess
+     * Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @param RemoteNetworksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,14 +103,14 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to remoteNetworks for networkAccess
+     * Create a new remote network.
      * @param RemoteNetwork $body The request body
      * @param RemoteNetworksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPostRequestInformation(RemoteNetwork $body, ?RemoteNetworksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

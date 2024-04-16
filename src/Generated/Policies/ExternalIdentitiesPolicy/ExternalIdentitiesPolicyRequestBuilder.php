@@ -82,7 +82,7 @@ class ExternalIdentitiesPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ExternalIdentitiesPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/externalIdentitiesPolicy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class ExternalIdentitiesPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ExternalIdentitiesPolicy $body, ?ExternalIdentitiesPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/externalIdentitiesPolicy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -105,7 +105,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the originSystem property value. The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
+     * Gets the originSystem property value. The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup, or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
      * @return string|null
     */
     public function getOriginSystem(): ?string {
@@ -117,7 +117,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The value is PendingFulfillment when the access package assignment hasn't yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
+     * Gets the status property value. The value is PendingFulfillment before the access package assignment is delivered to the origin system, and Fulfilled after the access package assignment is delivered to the origin system.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -184,7 +184,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the originSystem property value. The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
+     * Sets the originSystem property value. The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup, or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
      * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {
@@ -192,7 +192,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The value is PendingFulfillment when the access package assignment hasn't yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
+     * Sets the status property value. The value is PendingFulfillment before the access package assignment is delivered to the origin system, and Fulfilled after the access package assignment is delivered to the origin system.
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {

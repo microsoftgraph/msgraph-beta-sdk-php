@@ -117,7 +117,7 @@ class AnalyzedEmailsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AnalyzedEmail $body, ?AnalyzedEmailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/collaboration/analyzedEmails';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -119,6 +119,18 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
+     * Gets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
+     * @return ManagedAppPolicyDeploymentSummary|null
+    */
+    public function getDeploymentSummary(): ?ManagedAppPolicyDeploymentSummary {
+        $val = $this->getBackingStore()->get('deploymentSummary');
+        if (is_null($val) || $val instanceof ManagedAppPolicyDeploymentSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentSummary'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -132,6 +144,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([ManagedMobileApp::class, 'createFromDiscriminatorValue'])),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([TargetedManagedAppPolicyAssignment::class, 'createFromDiscriminatorValue'])),
             'deployedAppCount' => fn(ParseNode $n) => $o->setDeployedAppCount($n->getIntegerValue()),
+            'deploymentSummary' => fn(ParseNode $n) => $o->setDeploymentSummary($n->getObjectValue([ManagedAppPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'])),
             'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
             'maximumAllowedDeviceThreatLevel' => fn(ParseNode $n) => $o->setMaximumAllowedDeviceThreatLevel($n->getEnumValue(ManagedAppDeviceThreatLevel::class)),
             'maximumRequiredOsVersion' => fn(ParseNode $n) => $o->setMaximumRequiredOsVersion($n->getStringValue()),
@@ -369,6 +382,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
         $writer->writeCollectionOfObjectValues('apps', $this->getApps());
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeIntegerValue('deployedAppCount', $this->getDeployedAppCount());
+        $writer->writeObjectValue('deploymentSummary', $this->getDeploymentSummary());
         $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
         $writer->writeEnumValue('maximumAllowedDeviceThreatLevel', $this->getMaximumAllowedDeviceThreatLevel());
         $writer->writeStringValue('maximumRequiredOsVersion', $this->getMaximumRequiredOsVersion());
@@ -442,6 +456,14 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function setDeployedAppCount(?int $value): void {
         $this->getBackingStore()->set('deployedAppCount', $value);
+    }
+
+    /**
+     * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
+     * @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
+    */
+    public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value): void {
+        $this->getBackingStore()->set('deploymentSummary', $value);
     }
 
     /**

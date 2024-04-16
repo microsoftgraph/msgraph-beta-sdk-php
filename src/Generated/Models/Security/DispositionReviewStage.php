@@ -42,7 +42,7 @@ class DispositionReviewStage extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setReviewersEmailAddresses($val);
             },
-            'stageNumber' => fn(ParseNode $n) => $o->setStageNumber($n->getIntegerValue()),
+            'stageNumber' => fn(ParseNode $n) => $o->setStageNumber($n->getStringValue()),
         ]);
     }
 
@@ -74,11 +74,11 @@ class DispositionReviewStage extends Entity implements Parsable
 
     /**
      * Gets the stageNumber property value. The sequence number for each stage of the disposition review.
-     * @return int|null
+     * @return string|null
     */
-    public function getStageNumber(): ?int {
+    public function getStageNumber(): ?string {
         $val = $this->getBackingStore()->get('stageNumber');
-        if (is_null($val) || is_int($val)) {
+        if (is_null($val) || is_string($val)) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'stageNumber'");
@@ -92,7 +92,7 @@ class DispositionReviewStage extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('name', $this->getName());
         $writer->writeCollectionOfPrimitiveValues('reviewersEmailAddresses', $this->getReviewersEmailAddresses());
-        $writer->writeIntegerValue('stageNumber', $this->getStageNumber());
+        $writer->writeStringValue('stageNumber', $this->getStageNumber());
     }
 
     /**
@@ -113,9 +113,9 @@ class DispositionReviewStage extends Entity implements Parsable
 
     /**
      * Sets the stageNumber property value. The sequence number for each stage of the disposition review.
-     * @param int|null $value Value to set for the stageNumber property.
+     * @param string|null $value Value to set for the stageNumber property.
     */
-    public function setStageNumber(?int $value): void {
+    public function setStageNumber(?string $value): void {
         $this->getBackingStore()->set('stageNumber', $value);
     }
 

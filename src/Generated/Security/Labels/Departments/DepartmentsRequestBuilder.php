@@ -111,7 +111,7 @@ class DepartmentsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DepartmentTemplate $body, ?DepartmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/departments';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

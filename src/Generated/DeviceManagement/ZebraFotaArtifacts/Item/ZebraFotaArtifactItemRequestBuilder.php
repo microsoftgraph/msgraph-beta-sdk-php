@@ -80,7 +80,7 @@ class ZebraFotaArtifactItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ZebraFotaArtifactItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/zebraFotaArtifacts/{zebraFotaArtifact%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class ZebraFotaArtifactItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ZebraFotaArtifact $body, ?ZebraFotaArtifactItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/zebraFotaArtifacts/{zebraFotaArtifact%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

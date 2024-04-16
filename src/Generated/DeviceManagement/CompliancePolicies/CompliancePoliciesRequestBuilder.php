@@ -109,7 +109,7 @@ class CompliancePoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementCompliancePolicy $body, ?CompliancePoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/compliancePolicies';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

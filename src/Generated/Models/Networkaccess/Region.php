@@ -36,6 +36,9 @@ class Region extends Enum {
     public const BRAZIL_SOUTH = 'brazilSouth';
     public const JAPAN_EAST = 'japanEast';
     public const JAPAN_WEST = 'japanWest';
-    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const KOREA_SOUTH = 'koreaSouth';
+    public const ITALY_NORTH = 'italyNorth';
+    public const FRANCE_SOUTH = 'franceSouth';
+    public const ISRAEL_CENTRAL = 'israelCentral';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

@@ -48,7 +48,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the approvalRequirement property value. The approvalRequirement property
+     * Gets the approvalRequirement property value. Information about the requirements of an approval.
      * @return PlannerApprovalRequirement|null
     */
     public function getApprovalRequirement(): ?PlannerApprovalRequirement {
@@ -94,7 +94,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the formsRequirement property value. The formsRequirement property
+     * Gets the formsRequirement property value. Information about the requirements for completing the forms.
      * @return PlannerFormsRequirement|null
     */
     public function getFormsRequirement(): ?PlannerFormsRequirement {
@@ -138,7 +138,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the approvalRequirement property value. The approvalRequirement property
+     * Sets the approvalRequirement property value. Information about the requirements of an approval.
      * @param PlannerApprovalRequirement|null $value Value to set for the approvalRequirement property.
     */
     public function setApprovalRequirement(?PlannerApprovalRequirement $value): void {
@@ -162,7 +162,7 @@ class PlannerTaskCompletionRequirementDetails implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the formsRequirement property value. The formsRequirement property
+     * Sets the formsRequirement property value. Information about the requirements for completing the forms.
      * @param PlannerFormsRequirement|null $value Value to set for the formsRequirement property.
     */
     public function setFormsRequirement(?PlannerFormsRequirement $value): void {

@@ -88,7 +88,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(SignInPreferences $body, ?SignInPreferencesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/authentication/signInPreferences';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {
