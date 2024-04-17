@@ -109,7 +109,7 @@ class ConfigurationSettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementConfigurationSettingDefinition $body, ?ConfigurationSettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/configurationSettings';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

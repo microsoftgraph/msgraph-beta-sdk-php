@@ -111,7 +111,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(BusinessScenarioTask $body, ?TasksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/tasks';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

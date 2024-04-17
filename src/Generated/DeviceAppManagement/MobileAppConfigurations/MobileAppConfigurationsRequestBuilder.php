@@ -109,7 +109,7 @@ class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagedDeviceMobileAppConfiguration $body, ?MobileAppConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/mobileAppConfigurations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

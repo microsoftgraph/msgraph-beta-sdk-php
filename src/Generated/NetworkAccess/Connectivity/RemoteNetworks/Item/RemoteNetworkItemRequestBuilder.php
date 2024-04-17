@@ -69,7 +69,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get remoteNetworks from networkAccess
+     * Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @param RemoteNetworkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetwork|null>
      * @throws Exception
@@ -104,7 +104,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?RemoteNetworkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -116,7 +116,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get remoteNetworks from networkAccess
+     * Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @param RemoteNetworkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -144,7 +144,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(RemoteNetwork $body, ?RemoteNetworkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

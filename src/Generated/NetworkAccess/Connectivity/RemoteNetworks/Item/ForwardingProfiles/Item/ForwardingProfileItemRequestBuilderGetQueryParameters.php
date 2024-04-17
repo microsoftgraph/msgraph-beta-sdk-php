@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetwor
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get forwardingProfiles from networkAccess
+ * Each forwarding profile associated with a remote network is specified. Supports $expand and $select.
 */
 class ForwardingProfileItemRequestBuilderGetQueryParameters 
 {

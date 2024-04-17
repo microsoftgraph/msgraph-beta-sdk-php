@@ -104,7 +104,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PermissionsManagementRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsManagement';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -144,7 +144,7 @@ class PermissionsManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PermissionsManagement $body, ?PermissionsManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsManagement';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

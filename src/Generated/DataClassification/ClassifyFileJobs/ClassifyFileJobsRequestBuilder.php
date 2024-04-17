@@ -109,7 +109,7 @@ class ClassifyFileJobsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(JobResponseBase $body, ?ClassifyFileJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/dataClassification/classifyFileJobs';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

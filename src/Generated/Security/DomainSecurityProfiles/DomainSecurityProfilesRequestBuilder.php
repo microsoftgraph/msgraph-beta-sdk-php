@@ -109,7 +109,7 @@ class DomainSecurityProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DomainSecurityProfile $body, ?DomainSecurityProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/domainSecurityProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

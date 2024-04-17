@@ -180,6 +180,7 @@ class ManagedAppRegistration extends Entity implements Parsable
             'flaggedReasons' => fn(ParseNode $n) => $o->setFlaggedReasons($n->getCollectionOfEnumValues(ManagedAppFlaggedReason::class)),
             'intendedPolicies' => fn(ParseNode $n) => $o->setIntendedPolicies($n->getCollectionOfObjectValues([ManagedAppPolicy::class, 'createFromDiscriminatorValue'])),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'managedAppLogCollectionRequests' => fn(ParseNode $n) => $o->setManagedAppLogCollectionRequests($n->getCollectionOfObjectValues([ManagedAppLogCollectionRequest::class, 'createFromDiscriminatorValue'])),
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
             'managementSdkVersion' => fn(ParseNode $n) => $o->setManagementSdkVersion($n->getStringValue()),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([ManagedAppOperation::class, 'createFromDiscriminatorValue'])),
@@ -227,6 +228,20 @@ class ManagedAppRegistration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastSyncDateTime'");
+    }
+
+    /**
+     * Gets the managedAppLogCollectionRequests property value. Zero or more log collection requests triggered for the app.
+     * @return array<ManagedAppLogCollectionRequest>|null
+    */
+    public function getManagedAppLogCollectionRequests(): ?array {
+        $val = $this->getBackingStore()->get('managedAppLogCollectionRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedAppLogCollectionRequest::class);
+            /** @var array<ManagedAppLogCollectionRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedAppLogCollectionRequests'");
     }
 
     /**
@@ -322,6 +337,7 @@ class ManagedAppRegistration extends Entity implements Parsable
         $writer->writeCollectionOfEnumValues('flaggedReasons', $this->getFlaggedReasons());
         $writer->writeCollectionOfObjectValues('intendedPolicies', $this->getIntendedPolicies());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeCollectionOfObjectValues('managedAppLogCollectionRequests', $this->getManagedAppLogCollectionRequests());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeStringValue('managementSdkVersion', $this->getManagementSdkVersion());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
@@ -432,6 +448,14 @@ class ManagedAppRegistration extends Entity implements Parsable
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
+    }
+
+    /**
+     * Sets the managedAppLogCollectionRequests property value. Zero or more log collection requests triggered for the app.
+     * @param array<ManagedAppLogCollectionRequest>|null $value Value to set for the managedAppLogCollectionRequests property.
+    */
+    public function setManagedAppLogCollectionRequests(?array $value): void {
+        $this->getBackingStore()->set('managedAppLogCollectionRequests', $value);
     }
 
     /**

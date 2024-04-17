@@ -109,7 +109,7 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateStepVersions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

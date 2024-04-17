@@ -28,7 +28,7 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Gets the associations property value. Specifies the users, groups, devices, and branch locations whose traffic is associated with the given traffic forwarding profile.
+     * Gets the associations property value. Specifies the users, groups, devices, and remote networks whose traffic is associated with the given traffic forwarding profile.
      * @return array<Association>|null
     */
     public function getAssociations(): ?array {
@@ -104,7 +104,7 @@ class ForwardingProfile extends Profile implements Parsable
     }
 
     /**
-     * Sets the associations property value. Specifies the users, groups, devices, and branch locations whose traffic is associated with the given traffic forwarding profile.
+     * Sets the associations property value. Specifies the users, groups, devices, and remote networks whose traffic is associated with the given traffic forwarding profile.
      * @param array<Association>|null $value Value to set for the associations property.
     */
     public function setAssociations(?array $value): void {

@@ -121,7 +121,7 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?DirectorySettingTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -161,7 +161,7 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DirectorySettingTemplate $body, ?DirectorySettingTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

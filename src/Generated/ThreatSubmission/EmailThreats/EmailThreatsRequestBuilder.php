@@ -111,7 +111,7 @@ class EmailThreatsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(EmailThreatSubmission $body, ?EmailThreatsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/threatSubmission/emailThreats';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

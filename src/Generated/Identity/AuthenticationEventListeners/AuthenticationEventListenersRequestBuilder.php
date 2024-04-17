@@ -111,7 +111,7 @@ class AuthenticationEventListenersRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AuthenticationEventListener $body, ?AuthenticationEventListenersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identity/authenticationEventListeners';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

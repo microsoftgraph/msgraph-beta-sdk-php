@@ -80,7 +80,7 @@ class DataCollectionInfoRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?DataCollectionInfoRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}/dataCollectionInfo';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DataCollectionInfoRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DataCollectionInfo $body, ?DataCollectionInfoRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}/dataCollectionInfo';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

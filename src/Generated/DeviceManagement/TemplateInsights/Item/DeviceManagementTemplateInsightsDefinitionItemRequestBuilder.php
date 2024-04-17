@@ -80,7 +80,7 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
     */
     public function toDeleteRequestInformation(?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/templateInsights/{deviceManagementTemplateInsightsDefinition%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
     */
     public function toPatchRequestInformation(DeviceManagementTemplateInsightsDefinition $body, ?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/templateInsights/{deviceManagementTemplateInsightsDefinition%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

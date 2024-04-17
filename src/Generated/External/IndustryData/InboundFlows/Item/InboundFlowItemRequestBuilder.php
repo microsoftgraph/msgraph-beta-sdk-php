@@ -77,12 +77,12 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an inboundFlow object.
+     * Update the properties of an inboundFileFlow object.
      * @param InboundFlow $body The request body
      * @param InboundFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-inboundfileflow-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(InboundFlow $body, ?InboundFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -99,7 +99,7 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?InboundFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/inboundFlows/{inboundFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -132,14 +132,14 @@ class InboundFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an inboundFlow object.
+     * Update the properties of an inboundFileFlow object.
      * @param InboundFlow $body The request body
      * @param InboundFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPatchRequestInformation(InboundFlow $body, ?InboundFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/inboundFlows/{inboundFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

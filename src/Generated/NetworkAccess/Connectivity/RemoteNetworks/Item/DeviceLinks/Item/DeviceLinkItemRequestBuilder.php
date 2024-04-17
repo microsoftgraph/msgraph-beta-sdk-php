@@ -31,10 +31,11 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deviceLinks for networkAccess
+     * Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-devicelink-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?DeviceLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceLinks from networkAccess
+     * Retrieves a specific device link associated with a remote network.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-devicelink-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,13 +76,13 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deviceLinks for networkAccess
+     * Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?DeviceLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/deviceLinks/{deviceLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -92,7 +94,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceLinks from networkAccess
+     * Retrieves a specific device link associated with a remote network.
      * @param DeviceLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +122,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceLink $body, ?DeviceLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}/deviceLinks/{deviceLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

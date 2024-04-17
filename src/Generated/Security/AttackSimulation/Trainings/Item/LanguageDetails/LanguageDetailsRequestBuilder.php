@@ -52,7 +52,7 @@ class LanguageDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Language specific details on a training.
+     * Details about the language used in the training.
      * @param LanguageDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrainingLanguageDetailCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class LanguageDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Language specific details on a training.
+     * Details about the language used in the training.
      * @param LanguageDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,7 +109,7 @@ class LanguageDetailsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(TrainingLanguageDetail $body, ?LanguageDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

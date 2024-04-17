@@ -87,7 +87,7 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/deviceHealthScriptStates/id=\'{id}\',policyId=\'{policyId}\',deviceId=\'{deviceId}\'';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -127,7 +127,7 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceHealthScriptPolicyState $body, ?WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/deviceHealthScriptStates/id=\'{id}\',policyId=\'{policyId}\',deviceId=\'{deviceId}\'';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

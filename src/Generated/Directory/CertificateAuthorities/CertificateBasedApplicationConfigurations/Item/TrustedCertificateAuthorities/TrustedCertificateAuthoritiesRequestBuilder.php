@@ -109,7 +109,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/certificateAuthorities/certificateBasedApplicationConfigurations/{certificateBasedApplicationConfiguration%2Did}/trustedCertificateAuthorities';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

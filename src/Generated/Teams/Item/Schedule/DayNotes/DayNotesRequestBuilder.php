@@ -109,7 +109,7 @@ class DayNotesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DayNote $body, ?DayNotesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teams/{team%2Did}/schedule/dayNotes';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

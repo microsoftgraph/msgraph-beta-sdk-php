@@ -109,7 +109,7 @@ class NdesConnectorsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(NdesConnector $body, ?NdesConnectorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/ndesConnectors';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

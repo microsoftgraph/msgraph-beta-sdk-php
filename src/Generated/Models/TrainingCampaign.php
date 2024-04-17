@@ -26,7 +26,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the campaignSchedule property value. The campaignSchedule property
+     * Gets the campaignSchedule property value. Details about the schedule and current status for a training campaign
      * @return CampaignSchedule|null
     */
     public function getCampaignSchedule(): ?CampaignSchedule {
@@ -38,7 +38,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. Identity of the user who created the training campaign
      * @return EmailIdentity|null
     */
     public function getCreatedBy(): ?EmailIdentity {
@@ -50,7 +50,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time of creation of the training campaign.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -62,7 +62,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the training campaign.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -74,7 +74,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of the training campaign. Supports $filter and $orderby.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -86,7 +86,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the endUserNotificationSetting property value. The endUserNotificationSetting property
+     * Gets the endUserNotificationSetting property value. Details about the end user notification setting.
      * @return EndUserNotificationSetting|null
     */
     public function getEndUserNotificationSetting(): ?EndUserNotificationSetting {
@@ -98,7 +98,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the excludedAccountTarget property value. The excludedAccountTarget property
+     * Gets the excludedAccountTarget property value. Users excluded from the training campaign.
      * @return AccountTargetContent|null
     */
     public function getExcludedAccountTarget(): ?AccountTargetContent {
@@ -132,7 +132,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the includedAccountTarget property value. The includedAccountTarget property
+     * Gets the includedAccountTarget property value. Users targeted in the training campaign.
      * @return AccountTargetContent|null
     */
     public function getIncludedAccountTarget(): ?AccountTargetContent {
@@ -144,7 +144,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. Identity of the user who most recently modified the training campaign.
      * @return EmailIdentity|null
     */
     public function getLastModifiedBy(): ?EmailIdentity {
@@ -156,7 +156,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Date and time of the most recent modification of the training campaign.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -168,7 +168,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the report property value. The report property
+     * Gets the report property value. Report of the training campaign.
      * @return TrainingCampaignReport|null
     */
     public function getReport(): ?TrainingCampaignReport {
@@ -180,7 +180,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Gets the trainingSetting property value. The trainingSetting property
+     * Gets the trainingSetting property value. Details about the training settings for a training campaign.
      * @return TrainingSetting|null
     */
     public function getTrainingSetting(): ?TrainingSetting {
@@ -212,7 +212,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the campaignSchedule property value. The campaignSchedule property
+     * Sets the campaignSchedule property value. Details about the schedule and current status for a training campaign
      * @param CampaignSchedule|null $value Value to set for the campaignSchedule property.
     */
     public function setCampaignSchedule(?CampaignSchedule $value): void {
@@ -220,7 +220,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. Identity of the user who created the training campaign
      * @param EmailIdentity|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?EmailIdentity $value): void {
@@ -228,7 +228,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time of creation of the training campaign.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -236,7 +236,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the training campaign.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -244,7 +244,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name of the training campaign. Supports $filter and $orderby.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -252,7 +252,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the endUserNotificationSetting property value. The endUserNotificationSetting property
+     * Sets the endUserNotificationSetting property value. Details about the end user notification setting.
      * @param EndUserNotificationSetting|null $value Value to set for the endUserNotificationSetting property.
     */
     public function setEndUserNotificationSetting(?EndUserNotificationSetting $value): void {
@@ -260,7 +260,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the excludedAccountTarget property value. The excludedAccountTarget property
+     * Sets the excludedAccountTarget property value. Users excluded from the training campaign.
      * @param AccountTargetContent|null $value Value to set for the excludedAccountTarget property.
     */
     public function setExcludedAccountTarget(?AccountTargetContent $value): void {
@@ -268,7 +268,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the includedAccountTarget property value. The includedAccountTarget property
+     * Sets the includedAccountTarget property value. Users targeted in the training campaign.
      * @param AccountTargetContent|null $value Value to set for the includedAccountTarget property.
     */
     public function setIncludedAccountTarget(?AccountTargetContent $value): void {
@@ -276,7 +276,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. Identity of the user who most recently modified the training campaign.
      * @param EmailIdentity|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?EmailIdentity $value): void {
@@ -284,7 +284,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Date and time of the most recent modification of the training campaign.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -292,7 +292,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the report property value. The report property
+     * Sets the report property value. Report of the training campaign.
      * @param TrainingCampaignReport|null $value Value to set for the report property.
     */
     public function setReport(?TrainingCampaignReport $value): void {
@@ -300,7 +300,7 @@ class TrainingCampaign extends Entity implements Parsable
     }
 
     /**
-     * Sets the trainingSetting property value. The trainingSetting property
+     * Sets the trainingSetting property value. Details about the training settings for a training campaign.
      * @param TrainingSetting|null $value Value to set for the trainingSetting property.
     */
     public function setTrainingSetting(?TrainingSetting $value): void {

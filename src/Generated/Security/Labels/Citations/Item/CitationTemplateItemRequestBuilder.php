@@ -31,11 +31,10 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a citationTemplate object.
+     * Delete navigation property citations for security
      * @param CitationTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-citations?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CitationTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -76,13 +75,13 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a citationTemplate object.
+     * Delete navigation property citations for security
      * @param CitationTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?CitationTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/citations/{citationTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +121,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(CitationTemplate $body, ?CitationTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/citations/{citationTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

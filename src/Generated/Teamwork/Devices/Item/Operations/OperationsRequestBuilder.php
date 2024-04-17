@@ -110,7 +110,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(TeamworkDeviceOperation $body, ?OperationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/operations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

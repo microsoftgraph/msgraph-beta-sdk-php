@@ -57,7 +57,7 @@ class CampaignSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the completionDateTime property value. The completionDateTime property
+     * Gets the completionDateTime property value. The date and time at which the campaign completed.
      * @return DateTime|null
     */
     public function getCompletionDateTime(): ?DateTime {
@@ -83,7 +83,7 @@ class CampaignSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the launchDateTime property value. The launchDateTime property
+     * Gets the launchDateTime property value. The date and time at which the campaign was launched.
      * @return DateTime|null
     */
     public function getLaunchDateTime(): ?DateTime {
@@ -107,7 +107,7 @@ class CampaignSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The current state of the campaign. The possible values are: unknown, draft, inProgress, scheduled, completed, failed, cancelled, excluded, deleted, unknownFutureValue.
      * @return CampaignStatus|null
     */
     public function getStatus(): ?CampaignStatus {
@@ -147,7 +147,7 @@ class CampaignSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the completionDateTime property value. The completionDateTime property
+     * Sets the completionDateTime property value. The date and time at which the campaign completed.
      * @param DateTime|null $value Value to set for the completionDateTime property.
     */
     public function setCompletionDateTime(?DateTime $value): void {
@@ -155,7 +155,7 @@ class CampaignSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the launchDateTime property value. The launchDateTime property
+     * Sets the launchDateTime property value. The date and time at which the campaign was launched.
      * @param DateTime|null $value Value to set for the launchDateTime property.
     */
     public function setLaunchDateTime(?DateTime $value): void {
@@ -171,7 +171,7 @@ class CampaignSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. The current state of the campaign. The possible values are: unknown, draft, inProgress, scheduled, completed, failed, cancelled, excluded, deleted, unknownFutureValue.
      * @param CampaignStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CampaignStatus $value): void {

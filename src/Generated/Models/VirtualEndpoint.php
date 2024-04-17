@@ -40,7 +40,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the bulkActions property value. The bulkActions property
+     * Gets the bulkActions property value. Bulk actions applied to a Cloud PC.
      * @return array<CloudPcBulkAction>|null
     */
     public function getBulkActions(): ?array {
@@ -318,7 +318,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the bulkActions property value. The bulkActions property
+     * Sets the bulkActions property value. Bulk actions applied to a Cloud PC.
      * @param array<CloudPcBulkAction>|null $value Value to set for the bulkActions property.
     */
     public function setBulkActions(?array $value): void {

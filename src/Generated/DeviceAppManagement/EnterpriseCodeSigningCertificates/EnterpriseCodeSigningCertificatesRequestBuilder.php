@@ -109,7 +109,7 @@ class EnterpriseCodeSigningCertificatesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/enterpriseCodeSigningCertificates';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

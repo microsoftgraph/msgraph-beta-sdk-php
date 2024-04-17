@@ -110,7 +110,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     */
     public function toPostRequestInformation(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/certificateAuthorities/certificateBasedApplicationConfigurations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

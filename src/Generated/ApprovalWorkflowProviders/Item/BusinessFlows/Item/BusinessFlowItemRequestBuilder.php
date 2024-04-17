@@ -88,7 +88,7 @@ class BusinessFlowItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?BusinessFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlows/{businessFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class BusinessFlowItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(BusinessFlow $body, ?BusinessFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlows/{businessFlow%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

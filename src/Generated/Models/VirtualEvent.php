@@ -70,7 +70,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
+     * Gets the endDateTime property value. End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.
      * @return DateTimeTimeZone|null
     */
     public function getEndDateTime(): ?DateTimeTimeZone {
@@ -128,7 +128,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the startDateTime property value. Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
+     * Gets the startDateTime property value. Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.
      * @return DateTimeTimeZone|null
     */
     public function getStartDateTime(): ?DateTimeTimeZone {
@@ -192,7 +192,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
+     * Sets the endDateTime property value. End time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.
      * @param DateTimeTimeZone|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTimeTimeZone $value): void {
@@ -216,7 +216,7 @@ class VirtualEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the startDateTime property value. Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows.
+     * Sets the startDateTime property value. Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.
      * @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTimeTimeZone $value): void {

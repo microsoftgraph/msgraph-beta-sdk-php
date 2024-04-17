@@ -63,12 +63,14 @@ use Microsoft\Graph\Beta\Generated\Users\Item\InferenceClassification\InferenceC
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Insights\InsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InvalidateAllRefreshTokens\InvalidateAllRefreshTokensRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\InvitedBy\InvitedByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\IsManagedAppUserBlocked\IsManagedAppUserBlockedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\JoinedGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedTeams\JoinedTeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\LicenseDetails\LicenseDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailboxSettings\MailboxSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\MailFoldersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedAppLogCollectionRequests\ManagedAppLogCollectionRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedAppRegistrations\ManagedAppRegistrationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\ManagedDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Manager\ManagerRequestBuilder;
@@ -500,6 +502,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the invitedBy property of the microsoft.graph.user entity.
+    */
+    public function invitedBy(): InvitedByRequestBuilder {
+        return new InvitedByRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the isManagedAppUserBlocked method.
     */
     public function isManagedAppUserBlocked(): IsManagedAppUserBlockedRequestBuilder {
@@ -539,6 +548,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function mailFolders(): MailFoldersRequestBuilder {
         return new MailFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the managedAppLogCollectionRequests property of the microsoft.graph.user entity.
+    */
+    public function managedAppLogCollectionRequests(): ManagedAppLogCollectionRequestsRequestBuilder {
+        return new ManagedAppLogCollectionRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -993,7 +1009,7 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?UserItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -1033,7 +1049,7 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(User $body, ?UserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

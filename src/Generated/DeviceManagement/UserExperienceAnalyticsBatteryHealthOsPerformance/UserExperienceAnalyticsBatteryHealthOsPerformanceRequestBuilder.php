@@ -109,7 +109,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder extends Ba
     */
     public function toPostRequestInformation(UserExperienceAnalyticsBatteryHealthOsPerformance $body, ?UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthOsPerformance';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

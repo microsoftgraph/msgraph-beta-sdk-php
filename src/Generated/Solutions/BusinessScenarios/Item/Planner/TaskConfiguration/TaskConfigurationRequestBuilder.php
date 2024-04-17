@@ -82,7 +82,7 @@ class TaskConfigurationRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?TaskConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/taskConfiguration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class TaskConfigurationRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PlannerTaskConfiguration $body, ?TaskConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/taskConfiguration';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

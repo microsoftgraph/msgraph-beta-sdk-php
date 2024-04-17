@@ -133,7 +133,7 @@ class DeviceHealthScriptsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceHealthScript $body, ?DeviceHealthScriptsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceHealthScripts';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

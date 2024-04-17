@@ -68,7 +68,7 @@ class PlannerApprovalRequirement implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the isApprovalRequired property value. The isApprovalRequired property
+     * Gets the isApprovalRequired property value. Specifies whether approval is required to complete the plannerTask. When this property is set to true, the task can only be marked complete if an approval is created for the task and approved.
      * @return bool|null
     */
     public function getIsApprovalRequired(): ?bool {
@@ -118,7 +118,7 @@ class PlannerApprovalRequirement implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the isApprovalRequired property value. The isApprovalRequired property
+     * Sets the isApprovalRequired property value. Specifies whether approval is required to complete the plannerTask. When this property is set to true, the task can only be marked complete if an approval is created for the task and approved.
      * @param bool|null $value Value to set for the isApprovalRequired property.
     */
     public function setIsApprovalRequired(?bool $value): void {

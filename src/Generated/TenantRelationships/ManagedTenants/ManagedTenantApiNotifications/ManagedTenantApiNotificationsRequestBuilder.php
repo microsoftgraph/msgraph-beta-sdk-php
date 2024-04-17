@@ -109,7 +109,7 @@ class ManagedTenantApiNotificationsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ManagedTenantApiNotification $body, ?ManagedTenantApiNotificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managedTenantApiNotifications';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

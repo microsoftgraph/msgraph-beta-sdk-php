@@ -109,7 +109,7 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
     */
     public function toPostRequestInformation(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/windowsInformationProtectionDeviceRegistrations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

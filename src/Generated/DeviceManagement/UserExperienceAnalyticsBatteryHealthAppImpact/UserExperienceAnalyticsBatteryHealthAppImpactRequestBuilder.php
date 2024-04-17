@@ -109,7 +109,7 @@ class UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder extends BaseRe
     */
     public function toPostRequestInformation(UserExperienceAnalyticsBatteryHealthAppImpact $body, ?UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthAppImpact';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

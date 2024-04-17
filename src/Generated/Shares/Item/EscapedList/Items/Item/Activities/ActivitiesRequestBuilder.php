@@ -109,7 +109,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ItemActivityOLD $body, ?ActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/activities';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

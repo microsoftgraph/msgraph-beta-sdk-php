@@ -16,6 +16,7 @@ use Microsoft\Graph\Beta\Generated\Security\Collaboration\CollaborationRequestBu
 use Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\FileSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\HostSecurityProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Identities\IdentitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Incidents\IncidentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
@@ -111,6 +112,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function hostSecurityProfiles(): HostSecurityProfilesRequestBuilder {
         return new HostSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the identities property of the microsoft.graph.security entity.
+    */
+    public function identities(): IdentitiesRequestBuilder {
+        return new IdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -304,7 +312,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Security $body, ?SecurityRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

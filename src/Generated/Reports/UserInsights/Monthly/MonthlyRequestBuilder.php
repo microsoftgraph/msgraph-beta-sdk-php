@@ -152,7 +152,7 @@ class MonthlyRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?MonthlyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/userInsights/monthly';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -192,7 +192,7 @@ class MonthlyRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MonthlyUserInsightMetricsRoot $body, ?MonthlyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/reports/userInsights/monthly';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

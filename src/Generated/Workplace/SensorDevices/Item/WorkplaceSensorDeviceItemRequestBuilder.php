@@ -31,10 +31,11 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sensorDevices for workplace
+     * Delete a workplace sensor device.
      * @param WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplacesensordevice-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorDevices from workplace
+     * Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
      * @param WorkplaceSensorDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkplaceSensorDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplacesensordevice-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WorkplaceSensorDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sensorDevices in workplace
+     * Update the properties of a workplace sensor device.
      * @param WorkplaceSensorDevice $body The request body
      * @param WorkplaceSensorDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkplaceSensorDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplacesensordevice-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(WorkplaceSensorDevice $body, ?WorkplaceSensorDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,13 +77,13 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sensorDevices for workplace
+     * Delete a workplace sensor device.
      * @param WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/workplace/sensorDevices/{workplaceSensorDevice%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -92,7 +95,7 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorDevices from workplace
+     * Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
      * @param WorkplaceSensorDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,14 +116,14 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sensorDevices in workplace
+     * Update the properties of a workplace sensor device.
      * @param WorkplaceSensorDevice $body The request body
      * @param WorkplaceSensorDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPatchRequestInformation(WorkplaceSensorDevice $body, ?WorkplaceSensorDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/workplace/sensorDevices/{workplaceSensorDevice%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

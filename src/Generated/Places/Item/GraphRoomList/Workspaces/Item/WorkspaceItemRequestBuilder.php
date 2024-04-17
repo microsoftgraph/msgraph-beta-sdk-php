@@ -80,7 +80,7 @@ class WorkspaceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?WorkspaceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/places/{place%2Did}/graph.roomList/workspaces/{workspace%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class WorkspaceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(Workspace $body, ?WorkspaceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/places/{place%2Did}/graph.roomList/workspaces/{workspace%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

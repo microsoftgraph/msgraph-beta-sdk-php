@@ -109,7 +109,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MessageEvent $body, ?EventsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/messageTraces/{messageTrace%2Did}/recipients/{messageRecipient%2Did}/events';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

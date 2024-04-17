@@ -109,7 +109,7 @@ class PolicyStatusDetailsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementAutopilotPolicyStatusDetail $body, ?PolicyStatusDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/autopilotEvents/{deviceManagementAutopilotEvent%2Did}/policyStatusDetails';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

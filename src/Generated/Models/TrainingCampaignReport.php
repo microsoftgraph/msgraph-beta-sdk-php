@@ -57,7 +57,7 @@ class TrainingCampaignReport implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the campaignUsers property value. The campaignUsers property
+     * Gets the campaignUsers property value. The overview of the attack simulation and training campaign.
      * @return array<UserSimulationDetails>|null
     */
     public function getCampaignUsers(): ?array {
@@ -135,7 +135,7 @@ class TrainingCampaignReport implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the campaignUsers property value. The campaignUsers property
+     * Sets the campaignUsers property value. The overview of the attack simulation and training campaign.
      * @param array<UserSimulationDetails>|null $value Value to set for the campaignUsers property.
     */
     public function setCampaignUsers(?array $value): void {

@@ -109,7 +109,7 @@ class MicrosoftTunnelServersRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MicrosoftTunnelServer $body, ?MicrosoftTunnelServersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/microsoftTunnelSites/{microsoftTunnelSite%2Did}/microsoftTunnelServers';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

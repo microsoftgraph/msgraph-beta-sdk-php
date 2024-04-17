@@ -109,7 +109,7 @@ class ElevationRequestsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PrivilegeManagementElevationRequest $body, ?ElevationRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/elevationRequests';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -110,7 +110,7 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MobilityManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/mobileAppManagementPolicies';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

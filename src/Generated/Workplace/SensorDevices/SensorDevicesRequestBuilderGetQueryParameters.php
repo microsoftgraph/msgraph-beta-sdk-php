@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Workplace\SensorDevices;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get sensorDevices from workplace
+ * Get a list of all workplace sensor devices created for a tenant.
 */
 class SensorDevicesRequestBuilderGetQueryParameters 
 {

@@ -88,7 +88,7 @@ class DeviceManagementSettingCategoryItemRequestBuilder extends BaseRequestBuild
     */
     public function toDeleteRequestInformation(?DeviceManagementSettingCategoryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/categories/{deviceManagementSettingCategory%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class DeviceManagementSettingCategoryItemRequestBuilder extends BaseRequestBuild
     */
     public function toPatchRequestInformation(DeviceManagementSettingCategory $body, ?DeviceManagementSettingCategoryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/categories/{deviceManagementSettingCategory%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -31,11 +31,10 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a filePlanReferenceTemplate object.
+     * Delete navigation property filePlanReferences for security
      * @param FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-labelsroot-delete-fileplanreferences?view=graph-rest-1.0 Find more info here
     */
     public function delete(?FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -76,13 +75,13 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a filePlanReferenceTemplate object.
+     * Delete navigation property filePlanReferences for security
      * @param FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toDeleteRequestInformation(?FilePlanReferenceTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +121,7 @@ class FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(FilePlanReferenceTemplate $body, ?FilePlanReferenceTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

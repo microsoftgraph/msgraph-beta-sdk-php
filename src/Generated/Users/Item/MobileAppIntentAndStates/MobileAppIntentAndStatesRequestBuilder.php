@@ -109,7 +109,7 @@ class MobileAppIntentAndStatesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MobileAppIntentAndState $body, ?MobileAppIntentAndStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/mobileAppIntentAndStates';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

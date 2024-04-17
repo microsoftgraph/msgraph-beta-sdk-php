@@ -110,7 +110,7 @@ class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(AuthorizationPolicy $body, ?AuthorizationPolicyRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/authorizationPolicy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

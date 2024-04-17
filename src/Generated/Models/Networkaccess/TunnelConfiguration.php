@@ -101,7 +101,7 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the zoneRedundancyPreSharedKey property value. The zoneRedundancyPreSharedKey property
+     * Gets the zoneRedundancyPreSharedKey property value. Another key for zone redundant tunnel. Required only when you select zoneRedundancy redindancyTier when creating a deviceLink.
      * @return string|null
     */
     public function getZoneRedundancyPreSharedKey(): ?string {
@@ -156,7 +156,7 @@ class TunnelConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the zoneRedundancyPreSharedKey property value. The zoneRedundancyPreSharedKey property
+     * Sets the zoneRedundancyPreSharedKey property value. Another key for zone redundant tunnel. Required only when you select zoneRedundancy redindancyTier when creating a deviceLink.
      * @param string|null $value Value to set for the zoneRedundancyPreSharedKey property.
     */
     public function setZoneRedundancyPreSharedKey(?string $value): void {

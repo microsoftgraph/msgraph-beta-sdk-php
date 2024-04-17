@@ -109,7 +109,7 @@ class DeviceCustomAttributeShellScriptsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceCustomAttributeShellScripts';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

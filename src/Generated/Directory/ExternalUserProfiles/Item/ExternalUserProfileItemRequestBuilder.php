@@ -83,7 +83,7 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ExternalUserProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/externalUserProfiles/{externalUserProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -123,7 +123,7 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ExternalUserProfile $body, ?ExternalUserProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/externalUserProfiles/{externalUserProfile%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

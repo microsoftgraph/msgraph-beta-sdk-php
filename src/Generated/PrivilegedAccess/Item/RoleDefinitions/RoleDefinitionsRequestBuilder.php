@@ -109,7 +109,7 @@ class RoleDefinitionsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(GovernanceRoleDefinition $body, ?RoleDefinitionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleDefinitions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

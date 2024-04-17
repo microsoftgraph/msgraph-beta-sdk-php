@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetwor
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get deviceLinks from networkAccess
+ * Retrieves a specific device link associated with a remote network.
 */
 class DeviceLinkItemRequestBuilderGetQueryParameters 
 {

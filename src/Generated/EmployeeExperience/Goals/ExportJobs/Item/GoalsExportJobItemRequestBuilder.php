@@ -88,7 +88,7 @@ class GoalsExportJobItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?GoalsExportJobItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/employeeExperience/goals/exportJobs/{goalsExportJob%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class GoalsExportJobItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(GoalsExportJob $body, ?GoalsExportJobItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/employeeExperience/goals/exportJobs/{goalsExportJob%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

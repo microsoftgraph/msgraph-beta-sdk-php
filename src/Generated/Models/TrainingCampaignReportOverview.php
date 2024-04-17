@@ -82,7 +82,7 @@ class TrainingCampaignReportOverview implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the trainingModuleCompletion property value. The trainingModuleCompletion property
+     * Gets the trainingModuleCompletion property value. Aggregate data of training completion.
      * @return TrainingEventsContent|null
     */
     public function getTrainingModuleCompletion(): ?TrainingEventsContent {
@@ -94,7 +94,7 @@ class TrainingCampaignReportOverview implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the trainingNotificationDeliveryStatus property value. The trainingNotificationDeliveryStatus property
+     * Gets the trainingNotificationDeliveryStatus property value. Aggregate data of training mail delivery over the course of the training campaign.
      * @return TrainingNotificationDelivery|null
     */
     public function getTrainingNotificationDeliveryStatus(): ?TrainingNotificationDelivery {
@@ -106,7 +106,7 @@ class TrainingCampaignReportOverview implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the userCompletionStatus property value. The userCompletionStatus property
+     * Gets the userCompletionStatus property value. Aggregate data of users training progress.
      * @return UserTrainingCompletionSummary|null
     */
     public function getUserCompletionStatus(): ?UserTrainingCompletionSummary {
@@ -154,7 +154,7 @@ class TrainingCampaignReportOverview implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the trainingModuleCompletion property value. The trainingModuleCompletion property
+     * Sets the trainingModuleCompletion property value. Aggregate data of training completion.
      * @param TrainingEventsContent|null $value Value to set for the trainingModuleCompletion property.
     */
     public function setTrainingModuleCompletion(?TrainingEventsContent $value): void {
@@ -162,7 +162,7 @@ class TrainingCampaignReportOverview implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the trainingNotificationDeliveryStatus property value. The trainingNotificationDeliveryStatus property
+     * Sets the trainingNotificationDeliveryStatus property value. Aggregate data of training mail delivery over the course of the training campaign.
      * @param TrainingNotificationDelivery|null $value Value to set for the trainingNotificationDeliveryStatus property.
     */
     public function setTrainingNotificationDeliveryStatus(?TrainingNotificationDelivery $value): void {
@@ -170,7 +170,7 @@ class TrainingCampaignReportOverview implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the userCompletionStatus property value. The userCompletionStatus property
+     * Sets the userCompletionStatus property value. Aggregate data of users training progress.
      * @param UserTrainingCompletionSummary|null $value Value to set for the userCompletionStatus property.
     */
     public function setUserCompletionStatus(?UserTrainingCompletionSummary $value): void {

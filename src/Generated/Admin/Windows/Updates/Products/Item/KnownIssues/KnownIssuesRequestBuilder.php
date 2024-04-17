@@ -109,7 +109,7 @@ class KnownIssuesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(KnownIssue $body, ?KnownIssuesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/products/{product%2Did}/knownIssues';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

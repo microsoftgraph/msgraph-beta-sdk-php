@@ -112,7 +112,7 @@ class ImpactedResourceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?ImpactedResourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/recommendations/{recommendation%2Did}/impactedResources/{impactedResource%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -152,7 +152,7 @@ class ImpactedResourceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(ImpactedResource $body, ?ImpactedResourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/directory/recommendations/{recommendation%2Did}/impactedResources/{impactedResource%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

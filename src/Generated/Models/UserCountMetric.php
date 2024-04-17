@@ -58,7 +58,20 @@ class UserCountMetric extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
             'factDate' => fn(ParseNode $n) => $o->setFactDate($n->getDateValue()),
+            'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the language property value. The language property
+     * @return string|null
+    */
+    public function getLanguage(): ?string {
+        $val = $this->getBackingStore()->get('language');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'language'");
     }
 
     /**
@@ -69,6 +82,7 @@ class UserCountMetric extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('count', $this->getCount());
         $writer->writeDateValue('factDate', $this->getFactDate());
+        $writer->writeStringValue('language', $this->getLanguage());
     }
 
     /**
@@ -85,6 +99,14 @@ class UserCountMetric extends Entity implements Parsable
     */
     public function setFactDate(?Date $value): void {
         $this->getBackingStore()->set('factDate', $value);
+    }
+
+    /**
+     * Sets the language property value. The language property
+     * @param string|null $value Value to set for the language property.
+    */
+    public function setLanguage(?string $value): void {
+        $this->getBackingStore()->set('language', $value);
     }
 
 }

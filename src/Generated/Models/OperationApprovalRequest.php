@@ -76,7 +76,6 @@ class OperationApprovalRequest extends Entity implements Parsable
             'approver' => fn(ParseNode $n) => $o->setApprover($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'operationApprovalPolicies' => fn(ParseNode $n) => $o->setOperationApprovalPolicies($n->getStringValue()),
             'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
             'requestJustification' => fn(ParseNode $n) => $o->setRequestJustification($n->getStringValue()),
             'requestor' => fn(ParseNode $n) => $o->setRequestor($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
@@ -95,18 +94,6 @@ class OperationApprovalRequest extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
-    }
-
-    /**
-     * Gets the operationApprovalPolicies property value. The operational approval policies used in the request. Indicates the policy and platform combinations that are required for this request to be approved or rejected. Read-only. This property is read-only.
-     * @return string|null
-    */
-    public function getOperationApprovalPolicies(): ?string {
-        $val = $this->getBackingStore()->get('operationApprovalPolicies');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'operationApprovalPolicies'");
     }
 
     /**
@@ -210,14 +197,6 @@ class OperationApprovalRequest extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
-    }
-
-    /**
-     * Sets the operationApprovalPolicies property value. The operational approval policies used in the request. Indicates the policy and platform combinations that are required for this request to be approved or rejected. Read-only. This property is read-only.
-     * @param string|null $value Value to set for the operationApprovalPolicies property.
-    */
-    public function setOperationApprovalPolicies(?string $value): void {
-        $this->getBackingStore()->set('operationApprovalPolicies', $value);
     }
 
     /**

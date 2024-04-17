@@ -110,7 +110,7 @@ class EndpointsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(Endpoint $body, ?EndpointsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/groups/{group%2Did}/endpoints';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

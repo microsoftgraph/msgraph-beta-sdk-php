@@ -82,7 +82,7 @@ class PlannerRosterMemberItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PlannerRosterMemberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/planner/rosters/{plannerRoster%2Did}/members/{plannerRosterMember%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class PlannerRosterMemberItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PlannerRosterMember $body, ?PlannerRosterMemberItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/planner/rosters/{plannerRoster%2Did}/members/{plannerRosterMember%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

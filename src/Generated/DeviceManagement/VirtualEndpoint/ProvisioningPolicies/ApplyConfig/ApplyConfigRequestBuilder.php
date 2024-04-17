@@ -30,11 +30,12 @@ class ApplyConfigRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action applyConfig
+     * Update the provisioning policy configuration for a set of Cloud PC devices by their IDs. This method supports retry and allows you to apply the configuration to a subset of Cloud PCs initially to test.
      * @param ApplyConfigPostRequestBody $body The request body
      * @param ApplyConfigRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-applyconfig?view=graph-rest-1.0 Find more info here
     */
     public function post(ApplyConfigPostRequestBody $body, ?ApplyConfigRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ApplyConfigRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action applyConfig
+     * Update the provisioning policy configuration for a set of Cloud PC devices by their IDs. This method supports retry and allows you to apply the configuration to a subset of Cloud PCs initially to test.
      * @param ApplyConfigPostRequestBody $body The request body
      * @param ApplyConfigRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

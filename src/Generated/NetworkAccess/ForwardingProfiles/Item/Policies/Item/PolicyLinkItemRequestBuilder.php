@@ -88,7 +88,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PolicyLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/forwardingProfiles/{forwardingProfile%2Did}/policies/{policyLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -128,7 +128,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PolicyLink $body, ?PolicyLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/forwardingProfiles/{forwardingProfile%2Did}/policies/{policyLink%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

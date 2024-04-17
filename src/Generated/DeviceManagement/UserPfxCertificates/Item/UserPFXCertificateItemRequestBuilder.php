@@ -80,7 +80,7 @@ class UserPFXCertificateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?UserPFXCertificateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userPfxCertificates/{userPFXCertificate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class UserPFXCertificateItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(UserPFXCertificate $body, ?UserPFXCertificateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userPfxCertificates/{userPFXCertificate%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

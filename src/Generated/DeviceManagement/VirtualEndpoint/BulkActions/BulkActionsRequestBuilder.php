@@ -52,10 +52,11 @@ class BulkActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get bulkActions from deviceManagement
+     * Get a list of the cloudPcBulkAction objects and their properties.
      * @param BulkActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcBulkActionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-bulkactions?view=graph-rest-1.0 Find more info here
     */
     public function get(?BulkActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class BulkActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to bulkActions for deviceManagement
+     * Create a new cloudPcBulkAction object.
      * @param CloudPcBulkAction $body The request body
      * @param BulkActionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcBulkAction|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-post-bulkactions?view=graph-rest-1.0 Find more info here
     */
     public function post(CloudPcBulkAction $body, ?BulkActionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class BulkActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get bulkActions from deviceManagement
+     * Get a list of the cloudPcBulkAction objects and their properties.
      * @param BulkActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,14 +104,14 @@ class BulkActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to bulkActions for deviceManagement
+     * Create a new cloudPcBulkAction object.
      * @param CloudPcBulkAction $body The request body
      * @param BulkActionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPostRequestInformation(CloudPcBulkAction $body, ?BulkActionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/bulkActions';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

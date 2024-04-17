@@ -111,7 +111,7 @@ class AnniversariesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PersonAnnualEvent $body, ?AnniversariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/anniversaries';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

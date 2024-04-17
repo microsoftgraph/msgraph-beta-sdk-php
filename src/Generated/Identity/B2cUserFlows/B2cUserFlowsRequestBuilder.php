@@ -111,7 +111,7 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(B2cIdentityUserFlow $body, ?B2cUserFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identity/b2cUserFlows';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

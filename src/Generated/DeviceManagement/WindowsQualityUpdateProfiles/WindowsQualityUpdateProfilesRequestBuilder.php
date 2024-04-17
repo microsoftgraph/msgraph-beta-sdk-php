@@ -109,7 +109,7 @@ class WindowsQualityUpdateProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(WindowsQualityUpdateProfile $body, ?WindowsQualityUpdateProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsQualityUpdateProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

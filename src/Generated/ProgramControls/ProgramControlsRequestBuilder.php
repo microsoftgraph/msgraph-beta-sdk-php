@@ -111,7 +111,7 @@ class ProgramControlsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(ProgramControl $body, ?ProgramControlsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/programControls';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

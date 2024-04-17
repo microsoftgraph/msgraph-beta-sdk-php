@@ -109,7 +109,7 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder extends BaseRequ
     */
     public function toPostRequestInformation(RestrictedAppsViolation $body, ?DeviceConfigurationRestrictedAppsViolationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceConfigurationRestrictedAppsViolations';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

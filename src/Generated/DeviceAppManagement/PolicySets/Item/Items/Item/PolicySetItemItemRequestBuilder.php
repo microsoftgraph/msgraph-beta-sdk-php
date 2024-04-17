@@ -80,7 +80,7 @@ class PolicySetItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PolicySetItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/policySets/{policySet%2Did}/items/{policySetItem%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class PolicySetItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(PolicySetItem $body, ?PolicySetItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/policySets/{policySet%2Did}/items/{policySetItem%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

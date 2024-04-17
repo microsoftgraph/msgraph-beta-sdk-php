@@ -82,7 +82,7 @@ class PeopleInsightsRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?PeopleInsightsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings/peopleInsights';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class PeopleInsightsRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(InsightsSettings $body, ?PeopleInsightsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings/peopleInsights';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

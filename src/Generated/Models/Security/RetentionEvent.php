@@ -91,7 +91,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventQueries property value. Represents the workload (SharePoint Online, OneDrive for Business, Exchange Online) and identification information associated with a retention event.
+     * Gets the eventQueries property value. The eventQueries property
      * @return array<EventQuery>|null
     */
     public function getEventQueries(): ?array {
@@ -259,7 +259,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventQueries property value. Represents the workload (SharePoint Online, OneDrive for Business, Exchange Online) and identification information associated with a retention event.
+     * Sets the eventQueries property value. The eventQueries property
      * @param array<EventQuery>|null $value Value to set for the eventQueries property.
     */
     public function setEventQueries(?array $value): void {

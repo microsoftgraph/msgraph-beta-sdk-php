@@ -109,7 +109,7 @@ class HostSecurityProfilesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(HostSecurityProfile $body, ?HostSecurityProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/security/hostSecurityProfiles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

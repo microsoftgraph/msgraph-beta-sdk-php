@@ -129,6 +129,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
             'connectorName' => fn(ParseNode $n) => $o->setConnectorName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'processingRegion' => fn(ParseNode $n) => $o->setProcessingRegion($n->getStringValue()),
+            'thirdPartyTokenDetails' => fn(ParseNode $n) => $o->setThirdPartyTokenDetails($n->getObjectValue([ThirdPartyTokenDetails::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -157,6 +158,18 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the thirdPartyTokenDetails property value. The thirdPartyTokenDetails property
+     * @return ThirdPartyTokenDetails|null
+    */
+    public function getThirdPartyTokenDetails(): ?ThirdPartyTokenDetails {
+        $val = $this->getBackingStore()->get('thirdPartyTokenDetails');
+        if (is_null($val) || $val instanceof ThirdPartyTokenDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'thirdPartyTokenDetails'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -168,6 +181,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('connectorName', $this->getConnectorName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('processingRegion', $this->getProcessingRegion());
+        $writer->writeObjectValue('thirdPartyTokenDetails', $this->getThirdPartyTokenDetails());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -241,6 +255,14 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setProcessingRegion(?string $value): void {
         $this->getBackingStore()->set('processingRegion', $value);
+    }
+
+    /**
+     * Sets the thirdPartyTokenDetails property value. The thirdPartyTokenDetails property
+     * @param ThirdPartyTokenDetails|null $value Value to set for the thirdPartyTokenDetails property.
+    */
+    public function setThirdPartyTokenDetails(?ThirdPartyTokenDetails $value): void {
+        $this->getBackingStore()->set('thirdPartyTokenDetails', $value);
     }
 
 }

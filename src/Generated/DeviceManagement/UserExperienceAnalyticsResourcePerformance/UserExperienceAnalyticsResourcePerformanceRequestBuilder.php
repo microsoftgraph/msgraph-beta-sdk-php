@@ -119,7 +119,7 @@ class UserExperienceAnalyticsResourcePerformanceRequestBuilder extends BaseReque
     */
     public function toPostRequestInformation(UserExperienceAnalyticsResourcePerformance $body, ?UserExperienceAnalyticsResourcePerformanceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsResourcePerformance';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

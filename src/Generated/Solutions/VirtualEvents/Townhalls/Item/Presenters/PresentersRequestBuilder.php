@@ -109,7 +109,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(VirtualEventPresenter $body, ?PresentersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}/presenters';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

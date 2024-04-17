@@ -82,7 +82,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?B2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/b2cAuthenticationMethodsPolicy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(B2cAuthenticationMethodsPolicy $body, ?B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/b2cAuthenticationMethodsPolicy';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

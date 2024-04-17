@@ -71,7 +71,7 @@ class RemoteNetworkConnectivityConfiguration implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the links property value. The links property
+     * Gets the links property value. List of connectivity configurations for deviceLink objects.
      * @return array<ConnectivityConfigurationLink>|null
     */
     public function getLinks(): ?array {
@@ -97,7 +97,7 @@ class RemoteNetworkConnectivityConfiguration implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the remoteNetworkId property value. The remoteNetworkId property
+     * Gets the remoteNetworkId property value. Unique identifier or a specific reference assigned to a branchSite. Key.
      * @return string|null
     */
     public function getRemoteNetworkId(): ?string {
@@ -109,7 +109,7 @@ class RemoteNetworkConnectivityConfiguration implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the remoteNetworkName property value. The remoteNetworkName property
+     * Gets the remoteNetworkName property value. Display name assigned to a branchSite.
      * @return string|null
     */
     public function getRemoteNetworkName(): ?string {
@@ -149,7 +149,7 @@ class RemoteNetworkConnectivityConfiguration implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the links property value. The links property
+     * Sets the links property value. List of connectivity configurations for deviceLink objects.
      * @param array<ConnectivityConfigurationLink>|null $value Value to set for the links property.
     */
     public function setLinks(?array $value): void {
@@ -165,7 +165,7 @@ class RemoteNetworkConnectivityConfiguration implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the remoteNetworkId property value. The remoteNetworkId property
+     * Sets the remoteNetworkId property value. Unique identifier or a specific reference assigned to a branchSite. Key.
      * @param string|null $value Value to set for the remoteNetworkId property.
     */
     public function setRemoteNetworkId(?string $value): void {
@@ -173,7 +173,7 @@ class RemoteNetworkConnectivityConfiguration implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the remoteNetworkName property value. The remoteNetworkName property
+     * Sets the remoteNetworkName property value. Display name assigned to a branchSite.
      * @param string|null $value Value to set for the remoteNetworkName property.
     */
     public function setRemoteNetworkName(?string $value): void {

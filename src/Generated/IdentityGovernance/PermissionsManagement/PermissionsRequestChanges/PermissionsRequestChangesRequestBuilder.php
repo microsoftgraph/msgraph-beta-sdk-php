@@ -110,7 +110,7 @@ class PermissionsRequestChangesRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(PermissionsRequestChange $body, ?PermissionsRequestChangesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsManagement/permissionsRequestChanges';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

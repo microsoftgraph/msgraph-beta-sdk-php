@@ -44,6 +44,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicySettin
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\DeviceComplianceScriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationConflictSummary\DeviceConfigurationConflictSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationDeviceStateSummaries\DeviceConfigurationDeviceStateSummariesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationProfiles\DeviceConfigurationProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\DeviceConfigurationRestrictedAppsViolationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\DeviceConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder;
@@ -80,6 +81,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Group
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\GroupPolicyMigrationReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyObjectFiles\GroupPolicyObjectFilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\GroupPolicyUploadedDefinitionFilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\HardwareConfigurationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordInfo\HardwarePasswordInfoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\ImportedDeviceIdentitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedWindowsAutopilotDeviceIdentities\ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\IntentsRequestBuilder;
@@ -480,6 +483,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the deviceConfigurationProfiles property of the microsoft.graph.deviceManagement entity.
+    */
+    public function deviceConfigurationProfiles(): DeviceConfigurationProfilesRequestBuilder {
+        return new DeviceConfigurationProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the deviceConfigurationRestrictedAppsViolations property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceConfigurationRestrictedAppsViolations(): DeviceConfigurationRestrictedAppsViolationsRequestBuilder {
@@ -701,6 +711,20 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function groupPolicyUploadedDefinitionFiles(): GroupPolicyUploadedDefinitionFilesRequestBuilder {
         return new GroupPolicyUploadedDefinitionFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the hardwareConfigurations property of the microsoft.graph.deviceManagement entity.
+    */
+    public function hardwareConfigurations(): HardwareConfigurationsRequestBuilder {
+        return new HardwareConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the hardwarePasswordInfo property of the microsoft.graph.deviceManagement entity.
+    */
+    public function hardwarePasswordInfo(): HardwarePasswordInfoRequestBuilder {
+        return new HardwarePasswordInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1555,7 +1579,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

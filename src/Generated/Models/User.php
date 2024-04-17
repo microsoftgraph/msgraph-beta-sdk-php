@@ -851,6 +851,7 @@ class User extends DirectoryObject implements Parsable
                 /** @var array<string>|null $val */
                 $this->setInterests($val);
             },
+            'invitedBy' => fn(ParseNode $n) => $o->setInvitedBy($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'isLicenseReconciliationNeeded' => fn(ParseNode $n) => $o->setIsLicenseReconciliationNeeded($n->getBooleanValue()),
             'isManagementRestricted' => fn(ParseNode $n) => $o->setIsManagementRestricted($n->getBooleanValue()),
             'isResourceAccount' => fn(ParseNode $n) => $o->setIsResourceAccount($n->getBooleanValue()),
@@ -865,6 +866,7 @@ class User extends DirectoryObject implements Parsable
             'mailboxSettings' => fn(ParseNode $n) => $o->setMailboxSettings($n->getObjectValue([MailboxSettings::class, 'createFromDiscriminatorValue'])),
             'mailFolders' => fn(ParseNode $n) => $o->setMailFolders($n->getCollectionOfObjectValues([MailFolder::class, 'createFromDiscriminatorValue'])),
             'mailNickname' => fn(ParseNode $n) => $o->setMailNickname($n->getStringValue()),
+            'managedAppLogCollectionRequests' => fn(ParseNode $n) => $o->setManagedAppLogCollectionRequests($n->getCollectionOfObjectValues([ManagedAppLogCollectionRequest::class, 'createFromDiscriminatorValue'])),
             'managedAppRegistrations' => fn(ParseNode $n) => $o->setManagedAppRegistrations($n->getCollectionOfObjectValues([ManagedAppRegistration::class, 'createFromDiscriminatorValue'])),
             'managedDevices' => fn(ParseNode $n) => $o->setManagedDevices($n->getCollectionOfObjectValues([ManagedDevice::class, 'createFromDiscriminatorValue'])),
             'manager' => fn(ParseNode $n) => $o->setManager($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
@@ -1114,6 +1116,18 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the invitedBy property value. The invitedBy property
+     * @return DirectoryObject|null
+    */
+    public function getInvitedBy(): ?DirectoryObject {
+        $val = $this->getBackingStore()->get('invitedBy');
+        if (is_null($val) || $val instanceof DirectoryObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'invitedBy'");
+    }
+
+    /**
      * Gets the isLicenseReconciliationNeeded property value. Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
      * @return bool|null
     */
@@ -1289,6 +1303,20 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mailNickname'");
+    }
+
+    /**
+     * Gets the managedAppLogCollectionRequests property value. Zero or more log collection requests triggered for the user.
+     * @return array<ManagedAppLogCollectionRequest>|null
+    */
+    public function getManagedAppLogCollectionRequests(): ?array {
+        $val = $this->getBackingStore()->get('managedAppLogCollectionRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedAppLogCollectionRequest::class);
+            /** @var array<ManagedAppLogCollectionRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedAppLogCollectionRequests'");
     }
 
     /**
@@ -2192,7 +2220,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the userType property value. A String value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
+     * Gets the userType property value. A String value that can be used to classify user types in your directory. The possible values are Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
      * @return string|null
     */
     public function getUserType(): ?string {
@@ -2301,6 +2329,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
         $writer->writeObjectValue('insights', $this->getInsights());
         $writer->writeCollectionOfPrimitiveValues('interests', $this->getInterests());
+        $writer->writeObjectValue('invitedBy', $this->getInvitedBy());
         $writer->writeBooleanValue('isLicenseReconciliationNeeded', $this->getIsLicenseReconciliationNeeded());
         $writer->writeBooleanValue('isManagementRestricted', $this->getIsManagementRestricted());
         $writer->writeBooleanValue('isResourceAccount', $this->getIsResourceAccount());
@@ -2315,6 +2344,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('mailboxSettings', $this->getMailboxSettings());
         $writer->writeCollectionOfObjectValues('mailFolders', $this->getMailFolders());
         $writer->writeStringValue('mailNickname', $this->getMailNickname());
+        $writer->writeCollectionOfObjectValues('managedAppLogCollectionRequests', $this->getManagedAppLogCollectionRequests());
         $writer->writeCollectionOfObjectValues('managedAppRegistrations', $this->getManagedAppRegistrations());
         $writer->writeCollectionOfObjectValues('managedDevices', $this->getManagedDevices());
         $writer->writeObjectValue('manager', $this->getManager());
@@ -2919,6 +2949,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the invitedBy property value. The invitedBy property
+     * @param DirectoryObject|null $value Value to set for the invitedBy property.
+    */
+    public function setInvitedBy(?DirectoryObject $value): void {
+        $this->getBackingStore()->set('invitedBy', $value);
+    }
+
+    /**
      * Sets the isLicenseReconciliationNeeded property value. Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
      * @param bool|null $value Value to set for the isLicenseReconciliationNeeded property.
     */
@@ -3028,6 +3066,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setMailNickname(?string $value): void {
         $this->getBackingStore()->set('mailNickname', $value);
+    }
+
+    /**
+     * Sets the managedAppLogCollectionRequests property value. Zero or more log collection requests triggered for the user.
+     * @param array<ManagedAppLogCollectionRequest>|null $value Value to set for the managedAppLogCollectionRequests property.
+    */
+    public function setManagedAppLogCollectionRequests(?array $value): void {
+        $this->getBackingStore()->set('managedAppLogCollectionRequests', $value);
     }
 
     /**
@@ -3591,7 +3637,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the userType property value. A String value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
+     * Sets the userType property value. A String value that can be used to classify user types in your directory. The possible values are Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Microsoft Entra ID?
      * @param string|null $value Value to set for the userType property.
     */
     public function setUserType(?string $value): void {

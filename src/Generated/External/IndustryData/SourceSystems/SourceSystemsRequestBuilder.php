@@ -111,7 +111,7 @@ class SourceSystemsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(SourceSystemDefinition $body, ?SourceSystemsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/sourceSystems';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

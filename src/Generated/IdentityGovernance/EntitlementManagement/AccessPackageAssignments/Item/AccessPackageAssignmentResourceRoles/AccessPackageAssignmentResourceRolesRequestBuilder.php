@@ -117,7 +117,7 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
     */
     public function toPostRequestInformation(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRolesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignments/{accessPackageAssignment%2Did}/accessPackageAssignmentResourceRoles';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -109,7 +109,7 @@ class UnitsOfMeasureRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(UnitOfMeasure $body, ?UnitsOfMeasureRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/unitsOfMeasure';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

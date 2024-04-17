@@ -80,7 +80,7 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
     */
     public function toDeleteRequestInformation(?ServicePrincipalCreationConditionSetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/servicePrincipalCreationPolicies/{servicePrincipalCreationPolicy%2Did}/includes/{servicePrincipalCreationConditionSet%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -120,7 +120,7 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
     */
     public function toPatchRequestInformation(ServicePrincipalCreationConditionSet $body, ?ServicePrincipalCreationConditionSetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/policies/servicePrincipalCreationPolicies/{servicePrincipalCreationPolicy%2Did}/includes/{servicePrincipalCreationConditionSet%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

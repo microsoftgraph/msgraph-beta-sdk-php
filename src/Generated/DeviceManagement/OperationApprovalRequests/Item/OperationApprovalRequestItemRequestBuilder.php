@@ -104,7 +104,7 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?OperationApprovalRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/operationApprovalRequests/{operationApprovalRequest%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -144,7 +144,7 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(OperationApprovalRequest $body, ?OperationApprovalRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/operationApprovalRequests/{operationApprovalRequest%2Did}';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -82,7 +82,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     */
     public function toDeleteRequestInformation(?MicrosoftApplicationDataAccessRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings/microsoftApplicationDataAccess';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
@@ -122,7 +122,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(MicrosoftApplicationDataAccessSettings $body, ?MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings/microsoftApplicationDataAccess';
+        $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {
