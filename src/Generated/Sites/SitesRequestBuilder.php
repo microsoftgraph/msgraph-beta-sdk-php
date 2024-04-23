@@ -83,11 +83,11 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+     * Search across a SharePoint tenant for sites that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
      * @param SitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/site-search?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/site-search?view=graph-rest-beta Find more info here
     */
     public function get(?SitesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,7 +98,7 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+     * Search across a SharePoint tenant for sites that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
      * @param SitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

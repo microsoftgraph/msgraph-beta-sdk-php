@@ -55,11 +55,10 @@ class BranchSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific branch.
+     * Delete navigation property branches for networkAccess
      * @param BranchSiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?BranchSiteItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -70,11 +69,10 @@ class BranchSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific branch.
+     * Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
      * @param BranchSiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BranchSite|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BranchSiteItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -85,12 +83,11 @@ class BranchSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the configuration or properties of a specific branch.
+     * Update the navigation property branches in networkAccess
      * @param BranchSite $body The request body
      * @param BranchSiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BranchSite|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(BranchSite $body, ?BranchSiteItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -101,7 +98,7 @@ class BranchSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific branch.
+     * Delete navigation property branches for networkAccess
      * @param BranchSiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +116,7 @@ class BranchSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific branch.
+     * Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
      * @param BranchSiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -140,7 +137,7 @@ class BranchSiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the configuration or properties of a specific branch.
+     * Update the navigation property branches in networkAccess
      * @param BranchSite $body The request body
      * @param BranchSiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

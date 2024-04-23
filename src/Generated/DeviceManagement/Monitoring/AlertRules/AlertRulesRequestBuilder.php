@@ -52,11 +52,10 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alertRule objects and their properties.
+     * The collection of alert rules.
      * @param AlertRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertRuleCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/devicemanagement-alertrule-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?AlertRulesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an alertRule object.
+     * Create new navigation property to alertRules for deviceManagement
      * @param AlertRule $body The request body
      * @param AlertRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertRule|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/devicemanagement-alertrule-post?view=graph-rest-1.0 Find more info here
     */
     public function post(AlertRule $body, ?AlertRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alertRule objects and their properties.
+     * The collection of alert rules.
      * @param AlertRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class AlertRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an alertRule object.
+     * Create new navigation property to alertRules for deviceManagement
      * @param AlertRule $body The request body
      * @param AlertRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

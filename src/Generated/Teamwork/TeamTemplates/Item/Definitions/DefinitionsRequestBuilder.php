@@ -52,7 +52,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a teamTemplateDefinition object.
+     * A generic representation of a team template definition for a team with a specific structure and configuration.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamTemplateDefinitionCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a teamTemplateDefinition object.
+     * A generic representation of a team template definition for a team with a specific structure and configuration.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

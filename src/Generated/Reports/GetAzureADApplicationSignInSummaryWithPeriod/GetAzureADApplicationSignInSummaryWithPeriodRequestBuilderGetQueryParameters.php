@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetAzureADApplicationSignInSumm
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getAzureADApplicationSignInSummary
+ * Retrieve applicationSigninSummary objects within either the last seven or 30 days.
 */
 class GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetQueryParameters 
 {

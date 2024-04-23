@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPat
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getApplicableContentTypesForList
+ * Get site contentTypes that can be added to a list.
 */
 class GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters 
 {

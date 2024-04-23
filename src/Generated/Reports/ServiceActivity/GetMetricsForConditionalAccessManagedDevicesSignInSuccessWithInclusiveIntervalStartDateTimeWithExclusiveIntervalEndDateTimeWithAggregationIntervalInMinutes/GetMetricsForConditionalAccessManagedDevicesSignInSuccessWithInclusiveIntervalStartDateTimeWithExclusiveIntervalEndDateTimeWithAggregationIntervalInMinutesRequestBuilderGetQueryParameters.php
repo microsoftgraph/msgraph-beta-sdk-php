@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetMetricsForCo
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getMetricsForConditionalAccessManagedDevicesSignInSuccess
+ * Get the number of user authentication requests, during a specific time period, that satisfy a Conditional Access policy requiring devices to be managed. Managed devices are computers joined to and managed by your on-premises directory and hybrid devices joined to Microsoft Entra.
 */
 class GetMetricsForConditionalAccessManagedDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

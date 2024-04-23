@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\Item\Instan
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a windowsSettingInstance object by passing the Windows setting ID and Windows setting instance ID in the URL. This method gets a windowsSettingInstance for the signed-in user.
+ * A collection of setting values for a given windowsSetting.
 */
 class WindowsSettingInstanceItemRequestBuilderGetQueryParameters 
 {

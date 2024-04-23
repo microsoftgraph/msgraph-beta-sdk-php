@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetMetricsForSa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getMetricsForSamlSignInSuccess
+ * Get the number of SAML 2.0 authentications successfully processed by the Microsoft Entra cloud service for the tenant during a specified time period. This health signal currently doesn't include WS-FED/SAML 1.1 apps that are integrated with Microsoft Entra.
 */
 class GetMetricsForSamlSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

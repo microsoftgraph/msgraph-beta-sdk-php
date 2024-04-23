@@ -123,7 +123,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. The type of the audit resource.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -135,7 +135,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the type property value. The type of the audit resource.
+     * Gets the type property value. The type property
      * @return string|null
     */
     public function getType(): ?string {
@@ -209,7 +209,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. The type of the audit resource.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {
@@ -217,7 +217,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the type property value. The type of the audit resource.
+     * Sets the type property value. The type property
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

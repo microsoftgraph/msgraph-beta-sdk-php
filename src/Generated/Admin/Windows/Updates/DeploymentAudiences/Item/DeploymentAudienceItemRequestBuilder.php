@@ -71,11 +71,10 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a deploymentAudience object.
+     * Delete navigation property deploymentAudiences for admin
      * @param DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -86,11 +85,10 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a deploymentAudience object.
+     * The set of updatableAsset resources to which a deployment can apply.
      * @param DeploymentAudienceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentAudience|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeploymentAudienceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -116,7 +114,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a deploymentAudience object.
+     * Delete navigation property deploymentAudiences for admin
      * @param DeploymentAudienceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -134,7 +132,7 @@ class DeploymentAudienceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a deploymentAudience object.
+     * The set of updatableAsset resources to which a deployment can apply.
      * @param DeploymentAudienceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

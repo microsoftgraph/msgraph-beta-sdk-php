@@ -47,11 +47,10 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatePolicy object.
+     * Delete navigation property updatePolicies for admin
      * @param UpdatePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?UpdatePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,11 +61,10 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatePolicy object.
+     * A collection of policies for approving the deployment of different content to an audience over time.
      * @param UpdatePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatePolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UpdatePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -77,12 +75,11 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an updatePolicy object.
+     * Update the navigation property updatePolicies in admin
      * @param UpdatePolicy $body The request body
      * @param UpdatePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatePolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(UpdatePolicy $body, ?UpdatePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -93,7 +90,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatePolicy object.
+     * Delete navigation property updatePolicies for admin
      * @param UpdatePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +108,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an updatePolicy object.
+     * A collection of policies for approving the deployment of different content to an audience over time.
      * @param UpdatePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +129,7 @@ class UpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an updatePolicy object.
+     * Update the navigation property updatePolicies in admin
      * @param UpdatePolicy $body The request body
      * @param UpdatePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -83,11 +83,10 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
+     * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param OwnedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/serviceprincipal-list-ownedobjects?view=graph-rest-1.0 Find more info here
     */
     public function get(?OwnedObjectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,7 +97,7 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of objects owned by the servicePrincipal.  This could include applications or groups.
+     * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param OwnedObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

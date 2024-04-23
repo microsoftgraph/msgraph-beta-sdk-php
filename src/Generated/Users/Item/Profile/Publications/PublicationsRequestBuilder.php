@@ -52,11 +52,10 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPublication objects from a user's profile.
+     * Represents details of any publications a user has added to their profile.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublicationCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-publications?view=graph-rest-1.0 Find more info here
     */
     public function get(?PublicationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPublication object in a user's profile.
+     * Create new navigation property to publications for users
      * @param ItemPublication $body The request body
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublication|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-publications?view=graph-rest-1.0 Find more info here
     */
     public function post(ItemPublication $body, ?PublicationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of itemPublication objects from a user's profile.
+     * Represents details of any publications a user has added to their profile.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class PublicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new itemPublication object in a user's profile.
+     * Create new navigation property to publications for users
      * @param ItemPublication $body The request body
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

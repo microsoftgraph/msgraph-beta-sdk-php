@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getProvisionedCloudPCs
+ * Get all provisioned Cloud PCs of a specific service plan for users under a Microsoft Entra user group.
 */
 class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilderGetQueryParameters 
 {

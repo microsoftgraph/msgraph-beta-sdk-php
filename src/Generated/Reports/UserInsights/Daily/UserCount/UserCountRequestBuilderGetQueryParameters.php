@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\UserCount;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of daily user count on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+ * Insights for total users on apps registered in the tenant for a specified period.
 */
 class UserCountRequestBuilderGetQueryParameters 
 {

@@ -31,11 +31,10 @@ class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the last estimateStatisticsOperation object associated with a source collection. 
+     * The last estimate operation associated with the sourceCollection.
      * @param LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EstimateStatisticsOperation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-lastestimatestatisticsoperation?view=graph-rest-1.0 Find more info here
     */
     public function get(?LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -46,7 +45,7 @@ class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the last estimateStatisticsOperation object associated with a source collection. 
+     * The last estimate operation associated with the sourceCollection.
      * @param LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,11 +52,10 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of traffic forwarding profiles associated with a branch.
+     * Each forwarding profile associated with a branch site is specified. Supports $expand.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingProfileCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-forwardingprofiles?view=graph-rest-1.0 Find more info here
     */
     public function get(?ForwardingProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class ForwardingProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of traffic forwarding profiles associated with a branch.
+     * Each forwarding profile associated with a branch site is specified. Supports $expand.
      * @param ForwardingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

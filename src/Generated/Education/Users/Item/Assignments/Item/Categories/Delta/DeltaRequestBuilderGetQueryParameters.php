@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\C
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function delta
+ * Get a list of newly created or updated educationCategory objects without performing a full read of the collection.
 */
 class DeltaRequestBuilderGetQueryParameters 
 {

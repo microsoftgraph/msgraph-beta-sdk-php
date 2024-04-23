@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\BulkAc
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a cloudPcBulkAction object.
+ * Bulk actions applied to a Cloud PC.
 */
 class CloudPcBulkActionItemRequestBuilderGetQueryParameters 
 {

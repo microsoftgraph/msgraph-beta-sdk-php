@@ -45,11 +45,10 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an informationProtectionLabel object.
+     * Get labels from sites
      * @param InformationProtectionLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InformationProtectionLabel|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/informationprotectionlabel-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?InformationProtectionLabelItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an informationProtectionLabel object.
+     * Get labels from sites
      * @param InformationProtectionLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\GetRecentN
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getRecentNotebooks
+ * Get a list of recentNotebook instances that have been accessed by the signed-in user.
 */
 class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters 
 {

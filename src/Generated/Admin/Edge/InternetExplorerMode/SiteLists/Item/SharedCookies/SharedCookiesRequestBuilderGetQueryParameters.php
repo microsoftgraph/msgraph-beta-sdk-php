@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLis
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the browserSharedCookie objects and their properties.
+ * A collection of shared cookies defined for the site list.
 */
 class SharedCookiesRequestBuilderGetQueryParameters 
 {

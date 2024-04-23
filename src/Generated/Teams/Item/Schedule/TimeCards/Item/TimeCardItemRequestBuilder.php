@@ -63,11 +63,10 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeCard instance in a schedule.
+     * Delete navigation property timeCards for teams
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/timecard-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TimeCardItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -78,11 +77,10 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a timeCard object by ID.
+     * The time cards in the schedule.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCard|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/timecard-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TimeCardItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,12 +91,11 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Replace an existing timeCard with updated values.
+     * Update the navigation property timeCards in teams
      * @param TimeCard $body The request body
      * @param TimeCardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCard|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/timecard-replace?view=graph-rest-1.0 Find more info here
     */
     public function patch(TimeCard $body, ?TimeCardItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -109,7 +106,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a timeCard instance in a schedule.
+     * Delete navigation property timeCards for teams
      * @param TimeCardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -127,7 +124,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a timeCard object by ID.
+     * The time cards in the schedule.
      * @param TimeCardItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -148,7 +145,7 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Replace an existing timeCard with updated values.
+     * Update the navigation property timeCards in teams
      * @param TimeCard $body The request body
      * @param TimeCardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

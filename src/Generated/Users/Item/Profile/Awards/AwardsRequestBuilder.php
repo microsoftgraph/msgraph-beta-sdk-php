@@ -52,11 +52,10 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAward objects from a user's profile.
+     * Represents the details of awards or honors associated with a person.
      * @param AwardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAwardCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-awards?view=graph-rest-1.0 Find more info here
     */
     public function get(?AwardsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personAward object in a user's profile.
+     * Create new navigation property to awards for users
      * @param PersonAward $body The request body
      * @param AwardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAward|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-awards?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonAward $body, ?AwardsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAward objects from a user's profile.
+     * Represents the details of awards or honors associated with a person.
      * @param AwardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class AwardsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personAward object in a user's profile.
+     * Create new navigation property to awards for users
      * @param PersonAward $body The request body
      * @param AwardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

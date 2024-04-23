@@ -31,11 +31,10 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific workPosition object from a user's profile.
+     * Delete navigation property positions for users
      * @param WorkPositionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/workposition-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?WorkPositionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a workPosition object in a user's profile.
+     * Represents detailed information about work positions associated with a user's profile.
      * @param WorkPositionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPosition|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/workposition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WorkPositionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a workPosition object in a user's profile.
+     * Update the navigation property positions in users
      * @param WorkPosition $body The request body
      * @param WorkPositionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPosition|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/workposition-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(WorkPosition $body, ?WorkPositionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a specific workPosition object from a user's profile.
+     * Delete navigation property positions for users
      * @param WorkPositionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a workPosition object in a user's profile.
+     * Represents detailed information about work positions associated with a user's profile.
      * @param WorkPositionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class WorkPositionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a workPosition object in a user's profile.
+     * Update the navigation property positions in users
      * @param WorkPosition $body The request body
      * @param WorkPositionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -77,11 +77,10 @@ class UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Read the properties and relationships of an unifiedRoleEligibilitySchedule object.
+     * Get roleEligibilitySchedules from roleManagement
      * @param UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleEligibilitySchedule|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedule-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -125,7 +124,7 @@ class UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Read the properties and relationships of an unifiedRoleEligibilitySchedule object.
+     * Get roleEligibilitySchedules from roleManagement
      * @param UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

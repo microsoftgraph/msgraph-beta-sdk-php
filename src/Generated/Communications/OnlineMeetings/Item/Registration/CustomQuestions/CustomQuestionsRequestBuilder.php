@@ -52,11 +52,10 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Custom registration questions.
      * @param CustomQuestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/meetingregistration-list-customquestions?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomQuestionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Create new navigation property to customQuestions for communications
      * @param MeetingRegistrationQuestion $body The request body
      * @param CustomQuestionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestion|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/meetingregistration-post-customquestions?view=graph-rest-1.0 Find more info here
     */
     public function post(MeetingRegistrationQuestion $body, ?CustomQuestionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Custom registration questions.
      * @param CustomQuestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class CustomQuestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
+     * Create new navigation property to customQuestions for communications
      * @param MeetingRegistrationQuestion $body The request body
      * @param CustomQuestionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

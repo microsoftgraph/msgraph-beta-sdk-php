@@ -52,11 +52,10 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of connectorGroup objects.
+     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      * @param ConnectorGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectorGroupCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/connectorgroup-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConnectorGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a connectorGroup object.
+     * Create new navigation property to connectorGroups for onPremisesPublishingProfiles
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectorGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/connectorgroup-post?view=graph-rest-1.0 Find more info here
     */
     public function post(ConnectorGroup $body, ?ConnectorGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of connectorGroup objects.
+     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      * @param ConnectorGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class ConnectorGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a connectorGroup object.
+     * Create new navigation property to connectorGroups for onPremisesPublishingProfiles
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

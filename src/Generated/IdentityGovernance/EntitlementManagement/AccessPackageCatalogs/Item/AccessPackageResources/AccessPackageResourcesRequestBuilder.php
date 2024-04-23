@@ -52,11 +52,10 @@ class AccessPackageResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageResource objects in an accessPackageCatalog.  To request to add or remove an accessPackageResource, use create accessPackageResourceRequest.
+     * Get accessPackageResources from identityGovernance
      * @param AccessPackageResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessPackageResourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class AccessPackageResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageResource objects in an accessPackageCatalog.  To request to add or remove an accessPackageResource, use create accessPackageResourceRequest.
+     * Get accessPackageResources from identityGovernance
      * @param AccessPackageResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

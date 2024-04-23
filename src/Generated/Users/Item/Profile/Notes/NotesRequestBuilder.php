@@ -52,11 +52,10 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnnotation objects from a user's profile.
+     * Represents notes that a user has added to their profile.
      * @param NotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAnnotationCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-notes?view=graph-rest-1.0 Find more info here
     */
     public function get(?NotesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personAnnotation object in a user's profile.
+     * Create new navigation property to notes for users
      * @param PersonAnnotation $body The request body
      * @param NotesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAnnotation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-notes?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonAnnotation $body, ?NotesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personAnnotation objects from a user's profile.
+     * Represents notes that a user has added to their profile.
      * @param NotesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class NotesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personAnnotation object in a user's profile.
+     * Create new navigation property to notes for users
      * @param PersonAnnotation $body The request body
      * @param NotesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,11 +31,10 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing userFlow object.
+     * Delete navigation property userFlows for identity
      * @param IdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identityuserflow-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?IdentityUserFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for an userFlow object.
+     * Get userFlows from identity
      * @param IdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identityuserflow-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?IdentityUserFlowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,7 +74,7 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing userFlow object.
+     * Delete navigation property userFlows for identity
      * @param IdentityUserFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -94,7 +92,7 @@ class IdentityUserFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for an userFlow object.
+     * Get userFlows from identity
      * @param IdentityUserFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

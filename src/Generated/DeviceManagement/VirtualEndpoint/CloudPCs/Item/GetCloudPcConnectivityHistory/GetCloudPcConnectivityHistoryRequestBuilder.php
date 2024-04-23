@@ -30,10 +30,11 @@ class GetCloudPcConnectivityHistoryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getCloudPcConnectivityHistory
+     * Get the connectivity history of a specific Cloud PC.
      * @param GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCloudPcConnectivityHistoryGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-getcloudpcconnectivityhistory?view=graph-rest-beta Find more info here
     */
     public function get(?GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetCloudPcConnectivityHistoryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getCloudPcConnectivityHistory
+     * Get the connectivity history of a specific Cloud PC.
      * @param GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

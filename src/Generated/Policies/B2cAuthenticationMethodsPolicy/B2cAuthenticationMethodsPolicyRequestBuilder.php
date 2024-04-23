@@ -45,11 +45,10 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a b2cAuthenticationMethodsPolicy object.
+     * The Azure AD B2C policies that define how end users register via local accounts.
      * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cAuthenticationMethodsPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a b2cAuthenticationMethodsPolicy object.
+     * Update the navigation property b2cAuthenticationMethodsPolicy in policies
      * @param B2cAuthenticationMethodsPolicy $body The request body
      * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cAuthenticationMethodsPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(B2cAuthenticationMethodsPolicy $body, ?B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -94,7 +92,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a b2cAuthenticationMethodsPolicy object.
+     * The Azure AD B2C policies that define how end users register via local accounts.
      * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a b2cAuthenticationMethodsPolicy object.
+     * Update the navigation property b2cAuthenticationMethodsPolicy in policies
      * @param B2cAuthenticationMethodsPolicy $body The request body
      * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

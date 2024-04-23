@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\TermStore;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a store object.
+ * The termStore under this site.
 */
 class TermStoreRequestBuilderGetQueryParameters 
 {

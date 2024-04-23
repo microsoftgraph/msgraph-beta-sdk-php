@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\FederatedTokenValidationPolicy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the federatedTokenValidationPolicy objects and their properties.
+ * Represents a policy to control enabling or disabling validation of federation authentication tokens.
 */
 class FederatedTokenValidationPolicyRequestBuilderGetQueryParameters 
 {

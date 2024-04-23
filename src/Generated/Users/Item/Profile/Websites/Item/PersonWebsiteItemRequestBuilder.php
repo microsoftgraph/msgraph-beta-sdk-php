@@ -31,11 +31,10 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personWebsite object from a user's profile.
+     * Delete navigation property websites for users
      * @param PersonWebsiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/personwebsite-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PersonWebsiteItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personWebsite object from a user's profile.
+     * Represents detailed information about websites associated with a user in various services.
      * @param PersonWebsiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonWebsite|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/personwebsite-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PersonWebsiteItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of personWebsite object in a user's profile.
+     * Update the navigation property websites in users
      * @param PersonWebsite $body The request body
      * @param PersonWebsiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonWebsite|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/personwebsite-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PersonWebsite $body, ?PersonWebsiteItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personWebsite object from a user's profile.
+     * Delete navigation property websites for users
      * @param PersonWebsiteItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personWebsite object from a user's profile.
+     * Represents detailed information about websites associated with a user in various services.
      * @param PersonWebsiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class PersonWebsiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of personWebsite object in a user's profile.
+     * Update the navigation property websites in users
      * @param PersonWebsite $body The request body
      * @param PersonWebsiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

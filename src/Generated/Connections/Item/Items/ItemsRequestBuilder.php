@@ -52,7 +52,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn't intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
+     * Get items from connections
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalItemCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn't intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
+     * Get items from connections
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

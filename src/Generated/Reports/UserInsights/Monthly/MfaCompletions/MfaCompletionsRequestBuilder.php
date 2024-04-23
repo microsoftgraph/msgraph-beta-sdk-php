@@ -51,11 +51,10 @@ class MfaCompletionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of monthly MFA completions on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+     * Insights for MFA usage on apps registered in the tenant for a specified period.
      * @param MfaCompletionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MfaCompletionMetricCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-mfacompletions?view=graph-rest-1.0 Find more info here
     */
     public function get(?MfaCompletionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +65,7 @@ class MfaCompletionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of monthly MFA completions on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+     * Insights for MFA usage on apps registered in the tenant for a specified period.
      * @param MfaCompletionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

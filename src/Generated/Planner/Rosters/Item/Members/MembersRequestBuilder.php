@@ -52,11 +52,10 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerRosterMembers from a plannerRoster.
+     * Retrieves the members of the plannerRoster.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerRosterMemberCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerroster-list-members?view=graph-rest-1.0 Find more info here
     */
     public function get(?MembersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a member to the plannerRoster object.
+     * Create new navigation property to members for planner
      * @param PlannerRosterMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerRosterMember|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerroster-post-members?view=graph-rest-1.0 Find more info here
     */
     public function post(PlannerRosterMember $body, ?MembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerRosterMembers from a plannerRoster.
+     * Retrieves the members of the plannerRoster.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a member to the plannerRoster object.
+     * Create new navigation property to members for planner
      * @param PlannerRosterMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

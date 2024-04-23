@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
+ * A reference to the geolocation environment in which a resource is located.
 */
 class AccessPackageResourceEnvironmentsRequestBuilderGetQueryParameters 
 {

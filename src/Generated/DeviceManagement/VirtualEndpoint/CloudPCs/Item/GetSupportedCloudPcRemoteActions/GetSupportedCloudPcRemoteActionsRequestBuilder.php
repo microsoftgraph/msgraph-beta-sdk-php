@@ -30,10 +30,11 @@ class GetSupportedCloudPcRemoteActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getSupportedCloudPcRemoteActions
+     * Get a list of supported Cloud PC remote actions for a specific Cloud PC device, including the action names and capabilities.
      * @param GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetSupportedCloudPcRemoteActionsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-getsupportedcloudpcremoteactions?view=graph-rest-beta Find more info here
     */
     public function get(?GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetSupportedCloudPcRemoteActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getSupportedCloudPcRemoteActions
+     * Get a list of supported Cloud PC remote actions for a specific Cloud PC device, including the action names and capabilities.
      * @param GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
+ * Get posts from groups
 */
 class PostsRequestBuilderGetQueryParameters 
 {

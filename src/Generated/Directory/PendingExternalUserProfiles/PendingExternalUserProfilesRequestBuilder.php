@@ -52,11 +52,10 @@ class PendingExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all pendingExternalUserProfiles.
+     * Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
      * @param PendingExternalUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PendingExternalUserProfileCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directory-list-pendingexternaluserprofile?view=graph-rest-1.0 Find more info here
     */
     public function get(?PendingExternalUserProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class PendingExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new pendingExternalUserProfile object.
+     * Create new navigation property to pendingExternalUserProfiles for directory
      * @param PendingExternalUserProfile $body The request body
      * @param PendingExternalUserProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PendingExternalUserProfile|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directory-post-pendingexternaluserprofile?view=graph-rest-1.0 Find more info here
     */
     public function post(PendingExternalUserProfile $body, ?PendingExternalUserProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class PendingExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all pendingExternalUserProfiles.
+     * Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
      * @param PendingExternalUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class PendingExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new pendingExternalUserProfile object.
+     * Create new navigation property to pendingExternalUserProfiles for directory
      * @param PendingExternalUserProfile $body The request body
      * @param PendingExternalUserProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

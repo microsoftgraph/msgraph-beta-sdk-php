@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
+ * Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
 */
 class AuthenticationEventsFlowItemRequestBuilderGetQueryParameters 
 {

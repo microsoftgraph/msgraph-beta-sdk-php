@@ -31,11 +31,10 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tiIndicator object.
+     * Delete navigation property tiIndicators for security
      * @param TiIndicatorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/tiindicator-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TiIndicatorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a tiIndicator object.
+     * Get tiIndicators from security
      * @param TiIndicatorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TiIndicator|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/tiindicator-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TiIndicatorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tiIndicator object.
+     * Update the navigation property tiIndicators in security
      * @param TiIndicator $body The request body
      * @param TiIndicatorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TiIndicator|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/tiindicator-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TiIndicator $body, ?TiIndicatorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tiIndicator object.
+     * Delete navigation property tiIndicators for security
      * @param TiIndicatorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a tiIndicator object.
+     * Get tiIndicators from security
      * @param TiIndicatorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class TiIndicatorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tiIndicator object.
+     * Update the navigation property tiIndicators in security
      * @param TiIndicator $body The request body
      * @param TiIndicatorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

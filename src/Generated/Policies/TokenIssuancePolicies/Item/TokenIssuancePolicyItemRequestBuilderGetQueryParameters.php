@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\TokenIssuancePolicies\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a tokenIssuancePolicy object.
+ * The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
 */
 class TokenIssuancePolicyItemRequestBuilderGetQueryParameters 
 {

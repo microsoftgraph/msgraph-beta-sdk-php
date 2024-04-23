@@ -39,11 +39,10 @@ class GroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the Microsoft 365 group that corresponds to this educationClass.
+     * Get group from education
      * @param GroupRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationclass-get-group?view=graph-rest-1.0 Find more info here
     */
     public function get(?GroupRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -54,7 +53,7 @@ class GroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the Microsoft 365 group that corresponds to this educationClass.
+     * Get group from education
      * @param GroupRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

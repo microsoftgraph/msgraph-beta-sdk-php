@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLis
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
+ * A collection of shared cookies defined for the site list.
 */
 class BrowserSharedCookieItemRequestBuilderGetQueryParameters 
 {

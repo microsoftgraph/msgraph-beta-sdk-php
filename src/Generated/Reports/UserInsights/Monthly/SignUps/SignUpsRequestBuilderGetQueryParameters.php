@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\SignUps;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of monthly user sign-ups on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+ * Total sign-ups on apps registered in the tenant for a specified period.
 */
 class SignUpsRequestBuilderGetQueryParameters 
 {

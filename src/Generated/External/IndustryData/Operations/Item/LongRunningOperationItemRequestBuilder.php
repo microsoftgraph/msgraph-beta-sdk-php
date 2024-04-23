@@ -45,11 +45,10 @@ class LongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a fileValidateOperation object.
+     * Set of ephemeral operations that the system runs currently. Read-only.
      * @param LongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LongRunningOperation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-filevalidateoperation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?LongRunningOperationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class LongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a fileValidateOperation object.
+     * Set of ephemeral operations that the system runs currently. Read-only.
      * @param LongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

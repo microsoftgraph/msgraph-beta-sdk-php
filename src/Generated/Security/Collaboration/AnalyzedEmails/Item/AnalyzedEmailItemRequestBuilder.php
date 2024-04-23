@@ -45,11 +45,10 @@ class AnalyzedEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an analyzedEmail object.
+     * Contains metadata for analyzed emails.
      * @param AnalyzedEmailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AnalyzedEmail|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-analyzedemail-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AnalyzedEmailItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class AnalyzedEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an analyzedEmail object.
+     * Contains metadata for analyzed emails.
      * @param AnalyzedEmailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

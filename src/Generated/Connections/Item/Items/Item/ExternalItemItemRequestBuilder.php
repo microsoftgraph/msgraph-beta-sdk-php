@@ -47,11 +47,10 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an externalitem.
+     * Delete navigation property items for connections
      * @param ExternalItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ExternalItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,11 +61,10 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn't intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
+     * Get items from connections
      * @param ExternalItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalItem|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ExternalItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +90,7 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an externalitem.
+     * Delete navigation property items for connections
      * @param ExternalItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -110,7 +108,7 @@ class ExternalItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn't intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
+     * Get items from connections
      * @param ExternalItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

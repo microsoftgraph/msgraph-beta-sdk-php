@@ -52,11 +52,10 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantTag objects and their properties.
+     * The collection of tenant tags across managed tenants.
      * @param TenantTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTagCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenanttags?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantTagsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tenantTag object.
+     * Create new navigation property to tenantTags for tenantRelationships
      * @param TenantTag $body The request body
      * @param TenantTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-post-tenanttags?view=graph-rest-1.0 Find more info here
     */
     public function post(TenantTag $body, ?TenantTagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantTag objects and their properties.
+     * The collection of tenant tags across managed tenants.
      * @param TenantTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class TenantTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tenantTag object.
+     * Create new navigation property to tenantTags for tenantRelationships
      * @param TenantTag $body The request body
      * @param TenantTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

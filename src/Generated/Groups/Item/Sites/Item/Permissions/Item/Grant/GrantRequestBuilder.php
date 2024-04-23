@@ -30,12 +30,12 @@ class GrantRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Grant users access to a link represented by a [permission][].
+     * Grant users access to a link represented by a permission.
      * @param GrantPostRequestBody $body The request body
      * @param GrantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GrantPostResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-beta Find more info here
     */
     public function post(GrantPostRequestBody $body, ?GrantRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +46,7 @@ class GrantRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Grant users access to a link represented by a [permission][].
+     * Grant users access to a link represented by a permission.
      * @param GrantPostRequestBody $body The request body
      * @param GrantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

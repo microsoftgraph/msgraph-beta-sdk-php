@@ -52,11 +52,10 @@ class HealthIssuesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of health issue objects and their properties.
+     * Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
      * @param HealthIssuesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HealthIssueCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-identitycontainer-list-healthissues?view=graph-rest-1.0 Find more info here
     */
     public function get(?HealthIssuesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class HealthIssuesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of health issue objects and their properties.
+     * Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
      * @param HealthIssuesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

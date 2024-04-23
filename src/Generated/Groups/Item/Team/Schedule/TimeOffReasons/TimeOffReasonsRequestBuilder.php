@@ -56,7 +56,6 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
      * @param TimeOffReasonsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOffReasonCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-1.0 Find more info here
     */
     public function get(?TimeOffReasonsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new timeOffReason.
+     * Create new navigation property to timeOffReasons for groups
      * @param TimeOffReason $body The request body
      * @param TimeOffReasonsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeOffReason|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-1.0 Find more info here
     */
     public function post(TimeOffReason $body, ?TimeOffReasonsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -104,7 +102,7 @@ class TimeOffReasonsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new timeOffReason.
+     * Create new navigation property to timeOffReasons for groups
      * @param TimeOffReason $body The request body
      * @param TimeOffReasonsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

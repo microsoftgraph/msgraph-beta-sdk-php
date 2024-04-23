@@ -73,7 +73,7 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the managedAppComponent property value. The Mobile Application Management (MAM) Logs Uploading Component.
+     * Gets the managedAppComponent property value. The Mobile Application Management (MAM) Logs Uploading Component. Such components can be the application itself, the MAM SDK, and other on-device components that are capable of uploading diagnostic logs. Read-only.
      * @return string|null
     */
     public function getManagedAppComponent(): ?string {
@@ -109,7 +109,7 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the referenceId property value. A provider-specific reference id for the uploaded logs.
+     * Gets the referenceId property value. A provider-specific reference id for the uploaded logs. Read-only.
      * @return string|null
     */
     public function getReferenceId(): ?string {
@@ -149,7 +149,7 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the managedAppComponent property value. The Mobile Application Management (MAM) Logs Uploading Component.
+     * Sets the managedAppComponent property value. The Mobile Application Management (MAM) Logs Uploading Component. Such components can be the application itself, the MAM SDK, and other on-device components that are capable of uploading diagnostic logs. Read-only.
      * @param string|null $value Value to set for the managedAppComponent property.
     */
     public function setManagedAppComponent(?string $value): void {
@@ -173,7 +173,7 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the referenceId property value. A provider-specific reference id for the uploaded logs.
+     * Sets the referenceId property value. A provider-specific reference id for the uploaded logs. Read-only.
      * @param string|null $value Value to set for the referenceId property.
     */
     public function setReferenceId(?string $value): void {

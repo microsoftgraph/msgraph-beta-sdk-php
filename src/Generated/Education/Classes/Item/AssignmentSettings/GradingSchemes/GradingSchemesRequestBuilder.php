@@ -52,7 +52,7 @@ class GradingSchemesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an educationGradingScheme object.
+     * Get gradingSchemes from education
      * @param GradingSchemesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationGradingSchemeCollectionResponse|null>
      * @throws Exception
@@ -66,12 +66,11 @@ class GradingSchemesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationGradingScheme object.
+     * Create new navigation property to gradingSchemes for education
      * @param EducationGradingScheme $body The request body
      * @param GradingSchemesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationGradingScheme|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationgradingscheme-post?view=graph-rest-1.0 Find more info here
     */
     public function post(EducationGradingScheme $body, ?GradingSchemesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -82,7 +81,7 @@ class GradingSchemesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an educationGradingScheme object.
+     * Get gradingSchemes from education
      * @param GradingSchemesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +102,7 @@ class GradingSchemesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationGradingScheme object.
+     * Create new navigation property to gradingSchemes for education
      * @param EducationGradingScheme $body The request body
      * @param GradingSchemesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

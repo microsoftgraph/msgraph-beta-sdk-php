@@ -56,7 +56,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySettingCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-list-settings?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-list-settings?view=graph-rest-beta Find more info here
     */
     public function get(?SettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -72,7 +72,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
      * @param SettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySetting|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-post-settings?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-post-settings?view=graph-rest-beta Find more info here
     */
     public function post(DirectorySetting $body, ?SettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

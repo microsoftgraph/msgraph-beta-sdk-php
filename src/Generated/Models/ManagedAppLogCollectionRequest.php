@@ -61,7 +61,7 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedAppRegistrationId property value. The unique identifier of the app instance for which diagnostic was collected.
+     * Gets the managedAppRegistrationId property value. The unique identifier of the app instance for which diagnostic logs were collected. Read-only.
      * @return string|null
     */
     public function getManagedAppRegistrationId(): ?string {
@@ -73,7 +73,7 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestedBy property value. The user principal name associated with the request for the managed application log collection.
+     * Gets the requestedBy property value. The user principal name associated with the request for the managed application log collection. Read-only.
      * @return string|null
     */
     public function getRequestedBy(): ?string {
@@ -121,7 +121,7 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the uploadedLogs property value. The collection of log upload results as reported by each component on the device. Such components can be the application itself, the Mobile Application Management (MAM) SDK, and other on-device components that are requested to upload diagnostic logs.
+     * Gets the uploadedLogs property value. The collection of log upload results as reported by each component on the device. Such components can be the application itself, the Mobile Application Management (MAM) SDK, and other on-device components that are requested to upload diagnostic logs. Read-only.
      * @return array<ManagedAppLogUpload>|null
     */
     public function getUploadedLogs(): ?array {
@@ -184,7 +184,7 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedAppRegistrationId property value. The unique identifier of the app instance for which diagnostic was collected.
+     * Sets the managedAppRegistrationId property value. The unique identifier of the app instance for which diagnostic logs were collected. Read-only.
      * @param string|null $value Value to set for the managedAppRegistrationId property.
     */
     public function setManagedAppRegistrationId(?string $value): void {
@@ -192,7 +192,7 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestedBy property value. The user principal name associated with the request for the managed application log collection.
+     * Sets the requestedBy property value. The user principal name associated with the request for the managed application log collection. Read-only.
      * @param string|null $value Value to set for the requestedBy property.
     */
     public function setRequestedBy(?string $value): void {
@@ -224,7 +224,7 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the uploadedLogs property value. The collection of log upload results as reported by each component on the device. Such components can be the application itself, the Mobile Application Management (MAM) SDK, and other on-device components that are requested to upload diagnostic logs.
+     * Sets the uploadedLogs property value. The collection of log upload results as reported by each component on the device. Such components can be the application itself, the Mobile Application Management (MAM) SDK, and other on-device components that are requested to upload diagnostic logs. Read-only.
      * @param array<ManagedAppLogUpload>|null $value Value to set for the uploadedLogs property.
     */
     public function setUploadedLogs(?array $value): void {

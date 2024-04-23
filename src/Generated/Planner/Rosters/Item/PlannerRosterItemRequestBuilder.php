@@ -47,11 +47,10 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerRoster object.
+     * Delete navigation property rosters for planner
      * @param PlannerRosterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerroster-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PlannerRosterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,11 +61,10 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerRoster object.
+     * Read-only. Nullable. Returns a collection of the specified rosters
      * @param PlannerRosterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerRoster|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerroster-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlannerRosterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +90,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerRoster object.
+     * Delete navigation property rosters for planner
      * @param PlannerRosterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -110,7 +108,7 @@ class PlannerRosterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerRoster object.
+     * Read-only. Nullable. Returns a collection of the specified rosters
      * @param PlannerRosterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

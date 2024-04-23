@@ -31,11 +31,10 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a yearTimePeriodDefinition object.
+     * Delete navigation property years for external
      * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a yearTimePeriodDefinition object.
+     * Set of years represented in the system.
      * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a yearTimePeriodDefinition object.
+     * Update the navigation property years in external
      * @param YearTimePeriodDefinition $body The request body
      * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(YearTimePeriodDefinition $body, ?YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a yearTimePeriodDefinition object.
+     * Delete navigation property years for external
      * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a yearTimePeriodDefinition object.
+     * Set of years represented in the system.
      * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a yearTimePeriodDefinition object.
+     * Update the navigation property years in external
      * @param YearTimePeriodDefinition $body The request body
      * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

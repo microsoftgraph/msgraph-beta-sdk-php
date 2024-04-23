@@ -59,11 +59,10 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
+     * All users in the class. Nullable.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUserCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationclass-list-members?view=graph-rest-1.0 Find more info here
     */
     public function get(?MembersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +73,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the teachers and students for a class. Note that if the delegated token is used, members can only be seen by other members of the class.
+     * All users in the class. Nullable.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

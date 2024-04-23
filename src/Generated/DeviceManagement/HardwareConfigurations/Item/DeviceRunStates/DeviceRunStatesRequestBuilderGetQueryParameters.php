@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List of run states for the hardware configuration across all devices
+ * List of run states for the hardware configuration across all devices. Read-Only.
 */
 class DeviceRunStatesRequestBuilderGetQueryParameters 
 {

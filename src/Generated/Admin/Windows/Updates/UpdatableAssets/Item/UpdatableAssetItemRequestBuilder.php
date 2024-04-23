@@ -63,11 +63,10 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatableAsset object.
+     * Delete navigation property updatableAssets for admin
      * @param UpdatableAssetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-updatableasset-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?UpdatableAssetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -78,11 +77,10 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of an azureADDevice object.
+     * Assets registered with the deployment service that can receive updates.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAsset|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-azureaddevice-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UpdatableAssetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,7 +106,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an updatableAsset object.
+     * Delete navigation property updatableAssets for admin
      * @param UpdatableAssetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -126,7 +124,7 @@ class UpdatableAssetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of an azureADDevice object.
+     * Assets registered with the deployment service that can receive updates.
      * @param UpdatableAssetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

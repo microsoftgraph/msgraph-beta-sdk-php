@@ -52,11 +52,10 @@ class ProvisioningFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the provisioningFlow objects and their properties.
+     * A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
      * @param ProvisioningFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProvisioningFlowCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-outboundprovisioningflowset-list-provisioningflows?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProvisioningFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class ProvisioningFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new provisioningFlow object.
+     * Create new navigation property to provisioningFlows for external
      * @param ProvisioningFlow $body The request body
      * @param ProvisioningFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProvisioningFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-outboundprovisioningflowset-post-provisioningflows?view=graph-rest-1.0 Find more info here
     */
     public function post(ProvisioningFlow $body, ?ProvisioningFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class ProvisioningFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the provisioningFlow objects and their properties.
+     * A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
      * @param ProvisioningFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class ProvisioningFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new provisioningFlow object.
+     * Create new navigation property to provisioningFlows for external
      * @param ProvisioningFlow $body The request body
      * @param ProvisioningFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

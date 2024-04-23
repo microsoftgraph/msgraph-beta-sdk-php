@@ -39,11 +39,10 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the specified Outlook task folder.
+     * Delete navigation property taskFolders for users
      * @param OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/outlooktaskfolder-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,11 +53,10 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified Outlook task folder.
+     * Get taskFolders from users
      * @param OutlookTaskFolderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolder|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/outlooktaskfolder-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OutlookTaskFolderItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -69,12 +67,11 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'.
+     * Update the navigation property taskFolders in users
      * @param OutlookTaskFolder $body The request body
      * @param OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolder|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/outlooktaskfolder-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(OutlookTaskFolder $body, ?OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -85,7 +82,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the specified Outlook task folder.
+     * Delete navigation property taskFolders for users
      * @param OutlookTaskFolderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +100,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified Outlook task folder.
+     * Get taskFolders from users
      * @param OutlookTaskFolderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +121,7 @@ class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'.
+     * Update the navigation property taskFolders in users
      * @param OutlookTaskFolder $body The request body
      * @param OutlookTaskFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

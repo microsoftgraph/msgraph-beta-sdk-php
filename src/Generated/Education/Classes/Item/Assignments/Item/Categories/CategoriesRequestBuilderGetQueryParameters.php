@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List all categories for an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+ * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
 */
 class CategoriesRequestBuilderGetQueryParameters 
 {

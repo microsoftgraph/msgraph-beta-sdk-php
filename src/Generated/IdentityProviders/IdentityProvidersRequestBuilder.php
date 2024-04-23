@@ -64,7 +64,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
      * @param IdentityProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityProviderCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-beta Find more info here
     */
     public function get(?IdentityProvidersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -80,7 +80,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
      * @param IdentityProvidersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityProvider|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-beta Find more info here
     */
     public function post(IdentityProvider $body, ?IdentityProvidersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

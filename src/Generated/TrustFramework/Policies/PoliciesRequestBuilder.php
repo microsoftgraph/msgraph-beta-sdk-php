@@ -52,11 +52,10 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of trustFrameworkPolicies in the tenant/directory.
+     * Get policies from trustFramework
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkPolicyCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies?view=graph-rest-1.0 Find more info here
     */
     public function get(?PoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of trustFrameworkPolicies in the tenant/directory.
+     * Get policies from trustFramework
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

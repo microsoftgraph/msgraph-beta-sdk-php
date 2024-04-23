@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRo
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the roles that a signed-in user has through a delegated relationship across managed tenants. For information on the types of delegated relationships between a Managed Service Provider (MSP) who uses Microsoft 365 Lighthouse, and their business customers with Microsoft 365 Business Premium tenants, see the following articles on the Partner Center:- Delegated administration privileges (DAP)- Granular delegated admin privileges (GDAP)
+ * The collection of role assignments to a signed-in user for a managed tenant.
 */
 class MyRolesRequestBuilderGetQueryParameters 
 {

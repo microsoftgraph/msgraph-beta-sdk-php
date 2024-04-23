@@ -61,11 +61,10 @@ class InboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of an inboundSharedUserProfile.
+     * A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundSharedUserProfile|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/inboundshareduserprofile-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -109,7 +108,7 @@ class InboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of an inboundSharedUserProfile.
+     * A collection of external users whose profile data is shared with the Microsoft Entra tenant. Nullable.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

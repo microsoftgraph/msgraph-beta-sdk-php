@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\Security\GetAttackSimulationTra
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getAttackSimulationTrainingUserCoverage
+ * List training coverage for tenant users in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
 */
 class GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of sourceCollections from a case object.
+ * Returns a list of sourceCollection objects associated with this case.
 */
 class SourceCollectionsRequestBuilderGetQueryParameters 
 {

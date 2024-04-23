@@ -69,11 +69,10 @@ class ReviewSetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a reviewSet object.
+     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
      * @param ReviewSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSet|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-reviewset-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReviewSetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -117,7 +116,7 @@ class ReviewSetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a reviewSet object.
+     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
      * @param ReviewSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

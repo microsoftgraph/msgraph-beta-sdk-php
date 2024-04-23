@@ -35,7 +35,7 @@ class OAuth2PermissionGrantItemRequestBuilder extends BaseRequestBuilder
      * @param OAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?OAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,7 +50,7 @@ class OAuth2PermissionGrantItemRequestBuilder extends BaseRequestBuilder
      * @param OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OAuth2PermissionGrant|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-get?view=graph-rest-beta Find more info here
     */
     public function get(?OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +66,7 @@ class OAuth2PermissionGrantItemRequestBuilder extends BaseRequestBuilder
      * @param OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OAuth2PermissionGrant|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-update?view=graph-rest-beta Find more info here
     */
     public function patch(OAuth2PermissionGrant $body, ?OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

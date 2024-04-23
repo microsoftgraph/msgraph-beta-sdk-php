@@ -96,7 +96,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
      * @param TeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/teams-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/teams-list?view=graph-rest-beta Find more info here
     */
     public function get(?TeamsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +112,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
      * @param TeamsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/team-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/team-post?view=graph-rest-beta Find more info here
     */
     public function post(Team $body, ?TeamsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

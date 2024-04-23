@@ -62,7 +62,7 @@ class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+     * Get accessPackageAssignmentApprovals from identityGovernance
      * @param AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalCollectionResponse|null>
      * @throws Exception
@@ -91,7 +91,7 @@ class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+     * Get accessPackageAssignmentApprovals from identityGovernance
      * @param AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

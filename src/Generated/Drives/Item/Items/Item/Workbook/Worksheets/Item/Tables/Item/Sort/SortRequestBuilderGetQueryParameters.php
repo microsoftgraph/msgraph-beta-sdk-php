@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of tablesort object.
+ * Represents the sorting for the table. Read-only.
 */
 class SortRequestBuilderGetQueryParameters 
 {

@@ -93,11 +93,10 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a noncustodialDataSource object.
+     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
      * @param NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NoncustodialDataSource|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -141,7 +140,7 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a noncustodialDataSource object.
+     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
      * @param NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

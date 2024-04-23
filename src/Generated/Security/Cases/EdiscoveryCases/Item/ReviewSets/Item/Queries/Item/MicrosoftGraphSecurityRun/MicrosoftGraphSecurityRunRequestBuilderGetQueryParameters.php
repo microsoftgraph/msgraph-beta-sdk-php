@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Rev
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function run
+ * Run reviewset query to get the list of files.
 */
 class MicrosoftGraphSecurityRunRequestBuilderGetQueryParameters 
 {

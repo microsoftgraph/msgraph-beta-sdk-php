@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\Item\Appoin
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of bookingAppointment objects for the specified bookingBusiness.
+ * All the appointments of this business. Read-only. Nullable.
 */
 class AppointmentsRequestBuilderGetQueryParameters 
 {

@@ -47,7 +47,7 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+     * Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
      * @param DriveItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveItem|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+     * Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
      * @param DriveItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

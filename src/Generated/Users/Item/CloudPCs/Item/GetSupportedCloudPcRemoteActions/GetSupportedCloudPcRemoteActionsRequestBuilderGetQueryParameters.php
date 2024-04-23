@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetSupportedCl
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getSupportedCloudPcRemoteActions
+ * Get a list of supported Cloud PC remote actions for a specific Cloud PC device, including the action names and capabilities.
 */
 class GetSupportedCloudPcRemoteActionsRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\GetTimesOff;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getTimesOff
+ * Get all time off objects across all teams to which a user is a direct member.
 */
 class GetTimesOffRequestBuilderGetQueryParameters 
 {

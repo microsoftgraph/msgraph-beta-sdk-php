@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\Items;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint site.
+ * List of the recycleBinItems deleted by a user.
 */
 class ItemsRequestBuilderGetQueryParameters 
 {

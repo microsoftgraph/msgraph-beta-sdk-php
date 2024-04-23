@@ -42,7 +42,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
@@ -372,7 +372,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time).
+     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
     */
     public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {

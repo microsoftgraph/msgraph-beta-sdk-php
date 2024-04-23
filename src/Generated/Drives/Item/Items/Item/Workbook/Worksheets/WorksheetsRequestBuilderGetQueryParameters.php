@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of worksheet objects.
+ * Represents a collection of worksheets associated with the workbook. Read-only.
 */
 class WorksheetsRequestBuilderGetQueryParameters 
 {

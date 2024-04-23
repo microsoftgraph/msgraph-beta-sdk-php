@@ -52,11 +52,10 @@ class FilteringProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the filteringProfile objects and their properties.
+     * A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
      * @param FilteringProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FilteringProfileCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?FilteringProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class FilteringProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the filteringProfile objects and their properties.
+     * A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
      * @param FilteringProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

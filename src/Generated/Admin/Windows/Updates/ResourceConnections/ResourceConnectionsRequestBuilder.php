@@ -52,11 +52,10 @@ class ResourceConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the resourceConnection objects and their properties.
+     * Service connections to external resources such as analytics workspaces.
      * @param ResourceConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ResourceConnectionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-list-resourceconnections?view=graph-rest-1.0 Find more info here
     */
     public function get(?ResourceConnectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class ResourceConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new operationalInsightsConnection object.
+     * Create new navigation property to resourceConnections for admin
      * @param ResourceConnection $body The request body
      * @param ResourceConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ResourceConnection|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-post-resourceconnections-operationalinsightsconnection?view=graph-rest-1.0 Find more info here
     */
     public function post(ResourceConnection $body, ?ResourceConnectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class ResourceConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the resourceConnection objects and their properties.
+     * Service connections to external resources such as analytics workspaces.
      * @param ResourceConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class ResourceConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new operationalInsightsConnection object.
+     * Create new navigation property to resourceConnections for admin
      * @param ResourceConnection $body The request body
      * @param ResourceConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -68,11 +68,10 @@ class AlertRecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alertRecord objects and their properties.
+     * The collection of records of alert events.
      * @param AlertRecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertRecordCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/devicemanagement-alertrecord-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?AlertRecordsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,7 +97,7 @@ class AlertRecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the alertRecord objects and their properties.
+     * The collection of records of alert events.
      * @param AlertRecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

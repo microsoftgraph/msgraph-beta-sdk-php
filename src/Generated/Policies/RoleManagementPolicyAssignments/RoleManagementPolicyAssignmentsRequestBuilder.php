@@ -52,11 +52,10 @@ class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+     * Represents the role management policy assignments.
      * @param RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementPolicyAssignmentCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0 Find more info here
     */
     public function get(?RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+     * Represents the role management policy assignments.
      * @param RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

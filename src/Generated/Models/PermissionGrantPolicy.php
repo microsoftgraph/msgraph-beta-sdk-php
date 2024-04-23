@@ -68,7 +68,7 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the resourceScopeType property value. The resource type the pre-approval policy applies to. Possible values: group for groups and teams, chat for chats, tenant for all supported resources in the tenant. Required.
+     * Gets the resourceScopeType property value. The resource type the pre-approval policy applies to. Possible values: team for groups and teams, chat for chats, tenant for all supported resources in the tenant. Required.
      * @return ResourceScopeType|null
     */
     public function getResourceScopeType(): ?ResourceScopeType {
@@ -107,7 +107,7 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the resourceScopeType property value. The resource type the pre-approval policy applies to. Possible values: group for groups and teams, chat for chats, tenant for all supported resources in the tenant. Required.
+     * Sets the resourceScopeType property value. The resource type the pre-approval policy applies to. Possible values: team for groups and teams, chat for chats, tenant for all supported resources in the tenant. Required.
      * @param ResourceScopeType|null $value Value to set for the resourceScopeType property.
     */
     public function setResourceScopeType(?ResourceScopeType $value): void {

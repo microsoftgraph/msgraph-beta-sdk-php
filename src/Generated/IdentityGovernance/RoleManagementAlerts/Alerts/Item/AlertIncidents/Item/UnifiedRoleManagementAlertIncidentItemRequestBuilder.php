@@ -53,11 +53,10 @@ class UnifiedRoleManagementAlertIncidentItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object:
+     * Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Microsoft Entra roles in the tenant. Supports $expand.
      * @param UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlertIncident|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/unifiedrolemanagementalertincident-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,7 +100,7 @@ class UnifiedRoleManagementAlertIncidentItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Read the properties and relationships of an alert incident. The alert incident can be one of the following types that are derived from the unifiedRoleManagementAlertIncident object:
+     * Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Microsoft Entra roles in the tenant. Supports $expand.
      * @param UnifiedRoleManagementAlertIncidentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Remove a group from the list of groups marked as incompatible on an accessPackage.  
+ * Delete ref of navigation property incompatibleGroups for identityGovernance
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

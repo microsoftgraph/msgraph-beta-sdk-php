@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\GetShifts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getShifts
+ * Get all shift objects across all teams to which a user is a direct member.
 */
 class GetShiftsRequestBuilderGetQueryParameters 
 {

@@ -45,11 +45,10 @@ class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a richLongRunningOperation object.
+     * The collection of long running operations for the site.
      * @param RichLongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RichLongRunningOperation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/richlongrunningoperation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RichLongRunningOperationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a richLongRunningOperation object.
+     * The collection of long running operations for the site.
      * @param RichLongRunningOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

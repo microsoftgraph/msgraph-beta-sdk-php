@@ -35,7 +35,7 @@ class ApplyConfigRequestBuilder extends BaseRequestBuilder
      * @param ApplyConfigRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-applyconfig?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-applyconfig?view=graph-rest-beta Find more info here
     */
     public function post(ApplyConfigPostRequestBody $body, ?ApplyConfigRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

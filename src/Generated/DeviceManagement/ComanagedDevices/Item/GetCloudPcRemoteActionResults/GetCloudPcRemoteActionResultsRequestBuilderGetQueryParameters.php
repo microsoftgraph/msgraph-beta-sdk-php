@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getCloudPcRemoteActionResults
+ * Check the Cloud PC-specified remote action results for a Cloud PC device. Cloud PC supports reprovision and resize remote actions.
 */
 class GetCloudPcRemoteActionResultsRequestBuilderGetQueryParameters 
 {

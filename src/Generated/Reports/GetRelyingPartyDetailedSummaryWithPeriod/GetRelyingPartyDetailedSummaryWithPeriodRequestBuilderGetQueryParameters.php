@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetRelyingPartyDetailedSummaryW
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getRelyingPartyDetailedSummary
+ * Get a summary of AD FS relying parties information.
 */
 class GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters 
 {

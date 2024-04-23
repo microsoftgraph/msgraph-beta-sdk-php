@@ -31,11 +31,10 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personInterest object from a user's profile.
+     * Delete navigation property interests for users
      * @param PersonInterestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/personinterest-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PersonInterestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personInterest object in a user's profile.
+     * Provides detailed information about interests the user has associated with themselves in various services.
      * @param PersonInterestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonInterest|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/personinterest-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PersonInterestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personInterest object in a user's profile.
+     * Update the navigation property interests in users
      * @param PersonInterest $body The request body
      * @param PersonInterestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonInterest|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/personinterest-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PersonInterest $body, ?PersonInterestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personInterest object from a user's profile.
+     * Delete navigation property interests for users
      * @param PersonInterestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a personInterest object in a user's profile.
+     * Provides detailed information about interests the user has associated with themselves in various services.
      * @param PersonInterestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class PersonInterestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a personInterest object in a user's profile.
+     * Update the navigation property interests in users
      * @param PersonInterest $body The request body
      * @param PersonInterestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

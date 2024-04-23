@@ -45,11 +45,10 @@ class EngagementAsyncOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an engagementAsyncOperation to track a long-running operation request.
+     * A collection of long-running, asynchronous operations related to Viva Engage.
      * @param EngagementAsyncOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EngagementAsyncOperation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/engagementasyncoperation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EngagementAsyncOperationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class EngagementAsyncOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an engagementAsyncOperation to track a long-running operation request.
+     * A collection of long-running, asynchronous operations related to Viva Engage.
      * @param EngagementAsyncOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -45,7 +45,7 @@ class RunSummaryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A summary of the results from an attempt to configure hardware settings
+     * A summary of the results from an attempt to configure hardware settings. Read-Only.
      * @param RunSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareConfigurationRunSummary|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class RunSummaryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A summary of the results from an attempt to configure hardware settings
+     * A summary of the results from an attempt to configure hardware settings. Read-Only.
      * @param RunSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

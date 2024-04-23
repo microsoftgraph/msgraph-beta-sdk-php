@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetwor
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieves a specific device link associated with a remote network.
+ * Each unique CPE device associated with a remote network is specified. Supports $expand.
 */
 class DeviceLinkItemRequestBuilderGetQueryParameters 
 {

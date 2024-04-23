@@ -31,11 +31,10 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a projectParticipation object from a user's profile.
+     * Delete navigation property projects for users
      * @param ProjectParticipationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/projectparticipation-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ProjectParticipationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a projectParticipation object in a user's profile.
+     * Represents detailed information about projects associated with a user.
      * @param ProjectParticipationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProjectParticipation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/projectparticipation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProjectParticipationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a projectParticipation object in a user's profile.
+     * Update the navigation property projects in users
      * @param ProjectParticipation $body The request body
      * @param ProjectParticipationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProjectParticipation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/projectparticipation-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ProjectParticipation $body, ?ProjectParticipationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a projectParticipation object from a user's profile.
+     * Delete navigation property projects for users
      * @param ProjectParticipationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a projectParticipation object in a user's profile.
+     * Represents detailed information about projects associated with a user.
      * @param ProjectParticipationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class ProjectParticipationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a projectParticipation object in a user's profile.
+     * Update the navigation property projects in users
      * @param ProjectParticipation $body The request body
      * @param ProjectParticipationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

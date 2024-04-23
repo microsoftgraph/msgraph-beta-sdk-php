@@ -52,11 +52,10 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workPosition objects from a user's profile.
+     * Represents detailed information about work positions associated with a user's profile.
      * @param PositionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPositionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-positions?view=graph-rest-1.0 Find more info here
     */
     public function get(?PositionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new workPosition in a user's profile.
+     * Create new navigation property to positions for users
      * @param WorkPosition $body The request body
      * @param PositionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkPosition|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-positions?view=graph-rest-1.0 Find more info here
     */
     public function post(WorkPosition $body, ?PositionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of workPosition objects from a user's profile.
+     * Represents detailed information about work positions associated with a user's profile.
      * @param PositionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class PositionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new workPosition in a user's profile.
+     * Create new navigation property to positions for users
      * @param WorkPosition $body The request body
      * @param PositionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

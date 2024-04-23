@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Phones;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of itemPhone objects from a user's profile.
+ * Represents detailed information about phone numbers associated with a user in various services.
 */
 class PhonesRequestBuilderGetQueryParameters 
 {

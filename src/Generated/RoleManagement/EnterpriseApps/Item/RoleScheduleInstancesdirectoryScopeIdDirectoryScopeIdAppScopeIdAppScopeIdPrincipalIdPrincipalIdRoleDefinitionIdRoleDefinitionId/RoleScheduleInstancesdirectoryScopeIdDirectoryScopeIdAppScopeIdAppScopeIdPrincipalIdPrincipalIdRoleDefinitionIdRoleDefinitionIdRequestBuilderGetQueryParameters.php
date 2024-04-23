@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\Role
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function roleScheduleInstances
+ * Retrieve both roleAssignmentScheduleInstances and roleEligibilityScheduleInstances.
 */
 class RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters 
 {

@@ -49,7 +49,7 @@ class DataPolicyOperationItemRequestBuilder extends BaseRequestBuilder
      * @param DataPolicyOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataPolicyOperation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-beta Find more info here
     */
     public function get(?DataPolicyOperationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

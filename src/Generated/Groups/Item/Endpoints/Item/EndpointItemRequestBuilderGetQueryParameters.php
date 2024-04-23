@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a specific endpoint object.
+ * Endpoints for the group. Read-only. Nullable.
 */
 class EndpointItemRequestBuilderGetQueryParameters 
 {

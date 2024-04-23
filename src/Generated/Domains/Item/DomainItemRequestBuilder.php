@@ -107,7 +107,7 @@ class DomainItemRequestBuilder extends BaseRequestBuilder
      * @param DomainItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?DomainItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -122,7 +122,7 @@ class DomainItemRequestBuilder extends BaseRequestBuilder
      * @param DomainItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Domain|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-beta Find more info here
     */
     public function get(?DomainItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -138,7 +138,7 @@ class DomainItemRequestBuilder extends BaseRequestBuilder
      * @param DomainItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Domain|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-beta Find more info here
     */
     public function patch(Domain $body, ?DomainItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

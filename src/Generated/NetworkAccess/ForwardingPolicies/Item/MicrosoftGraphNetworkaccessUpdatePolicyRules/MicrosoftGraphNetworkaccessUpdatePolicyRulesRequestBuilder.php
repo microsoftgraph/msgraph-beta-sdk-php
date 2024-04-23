@@ -35,7 +35,7 @@ class MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilder extends BaseReq
      * @param MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-updatepolicyrules?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicy-updatepolicyrules?view=graph-rest-beta Find more info here
     */
     public function post(UpdatePolicyRulesPostRequestBody $body, ?MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

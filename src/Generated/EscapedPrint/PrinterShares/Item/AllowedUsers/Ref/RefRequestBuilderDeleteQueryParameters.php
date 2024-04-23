@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\Allowed
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Revoke the specified user's access to submit print jobs to the associated printerShare.
+ * Delete ref of navigation property allowedUsers for print
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

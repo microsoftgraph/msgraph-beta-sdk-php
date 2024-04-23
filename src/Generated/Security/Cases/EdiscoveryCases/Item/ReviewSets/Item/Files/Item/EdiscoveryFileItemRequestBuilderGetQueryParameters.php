@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Rev
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an ediscoveryFile object.
+ * Represents files within the review set.
 */
 class EdiscoveryFileItemRequestBuilderGetQueryParameters 
 {

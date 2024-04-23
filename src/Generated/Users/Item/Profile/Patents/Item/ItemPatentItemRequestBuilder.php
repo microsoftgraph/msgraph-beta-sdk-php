@@ -31,11 +31,10 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPatent object.
+     * Delete navigation property patents for users
      * @param ItemPatentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itempatent-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ItemPatentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPatent object.
+     * Represents patents that a user has added to their profile.
      * @param ItemPatentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPatent|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itempatent-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemPatentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPatent object.
+     * Update the navigation property patents in users
      * @param ItemPatent $body The request body
      * @param ItemPatentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPatent|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itempatent-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ItemPatent $body, ?ItemPatentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPatent object.
+     * Delete navigation property patents for users
      * @param ItemPatentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPatent object.
+     * Represents patents that a user has added to their profile.
      * @param ItemPatentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPatent object.
+     * Update the navigation property patents in users
      * @param ItemPatent $body The request body
      * @param ItemPatentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function transactionSummaries
+ * Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
 */
 class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
 {

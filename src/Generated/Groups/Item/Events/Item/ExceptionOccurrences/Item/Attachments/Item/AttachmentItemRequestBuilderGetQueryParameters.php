@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\ExceptionOccurr
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties, relationships, or raw contents of an attachment that is attached to a user event, message, Outlook task, or group post. An attachment can be one of the following types: All these types of attachments are derived from the attachment resource.
+ * The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.
 */
 class AttachmentItemRequestBuilderGetQueryParameters 
 {

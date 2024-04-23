@@ -52,11 +52,10 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of goalsExportJob objects and their properties in a Viva Goals organization.
+     * Represents a collection of goals export jobs for Viva Goals.
      * @param ExportJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GoalsExportJobCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/goals-list-exportjobs?view=graph-rest-1.0 Find more info here
     */
     public function get(?ExportJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new goalsExportJob object in a Viva Goals organization.
+     * Create new navigation property to exportJobs for employeeExperience
      * @param GoalsExportJob $body The request body
      * @param ExportJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GoalsExportJob|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/goals-post-exportjobs?view=graph-rest-1.0 Find more info here
     */
     public function post(GoalsExportJob $body, ?ExportJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of goalsExportJob objects and their properties in a Viva Goals organization.
+     * Represents a collection of goals export jobs for Viva Goals.
      * @param ExportJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class ExportJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new goalsExportJob object in a Viva Goals organization.
+     * Create new navigation property to exportJobs for employeeExperience
      * @param GoalsExportJob $body The request body
      * @param ExportJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

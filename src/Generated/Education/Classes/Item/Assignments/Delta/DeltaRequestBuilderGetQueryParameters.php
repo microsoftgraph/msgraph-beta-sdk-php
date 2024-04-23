@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Delt
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function delta
+ * Get a list of newly-created or updated assignments without reading the entire collection. A teacher or an application running with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them.
 */
 class DeltaRequestBuilderGetQueryParameters 
 {

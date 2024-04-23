@@ -52,11 +52,10 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personCertification objects from a user's profile.
+     * Represents the details of certifications associated with a person.
      * @param CertificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonCertificationCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-certifications?view=graph-rest-1.0 Find more info here
     */
     public function get(?CertificationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personCertification object in a user's profile.
+     * Create new navigation property to certifications for users
      * @param PersonCertification $body The request body
      * @param CertificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonCertification|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-certifications?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonCertification $body, ?CertificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personCertification objects from a user's profile.
+     * Represents the details of certifications associated with a person.
      * @param CertificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class CertificationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personCertification object in a user's profile.
+     * Create new navigation property to certifications for users
      * @param PersonCertification $body The request body
      * @param CertificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

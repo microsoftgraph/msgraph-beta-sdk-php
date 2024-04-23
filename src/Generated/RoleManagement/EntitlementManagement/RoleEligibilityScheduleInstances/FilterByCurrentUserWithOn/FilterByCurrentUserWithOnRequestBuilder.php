@@ -33,10 +33,11 @@ class FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function filterByCurrentUser
+     * Get a list of the unifiedRoleEligibilityScheduleInstance objects and their properties associated with a particular principal object.
      * @param FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FilterByCurrentUserWithOnGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/unifiedroleeligibilityscheduleinstance-filterbycurrentuser?view=graph-rest-beta Find more info here
     */
     public function get(?FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -47,7 +48,7 @@ class FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function filterByCurrentUser
+     * Get a list of the unifiedRoleEligibilityScheduleInstance objects and their properties associated with a particular principal object.
      * @param FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -36,7 +36,7 @@ class ClockOutRequestBuilder extends BaseRequestBuilder
      * @param ClockOutRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TimeCard|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/timecard-clockout?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/timecard-clockout?view=graph-rest-beta Find more info here
     */
     public function post(ClockOutPostRequestBody $body, ?ClockOutRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

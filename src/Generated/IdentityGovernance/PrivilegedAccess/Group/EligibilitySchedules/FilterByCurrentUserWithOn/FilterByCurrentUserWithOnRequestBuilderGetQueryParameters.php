@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function filterByCurrentUser
+ * Retrieve schedules of membership and ownership eligibility requests for the calling principal.
 */
 class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
 {

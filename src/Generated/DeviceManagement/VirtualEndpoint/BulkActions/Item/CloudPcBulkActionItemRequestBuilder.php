@@ -45,11 +45,10 @@ class CloudPcBulkActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcBulkAction object.
+     * Bulk actions applied to a Cloud PC.
      * @param CloudPcBulkActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcBulkAction|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpcbulkaction-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CloudPcBulkActionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class CloudPcBulkActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a cloudPcBulkAction object.
+     * Bulk actions applied to a Cloud PC.
      * @param CloudPcBulkActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

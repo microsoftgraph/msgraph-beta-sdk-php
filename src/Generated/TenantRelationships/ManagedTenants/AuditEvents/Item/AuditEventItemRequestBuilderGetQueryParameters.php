@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Audi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an auditEvent object.
+ * The collection of audit events across managed tenants.
 */
 class AuditEventItemRequestBuilderGetQueryParameters 
 {

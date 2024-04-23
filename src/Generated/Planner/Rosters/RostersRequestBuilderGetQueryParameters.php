@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Rosters;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a plannerRoster object.
+ * Read-only. Nullable. Returns a collection of the specified rosters
 */
 class RostersRequestBuilderGetQueryParameters 
 {

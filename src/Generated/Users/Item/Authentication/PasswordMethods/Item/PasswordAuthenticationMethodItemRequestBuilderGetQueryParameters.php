@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordMetho
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a password authentication method object. 
+ * Represents the details of the password authentication method registered to a user for authentication.
 */
 class PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

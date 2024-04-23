@@ -31,11 +31,10 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPublication object.
+     * Delete navigation property publications for users
      * @param ItemPublicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itempublication-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ItemPublicationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPublication object in a user's profile.
+     * Represents details of any publications a user has added to their profile.
      * @param ItemPublicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublication|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itempublication-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemPublicationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPublication object in a user's profile.
+     * Update the navigation property publications in users
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublication|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itempublication-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ItemPublication $body, ?ItemPublicationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an itemPublication object.
+     * Delete navigation property publications for users
      * @param ItemPublicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an itemPublication object in a user's profile.
+     * Represents details of any publications a user has added to their profile.
      * @param ItemPublicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemPublication object in a user's profile.
+     * Update the navigation property publications in users
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

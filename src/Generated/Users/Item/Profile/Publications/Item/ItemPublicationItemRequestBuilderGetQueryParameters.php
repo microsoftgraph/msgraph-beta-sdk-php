@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Publications\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an itemPublication object in a user's profile.
+ * Represents details of any publications a user has added to their profile.
 */
 class ItemPublicationItemRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\RegionalAndLanguage
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a user's regionalAndLanguageSettings.
+ * The user's preferences for languages, regional locale and date/time formatting.
 */
 class RegionalAndLanguageSettingsRequestBuilderGetQueryParameters 
 {

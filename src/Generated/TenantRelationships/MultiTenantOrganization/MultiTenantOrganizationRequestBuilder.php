@@ -47,11 +47,10 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get properties of the multitenant organization.
+     * Defines an organization with more than one instance of Microsoft Entra ID.
      * @param MultiTenantOrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganization|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/multitenantorganization-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MultiTenantOrganizationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -62,15 +61,14 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new multi-tenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multi-tenant organization. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization.
+     * Update the navigation property multiTenantOrganization in tenantRelationships
      * @param MultiTenantOrganization $body The request body
-     * @param MultiTenantOrganizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganization|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/tenantrelationship-put-multitenantorganization?view=graph-rest-1.0 Find more info here
     */
-    public function patch(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+    public function put(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
@@ -78,7 +76,7 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get properties of the multitenant organization.
+     * Defines an organization with more than one instance of Microsoft Entra ID.
      * @param MultiTenantOrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -99,16 +97,16 @@ class MultiTenantOrganizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new multi-tenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multi-tenant organization. To allow for asynchronous processing, you must wait a minimum of 2 hours between creation and joining a multi-tenant organization.
+     * Update the navigation property multiTenantOrganization in tenantRelationships
      * @param MultiTenantOrganization $body The request body
-     * @param MultiTenantOrganizationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPutRequestInformation(MultiTenantOrganization $body, ?MultiTenantOrganizationRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
-        $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->httpMethod = HttpMethod::PUT;
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve information about a specific forwarding policy.
+ * A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
 */
 class ForwardingPoliciesRequestBuilderGetQueryParameters 
 {

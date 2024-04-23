@@ -52,11 +52,10 @@ class FileThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the fileThreatSubmission objects and their properties.
+     * Get fileThreats from security
      * @param FileThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileThreatSubmissionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-filethreatsubmission-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?FileThreatsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class FileThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the fileThreatSubmission objects and their properties.
+     * Get fileThreats from security
      * @param FileThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

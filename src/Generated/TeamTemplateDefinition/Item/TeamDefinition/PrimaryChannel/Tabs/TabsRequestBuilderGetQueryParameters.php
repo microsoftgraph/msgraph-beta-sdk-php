@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the list of tabs in the specified channel within a team. 
+ * A collection of all the tabs in the channel. A navigation property.
 */
 class TabsRequestBuilderGetQueryParameters 
 {

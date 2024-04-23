@@ -35,7 +35,7 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
      * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/serviceprincipal-deletepasswordsinglesignoncredentials?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/serviceprincipal-deletepasswordsinglesignoncredentials?view=graph-rest-beta Find more info here
     */
     public function post(DeletePasswordSingleSignOnCredentialsPostRequestBody $body, ?DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

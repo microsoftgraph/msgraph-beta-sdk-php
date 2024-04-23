@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Meet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.
+ * Get meetingAttendanceReport from communications
 */
 class MeetingAttendanceReportRequestBuilderGetQueryParameters 
 {

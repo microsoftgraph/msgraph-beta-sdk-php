@@ -45,11 +45,10 @@ class TenantStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the onboarding status of a specific tenant.
+     * Represents the status of the Global Secure Access services for the tenant.
      * @param TenantStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantStatus|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-tenantstatus-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantStatusRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class TenantStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the onboarding status of a specific tenant.
+     * Represents the status of the Global Secure Access services for the tenant.
      * @param TenantStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

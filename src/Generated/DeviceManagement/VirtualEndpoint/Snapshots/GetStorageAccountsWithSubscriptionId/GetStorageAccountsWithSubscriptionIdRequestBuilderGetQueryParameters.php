@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapsh
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getStorageAccounts
+ * List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
 */
 class GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters 
 {

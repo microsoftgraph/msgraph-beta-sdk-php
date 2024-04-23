@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List existing jobs for a given application instance (service principal).
+ * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
 */
 class JobsRequestBuilderGetQueryParameters 
 {

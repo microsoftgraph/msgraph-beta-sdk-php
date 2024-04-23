@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\ResourceNamesp
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an unifiedRbacResourceNamespace object.
+ * Get resourceNamespaces from roleManagement
 */
 class UnifiedRbacResourceNamespaceItemRequestBuilderGetQueryParameters 
 {

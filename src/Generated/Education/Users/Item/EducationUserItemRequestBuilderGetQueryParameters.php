@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a user.
+ * Get users from education
 */
 class EducationUserItemRequestBuilderGetQueryParameters 
 {
