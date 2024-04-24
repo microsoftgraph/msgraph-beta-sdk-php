@@ -47,11 +47,10 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
+     * Delete navigation property registration for users
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/externalmeetingregistration-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?RegistrationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,11 +61,10 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
+     * The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistration|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/meetingregistration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegistrationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -77,12 +75,11 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
+     * Update the navigation property registration in users
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistration|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/meetingregistration-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MeetingRegistration $body, ?RegistrationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -93,7 +90,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
+     * Delete navigation property registration for users
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +108,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
+     * The registration that is enabled for an online meeting. One online meeting can only have one registration enabled.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +129,7 @@ class RegistrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the details of a meetingRegistration object assciated with an onlineMeeting on behalf of the organizer.
+     * Update the navigation property registration in users
      * @param MeetingRegistration $body The request body
      * @param RegistrationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

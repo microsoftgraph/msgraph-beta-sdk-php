@@ -52,11 +52,10 @@ class Participants_v2RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of participant objects associated with a callRecord.
+     * List of distinct participants in the call.
      * @param Participants_v2RequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ParticipantCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/callrecords-callrecord-list-participants_v2?view=graph-rest-1.0 Find more info here
     */
     public function get(?Participants_v2RequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class Participants_v2RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of participant objects associated with a callRecord.
+     * List of distinct participants in the call.
      * @param Participants_v2RequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

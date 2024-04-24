@@ -60,11 +60,10 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * A container of access packages.
      * @param AccessPackageCatalogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCatalogCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackagecatalogs?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessPackageCatalogsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,12 +74,11 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new accessPackageCatalog object.
+     * Create new navigation property to accessPackageCatalogs for identityGovernance
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCatalog|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackagecatalogs?view=graph-rest-1.0 Find more info here
     */
     public function post(AccessPackageCatalog $body, ?AccessPackageCatalogsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -91,7 +89,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * A container of access packages.
      * @param AccessPackageCatalogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +110,7 @@ class AccessPackageCatalogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new accessPackageCatalog object.
+     * Create new navigation property to accessPackageCatalogs for identityGovernance
      * @param AccessPackageCatalog $body The request body
      * @param AccessPackageCatalogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

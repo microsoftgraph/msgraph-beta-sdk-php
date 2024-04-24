@@ -45,11 +45,10 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a authorityTemplate object.
+     * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
      * @param AuthorityTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthorityTemplate|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-authoritytemplate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuthorityTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a authorityTemplate object.
+     * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
      * @param AuthorityTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

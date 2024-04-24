@@ -52,11 +52,10 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of device links associated with a specific branch.
+     * Each unique CPE device associated with a branch is specified. Supports $expand.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLinkCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeviceLinksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a branch site with associated device links.
+     * Create new navigation property to deviceLinks for networkAccess
      * @param DeviceLink $body The request body
      * @param DeviceLinksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-post-devicelinks?view=graph-rest-1.0 Find more info here
     */
     public function post(DeviceLink $body, ?DeviceLinksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of device links associated with a specific branch.
+     * Each unique CPE device associated with a branch is specified. Supports $expand.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a branch site with associated device links.
+     * Create new navigation property to deviceLinks for networkAccess
      * @param DeviceLink $body The request body
      * @param DeviceLinksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

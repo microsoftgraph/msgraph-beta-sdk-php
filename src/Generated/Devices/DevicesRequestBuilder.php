@@ -88,7 +88,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
      * @param DevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/device-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/device-list?view=graph-rest-beta Find more info here
     */
     public function get(?DevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +104,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
      * @param DevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Device|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-beta Find more info here
     */
     public function post(Device $body, ?DevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

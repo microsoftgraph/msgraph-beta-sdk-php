@@ -52,11 +52,10 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenant references of an outboundSharedUserProfile.
+     * The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantReferenceCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/outboundshareduserprofile-list-tenants?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenant references of an outboundSharedUserProfile.
+     * The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

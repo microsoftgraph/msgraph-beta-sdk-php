@@ -35,7 +35,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
      * @param DirectorySettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directorysetting-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/directorysetting-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?DirectorySettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -50,7 +50,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
      * @param DirectorySettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySetting|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directorysetting-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/directorysetting-get?view=graph-rest-beta Find more info here
     */
     public function get(?DirectorySettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +66,7 @@ class DirectorySettingItemRequestBuilder extends BaseRequestBuilder
      * @param DirectorySettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySetting|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directorysetting-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/directorysetting-update?view=graph-rest-beta Find more info here
     */
     public function patch(DirectorySetting $body, ?DirectorySettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleAssignments
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of unifiedRoleAssignment objects for the provider. The following RBAC providers are currently supported:- directory (Microsoft Entra ID)- entitlement management (Microsoft Entra entitlement management)- Exchange Online
+ * Resource to grant access to users or groups.
 */
 class RoleAssignmentsRequestBuilderGetQueryParameters 
 {

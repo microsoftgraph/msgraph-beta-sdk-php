@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of userSource objects associated with a legal hold.
+ * Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
 */
 class UserSourcesRequestBuilderGetQueryParameters 
 {

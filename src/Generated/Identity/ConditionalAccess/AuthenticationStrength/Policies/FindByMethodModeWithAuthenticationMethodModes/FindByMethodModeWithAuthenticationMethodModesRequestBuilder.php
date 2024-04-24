@@ -33,10 +33,11 @@ class FindByMethodModeWithAuthenticationMethodModesRequestBuilder extends BaseRe
     }
 
     /**
-     * Invoke function findByMethodMode
+     * Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.
      * @param FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FindByMethodModeWithAuthenticationMethodModesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-findbymethodmode?view=graph-rest-beta Find more info here
     */
     public function get(?FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -47,7 +48,7 @@ class FindByMethodModeWithAuthenticationMethodModesRequestBuilder extends BaseRe
     }
 
     /**
-     * Invoke function findByMethodMode
+     * Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.
      * @param FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

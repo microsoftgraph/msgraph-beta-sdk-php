@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the unifiedRbacResourceAction objects and their properties.
+ * Operations that an authorized principal is allowed to perform.
 */
 class ResourceActionsRequestBuilderGetQueryParameters 
 {

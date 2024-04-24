@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of swapShiftsChangeRequest objects in a team.
+ * The swap requests for shifts in the schedule.
 */
 class SwapShiftsChangeRequestsRequestBuilderGetQueryParameters 
 {

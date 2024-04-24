@@ -56,7 +56,7 @@ class DomainsRequestBuilder extends BaseRequestBuilder
      * @param DomainsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DomainCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/domain-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-list?view=graph-rest-beta Find more info here
     */
     public function get(?DomainsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -72,7 +72,7 @@ class DomainsRequestBuilder extends BaseRequestBuilder
      * @param DomainsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Domain|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/domain-post-domains?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/domain-post-domains?view=graph-rest-beta Find more info here
     */
     public function post(Domain $body, ?DomainsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GetEff
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getEffectivePermissions
+ * Get the effective permissions of the currently authenticated user, helping UX hide or disable content that the current user doesn't have access to.
 */
 class GetEffectivePermissionsRequestBuilderGetQueryParameters 
 {

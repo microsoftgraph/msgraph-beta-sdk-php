@@ -45,11 +45,10 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy.
+     * Represents administrator settings that manage the support for item insights in an organization.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InsightsSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/peopleadminsettings-list-iteminsights?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemInsightsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
+     * Update the navigation property itemInsights in admin
      * @param InsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InsightsSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/insightssettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(InsightsSettings $body, ?ItemInsightsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -94,7 +92,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy.
+     * Represents administrator settings that manage the support for item insights in an organization.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
+     * Update the navigation property itemInsights in admin
      * @param InsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

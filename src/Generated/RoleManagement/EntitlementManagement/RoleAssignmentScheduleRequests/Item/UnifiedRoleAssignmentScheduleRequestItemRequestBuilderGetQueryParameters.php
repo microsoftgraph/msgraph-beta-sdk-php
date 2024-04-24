@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Ro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In PIM, read the details of a request for an active and persistent role assignment made through the unifiedRoleAssignmentScheduleRequest object.
+ * Get roleAssignmentScheduleRequests from roleManagement
 */
 class UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParameters 
 {

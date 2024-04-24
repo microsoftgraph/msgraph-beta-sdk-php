@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Recent;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function recent
+ * List a set of items recently used by the signed-in user.This collection includes items that are in the user's drive and items they have access to from other drives.
 */
 class RecentRequestBuilderGetQueryParameters 
 {

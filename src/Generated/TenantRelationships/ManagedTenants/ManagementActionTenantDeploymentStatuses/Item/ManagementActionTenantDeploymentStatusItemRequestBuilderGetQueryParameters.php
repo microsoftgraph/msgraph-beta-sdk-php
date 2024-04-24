@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
+ * The tenant level status of management actions across managed tenants.
 */
 class ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters 
 {

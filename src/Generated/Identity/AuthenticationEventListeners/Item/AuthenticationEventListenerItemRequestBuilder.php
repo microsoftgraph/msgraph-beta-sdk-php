@@ -31,11 +31,10 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an authenticationEventListener object.
+     * Delete navigation property authenticationEventListeners for identity
      * @param AuthenticationEventListenerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/authenticationeventlistener-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?AuthenticationEventListenerItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update.
+     * Update the navigation property authenticationEventListeners in identity
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventListener|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/authenticationeventlistener-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AuthenticationEventListener $body, ?AuthenticationEventListenerItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -76,7 +74,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an authenticationEventListener object.
+     * Delete navigation property authenticationEventListeners for identity
      * @param AuthenticationEventListenerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update.
+     * Update the navigation property authenticationEventListeners in identity
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

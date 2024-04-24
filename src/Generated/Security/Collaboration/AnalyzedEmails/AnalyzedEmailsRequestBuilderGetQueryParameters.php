@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an analyzedEmail object.
+ * Contains metadata for analyzed emails.
 */
 class AnalyzedEmailsRequestBuilderGetQueryParameters 
 {

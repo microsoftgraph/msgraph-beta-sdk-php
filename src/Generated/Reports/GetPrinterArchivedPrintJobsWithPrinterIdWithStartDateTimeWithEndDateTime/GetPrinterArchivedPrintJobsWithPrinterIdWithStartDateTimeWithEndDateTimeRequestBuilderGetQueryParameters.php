@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetPrinterArchivedPrintJobsWith
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getPrinterArchivedPrintJobs
+ * Get a list of archived print jobs that were queued for particular printer.
 */
 class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
 {

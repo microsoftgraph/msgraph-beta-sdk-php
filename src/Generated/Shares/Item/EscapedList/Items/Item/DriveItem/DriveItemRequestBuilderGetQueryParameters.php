@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Driv
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+ * For document libraries, the driveItem relationship exposes the listItem as a driveItem
 */
 class DriveItemRequestBuilderGetQueryParameters 
 {

@@ -31,11 +31,10 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete a customAccessPackageWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:1. First retrieve the accessPackageCatalogId by calling the Get accessPackageAssignmentPolicies operation and appending ?$expand=accessPackage($expand=accessPackageCatalog) to the query. For example, https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies?$expand=accessPackage($expand=accessPackageCatalog).2. Use the access package catalog ID and retrieve the ID of the customAccessPackageWorkflowExtension object that you want to delete by running the LIST customAccessPackageWorkflowExtensions operation.3. Call the Update accessPackageAssignmentPolicy operation to remove the custom workflow extension object from the policy. For an example, see Example 2: Remove the customExtensionHandlers and verifiableCredentialSettings from a policy.
+     * Delete navigation property customAccessPackageWorkflowExtensions for identityGovernance
      * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CustomAccessPackageWorkflowExtensionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
+     * Get customAccessPackageWorkflowExtensions from identityGovernance
      * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtension|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomAccessPackageWorkflowExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the properties of an existing customAccessPackageWorkflowExtension object.
+     * Update the navigation property customAccessPackageWorkflowExtensions in identityGovernance
      * @param CustomAccessPackageWorkflowExtension $body The request body
      * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtension|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete a customAccessPackageWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:1. First retrieve the accessPackageCatalogId by calling the Get accessPackageAssignmentPolicies operation and appending ?$expand=accessPackage($expand=accessPackageCatalog) to the query. For example, https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies?$expand=accessPackage($expand=accessPackageCatalog).2. Use the access package catalog ID and retrieve the ID of the customAccessPackageWorkflowExtension object that you want to delete by running the LIST customAccessPackageWorkflowExtensions operation.3. Call the Update accessPackageAssignmentPolicy operation to remove the custom workflow extension object from the policy. For an example, see Example 2: Remove the customExtensionHandlers and verifiableCredentialSettings from a policy.
+     * Delete navigation property customAccessPackageWorkflowExtensions for identityGovernance
      * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
+     * Get customAccessPackageWorkflowExtensions from identityGovernance
      * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the properties of an existing customAccessPackageWorkflowExtension object.
+     * Update the navigation property customAccessPackageWorkflowExtensions in identityGovernance
      * @param CustomAccessPackageWorkflowExtension $body The request body
      * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

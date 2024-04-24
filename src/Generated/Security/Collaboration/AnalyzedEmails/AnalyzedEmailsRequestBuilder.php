@@ -60,7 +60,7 @@ class AnalyzedEmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an analyzedEmail object.
+     * Contains metadata for analyzed emails.
      * @param AnalyzedEmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AnalyzedEmailCollectionResponse|null>
      * @throws Exception
@@ -89,7 +89,7 @@ class AnalyzedEmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an analyzedEmail object.
+     * Contains metadata for analyzed emails.
      * @param AnalyzedEmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

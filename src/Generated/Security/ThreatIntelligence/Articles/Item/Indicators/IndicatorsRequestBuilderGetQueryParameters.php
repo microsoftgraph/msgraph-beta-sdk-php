@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article.
+ * Indicators related to this article.
 */
 class IndicatorsRequestBuilderGetQueryParameters 
 {

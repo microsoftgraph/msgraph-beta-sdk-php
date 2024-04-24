@@ -84,11 +84,10 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are excluded from a deploymentAudience.
+     * Specifies the assets to exclude from the audience.
      * @param ExclusionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAssetCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-1.0 Find more info here
     */
     public function get(?ExclusionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -114,7 +113,7 @@ class ExclusionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are excluded from a deploymentAudience.
+     * Specifies the assets to exclude from the audience.
      * @param ExclusionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

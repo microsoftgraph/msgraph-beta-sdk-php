@@ -30,10 +30,11 @@ class DeltaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function delta
+     * Retrieves changes to objects that the user is subscribed to. This method allows your application to track changes to objects that the user can access from within Planner over time. The return value of this method might contain heterogeneous types of objects from Planner. For more information about tracking changes in Microsoft Graph data, see Use delta query to track changes in Microsoft Graph data.
      * @param DeltaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeltaGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/planneruser-list-delta?view=graph-rest-beta Find more info here
     */
     public function get(?DeltaRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class DeltaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function delta
+     * Retrieves changes to objects that the user is subscribed to. This method allows your application to track changes to objects that the user can access from within Planner over time. The return value of this method might contain heterogeneous types of objects from Planner. For more information about tracking changes in Microsoft Graph data, see Use delta query to track changes in Microsoft Graph data.
      * @param DeltaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -53,11 +53,10 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of publishedResource object.
+     * List of existing publishedResource objects. Read-only. Nullable.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PublishedResource|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/publishedresource-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PublishedResourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,12 +67,11 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of published resource  publishedResource object.
+     * Update the navigation property publishedResources in onPremisesPublishingProfiles
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PublishedResource|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/publishedresource-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PublishedResource $body, ?PublishedResourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -102,7 +100,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of publishedResource object.
+     * List of existing publishedResource objects. Read-only. Nullable.
      * @param PublishedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +121,7 @@ class PublishedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of published resource  publishedResource object.
+     * Update the navigation property publishedResources in onPremisesPublishingProfiles
      * @param PublishedResource $body The request body
      * @param PublishedResourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

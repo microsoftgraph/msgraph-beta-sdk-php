@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a single phoneAuthenticationMethod object. This method is available only for standard Microsoft Entra ID and B2B users, but not B2C users.
+ * Represents the phone registered to a user for authentication.
 */
 class PhoneAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

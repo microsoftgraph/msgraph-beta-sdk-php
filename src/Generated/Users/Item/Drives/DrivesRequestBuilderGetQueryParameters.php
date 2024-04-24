@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Drives;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the list of drive resources available for a target user, group, or site.
+ * A collection of drives available for this user. Read-only.
 */
 class DrivesRequestBuilderGetQueryParameters 
 {

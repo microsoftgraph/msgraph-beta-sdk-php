@@ -56,7 +56,7 @@ class AccessReviewsRequestBuilder extends BaseRequestBuilder
      * @param AccessReviewsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accessreview-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-list?view=graph-rest-beta Find more info here
     */
     public function get(?AccessReviewsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -72,7 +72,7 @@ class AccessReviewsRequestBuilder extends BaseRequestBuilder
      * @param AccessReviewsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReview|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accessreview-create?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-create?view=graph-rest-beta Find more info here
     */
     public function post(AccessReview $body, ?AccessReviewsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

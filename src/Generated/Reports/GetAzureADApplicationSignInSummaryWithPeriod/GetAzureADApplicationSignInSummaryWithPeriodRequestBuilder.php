@@ -33,10 +33,11 @@ class GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke function getAzureADApplicationSignInSummary
+     * Retrieve applicationSigninSummary objects within either the last seven or 30 days.
      * @param GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAzureADApplicationSignInSummaryWithPeriodGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/reportroot-getazureadapplicationsigninsummary?view=graph-rest-beta Find more info here
     */
     public function get(?GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -47,7 +48,7 @@ class GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke function getAzureADApplicationSignInSummary
+     * Retrieve applicationSigninSummary objects within either the last seven or 30 days.
      * @param GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

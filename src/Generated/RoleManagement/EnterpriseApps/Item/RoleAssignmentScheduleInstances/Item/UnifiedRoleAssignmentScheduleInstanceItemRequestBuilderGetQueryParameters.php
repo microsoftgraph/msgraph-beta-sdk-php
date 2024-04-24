@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\Role
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the instance of an active role assignment.
+ * Get roleAssignmentScheduleInstances from roleManagement
 */
 class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters 
 {

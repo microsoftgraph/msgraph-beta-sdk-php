@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function filterByCurrentUser
+ * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
 */
 class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\GetAllSites;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getAllSites
+ * List sites across geographies in an organization. For more details, see Best practices for discovering files and detecting changes at scale.
 */
 class GetAllSitesRequestBuilderGetQueryParameters 
 {

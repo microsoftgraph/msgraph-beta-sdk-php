@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Delta;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function delta
+ * Get newly created or updated educationUser without having to perform a full read of the entire collection. See Use delta query for details.
 */
 class DeltaRequestBuilderGetQueryParameters 
 {

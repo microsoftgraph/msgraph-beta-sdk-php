@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Review
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a reviewSet object.
+ * Returns a list of reviewSet objects in the case. Read-only. Nullable.
 */
 class ReviewSetsRequestBuilderGetQueryParameters 
 {

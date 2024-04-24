@@ -89,7 +89,7 @@ class ContractItemRequestBuilder extends BaseRequestBuilder
      * @param ContractItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Contract|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/contract-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/contract-get?view=graph-rest-beta Find more info here
     */
     public function get(?ContractItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

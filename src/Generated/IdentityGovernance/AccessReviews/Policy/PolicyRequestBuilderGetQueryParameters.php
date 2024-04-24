@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Policy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an accessReviewPolicy object.
+ * Resource that enables administrators to manage directory-level access review policies in their tenant.
 */
 class PolicyRequestBuilderGetQueryParameters 
 {

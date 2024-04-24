@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Names\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of nameditem object.
+ * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
 */
 class WorkbookNamedItemItemRequestBuilderGetQueryParameters 
 {

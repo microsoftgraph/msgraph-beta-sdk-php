@@ -52,11 +52,10 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deployment objects and their properties.
+     * Deployments created using the deployment service.
      * @param DeploymentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-list-deployments?view=graph-rest-1.0 Find more info here
     */
     public function get(?DeploymentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new deployment object.
+     * Create new navigation property to deployments for admin
      * @param Deployment $body The request body
      * @param DeploymentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Deployment|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deployments?view=graph-rest-1.0 Find more info here
     */
     public function post(Deployment $body, ?DeploymentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of deployment objects and their properties.
+     * Deployments created using the deployment service.
      * @param DeploymentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class DeploymentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new deployment object.
+     * Create new navigation property to deployments for admin
      * @param Deployment $body The request body
      * @param DeploymentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

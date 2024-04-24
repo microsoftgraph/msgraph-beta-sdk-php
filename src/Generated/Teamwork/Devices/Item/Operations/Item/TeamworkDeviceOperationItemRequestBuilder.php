@@ -45,11 +45,10 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
+     * The async operations on the device.
      * @param TeamworkDeviceOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkDeviceOperation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/teamworkdeviceoperation-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamworkDeviceOperationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
+     * The async operations on the device.
      * @param TeamworkDeviceOperationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

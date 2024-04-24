@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of an approvalStep object.
+ * Used to represent the decision associated with a single step in the approval process configured in approvalStage.
 */
 class ApprovalStepItemRequestBuilderGetQueryParameters 
 {

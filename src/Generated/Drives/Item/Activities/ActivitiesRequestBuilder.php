@@ -52,11 +52,10 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the recent activities that took place on an item or under a hierarchy.
+     * The list of recent activities that took place under this drive.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemActivityOLDCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/activities-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?ActivitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the recent activities that took place on an item or under a hierarchy.
+     * The list of recent activities that took place under this drive.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

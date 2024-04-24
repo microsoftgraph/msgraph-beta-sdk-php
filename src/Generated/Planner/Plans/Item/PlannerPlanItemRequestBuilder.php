@@ -79,11 +79,10 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerPlan object.
+     * Delete navigation property plans for planner
      * @param PlannerPlanItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerplan-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?PlannerPlanItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -94,11 +93,10 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a plannerplan object.
+     * Read-only. Nullable. Returns a collection of the specified plans
      * @param PlannerPlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlan|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerplan-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlannerPlanItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -109,12 +107,11 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlan object.
+     * Update the navigation property plans in planner
      * @param PlannerPlan $body The request body
      * @param PlannerPlanItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlan|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerplan-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PlannerPlan $body, ?PlannerPlanItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -125,7 +122,7 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a plannerPlan object.
+     * Delete navigation property plans for planner
      * @param PlannerPlanItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -143,7 +140,7 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a plannerplan object.
+     * Read-only. Nullable. Returns a collection of the specified plans
      * @param PlannerPlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -164,7 +161,7 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlan object.
+     * Update the navigation property plans in planner
      * @param PlannerPlan $body The request body
      * @param PlannerPlanItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

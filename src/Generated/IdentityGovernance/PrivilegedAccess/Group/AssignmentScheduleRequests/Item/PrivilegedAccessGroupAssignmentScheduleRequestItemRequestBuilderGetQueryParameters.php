@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
+ * The schedule requests for operations to create, update, delete, extend, and renew an assignment.
 */
 class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilderGetQueryParameters 
 {

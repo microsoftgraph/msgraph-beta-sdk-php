@@ -88,7 +88,7 @@ class ApplicationsRequestBuilder extends BaseRequestBuilder
      * @param ApplicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/application-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/application-list?view=graph-rest-beta Find more info here
     */
     public function get(?ApplicationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +104,7 @@ class ApplicationsRequestBuilder extends BaseRequestBuilder
      * @param ApplicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-beta Find more info here
     */
     public function post(Application $body, ?ApplicationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

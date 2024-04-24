@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
+ * The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
 */
 class CustomCalloutExtensionItemRequestBuilderGetQueryParameters 
 {

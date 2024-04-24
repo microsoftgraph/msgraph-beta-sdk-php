@@ -52,11 +52,10 @@ class OutboundProvisioningFlowSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the outboundProvisioningFlowSet objects and their properties.
+     * Get outboundProvisioningFlowSets from external
      * @param OutboundProvisioningFlowSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundProvisioningFlowSetCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-industrydataroot-list-outboundprovisioningflowsets?view=graph-rest-1.0 Find more info here
     */
     public function get(?OutboundProvisioningFlowSetsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class OutboundProvisioningFlowSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the outboundProvisioningFlowSet objects and their properties.
+     * Get outboundProvisioningFlowSets from external
      * @param OutboundProvisioningFlowSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

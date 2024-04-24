@@ -36,7 +36,7 @@ class PostponeRequestBuilder extends BaseRequestBuilder
      * @param PostponeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Recommendation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/recommendation-postpone?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/recommendation-postpone?view=graph-rest-beta Find more info here
     */
     public function post(PostponePostRequestBody $body, ?PostponeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PlatformCrede
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a platformCredentialAuthenticationMethod object.
+ * Get platformCredentialMethods from users
 */
 class PlatformCredentialAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

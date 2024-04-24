@@ -60,11 +60,10 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a list of accessPackageAssignmentResourceRole objects.  The resulting list includes all the resource roles of all assignments that the caller has access to read, across all catalogs and access packages.
+     * Represents the resource-specific role which a subject has been assigned through an access package assignment.
      * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentResourceRoleCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageassignmentresourceroles?view=graph-rest-1.0 Find more info here
     */
     public function get(?AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +89,7 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Retrieve a list of accessPackageAssignmentResourceRole objects.  The resulting list includes all the resource roles of all assignments that the caller has access to read, across all catalogs and access packages.
+     * Represents the resource-specific role which a subject has been assigned through an access package assignment.
      * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

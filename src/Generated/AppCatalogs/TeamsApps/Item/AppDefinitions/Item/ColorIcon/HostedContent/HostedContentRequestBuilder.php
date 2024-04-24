@@ -53,11 +53,10 @@ class HostedContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the hosted content in an app's icon.
+     * The contents of the app icon if the icon is hosted within the Teams infrastructure.
      * @param HostedContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkHostedContent|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/teamworkhostedcontent-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?HostedContentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,7 +100,7 @@ class HostedContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the hosted content in an app's icon.
+     * The contents of the app icon if the icon is hosted within the Teams infrastructure.
      * @param HostedContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

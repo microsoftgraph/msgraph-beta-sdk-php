@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\S
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the resources associated with a submission. Only teachers, students, and applications with application permissions can perform this operation. The educationSubmissionResource object is a wrapper around the actual resource object the student is working on. The wrapper also includes a pointer to the resources on the assignment if the resource was copied from the assignment during the assign process. These resources are the working copy of the assignment. The submittedResources are the resources that were officially submitted for grading.
+ * Get resources from education
 */
 class ResourcesRequestBuilderGetQueryParameters 
 {

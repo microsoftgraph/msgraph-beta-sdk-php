@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+ * Get accessPackageAssignmentApprovals from identityGovernance
 */
 class AccessPackageAssignmentApprovalsRequestBuilderGetQueryParameters 
 {

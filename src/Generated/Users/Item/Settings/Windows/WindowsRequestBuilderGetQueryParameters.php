@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of windowsSetting objects and their properties for the signed in user.
+ * The Windows settings of the user stored in the cloud.
 */
 class WindowsRequestBuilderGetQueryParameters 
 {

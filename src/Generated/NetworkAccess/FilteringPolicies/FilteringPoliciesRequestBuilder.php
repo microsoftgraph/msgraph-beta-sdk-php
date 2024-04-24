@@ -52,11 +52,10 @@ class FilteringPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the microsoft.graph.networkaccess.filteringPolicy objects and their properties.
+     * A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
      * @param FilteringPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FilteringPolicyCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-list-filteringpolicies?view=graph-rest-1.0 Find more info here
     */
     public function get(?FilteringPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class FilteringPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the microsoft.graph.networkaccess.filteringPolicy objects and their properties.
+     * A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
      * @param FilteringPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Account\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an userAccountInformation object in a user's profile.
+ * Get account from users
 */
 class UserAccountInformationItemRequestBuilderGetQueryParameters 
 {

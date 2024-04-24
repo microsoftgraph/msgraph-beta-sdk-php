@@ -47,11 +47,10 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an azureDataLakeConnector object.
+     * Delete navigation property dataConnectors for external
      * @param IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,11 +61,10 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an industryDataConnector object.
+     * Set of connectors for importing data from source systems.
      * @param IndustryDataConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataConnector|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?IndustryDataConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -77,12 +75,11 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an industryDataConnector object.
+     * Update the navigation property dataConnectors in external
      * @param IndustryDataConnector $body The request body
      * @param IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataConnector|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(IndustryDataConnector $body, ?IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -93,7 +90,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an azureDataLakeConnector object.
+     * Delete navigation property dataConnectors for external
      * @param IndustryDataConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +108,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an industryDataConnector object.
+     * Set of connectors for importing data from source systems.
      * @param IndustryDataConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +129,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an industryDataConnector object.
+     * Update the navigation property dataConnectors in external
      * @param IndustryDataConnector $body The request body
      * @param IndustryDataConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

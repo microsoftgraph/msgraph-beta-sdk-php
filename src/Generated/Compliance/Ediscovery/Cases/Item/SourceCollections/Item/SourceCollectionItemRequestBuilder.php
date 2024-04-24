@@ -87,11 +87,10 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceCollection object.
+     * Delete navigation property sourceCollections for compliance
      * @param SourceCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SourceCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -116,12 +115,11 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sourceCollection object.
+     * Update the navigation property sourceCollections in compliance
      * @param SourceCollection $body The request body
      * @param SourceCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceCollection|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SourceCollection $body, ?SourceCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -132,7 +130,7 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceCollection object.
+     * Delete navigation property sourceCollections for compliance
      * @param SourceCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -171,7 +169,7 @@ class SourceCollectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sourceCollection object.
+     * Update the navigation property sourceCollections in compliance
      * @param SourceCollection $body The request body
      * @param SourceCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

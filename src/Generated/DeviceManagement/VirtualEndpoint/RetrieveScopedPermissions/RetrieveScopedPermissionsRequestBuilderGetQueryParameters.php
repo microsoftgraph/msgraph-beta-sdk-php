@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Retrie
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function retrieveScopedPermissions
+ * Get the permissions and corresponding scope IDs for which the authenticated user has access.
 */
 class RetrieveScopedPermissionsRequestBuilderGetQueryParameters 
 {

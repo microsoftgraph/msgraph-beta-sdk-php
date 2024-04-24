@@ -45,7 +45,7 @@ class HardwareConfigurationDeviceStateItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * List of run states for the hardware configuration across all devices
+     * List of run states for the hardware configuration across all devices. Read-Only.
      * @param HardwareConfigurationDeviceStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareConfigurationDeviceState|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class HardwareConfigurationDeviceStateItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * List of run states for the hardware configuration across all devices
+     * List of run states for the hardware configuration across all devices. Read-Only.
      * @param HardwareConfigurationDeviceStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

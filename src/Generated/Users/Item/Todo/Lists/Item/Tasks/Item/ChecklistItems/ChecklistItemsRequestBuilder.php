@@ -52,11 +52,10 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.
+     * A collection of smaller subtasks linked to the more complex parent task.
      * @param ChecklistItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChecklistItemCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/todotask-list-checklistitems?view=graph-rest-1.0 Find more info here
     */
     public function get(?ChecklistItemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new checklistItem object as a subtask in a bigger todoTask.
+     * Create new navigation property to checklistItems for users
      * @param ChecklistItem $body The request body
      * @param ChecklistItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChecklistItem|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/todotask-post-checklistitems?view=graph-rest-1.0 Find more info here
     */
     public function post(ChecklistItem $body, ?ChecklistItemsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the checklistItem resources associated to the checklistItems navigation property of a todoTask.
+     * A collection of smaller subtasks linked to the more complex parent task.
      * @param ChecklistItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class ChecklistItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new checklistItem object as a subtask in a bigger todoTask.
+     * Create new navigation property to checklistItems for users
      * @param ChecklistItem $body The request body
      * @param ChecklistItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

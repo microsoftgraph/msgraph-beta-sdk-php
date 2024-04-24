@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPat
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the permission resources from the permissions navigation property on a site.
+ * The permissions associated with the site. Nullable.
 */
 class PermissionsRequestBuilderGetQueryParameters 
 {

@@ -47,7 +47,7 @@ class DriveItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+     * For document libraries, the driveItem relationship exposes the listItem as a driveItem
      * @param DriveItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveItem|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class DriveItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+     * For document libraries, the driveItem relationship exposes the listItem as a driveItem
      * @param DriveItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

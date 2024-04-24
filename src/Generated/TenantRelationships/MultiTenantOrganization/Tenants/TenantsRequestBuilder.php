@@ -52,11 +52,10 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenants and their properties in the multi-tenant organization.
+     * Defines tenants added to a multitenant organization.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationMemberCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/multitenantorganization-list-tenants?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a tenant to a multitenant organization. The administrator of an owner tenant has the permissions to add tenants to the multitenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multitenant organization by submitting a join request. A tenant can be part of only one multitenant organization.
+     * Create new navigation property to tenants for tenantRelationships
      * @param MultiTenantOrganizationMember $body The request body
      * @param TenantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationMember|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/multitenantorganization-post-tenants?view=graph-rest-1.0 Find more info here
     */
     public function post(MultiTenantOrganizationMember $body, ?TenantsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the tenants and their properties in the multi-tenant organization.
+     * Defines tenants added to a multitenant organization.
      * @param TenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class TenantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a tenant to a multitenant organization. The administrator of an owner tenant has the permissions to add tenants to the multitenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multitenant organization by submitting a join request. A tenant can be part of only one multitenant organization.
+     * Create new navigation property to tenants for tenantRelationships
      * @param MultiTenantOrganizationMember $body The request body
      * @param TenantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

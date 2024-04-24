@@ -30,10 +30,11 @@ class GetEffectivePermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getEffectivePermissions
+     * Get the effective permissions of the currently authenticated user, helping UX hide or disable content that the current user doesn't have access to.
      * @param GetEffectivePermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetEffectivePermissionsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-geteffectivepermissions?view=graph-rest-beta Find more info here
     */
     public function get(?GetEffectivePermissionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetEffectivePermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getEffectivePermissions
+     * Get the effective permissions of the currently authenticated user, helping UX hide or disable content that the current user doesn't have access to.
      * @param GetEffectivePermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

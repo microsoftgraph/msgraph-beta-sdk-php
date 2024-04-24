@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Mic
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getKnownIssuesByTimeRange
+ * Get known issues related to a particular product based on a specified timeframe in the past.
 */
 class MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilderGetQueryParameters 
 {

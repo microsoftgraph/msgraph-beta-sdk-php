@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Programs\Item\Controls;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
+ * Controls associated with the program.
 */
 class ControlsRequestBuilderGetQueryParameters 
 {

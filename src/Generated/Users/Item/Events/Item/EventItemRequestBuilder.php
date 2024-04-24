@@ -127,11 +127,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.
+     * Delete navigation property events for users
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/event-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -142,11 +141,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified event object. An app can get an event in another user's calendar if: Because the event resource supports extensions, you can also use the GET operation to get custom properties and extension data in an event instance.
+     * The user's events. The default is to show events under the Default Calendar. Read-only. Nullable.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/event-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -157,12 +155,11 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the event object.
+     * Update the navigation property events in users
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/event-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Event $body, ?EventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -173,7 +170,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.
+     * Delete navigation property events for users
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -191,7 +188,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of the specified event object. An app can get an event in another user's calendar if: Because the event resource supports extensions, you can also use the GET operation to get custom properties and extension data in an event instance.
+     * The user's events. The default is to show events under the Default Calendar. Read-only. Nullable.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -212,7 +209,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of the event object.
+     * Update the navigation property events in users
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

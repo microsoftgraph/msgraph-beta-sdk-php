@@ -30,10 +30,11 @@ class GetAllSitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getAllSites
+     * List sites across geographies in an organization. For more details, see Best practices for discovering files and detecting changes at scale.
      * @param GetAllSitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAllSitesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/site-getallsites?view=graph-rest-beta Find more info here
     */
     public function get(?GetAllSitesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetAllSitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getAllSites
+     * List sites across geographies in an organization. For more details, see Best practices for discovering files and detecting changes at scale.
      * @param GetAllSitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of a timeCard object by ID.
+ * The time cards in the schedule.
 */
 class TimeCardItemRequestBuilderGetQueryParameters 
 {

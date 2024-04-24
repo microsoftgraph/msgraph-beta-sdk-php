@@ -47,11 +47,10 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an onPremisesAgentGroup object.
+     * Delete navigation property agentGroups for onPremisesPublishingProfiles
      * @param OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/onpremisesagentgroup-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,11 +61,10 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an onPremisesAgentGroup object.
+     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
      * @param OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/onpremisesagentgroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -77,12 +75,11 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an onPremisesAgentGroup object.
+     * Update the navigation property agentGroups in onPremisesPublishingProfiles
      * @param OnPremisesAgentGroup $body The request body
      * @param OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/onpremisesagentgroup-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(OnPremisesAgentGroup $body, ?OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -93,7 +90,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an onPremisesAgentGroup object.
+     * Delete navigation property agentGroups for onPremisesPublishingProfiles
      * @param OnPremisesAgentGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +108,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an onPremisesAgentGroup object.
+     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
      * @param OnPremisesAgentGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +129,7 @@ class OnPremisesAgentGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an onPremisesAgentGroup object.
+     * Update the navigation property agentGroups in onPremisesPublishingProfiles
      * @param OnPremisesAgentGroup $body The request body
      * @param OnPremisesAgentGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

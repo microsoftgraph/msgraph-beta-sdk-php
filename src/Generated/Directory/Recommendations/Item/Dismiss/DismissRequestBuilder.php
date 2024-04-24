@@ -36,7 +36,7 @@ class DismissRequestBuilder extends BaseRequestBuilder
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Recommendation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/recommendation-dismiss?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/recommendation-dismiss?view=graph-rest-beta Find more info here
     */
     public function post(DismissPostRequestBody $body, ?DismissRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

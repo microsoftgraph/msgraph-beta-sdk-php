@@ -51,11 +51,10 @@ class ActiveUsersBreakdownRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of monthly activeUsersBreakdown objects on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+     * Get activeUsersBreakdown from reports
      * @param ActiveUsersBreakdownRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActiveUsersBreakdownMetricCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-activeusersbreakdown?view=graph-rest-1.0 Find more info here
     */
     public function get(?ActiveUsersBreakdownRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +65,7 @@ class ActiveUsersBreakdownRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of monthly activeUsersBreakdown objects on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+     * Get activeUsersBreakdown from reports
      * @param ActiveUsersBreakdownRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

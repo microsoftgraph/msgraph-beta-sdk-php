@@ -48,7 +48,7 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
      * @param SubscriptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SubscriptionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/subscription-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/subscription-list?view=graph-rest-beta Find more info here
     */
     public function get(?SubscriptionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -64,7 +64,7 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
      * @param SubscriptionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Subscription|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-beta Find more info here
     */
     public function post(Subscription $body, ?SubscriptionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

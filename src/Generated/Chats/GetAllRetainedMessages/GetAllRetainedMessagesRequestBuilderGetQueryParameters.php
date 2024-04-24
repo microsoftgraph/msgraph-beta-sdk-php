@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Chats\GetAllRetainedMessages;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getAllRetainedMessages
+ * Get all retained messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
 */
 class GetAllRetainedMessagesRequestBuilderGetQueryParameters 
 {

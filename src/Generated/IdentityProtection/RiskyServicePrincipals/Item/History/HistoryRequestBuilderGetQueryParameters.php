@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the risk history of a riskyServicePrincipal object.
+ * Represents the risk history of Microsoft Entra service principals.
 */
 class HistoryRequestBuilderGetQueryParameters 
 {

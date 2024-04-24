@@ -53,11 +53,10 @@ class MeetingAttendanceReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.
+     * Get meetingAttendanceReport from app
      * @param MeetingAttendanceReportRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingAttendanceReport|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?MeetingAttendanceReportRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,7 +100,7 @@ class MeetingAttendanceReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. Each time an online meeting ends, an attendance report is generated for that session.
+     * Get meetingAttendanceReport from app
      * @param MeetingAttendanceReportRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

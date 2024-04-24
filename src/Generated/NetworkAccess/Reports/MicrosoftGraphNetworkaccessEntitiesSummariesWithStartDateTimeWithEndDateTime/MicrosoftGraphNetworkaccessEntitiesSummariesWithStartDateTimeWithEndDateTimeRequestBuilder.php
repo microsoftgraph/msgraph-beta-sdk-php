@@ -36,10 +36,11 @@ class MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTi
     }
 
     /**
-     * Invoke function entitiesSummaries
+     * Get the number of users, devices, and workloads per traffic type in a specified time period.
      * @param MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EntitiesSummariesWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-reports-entitiessummaries?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTi
     }
 
     /**
-     * Invoke function entitiesSummaries
+     * Get the number of users, devices, and workloads per traffic type in a specified time period.
      * @param MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

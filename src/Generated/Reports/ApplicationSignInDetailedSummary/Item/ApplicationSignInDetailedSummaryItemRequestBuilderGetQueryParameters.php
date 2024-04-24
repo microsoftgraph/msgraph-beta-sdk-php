@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummar
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
+ * Represents a detailed summary of an application sign-in.
 */
 class ApplicationSignInDetailedSummaryItemRequestBuilderGetQueryParameters 
 {

@@ -30,10 +30,11 @@ class GetTimesOffRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getTimesOff
+     * Get all time off objects across all teams to which a user is a direct member.
      * @param GetTimesOffRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetTimesOffGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/team-gettimesoff?view=graph-rest-beta Find more info here
     */
     public function get(?GetTimesOffRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetTimesOffRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getTimesOff
+     * Get all time off objects across all teams to which a user is a direct member.
      * @param GetTimesOffRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

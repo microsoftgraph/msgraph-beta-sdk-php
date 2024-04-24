@@ -31,11 +31,10 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+     * Delete navigation property customAppScopes for roleManagement
      * @param CustomAppScopeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/customappscope-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?CustomAppScopeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+     * Workload-specific scope object that represents the resources for which the principal has been granted access.
      * @param CustomAppScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAppScope|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/customappscope-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomAppScopeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+     * Update the navigation property customAppScopes in roleManagement
      * @param CustomAppScope $body The request body
      * @param CustomAppScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAppScope|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/customappscope-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CustomAppScope $body, ?CustomAppScopeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+     * Delete navigation property customAppScopes for roleManagement
      * @param CustomAppScopeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of a customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+     * Workload-specific scope object that represents the resources for which the principal has been granted access.
      * @param CustomAppScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class CustomAppScopeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing customAppScope object of an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
+     * Update the navigation property customAppScopes in roleManagement
      * @param CustomAppScope $body The request body
      * @param CustomAppScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

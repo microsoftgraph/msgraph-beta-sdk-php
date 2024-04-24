@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
+ * Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
 */
 class ProfileCardPropertyItemRequestBuilderGetQueryParameters 
 {

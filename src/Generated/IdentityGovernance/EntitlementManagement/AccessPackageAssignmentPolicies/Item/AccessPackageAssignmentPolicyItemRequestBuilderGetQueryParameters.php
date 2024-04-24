@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
+ * Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
 */
 class AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters 
 {

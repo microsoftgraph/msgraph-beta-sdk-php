@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\Storage\Quota\Servi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of serviceStorageQuotaBreakdown objects and their properties.
+ * The breakdown of services contributing to the user's quota usage.
 */
 class ServicesRequestBuilderGetQueryParameters 
 {

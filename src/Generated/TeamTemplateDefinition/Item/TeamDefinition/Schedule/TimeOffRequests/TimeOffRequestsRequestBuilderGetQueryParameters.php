@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of timeoffrequest objects in the team.
+ * The time off requests in the schedule.
 */
 class TimeOffRequestsRequestBuilderGetQueryParameters 
 {

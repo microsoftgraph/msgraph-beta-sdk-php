@@ -45,7 +45,7 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * List of run states for the hardware configuration across all users
+     * List of run states for the hardware configuration across all users. Read-Only.
      * @param HardwareConfigurationUserStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareConfigurationUserState|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * List of run states for the hardware configuration across all users
+     * List of run states for the hardware configuration across all users. Read-Only.
      * @param HardwareConfigurationUserStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

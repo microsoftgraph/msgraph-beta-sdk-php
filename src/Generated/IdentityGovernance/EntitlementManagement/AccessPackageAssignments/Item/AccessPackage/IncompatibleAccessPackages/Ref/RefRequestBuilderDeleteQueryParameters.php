@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Remove an access package from the list of access packages marked as incompatible on an accessPackage.  
+ * Delete ref of navigation property incompatibleAccessPackages for identityGovernance
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

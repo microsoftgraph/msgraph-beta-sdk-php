@@ -52,11 +52,10 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personWebsite objects from a user's profile.
+     * Represents detailed information about websites associated with a user in various services.
      * @param WebsitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonWebsiteCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-websites?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebsitesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personWebsite object in a user's profile.
+     * Create new navigation property to websites for users
      * @param PersonWebsite $body The request body
      * @param WebsitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonWebsite|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-websites?view=graph-rest-1.0 Find more info here
     */
     public function post(PersonWebsite $body, ?WebsitesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of personWebsite objects from a user's profile.
+     * Represents detailed information about websites associated with a user in various services.
      * @param WebsitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class WebsitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new personWebsite object in a user's profile.
+     * Create new navigation property to websites for users
      * @param PersonWebsite $body The request body
      * @param WebsitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

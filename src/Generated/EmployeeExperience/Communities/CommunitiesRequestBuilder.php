@@ -52,7 +52,7 @@ class CommunitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a community object.
+     * A collection of communities in Viva Engage.
      * @param CommunitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CommunityCollectionResponse|null>
      * @throws Exception
@@ -66,12 +66,11 @@ class CommunitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new community in Viva Engage.
+     * Create new navigation property to communities for employeeExperience
      * @param Community $body The request body
      * @param CommunitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Community|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/employeeexperience-post-communities?view=graph-rest-1.0 Find more info here
     */
     public function post(Community $body, ?CommunitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -82,7 +81,7 @@ class CommunitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a community object.
+     * A collection of communities in Viva Engage.
      * @param CommunitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +102,7 @@ class CommunitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new community in Viva Engage.
+     * Create new navigation property to communities for employeeExperience
      * @param Community $body The request body
      * @param CommunitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

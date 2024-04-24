@@ -56,7 +56,7 @@ class ProgramControlTypesRequestBuilder extends BaseRequestBuilder
      * @param ProgramControlTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProgramControlTypeCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/programcontroltype-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/programcontroltype-list?view=graph-rest-beta Find more info here
     */
     public function get(?ProgramControlTypesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

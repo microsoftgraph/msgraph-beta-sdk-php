@@ -52,11 +52,10 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of siteSource objects and their properties.
+     * Data source entity for SharePoint sites associated with the custodian.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteSourceCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-custodian-list-sitesources?view=graph-rest-1.0 Find more info here
     */
     public function get(?SiteSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custodian siteSource object.
+     * Create new navigation property to siteSources for compliance
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteSource|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-custodian-post-sitesources?view=graph-rest-1.0 Find more info here
     */
     public function post(SiteSource $body, ?SiteSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of siteSource objects and their properties.
+     * Data source entity for SharePoint sites associated with the custodian.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new custodian siteSource object.
+     * Create new navigation property to siteSources for compliance
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -45,11 +45,10 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a contactMergeSuggestions object.
+     * The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
      * @param ContactMergeSuggestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContactMergeSuggestions|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/contactmergesuggestions-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ContactMergeSuggestionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a contactMergeSuggestions object.
+     * Update the navigation property contactMergeSuggestions in users
      * @param ContactMergeSuggestions $body The request body
      * @param ContactMergeSuggestionsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContactMergeSuggestions|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/contactmergesuggestions-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ContactMergeSuggestions $body, ?ContactMergeSuggestionsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -94,7 +92,7 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a contactMergeSuggestions object.
+     * The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
      * @param ContactMergeSuggestionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class ContactMergeSuggestionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a contactMergeSuggestions object.
+     * Update the navigation property contactMergeSuggestions in users
      * @param ContactMergeSuggestions $body The request body
      * @param ContactMergeSuggestionsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

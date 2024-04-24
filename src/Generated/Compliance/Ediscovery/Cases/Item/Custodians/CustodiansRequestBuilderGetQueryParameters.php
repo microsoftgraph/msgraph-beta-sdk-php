@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custod
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the custodian objects and their properties.
+ * Returns a list of case custodian objects for this case.  Nullable.
 */
 class CustodiansRequestBuilderGetQueryParameters 
 {

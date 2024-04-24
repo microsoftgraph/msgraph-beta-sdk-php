@@ -52,11 +52,10 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onPremisesAgentGroup objects.
+     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
      * @param AgentGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroupCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/onpremisesagentgroup-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?AgentGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new onPremisesAgentGroup object.
+     * Create new navigation property to agentGroups for onPremisesPublishingProfiles
      * @param OnPremisesAgentGroup $body The request body
      * @param AgentGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgentGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/onpremisesagentgroup-post?view=graph-rest-1.0 Find more info here
     */
     public function post(OnPremisesAgentGroup $body, ?AgentGroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of onPremisesAgentGroup objects.
+     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
      * @param AgentGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new onPremisesAgentGroup object.
+     * Create new navigation property to agentGroups for onPremisesPublishingProfiles
      * @param OnPremisesAgentGroup $body The request body
      * @param AgentGroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

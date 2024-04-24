@@ -33,10 +33,11 @@ class GetCredentialUsageSummaryWithPeriodRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke function getCredentialUsageSummary
+     * Report the current state of how many users in your organization used the self-service password reset capabilities.
      * @param GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCredentialUsageSummaryWithPeriodGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/reportroot-getcredentialusagesummary?view=graph-rest-beta Find more info here
     */
     public function get(?GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -47,7 +48,7 @@ class GetCredentialUsageSummaryWithPeriodRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke function getCredentialUsageSummary
+     * Report the current state of how many users in your organization used the self-service password reset capabilities.
      * @param GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

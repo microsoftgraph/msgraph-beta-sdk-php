@@ -52,7 +52,7 @@ class SetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a set object.
+     * Collection of all sets available in the term store.
      * @param SetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SetCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class SetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a set object.
+     * Collection of all sets available in the term store.
      * @param SetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -183,11 +183,10 @@ class ProfileRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a profile object from a user's account.
+     * Delete navigation property profile for users
      * @param ProfileRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ProfileRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -198,11 +197,10 @@ class ProfileRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a profile object for a given user. The profile resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by profile.
+     * Represents properties that are descriptive of a user in a tenant.
      * @param ProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Profile|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -228,7 +226,7 @@ class ProfileRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a profile object from a user's account.
+     * Delete navigation property profile for users
      * @param ProfileRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -246,7 +244,7 @@ class ProfileRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a profile object for a given user. The profile resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by profile.
+     * Represents properties that are descriptive of a user in a tenant.
      * @param ProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,7 +52,7 @@ class RoleSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a governanceRoleSetting.
+     * A collection of role settings for the provider.
      * @param RoleSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleSettingCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class RoleSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a governanceRoleSetting.
+     * A collection of role settings for the provider.
      * @param RoleSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

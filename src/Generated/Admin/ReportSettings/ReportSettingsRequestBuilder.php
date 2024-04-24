@@ -45,11 +45,10 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the tenant-level settings for Microsoft 365 reports.
+     * A container for administrative resources to manage reports.
      * @param ReportSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminReportSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminreportsettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ReportSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update tenant-level settings for Microsoft 365 reports.
+     * Update the navigation property reportSettings in admin
      * @param AdminReportSettings $body The request body
      * @param ReportSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminReportSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminreportsettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(AdminReportSettings $body, ?ReportSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -94,7 +92,7 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the tenant-level settings for Microsoft 365 reports.
+     * A container for administrative resources to manage reports.
      * @param ReportSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class ReportSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update tenant-level settings for Microsoft 365 reports.
+     * Update the navigation property reportSettings in admin
      * @param AdminReportSettings $body The request body
      * @param ReportSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -52,11 +52,10 @@ class OutboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all outboundSharedUserProfiles.
+     * Get outboundSharedUserProfiles from directory
      * @param OutboundSharedUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundSharedUserProfileCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directory-list-outboundshareduserprofiles?view=graph-rest-1.0 Find more info here
     */
     public function get(?OutboundSharedUserProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class OutboundSharedUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of all outboundSharedUserProfiles.
+     * Get outboundSharedUserProfiles from directory
      * @param OutboundSharedUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

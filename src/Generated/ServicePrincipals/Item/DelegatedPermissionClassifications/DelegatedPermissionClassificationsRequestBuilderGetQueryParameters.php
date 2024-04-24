@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermiss
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
+ * The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.
 */
 class DelegatedPermissionClassificationsRequestBuilderGetQueryParameters 
 {

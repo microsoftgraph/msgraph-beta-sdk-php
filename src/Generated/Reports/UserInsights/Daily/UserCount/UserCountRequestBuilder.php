@@ -51,11 +51,10 @@ class UserCountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of daily user count on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+     * Insights for total users on apps registered in the tenant for a specified period.
      * @param UserCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserCountMetricCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/dailyuserinsightmetricsroot-list-usercount?view=graph-rest-1.0 Find more info here
     */
     public function get(?UserCountRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +65,7 @@ class UserCountRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of daily user count on apps registered in your tenant configured for Microsoft Entra External ID for customers.
+     * Insights for total users on apps registered in the tenant for a specified period.
      * @param UserCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,11 +52,10 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of webAccounts objects from the user's profile.
+     * Represents web accounts the user has indicated they use or has added to their user profile.
      * @param WebAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccountCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-webaccounts?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebAccountsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new webAccount object in a user's profile.
+     * Create new navigation property to webAccounts for users
      * @param WebAccount $body The request body
      * @param WebAccountsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccount|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-webaccounts?view=graph-rest-1.0 Find more info here
     */
     public function post(WebAccount $body, ?WebAccountsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of webAccounts objects from the user's profile.
+     * Represents web accounts the user has indicated they use or has added to their user profile.
      * @param WebAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class WebAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new webAccount object in a user's profile.
+     * Create new navigation property to webAccounts for users
      * @param WebAccount $body The request body
      * @param WebAccountsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

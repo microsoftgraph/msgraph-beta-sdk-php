@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\GetOpenShifts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getOpenShifts
+ * Get all openShift objects across all teams a user is a direct member of.
 */
 class GetOpenShiftsRequestBuilderGetQueryParameters 
 {

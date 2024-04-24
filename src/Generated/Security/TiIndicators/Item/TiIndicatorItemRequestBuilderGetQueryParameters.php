@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a tiIndicator object.
+ * Get tiIndicators from security
 */
 class TiIndicatorItemRequestBuilderGetQueryParameters 
 {

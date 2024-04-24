@@ -38,7 +38,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
      * @param ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,7 +53,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
      * @param ApplicationsWithAppIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/application-get?view=graph-rest-beta Find more info here
     */
     public function get(?ApplicationsWithAppIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -69,7 +69,7 @@ class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder
      * @param ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/application-upsert?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/application-upsert?view=graph-rest-beta Find more info here
     */
     public function patch(Application $body, ?ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

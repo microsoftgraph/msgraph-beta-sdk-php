@@ -33,10 +33,11 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Invoke function getStorageAccounts
+     * List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
      * @param GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetStorageAccountsWithSubscriptionIdGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcsnapshot-getstorageaccounts?view=graph-rest-beta Find more info here
     */
     public function get(?GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -47,7 +48,7 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Invoke function getStorageAccounts
+     * List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
      * @param GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

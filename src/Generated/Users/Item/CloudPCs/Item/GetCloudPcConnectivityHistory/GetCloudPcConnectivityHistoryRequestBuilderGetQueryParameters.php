@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcConn
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getCloudPcConnectivityHistory
+ * Get the connectivity history of a specific Cloud PC.
 */
 class GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters 
 {

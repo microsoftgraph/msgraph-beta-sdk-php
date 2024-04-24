@@ -99,7 +99,7 @@ class AccessReviewItemRequestBuilder extends BaseRequestBuilder
      * @param AccessReviewItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accessreview-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?AccessReviewItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -114,7 +114,7 @@ class AccessReviewItemRequestBuilder extends BaseRequestBuilder
      * @param AccessReviewItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReview|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accessreview-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-get?view=graph-rest-beta Find more info here
     */
     public function get(?AccessReviewItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -130,7 +130,7 @@ class AccessReviewItemRequestBuilder extends BaseRequestBuilder
      * @param AccessReviewItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReview|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accessreview-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/accessreview-update?view=graph-rest-beta Find more info here
     */
     public function patch(AccessReview $body, ?AccessReviewItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\TrainingCampa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a trainingCampaign object.
+ * Represents a training campaign in a tenant.
 */
 class TrainingCampaignItemRequestBuilderGetQueryParameters 
 {

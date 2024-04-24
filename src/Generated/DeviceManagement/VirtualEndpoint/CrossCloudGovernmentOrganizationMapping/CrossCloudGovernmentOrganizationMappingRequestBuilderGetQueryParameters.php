@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CrossC
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
+ * Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
 */
 class CrossCloudGovernmentOrganizationMappingRequestBuilderGetQueryParameters 
 {
