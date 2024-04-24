@@ -52,11 +52,10 @@ class FilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ediscoveryFile objects and their properties.
+     * Represents files within the review set.
      * @param FilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryFileCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-list-files?view=graph-rest-1.0 Find more info here
     */
     public function get(?FilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class FilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ediscoveryFile objects and their properties.
+     * Represents files within the review set.
      * @param FilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

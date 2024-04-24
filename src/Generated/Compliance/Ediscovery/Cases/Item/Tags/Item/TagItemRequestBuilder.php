@@ -47,11 +47,10 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tag object.
+     * Delete navigation property tags for compliance
      * @param TagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-tag-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TagItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -62,11 +61,10 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tag object.
+     * Returns a list of tag objects associated to this case.
      * @param TagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Tag|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-tag-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TagItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -77,12 +75,11 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tag object.
+     * Update the navigation property tags in compliance
      * @param Tag $body The request body
      * @param TagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Tag|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-tag-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(Tag $body, ?TagItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -93,7 +90,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tag object.
+     * Delete navigation property tags for compliance
      * @param TagItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +108,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a tag object.
+     * Returns a list of tag objects associated to this case.
      * @param TagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +129,7 @@ class TagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a tag object.
+     * Update the navigation property tags in compliance
      * @param Tag $body The request body
      * @param TagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

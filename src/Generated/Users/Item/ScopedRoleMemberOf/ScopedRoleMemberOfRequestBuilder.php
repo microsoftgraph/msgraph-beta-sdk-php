@@ -52,11 +52,10 @@ class ScopedRoleMemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of scopedRoleMembership for the user.
+     * The scoped-role administrative unit memberships for this user. Read-only. Nullable.
      * @param ScopedRoleMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScopedRoleMembershipCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/user-list-scopedrolememberof?view=graph-rest-1.0 Find more info here
     */
     public function get(?ScopedRoleMemberOfRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class ScopedRoleMemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of scopedRoleMembership for the user.
+     * The scoped-role administrative unit memberships for this user. Read-only. Nullable.
      * @param ScopedRoleMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

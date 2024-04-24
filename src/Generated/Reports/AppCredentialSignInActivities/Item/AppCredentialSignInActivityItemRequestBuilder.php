@@ -45,11 +45,10 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an appCredentialSignInActivity object that contains recent activity of an application credential.
+     * Represents a collection of sign-in activities of application credentials.
      * @param AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppCredentialSignInActivity|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/appcredentialsigninactivity-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an appCredentialSignInActivity object that contains recent activity of an application credential.
+     * Represents a collection of sign-in activities of application credentials.
      * @param AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

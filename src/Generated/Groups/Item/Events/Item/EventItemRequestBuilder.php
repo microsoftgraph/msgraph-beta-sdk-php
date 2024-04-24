@@ -127,11 +127,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an event object.
+     * Delete navigation property events for groups
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-delete-event?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -142,11 +141,10 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an event object.
+     * The group's events.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-get-event?view=graph-rest-1.0 Find more info here
     */
     public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -157,12 +155,11 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an event object.
+     * Update the navigation property events in groups
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-update-event?view=graph-rest-1.0 Find more info here
     */
     public function patch(Event $body, ?EventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -173,7 +170,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an event object.
+     * Delete navigation property events for groups
      * @param EventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -191,7 +188,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get an event object.
+     * The group's events.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -212,7 +209,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an event object.
+     * Update the navigation property events in groups
      * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

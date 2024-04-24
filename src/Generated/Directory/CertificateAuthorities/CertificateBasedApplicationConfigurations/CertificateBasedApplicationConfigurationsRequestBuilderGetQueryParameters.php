@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\Certif
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of certificateBasedApplicationConfiguration objects.
+ * Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
 */
 class CertificateBasedApplicationConfigurationsRequestBuilderGetQueryParameters 
 {

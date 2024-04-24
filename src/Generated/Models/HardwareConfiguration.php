@@ -31,7 +31,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignments property value. List of the Azure AD user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported.
+     * Gets the assignments property value. A list of the Entra user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported. Optional.
      * @return array<HardwareConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -45,7 +45,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the configurationFileContent property value. File content of the hardware configuration
+     * Gets the configurationFileContent property value. The file content contains custom hardware settings that will be applied to the assigned devices' BIOS. Max allowed file size is 5KB. Represented as bytes. Required.
      * @return StreamInterface|null
     */
     public function getConfigurationFileContent(): ?StreamInterface {
@@ -57,7 +57,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Timestamp of when the hardware configuration was created. This property is read-only.
+     * Gets the createdDateTime property value. The date and time  of when the BIOS configuration profile was created. The value cannot be modified and is automatically populated when the device is enrolled. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-Only. This property is read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -69,7 +69,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Description of the hardware configuration
+     * Gets the description property value. The description of the hardware configuration. Use this to provide context, purpose, applications, etc of the BIOS configuration profile for your organization's admins. Max length is 1000 characters. Optional.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -81,7 +81,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceRunStates property value. List of run states for the hardware configuration across all devices
+     * Gets the deviceRunStates property value. List of run states for the hardware configuration across all devices. Read-Only.
      * @return array<HardwareConfigurationDeviceState>|null
     */
     public function getDeviceRunStates(): ?array {
@@ -95,7 +95,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Name of the hardware configuration
+     * Gets the displayName property value. The name of the hardware BIOS configuration profile. It serves as user-friendly name to identify hardware BIOS configuration profiles. Max length is 150 characters. Required. Read-Only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -138,7 +138,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the fileName property value. File name of the hardware configuration
+     * Gets the fileName property value. The file name for the BIOS configuration profile's ConfigurationFileContent. Max length is 150 characters. Required.
      * @return string|null
     */
     public function getFileName(): ?string {
@@ -162,7 +162,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Timestamp of when the hardware configuration was modified. This property is read-only.
+     * Gets the lastModifiedDateTime property value. The date and time  of when the BIOS configuration profile was last modified. The value cannot be modified and is automatically populated when the device is enrolled. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-Only. Read-Only. This property is read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -174,7 +174,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the perDevicePasswordDisabled property value. A value indicating whether per devcive pasword disabled
+     * Gets the perDevicePasswordDisabled property value. When TRUE, indicates whether the policy-assigned devices' passwords are disabled. When FALSE, indicates they are enabled. Default is FALSE. Required.
      * @return bool|null
     */
     public function getPerDevicePasswordDisabled(): ?bool {
@@ -186,7 +186,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleScopeTagIds property value. List of Scope Tag IDs for the hardware configuration
+     * Gets the roleScopeTagIds property value. A list of unique Scope Tag IDs associated with the hardware configuration. Optional.
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
@@ -200,7 +200,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the runSummary property value. A summary of the results from an attempt to configure hardware settings
+     * Gets the runSummary property value. A summary of the results from an attempt to configure hardware settings. Read-Only.
      * @return HardwareConfigurationRunSummary|null
     */
     public function getRunSummary(): ?HardwareConfigurationRunSummary {
@@ -212,7 +212,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the userRunStates property value. List of run states for the hardware configuration across all users
+     * Gets the userRunStates property value. List of run states for the hardware configuration across all users. Read-Only.
      * @return array<HardwareConfigurationUserState>|null
     */
     public function getUserRunStates(): ?array {
@@ -226,7 +226,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. Version of the hardware configuration (E.g. 1, 2, 3 ...)
+     * Gets the version property value. The version of the hardware configuration (E.g. 1, 2, 3 ...). This is incremented after a change to the BIOS configuration profile's settings file name (FileName property), settings file content (ConfigurationFileContent property), or the PerDevicePasswordDisabled property. Read-Only.
      * @return int|null
     */
     public function getVersion(): ?int {
@@ -258,7 +258,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignments property value. List of the Azure AD user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported.
+     * Sets the assignments property value. A list of the Entra user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported. Optional.
      * @param array<HardwareConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
@@ -266,7 +266,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the configurationFileContent property value. File content of the hardware configuration
+     * Sets the configurationFileContent property value. The file content contains custom hardware settings that will be applied to the assigned devices' BIOS. Max allowed file size is 5KB. Represented as bytes. Required.
      * @param StreamInterface|null $value Value to set for the configurationFileContent property.
     */
     public function setConfigurationFileContent(?StreamInterface $value): void {
@@ -274,7 +274,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Timestamp of when the hardware configuration was created. This property is read-only.
+     * Sets the createdDateTime property value. The date and time  of when the BIOS configuration profile was created. The value cannot be modified and is automatically populated when the device is enrolled. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-Only. This property is read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -282,7 +282,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Description of the hardware configuration
+     * Sets the description property value. The description of the hardware configuration. Use this to provide context, purpose, applications, etc of the BIOS configuration profile for your organization's admins. Max length is 1000 characters. Optional.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -290,7 +290,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceRunStates property value. List of run states for the hardware configuration across all devices
+     * Sets the deviceRunStates property value. List of run states for the hardware configuration across all devices. Read-Only.
      * @param array<HardwareConfigurationDeviceState>|null $value Value to set for the deviceRunStates property.
     */
     public function setDeviceRunStates(?array $value): void {
@@ -298,7 +298,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Name of the hardware configuration
+     * Sets the displayName property value. The name of the hardware BIOS configuration profile. It serves as user-friendly name to identify hardware BIOS configuration profiles. Max length is 150 characters. Required. Read-Only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -306,7 +306,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the fileName property value. File name of the hardware configuration
+     * Sets the fileName property value. The file name for the BIOS configuration profile's ConfigurationFileContent. Max length is 150 characters. Required.
      * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
@@ -322,7 +322,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Timestamp of when the hardware configuration was modified. This property is read-only.
+     * Sets the lastModifiedDateTime property value. The date and time  of when the BIOS configuration profile was last modified. The value cannot be modified and is automatically populated when the device is enrolled. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-Only. Read-Only. This property is read-only.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -330,7 +330,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the perDevicePasswordDisabled property value. A value indicating whether per devcive pasword disabled
+     * Sets the perDevicePasswordDisabled property value. When TRUE, indicates whether the policy-assigned devices' passwords are disabled. When FALSE, indicates they are enabled. Default is FALSE. Required.
      * @param bool|null $value Value to set for the perDevicePasswordDisabled property.
     */
     public function setPerDevicePasswordDisabled(?bool $value): void {
@@ -338,7 +338,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleScopeTagIds property value. List of Scope Tag IDs for the hardware configuration
+     * Sets the roleScopeTagIds property value. A list of unique Scope Tag IDs associated with the hardware configuration. Optional.
      * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
@@ -346,7 +346,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the runSummary property value. A summary of the results from an attempt to configure hardware settings
+     * Sets the runSummary property value. A summary of the results from an attempt to configure hardware settings. Read-Only.
      * @param HardwareConfigurationRunSummary|null $value Value to set for the runSummary property.
     */
     public function setRunSummary(?HardwareConfigurationRunSummary $value): void {
@@ -354,7 +354,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the userRunStates property value. List of run states for the hardware configuration across all users
+     * Sets the userRunStates property value. List of run states for the hardware configuration across all users. Read-Only.
      * @param array<HardwareConfigurationUserState>|null $value Value to set for the userRunStates property.
     */
     public function setUserRunStates(?array $value): void {
@@ -362,7 +362,7 @@ class HardwareConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. Version of the hardware configuration (E.g. 1, 2, 3 ...)
+     * Sets the version property value. The version of the hardware configuration (E.g. 1, 2, 3 ...). This is incremented after a change to the BIOS configuration profile's settings file name (FileName property), settings file content (ConfigurationFileContent property), or the PerDevicePasswordDisabled property. Read-Only.
      * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {

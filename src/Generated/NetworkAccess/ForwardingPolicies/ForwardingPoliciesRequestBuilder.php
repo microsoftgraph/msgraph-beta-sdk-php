@@ -52,7 +52,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding policy.
+     * A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingPolicyCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve information about a specific forwarding policy.
+     * A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,11 +52,10 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get Outlook task folders in a specific outlookTaskGroup.
+     * The collection of task folders in the task group. Read-only. Nullable.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolderCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/outlooktaskgroup-list-taskfolders?view=graph-rest-1.0 Find more info here
     */
     public function get(?TaskFoldersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task folder under a specified outlookTaskGroup.
+     * Create new navigation property to taskFolders for users
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskFolder|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/outlooktaskgroup-post-taskfolders?view=graph-rest-1.0 Find more info here
     */
     public function post(OutlookTaskFolder $body, ?TaskFoldersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get Outlook task folders in a specific outlookTaskGroup.
+     * The collection of task folders in the task group. Read-only. Nullable.
      * @param TaskFoldersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class TaskFoldersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an Outlook task folder under a specified outlookTaskGroup.
+     * Create new navigation property to taskFolders for users
      * @param OutlookTaskFolder $body The request body
      * @param TaskFoldersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

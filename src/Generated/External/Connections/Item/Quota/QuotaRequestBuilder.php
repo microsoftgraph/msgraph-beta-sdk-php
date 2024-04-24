@@ -45,11 +45,10 @@ class QuotaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a connectionQuota object.
+     * Get quota from external
      * @param QuotaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectionQuota|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/externalconnectors-connectionquota-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?QuotaRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class QuotaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a connectionQuota object.
+     * Get quota from external
      * @param QuotaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

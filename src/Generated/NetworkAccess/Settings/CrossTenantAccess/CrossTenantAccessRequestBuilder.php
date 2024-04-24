@@ -45,11 +45,10 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
+     * Defines whether the tenant restrictions cross-tenant access settings are enabled for traffic profiles. Each tenant has only one cross-tenant access settings object.
      * @param CrossTenantAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-crosstenantaccesssettings-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CrossTenantAccessRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants.
+     * Update the navigation property crossTenantAccess in networkAccess
      * @param CrossTenantAccessSettings $body The request body
      * @param CrossTenantAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-crosstenantaccesssettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(CrossTenantAccessSettings $body, ?CrossTenantAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -94,7 +92,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
+     * Defines whether the tenant restrictions cross-tenant access settings are enabled for traffic profiles. Each tenant has only one cross-tenant access settings object.
      * @param CrossTenantAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class CrossTenantAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the cross-tenant access settings to include network packet tagging for enforcing Tenant Restrictions Policies (TRv2 Policies) that prevent data exfiltration to external tenants.
+     * Update the navigation property crossTenantAccess in networkAccess
      * @param CrossTenantAccessSettings $body The request body
      * @param CrossTenantAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

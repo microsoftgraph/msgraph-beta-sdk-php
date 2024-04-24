@@ -96,7 +96,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
      * @param GroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-list?view=graph-rest-beta Find more info here
     */
     public function get(?GroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -112,7 +112,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
      * @param GroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-beta Find more info here
     */
     public function post(Group $body, ?GroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

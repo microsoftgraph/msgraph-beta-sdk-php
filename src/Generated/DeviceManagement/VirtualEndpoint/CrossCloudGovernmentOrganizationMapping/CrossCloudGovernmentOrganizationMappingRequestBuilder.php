@@ -45,11 +45,10 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
+     * Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
      * @param CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcCrossCloudGovernmentOrganizationMapping|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpccrosscloudgovernmentorganizationmapping-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
+     * Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
      * @param CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

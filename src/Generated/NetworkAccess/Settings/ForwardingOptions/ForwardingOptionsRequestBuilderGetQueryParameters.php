@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\ForwardingOption
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the forwarding options for the tenant, with a specific focus on the 'skipDnsLookupState' flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
+ * Get forwardingOptions from networkAccess
 */
 class ForwardingOptionsRequestBuilderGetQueryParameters 
 {

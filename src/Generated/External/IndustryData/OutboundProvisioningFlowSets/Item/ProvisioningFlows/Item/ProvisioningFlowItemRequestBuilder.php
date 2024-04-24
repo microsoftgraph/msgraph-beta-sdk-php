@@ -31,11 +31,10 @@ class ProvisioningFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a classGroupProvisioningFlow object.
+     * Delete navigation property provisioningFlows for external
      * @param ProvisioningFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-classgroupprovisioningflow-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ProvisioningFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class ProvisioningFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an administrativeUnitProvisioningFlow object.
+     * A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
      * @param ProvisioningFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProvisioningFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-administrativeunitprovisioningflow-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ProvisioningFlowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class ProvisioningFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an administrativeUnitProvisioningFlow object.
+     * Update the navigation property provisioningFlows in external
      * @param ProvisioningFlow $body The request body
      * @param ProvisioningFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProvisioningFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-administrativeunitprovisioningflow-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ProvisioningFlow $body, ?ProvisioningFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class ProvisioningFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a classGroupProvisioningFlow object.
+     * Delete navigation property provisioningFlows for external
      * @param ProvisioningFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class ProvisioningFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an administrativeUnitProvisioningFlow object.
+     * A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
      * @param ProvisioningFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class ProvisioningFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an administrativeUnitProvisioningFlow object.
+     * Update the navigation property provisioningFlows in external
      * @param ProvisioningFlow $body The request body
      * @param ProvisioningFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

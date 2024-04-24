@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenLifetimePol
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.
+ * The tokenLifetimePolicies assigned to this service principal. Supports $expand.
 */
 class TokenLifetimePoliciesRequestBuilderGetQueryParameters 
 {

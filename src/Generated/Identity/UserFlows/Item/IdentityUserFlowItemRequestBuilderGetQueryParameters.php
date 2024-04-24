@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\UserFlows\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and associations for an userFlow object.
+ * Get userFlows from identity
 */
 class IdentityUserFlowItemRequestBuilderGetQueryParameters 
 {

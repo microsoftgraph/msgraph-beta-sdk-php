@@ -69,11 +69,10 @@ class AnalyticsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get [itemAnalytics][] about the views that took place under this resource.The itemAnalytics resource is a convenient way to get activity stats for allTime and the lastSevenDays.For a custom time range or interval, use the [getActivitiesByInterval][] API.
+     * Analytics about the view activities that took place on this item.
      * @param AnalyticsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemAnalytics|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itemanalytics-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?AnalyticsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -117,7 +116,7 @@ class AnalyticsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get [itemAnalytics][] about the views that took place under this resource.The itemAnalytics resource is a convenient way to get activity stats for allTime and the lastSevenDays.For a custom time range or interval, use the [getActivitiesByInterval][] API.
+     * Analytics about the view activities that took place on this item.
      * @param AnalyticsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

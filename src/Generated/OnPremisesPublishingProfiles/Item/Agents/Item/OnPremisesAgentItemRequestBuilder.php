@@ -53,11 +53,10 @@ class OnPremisesAgentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an onPremisesAgent object.
+     * List of existing onPremisesAgent objects. Read-only. Nullable.
      * @param OnPremisesAgentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesAgent|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/onpremisesagent-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OnPremisesAgentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,7 +100,7 @@ class OnPremisesAgentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an onPremisesAgent object.
+     * List of existing onPremisesAgent objects. Read-only. Nullable.
      * @param OnPremisesAgentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

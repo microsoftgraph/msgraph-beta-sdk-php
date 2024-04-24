@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\Item\Instan
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of windowsSettingInstance objects and their properties for the signed-in user.
+ * A collection of setting values for a given windowsSetting.
 */
 class InstancesRequestBuilderGetQueryParameters 
 {

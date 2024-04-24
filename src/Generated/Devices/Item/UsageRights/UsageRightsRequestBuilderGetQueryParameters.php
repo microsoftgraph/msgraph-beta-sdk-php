@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\UsageRights;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of usageRight objects for a given device.
+ * Represents the usage rights a device has been granted.
 */
 class UsageRightsRequestBuilderGetQueryParameters 
 {

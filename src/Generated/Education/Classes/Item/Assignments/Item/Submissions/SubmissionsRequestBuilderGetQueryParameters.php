@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List all the submission objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions, a student can only get submissions that they're associated with. Provide the header Prefer: include-unknown-enum-members to properly list submissions with the reassigned status. For details, see the examples section.
+ * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
 */
 class SubmissionsRequestBuilderGetQueryParameters 
 {

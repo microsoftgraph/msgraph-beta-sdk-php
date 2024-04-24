@@ -71,11 +71,10 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a trustFrameworkKeySet.
+     * Delete navigation property keySets for trustFramework
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -86,11 +85,10 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for a Trustframeworkkeyset.
+     * Get keySets from trustFramework
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKeySet|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,12 +99,11 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
+     * Update the navigation property keySets in trustFramework
      * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKeySet|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(TrustFrameworkKeySet $body, ?TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -117,7 +114,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a trustFrameworkKeySet.
+     * Delete navigation property keySets for trustFramework
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -135,7 +132,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and associations for a Trustframeworkkeyset.
+     * Get keySets from trustFramework
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -156,7 +153,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
+     * Update the navigation property keySets in trustFramework
      * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

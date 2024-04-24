@@ -52,7 +52,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object.
+     * Returns a list of case legalHold objects for this case.  Nullable.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LegalHoldCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object.
+     * Returns a list of case legalHold objects for this case.  Nullable.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -53,11 +53,10 @@ class SecurityActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a securityAction object.
+     * Get securityActions from security
      * @param SecurityActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityAction|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/securityaction-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SecurityActionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,7 +100,7 @@ class SecurityActionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a securityAction object.
+     * Get securityActions from security
      * @param SecurityActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

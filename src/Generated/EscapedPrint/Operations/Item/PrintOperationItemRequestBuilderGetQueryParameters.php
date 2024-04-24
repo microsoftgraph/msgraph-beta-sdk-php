@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Operations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a printOperation object.
+ * Get operations from print
 */
 class PrintOperationItemRequestBuilderGetQueryParameters 
 {

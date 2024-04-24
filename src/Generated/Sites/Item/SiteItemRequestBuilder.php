@@ -178,11 +178,11 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve properties and relationships for a [site][] resource.A site resource represents a team site in SharePoint.
+     * Retrieve properties and relationships for a site resource.A site resource represents a team site in SharePoint.
      * @param SiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Site|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/site-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/site-get?view=graph-rest-beta Find more info here
     */
     public function get(?SiteItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -237,7 +237,7 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve properties and relationships for a [site][] resource.A site resource represents a team site in SharePoint.
+     * Retrieve properties and relationships for a site resource.A site resource represents a team site in SharePoint.
      * @param SiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

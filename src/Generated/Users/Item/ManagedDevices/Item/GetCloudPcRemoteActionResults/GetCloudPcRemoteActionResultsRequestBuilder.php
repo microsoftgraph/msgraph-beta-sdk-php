@@ -30,10 +30,11 @@ class GetCloudPcRemoteActionResultsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getCloudPcRemoteActionResults
+     * Check the Cloud PC-specified remote action results for a Cloud PC device. Cloud PC supports reprovision and resize remote actions.
      * @param GetCloudPcRemoteActionResultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCloudPcRemoteActionResultsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/manageddevice-getcloudpcremoteactionresults?view=graph-rest-beta Find more info here
     */
     public function get(?GetCloudPcRemoteActionResultsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetCloudPcRemoteActionResultsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getCloudPcRemoteActionResults
+     * Check the Cloud PC-specified remote action results for a Cloud PC device. Cloud PC supports reprovision and resize remote actions.
      * @param GetCloudPcRemoteActionResultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

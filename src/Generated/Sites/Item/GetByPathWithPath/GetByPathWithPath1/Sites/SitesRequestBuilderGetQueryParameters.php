@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\GetByPathW
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of subsites defined for a [site][].
+ * The collection of the sub-sites under this site.
 */
 class SitesRequestBuilderGetQueryParameters 
 {

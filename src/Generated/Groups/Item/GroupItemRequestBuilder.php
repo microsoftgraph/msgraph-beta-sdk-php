@@ -411,7 +411,7 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
      * @param GroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-delete?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?GroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -426,7 +426,7 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
      * @param GroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-get?view=graph-rest-beta Find more info here
     */
     public function get(?GroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -442,7 +442,7 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
      * @param GroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-upsert?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-upsert?view=graph-rest-beta Find more info here
     */
     public function patch(Group $body, ?GroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

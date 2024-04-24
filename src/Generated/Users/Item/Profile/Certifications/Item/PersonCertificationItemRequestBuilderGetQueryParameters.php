@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a personCertification object in a user's profile.
+ * Represents the details of certifications associated with a person.
 */
 class PersonCertificationItemRequestBuilderGetQueryParameters 
 {

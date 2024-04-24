@@ -52,11 +52,10 @@ class RoleGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the roleGroup objects and their properties.
+     * Set of groups of individual roles that makes role-based admin simpler.
      * @param RoleGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RoleGroupCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-rolegroup-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RoleGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class RoleGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the roleGroup objects and their properties.
+     * Set of groups of individual roles that makes role-based admin simpler.
      * @param RoleGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,11 +31,10 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
+     * Delete navigation property deviceLinks for networkAccess
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-branchsite-delete-devicelinks?view=graph-rest-1.0 Find more info here
     */
     public function delete(?DeviceLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch or remote network.
+     * Update the navigation property deviceLinks in networkAccess
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-devicelink-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(DeviceLink $body, ?DeviceLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -76,7 +74,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Removes the link between the branch or remote network and the CPE device, effectively removing the connection and associated configuration between them.
+     * Delete navigation property deviceLinks for networkAccess
      * @param DeviceLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class DeviceLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the device link associated with a specific branch or remote network.
+     * Update the navigation property deviceLinks in networkAccess
      * @param DeviceLink $body The request body
      * @param DeviceLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

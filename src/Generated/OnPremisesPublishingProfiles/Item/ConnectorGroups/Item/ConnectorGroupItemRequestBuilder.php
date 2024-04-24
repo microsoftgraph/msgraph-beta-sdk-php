@@ -67,11 +67,10 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.
+     * Delete navigation property connectorGroups for onPremisesPublishingProfiles
      * @param ConnectorGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/connectorgroup-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ConnectorGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,11 +81,10 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a connectorGroup.
+     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      * @param ConnectorGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectorGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ConnectorGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -97,12 +95,11 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a connectorGroup object.
+     * Update the navigation property connectorGroups in onPremisesPublishingProfiles
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectorGroup|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/connectorgroup-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ConnectorGroup $body, ?ConnectorGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -113,7 +110,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a connectorGroup. All connectors and applications must be removed from the connector group before a connector group can be deleted.
+     * Delete navigation property connectorGroups for onPremisesPublishingProfiles
      * @param ConnectorGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +128,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a connectorGroup.
+     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      * @param ConnectorGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -152,7 +149,7 @@ class ConnectorGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a connectorGroup object.
+     * Update the navigation property connectorGroups in onPremisesPublishingProfiles
      * @param ConnectorGroup $body The request body
      * @param ConnectorGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

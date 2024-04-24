@@ -467,7 +467,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the thumbnails property value. Collection of [thumbnailSet][] objects associated with the item. For more information, see [getting thumbnails][]. Read-only. Nullable.
+     * Gets the thumbnails property value. Collection of thumbnailSet objects associated with the item. For more information, see getting thumbnails. Read-only. Nullable.
      * @return array<ThumbnailSet>|null
     */
     public function getThumbnails(): ?array {
@@ -481,7 +481,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the versions property value. The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
+     * Gets the versions property value. The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
      * @return array<DriveItemVersion>|null
     */
     public function getVersions(): ?array {
@@ -832,7 +832,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the thumbnails property value. Collection of [thumbnailSet][] objects associated with the item. For more information, see [getting thumbnails][]. Read-only. Nullable.
+     * Sets the thumbnails property value. Collection of thumbnailSet objects associated with the item. For more information, see getting thumbnails. Read-only. Nullable.
      * @param array<ThumbnailSet>|null $value Value to set for the thumbnails property.
     */
     public function setThumbnails(?array $value): void {
@@ -840,7 +840,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the versions property value. The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
+     * Sets the versions property value. The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
      * @param array<DriveItemVersion>|null $value Value to set for the versions property.
     */
     public function setVersions(?array $value): void {

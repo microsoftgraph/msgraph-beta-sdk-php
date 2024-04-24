@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Following;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the items that the signed-in user followed.This collection includes items that are in the user's drive and items they have access to from other drives.
+ * The list of items the user is following. Only in OneDrive for Business.
 */
 class FollowingRequestBuilderGetQueryParameters 
 {

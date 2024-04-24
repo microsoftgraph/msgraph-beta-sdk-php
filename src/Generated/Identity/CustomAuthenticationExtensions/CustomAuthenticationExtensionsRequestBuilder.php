@@ -60,11 +60,10 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
+     * Get customAuthenticationExtensions from identity
      * @param CustomAuthenticationExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAuthenticationExtensionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identitycontainer-list-customauthenticationextensions?view=graph-rest-1.0 Find more info here
     */
     public function get(?CustomAuthenticationExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,12 +74,11 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAuthenticationExtension object. The following derived types are currently supported.
+     * Create new navigation property to customAuthenticationExtensions for identity
      * @param CustomAuthenticationExtension $body The request body
      * @param CustomAuthenticationExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAuthenticationExtension|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identitycontainer-post-customauthenticationextensions?view=graph-rest-1.0 Find more info here
     */
     public function post(CustomAuthenticationExtension $body, ?CustomAuthenticationExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -91,7 +89,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
+     * Get customAuthenticationExtensions from identity
      * @param CustomAuthenticationExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +110,7 @@ class CustomAuthenticationExtensionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customAuthenticationExtension object. The following derived types are currently supported.
+     * Create new navigation property to customAuthenticationExtensions for identity
      * @param CustomAuthenticationExtension $body The request body
      * @param CustomAuthenticationExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

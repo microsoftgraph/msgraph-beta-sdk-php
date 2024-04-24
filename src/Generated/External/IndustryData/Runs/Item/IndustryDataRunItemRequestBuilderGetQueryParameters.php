@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an industryDataRun object.
+ * Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
 */
 class IndustryDataRunItemRequestBuilderGetQueryParameters 
 {

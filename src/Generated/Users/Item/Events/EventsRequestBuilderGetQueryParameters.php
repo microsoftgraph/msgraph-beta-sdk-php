@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Events;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of event objects from the user's default calendar orfrom a specified calendar. The list contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, orget the instances of an event. There are two scenarios where an app can get events in another user's calendar:
+ * The user's events. The default is to show events under the Default Calendar. Read-only. Nullable.
 */
 class EventsRequestBuilderGetQueryParameters 
 {

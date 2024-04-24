@@ -84,11 +84,10 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are members of a deploymentAudience.
+     * Specifies the assets to include in the audience.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAssetCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-members?view=graph-rest-1.0 Find more info here
     */
     public function get(?MembersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -114,7 +113,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the updatableAsset resources that are members of a deploymentAudience.
+     * Specifies the assets to include in the audience.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

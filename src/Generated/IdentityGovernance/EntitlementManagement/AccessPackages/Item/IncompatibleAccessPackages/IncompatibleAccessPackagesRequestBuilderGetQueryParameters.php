@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of the accessPackage objects marked as incompatible on an accessPackage.  
+ * The  access packages whose assigned users are ineligible to be assigned this access package.
 */
 class IncompatibleAccessPackagesRequestBuilderGetQueryParameters 
 {

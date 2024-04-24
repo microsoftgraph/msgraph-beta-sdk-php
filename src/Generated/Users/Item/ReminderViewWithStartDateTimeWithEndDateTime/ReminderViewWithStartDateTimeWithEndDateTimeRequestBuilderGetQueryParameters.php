@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ReminderViewWithStartDateTim
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function reminderView
+ * Return a list of event reminders in a user calendar within the specified start and end times.
 */
 class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
 {

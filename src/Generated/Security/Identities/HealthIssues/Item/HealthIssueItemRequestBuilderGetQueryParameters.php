@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\HealthIssues\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a healthIssue object.
+ * Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
 */
 class HealthIssueItemRequestBuilderGetQueryParameters 
 {

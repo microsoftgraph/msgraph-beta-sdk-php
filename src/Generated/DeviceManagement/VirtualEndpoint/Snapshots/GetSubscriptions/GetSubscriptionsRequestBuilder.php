@@ -30,10 +30,11 @@ class GetSubscriptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getSubscriptions
+     * List all subscriptions cloudPcSubscription that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
      * @param GetSubscriptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetSubscriptionsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcsnapshot-getsubscriptions?view=graph-rest-beta Find more info here
     */
     public function get(?GetSubscriptionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetSubscriptionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getSubscriptions
+     * List all subscriptions cloudPcSubscription that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
      * @param GetSubscriptionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -36,7 +36,7 @@ class BulkRestoreCloudPcRequestBuilder extends BaseRequestBuilder
      * @param BulkRestoreCloudPcRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcBulkRemoteActionResult|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/manageddevice-bulkrestorecloudpc?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/manageddevice-bulkrestorecloudpc?view=graph-rest-beta Find more info here
     */
     public function post(BulkRestoreCloudPcPostRequestBody $body, ?BulkRestoreCloudPcRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

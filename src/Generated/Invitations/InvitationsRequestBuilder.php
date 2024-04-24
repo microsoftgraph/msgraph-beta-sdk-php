@@ -71,7 +71,7 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
      * @param InvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Invitation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-beta Find more info here
     */
     public function post(Invitation $body, ?InvitationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

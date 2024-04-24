@@ -137,7 +137,7 @@ class OrganizationItemRequestBuilder extends BaseRequestBuilder
      * @param OrganizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Organization|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/organization-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/organization-get?view=graph-rest-beta Find more info here
     */
     public function get(?OrganizationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -153,7 +153,7 @@ class OrganizationItemRequestBuilder extends BaseRequestBuilder
      * @param OrganizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Organization|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/organization-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/organization-update?view=graph-rest-beta Find more info here
     */
     public function patch(Organization $body, ?OrganizationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

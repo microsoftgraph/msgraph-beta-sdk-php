@@ -35,10 +35,11 @@ class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder extends B
     }
 
     /**
-     * Invoke function getProvisionedCloudPCs
+     * Get all provisioned Cloud PCs of a specific service plan for users under a Microsoft Entra user group.
      * @param GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetProvisionedCloudPCsWithGroupIdWithServicePlanIdGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-getprovisionedcloudpcs?view=graph-rest-beta Find more info here
     */
     public function get(?GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -49,7 +50,7 @@ class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder extends B
     }
 
     /**
-     * Invoke function getProvisionedCloudPCs
+     * Get all provisioned Cloud PCs of a specific service plan for users under a Microsoft Entra user group.
      * @param GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

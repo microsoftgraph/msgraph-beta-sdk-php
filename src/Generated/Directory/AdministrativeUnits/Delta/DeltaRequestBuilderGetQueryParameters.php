@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Delta;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function delta
+ * Get newly created, updated, or deleted administrativeUnits without having to perform a full read of the entire resource collection. For details, see Using delta query.
 */
 class DeltaRequestBuilderGetQueryParameters 
 {

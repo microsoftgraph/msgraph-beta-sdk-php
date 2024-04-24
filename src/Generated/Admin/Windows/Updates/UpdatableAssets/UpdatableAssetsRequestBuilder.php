@@ -84,11 +84,10 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
+     * Assets registered with the deployment service that can receive updates.
      * @param UpdatableAssetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAssetCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets?view=graph-rest-1.0 Find more info here
     */
     public function get(?UpdatableAssetsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -99,12 +98,11 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
+     * Create new navigation property to updatableAssets for admin
      * @param UpdatableAsset $body The request body
      * @param UpdatableAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdatableAsset|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-post-updatableassets-updatableassetgroup?view=graph-rest-1.0 Find more info here
     */
     public function post(UpdatableAsset $body, ?UpdatableAssetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -115,7 +113,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
+     * Assets registered with the deployment service that can receive updates.
      * @param UpdatableAssetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +134,7 @@ class UpdatableAssetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new updatableAssetGroup object. The updatableAssetGroup resource inherits from updatableAsset.
+     * Create new navigation property to updatableAssets for admin
      * @param UpdatableAsset $body The request body
      * @param UpdatableAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

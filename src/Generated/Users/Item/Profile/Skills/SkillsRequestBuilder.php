@@ -52,11 +52,10 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of skillProficiency objects in a user's profile.
+     * Represents detailed information about skills associated with a user in various services.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SkillProficiencyCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-list-skills?view=graph-rest-1.0 Find more info here
     */
     public function get(?SkillsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new skillProficiency object in a user's profile.
+     * Create new navigation property to skills for users
      * @param SkillProficiency $body The request body
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SkillProficiency|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/profile-post-skills?view=graph-rest-1.0 Find more info here
     */
     public function post(SkillProficiency $body, ?SkillsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of skillProficiency objects in a user's profile.
+     * Represents detailed information about skills associated with a user in various services.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class SkillsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Use this API to create a new skillProficiency object in a user's profile.
+     * Create new navigation property to skills for users
      * @param SkillProficiency $body The request body
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

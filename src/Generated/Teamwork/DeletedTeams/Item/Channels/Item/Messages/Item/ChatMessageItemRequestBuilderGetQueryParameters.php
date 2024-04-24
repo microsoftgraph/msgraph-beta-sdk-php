@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a single message or a message reply in a channel or a chat.
+ * A collection of all the messages in the channel. A navigation property. Nullable.
 */
 class ChatMessageItemRequestBuilderGetQueryParameters 
 {

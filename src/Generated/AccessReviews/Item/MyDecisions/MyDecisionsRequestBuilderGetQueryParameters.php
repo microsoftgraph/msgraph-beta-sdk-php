@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
+ * The collection of decisions for the caller, if the caller is a reviewer.
 */
 class MyDecisionsRequestBuilderGetQueryParameters 
 {

@@ -52,11 +52,10 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get a list of the permissionsCreepIndexDistribution objects and their properties.
+     * Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high).
      * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsCreepIndexDistributionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/permissionsanalytics-list-permissionscreepindexdistributions?view=graph-rest-1.0 Find more info here
     */
     public function get(?PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get a list of the permissionsCreepIndexDistribution objects and their properties.
+     * Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high).
      * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

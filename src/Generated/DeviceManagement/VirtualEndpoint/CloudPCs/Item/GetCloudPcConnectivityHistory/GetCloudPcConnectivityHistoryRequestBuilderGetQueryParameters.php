@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getCloudPcConnectivityHistory
+ * Get the connectivity history of a specific Cloud PC.
 */
 class GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters 
 {

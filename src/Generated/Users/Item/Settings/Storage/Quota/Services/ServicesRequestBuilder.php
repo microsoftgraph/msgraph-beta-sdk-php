@@ -52,11 +52,10 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of serviceStorageQuotaBreakdown objects and their properties.
+     * The breakdown of services contributing to the user's quota usage.
      * @param ServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServiceStorageQuotaBreakdownCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/unifiedstoragequota-list-services?view=graph-rest-1.0 Find more info here
     */
     public function get(?ServicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class ServicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of serviceStorageQuotaBreakdown objects and their properties.
+     * The breakdown of services contributing to the user's quota usage.
      * @param ServicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

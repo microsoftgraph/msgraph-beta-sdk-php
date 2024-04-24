@@ -53,11 +53,10 @@ class OutlineIconRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a Teams app icon associated with a specific definition of an app.
+     * The outline version of the Teams app's icon.
      * @param OutlineIconRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppIcon|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/teamsappicon-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?OutlineIconRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,7 +100,7 @@ class OutlineIconRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a Teams app icon associated with a specific definition of an app.
+     * The outline version of the Teams app's icon.
      * @param OutlineIconRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

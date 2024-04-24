@@ -66,12 +66,11 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userSource object.
+     * Create new navigation property to userSources for security
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSource|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-ediscoveryholdpolicy-post-usersources?view=graph-rest-1.0 Find more info here
     */
     public function post(UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -103,7 +102,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new userSource object.
+     * Create new navigation property to userSources for security
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

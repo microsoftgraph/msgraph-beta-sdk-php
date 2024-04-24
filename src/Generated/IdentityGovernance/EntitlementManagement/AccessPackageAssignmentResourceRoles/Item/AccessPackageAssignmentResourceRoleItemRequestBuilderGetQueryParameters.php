@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
+ * Represents the resource-specific role which a subject has been assigned through an access package assignment.
 */
 class AccessPackageAssignmentResourceRoleItemRequestBuilderGetQueryParameters 
 {

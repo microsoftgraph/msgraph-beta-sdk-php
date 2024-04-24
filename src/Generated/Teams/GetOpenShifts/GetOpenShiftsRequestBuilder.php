@@ -30,10 +30,11 @@ class GetOpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getOpenShifts
+     * Get all openShift objects across all teams a user is a direct member of.
      * @param GetOpenShiftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetOpenShiftsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/team-getopenshifts?view=graph-rest-beta Find more info here
     */
     public function get(?GetOpenShiftsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetOpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getOpenShifts
+     * Get all openShift objects across all teams a user is a direct member of.
      * @param GetOpenShiftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Clou
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the cloudPcDevice objects and their properties.
+ * The collection of cloud PC devices across managed tenants.
 */
 class CloudPcDevicesRequestBuilderGetQueryParameters 
 {

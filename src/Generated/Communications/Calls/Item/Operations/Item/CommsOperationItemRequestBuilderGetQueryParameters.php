@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Operations\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the status of an operation that adds the large gallery view to a call.
+ * Get operations from communications
 */
 class CommsOperationItemRequestBuilderGetQueryParameters 
 {

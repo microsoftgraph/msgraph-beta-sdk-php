@@ -52,11 +52,10 @@ class TenantsCustomizedInformationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantCustomizedInformation objects and their properties.
+     * The collection of tenant level customized information across managed tenants.
      * @param TenantsCustomizedInformationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantCustomizedInformationCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenantscustomizedinformation?view=graph-rest-1.0 Find more info here
     */
     public function get(?TenantsCustomizedInformationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class TenantsCustomizedInformationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tenantCustomizedInformation objects and their properties.
+     * The collection of tenant level customized information across managed tenants.
      * @param TenantsCustomizedInformationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

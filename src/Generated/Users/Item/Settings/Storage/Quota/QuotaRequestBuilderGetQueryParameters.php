@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\Storage\Quota;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a unifiedStorageQuota object.
+ * Get quota from users
 */
 class QuotaRequestBuilderGetQueryParameters 
 {

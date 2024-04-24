@@ -45,11 +45,10 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
+     * Represents entry point for continuous access evaluation policy.
      * @param ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContinuousAccessEvaluationPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a continuousAccessEvaluationPolicy object.
+     * Update the navigation property continuousAccessEvaluationPolicy in identity
      * @param ContinuousAccessEvaluationPolicy $body The request body
      * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContinuousAccessEvaluationPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ContinuousAccessEvaluationPolicy $body, ?ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -94,7 +92,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
+     * Represents entry point for continuous access evaluation policy.
      * @param ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a continuousAccessEvaluationPolicy object.
+     * Update the navigation property continuousAccessEvaluationPolicy in identity
      * @param ContinuousAccessEvaluationPolicy $body The request body
      * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

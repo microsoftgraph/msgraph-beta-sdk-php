@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A summary of the results from an attempt to configure hardware settings
+ * A summary of the results from an attempt to configure hardware settings. Read-Only.
 */
 class RunSummaryRequestBuilderGetQueryParameters 
 {

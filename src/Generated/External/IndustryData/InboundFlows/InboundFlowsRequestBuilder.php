@@ -52,11 +52,10 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFlow objects and their properties.
+     * Set of data import flow activities to bring data into the canonical store via a connector.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlowCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?InboundFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow:
+     * Create new navigation property to inboundFlows for external
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InboundFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-inboundflow-post?view=graph-rest-1.0 Find more info here
     */
     public function post(InboundFlow $body, ?InboundFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the inboundFlow objects and their properties.
+     * Set of data import flow activities to bring data into the canonical store via a connector.
      * @param InboundFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class InboundFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new inboundFlow object. The following prerequisite resources are required when you create an inboundFlow:
+     * Create new navigation property to inboundFlows for external
      * @param InboundFlow $body The request body
      * @param InboundFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

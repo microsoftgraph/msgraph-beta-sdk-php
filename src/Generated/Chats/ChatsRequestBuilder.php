@@ -80,7 +80,7 @@ class ChatsRequestBuilder extends BaseRequestBuilder
      * @param ChatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChatCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-beta Find more info here
     */
     public function get(?ChatsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -96,7 +96,7 @@ class ChatsRequestBuilder extends BaseRequestBuilder
      * @param ChatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Chat|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/chat-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/chat-post?view=graph-rest-beta Find more info here
     */
     public function post(Chat $body, ?ChatsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

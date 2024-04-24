@@ -52,11 +52,10 @@ class MyDecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
+     * The collection of decisions for the caller, if the caller is a reviewer.
      * @param MyDecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewDecisionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accessreview-listmydecisions?view=graph-rest-1.0 Find more info here
     */
     public function get(?MyDecisionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class MyDecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * In the Microsoft Entra access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
+     * The collection of decisions for the caller, if the caller is a reviewer.
      * @param MyDecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

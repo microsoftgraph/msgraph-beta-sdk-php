@@ -59,12 +59,11 @@ class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote.
+     * Update the navigation property secureScoreControlProfiles in security
      * @param SecureScoreControlProfile $body The request body
      * @param SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecureScoreControlProfile|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/securescorecontrolprofiles-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SecureScoreControlProfile $body, ?SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -114,7 +113,7 @@ class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an editable secureScoreControlProfiles property within any integrated solution to change various properties, such as assignedTo or tenantNote.
+     * Update the navigation property secureScoreControlProfiles in security
      * @param SecureScoreControlProfile $body The request body
      * @param SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

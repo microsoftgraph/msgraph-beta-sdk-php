@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Forms;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a adminForms object.
+ * Get forms from admin
 */
 class FormsRequestBuilderGetQueryParameters 
 {

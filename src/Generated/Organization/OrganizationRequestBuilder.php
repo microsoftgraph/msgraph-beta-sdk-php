@@ -88,7 +88,7 @@ class OrganizationRequestBuilder extends BaseRequestBuilder
      * @param OrganizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-beta Find more info here
     */
     public function get(?OrganizationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

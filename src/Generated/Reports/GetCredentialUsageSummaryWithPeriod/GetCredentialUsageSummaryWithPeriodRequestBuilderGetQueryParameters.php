@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetCredentialUsageSummaryWithPe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getCredentialUsageSummary
+ * Report the current state of how many users in your organization used the self-service password reset capabilities.
 */
 class GetCredentialUsageSummaryWithPeriodRequestBuilderGetQueryParameters 
 {

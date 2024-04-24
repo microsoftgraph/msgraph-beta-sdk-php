@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\CrossTenantAcces
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the cross-tenant access settings, which include network packet tagging to enforce Tenant Restrictions Policies (TRv2 Policies) aimed at preventing data exfiltration to external tenants.
+ * Defines whether the tenant restrictions cross-tenant access settings are enabled for traffic profiles. Each tenant has only one cross-tenant access settings object.
 */
 class CrossTenantAccessRequestBuilderGetQueryParameters 
 {

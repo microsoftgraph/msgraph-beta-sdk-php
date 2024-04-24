@@ -31,10 +31,11 @@ class GetCapabilitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getCapabilities
+     * Get a list of capabilities for the printer.
      * @param GetCapabilitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrinterCapabilities|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printer-getcapabilities?view=graph-rest-beta Find more info here
     */
     public function get(?GetCapabilitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class GetCapabilitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getCapabilities
+     * Get a list of capabilities for the printer.
      * @param GetCapabilitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

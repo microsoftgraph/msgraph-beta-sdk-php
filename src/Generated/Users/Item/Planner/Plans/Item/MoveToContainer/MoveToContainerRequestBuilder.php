@@ -36,7 +36,7 @@ class MoveToContainerRequestBuilder extends BaseRequestBuilder
      * @param MoveToContainerRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlan|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerplan-movetocontainer?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/plannerplan-movetocontainer?view=graph-rest-beta Find more info here
     */
     public function post(MoveToContainerPostRequestBody $body, ?MoveToContainerRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

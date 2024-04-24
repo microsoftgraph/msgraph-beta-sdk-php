@@ -52,11 +52,10 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the cloudClipboardItem objects and their properties for a user. This API only allows you to get cloudClipboardItem objects for: This API doesn't support using another user's credentials to get a cloudClipboardItem for a user. 
+     * Represents a collection of Cloud Clipboard items.
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudClipboardItemCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudclipboardroot-list-items?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the cloudClipboardItem objects and their properties for a user. This API only allows you to get cloudClipboardItem objects for: This API doesn't support using another user's credentials to get a cloudClipboardItem for a user. 
+     * Represents a collection of Cloud Clipboard items.
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

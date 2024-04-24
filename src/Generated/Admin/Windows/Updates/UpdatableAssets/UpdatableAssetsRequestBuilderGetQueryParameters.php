@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of updatableAsset objects and their properties. Listing updatable assets returns updatableAsset resources of the following derived types: azureADDevice and updatableAssetGroup. Use list azureADDevice resources or list updatableAssetGroup resources to filter and get resources of only one of the derived types.
+ * Assets registered with the deployment service that can receive updates.
 */
 class UpdatableAssetsRequestBuilderGetQueryParameters 
 {

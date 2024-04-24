@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the details of an outboundSharedUserProfile.
+ * Get outboundSharedUserProfiles from directory
 */
 class OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters 
 {

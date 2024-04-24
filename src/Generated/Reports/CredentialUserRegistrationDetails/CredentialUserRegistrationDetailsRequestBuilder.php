@@ -52,11 +52,10 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of credentialUserRegistrationDetails objects for a given tenant.
+     * Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @param CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetailsCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-1.0 Find more info here
     */
     public function get(?CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of credentialUserRegistrationDetails objects for a given tenant.
+     * Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @param CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

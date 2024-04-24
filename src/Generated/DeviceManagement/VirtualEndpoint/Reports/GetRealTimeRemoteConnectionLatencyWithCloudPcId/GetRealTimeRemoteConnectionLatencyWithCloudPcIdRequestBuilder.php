@@ -34,10 +34,11 @@ class GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder extends Base
     }
 
     /**
-     * Invoke function getRealTimeRemoteConnectionLatency
+     * Get the real-time connection latency information for a Cloud PC.
      * @param GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getrealtimeremoteconnectionlatency?view=graph-rest-beta Find more info here
     */
     public function get(?GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder extends Base
     }
 
     /**
-     * Invoke function getRealTimeRemoteConnectionLatency
+     * Get the real-time connection latency information for a Cloud PC.
      * @param GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

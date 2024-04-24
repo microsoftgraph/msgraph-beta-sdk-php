@@ -31,11 +31,10 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a staff member in the specified bookingbusiness.
+     * Delete navigation property staffMembers for bookingBusinesses
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
+     * All the staff members that provide services in this business. Read-only. Nullable.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingStaffMember|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BookingStaffMemberItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
+     * Update the navigation property staffMembers in bookingBusinesses
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingStaffMember|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(BookingStaffMember $body, ?BookingStaffMemberItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a staff member in the specified bookingbusiness.
+     * Delete navigation property staffMembers for bookingBusinesses
      * @param BookingStaffMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
+     * All the staff members that provide services in this business. Read-only. Nullable.
      * @param BookingStaffMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class BookingStaffMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
+     * Update the navigation property staffMembers in bookingBusinesses
      * @param BookingStaffMember $body The request body
      * @param BookingStaffMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

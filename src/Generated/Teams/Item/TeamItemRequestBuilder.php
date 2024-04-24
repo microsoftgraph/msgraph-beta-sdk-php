@@ -209,7 +209,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
      * @param TeamItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/team-get?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/team-get?view=graph-rest-beta Find more info here
     */
     public function get(?TeamItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -225,7 +225,7 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
      * @param TeamItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/team-update?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/team-update?view=graph-rest-beta Find more info here
     */
     public function patch(Team $body, ?TeamItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);

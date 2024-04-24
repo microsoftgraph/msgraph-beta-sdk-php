@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\Role
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function filterByCurrentUser
+ * Retrieve the schedules for active role assignment operations for which the signed-in user is the principal.
 */
 class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
 {

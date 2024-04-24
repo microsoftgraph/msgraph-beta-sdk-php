@@ -64,7 +64,7 @@ class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder
      * @param Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OAuth2PermissionGrantCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-list?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-list?view=graph-rest-beta Find more info here
     */
     public function get(?Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -80,7 +80,7 @@ class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder
      * @param Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OAuth2PermissionGrant|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-post?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/oauth2permissiongrant-post?view=graph-rest-beta Find more info here
     */
     public function post(OAuth2PermissionGrant $body, ?Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

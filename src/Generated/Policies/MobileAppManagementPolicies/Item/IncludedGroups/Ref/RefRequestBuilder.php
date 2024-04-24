@@ -32,11 +32,10 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a group from the list of groups included in a mobile app management policy.
+     * Delete ref of navigation property includedGroups for policies
      * @param RefRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete-includedgroups?view=graph-rest-1.0 Find more info here
     */
     public function delete(?RefRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -47,11 +46,10 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of groups that are included in a mobile app management policy.
+     * Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StringCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list-includedgroups?view=graph-rest-1.0 Find more info here
     */
     public function get(?RefRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -62,12 +60,11 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add groups to be included in a mobile app management policy.
+     * Create new navigation property ref to includedGroups for policies
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-post-includedgroups?view=graph-rest-1.0 Find more info here
     */
     public function post(ReferenceCreate $body, ?RefRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -78,7 +75,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a group from the list of groups included in a mobile app management policy.
+     * Delete ref of navigation property includedGroups for policies
      * @param RefRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -99,7 +96,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of groups that are included in a mobile app management policy.
+     * Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -120,7 +117,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add groups to be included in a mobile app management policy.
+     * Create new navigation property ref to includedGroups for policies
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

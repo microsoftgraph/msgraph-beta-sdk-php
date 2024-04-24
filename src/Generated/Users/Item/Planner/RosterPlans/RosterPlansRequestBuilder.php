@@ -51,11 +51,10 @@ class RosterPlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
+     * Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
      * @param RosterPlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/planneruser-list-rosterplans?view=graph-rest-1.0 Find more info here
     */
     public function get(?RosterPlansRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +65,7 @@ class RosterPlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
+     * Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
      * @param RosterPlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

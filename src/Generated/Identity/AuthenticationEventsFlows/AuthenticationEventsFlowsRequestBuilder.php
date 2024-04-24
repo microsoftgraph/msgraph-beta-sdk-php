@@ -60,11 +60,10 @@ class AuthenticationEventsFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of authentication events policies that are derived from authenticationEventsFlow. Only the externalUsersSelfServiceSignupEventsFlow object type is returned.
+     * Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
      * @param AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventsFlowCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identitycontainer-list-authenticationeventsflows?view=graph-rest-1.0 Find more info here
     */
     public function get(?AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,12 +74,11 @@ class AuthenticationEventsFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationEventsFlow object that is of the type specified in the request body. You can create only an externalUsersSelfServiceSignupEventsFlow object type.
+     * Create new navigation property to authenticationEventsFlows for identity
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventsFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identitycontainer-post-authenticationeventsflows?view=graph-rest-1.0 Find more info here
     */
     public function post(AuthenticationEventsFlow $body, ?AuthenticationEventsFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -91,7 +89,7 @@ class AuthenticationEventsFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of authentication events policies that are derived from authenticationEventsFlow. Only the externalUsersSelfServiceSignupEventsFlow object type is returned.
+     * Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
      * @param AuthenticationEventsFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +110,7 @@ class AuthenticationEventsFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new authenticationEventsFlow object that is of the type specified in the request body. You can create only an externalUsersSelfServiceSignupEventsFlow object type.
+     * Create new navigation property to authenticationEventsFlows for identity
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the recommendation objects and their properties.
+ * List of recommended improvements to improve tenant posture.
 */
 class RecommendationsRequestBuilderGetQueryParameters 
 {

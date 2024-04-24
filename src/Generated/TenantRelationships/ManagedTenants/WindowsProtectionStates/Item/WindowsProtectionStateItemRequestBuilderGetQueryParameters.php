@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Wind
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a windowsProtectionState object.
+ * The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
 */
 class WindowsProtectionStateItemRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Noncus
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a noncustodialDataSource object.
+ * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
 */
 class NoncustodialDataSourceItemRequestBuilderGetQueryParameters 
 {

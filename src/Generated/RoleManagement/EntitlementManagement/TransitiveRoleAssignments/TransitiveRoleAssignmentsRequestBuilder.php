@@ -56,7 +56,6 @@ class TransitiveRoleAssignmentsRequestBuilder extends BaseRequestBuilder
      * @param TransitiveRoleAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleAssignmentCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/rbacapplication-list-transitiveroleassignments?view=graph-rest-1.0 Find more info here
     */
     public function get(?TransitiveRoleAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

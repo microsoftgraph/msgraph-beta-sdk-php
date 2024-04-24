@@ -33,10 +33,11 @@ class MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithInc
     }
 
     /**
-     * Invoke function getKnownIssuesByTimeRange
+     * Get known issues related to a particular product based on a specified timeframe in the past.
      * @param MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-product-getknownissuesbytimerange?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -47,7 +48,7 @@ class MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithInc
     }
 
     /**
-     * Invoke function getKnownIssuesByTimeRange
+     * Get known issues related to a particular product based on a specified timeframe in the past.
      * @param MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

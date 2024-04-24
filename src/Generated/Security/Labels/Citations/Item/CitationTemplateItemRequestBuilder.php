@@ -45,11 +45,10 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a citationTemplate object.
+     * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
      * @param CitationTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CitationTemplate|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-citationtemplate-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CitationTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -93,7 +92,7 @@ class CitationTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a citationTemplate object.
+     * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
      * @param CitationTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the default and localized agreement files.
+ * The localized version of the terms of use agreement files attached to the agreement.
 */
 class LocalizationsRequestBuilderGetQueryParameters 
 {

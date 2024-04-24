@@ -34,11 +34,10 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
+     * Delete navigation property businessScenarios for solutions
      * @param BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/businessscenario-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -49,11 +48,10 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a businessScenario object.
+     * Get businessScenarios from solutions
      * @param BusinessScenariosWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/businessscenario-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?BusinessScenariosWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -64,12 +62,11 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a businessScenario object.
+     * Update the navigation property businessScenarios in solutions
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/businessscenario-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(BusinessScenario $body, ?BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -80,7 +77,7 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
+     * Delete navigation property businessScenarios for solutions
      * @param BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +95,7 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a businessScenario object.
+     * Get businessScenarios from solutions
      * @param BusinessScenariosWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +116,7 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a businessScenario object.
+     * Update the navigation property businessScenarios in solutions
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

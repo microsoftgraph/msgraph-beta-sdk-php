@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SoftwareOathM
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a user's single Software OATH token authentication method object and its properties.
+ * Get softwareOathMethods from users
 */
 class SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

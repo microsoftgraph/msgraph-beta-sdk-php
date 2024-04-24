@@ -52,11 +52,10 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2cIdentityUserFlow objects.
+     * Represents entry point for B2C identity userflows.
      * @param B2cUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cIdentityUserFlowCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identitycontainer-list-b2cuserflows?view=graph-rest-1.0 Find more info here
     */
     public function get(?B2cUserFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new b2cIdentityUserFlow object.
+     * Create new navigation property to b2cUserFlows for identity
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cIdentityUserFlow|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/identitycontainer-post-b2cuserflows?view=graph-rest-1.0 Find more info here
     */
     public function post(B2cIdentityUserFlow $body, ?B2cUserFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of b2cIdentityUserFlow objects.
+     * Represents entry point for B2C identity userflows.
      * @param B2cUserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class B2cUserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new b2cIdentityUserFlow object.
+     * Create new navigation property to b2cUserFlows for identity
      * @param B2cIdentityUserFlow $body The request body
      * @param B2cUserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

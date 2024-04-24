@@ -51,11 +51,10 @@ class PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder extends BaseReques
     }
 
     /**
-     * Retrieve a list of a user's Microsoft Authenticator Passwordless Phone Sign-in method objects and their properties.
+     * Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
      * @param PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PasswordlessMicrosoftAuthenticatorAuthenticationMethodCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/passwordlessmicrosoftauthenticatorauthenticationmethod-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +65,7 @@ class PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder extends BaseReques
     }
 
     /**
-     * Retrieve a list of a user's Microsoft Authenticator Passwordless Phone Sign-in method objects and their properties.
+     * Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
      * @param PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,11 +52,10 @@ class TrainingCampaignsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of trainingCampaign objects and their properties.
+     * Represents a training campaign in a tenant.
      * @param TrainingCampaignsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrainingCampaignCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/attacksimulationroot-list-trainingcampaigns?view=graph-rest-1.0 Find more info here
     */
     public function get(?TrainingCampaignsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class TrainingCampaignsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new trainingCampaign object.
+     * Create new navigation property to trainingCampaigns for security
      * @param TrainingCampaign $body The request body
      * @param TrainingCampaignsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrainingCampaign|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/attacksimulationroot-post-trainingcampaigns?view=graph-rest-1.0 Find more info here
     */
     public function post(TrainingCampaign $body, ?TrainingCampaignsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class TrainingCampaignsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of trainingCampaign objects and their properties.
+     * Represents a training campaign in a tenant.
      * @param TrainingCampaignsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class TrainingCampaignsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new trainingCampaign object.
+     * Create new navigation property to trainingCampaigns for security
      * @param TrainingCampaign $body The request body
      * @param TrainingCampaignsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

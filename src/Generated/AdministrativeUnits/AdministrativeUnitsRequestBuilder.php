@@ -88,7 +88,7 @@ class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder
      * @param AdministrativeUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdministrativeUnitCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directory-list-administrativeunits?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/directory-list-administrativeunits?view=graph-rest-beta Find more info here
     */
     public function get(?AdministrativeUnitsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -104,7 +104,7 @@ class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder
      * @param AdministrativeUnitsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdministrativeUnit|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/directory-post-administrativeunits?view=graph-rest-1.0 Find more info here
+     * @link https://learn.microsoft.com/graph/api/directory-post-administrativeunits?view=graph-rest-beta Find more info here
     */
     public function post(AdministrativeUnit $body, ?AdministrativeUnitsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

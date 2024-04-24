@@ -52,11 +52,10 @@ class PermissionsRequestChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the permissionsRequestChange objects and their properties.
+     * Represents a change event of the scheduledPermissionsRequest entity.
      * @param PermissionsRequestChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsRequestChangeCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/permissionsmanagement-list-permissionsrequestchanges?view=graph-rest-1.0 Find more info here
     */
     public function get(?PermissionsRequestChangesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +81,7 @@ class PermissionsRequestChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the permissionsRequestChange objects and their properties.
+     * Represents a change event of the scheduledPermissionsRequest entity.
      * @param PermissionsRequestChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

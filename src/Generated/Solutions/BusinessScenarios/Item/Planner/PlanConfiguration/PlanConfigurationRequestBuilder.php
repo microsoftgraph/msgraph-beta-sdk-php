@@ -53,11 +53,10 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfiguration object.
+     * The configuration of Planner plans that will be created for the scenario.
      * @param PlanConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanConfiguration|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerplanconfiguration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?PlanConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -68,12 +67,11 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlanConfiguration object for a businessScenario.
+     * Update the navigation property planConfiguration in solutions
      * @param PlannerPlanConfiguration $body The request body
      * @param PlanConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanConfiguration|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerplanconfiguration-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(PlannerPlanConfiguration $body, ?PlanConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -102,7 +100,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a plannerPlanConfiguration object.
+     * The configuration of Planner plans that will be created for the scenario.
      * @param PlanConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +121,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlanConfiguration object for a businessScenario.
+     * Update the navigation property planConfiguration in solutions
      * @param PlannerPlanConfiguration $body The request body
      * @param PlanConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

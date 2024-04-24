@@ -66,12 +66,11 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new remote network.
+     * Create new navigation property to remoteNetworks for networkAccess
      * @param RemoteNetwork $body The request body
      * @param RemoteNetworksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetwork|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-connectivity-post-remotenetworks?view=graph-rest-1.0 Find more info here
     */
     public function post(RemoteNetwork $body, ?RemoteNetworksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -103,7 +102,7 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new remote network.
+     * Create new navigation property to remoteNetworks for networkAccess
      * @param RemoteNetwork $body The request body
      * @param RemoteNetworksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

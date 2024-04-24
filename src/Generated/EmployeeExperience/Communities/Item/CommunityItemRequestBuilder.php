@@ -61,11 +61,10 @@ class CommunityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a community object.
+     * A collection of communities in Viva Engage.
      * @param CommunityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Community|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/community-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?CommunityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -109,7 +108,7 @@ class CommunityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a community object.
+     * A collection of communities in Viva Engage.
      * @param CommunityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

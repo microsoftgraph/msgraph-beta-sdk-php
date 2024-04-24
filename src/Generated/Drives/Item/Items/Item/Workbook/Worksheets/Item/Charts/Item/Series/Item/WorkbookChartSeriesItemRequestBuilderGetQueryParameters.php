@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Workshe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of chartseries object.
+ * Represents either a single series or collection of series in the chart. Read-only.
 */
 class WorkbookChartSeriesItemRequestBuilderGetQueryParameters 
 {

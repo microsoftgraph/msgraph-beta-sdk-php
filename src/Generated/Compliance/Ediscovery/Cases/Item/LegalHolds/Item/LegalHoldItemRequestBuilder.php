@@ -55,11 +55,10 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a legalHold object.
+     * Delete navigation property legalHolds for compliance
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?LegalHoldItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -70,11 +69,10 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object.
+     * Returns a list of case legalHold objects for this case.  Nullable.
      * @param LegalHoldItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LegalHold|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?LegalHoldItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -85,12 +83,11 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a legalHold object.
+     * Update the navigation property legalHolds in compliance
      * @param LegalHold $body The request body
      * @param LegalHoldItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LegalHold|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(LegalHold $body, ?LegalHoldItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -101,7 +98,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a legalHold object.
+     * Delete navigation property legalHolds for compliance
      * @param LegalHoldItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +116,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a legalHold object.
+     * Returns a list of case legalHold objects for this case.  Nullable.
      * @param LegalHoldItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -140,7 +137,7 @@ class LegalHoldItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a legalHold object.
+     * Update the navigation property legalHolds in compliance
      * @param LegalHold $body The request body
      * @param LegalHoldItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

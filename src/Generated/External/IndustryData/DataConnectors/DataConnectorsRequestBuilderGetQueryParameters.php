@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the industryDataConnector resources from the dataConnector navigation property.
+ * Set of connectors for importing data from source systems.
 */
 class DataConnectorsRequestBuilderGetQueryParameters 
 {

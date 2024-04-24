@@ -31,11 +31,10 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a webAccount object from a user's profile.
+     * Delete navigation property webAccounts for users
      * @param WebAccountItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/webaccount-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?WebAccountItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a webAccount object from a user's profile.
+     * Represents web accounts the user has indicated they use or has added to their user profile.
      * @param WebAccountItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccount|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/webaccount-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?WebAccountItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a webAccount object in a user's profile.
+     * Update the navigation property webAccounts in users
      * @param WebAccount $body The request body
      * @param WebAccountItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebAccount|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/webaccount-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(WebAccount $body, ?WebAccountItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a webAccount object from a user's profile.
+     * Delete navigation property webAccounts for users
      * @param WebAccountItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a webAccount object from a user's profile.
+     * Represents web accounts the user has indicated they use or has added to their user profile.
      * @param WebAccountItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class WebAccountItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a webAccount object in a user's profile.
+     * Update the navigation property webAccounts in users
      * @param WebAccount $body The request body
      * @param WebAccountItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Addresses\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an itemAddress object.
+ * Represents details of addresses associated with the user.
 */
 class ItemAddressItemRequestBuilderGetQueryParameters 
 {

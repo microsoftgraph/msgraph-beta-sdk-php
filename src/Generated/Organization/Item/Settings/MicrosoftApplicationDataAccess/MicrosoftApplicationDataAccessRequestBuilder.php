@@ -45,11 +45,10 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
+     * Get microsoftApplicationDataAccess from organization
      * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftApplicationDataAccessSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/organizationsettings-list-microsoftapplicationdataaccess?view=graph-rest-1.0 Find more info here
     */
     public function get(?MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,12 +59,11 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
+     * Update the navigation property microsoftApplicationDataAccess in organization
      * @param MicrosoftApplicationDataAccessSettings $body The request body
      * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftApplicationDataAccessSettings|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/microsoftapplicationdataaccesssettings-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(MicrosoftApplicationDataAccessSettings $body, ?MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -94,7 +92,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
+     * Get microsoftApplicationDataAccess from organization
      * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +113,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
+     * Update the navigation property microsoftApplicationDataAccess in organization
      * @param MicrosoftApplicationDataAccessSettings $body The request body
      * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

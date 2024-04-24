@@ -36,10 +36,11 @@ class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDat
     }
 
     /**
-     * Invoke function transactionSummaries
+     * Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
      * @param MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TransactionSummariesWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-reports-transactionsummaries?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDat
     }
 
     /**
-     * Invoke function transactionSummaries
+     * Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
      * @param MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

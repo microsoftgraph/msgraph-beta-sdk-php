@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List of the Azure AD user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported.
+ * A list of the Entra user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported. Optional.
 */
 class AssignmentsRequestBuilderGetQueryParameters 
 {

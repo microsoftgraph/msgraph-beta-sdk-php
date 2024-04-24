@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\Role
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function filterByCurrentUser
+ * Get a list of the unifiedRoleEligibilitySchedule objects and their properties associated with a particular principal object.
 */
 class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
 {

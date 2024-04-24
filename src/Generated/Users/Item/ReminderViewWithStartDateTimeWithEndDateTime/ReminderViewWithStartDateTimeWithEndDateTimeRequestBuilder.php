@@ -35,10 +35,11 @@ class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke function reminderView
+     * Return a list of event reminders in a user calendar within the specified start and end times.
      * @param ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/user-reminderview?view=graph-rest-beta Find more info here
     */
     public function get(?ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -49,7 +50,7 @@ class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke function reminderView
+     * Return a list of event reminders in a user calendar within the specified start and end times.
      * @param ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

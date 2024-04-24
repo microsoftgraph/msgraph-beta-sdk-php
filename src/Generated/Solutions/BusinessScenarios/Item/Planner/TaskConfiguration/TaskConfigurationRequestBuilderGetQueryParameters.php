@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planne
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a plannerTaskConfiguration object.
+ * The configuration of Planner tasks that will be created for the scenario.
 */
 class TaskConfigurationRequestBuilderGetQueryParameters 
 {

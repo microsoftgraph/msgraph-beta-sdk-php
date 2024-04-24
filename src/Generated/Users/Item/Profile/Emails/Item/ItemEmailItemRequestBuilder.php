@@ -31,11 +31,10 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an itemEmail object from a user's profile.
+     * Delete navigation property emails for users
      * @param ItemEmailItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itememail-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?ItemEmailItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
+     * Represents detailed information about email addresses associated with the user.
      * @param ItemEmailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemEmail|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itememail-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ItemEmailItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemEmail object in a user's profile.
+     * Update the navigation property emails in users
      * @param ItemEmail $body The request body
      * @param ItemEmailItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemEmail|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/itememail-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(ItemEmail $body, ?ItemEmailItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an itemEmail object from a user's profile.
+     * Delete navigation property emails for users
      * @param ItemEmailItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
+     * Represents detailed information about email addresses associated with the user.
      * @param ItemEmailItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class ItemEmailItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an itemEmail object in a user's profile.
+     * Update the navigation property emails in users
      * @param ItemEmail $body The request body
      * @param ItemEmailItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -31,11 +31,10 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an educationalActivity object from a user's profile.
+     * Delete navigation property educationalActivities for users
      * @param EducationalActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationalactivity-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?EducationalActivityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an educationalActivity object from a users profile.
+     * Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
      * @param EducationalActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationalActivity|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationalactivity-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?EducationalActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationalActivity object within a user's profile.
+     * Update the navigation property educationalActivities in users
      * @param EducationalActivity $body The request body
      * @param EducationalActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationalActivity|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationalactivity-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(EducationalActivity $body, ?EducationalActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an educationalActivity object from a user's profile.
+     * Delete navigation property educationalActivities for users
      * @param EducationalActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an educationalActivity object from a users profile.
+     * Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
      * @param EducationalActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class EducationalActivityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an educationalActivity object within a user's profile.
+     * Update the navigation property educationalActivities in users
      * @param EducationalActivity $body The request body
      * @param EducationalActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

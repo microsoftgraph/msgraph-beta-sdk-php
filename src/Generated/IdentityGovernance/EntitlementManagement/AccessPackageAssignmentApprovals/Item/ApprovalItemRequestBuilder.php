@@ -53,11 +53,10 @@ class ApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+     * Get accessPackageAssignmentApprovals from identityGovernance
      * @param ApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Approval|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/approval-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?ApprovalItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -101,7 +100,7 @@ class ApprovalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of an approval object. This API request is made by an approver in the following scenarios:
+     * Get accessPackageAssignmentApprovals from identityGovernance
      * @param ApprovalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

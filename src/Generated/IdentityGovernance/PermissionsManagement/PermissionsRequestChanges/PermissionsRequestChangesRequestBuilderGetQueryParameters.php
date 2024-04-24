@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List the permissionsRequestChange objects and their properties.
+ * Represents a change event of the scheduledPermissionsRequest entity.
 */
 class PermissionsRequestChangesRequestBuilderGetQueryParameters 
 {

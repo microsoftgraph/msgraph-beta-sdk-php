@@ -30,10 +30,11 @@ class RetrieveScopedPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrieveScopedPermissions
+     * Get the permissions and corresponding scope IDs for which the authenticated user has access.
      * @param RetrieveScopedPermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveScopedPermissionsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-retrievescopedpermissions?view=graph-rest-beta Find more info here
     */
     public function get(?RetrieveScopedPermissionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class RetrieveScopedPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrieveScopedPermissions
+     * Get the permissions and corresponding scope IDs for which the authenticated user has access.
      * @param RetrieveScopedPermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

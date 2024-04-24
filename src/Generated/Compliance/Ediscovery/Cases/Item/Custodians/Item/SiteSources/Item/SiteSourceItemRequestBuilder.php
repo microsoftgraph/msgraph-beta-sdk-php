@@ -39,11 +39,10 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a siteSource object.
+     * Delete navigation property siteSources for compliance
      * @param SiteSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-sitesource-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SiteSourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,11 +53,10 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a siteSource object.
+     * Data source entity for SharePoint sites associated with the custodian.
      * @param SiteSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteSource|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-sitesource-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SiteSourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -84,7 +82,7 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a siteSource object.
+     * Delete navigation property siteSources for compliance
      * @param SiteSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +100,7 @@ class SiteSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a siteSource object.
+     * Data source entity for SharePoint sites associated with the custodian.
      * @param SiteSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

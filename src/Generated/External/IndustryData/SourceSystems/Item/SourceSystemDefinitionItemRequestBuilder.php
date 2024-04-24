@@ -31,11 +31,10 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceSystemDefinition object.
+     * Delete navigation property sourceSystems for external
      * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-delete?view=graph-rest-1.0 Find more info here
     */
     public function delete(?SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,11 +45,10 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a sourceSystemDefinition object.
+     * Set of source definitions that represents real-world external systems.
      * @param SourceSystemDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceSystemDefinition|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?SourceSystemDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,12 +59,11 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sourceSystemDefinition object.
+     * Update the navigation property sourceSystems in external
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceSystemDefinition|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-update?view=graph-rest-1.0 Find more info here
     */
     public function patch(SourceSystemDefinition $body, ?SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +74,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a sourceSystemDefinition object.
+     * Delete navigation property sourceSystems for external
      * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +92,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a sourceSystemDefinition object.
+     * Set of source definitions that represents real-world external systems.
      * @param SourceSystemDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +113,7 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a sourceSystemDefinition object.
+     * Update the navigation property sourceSystems in external
      * @param SourceSystemDefinition $body The request body
      * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

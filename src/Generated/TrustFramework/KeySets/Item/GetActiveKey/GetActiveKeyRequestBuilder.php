@@ -31,10 +31,11 @@ class GetActiveKeyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getActiveKey
+     * Get the currently active trustFrameworkKey in a trustFrameworkKeySet. Only one key is active in the keyset at a time.
      * @param GetActiveKeyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKey|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-getactivekey?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveKeyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class GetActiveKeyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getActiveKey
+     * Get the currently active trustFrameworkKey in a trustFrameworkKeySet. Only one key is active in the keyset at a time.
      * @param GetActiveKeyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
