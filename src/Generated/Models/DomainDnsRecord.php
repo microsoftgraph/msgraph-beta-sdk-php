@@ -51,7 +51,7 @@ class DomainDnsRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the isOptional property value. If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
+     * Gets the isOptional property value. If false, the customer must configure this record at the DNS host for Microsoft Online Services to operate correctly with the domain.
      * @return bool|null
     */
     public function getIsOptional(): ?bool {
@@ -75,7 +75,7 @@ class DomainDnsRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the recordType property value. Indicates what type of DNS record this entity represents. The value can be one of the following: CName, Mx, Srv, Txt.
+     * Gets the recordType property value. Indicates what type of DNS record this entity represents. The value can be one of the following values: CName, Mx, Srv, Txt.
      * @return string|null
     */
     public function getRecordType(): ?string {
@@ -124,7 +124,7 @@ class DomainDnsRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the isOptional property value. If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
+     * Sets the isOptional property value. If false, the customer must configure this record at the DNS host for Microsoft Online Services to operate correctly with the domain.
      * @param bool|null $value Value to set for the isOptional property.
     */
     public function setIsOptional(?bool $value): void {
@@ -140,7 +140,7 @@ class DomainDnsRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the recordType property value. Indicates what type of DNS record this entity represents. The value can be one of the following: CName, Mx, Srv, Txt.
+     * Sets the recordType property value. Indicates what type of DNS record this entity represents. The value can be one of the following values: CName, Mx, Srv, Txt.
      * @param string|null $value Value to set for the recordType property.
     */
     public function setRecordType(?string $value): void {
