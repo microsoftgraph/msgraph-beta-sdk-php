@@ -51,7 +51,7 @@ class MyDayTasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get myDayTasks from users
+     * Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
      * @param MyDayTasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerTaskCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class MyDayTasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get myDayTasks from users
+     * Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
      * @param MyDayTasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

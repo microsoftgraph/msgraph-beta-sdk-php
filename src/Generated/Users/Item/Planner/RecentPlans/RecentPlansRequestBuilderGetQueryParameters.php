@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\RecentPlans;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+ * Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
 */
 class RecentPlansRequestBuilderGetQueryParameters 
 {

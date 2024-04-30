@@ -87,7 +87,7 @@ class Identity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the identity. The display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * Gets the displayName property value. The display name of the identity. This property is read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -112,7 +112,7 @@ class Identity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the id property value. Unique identifier for the identity. When the unique identifier is unavailable, the displayName property is provided for the identity, but the id property isn't included in the response.
+     * Gets the id property value. The identifier of the identity. This property is read-only.
      * @return string|null
     */
     public function getId(): ?string {
@@ -163,7 +163,7 @@ class Identity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the identity. The display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * Sets the displayName property value. The display name of the identity. This property is read-only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -171,7 +171,7 @@ class Identity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the id property value. Unique identifier for the identity. When the unique identifier is unavailable, the displayName property is provided for the identity, but the id property isn't included in the response.
+     * Sets the id property value. The identifier of the identity. This property is read-only.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {

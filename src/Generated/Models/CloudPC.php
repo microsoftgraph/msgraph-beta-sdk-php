@@ -39,6 +39,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the allotmentDisplayName property value. The allotment name divides tenant licenses into smaller batches or groups that helps restrict the number of licenses available for use in a specific assignment. When the provisioningType is dedicated, the allotment name is null. Read-only.
+     * @return string|null
+    */
+    public function getAllotmentDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('allotmentDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allotmentDisplayName'");
+    }
+
+    /**
      * Gets the connectionSettings property value. The connectionSettings property
      * @return CloudPcConnectionSettings|null
     */
@@ -106,6 +118,7 @@ class CloudPC extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'aadDeviceId' => fn(ParseNode $n) => $o->setAadDeviceId($n->getStringValue()),
+            'allotmentDisplayName' => fn(ParseNode $n) => $o->setAllotmentDisplayName($n->getStringValue()),
             'connectionSettings' => fn(ParseNode $n) => $o->setConnectionSettings($n->getObjectValue([CloudPcConnectionSettings::class, 'createFromDiscriminatorValue'])),
             'connectivityResult' => fn(ParseNode $n) => $o->setConnectivityResult($n->getObjectValue([CloudPcConnectivityResult::class, 'createFromDiscriminatorValue'])),
             'disasterRecoveryCapability' => fn(ParseNode $n) => $o->setDisasterRecoveryCapability($n->getObjectValue([CloudPcDisasterRecoveryCapability::class, 'createFromDiscriminatorValue'])),
@@ -418,6 +431,7 @@ class CloudPC extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('aadDeviceId', $this->getAadDeviceId());
+        $writer->writeStringValue('allotmentDisplayName', $this->getAllotmentDisplayName());
         $writer->writeObjectValue('connectionSettings', $this->getConnectionSettings());
         $writer->writeObjectValue('connectivityResult', $this->getConnectivityResult());
         $writer->writeObjectValue('disasterRecoveryCapability', $this->getDisasterRecoveryCapability());
@@ -453,6 +467,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setAadDeviceId(?string $value): void {
         $this->getBackingStore()->set('aadDeviceId', $value);
+    }
+
+    /**
+     * Sets the allotmentDisplayName property value. The allotment name divides tenant licenses into smaller batches or groups that helps restrict the number of licenses available for use in a specific assignment. When the provisioningType is dedicated, the allotment name is null. Read-only.
+     * @param string|null $value Value to set for the allotmentDisplayName property.
+    */
+    public function setAllotmentDisplayName(?string $value): void {
+        $this->getBackingStore()->set('allotmentDisplayName', $value);
     }
 
     /**
