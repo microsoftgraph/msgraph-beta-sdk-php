@@ -51,7 +51,7 @@ class RecentPlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+     * Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
      * @param RecentPlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class RecentPlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+     * Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
      * @param RecentPlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

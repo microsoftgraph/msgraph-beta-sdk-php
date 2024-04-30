@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get myDayTasks from users
+ * Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
 */
 class MyDayTasksRequestBuilderGetQueryParameters 
 {

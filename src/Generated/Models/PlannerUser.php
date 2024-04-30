@@ -40,7 +40,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the favoritePlanReferences property value. A collection that contains the references to the plans that the user has marked as favorites.
+     * Gets the favoritePlanReferences property value. A collection that contains the references to the plans that the user marked as favorites.
      * @return PlannerFavoritePlanReferenceCollection|null
     */
     public function getFavoritePlanReferences(): ?PlannerFavoritePlanReferenceCollection {
@@ -85,7 +85,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the myDayTasks property value. The myDayTasks property
+     * Gets the myDayTasks property value. Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
      * @return array<PlannerTask>|null
     */
     public function getMyDayTasks(): ?array {
@@ -113,7 +113,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the recentPlanReferences property value. A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.
+     * Gets the recentPlanReferences property value. A collection that contains references to the plans that the user recently viewed in apps that support recent plans.
      * @return PlannerRecentPlanReferenceCollection|null
     */
     public function getRecentPlanReferences(): ?PlannerRecentPlanReferenceCollection {
@@ -125,7 +125,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the recentPlans property value. Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+     * Gets the recentPlans property value. Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
      * @return array<PlannerPlan>|null
     */
     public function getRecentPlans(): ?array {
@@ -192,7 +192,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the favoritePlanReferences property value. A collection that contains the references to the plans that the user has marked as favorites.
+     * Sets the favoritePlanReferences property value. A collection that contains the references to the plans that the user marked as favorites.
      * @param PlannerFavoritePlanReferenceCollection|null $value Value to set for the favoritePlanReferences property.
     */
     public function setFavoritePlanReferences(?PlannerFavoritePlanReferenceCollection $value): void {
@@ -208,7 +208,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the myDayTasks property value. The myDayTasks property
+     * Sets the myDayTasks property value. Read-only. Nullable. Returns the plannerTasks to be shown in the My Day view of the user.
      * @param array<PlannerTask>|null $value Value to set for the myDayTasks property.
     */
     public function setMyDayTasks(?array $value): void {
@@ -224,7 +224,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the recentPlanReferences property value. A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.
+     * Sets the recentPlanReferences property value. A collection that contains references to the plans that the user recently viewed in apps that support recent plans.
      * @param PlannerRecentPlanReferenceCollection|null $value Value to set for the recentPlanReferences property.
     */
     public function setRecentPlanReferences(?PlannerRecentPlanReferenceCollection $value): void {
@@ -232,7 +232,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the recentPlans property value. Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
+     * Sets the recentPlans property value. Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.
      * @param array<PlannerPlan>|null $value Value to set for the recentPlans property.
     */
     public function setRecentPlans(?array $value): void {

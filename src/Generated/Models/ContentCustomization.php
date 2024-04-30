@@ -92,6 +92,8 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
             'attributeCollection' => fn(ParseNode $n) => $o->setAttributeCollection($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
             'attributeCollectionRelativeUrl' => fn(ParseNode $n) => $o->setAttributeCollectionRelativeUrl($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'registrationCampaign' => fn(ParseNode $n) => $o->setRegistrationCampaign($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            'registrationCampaignRelativeUrl' => fn(ParseNode $n) => $o->setRegistrationCampaignRelativeUrl($n->getStringValue()),
         ];
     }
 
@@ -108,6 +110,32 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the registrationCampaign property value. The registrationCampaign property
+     * @return array<KeyValue>|null
+    */
+    public function getRegistrationCampaign(): ?array {
+        $val = $this->getBackingStore()->get('registrationCampaign');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, KeyValue::class);
+            /** @var array<KeyValue>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationCampaign'");
+    }
+
+    /**
+     * Gets the registrationCampaignRelativeUrl property value. The registrationCampaignRelativeUrl property
+     * @return string|null
+    */
+    public function getRegistrationCampaignRelativeUrl(): ?string {
+        $val = $this->getBackingStore()->get('registrationCampaignRelativeUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationCampaignRelativeUrl'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -115,6 +143,8 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeCollectionOfObjectValues('attributeCollection', $this->getAttributeCollection());
         $writer->writeStringValue('attributeCollectionRelativeUrl', $this->getAttributeCollectionRelativeUrl());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('registrationCampaign', $this->getRegistrationCampaign());
+        $writer->writeStringValue('registrationCampaignRelativeUrl', $this->getRegistrationCampaignRelativeUrl());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -156,6 +186,22 @@ class ContentCustomization implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the registrationCampaign property value. The registrationCampaign property
+     * @param array<KeyValue>|null $value Value to set for the registrationCampaign property.
+    */
+    public function setRegistrationCampaign(?array $value): void {
+        $this->getBackingStore()->set('registrationCampaign', $value);
+    }
+
+    /**
+     * Sets the registrationCampaignRelativeUrl property value. The registrationCampaignRelativeUrl property
+     * @param string|null $value Value to set for the registrationCampaignRelativeUrl property.
+    */
+    public function setRegistrationCampaignRelativeUrl(?string $value): void {
+        $this->getBackingStore()->set('registrationCampaignRelativeUrl', $value);
     }
 
 }

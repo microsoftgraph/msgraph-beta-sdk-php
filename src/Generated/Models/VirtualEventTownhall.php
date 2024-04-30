@@ -27,7 +27,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the audience property value. The audience property
+     * Gets the audience property value. The audience to whom the town hall is visible. Possible values are: everyone, organization, unknownFutureValue.
      * @return MeetingAudience|null
     */
     public function getAudience(): ?MeetingAudience {
@@ -39,7 +39,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the coOrganizers property value. The coOrganizers property
+     * Gets the coOrganizers property value. Identity information of the coorganizers of the town hall.
      * @return array<CommunicationsUserIdentity>|null
     */
     public function getCoOrganizers(): ?array {
@@ -67,7 +67,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the invitedAttendees property value. The invitedAttendees property
+     * Gets the invitedAttendees property value. The attendees invited to the town hall. The supported identites are: communicationsUserIdentity and communicationsGuestIdentity.
      * @return array<Identity>|null
     */
     public function getInvitedAttendees(): ?array {
@@ -81,7 +81,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the isInviteOnly property value. The isInviteOnly property
+     * Gets the isInviteOnly property value. Indicates whether the town hall is only open to invited people and groups within your organization. The isInviteOnly property can only be true if the value of the audience property is set to organization.
      * @return bool|null
     */
     public function getIsInviteOnly(): ?bool {
@@ -105,7 +105,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the audience property value. The audience property
+     * Sets the audience property value. The audience to whom the town hall is visible. Possible values are: everyone, organization, unknownFutureValue.
      * @param MeetingAudience|null $value Value to set for the audience property.
     */
     public function setAudience(?MeetingAudience $value): void {
@@ -113,7 +113,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the coOrganizers property value. The coOrganizers property
+     * Sets the coOrganizers property value. Identity information of the coorganizers of the town hall.
      * @param array<CommunicationsUserIdentity>|null $value Value to set for the coOrganizers property.
     */
     public function setCoOrganizers(?array $value): void {
@@ -121,7 +121,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the invitedAttendees property value. The invitedAttendees property
+     * Sets the invitedAttendees property value. The attendees invited to the town hall. The supported identites are: communicationsUserIdentity and communicationsGuestIdentity.
      * @param array<Identity>|null $value Value to set for the invitedAttendees property.
     */
     public function setInvitedAttendees(?array $value): void {
@@ -129,7 +129,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the isInviteOnly property value. The isInviteOnly property
+     * Sets the isInviteOnly property value. Indicates whether the town hall is only open to invited people and groups within your organization. The isInviteOnly property can only be true if the value of the audience property is set to organization.
      * @param bool|null $value Value to set for the isInviteOnly property.
     */
     public function setIsInviteOnly(?bool $value): void {

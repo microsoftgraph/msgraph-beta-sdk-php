@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\GetByU
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a virtualEventWebinar collection where the specified user is either the organizer or a coorganizer.
+ * Get a list of virtualEventWebinar objects where the specified user is either the organizer or a coorganizer.
 */
 class GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParameters 
 {

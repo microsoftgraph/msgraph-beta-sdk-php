@@ -35,7 +35,7 @@ class GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get a virtualEventWebinar collection where the specified user is either the organizer or a coorganizer.
+     * Get a list of virtualEventWebinar objects where the specified user is either the organizer or a coorganizer.
      * @param GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetByUserIdAndRoleWithUserIdWithRoleGetResponse|null>
      * @throws Exception
@@ -50,7 +50,7 @@ class GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get a virtualEventWebinar collection where the specified user is either the organizer or a coorganizer.
+     * Get a list of virtualEventWebinar objects where the specified user is either the organizer or a coorganizer.
      * @param GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
