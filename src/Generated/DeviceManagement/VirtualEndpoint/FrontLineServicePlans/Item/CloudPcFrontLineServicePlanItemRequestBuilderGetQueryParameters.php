@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\FrontL
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Front-line service plans for a Cloud PC.
+ * Get the properties and relationships of a cloudPcFrontLineServicePlan object.
 */
 class CloudPcFrontLineServicePlanItemRequestBuilderGetQueryParameters 
 {

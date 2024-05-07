@@ -60,10 +60,11 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of tag objects associated to this case.
+     * Retrieve a list of tag objects from an eDiscovery case.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TagCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-list-tags?view=graph-rest-beta Find more info here
     */
     public function get(?TagsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,11 +75,12 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tags for compliance
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Tag|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-post-tags?view=graph-rest-beta Find more info here
     */
     public function post(Tag $body, ?TagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -89,7 +91,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of tag objects associated to this case.
+     * Retrieve a list of tag objects from an eDiscovery case.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -110,7 +112,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tags for compliance
+     * Create a new tag for the specified case.  The tags are used in review sets while reviewing content.
      * @param Tag $body The request body
      * @param TagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

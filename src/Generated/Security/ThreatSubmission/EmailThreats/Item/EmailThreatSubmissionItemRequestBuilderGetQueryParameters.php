@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreats\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get emailThreats from security
+ * Read the properties and relationships of an emailThreatSubmission object.
 */
 class EmailThreatSubmissionItemRequestBuilderGetQueryParameters 
 {

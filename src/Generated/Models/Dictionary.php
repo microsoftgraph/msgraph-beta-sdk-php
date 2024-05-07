@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\Partner\Security\AdditionalDataDictionary;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -36,6 +37,7 @@ class Dictionary implements AdditionalDataHolder, BackedModel, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.customAppScopeAttributesDictionary': return new CustomAppScopeAttributesDictionary();
+                case '#microsoft.graph.partner.security.additionalDataDictionary': return new AdditionalDataDictionary();
                 case '#microsoft.graph.plannerFormsDictionary': return new PlannerFormsDictionary();
                 case '#microsoft.graph.resultTemplateDictionary': return new ResultTemplateDictionary();
             }

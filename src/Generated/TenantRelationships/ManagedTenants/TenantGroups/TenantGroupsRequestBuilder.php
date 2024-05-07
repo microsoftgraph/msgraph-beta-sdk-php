@@ -60,10 +60,11 @@ class TenantGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+     * Get a list of the tenantGroup objects and their properties.
      * @param TenantGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantGroupCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenantgroups?view=graph-rest-beta Find more info here
     */
     public function get(?TenantGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +90,7 @@ class TenantGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+     * Get a list of the tenantGroup objects and their properties.
      * @param TenantGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

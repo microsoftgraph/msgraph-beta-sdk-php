@@ -52,10 +52,11 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userFlows from identity
+     * Retrieve a list of userflows.
      * @param UserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/identityuserflow-list?view=graph-rest-beta Find more info here
     */
     public function get(?UserFlowsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to userFlows for identity
+     * Create a new userFlow object.
      * @param IdentityUserFlow $body The request body
      * @param UserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlow|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/identityuserflow-post-userflows?view=graph-rest-beta Find more info here
     */
     public function post(IdentityUserFlow $body, ?UserFlowsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userFlows from identity
+     * Retrieve a list of userflows.
      * @param UserFlowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class UserFlowsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to userFlows for identity
+     * Create a new userFlow object.
      * @param IdentityUserFlow $body The request body
      * @param UserFlowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

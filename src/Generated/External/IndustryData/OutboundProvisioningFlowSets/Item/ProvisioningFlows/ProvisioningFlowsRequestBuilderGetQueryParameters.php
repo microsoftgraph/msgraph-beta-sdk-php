@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvision
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
+ * Get a list of the provisioningFlow objects and their properties.
 */
 class ProvisioningFlowsRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Set of groups of individual roles that makes role-based admin simpler.
+ * Get a list of the roleGroup objects and their properties.
 */
 class RoleGroupsRequestBuilderGetQueryParameters 
 {

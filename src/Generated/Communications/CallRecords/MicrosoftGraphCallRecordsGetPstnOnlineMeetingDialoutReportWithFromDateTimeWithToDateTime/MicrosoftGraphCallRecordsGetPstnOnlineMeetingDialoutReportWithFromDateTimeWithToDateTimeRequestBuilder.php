@@ -36,7 +36,7 @@ class MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTime
     }
 
     /**
-     * Invoke function getPstnOnlineMeetingDialoutReport
+     * Get aggregated report of usage and money spent for the audio conferencing dial-out service over a selected period as a collection of pstnOnlineMeetingDialoutReport entries.The report is aggregated by user, user location, destination context (domestic/international), and currency. The report includes:
      * @param MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeGetResponse|null>
      * @throws Exception
@@ -50,7 +50,7 @@ class MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTime
     }
 
     /**
-     * Invoke function getPstnOnlineMeetingDialoutReport
+     * Get aggregated report of usage and money spent for the audio conferencing dial-out service over a selected period as a collection of pstnOnlineMeetingDialoutReport entries.The report is aggregated by user, user location, destination context (domestic/international), and currency. The report includes:
      * @param MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

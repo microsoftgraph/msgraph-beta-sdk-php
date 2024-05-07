@@ -77,10 +77,11 @@ class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Get roleEligibilityScheduleInstances from roleManagement
+     * Read the properties and relationships of an unifiedRoleEligibilityScheduleInstance object.
      * @param UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleEligibilityScheduleInstance|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/unifiedroleeligibilityscheduleinstance-get?view=graph-rest-beta Find more info here
     */
     public function get(?UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -124,7 +125,7 @@ class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends BaseReque
     }
 
     /**
-     * Get roleEligibilityScheduleInstances from roleManagement
+     * Read the properties and relationships of an unifiedRoleEligibilityScheduleInstance object.
      * @param UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

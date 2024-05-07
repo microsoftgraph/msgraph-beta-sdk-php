@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\PermissionGrants;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The permissions granted for a group to a specific application. Supports $expand.
+ * List all resource-specific permission grants on the group. This list specifies the Microsoft Entra apps that have access to the group, along with the corresponding kind of resource-specific access that each app has.
 */
 class PermissionGrantsRequestBuilderGetQueryParameters 
 {

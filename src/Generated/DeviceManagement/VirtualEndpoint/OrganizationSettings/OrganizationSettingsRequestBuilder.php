@@ -45,10 +45,11 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Cloud PC organization settings for a tenant.
+     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.
      * @param OrganizationSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOrganizationSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcorganizationsettings-get?view=graph-rest-beta Find more info here
     */
     public function get(?OrganizationSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property organizationSettings in deviceManagement
+     * Update the properties of the cloudPcOrganizationSettings object in a tenant.
      * @param CloudPcOrganizationSettings $body The request body
      * @param OrganizationSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOrganizationSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcorganizationsettings-update?view=graph-rest-beta Find more info here
     */
     public function patch(CloudPcOrganizationSettings $body, ?OrganizationSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Cloud PC organization settings for a tenant.
+     * Read the properties and relationships of the cloudPcOrganizationSettings from the current tenant. A tenant has only one cloudPcOrganizationSettings object.
      * @param OrganizationSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class OrganizationSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property organizationSettings in deviceManagement
+     * Update the properties of the cloudPcOrganizationSettings object in a tenant.
      * @param CloudPcOrganizationSettings $body The request body
      * @param OrganizationSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

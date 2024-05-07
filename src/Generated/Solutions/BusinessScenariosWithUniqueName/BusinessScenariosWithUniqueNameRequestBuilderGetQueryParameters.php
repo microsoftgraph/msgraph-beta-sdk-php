@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenariosWithUniqueNa
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get businessScenarios from solutions
+ * Read the properties and relationships of a businessScenario object.
 */
 class BusinessScenariosWithUniqueNameRequestBuilderGetQueryParameters 
 {

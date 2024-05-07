@@ -52,10 +52,11 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get customAccessPackageWorkflowExtensions from identityGovernance
+     * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read.
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtensionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-list-customaccesspackageworkflowextensions?view=graph-rest-beta Find more info here
     */
     public function get(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Create new navigation property to customAccessPackageWorkflowExtensions for identityGovernance
+     * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.  
      * @param CustomAccessPackageWorkflowExtension $body The request body
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtension|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-post-customaccesspackageworkflowextensions?view=graph-rest-beta Find more info here
     */
     public function post(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get customAccessPackageWorkflowExtensions from identityGovernance
+     * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read.
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Create new navigation property to customAccessPackageWorkflowExtensions for identityGovernance
+     * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.  
      * @param CustomAccessPackageWorkflowExtension $body The request body
      * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

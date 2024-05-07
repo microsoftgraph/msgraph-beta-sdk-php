@@ -51,10 +51,11 @@ class SignUpsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Total sign-ups on apps registered in the tenant for a specified period.
+     * Get a list of daily user sign-ups on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param SignUpsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSignUpMetricCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/dailyuserinsightmetricsroot-list-signups?view=graph-rest-beta Find more info here
     */
     public function get(?SignUpsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class SignUpsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Total sign-ups on apps registered in the tenant for a specified period.
+     * Get a list of daily user sign-ups on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param SignUpsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

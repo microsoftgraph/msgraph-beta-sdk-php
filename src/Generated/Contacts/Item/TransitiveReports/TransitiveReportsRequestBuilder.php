@@ -51,10 +51,11 @@ class TransitiveReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The transitive reports for a contact. Read-only.
+     * Retrieve a count of transitive reports for an organizational contact.
      * @param TransitiveReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/orgcontact-get-transitivereports?view=graph-rest-beta Find more info here
     */
     public function get(?TransitiveReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class TransitiveReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The transitive reports for a contact. Read-only.
+     * Retrieve a count of transitive reports for an organizational contact.
      * @param TransitiveReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,10 +52,11 @@ class SharedUseServicePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sharedUseServicePlans from deviceManagement
+     * Get a list of the cloudPcSharedUseServicePlan objects and their properties.
      * @param SharedUseServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcSharedUseServicePlanCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-shareduseserviceplans?view=graph-rest-beta Find more info here
     */
     public function get(?SharedUseServicePlansRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class SharedUseServicePlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sharedUseServicePlans from deviceManagement
+     * Get a list of the cloudPcSharedUseServicePlan objects and their properties.
      * @param SharedUseServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

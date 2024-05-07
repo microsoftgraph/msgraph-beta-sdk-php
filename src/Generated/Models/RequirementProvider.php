@@ -26,4 +26,6 @@ class RequirementProvider extends Enum {
     public const GPS_LOCATION_CONDITION = 'gpsLocationCondition';
     public const RISK_BASED_POLICY = 'riskBasedPolicy';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const SCOPE_BASED_AUTH_REQUIREMENT_POLICY = 'scopeBasedAuthRequirementPolicy';
+    public const AUTHENTICATION_STRENGTHS = 'authenticationStrengths';
 }

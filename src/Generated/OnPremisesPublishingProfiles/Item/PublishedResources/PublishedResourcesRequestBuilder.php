@@ -52,10 +52,11 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing publishedResource objects. Read-only. Nullable.
+     * Retrieve a list of publishedResource objects.
      * @param PublishedResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PublishedResourceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/publishedresource-list?view=graph-rest-beta Find more info here
     */
     public function get(?PublishedResourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class PublishedResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of existing publishedResource objects. Read-only. Nullable.
+     * Retrieve a list of publishedResource objects.
      * @param PublishedResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

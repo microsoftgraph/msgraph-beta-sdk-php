@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high).
+ * Get a list of the permissionsCreepIndexDistribution objects and their properties.
 */
 class PermissionsCreepIndexDistributionsRequestBuilderGetQueryParameters 
 {

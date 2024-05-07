@@ -109,10 +109,11 @@ class PrintJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get jobs from print
+     * Retrieve the properties and relationships of a print job.
      * @param PrintJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printjob-get?view=graph-rest-beta Find more info here
     */
     public function get(?PrintJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -123,11 +124,12 @@ class PrintJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property jobs in print
+     * Update a print job. Only the configuration property can be updated. Updating a print job will only succeed if a printTask in a processing state, started by a trigger that the requesting app created, is associated with the print job. For details about how to register a task trigger, see Extending Universal Print to support pull printing.
      * @param PrintJob $body The request body
      * @param PrintJobItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printjob-update?view=graph-rest-beta Find more info here
     */
     public function patch(PrintJob $body, ?PrintJobItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -156,7 +158,7 @@ class PrintJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get jobs from print
+     * Retrieve the properties and relationships of a print job.
      * @param PrintJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -177,7 +179,7 @@ class PrintJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property jobs in print
+     * Update a print job. Only the configuration property can be updated. Updating a print job will only succeed if a printTask in a processing state, started by a trigger that the requesting app created, is associated with the print job. For details about how to register a task trigger, see Extending Universal Print to support pull printing.
      * @param PrintJob $body The request body
      * @param PrintJobItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -181,6 +181,7 @@ class DriveItem extends BaseItem implements Parsable
             'thumbnails' => fn(ParseNode $n) => $o->setThumbnails($n->getCollectionOfObjectValues([ThumbnailSet::class, 'createFromDiscriminatorValue'])),
             'versions' => fn(ParseNode $n) => $o->setVersions($n->getCollectionOfObjectValues([DriveItemVersion::class, 'createFromDiscriminatorValue'])),
             'video' => fn(ParseNode $n) => $o->setVideo($n->getObjectValue([Video::class, 'createFromDiscriminatorValue'])),
+            'viewpoint' => fn(ParseNode $n) => $o->setViewpoint($n->getObjectValue([DriveItemViewpoint::class, 'createFromDiscriminatorValue'])),
             'webDavUrl' => fn(ParseNode $n) => $o->setWebDavUrl($n->getStringValue()),
             'workbook' => fn(ParseNode $n) => $o->setWorkbook($n->getObjectValue([Workbook::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -507,6 +508,18 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the viewpoint property value. Returns information specific to the calling user for this drive item. Read-only.
+     * @return DriveItemViewpoint|null
+    */
+    public function getViewpoint(): ?DriveItemViewpoint {
+        $val = $this->getBackingStore()->get('viewpoint');
+        if (is_null($val) || $val instanceof DriveItemViewpoint) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'viewpoint'");
+    }
+
+    /**
      * Gets the webDavUrl property value. WebDAV compatible URL for the item.
      * @return string|null
     */
@@ -571,6 +584,7 @@ class DriveItem extends BaseItem implements Parsable
         $writer->writeCollectionOfObjectValues('thumbnails', $this->getThumbnails());
         $writer->writeCollectionOfObjectValues('versions', $this->getVersions());
         $writer->writeObjectValue('video', $this->getVideo());
+        $writer->writeObjectValue('viewpoint', $this->getViewpoint());
         $writer->writeStringValue('webDavUrl', $this->getWebDavUrl());
         $writer->writeObjectValue('workbook', $this->getWorkbook());
     }
@@ -853,6 +867,14 @@ class DriveItem extends BaseItem implements Parsable
     */
     public function setVideo(?Video $value): void {
         $this->getBackingStore()->set('video', $value);
+    }
+
+    /**
+     * Sets the viewpoint property value. Returns information specific to the calling user for this drive item. Read-only.
+     * @param DriveItemViewpoint|null $value Value to set for the viewpoint property.
+    */
+    public function setViewpoint(?DriveItemViewpoint $value): void {
+        $this->getBackingStore()->set('viewpoint', $value);
     }
 
     /**

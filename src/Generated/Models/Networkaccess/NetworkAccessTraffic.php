@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -282,6 +283,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'transportProtocol' => fn(ParseNode $n) => $o->setTransportProtocol($n->getEnumValue(NetworkingProtocol::class)),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
+            'vendorNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setVendorNames($val);
+            },
         ];
     }
 
@@ -574,6 +583,20 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the vendorNames property value. The vendorNames property
+     * @return array<string>|null
+    */
+    public function getVendorNames(): ?array {
+        $val = $this->getBackingStore()->get('vendorNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorNames'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -617,6 +640,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeEnumValue('transportProtocol', $this->getTransportProtocol());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeCollectionOfPrimitiveValues('vendorNames', $this->getVendorNames());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -946,6 +970,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
+    }
+
+    /**
+     * Sets the vendorNames property value. The vendorNames property
+     * @param array<string>|null $value Value to set for the vendorNames property.
+    */
+    public function setVendorNames(?array $value): void {
+        $this->getBackingStore()->set('vendorNames', $value);
     }
 
 }

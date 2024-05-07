@@ -80,6 +80,7 @@ class ContentTypesRequestBuilder extends BaseRequestBuilder
      * @param ContentTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentTypeCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/list-list-contenttypes?view=graph-rest-beta Find more info here
     */
     public function get(?ContentTypesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

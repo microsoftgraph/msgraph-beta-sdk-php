@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignments\App
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsMappingPolicies\ClaimsMappingPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsPolicy\ClaimsPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatedObjects\CreatedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatePasswordSingleSignOnCredentials\CreatePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\DelegatedPermissionClassificationsRequestBuilder;
@@ -93,6 +94,13 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     */
     public function claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the claimsPolicy property of the microsoft.graph.servicePrincipal entity.
+    */
+    public function claimsPolicy(): ClaimsPolicyRequestBuilder {
+        return new ClaimsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

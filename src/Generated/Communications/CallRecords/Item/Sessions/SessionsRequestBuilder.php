@@ -52,10 +52,11 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
+     * Retrieve the list of sessions associated with a callRecord object.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SessionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/callrecords-callrecord-list-sessions?view=graph-rest-beta Find more info here
     */
     public function get(?SessionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
+     * Retrieve the list of sessions associated with a callRecord object.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

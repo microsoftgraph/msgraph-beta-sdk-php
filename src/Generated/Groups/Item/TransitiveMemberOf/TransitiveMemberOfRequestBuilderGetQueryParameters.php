@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMemberOf;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The groups a group is a member of, either directly or through nested membership. Nullable.
+ * Get groups and administrative units that the group is a member of. This operation is transitive and will also include all groups that this group is a nested member of. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.
 */
 class TransitiveMemberOfRequestBuilderGetQueryParameters 
 {

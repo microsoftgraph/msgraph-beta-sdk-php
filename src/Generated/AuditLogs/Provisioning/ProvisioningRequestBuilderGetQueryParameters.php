@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents an action performed by the Microsoft Entra provisioning service and its associated properties.
+ * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
 */
 class ProvisioningRequestBuilderGetQueryParameters 
 {

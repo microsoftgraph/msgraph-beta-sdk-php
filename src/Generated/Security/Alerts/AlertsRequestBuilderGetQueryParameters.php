@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Alerts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Notifications for suspicious or potential security issues in a customer’s tenant.
+ * Retrieve a list of alert objects.
 */
 class AlertsRequestBuilderGetQueryParameters 
 {

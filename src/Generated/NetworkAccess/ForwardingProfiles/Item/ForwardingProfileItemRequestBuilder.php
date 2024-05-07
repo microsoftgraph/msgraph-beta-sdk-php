@@ -61,10 +61,11 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
+     * Retrieve information about a specific forwarding profile.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingProfile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-get?view=graph-rest-beta Find more info here
     */
     public function get(?ForwardingProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,11 +76,12 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forwardingProfiles in networkAccess
+     * Update an existing forwarding profile.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingProfile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-update?view=graph-rest-beta Find more info here
     */
     public function patch(ForwardingProfile $body, ?ForwardingProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -108,7 +110,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
+     * Retrieve information about a specific forwarding profile.
      * @param ForwardingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -129,7 +131,7 @@ class ForwardingProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forwardingProfiles in networkAccess
+     * Update an existing forwarding profile.
      * @param ForwardingProfile $body The request body
      * @param ForwardingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

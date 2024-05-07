@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SignInPrefere
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
+ * Read the properties and relationships of a signInPreferences object.
 */
 class SignInPreferencesRequestBuilderGetQueryParameters 
 {

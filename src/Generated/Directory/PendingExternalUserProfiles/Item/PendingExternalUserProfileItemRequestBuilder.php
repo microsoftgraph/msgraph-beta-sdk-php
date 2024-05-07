@@ -31,10 +31,11 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property pendingExternalUserProfiles for directory
+     * Delete a pendingExternalUserProfile object. Note: To permanently delete the pendingExternalUserProfile, follow permanently delete an item. To restore a pendingExternalUserProfile, follow restore a deleted item.
      * @param PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/directory-delete-pendingexternaluserprofiles?view=graph-rest-beta Find more info here
     */
     public function delete(?PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+     * Retrieve the properties of a specific pendingExternalUserProfile.
      * @param PendingExternalUserProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PendingExternalUserProfile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/pendingexternaluserprofile-get?view=graph-rest-beta Find more info here
     */
     public function get(?PendingExternalUserProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property pendingExternalUserProfiles in directory
+     * Update the properties of a pendingExternalUserProfile object.
      * @param PendingExternalUserProfile $body The request body
      * @param PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PendingExternalUserProfile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/pendingexternaluserprofile-update?view=graph-rest-beta Find more info here
     */
     public function patch(PendingExternalUserProfile $body, ?PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +77,7 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property pendingExternalUserProfiles for directory
+     * Delete a pendingExternalUserProfile object. Note: To permanently delete the pendingExternalUserProfile, follow permanently delete an item. To restore a pendingExternalUserProfile, follow restore a deleted item.
      * @param PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +95,7 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+     * Retrieve the properties of a specific pendingExternalUserProfile.
      * @param PendingExternalUserProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +116,7 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property pendingExternalUserProfiles in directory
+     * Update the properties of a pendingExternalUserProfile object.
      * @param PendingExternalUserProfile $body The request body
      * @param PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

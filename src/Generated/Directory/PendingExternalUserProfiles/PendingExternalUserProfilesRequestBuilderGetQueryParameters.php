@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\PendingExternalUserProfiles;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Collection of pending external user profiles representing collaborators in the directory that are unredeemed.
+ * Retrieve the properties of all pendingExternalUserProfiles.
 */
 class PendingExternalUserProfilesRequestBuilderGetQueryParameters 
 {

@@ -52,10 +52,11 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of ephemeral operations that the system runs currently. Read-only.
+     * Get a list of long-running file validation operations and their statuses.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LongRunningOperationCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/industrydata-filevalidateoperation-list?view=graph-rest-beta Find more info here
     */
     public function get(?OperationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of ephemeral operations that the system runs currently. Read-only.
+     * Get a list of long-running file validation operations and their statuses.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

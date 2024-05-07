@@ -51,10 +51,11 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves the plans contained by the plannerRoster.
+     * Get the plannerPlans contained by the plannerRoster.
      * @param PlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/plannerroster-list-plans?view=graph-rest-beta Find more info here
     */
     public function get(?PlansRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class PlansRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieves the plans contained by the plannerRoster.
+     * Get the plannerPlans contained by the plannerRoster.
      * @param PlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

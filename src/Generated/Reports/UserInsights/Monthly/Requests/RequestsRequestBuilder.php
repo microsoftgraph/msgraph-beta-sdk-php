@@ -51,10 +51,11 @@ class RequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Insights for all user requests on apps registered in the tenant for a specified period.
+     * Get a list of monthly user requests on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param RequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserRequestsMetricCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-requests?view=graph-rest-beta Find more info here
     */
     public function get(?RequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class RequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Insights for all user requests on apps registered in the tenant for a specified period.
+     * Get a list of monthly user requests on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param RequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

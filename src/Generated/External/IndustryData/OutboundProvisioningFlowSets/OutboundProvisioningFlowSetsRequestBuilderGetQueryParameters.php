@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvision
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get outboundProvisioningFlowSets from external
+ * Get a list of the outboundProvisioningFlowSet objects and their properties.
 */
 class OutboundProvisioningFlowSetsRequestBuilderGetQueryParameters 
 {

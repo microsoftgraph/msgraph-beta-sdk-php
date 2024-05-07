@@ -52,10 +52,11 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cases from compliance
+     * Retrieve a list of case objects.
      * @param CasesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CaseCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-list?view=graph-rest-beta Find more info here
     */
     public function get(?CasesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to cases for compliance
+     * Create a new case object.
      * @param EscapedCase $body The request body
      * @param CasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EscapedCase|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-beta Find more info here
     */
     public function post(EscapedCase $body, ?CasesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cases from compliance
+     * Retrieve a list of case objects.
      * @param CasesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class CasesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to cases for compliance
+     * Create a new case object.
      * @param EscapedCase $body The request body
      * @param CasesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

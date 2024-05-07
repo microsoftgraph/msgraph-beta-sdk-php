@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\S
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Sessions for the virtual event.
+ * Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
 */
 class SessionsWithJoinWebUrlRequestBuilderGetQueryParameters 
 {

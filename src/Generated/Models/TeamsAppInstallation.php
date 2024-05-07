@@ -51,9 +51,22 @@ class TeamsAppInstallation extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'consentedPermissionSet' => fn(ParseNode $n) => $o->setConsentedPermissionSet($n->getObjectValue([TeamsAppPermissionSet::class, 'createFromDiscriminatorValue'])),
+            'scopeInfo' => fn(ParseNode $n) => $o->setScopeInfo($n->getObjectValue([TeamsAppInstallationScopeInfo::class, 'createFromDiscriminatorValue'])),
             'teamsApp' => fn(ParseNode $n) => $o->setTeamsApp($n->getObjectValue([TeamsApp::class, 'createFromDiscriminatorValue'])),
             'teamsAppDefinition' => fn(ParseNode $n) => $o->setTeamsAppDefinition($n->getObjectValue([TeamsAppDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the scopeInfo property value. The scopeInfo property
+     * @return TeamsAppInstallationScopeInfo|null
+    */
+    public function getScopeInfo(): ?TeamsAppInstallationScopeInfo {
+        $val = $this->getBackingStore()->get('scopeInfo');
+        if (is_null($val) || $val instanceof TeamsAppInstallationScopeInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeInfo'");
     }
 
     /**
@@ -87,6 +100,7 @@ class TeamsAppInstallation extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('consentedPermissionSet', $this->getConsentedPermissionSet());
+        $writer->writeObjectValue('scopeInfo', $this->getScopeInfo());
         $writer->writeObjectValue('teamsApp', $this->getTeamsApp());
         $writer->writeObjectValue('teamsAppDefinition', $this->getTeamsAppDefinition());
     }
@@ -97,6 +111,14 @@ class TeamsAppInstallation extends Entity implements Parsable
     */
     public function setConsentedPermissionSet(?TeamsAppPermissionSet $value): void {
         $this->getBackingStore()->set('consentedPermissionSet', $value);
+    }
+
+    /**
+     * Sets the scopeInfo property value. The scopeInfo property
+     * @param TeamsAppInstallationScopeInfo|null $value Value to set for the scopeInfo property.
+    */
+    public function setScopeInfo(?TeamsAppInstallationScopeInfo $value): void {
+        $this->getBackingStore()->set('scopeInfo', $value);
     }
 
     /**

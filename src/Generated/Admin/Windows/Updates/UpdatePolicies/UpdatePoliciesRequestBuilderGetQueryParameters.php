@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of policies for approving the deployment of different content to an audience over time.
+ * Get a list of updatePolicy objects and their properties.
 */
 class UpdatePoliciesRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\MfaCompletio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Insights for MFA usage on apps registered in the tenant for a specified period.
+ * Get a list of daily MFA completions on apps registered in your tenant configured for Microsoft Entra External ID for customers.
 */
 class MfaCompletionsRequestBuilderGetQueryParameters 
 {

@@ -52,10 +52,11 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get queries from security
+     * Get a list of auditLogQuery objects and their properties.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditLogQueryCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-auditcoreroot-list-auditlogqueries?view=graph-rest-beta Find more info here
     */
     public function get(?QueriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to queries for security
+     * Create a new auditLogQuery object.
      * @param AuditLogQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditLogQuery|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-auditcoreroot-post-auditlogqueries?view=graph-rest-beta Find more info here
     */
     public function post(AuditLogQuery $body, ?QueriesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get queries from security
+     * Get a list of auditLogQuery objects and their properties.
      * @param QueriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class QueriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to queries for security
+     * Create a new auditLogQuery object.
      * @param AuditLogQuery $body The request body
      * @param QueriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -47,10 +47,11 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
+     * Read the properties and relationships of an industryDataRun object.
      * @param IndustryDataRunItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataRun|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/industrydata-industrydatarun-get?view=graph-rest-beta Find more info here
     */
     public function get(?IndustryDataRunItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -61,7 +62,7 @@ class IndustryDataRunItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.
+     * Read the properties and relationships of an industryDataRun object.
      * @param IndustryDataRunItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

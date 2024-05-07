@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Impacted
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The list of directory objects associated with the recommendation.
+ * Get the impactedResource objects for a recommendation.
 */
 class ImpactedResourcesRequestBuilderGetQueryParameters 
 {

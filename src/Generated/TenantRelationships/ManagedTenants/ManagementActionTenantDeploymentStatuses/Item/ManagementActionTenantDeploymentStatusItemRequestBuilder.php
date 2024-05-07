@@ -45,10 +45,11 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
     }
 
     /**
-     * The tenant level status of management actions across managed tenants.
+     * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
      * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatus|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managementactiontenantdeploymentstatus-get?view=graph-rest-beta Find more info here
     */
     public function get(?ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
     }
 
     /**
-     * The tenant level status of management actions across managed tenants.
+     * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
      * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

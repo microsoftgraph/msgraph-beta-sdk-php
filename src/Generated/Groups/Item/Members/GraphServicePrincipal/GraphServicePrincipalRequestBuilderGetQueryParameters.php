@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Members\GraphServicePrincip
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the items of type microsoft.graph.servicePrincipal in the microsoft.graph.directoryObject collection
+ * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
 */
 class GraphServicePrincipalRequestBuilderGetQueryParameters 
 {

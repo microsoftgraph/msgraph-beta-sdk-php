@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents entry point for B2C identity userflows.
+ * Retrieve the properties and relationships of a b2cUserFlow object.
 */
 class B2cIdentityUserFlowItemRequestBuilderGetQueryParameters 
 {

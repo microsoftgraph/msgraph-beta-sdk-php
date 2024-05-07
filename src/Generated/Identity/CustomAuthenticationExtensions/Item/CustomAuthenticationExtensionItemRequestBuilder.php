@@ -39,10 +39,11 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customAuthenticationExtensions for identity
+     * Delete a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/customauthenticationextension-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CustomAuthenticationExtensionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customAuthenticationExtensions from identity
+     * Read the properties and relationships of a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAuthenticationExtension|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/customauthenticationextension-get?view=graph-rest-beta Find more info here
     */
     public function get(?CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +84,7 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customAuthenticationExtensions for identity
+     * Delete a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +102,7 @@ class CustomAuthenticationExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customAuthenticationExtensions from identity
+     * Read the properties and relationships of a customAuthenticationExtension object.
      * @param CustomAuthenticationExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

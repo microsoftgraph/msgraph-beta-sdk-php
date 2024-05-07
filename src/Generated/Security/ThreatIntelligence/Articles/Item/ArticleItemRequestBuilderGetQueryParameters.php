@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Articles\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A list of article objects.
+ * Read the properties and relationships of an article object.
 */
 class ArticleItemRequestBuilderGetQueryParameters 
 {

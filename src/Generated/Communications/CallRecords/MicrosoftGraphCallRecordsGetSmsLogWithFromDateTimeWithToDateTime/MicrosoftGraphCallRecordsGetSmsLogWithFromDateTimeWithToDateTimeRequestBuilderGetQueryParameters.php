@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\MicrosoftGra
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getSmsLog
+ * Get the log of a sent/received SMS as a collection of smsLogRow entries.
 */
 class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters 
 {

@@ -68,10 +68,11 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+     * Get a list of the noncustodialDataSource objects and their properties.
      * @param NoncustodialDataSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NoncustodialDataSourceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-list?view=graph-rest-beta Find more info here
     */
     public function get(?NoncustodialDataSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,11 +83,12 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to noncustodialDataSources for compliance
+     * Create a new noncustodialDataSource object.
      * @param NoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NoncustodialDataSource|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-post?view=graph-rest-beta Find more info here
     */
     public function post(NoncustodialDataSource $body, ?NoncustodialDataSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -97,7 +99,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case noncustodialDataSource objects for this case.  Nullable.
+     * Get a list of the noncustodialDataSource objects and their properties.
      * @param NoncustodialDataSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +120,7 @@ class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to noncustodialDataSources for compliance
+     * Create a new noncustodialDataSource object.
      * @param NoncustodialDataSource $body The request body
      * @param NoncustodialDataSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

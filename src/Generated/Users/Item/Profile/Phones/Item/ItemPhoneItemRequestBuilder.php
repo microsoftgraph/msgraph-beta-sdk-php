@@ -31,10 +31,11 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property phones for users
+     * Delete an itemPhone object from the user's profile.
      * @param ItemPhoneItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/itemphone-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ItemPhoneItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property phones in users
+     * Update the properties of an itemPhone object in a user's profile.
      * @param ItemPhone $body The request body
      * @param ItemPhoneItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPhone|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/itemphone-update?view=graph-rest-beta Find more info here
     */
     public function patch(ItemPhone $body, ?ItemPhoneItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +76,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property phones for users
+     * Delete an itemPhone object from the user's profile.
      * @param ItemPhoneItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ItemPhoneItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property phones in users
+     * Update the properties of an itemPhone object in a user's profile.
      * @param ItemPhone $body The request body
      * @param ItemPhoneItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

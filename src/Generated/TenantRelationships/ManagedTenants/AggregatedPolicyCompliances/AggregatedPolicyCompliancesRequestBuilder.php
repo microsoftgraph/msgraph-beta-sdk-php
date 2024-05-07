@@ -52,10 +52,11 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Aggregate view of device compliance policies across managed tenants.
+     * Get a list of the aggregatedPolicyCompliance objects and their properties.
      * @param AggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AggregatedPolicyComplianceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-aggregatedpolicycompliances?view=graph-rest-beta Find more info here
     */
     public function get(?AggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Aggregate view of device compliance policies across managed tenants.
+     * Get a list of the aggregatedPolicyCompliance objects and their properties.
      * @param AggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

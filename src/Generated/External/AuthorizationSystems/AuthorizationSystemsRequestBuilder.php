@@ -52,10 +52,11 @@ class AuthorizationSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
+     * List the authorizationSystem objects onboarded to Permissions Management and their properties.
      * @param AuthorizationSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthorizationSystemCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/externalconnectors-external-list-authorizationsystems?view=graph-rest-beta Find more info here
     */
     public function get(?AuthorizationSystemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class AuthorizationSystemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
+     * List the authorizationSystem objects onboarded to Permissions Management and their properties.
      * @param AuthorizationSystemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

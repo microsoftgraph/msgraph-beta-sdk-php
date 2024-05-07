@@ -48,10 +48,11 @@ class RegistrationsWithUserIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Registration records of the webinar.
+     * Get the properties and relationships of a virtualEventRegistration object.
      * @param RegistrationsWithUserIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventRegistration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventregistration-get?view=graph-rest-beta Find more info here
     */
     public function get(?RegistrationsWithUserIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -95,7 +96,7 @@ class RegistrationsWithUserIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Registration records of the webinar.
+     * Get the properties and relationships of a virtualEventRegistration object.
      * @param RegistrationsWithUserIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

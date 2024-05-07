@@ -45,10 +45,11 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forms from admin
+     * Read the properties and relationships of a adminForms object.
      * @param FormsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminForms|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/adminforms-get?view=graph-rest-beta Find more info here
     */
     public function get(?FormsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forms in admin
+     * Update the properties of a adminForms object.
      * @param AdminForms $body The request body
      * @param FormsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdminForms|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/adminforms-update?view=graph-rest-beta Find more info here
     */
     public function patch(AdminForms $body, ?FormsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get forms from admin
+     * Read the properties and relationships of a adminForms object.
      * @param FormsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class FormsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property forms in admin
+     * Update the properties of a adminForms object.
      * @param AdminForms $body The request body
      * @param FormsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

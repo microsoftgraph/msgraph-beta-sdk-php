@@ -33,6 +33,7 @@ class TrustFrameworkKeySet extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'keys' => fn(ParseNode $n) => $o->setKeys($n->getCollectionOfObjectValues([TrustFrameworkKey::class, 'createFromDiscriminatorValue'])),
+            'keys_v2' => fn(ParseNode $n) => $o->setKeysV2($n->getCollectionOfObjectValues([TrustFrameworkKey_v2::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -51,12 +52,27 @@ class TrustFrameworkKeySet extends Entity implements Parsable
     }
 
     /**
+     * Gets the keys_v2 property value. A collection of the keys.
+     * @return array<TrustFrameworkKey_v2>|null
+    */
+    public function getKeysV2(): ?array {
+        $val = $this->getBackingStore()->get('keys_v2');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TrustFrameworkKey_v2::class);
+            /** @var array<TrustFrameworkKey_v2>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'keys_v2'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('keys', $this->getKeys());
+        $writer->writeCollectionOfObjectValues('keys_v2', $this->getKeysV2());
     }
 
     /**
@@ -65,6 +81,14 @@ class TrustFrameworkKeySet extends Entity implements Parsable
     */
     public function setKeys(?array $value): void {
         $this->getBackingStore()->set('keys', $value);
+    }
+
+    /**
+     * Sets the keys_v2 property value. A collection of the keys.
+     * @param array<TrustFrameworkKey_v2>|null $value Value to set for the keys_v2 property.
+    */
+    public function setKeysV2(?array $value): void {
+        $this->getBackingStore()->set('keys_v2', $value);
     }
 
 }

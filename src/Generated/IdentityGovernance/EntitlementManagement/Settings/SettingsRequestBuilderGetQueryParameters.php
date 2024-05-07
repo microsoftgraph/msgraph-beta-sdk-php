@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the settings that control the behavior of Microsoft Entra entitlement management.
+ * Retrieve the properties of an entitlementManagementSettings object.
 */
 class SettingsRequestBuilderGetQueryParameters 
 {

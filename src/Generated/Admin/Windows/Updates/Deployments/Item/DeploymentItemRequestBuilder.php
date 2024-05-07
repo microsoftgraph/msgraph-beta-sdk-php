@@ -39,10 +39,11 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deployments for admin
+     * Delete a deployment object.
      * @param DeploymentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?DeploymentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deployments created using the deployment service.
+     * Read the properties and relationships of a deployment object.
      * @param DeploymentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Deployment|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-deployment-get?view=graph-rest-beta Find more info here
     */
     public function get(?DeploymentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property deployments in admin
+     * Update the properties of a deployment object.
      * @param Deployment $body The request body
      * @param DeploymentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Deployment|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta Find more info here
     */
     public function patch(Deployment $body, ?DeploymentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deployments for admin
+     * Delete a deployment object.
      * @param DeploymentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deployments created using the deployment service.
+     * Read the properties and relationships of a deployment object.
      * @param DeploymentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class DeploymentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property deployments in admin
+     * Update the properties of a deployment object.
      * @param Deployment $body The request body
      * @param DeploymentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

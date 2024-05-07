@@ -45,10 +45,11 @@ class EmailThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get emailThreats from security
+     * Read the properties and relationships of an emailThreatSubmission object.
      * @param EmailThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmission|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-emailthreatsubmission-get?view=graph-rest-beta Find more info here
     */
     public function get(?EmailThreatSubmissionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class EmailThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get emailThreats from security
+     * Read the properties and relationships of an emailThreatSubmission object.
      * @param EmailThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

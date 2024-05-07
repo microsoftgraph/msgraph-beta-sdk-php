@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders\Ref;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Delete ref of navigation property rejectedSenders for groups
+ * Remove a user or group from the rejected-senders list of the specified group.
 */
 class RefRequestBuilderDeleteQueryParameters 
 {

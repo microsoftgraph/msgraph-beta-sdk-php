@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationFlowsPolicy;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The policy configuration of the self-service sign-up experience of guests.
+ * Read the properties and relationships of an authenticationFlowsPolicy object.
 */
 class AuthenticationFlowsPolicyRequestBuilderGetQueryParameters 
 {

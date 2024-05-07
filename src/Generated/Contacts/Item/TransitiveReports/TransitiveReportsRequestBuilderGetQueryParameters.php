@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The transitive reports for a contact. Read-only.
+ * Retrieve a count of transitive reports for an organizational contact.
 */
 class TransitiveReportsRequestBuilderGetQueryParameters 
 {

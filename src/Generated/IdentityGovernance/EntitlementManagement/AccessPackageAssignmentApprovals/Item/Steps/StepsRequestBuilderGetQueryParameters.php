@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+ * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
 */
 class StepsRequestBuilderGetQueryParameters 
 {

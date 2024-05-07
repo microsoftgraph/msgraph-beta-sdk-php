@@ -31,10 +31,11 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
+     * Read the properties and relationships of a signInPreferences object.
      * @param SignInPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignInPreferences|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authentication-get?view=graph-rest-beta Find more info here
     */
     public function get(?SignInPreferencesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,11 +46,12 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update property signInPreferences value.
+     * Update the properties of a signInPreferences object.
      * @param SignInPreferences $body The request body
      * @param SignInPreferencesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignInPreferences|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authentication-update?view=graph-rest-beta Find more info here
     */
     public function patch(SignInPreferences $body, ?SignInPreferencesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -60,7 +62,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
+     * Read the properties and relationships of a signInPreferences object.
      * @param SignInPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -81,7 +83,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update property signInPreferences value.
+     * Update the properties of a signInPreferences object.
      * @param SignInPreferences $body The request body
      * @param SignInPreferencesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

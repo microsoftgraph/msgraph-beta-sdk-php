@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The virtual event presenters.
+ * Read the properties and relationships of a virtualEventPresenter object.
 */
 class VirtualEventPresenterItemRequestBuilderGetQueryParameters 
 {

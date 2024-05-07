@@ -53,10 +53,11 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Traffic forwarding policies associated with this profile.
+     * Retrieve information about a specific link between a forwarding policy and a forwarding profile.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicylink-get?view=graph-rest-beta Find more info here
     */
     public function get(?PolicyLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +68,12 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property policies in networkAccess
+     * Update an existing forwarding policy link to modify the association between a forwarding policy and a forwarding profile. This operation allows for linking or unlinking them as needed.
      * @param PolicyLink $body The request body
      * @param PolicyLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingpolicylink-update?view=graph-rest-beta Find more info here
     */
     public function patch(PolicyLink $body, ?PolicyLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -100,7 +102,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Traffic forwarding policies associated with this profile.
+     * Retrieve information about a specific link between a forwarding policy and a forwarding profile.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +123,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property policies in networkAccess
+     * Update an existing forwarding policy link to modify the association between a forwarding policy and a forwarding profile. This operation allows for linking or unlinking them as needed.
      * @param PolicyLink $body The request body
      * @param PolicyLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

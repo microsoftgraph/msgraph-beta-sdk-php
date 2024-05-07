@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tena
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of tenant level customized information across managed tenants.
+ * Read the properties and relationships of a tenantCustomizedInformation object.
 */
 class TenantCustomizedInformationItemRequestBuilderGetQueryParameters 
 {

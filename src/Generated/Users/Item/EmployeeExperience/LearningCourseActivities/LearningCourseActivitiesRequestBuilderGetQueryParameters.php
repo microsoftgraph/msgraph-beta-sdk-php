@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\LearningC
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get learningCourseActivities from users
+ * Get a list of the learningCourseActivity objects (assigned or self-initiated) for a user.
 */
 class LearningCourseActivitiesRequestBuilderGetQueryParameters 
 {

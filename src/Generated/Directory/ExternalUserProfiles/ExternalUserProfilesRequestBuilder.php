@@ -52,10 +52,11 @@ class ExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of external user profiles that represent collaborators in the directory.
+     * Retrieve the properties of all externalUserProfiles
      * @param ExternalUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalUserProfileCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/directory-list-externaluserprofiles?view=graph-rest-beta Find more info here
     */
     public function get(?ExternalUserProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of external user profiles that represent collaborators in the directory.
+     * Retrieve the properties of all externalUserProfiles
      * @param ExternalUserProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

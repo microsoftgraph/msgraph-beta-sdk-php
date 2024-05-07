@@ -52,10 +52,11 @@ class DetectionRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get detectionRules from security
+     * Get a list of custom detection rules.With custom detections, you can proactively monitor for and respond to various events and system states, including suspected breach activity and misconfigured assets in their organization network.Custom detection rules, which are written in Kusto query language (KQL), automatically trigger alerts and response actions once there are events matching their KQL queries.
      * @param DetectionRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DetectionRuleCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-detectionrule-list?view=graph-rest-beta Find more info here
     */
     public function get(?DetectionRulesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class DetectionRulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get detectionRules from security
+     * Get a list of custom detection rules.With custom detections, you can proactively monitor for and respond to various events and system states, including suspected breach activity and misconfigured assets in their organization network.Custom detection rules, which are written in Kusto query language (KQL), automatically trigger alerts and response actions once there are events matching their KQL queries.
      * @param DetectionRulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

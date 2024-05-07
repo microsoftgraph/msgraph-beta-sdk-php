@@ -68,10 +68,11 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user attribute assignments included in the user flow.
+     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2cIdentityUserFlow.
      * @param UserAttributeAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttributeAssignmentCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-userattributeassignments?view=graph-rest-beta Find more info here
     */
     public function get(?UserAttributeAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,11 +83,12 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to userAttributeAssignments for identity
+     * Create a new identityUserFlowAttributeAssignment object in a b2cIdentityUserFlow.
      * @param IdentityUserFlowAttributeAssignment $body The request body
      * @param UserAttributeAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityUserFlowAttributeAssignment|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-post-userattributeassignments?view=graph-rest-beta Find more info here
     */
     public function post(IdentityUserFlowAttributeAssignment $body, ?UserAttributeAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -97,7 +99,7 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The user attribute assignments included in the user flow.
+     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2cIdentityUserFlow.
      * @param UserAttributeAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +120,7 @@ class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to userAttributeAssignments for identity
+     * Create a new identityUserFlowAttributeAssignment object in a b2cIdentityUserFlow.
      * @param IdentityUserFlowAttributeAssignment $body The request body
      * @param UserAttributeAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -30,7 +30,7 @@ class MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder extends
     }
 
     /**
-     * Invoke function getPortalNotifications
+     * Get a list of all notifications that one or more users can access, from the Microsoft Endpoint Manager admin center.
      * @param MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetPortalNotificationsGetResponse|null>
      * @throws Exception
@@ -44,7 +44,7 @@ class MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder extends
     }
 
     /**
-     * Invoke function getPortalNotifications
+     * Get a list of all notifications that one or more users can access, from the Microsoft Endpoint Manager admin center.
      * @param MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

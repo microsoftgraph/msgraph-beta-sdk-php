@@ -53,10 +53,11 @@ class CategoryTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies a group of similar types of content in a particular department.
+     * Read the properties and relationships of a categoryTemplate object.
      * @param CategoryTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CategoryTemplate|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-categorytemplate-get?view=graph-rest-beta Find more info here
     */
     public function get(?CategoryTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,7 +101,7 @@ class CategoryTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies a group of similar types of content in a particular department.
+     * Read the properties and relationships of a categoryTemplate object.
      * @param CategoryTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

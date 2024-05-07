@@ -53,10 +53,11 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get queries from security
+     * Read the properties and relationships of an auditLogQuery object.
      * @param AuditLogQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditLogQuery|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-auditlogquery-get?view=graph-rest-beta Find more info here
     */
     public function get(?AuditLogQueryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,7 +101,7 @@ class AuditLogQueryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get queries from security
+     * Read the properties and relationships of an auditLogQuery object.
      * @param AuditLogQueryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

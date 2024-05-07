@@ -54,7 +54,7 @@ class TownhallsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get townhalls from solutions
+     * Read the properties and relationships of a virtualEventTownhall object.
      * @param TownhallsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventTownhallCollectionResponse|null>
      * @throws Exception
@@ -87,11 +87,12 @@ class TownhallsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to townhalls for solutions
+     * Create a new virtualEventTownhall object in draft mode.
      * @param VirtualEventTownhall $body The request body
      * @param TownhallsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventTownhall|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventsroot-post-townhalls?view=graph-rest-beta Find more info here
     */
     public function post(VirtualEventTownhall $body, ?TownhallsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -102,7 +103,7 @@ class TownhallsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get townhalls from solutions
+     * Read the properties and relationships of a virtualEventTownhall object.
      * @param TownhallsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +124,7 @@ class TownhallsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to townhalls for solutions
+     * Create a new virtualEventTownhall object in draft mode.
      * @param VirtualEventTownhall $body The request body
      * @param TownhallsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

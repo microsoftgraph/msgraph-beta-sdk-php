@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Schools\Item\Classes;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Classes taught at the school. Nullable.
+ * Retrieve a list of classes owned by a school.
 */
 class ClassesRequestBuilderGetQueryParameters 
 {

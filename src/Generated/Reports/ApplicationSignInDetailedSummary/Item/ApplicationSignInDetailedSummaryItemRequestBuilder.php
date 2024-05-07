@@ -45,10 +45,11 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Represents a detailed summary of an application sign-in.
+     * Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
      * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationSignInDetailedSummary|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/applicationsignindetailedsummary-get?view=graph-rest-beta Find more info here
     */
     public function get(?ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Represents a detailed summary of an application sign-in.
+     * Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
      * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -33,6 +33,7 @@ class CloudPcOverview extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'frontlineLicensesCount' => fn(ParseNode $n) => $o->setFrontlineLicensesCount($n->getIntegerValue()),
             'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
             'numberOfCloudPcConnectionStatusFailed' => fn(ParseNode $n) => $o->setNumberOfCloudPcConnectionStatusFailed($n->getIntegerValue()),
             'numberOfCloudPcConnectionStatusPassed' => fn(ParseNode $n) => $o->setNumberOfCloudPcConnectionStatusPassed($n->getIntegerValue()),
@@ -54,6 +55,18 @@ class CloudPcOverview extends Entity implements Parsable
             'totalCloudPcStatus' => fn(ParseNode $n) => $o->setTotalCloudPcStatus($n->getIntegerValue()),
             'totalEnterpriseLicenses' => fn(ParseNode $n) => $o->setTotalEnterpriseLicenses($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the frontlineLicensesCount property value. The total number of cloud PC devices that have the Frontline SKU. Optional. Read-only.
+     * @return int|null
+    */
+    public function getFrontlineLicensesCount(): ?int {
+        $val = $this->getBackingStore()->get('frontlineLicensesCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frontlineLicensesCount'");
     }
 
     /**
@@ -302,6 +315,7 @@ class CloudPcOverview extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeIntegerValue('frontlineLicensesCount', $this->getFrontlineLicensesCount());
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
         $writer->writeIntegerValue('numberOfCloudPcConnectionStatusFailed', $this->getNumberOfCloudPcConnectionStatusFailed());
         $writer->writeIntegerValue('numberOfCloudPcConnectionStatusPassed', $this->getNumberOfCloudPcConnectionStatusPassed());
@@ -322,6 +336,14 @@ class CloudPcOverview extends Entity implements Parsable
         $writer->writeIntegerValue('totalCloudPcConnectionStatus', $this->getTotalCloudPcConnectionStatus());
         $writer->writeIntegerValue('totalCloudPcStatus', $this->getTotalCloudPcStatus());
         $writer->writeIntegerValue('totalEnterpriseLicenses', $this->getTotalEnterpriseLicenses());
+    }
+
+    /**
+     * Sets the frontlineLicensesCount property value. The total number of cloud PC devices that have the Frontline SKU. Optional. Read-only.
+     * @param int|null $value Value to set for the frontlineLicensesCount property.
+    */
+    public function setFrontlineLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('frontlineLicensesCount', $value);
     }
 
     /**

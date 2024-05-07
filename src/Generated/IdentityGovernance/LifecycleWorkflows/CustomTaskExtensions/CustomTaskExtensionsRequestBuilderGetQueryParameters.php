@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\C
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The customTaskExtension instance.
+ * Get a list of the customTaskExtension objects and their properties.
 */
 class CustomTaskExtensionsRequestBuilderGetQueryParameters 
 {

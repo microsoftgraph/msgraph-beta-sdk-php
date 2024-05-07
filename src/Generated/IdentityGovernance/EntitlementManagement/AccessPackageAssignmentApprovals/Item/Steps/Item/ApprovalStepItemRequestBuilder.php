@@ -45,10 +45,11 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+     * Retrieve the properties of an approvalStep object.
      * @param ApprovalStepItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalStep|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/approvalstep-get?view=graph-rest-beta Find more info here
     */
     public function get(?ApprovalStepItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property steps in identityGovernance
+     * Apply approve or deny decision on an approvalStep object.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalStep|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/approvalstep-update?view=graph-rest-beta Find more info here
     */
     public function patch(ApprovalStep $body, ?ApprovalStepItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+     * Retrieve the properties of an approvalStep object.
      * @param ApprovalStepItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property steps in identityGovernance
+     * Apply approve or deny decision on an approvalStep object.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

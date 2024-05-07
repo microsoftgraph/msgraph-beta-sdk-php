@@ -79,10 +79,11 @@ class PostItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get posts from groups
+     * Get the properties and relationships of a post in a specified thread. You can specify both the parentconversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
      * @param PostItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Post|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/post-get?view=graph-rest-beta Find more info here
     */
     public function get(?PostItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,7 +109,7 @@ class PostItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get posts from groups
+     * Get the properties and relationships of a post in a specified thread. You can specify both the parentconversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
      * @param PostItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

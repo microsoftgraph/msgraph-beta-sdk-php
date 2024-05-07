@@ -52,7 +52,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
+     * Retrieve the properties and relationships of a reviewSet object.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSetCollectionResponse|null>
      * @throws Exception
@@ -66,11 +66,12 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to reviewSets for compliance
+     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
      * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReviewSet|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-case-post-reviewsets?view=graph-rest-beta Find more info here
     */
     public function post(ReviewSet $body, ?ReviewSetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +82,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of reviewSet objects in the case. Read-only. Nullable.
+     * Retrieve the properties and relationships of a reviewSet object.
      * @param ReviewSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +103,7 @@ class ReviewSetsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to reviewSets for compliance
+     * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
      * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

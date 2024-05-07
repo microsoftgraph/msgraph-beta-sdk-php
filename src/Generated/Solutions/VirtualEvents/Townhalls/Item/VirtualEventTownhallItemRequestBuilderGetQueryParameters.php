@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get townhalls from solutions
+ * Read the properties and relationships of a virtualEventTownhall object.
 */
 class VirtualEventTownhallItemRequestBuilderGetQueryParameters 
 {

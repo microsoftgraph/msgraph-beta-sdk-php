@@ -40,20 +40,6 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeUsersBreakdown property value. The activeUsersBreakdown property
-     * @return array<ActiveUsersBreakdownMetric>|null
-    */
-    public function getActiveUsersBreakdown(): ?array {
-        $val = $this->getBackingStore()->get('activeUsersBreakdown');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ActiveUsersBreakdownMetric::class);
-            /** @var array<ActiveUsersBreakdownMetric>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeUsersBreakdown'");
-    }
-
-    /**
      * Gets the authentications property value. Insights for authentications on apps registered in the tenant for a specified period.
      * @return array<AuthenticationsMetric>|null
     */
@@ -75,7 +61,6 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'activeUsers' => fn(ParseNode $n) => $o->setActiveUsers($n->getCollectionOfObjectValues([ActiveUsersMetric::class, 'createFromDiscriminatorValue'])),
-            'activeUsersBreakdown' => fn(ParseNode $n) => $o->setActiveUsersBreakdown($n->getCollectionOfObjectValues([ActiveUsersBreakdownMetric::class, 'createFromDiscriminatorValue'])),
             'authentications' => fn(ParseNode $n) => $o->setAuthentications($n->getCollectionOfObjectValues([AuthenticationsMetric::class, 'createFromDiscriminatorValue'])),
             'inactiveUsers' => fn(ParseNode $n) => $o->setInactiveUsers($n->getCollectionOfObjectValues([MonthlyInactiveUsersMetric::class, 'createFromDiscriminatorValue'])),
             'inactiveUsersByApplication' => fn(ParseNode $n) => $o->setInactiveUsersByApplication($n->getCollectionOfObjectValues([MonthlyInactiveUsersByApplicationMetric::class, 'createFromDiscriminatorValue'])),
@@ -177,7 +162,6 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('activeUsers', $this->getActiveUsers());
-        $writer->writeCollectionOfObjectValues('activeUsersBreakdown', $this->getActiveUsersBreakdown());
         $writer->writeCollectionOfObjectValues('authentications', $this->getAuthentications());
         $writer->writeCollectionOfObjectValues('inactiveUsers', $this->getInactiveUsers());
         $writer->writeCollectionOfObjectValues('inactiveUsersByApplication', $this->getInactiveUsersByApplication());
@@ -193,14 +177,6 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     */
     public function setActiveUsers(?array $value): void {
         $this->getBackingStore()->set('activeUsers', $value);
-    }
-
-    /**
-     * Sets the activeUsersBreakdown property value. The activeUsersBreakdown property
-     * @param array<ActiveUsersBreakdownMetric>|null $value Value to set for the activeUsersBreakdown property.
-    */
-    public function setActiveUsersBreakdown(?array $value): void {
-        $this->getBackingStore()->set('activeUsersBreakdown', $value);
     }
 
     /**

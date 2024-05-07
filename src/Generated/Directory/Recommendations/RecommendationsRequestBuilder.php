@@ -52,10 +52,11 @@ class RecommendationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of recommended improvements to improve tenant posture.
+     * Get a list of the recommendation objects and their properties.
      * @param RecommendationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RecommendationCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/directory-list-recommendation?view=graph-rest-beta Find more info here
     */
     public function get(?RecommendationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class RecommendationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List of recommended improvements to improve tenant posture.
+     * Get a list of the recommendation objects and their properties.
      * @param RecommendationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

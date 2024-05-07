@@ -45,10 +45,11 @@ class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of daily print usage summaries, grouped by printer.
+     * Retrieve a printer's usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByPrinter|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printusagebyprinter-get?view=graph-rest-beta Find more info here
     */
     public function get(?PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of daily print usage summaries, grouped by printer.
+     * Retrieve a printer's usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -133,10 +133,11 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of access reviews instances for this access review series. Access reviews that don't recur will only have one instance; otherwise, there's an instance for each recurrence.
+     * Retrieve an accessReviewInstance object using the identifier of an accessReviewInstance and its parent accessReviewScheduleDefinition. This returns all properties of the instance except for the associated accessReviewInstanceDecisionItems. To retrieve the decisions on the instance, use List accessReviewInstanceDecisionItem.
      * @param AccessReviewInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstance|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewinstance-get?view=graph-rest-beta Find more info here
     */
     public function get(?AccessReviewInstanceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -147,11 +148,12 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property instances in identityGovernance
+     * Update the properties of an accessReviewInstance object. Only the reviewers and fallbackReviewers properties can be updated but the scope property is also required in the request body. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewInstance, its status must be InProgress.
      * @param AccessReviewInstance $body The request body
      * @param AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstance|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewinstance-update?view=graph-rest-beta Find more info here
     */
     public function patch(AccessReviewInstance $body, ?AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -180,7 +182,7 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of access reviews instances for this access review series. Access reviews that don't recur will only have one instance; otherwise, there's an instance for each recurrence.
+     * Retrieve an accessReviewInstance object using the identifier of an accessReviewInstance and its parent accessReviewScheduleDefinition. This returns all properties of the instance except for the associated accessReviewInstanceDecisionItems. To retrieve the decisions on the instance, use List accessReviewInstanceDecisionItem.
      * @param AccessReviewInstanceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -201,7 +203,7 @@ class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property instances in identityGovernance
+     * Update the properties of an accessReviewInstance object. Only the reviewers and fallbackReviewers properties can be updated but the scope property is also required in the request body. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewInstance, its status must be InProgress.
      * @param AccessReviewInstance $body The request body
      * @param AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

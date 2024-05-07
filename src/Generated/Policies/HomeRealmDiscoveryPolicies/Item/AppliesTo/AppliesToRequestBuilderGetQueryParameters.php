@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\HomeRealmDiscoveryPolicies\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get appliesTo from policies
+ * Get a list of directoryObject objects that a homeRealmDiscoveryPolicy object has been applied to. The homeRealmDiscoveryPolicy can only be applied to servicePrincipal resources.
 */
 class AppliesToRequestBuilderGetQueryParameters 
 {

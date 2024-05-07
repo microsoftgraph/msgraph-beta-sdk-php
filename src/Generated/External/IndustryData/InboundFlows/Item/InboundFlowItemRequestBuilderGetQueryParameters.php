@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Set of data import flow activities to bring data into the canonical store via a connector.
+ * Read the properties and relationships of an inboundFileFlow object.
 */
 class InboundFlowItemRequestBuilderGetQueryParameters 
 {

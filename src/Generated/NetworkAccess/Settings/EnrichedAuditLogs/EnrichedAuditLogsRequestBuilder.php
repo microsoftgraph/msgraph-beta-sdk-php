@@ -59,11 +59,12 @@ class EnrichedAuditLogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property enrichedAuditLogs in networkAccess
+     * Update the settings for the enriched audit logs workloads to control the enrichment feature for each partner workload, such as SharePoint, Teams, and Exchange.
      * @param EnrichedAuditLogs $body The request body
      * @param EnrichedAuditLogsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EnrichedAuditLogs|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-enrichedauditlogs-update?view=graph-rest-beta Find more info here
     */
     public function patch(EnrichedAuditLogs $body, ?EnrichedAuditLogsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -113,7 +114,7 @@ class EnrichedAuditLogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property enrichedAuditLogs in networkAccess
+     * Update the settings for the enriched audit logs workloads to control the enrichment feature for each partner workload, such as SharePoint, Teams, and Exchange.
      * @param EnrichedAuditLogs $body The request body
      * @param EnrichedAuditLogsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

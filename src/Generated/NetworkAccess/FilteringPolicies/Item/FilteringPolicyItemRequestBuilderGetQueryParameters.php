@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringPolicies\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
+ * Get a filteringPolicy object.
 */
 class FilteringPolicyItemRequestBuilderGetQueryParameters 
 {

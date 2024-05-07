@@ -59,11 +59,12 @@ class DayNoteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property dayNotes in teams
+     * Update the properties of a day note.
      * @param DayNote $body The request body
      * @param DayNoteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DayNote|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/daynote-update?view=graph-rest-beta Find more info here
     */
     public function patch(DayNote $body, ?DayNoteItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -113,7 +114,7 @@ class DayNoteItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property dayNotes in teams
+     * Update the properties of a day note.
      * @param DayNote $body The request body
      * @param DayNoteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
