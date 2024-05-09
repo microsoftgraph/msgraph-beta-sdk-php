@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get customAuthenticationExtensions from identity
+ * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
 */
 class CustomAuthenticationExtensionsRequestBuilderGetQueryParameters 
 {

@@ -60,10 +60,11 @@ class AlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the alert entity.
+     * Get a list of the unifiedRoleManagementAlert objects and their properties.
      * @param AlertsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlertCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/rolemanagementalert-list-alerts?view=graph-rest-beta Find more info here
     */
     public function get(?AlertsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +90,7 @@ class AlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the alert entity.
+     * Get a list of the unifiedRoleManagementAlert objects and their properties.
      * @param AlertsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

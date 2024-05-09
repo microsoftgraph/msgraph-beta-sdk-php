@@ -77,10 +77,11 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Represents the resource-specific role which a subject has been assigned through an access package assignment.
+     * Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
      * @param AccessPackageAssignmentResourceRoleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentResourceRole|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackageassignmentresourcerole-get?view=graph-rest-beta Find more info here
     */
     public function get(?AccessPackageAssignmentResourceRoleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -124,7 +125,7 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Represents the resource-specific role which a subject has been assigned through an access package assignment.
+     * Retrieve the properties and relationships of an accessPackageAssignmentResourceRole object.
      * @param AccessPackageAssignmentResourceRoleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

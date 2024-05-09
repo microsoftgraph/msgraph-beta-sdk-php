@@ -8,4 +8,5 @@ class AccessType extends Enum {
     public const QUICK_ACCESS = 'quickAccess';
     public const PRIVATE_ACCESS = 'privateAccess';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const APP_ACCESS = 'appAccess';
 }

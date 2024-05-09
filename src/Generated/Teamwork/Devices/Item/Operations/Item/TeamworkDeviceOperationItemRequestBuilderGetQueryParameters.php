@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The async operations on the device.
+ * Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
 */
 class TeamworkDeviceOperationItemRequestBuilderGetQueryParameters 
 {

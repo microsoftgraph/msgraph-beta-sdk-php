@@ -77,10 +77,11 @@ class SetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of all sets available in the term store.
+     * Read the properties and relationships of a set object.
      * @param SetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Set|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/termstore-set-get?view=graph-rest-beta Find more info here
     */
     public function get(?SetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -124,7 +125,7 @@ class SetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of all sets available in the term store.
+     * Read the properties and relationships of a set object.
      * @param SetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

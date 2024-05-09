@@ -122,11 +122,12 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to members for administrativeUnits
+     * Use this API to add a member (user, group, or device) to an administrative unit or to create a new group within an administrative unit. All group types can be created within an administrative unit. Note: Currently, it's only possible to add one member at a time to an administrative unit.`
      * @param DirectoryObject $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObject|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/administrativeunit-post-members?view=graph-rest-beta Find more info here
     */
     public function post(DirectoryObject $body, ?MembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -158,7 +159,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to members for administrativeUnits
+     * Use this API to add a member (user, group, or device) to an administrative unit or to create a new group within an administrative unit. All group types can be created within an administrative unit. Note: Currently, it's only possible to add one member at a time to an administrative unit.`
      * @param DirectoryObject $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

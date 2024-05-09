@@ -52,10 +52,11 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
+     * Retrieve a list of forwarding policies associated with a specific traffic forwarding profile.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardingPolicyCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-list-forwardingpolicies?view=graph-rest-beta Find more info here
     */
     public function get(?ForwardingPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ForwardingPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
+     * Retrieve a list of forwarding policies associated with a specific traffic forwarding profile.
      * @param ForwardingPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

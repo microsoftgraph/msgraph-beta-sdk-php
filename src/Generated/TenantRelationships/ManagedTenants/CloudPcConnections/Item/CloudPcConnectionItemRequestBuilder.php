@@ -45,10 +45,11 @@ class CloudPcConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of cloud PC connections across managed tenants.
+     * Read the properties and relationships of a cloudPcConnection object.
      * @param CloudPcConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcConnection|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-cloudpcconnection-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class CloudPcConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of cloud PC connections across managed tenants.
+     * Read the properties and relationships of a cloudPcConnection object.
      * @param CloudPcConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

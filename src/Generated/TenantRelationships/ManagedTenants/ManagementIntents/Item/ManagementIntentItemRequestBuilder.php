@@ -45,10 +45,11 @@ class ManagementIntentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management intents across managed tenants.
+     * Read the properties and relationships of a managementIntent object.
      * @param ManagementIntentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementIntent|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managementintent-get?view=graph-rest-beta Find more info here
     */
     public function get(?ManagementIntentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class ManagementIntentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management intents across managed tenants.
+     * Read the properties and relationships of a managementIntent object.
      * @param ManagementIntentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

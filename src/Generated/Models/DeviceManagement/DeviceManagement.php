@@ -1421,7 +1421,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the intuneAccountId property value. Intune Account Id for given tenant
+     * Gets the intuneAccountId property value. Intune Account ID for given tenant
      * @return string|null
     */
     public function getIntuneAccountId(): ?string {
@@ -1577,7 +1577,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the maximumDepTokens property value. Maximum number of dep tokens allowed per-tenant.
+     * Gets the maximumDepTokens property value. Maximum number of DEP tokens allowed per-tenant.
      * @return int|null
     */
     public function getMaximumDepTokens(): ?int {
@@ -3724,7 +3724,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the intuneAccountId property value. Intune Account Id for given tenant
+     * Sets the intuneAccountId property value. Intune Account ID for given tenant
      * @param string|null $value Value to set for the intuneAccountId property.
     */
     public function setIntuneAccountId(?string $value): void {
@@ -3820,7 +3820,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the maximumDepTokens property value. Maximum number of dep tokens allowed per-tenant.
+     * Sets the maximumDepTokens property value. Maximum number of DEP tokens allowed per-tenant.
      * @param int|null $value Value to set for the maximumDepTokens property.
     */
     public function setMaximumDepTokens(?int $value): void {

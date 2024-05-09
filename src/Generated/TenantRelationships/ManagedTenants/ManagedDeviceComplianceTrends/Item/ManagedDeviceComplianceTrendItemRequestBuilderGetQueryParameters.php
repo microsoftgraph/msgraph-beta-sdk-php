@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Trend insights for device compliance across managed tenants.
+ * Read the properties and relationships of a managedDeviceComplianceTrend object.
 */
 class ManagedDeviceComplianceTrendItemRequestBuilderGetQueryParameters 
 {

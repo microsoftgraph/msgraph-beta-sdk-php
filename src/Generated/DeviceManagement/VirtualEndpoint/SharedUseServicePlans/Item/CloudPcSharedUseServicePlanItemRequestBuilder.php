@@ -45,10 +45,11 @@ class CloudPcSharedUseServicePlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sharedUseServicePlans from deviceManagement
+     * Read the properties and relationships of a cloudPcSharedUseServicePlan object.
      * @param CloudPcSharedUseServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcSharedUseServicePlan|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcshareduseserviceplan-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcSharedUseServicePlanItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class CloudPcSharedUseServicePlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sharedUseServicePlans from deviceManagement
+     * Read the properties and relationships of a cloudPcSharedUseServicePlan object.
      * @param CloudPcSharedUseServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

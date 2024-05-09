@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\ConditionalAcces
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Defines whether conditional access settings are enabled for traffic profiles. Each tenant has only one conditional access settings object.
+ * Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, and the establishment of scalable network connectivity through the Global Secure Access services.
 */
 class ConditionalAccessRequestBuilderGetQueryParameters 
 {

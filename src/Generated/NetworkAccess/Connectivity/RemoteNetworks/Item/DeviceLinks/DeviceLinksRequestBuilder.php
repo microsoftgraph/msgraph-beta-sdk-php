@@ -52,7 +52,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Each unique CPE device associated with a remote network is specified. Supports $expand.
+     * Retrieves a specific device link associated with a remote network.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLinkCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class DeviceLinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Each unique CPE device associated with a remote network is specified. Supports $expand.
+     * Retrieves a specific device link associated with a remote network.
      * @param DeviceLinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

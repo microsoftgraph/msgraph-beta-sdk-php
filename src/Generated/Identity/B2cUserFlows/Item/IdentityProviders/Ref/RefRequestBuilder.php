@@ -32,10 +32,11 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete ref of navigation property identityProviders for identity
+     * Delete an identity provider from a b2cIdentityUserFlow object. For more information about identity providers available for user flows, see the identityProviders API reference.
      * @param RefRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-delete-identityproviders?view=graph-rest-beta Find more info here
     */
     public function delete(?RefRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -46,10 +47,11 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ref of identityProviders from identity
+     * Get the identity providers in a b2cIdentityUserFlow object.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StringCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-beta Find more info here
     */
     public function get(?RefRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -60,11 +62,12 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to identityProviders for identity
+     * Add identity providers in a b2cIdentityUserFlow object.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-post-identityproviders?view=graph-rest-beta Find more info here
     */
     public function post(ReferenceCreate $body, ?RefRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -75,7 +78,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete ref of navigation property identityProviders for identity
+     * Delete an identity provider from a b2cIdentityUserFlow object. For more information about identity providers available for user flows, see the identityProviders API reference.
      * @param RefRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -96,7 +99,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get ref of identityProviders from identity
+     * Get the identity providers in a b2cIdentityUserFlow object.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -117,7 +120,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to identityProviders for identity
+     * Add identity providers in a b2cIdentityUserFlow object.
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

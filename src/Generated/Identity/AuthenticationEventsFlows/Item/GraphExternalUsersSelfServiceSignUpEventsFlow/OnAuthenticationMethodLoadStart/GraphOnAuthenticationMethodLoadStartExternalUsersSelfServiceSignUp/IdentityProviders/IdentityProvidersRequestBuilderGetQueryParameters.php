@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get identityProviders from identity
+ * Get the identity providers that are defined for an external identities self-service sign up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type.
 */
 class IdentityProvidersRequestBuilderGetQueryParameters 
 {

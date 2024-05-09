@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
+ * Get the list of groups that are included in a mobile device management policy.
 */
 class IncludedGroupsRequestBuilderGetQueryParameters 
 {

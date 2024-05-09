@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get jobs from print
+ * Retrieve a list of print jobs associated with the printerShare.
 */
 class JobsRequestBuilderGetQueryParameters 
 {

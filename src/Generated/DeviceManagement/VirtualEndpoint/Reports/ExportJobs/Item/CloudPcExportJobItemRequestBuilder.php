@@ -45,10 +45,11 @@ class CloudPcExportJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The export jobs created for downloading reports.
+     * Read the properties and relationships of a cloudPcExportJob object. You can download a report by first creating a new cloudPcExportJob resource to initiate downloading. Use this GET operation to verify the exportJobStatus property of the cloudPcExportJob resource. The property becomes completed when the report finishes downloading in the location specified by the exportUrl property.
      * @param CloudPcExportJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExportJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcexportjob-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcExportJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class CloudPcExportJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The export jobs created for downloading reports.
+     * Read the properties and relationships of a cloudPcExportJob object. You can download a report by first creating a new cloudPcExportJob resource to initiate downloading. Use this GET operation to verify the exportJobStatus property of the cloudPcExportJob resource. The property becomes completed when the report finishes downloading in the location specified by the exportUrl property.
      * @param CloudPcExportJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

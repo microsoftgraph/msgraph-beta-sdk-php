@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\CustomAppScopes
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Workload-specific scope object that represents the resources for which the principal has been granted access.
+ * Get a list of customAppScope objects for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.
 */
 class CustomAppScopesRequestBuilderGetQueryParameters 
 {

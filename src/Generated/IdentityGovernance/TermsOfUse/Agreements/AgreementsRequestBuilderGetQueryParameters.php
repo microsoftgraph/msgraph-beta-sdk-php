@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID.
+ * Retrieve a list of agreement objects.
 */
 class AgreementsRequestBuilderGetQueryParameters 
 {

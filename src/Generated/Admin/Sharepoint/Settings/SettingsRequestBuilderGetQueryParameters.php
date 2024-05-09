@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Sharepoint\Settings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get settings from admin
+ * Get the tenant-level settings for SharePoint and OneDrive.
 */
 class SettingsRequestBuilderGetQueryParameters 
 {

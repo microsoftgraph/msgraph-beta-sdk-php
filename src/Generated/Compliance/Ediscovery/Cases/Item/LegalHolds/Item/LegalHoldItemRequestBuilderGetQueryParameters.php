@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Returns a list of case legalHold objects for this case.  Nullable.
+ * Read the properties and relationships of a legalHold object.
 */
 class LegalHoldItemRequestBuilderGetQueryParameters 
 {

@@ -43,7 +43,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/calendar/calendarPermissions{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/calendar/calendarPermissions{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -52,7 +52,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The permissions of the users with whom the calendar is shared.
+     * Get the specified permissions object of a user or group calendar that has been shared.
      * @param CalendarPermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CalendarPermissionCollectionResponse|null>
      * @throws Exception
@@ -66,11 +66,12 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to calendarPermissions for users
+     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
      * @param CalendarPermission $body The request body
      * @param CalendarPermissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CalendarPermission|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/calendar-post-calendarpermissions?view=graph-rest-beta Find more info here
     */
     public function post(CalendarPermission $body, ?CalendarPermissionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +82,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The permissions of the users with whom the calendar is shared.
+     * Get the specified permissions object of a user or group calendar that has been shared.
      * @param CalendarPermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +103,7 @@ class CalendarPermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to calendarPermissions for users
+     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
      * @param CalendarPermission $body The request body
      * @param CalendarPermissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

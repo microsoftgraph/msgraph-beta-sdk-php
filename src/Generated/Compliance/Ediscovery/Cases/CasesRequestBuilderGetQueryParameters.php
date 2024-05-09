@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get cases from compliance
+ * Retrieve a list of case objects.
 */
 class CasesRequestBuilderGetQueryParameters 
 {

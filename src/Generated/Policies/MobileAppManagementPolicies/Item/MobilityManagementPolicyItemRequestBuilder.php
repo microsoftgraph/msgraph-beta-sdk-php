@@ -39,10 +39,11 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mobileAppManagementPolicies for policies
+     * Delete a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
+     * Read the properties and relationships of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobilityManagementPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-get?view=graph-rest-beta Find more info here
     */
     public function get(?MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property mobileAppManagementPolicies in policies
+     * Update the properties of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicy $body The request body
      * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobilityManagementPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-update?view=graph-rest-beta Find more info here
     */
     public function patch(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mobileAppManagementPolicies for policies
+     * Delete a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
+     * Read the properties and relationships of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property mobileAppManagementPolicies in policies
+     * Update the properties of a mobilityManagementPolicy object.
      * @param MobilityManagementPolicy $body The request body
      * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

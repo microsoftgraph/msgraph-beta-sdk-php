@@ -225,20 +225,13 @@ class AnalyzedEmail extends Entity implements Parsable
             'phishConfidenceLevel' => fn(ParseNode $n) => $o->setPhishConfidenceLevel($n->getStringValue()),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getStringValue()),
             'policyAction' => fn(ParseNode $n) => $o->setPolicyAction($n->getStringValue()),
-            'recipientEmailAddresses' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setRecipientEmailAddresses($val);
-            },
+            'recipientEmailAddress' => fn(ParseNode $n) => $o->setRecipientEmailAddress($n->getStringValue()),
             'returnPath' => fn(ParseNode $n) => $o->setReturnPath($n->getStringValue()),
             'senderDetail' => fn(ParseNode $n) => $o->setSenderDetail($n->getObjectValue([AnalyzedEmailSenderDetail::class, 'createFromDiscriminatorValue'])),
             'sizeInBytes' => fn(ParseNode $n) => $o->setSizeInBytes($n->getIntegerValue()),
             'spamConfidenceLevel' => fn(ParseNode $n) => $o->setSpamConfidenceLevel($n->getStringValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
-            'threatType' => fn(ParseNode $n) => $o->setThreatType($n->getEnumValue(ThreatType::class)),
+            'threatTypes' => fn(ParseNode $n) => $o->setThreatTypes($n->getCollectionOfEnumValues(ThreatType::class)),
             'urls' => fn(ParseNode $n) => $o->setUrls($n->getCollectionOfObjectValues([AnalyzedEmailUrl::class, 'createFromDiscriminatorValue'])),
             'urlsCount' => fn(ParseNode $n) => $o->setUrlsCount($n->getIntegerValue()),
         ]);
@@ -367,17 +360,15 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the recipientEmailAddresses property value. Contains the email addresses of the recipients.
-     * @return array<string>|null
+     * Gets the recipientEmailAddress property value. Contains the email address of the recipient.
+     * @return string|null
     */
-    public function getRecipientEmailAddresses(): ?array {
-        $val = $this->getBackingStore()->get('recipientEmailAddresses');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+    public function getRecipientEmailAddress(): ?string {
+        $val = $this->getBackingStore()->get('recipientEmailAddress');
+        if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipientEmailAddresses'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipientEmailAddress'");
     }
 
     /**
@@ -441,15 +432,17 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the threatType property value. Indicates the threat types. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
-     * @return ThreatType|null
+     * Gets the threatTypes property value. Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.
+     * @return array<ThreatType>|null
     */
-    public function getThreatType(): ?ThreatType {
-        $val = $this->getBackingStore()->get('threatType');
-        if (is_null($val) || $val instanceof ThreatType) {
+    public function getThreatTypes(): ?array {
+        $val = $this->getBackingStore()->get('threatTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ThreatType::class);
+            /** @var array<ThreatType>|null $val */
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatType'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatTypes'");
     }
 
     /**
@@ -505,13 +498,13 @@ class AnalyzedEmail extends Entity implements Parsable
         $writer->writeStringValue('phishConfidenceLevel', $this->getPhishConfidenceLevel());
         $writer->writeStringValue('policy', $this->getPolicy());
         $writer->writeStringValue('policyAction', $this->getPolicyAction());
-        $writer->writeCollectionOfPrimitiveValues('recipientEmailAddresses', $this->getRecipientEmailAddresses());
+        $writer->writeStringValue('recipientEmailAddress', $this->getRecipientEmailAddress());
         $writer->writeStringValue('returnPath', $this->getReturnPath());
         $writer->writeObjectValue('senderDetail', $this->getSenderDetail());
         $writer->writeIntegerValue('sizeInBytes', $this->getSizeInBytes());
         $writer->writeStringValue('spamConfidenceLevel', $this->getSpamConfidenceLevel());
         $writer->writeStringValue('subject', $this->getSubject());
-        $writer->writeEnumValue('threatType', $this->getThreatType());
+        $writer->writeCollectionOfEnumValues('threatTypes', $this->getThreatTypes());
         $writer->writeCollectionOfObjectValues('urls', $this->getUrls());
         $writer->writeIntegerValue('urlsCount', $this->getUrlsCount());
     }
@@ -685,11 +678,11 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the recipientEmailAddresses property value. Contains the email addresses of the recipients.
-     * @param array<string>|null $value Value to set for the recipientEmailAddresses property.
+     * Sets the recipientEmailAddress property value. Contains the email address of the recipient.
+     * @param string|null $value Value to set for the recipientEmailAddress property.
     */
-    public function setRecipientEmailAddresses(?array $value): void {
-        $this->getBackingStore()->set('recipientEmailAddresses', $value);
+    public function setRecipientEmailAddress(?string $value): void {
+        $this->getBackingStore()->set('recipientEmailAddress', $value);
     }
 
     /**
@@ -733,11 +726,11 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the threatType property value. Indicates the threat types. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.
-     * @param ThreatType|null $value Value to set for the threatType property.
+     * Sets the threatTypes property value. Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.
+     * @param array<ThreatType>|null $value Value to set for the threatTypes property.
     */
-    public function setThreatType(?ThreatType $value): void {
-        $this->getBackingStore()->set('threatType', $value);
+    public function setThreatTypes(?array $value): void {
+        $this->getBackingStore()->set('threatTypes', $value);
     }
 
     /**

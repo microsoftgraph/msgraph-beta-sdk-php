@@ -52,10 +52,11 @@ class ResourceActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Operations that an authorized principal is allowed to perform.
+     * Get a list of the unifiedRbacResourceAction objects and their properties.
      * @param ResourceActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRbacResourceActionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/unifiedrbacresourcenamespace-list-resourceactions?view=graph-rest-beta Find more info here
     */
     public function get(?ResourceActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ResourceActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Operations that an authorized principal is allowed to perform.
+     * Get a list of the unifiedRbacResourceAction objects and their properties.
      * @param ResourceActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

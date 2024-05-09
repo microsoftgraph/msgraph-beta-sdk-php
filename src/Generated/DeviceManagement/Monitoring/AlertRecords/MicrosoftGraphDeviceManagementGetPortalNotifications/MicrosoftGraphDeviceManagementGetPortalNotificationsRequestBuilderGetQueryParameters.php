@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecord
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getPortalNotifications
+ * Get a list of all notifications that one or more users can access, from the Microsoft Endpoint Manager admin center.
 */
 class MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters 
 {

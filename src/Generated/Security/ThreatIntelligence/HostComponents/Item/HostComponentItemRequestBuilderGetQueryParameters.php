@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostCompone
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of a hostComponent object.
 */
 class HostComponentItemRequestBuilderGetQueryParameters 
 {

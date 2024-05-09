@@ -52,7 +52,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about email addresses associated with the user.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param EmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemEmailCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class EmailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents detailed information about email addresses associated with the user.
+     * Retrieve the properties and relationships of an itemEmail object in a user's profile.
      * @param EmailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -117,10 +117,11 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case custodian objects for this case.  Nullable.
+     * Read the properties and relationships of a custodian object.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Custodian|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-custodian-get?view=graph-rest-beta Find more info here
     */
     public function get(?CustodianItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -131,11 +132,12 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property custodians in compliance
+     * Update the properties of a custodian object.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Custodian|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-custodian-update?view=graph-rest-beta Find more info here
     */
     public function patch(Custodian $body, ?CustodianItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -164,7 +166,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case custodian objects for this case.  Nullable.
+     * Read the properties and relationships of a custodian object.
      * @param CustodianItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -185,7 +187,7 @@ class CustodianItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property custodians in compliance
+     * Update the properties of a custodian object.
      * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

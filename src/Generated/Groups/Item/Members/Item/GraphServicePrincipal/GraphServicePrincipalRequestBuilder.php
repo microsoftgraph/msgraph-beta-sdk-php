@@ -31,10 +31,11 @@ class GraphServicePrincipalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the item of type microsoft.graph.directoryObject as microsoft.graph.servicePrincipal
+     * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
      * @param GraphServicePrincipalRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipal|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/group-list-members?view=graph-rest-beta Find more info here
     */
     public function get(?GraphServicePrincipalRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class GraphServicePrincipalRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the item of type microsoft.graph.directoryObject as microsoft.graph.servicePrincipal
+     * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
      * @param GraphServicePrincipalRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -52,10 +52,11 @@ class ControlsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Controls associated with the program.
+     * In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
      * @param ControlsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProgramControlCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/program-listcontrols?view=graph-rest-beta Find more info here
     */
     public function get(?ControlsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ControlsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Controls associated with the program.
+     * In the Microsoft Entra access reviews feature, list all the programControl objects, linked to a particular program.
      * @param ControlsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

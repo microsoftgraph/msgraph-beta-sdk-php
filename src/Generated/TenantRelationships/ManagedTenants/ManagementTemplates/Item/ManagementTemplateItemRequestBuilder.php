@@ -61,10 +61,11 @@ class ManagementTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management templates across managed tenants.
+     * Read the properties and relationships of a managementTemplate object.
      * @param ManagementTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplate|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managementtemplate-get?view=graph-rest-beta Find more info here
     */
     public function get(?ManagementTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,7 +109,7 @@ class ManagementTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management templates across managed tenants.
+     * Read the properties and relationships of a managementTemplate object.
      * @param ManagementTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

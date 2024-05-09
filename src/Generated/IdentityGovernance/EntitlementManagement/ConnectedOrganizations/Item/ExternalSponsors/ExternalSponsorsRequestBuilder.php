@@ -59,10 +59,11 @@ class ExternalSponsorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalSponsors from identityGovernance
+     * Retrieve a list of a connectedOrganization's external sponsors.  The external sponsors are a set of users who can approve requests on behalf of other users from that connected organization.
      * @param ExternalSponsorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/connectedorganization-list-externalsponsors?view=graph-rest-beta Find more info here
     */
     public function get(?ExternalSponsorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +74,7 @@ class ExternalSponsorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalSponsors from identityGovernance
+     * Retrieve a list of a connectedOrganization's external sponsors.  The external sponsors are a set of users who can approve requests on behalf of other users from that connected organization.
      * @param ExternalSponsorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

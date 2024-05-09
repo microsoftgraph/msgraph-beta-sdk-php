@@ -52,10 +52,11 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of audit events across managed tenants.
+     * Get a list of the auditEvent objects and their properties.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditEventCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-auditevents?view=graph-rest-beta Find more info here
     */
     public function get(?AuditEventsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class AuditEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of audit events across managed tenants.
+     * Get a list of the auditEvent objects and their properties.
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

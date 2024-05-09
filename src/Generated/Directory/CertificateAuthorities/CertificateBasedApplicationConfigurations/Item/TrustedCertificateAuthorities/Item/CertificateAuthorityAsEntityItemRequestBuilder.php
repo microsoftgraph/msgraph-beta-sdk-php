@@ -31,10 +31,11 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property trustedCertificateAuthorities for directory
+     * Delete a certificateAuthorityAsEntity object. You can't delete all items in the collection because this collection requires at least one object that is a root authority to always persist.
      * @param CertificateAuthorityAsEntityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificateauthorityasentity-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CertificateAuthorityAsEntityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Read the properties and relationships of a certificateAuthorityAsEntity object.
      * @param CertificateAuthorityAsEntityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntity|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificateauthorityasentity-get?view=graph-rest-beta Find more info here
     */
     public function get(?CertificateAuthorityAsEntityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property trustedCertificateAuthorities in directory
+     * Update the properties of a certificateAuthorityAsEntity object.
      * @param CertificateAuthorityAsEntity $body The request body
      * @param CertificateAuthorityAsEntityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntity|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificateauthorityasentity-update?view=graph-rest-beta Find more info here
     */
     public function patch(CertificateAuthorityAsEntity $body, ?CertificateAuthorityAsEntityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +77,7 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property trustedCertificateAuthorities for directory
+     * Delete a certificateAuthorityAsEntity object. You can't delete all items in the collection because this collection requires at least one object that is a root authority to always persist.
      * @param CertificateAuthorityAsEntityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +95,7 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Read the properties and relationships of a certificateAuthorityAsEntity object.
      * @param CertificateAuthorityAsEntityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +116,7 @@ class CertificateAuthorityAsEntityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property trustedCertificateAuthorities in directory
+     * Update the properties of a certificateAuthorityAsEntity object.
      * @param CertificateAuthorityAsEntity $body The request body
      * @param CertificateAuthorityAsEntityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -30,7 +30,7 @@ class MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke action enrollAssetsById
+     * Enroll updatableAsset resources of the same type in update management by the deployment service. You can also use the method enrollAssets to enroll assets.
      * @param EnrollAssetsByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -45,7 +45,7 @@ class MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke action enrollAssetsById
+     * Enroll updatableAsset resources of the same type in update management by the deployment service. You can also use the method enrollAssets to enroll assets.
      * @param EnrollAssetsByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

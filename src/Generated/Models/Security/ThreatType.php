@@ -8,7 +8,7 @@ class ThreatType extends Enum {
     public const UNKNOWN = 'unknown';
     public const SPAM = 'spam';
     public const MALWARE = 'malware';
-    public const PHISHING = 'phishing';
+    public const PHISH = 'phish';
     public const NONE = 'none';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

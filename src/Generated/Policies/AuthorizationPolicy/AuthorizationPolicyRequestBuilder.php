@@ -52,10 +52,11 @@ class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that controls Microsoft Entra authorization settings.
+     * Retrieve the properties of an authorizationPolicy object.
      * @param AuthorizationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthorizationPolicyCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-beta Find more info here
     */
     public function get(?AuthorizationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that controls Microsoft Entra authorization settings.
+     * Retrieve the properties of an authorizationPolicy object.
      * @param AuthorizationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

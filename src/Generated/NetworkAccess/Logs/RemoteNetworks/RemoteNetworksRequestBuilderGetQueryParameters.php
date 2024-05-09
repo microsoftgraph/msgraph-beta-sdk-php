@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\RemoteNetworks;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of remote network health events.
+ * Retrieve a list of remote network health status microsoft.graph.networkaccess.remoteNetworkHealthStatusEvent events, providing insights into the health and status of remote networks.
 */
 class RemoteNetworksRequestBuilderGetQueryParameters 
 {

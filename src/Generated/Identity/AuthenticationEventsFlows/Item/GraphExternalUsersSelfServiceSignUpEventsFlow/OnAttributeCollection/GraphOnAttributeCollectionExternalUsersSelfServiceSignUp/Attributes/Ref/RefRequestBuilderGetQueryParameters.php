@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get ref of attributes from identity
+ * Get an identityUserFlowAttribute collection associated with an external identities self-service sign up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object. These are the attributes that are collected from the user during the authentication experience that's defined by the user flow.
 */
 class RefRequestBuilderGetQueryParameters 
 {

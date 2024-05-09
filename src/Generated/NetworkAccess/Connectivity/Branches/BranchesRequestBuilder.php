@@ -52,10 +52,11 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BranchSiteCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-connectivity-list-branches?view=graph-rest-beta Find more info here
     */
     public function get(?BranchesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to branches for networkAccess
+     * Create a new branch.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BranchSite|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-connectivity-post-branches?view=graph-rest-beta Find more info here
     */
     public function post(BranchSite $body, ?BranchesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
+     * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
      * @param BranchesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class BranchesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to branches for networkAccess
+     * Create a new branch.
      * @param BranchSite $body The request body
      * @param BranchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

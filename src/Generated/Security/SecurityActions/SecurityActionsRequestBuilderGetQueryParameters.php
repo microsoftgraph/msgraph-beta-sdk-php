@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\SecurityActions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get securityActions from security
+ * Retrieve a list of securityAction objects.
 */
 class SecurityActionsRequestBuilderGetQueryParameters 
 {

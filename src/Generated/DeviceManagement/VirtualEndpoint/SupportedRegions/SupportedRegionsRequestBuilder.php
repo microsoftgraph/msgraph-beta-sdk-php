@@ -52,10 +52,11 @@ class SupportedRegionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC supported regions.
+     * List the supported regions that are available for creating Cloud PC connections.
      * @param SupportedRegionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcSupportedRegionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-supportedregions?view=graph-rest-beta Find more info here
     */
     public function get(?SupportedRegionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class SupportedRegionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC supported regions.
+     * List the supported regions that are available for creating Cloud PC connections.
      * @param SupportedRegionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

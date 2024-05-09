@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Cond
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Aggregate view of conditional access policy coverage across managed tenants.
+ * Read the properties and relationships of a conditionalAccessPolicyCoverage object.
 */
 class ConditionalAccessPolicyCoverageItemRequestBuilderGetQueryParameters 
 {

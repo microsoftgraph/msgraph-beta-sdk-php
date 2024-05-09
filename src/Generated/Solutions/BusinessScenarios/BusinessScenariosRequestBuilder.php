@@ -52,10 +52,11 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get businessScenarios from solutions
+     * Get a list of all businessScenario objects in an organization.
      * @param BusinessScenariosRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/solutionsroot-list-businessscenarios?view=graph-rest-beta Find more info here
     */
     public function get(?BusinessScenariosRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to businessScenarios for solutions
+     * Create a new businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/solutionsroot-post-businessscenarios?view=graph-rest-beta Find more info here
     */
     public function post(BusinessScenario $body, ?BusinessScenariosRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get businessScenarios from solutions
+     * Get a list of all businessScenario objects in an organization.
      * @param BusinessScenariosRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class BusinessScenariosRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to businessScenarios for solutions
+     * Create a new businessScenario object.
      * @param BusinessScenario $body The request body
      * @param BusinessScenariosRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

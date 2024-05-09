@@ -51,10 +51,11 @@ class AuthenticationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Insights for authentications on apps registered in the tenant for a specified period.
+     * Get a list of daily authentications on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param AuthenticationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationsMetricCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/dailyuserinsightmetricsroot-list-authentications?view=graph-rest-beta Find more info here
     */
     public function get(?AuthenticationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class AuthenticationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Insights for authentications on apps registered in the tenant for a specified period.
+     * Get a list of daily authentications on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param AuthenticationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

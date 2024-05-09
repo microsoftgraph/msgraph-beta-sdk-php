@@ -52,7 +52,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Read the properties and relationships of a certificateAuthorityAsEntity object.
      * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntityCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of trusted certificate authorities.
+     * Read the properties and relationships of a certificateAuthorityAsEntity object.
      * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

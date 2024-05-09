@@ -53,10 +53,11 @@ class AccessPackageResourceEnvironmentItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * A reference to the geolocation environment in which a resource is located.
+     * Read the properties and relationships of an accessPackageResourceEnvironment object.
      * @param AccessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceEnvironment|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackageresourceenvironment-get?view=graph-rest-beta Find more info here
     */
     public function get(?AccessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,7 +101,7 @@ class AccessPackageResourceEnvironmentItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * A reference to the geolocation environment in which a resource is located.
+     * Read the properties and relationships of an accessPackageResourceEnvironment object.
      * @param AccessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

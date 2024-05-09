@@ -103,10 +103,11 @@ class BookingBusinessItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property bookingBusinesses for solutions
+     * Delete a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?BookingBusinessItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -146,7 +147,7 @@ class BookingBusinessItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property bookingBusinesses for solutions
+     * Delete a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

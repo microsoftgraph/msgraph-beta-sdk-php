@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\Categories;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Specifies a group of similar types of content in a particular department.
+ * Get a list of the categoryTemplate objects and their properties.
 */
 class CategoriesRequestBuilderGetQueryParameters 
 {

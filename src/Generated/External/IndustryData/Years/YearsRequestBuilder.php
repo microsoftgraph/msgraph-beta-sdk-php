@@ -52,10 +52,11 @@ class YearsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of years represented in the system.
+     * Get a list of the yearTimePeriodDefinition objects and their properties.
      * @param YearsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinitionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-list?view=graph-rest-beta Find more info here
     */
     public function get(?YearsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class YearsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to years for external
+     * Create a new yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
      * @param YearsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-post?view=graph-rest-beta Find more info here
     */
     public function post(YearTimePeriodDefinition $body, ?YearsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class YearsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set of years represented in the system.
+     * Get a list of the yearTimePeriodDefinition objects and their properties.
      * @param YearsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class YearsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to years for external
+     * Create a new yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
      * @param YearsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

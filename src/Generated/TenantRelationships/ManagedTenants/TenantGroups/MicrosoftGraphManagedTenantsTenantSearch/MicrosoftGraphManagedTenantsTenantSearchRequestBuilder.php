@@ -30,7 +30,7 @@ class MicrosoftGraphManagedTenantsTenantSearchRequestBuilder extends BaseRequest
     }
 
     /**
-     * Invoke action tenantSearch
+     * Searches for the specified managed tenants across tenant groups.
      * @param TenantSearchPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsTenantSearchRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantSearchPostResponse|null>
@@ -45,7 +45,7 @@ class MicrosoftGraphManagedTenantsTenantSearchRequestBuilder extends BaseRequest
     }
 
     /**
-     * Invoke action tenantSearch
+     * Searches for the specified managed tenants across tenant groups.
      * @param TenantSearchPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsTenantSearchRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

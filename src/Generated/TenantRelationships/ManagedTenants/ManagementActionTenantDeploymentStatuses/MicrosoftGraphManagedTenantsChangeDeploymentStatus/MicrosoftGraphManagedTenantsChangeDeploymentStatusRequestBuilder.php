@@ -31,7 +31,7 @@ class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder extends B
     }
 
     /**
-     * Invoke action changeDeploymentStatus
+     * Changes the tenant level deployment status for the management action. This information is used to provide insights into what management actions are in a specific state. As example there might be a plan to apply the require multi-factor authentication for admins, so it would be ideal to change the status to planned to reflect the appropriate status.
      * @param ChangeDeploymentStatusPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionDeploymentStatus|null>
@@ -46,7 +46,7 @@ class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder extends B
     }
 
     /**
-     * Invoke action changeDeploymentStatus
+     * Changes the tenant level deployment status for the management action. This information is used to provide insights into what management actions are in a specific state. As example there might be a plan to apply the require multi-factor authentication for admins, so it would be ideal to change the status to planned to reflect the appropriate status.
      * @param ChangeDeploymentStatusPostRequestBody $body The request body
      * @param MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

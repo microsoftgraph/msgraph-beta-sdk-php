@@ -52,10 +52,11 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get urlThreats from security
+     * Get a list of the urlThreatSubmission objects and their properties.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmissionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-urlthreatsubmission-list?view=graph-rest-beta Find more info here
     */
     public function get(?UrlThreatsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to urlThreats for security
+     * Create a new urlThreatSubmission object.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmission|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-urlthreatsubmission-post-urlthreats?view=graph-rest-beta Find more info here
     */
     public function post(UrlThreatSubmission $body, ?UrlThreatsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get urlThreats from security
+     * Get a list of the urlThreatSubmission objects and their properties.
      * @param UrlThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class UrlThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to urlThreats for security
+     * Create a new urlThreatSubmission object.
      * @param UrlThreatSubmission $body The request body
      * @param UrlThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

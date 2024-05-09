@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Report
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The export jobs created for downloading reports.
+ * Read the properties and relationships of a cloudPcExportJob object. You can download a report by first creating a new cloudPcExportJob resource to initiate downloading. Use this GET operation to verify the exportJobStatus property of the cloudPcExportJob resource. The property becomes completed when the report finishes downloading in the location specified by the exportUrl property.
 */
 class CloudPcExportJobItemRequestBuilderGetQueryParameters 
 {

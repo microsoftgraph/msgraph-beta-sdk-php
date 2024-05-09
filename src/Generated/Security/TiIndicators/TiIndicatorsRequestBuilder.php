@@ -84,10 +84,11 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tiIndicators from security
+     * Retrieve a list of tiIndicator objects.
      * @param TiIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TiIndicatorCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta Find more info here
     */
     public function get(?TiIndicatorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,11 +99,12 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tiIndicators for security
+     * Create a new tiIndicator object.
      * @param TiIndicator $body The request body
      * @param TiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TiIndicator|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta Find more info here
     */
     public function post(TiIndicator $body, ?TiIndicatorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -113,7 +115,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tiIndicators from security
+     * Retrieve a list of tiIndicator objects.
      * @param TiIndicatorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -134,7 +136,7 @@ class TiIndicatorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tiIndicators for security
+     * Create a new tiIndicator object.
      * @param TiIndicator $body The request body
      * @param TiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

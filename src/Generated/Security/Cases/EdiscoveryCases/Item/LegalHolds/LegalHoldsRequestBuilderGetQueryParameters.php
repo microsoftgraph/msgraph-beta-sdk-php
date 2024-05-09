@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Leg
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Returns a list of case eDiscoveryHoldPolicy objects for this case.
+ * Get a list of the ediscoveryHoldPolicy objects and their properties.
 */
 class LegalHoldsRequestBuilderGetQueryParameters 
 {

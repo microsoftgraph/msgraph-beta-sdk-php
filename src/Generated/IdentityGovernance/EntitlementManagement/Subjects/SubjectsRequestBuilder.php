@@ -52,10 +52,11 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the subjects within entitlement management.
+     * Get the properties of an existing accessPackageSubject object.
      * @param SubjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageSubjectCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackagesubject-get?view=graph-rest-beta Find more info here
     */
     public function get(?SubjectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the subjects within entitlement management.
+     * Get the properties of an existing accessPackageSubject object.
      * @param SubjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

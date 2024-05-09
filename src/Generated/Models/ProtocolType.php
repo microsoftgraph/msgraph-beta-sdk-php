@@ -13,4 +13,5 @@ class ProtocolType extends Enum {
     public const DEVICE_CODE = 'deviceCode';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const AUTHENTICATION_TRANSFER = 'authenticationTransfer';
+    public const NATIVE_AUTH = 'nativeAuth';
 }

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefiniti
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Set of user modifiable system picker types.
+ * Read the properties and relationships of a referenceDefinition object.
 */
 class ReferenceDefinitionItemRequestBuilderGetQueryParameters 
 {

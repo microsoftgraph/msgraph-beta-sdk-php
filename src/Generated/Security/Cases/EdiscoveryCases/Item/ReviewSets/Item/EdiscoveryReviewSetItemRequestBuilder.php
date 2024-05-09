@@ -77,10 +77,11 @@ class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of eDiscoveryReviewSet objects in the case.
+     * Read the properties and relationships of an ediscoveryReviewSet object.
      * @param EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryReviewSet|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-get?view=graph-rest-beta Find more info here
     */
     public function get(?EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -124,7 +125,7 @@ class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of eDiscoveryReviewSet objects in the case.
+     * Read the properties and relationships of an ediscoveryReviewSet object.
      * @param EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\EngagementAsyncOpera
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of long-running, asynchronous operations related to Viva Engage.
+ * Get an engagementAsyncOperation to track a long-running operation request.
 */
 class EngagementAsyncOperationItemRequestBuilderGetQueryParameters 
 {

@@ -53,10 +53,11 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationPartnerConfigurationTemplate|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/multitenantorganizationpartnerconfigurationtemplate-get?view=graph-rest-beta Find more info here
     */
     public function get(?MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +68,12 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Update the navigation property multiTenantOrganizationPartnerConfiguration in policies
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationPartnerConfigurationTemplate|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/multitenantorganizationpartnerconfigurationtemplate-update?view=graph-rest-beta Find more info here
     */
     public function patch(MultiTenantOrganizationPartnerConfigurationTemplate $body, ?MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -100,7 +102,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multi-tenant organization.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +123,7 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     }
 
     /**
-     * Update the navigation property multiTenantOrganizationPartnerConfiguration in policies
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
      * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -75,11 +75,12 @@ class FilteringProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property filteringProfiles in networkAccess
+     * Update the properties of a filteringProfile object.
      * @param FilteringProfile $body The request body
      * @param FilteringProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FilteringProfile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-update?view=graph-rest-beta Find more info here
     */
     public function patch(FilteringProfile $body, ?FilteringProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -129,7 +130,7 @@ class FilteringProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property filteringProfiles in networkAccess
+     * Update the properties of a filteringProfile object.
      * @param FilteringProfile $body The request body
      * @param FilteringProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

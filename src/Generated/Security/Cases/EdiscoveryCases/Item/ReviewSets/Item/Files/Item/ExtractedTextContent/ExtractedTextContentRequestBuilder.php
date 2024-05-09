@@ -31,6 +31,20 @@ class ExtractedTextContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
+     * Delete extractedTextContent for the navigation property files in security
+     * @param ExtractedTextContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<void|null>
+     * @throws Exception
+    */
+    public function delete(?ExtractedTextContentRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
      * Get extractedTextContent for the navigation property files from security
      * @param ExtractedTextContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -61,6 +75,24 @@ class ExtractedTextContentRequestBuilder extends BaseRequestBuilder
         /** @var Promise<StreamInterface|null> $result */
         $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $errorMappings);
         return $result;
+    }
+
+    /**
+     * Delete extractedTextContent for the navigation property files in security
+     * @param ExtractedTextContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toDeleteRequestInformation(?ExtractedTextContentRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::DELETE;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
     }
 
     /**

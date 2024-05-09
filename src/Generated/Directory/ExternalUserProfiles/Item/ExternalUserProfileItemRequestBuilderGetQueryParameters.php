@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\ExternalUserProfiles\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Collection of external user profiles that represent collaborators in the directory.
+ * Retrieve the properties of a specific externalUserProfile.
 */
 class ExternalUserProfileItemRequestBuilderGetQueryParameters 
 {

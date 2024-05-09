@@ -60,10 +60,11 @@ class DeletedTeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of deleted teams.
+     * Get a list of the deletedTeam objects and their properties.
      * @param DeletedTeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeletedTeamCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-beta Find more info here
     */
     public function get(?DeletedTeamsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +90,7 @@ class DeletedTeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of deleted teams.
+     * Get a list of the deletedTeam objects and their properties.
      * @param DeletedTeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -191,10 +191,11 @@ class CallItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property calls for communications
+     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
      * @param CallItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/call-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CallItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -205,10 +206,11 @@ class CallItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get calls from communications
+     * Retrieve the properties and relationships of a call object.
      * @param CallItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Call|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/call-get?view=graph-rest-beta Find more info here
     */
     public function get(?CallItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -234,7 +236,7 @@ class CallItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property calls for communications
+     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
      * @param CallItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -252,7 +254,7 @@ class CallItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get calls from communications
+     * Retrieve the properties and relationships of a call object.
      * @param CallItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

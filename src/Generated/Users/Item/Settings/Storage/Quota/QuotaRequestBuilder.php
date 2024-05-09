@@ -53,10 +53,11 @@ class QuotaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get quota from users
+     * Read the properties and relationships of a unifiedStorageQuota object.
      * @param QuotaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedStorageQuota|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/unifiedstoragequota-get?view=graph-rest-beta Find more info here
     */
     public function get(?QuotaRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,7 +101,7 @@ class QuotaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get quota from users
+     * Read the properties and relationships of a unifiedStorageQuota object.
      * @param QuotaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
