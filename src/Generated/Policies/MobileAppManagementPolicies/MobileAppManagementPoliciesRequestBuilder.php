@@ -52,10 +52,11 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
+     * Get a list of the mobilityManagementPolicy objects and their properties.
      * @param MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobilityManagementPolicyCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list?view=graph-rest-beta Find more info here
     */
     public function get(?MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
+     * Get a list of the mobilityManagementPolicy objects and their properties.
      * @param MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

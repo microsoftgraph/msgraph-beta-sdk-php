@@ -52,7 +52,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of all groups available in the term store.
+     * Read the properties and relationships of a term store group object.
      * @param GroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of all groups available in the term store.
+     * Read the properties and relationships of a term store group object.
      * @param GroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

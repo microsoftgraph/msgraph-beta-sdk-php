@@ -210,6 +210,18 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the claimsPolicy property value. The claimsPolicy property
+     * @return CustomClaimsPolicy|null
+    */
+    public function getClaimsPolicy(): ?CustomClaimsPolicy {
+        $val = $this->getBackingStore()->get('claimsPolicy');
+        if (is_null($val) || $val instanceof CustomClaimsPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'claimsPolicy'");
+    }
+
+    /**
      * Gets the createdObjects property value. Directory objects created by this service principal. Read-only. Nullable.
      * @return array<DirectoryObject>|null
     */
@@ -353,6 +365,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'appRoleAssignments' => fn(ParseNode $n) => $o->setAppRoleAssignments($n->getCollectionOfObjectValues([AppRoleAssignment::class, 'createFromDiscriminatorValue'])),
             'appRoles' => fn(ParseNode $n) => $o->setAppRoles($n->getCollectionOfObjectValues([AppRole::class, 'createFromDiscriminatorValue'])),
             'claimsMappingPolicies' => fn(ParseNode $n) => $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues([ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'])),
+            'claimsPolicy' => fn(ParseNode $n) => $o->setClaimsPolicy($n->getObjectValue([CustomClaimsPolicy::class, 'createFromDiscriminatorValue'])),
             'createdObjects' => fn(ParseNode $n) => $o->setCreatedObjects($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'customSecurityAttributes' => fn(ParseNode $n) => $o->setCustomSecurityAttributes($n->getObjectValue([CustomSecurityAttributeValue::class, 'createFromDiscriminatorValue'])),
             'delegatedPermissionClassifications' => fn(ParseNode $n) => $o->setDelegatedPermissionClassifications($n->getCollectionOfObjectValues([DelegatedPermissionClassification::class, 'createFromDiscriminatorValue'])),
@@ -887,6 +900,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('appRoleAssignments', $this->getAppRoleAssignments());
         $writer->writeCollectionOfObjectValues('appRoles', $this->getAppRoles());
         $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->getClaimsMappingPolicies());
+        $writer->writeObjectValue('claimsPolicy', $this->getClaimsPolicy());
         $writer->writeCollectionOfObjectValues('createdObjects', $this->getCreatedObjects());
         $writer->writeObjectValue('customSecurityAttributes', $this->getCustomSecurityAttributes());
         $writer->writeCollectionOfObjectValues('delegatedPermissionClassifications', $this->getDelegatedPermissionClassifications());
@@ -1042,6 +1056,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setClaimsMappingPolicies(?array $value): void {
         $this->getBackingStore()->set('claimsMappingPolicies', $value);
+    }
+
+    /**
+     * Sets the claimsPolicy property value. The claimsPolicy property
+     * @param CustomClaimsPolicy|null $value Value to set for the claimsPolicy property.
+    */
+    public function setClaimsPolicy(?CustomClaimsPolicy $value): void {
+        $this->getBackingStore()->set('claimsPolicy', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Emails\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents detailed information about email addresses associated with the user.
+ * Retrieve the properties and relationships of an itemEmail object in a user's profile.
 */
 class ItemEmailItemRequestBuilderGetQueryParameters 
 {

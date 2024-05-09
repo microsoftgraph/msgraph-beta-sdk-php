@@ -59,11 +59,12 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in users
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserInsightsSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/userinsightssettings-update?view=graph-rest-beta Find more info here
     */
     public function patch(UserInsightsSettings $body, ?ItemInsightsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -113,7 +114,7 @@ class ItemInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in users
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body The request body
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

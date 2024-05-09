@@ -36,7 +36,7 @@ class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBui
     }
 
     /**
-     * Invoke function getSmsLog
+     * Get the log of a sent/received SMS as a collection of smsLogRow entries.
      * @param MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetSmsLogWithFromDateTimeWithToDateTimeGetResponse|null>
      * @throws Exception
@@ -50,7 +50,7 @@ class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBui
     }
 
     /**
-     * Invoke function getSmsLog
+     * Get the log of a sent/received SMS as a collection of smsLogRow entries.
      * @param MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

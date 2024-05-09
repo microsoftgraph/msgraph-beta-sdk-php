@@ -55,10 +55,11 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property provisioningPolicies for deviceManagement
+     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
      * @param CloudPcProvisioningPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CloudPcProvisioningPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -69,10 +70,11 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC provisioning policy.
+     * Read the properties and relationships of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcProvisioningPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcProvisioningPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -83,11 +85,12 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property provisioningPolicies in deviceManagement
+     * Update the properties of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param CloudPcProvisioningPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcProvisioningPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-update?view=graph-rest-beta Find more info here
     */
     public function patch(CloudPcProvisioningPolicy $body, ?CloudPcProvisioningPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -98,7 +101,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property provisioningPolicies for deviceManagement
+     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
      * @param CloudPcProvisioningPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +119,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC provisioning policy.
+     * Read the properties and relationships of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -137,7 +140,7 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property provisioningPolicies in deviceManagement
+     * Update the properties of a cloudPcProvisioningPolicy object.
      * @param CloudPcProvisioningPolicy $body The request body
      * @param CloudPcProvisioningPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

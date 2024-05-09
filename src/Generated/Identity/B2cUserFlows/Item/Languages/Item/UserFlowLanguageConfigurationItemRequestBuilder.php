@@ -47,10 +47,11 @@ class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property languages for identity
+     * Deletes a userFlowLanguageConfiguration object from a Azure AD B2C user flow. Note: You cannot delete languages from an Microsoft Entra user flow.
      * @param UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -61,10 +62,11 @@ class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
+     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: To retrieve a language supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. Language customization is enabled by default in Microsoft Entra user flows.
      * @param UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserFlowLanguageConfiguration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-get?view=graph-rest-beta Find more info here
     */
     public function get(?UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,11 +77,12 @@ class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property languages in identity
+     * This method is used to create or update a custom language in an Azure AD B2C user flow. Note: You must enable language customization in the Azure AD B2C user flow before you can create a custom language. For more information, see Update b2cIdentityUserFlow.
      * @param UserFlowLanguageConfiguration $body The request body
      * @param UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserFlowLanguageConfiguration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/b2cidentityuserflow-put-languages?view=graph-rest-beta Find more info here
     */
     public function patch(UserFlowLanguageConfiguration $body, ?UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -90,7 +93,7 @@ class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property languages for identity
+     * Deletes a userFlowLanguageConfiguration object from a Azure AD B2C user flow. Note: You cannot delete languages from an Microsoft Entra user flow.
      * @param UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -108,7 +111,7 @@ class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
+     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: To retrieve a language supported for customization, you must first enable language customization on your Azure AD B2C user flow. For more information, see Update b2cIdentityUserFlow. Language customization is enabled by default in Microsoft Entra user flows.
      * @param UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -129,7 +132,7 @@ class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property languages in identity
+     * This method is used to create or update a custom language in an Azure AD B2C user flow. Note: You must enable language customization in the Azure AD B2C user flow before you can create a custom language. For more information, see Update b2cIdentityUserFlow.
      * @param UserFlowLanguageConfiguration $body The request body
      * @param UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -77,10 +77,11 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Planner content related to the scenario.
+     * Read the properties and relationships of a businessScenarioPlanner object.
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioPlanner|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/businessscenarioplanner-get?view=graph-rest-beta Find more info here
     */
     public function get(?PlannerRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -124,7 +125,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Planner content related to the scenario.
+     * Read the properties and relationships of a businessScenarioPlanner object.
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

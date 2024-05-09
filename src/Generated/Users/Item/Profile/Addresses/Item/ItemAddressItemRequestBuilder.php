@@ -31,10 +31,11 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property addresses for users
+     * Deletes an itemAddress object.
      * @param ItemAddressItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/itemaddress-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ItemAddressItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property addresses in users
+     * Update the properties of an itemAddress object.
      * @param ItemAddress $body The request body
      * @param ItemAddressItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemAddress|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/itemaddress-update?view=graph-rest-beta Find more info here
     */
     public function patch(ItemAddress $body, ?ItemAddressItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +76,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property addresses for users
+     * Deletes an itemAddress object.
      * @param ItemAddressItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ItemAddressItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property addresses in users
+     * Update the properties of an itemAddress object.
      * @param ItemAddress $body The request body
      * @param ItemAddressItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

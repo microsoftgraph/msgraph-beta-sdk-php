@@ -53,10 +53,11 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of all groups available in the term store.
+     * Read the properties and relationships of a term store group object.
      * @param GroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/termstore-group-get?view=graph-rest-beta Find more info here
     */
     public function get(?GroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,7 +101,7 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of all groups available in the term store.
+     * Read the properties and relationships of a term store group object.
      * @param GroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

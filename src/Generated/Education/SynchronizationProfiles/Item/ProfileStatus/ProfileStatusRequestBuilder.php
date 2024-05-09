@@ -45,10 +45,11 @@ class ProfileStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The synchronization status.
+     * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
      * @param ProfileStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationProfileStatus|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationsynchronizationprofilestatus-get?view=graph-rest-beta Find more info here
     */
     public function get(?ProfileStatusRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class ProfileStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The synchronization status.
+     * Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
      * @param ProfileStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

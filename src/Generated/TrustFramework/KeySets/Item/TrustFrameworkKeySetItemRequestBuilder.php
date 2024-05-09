@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKeySet;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GenerateKey\GenerateKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GetActiveKey\GetActiveKeyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\Keys_v2\Keys_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadCertificate\UploadCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadPkcs12\UploadPkcs12RequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadSecret\UploadSecretRequestBuilder;
@@ -33,6 +34,13 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     */
     public function getActiveKey(): GetActiveKeyRequestBuilder {
         return new GetActiveKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the keys_v2 property of the microsoft.graph.trustFrameworkKeySet entity.
+    */
+    public function keys_v2(): Keys_v2RequestBuilder {
+        return new Keys_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -71,10 +79,11 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property keySets for trustFramework
+     * Delete a trustFrameworkKeySet.
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -85,10 +94,11 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get keySets from trustFramework
+     * Retrieve the properties and associations for a Trustframeworkkeyset.
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKeySet|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-get?view=graph-rest-beta Find more info here
     */
     public function get(?TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -99,11 +109,12 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property keySets in trustFramework
+     * Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
      * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKeySet|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-update?view=graph-rest-beta Find more info here
     */
     public function patch(TrustFrameworkKeySet $body, ?TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -114,7 +125,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property keySets for trustFramework
+     * Delete a trustFrameworkKeySet.
      * @param TrustFrameworkKeySetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +143,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get keySets from trustFramework
+     * Retrieve the properties and associations for a Trustframeworkkeyset.
      * @param TrustFrameworkKeySetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +164,7 @@ class TrustFrameworkKeySetItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property keySets in trustFramework
+     * Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
      * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.
+ * Retrieve a list of branches within a tenant connected to the Global Secure Access services.
 */
 class BranchesRequestBuilderGetQueryParameters 
 {

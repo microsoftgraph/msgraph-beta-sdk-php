@@ -52,10 +52,11 @@ class JobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get jobs from print
+     * Retrieve a list of print jobs associated with the printerShare.
      * @param JobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintJobCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printershare-list-jobs?view=graph-rest-beta Find more info here
     */
     public function get(?JobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class JobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to jobs for print
+     * Create a new printJob for a printerShare. 
      * @param PrintJob $body The request body
      * @param JobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printershare-post-jobs?view=graph-rest-beta Find more info here
     */
     public function post(PrintJob $body, ?JobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class JobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get jobs from print
+     * Retrieve a list of print jobs associated with the printerShare.
      * @param JobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class JobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to jobs for print
+     * Create a new printJob for a printerShare. 
      * @param PrintJob $body The request body
      * @param JobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

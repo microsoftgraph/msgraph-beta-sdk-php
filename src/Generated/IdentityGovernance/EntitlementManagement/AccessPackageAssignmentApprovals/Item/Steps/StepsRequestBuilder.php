@@ -52,10 +52,11 @@ class StepsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+     * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
      * @param StepsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalStepCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/approval-list-steps?view=graph-rest-beta Find more info here
     */
     public function get(?StepsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class StepsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Used to represent the decision associated with a single step in the approval process configured in approvalStage.
+     * List the approvalStep objects associated with an approval. This API request is made by an approver in the following scenarios:
      * @param StepsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

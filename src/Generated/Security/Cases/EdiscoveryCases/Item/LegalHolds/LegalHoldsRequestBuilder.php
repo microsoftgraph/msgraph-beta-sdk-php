@@ -52,10 +52,11 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case eDiscoveryHoldPolicy objects for this case.
+     * Get a list of the ediscoveryHoldPolicy objects and their properties.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryHoldPolicyCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-legalholds?view=graph-rest-beta Find more info here
     */
     public function get(?LegalHoldsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to legalHolds for security
+     * Create a new ediscoveryHoldPolicy object.
      * @param EdiscoveryHoldPolicy $body The request body
      * @param LegalHoldsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryHoldPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-legalholds?view=graph-rest-beta Find more info here
     */
     public function post(EdiscoveryHoldPolicy $body, ?LegalHoldsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns a list of case eDiscoveryHoldPolicy objects for this case.
+     * Get a list of the ediscoveryHoldPolicy objects and their properties.
      * @param LegalHoldsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class LegalHoldsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to legalHolds for security
+     * Create a new ediscoveryHoldPolicy object.
      * @param EdiscoveryHoldPolicy $body The request body
      * @param LegalHoldsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

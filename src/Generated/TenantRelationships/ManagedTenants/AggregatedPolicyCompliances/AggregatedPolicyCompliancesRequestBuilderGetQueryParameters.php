@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Aggr
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Aggregate view of device compliance policies across managed tenants.
+ * Get a list of the aggregatedPolicyCompliance objects and their properties.
 */
 class AggregatedPolicyCompliancesRequestBuilderGetQueryParameters 
 {

@@ -52,7 +52,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Gets the identity property value. Identity information of the presenter. The supported identites are: communicationsGuestIdentity and communicationsUserIdentity.
+     * Gets the identity property value. Identity information of the presenter. The supported identities are: communicationsGuestIdentity and communicationsUserIdentity.
      * @return Identity|null
     */
     public function getIdentity(): ?Identity {
@@ -110,7 +110,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Sets the identity property value. Identity information of the presenter. The supported identites are: communicationsGuestIdentity and communicationsUserIdentity.
+     * Sets the identity property value. Identity information of the presenter. The supported identities are: communicationsGuestIdentity and communicationsUserIdentity.
      * @param Identity|null $value Value to set for the identity property.
     */
     public function setIdentity(?Identity $value): void {

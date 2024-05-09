@@ -34,10 +34,11 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sensorDevices for workplace
+     * Delete a workplace sensor device.
      * @param SensorDevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplacesensordevice-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?SensorDevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -48,10 +49,11 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of sensor devices.
+     * Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
      * @param SensorDevicesWithDeviceIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkplaceSensorDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplacesensordevice-get?view=graph-rest-beta Find more info here
     */
     public function get(?SensorDevicesWithDeviceIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -62,11 +64,12 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sensorDevices in workplace
+     * Update the properties of a workplace sensor device.
      * @param WorkplaceSensorDevice $body The request body
      * @param SensorDevicesWithDeviceIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkplaceSensorDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/workplacesensordevice-update?view=graph-rest-beta Find more info here
     */
     public function patch(WorkplaceSensorDevice $body, ?SensorDevicesWithDeviceIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -77,7 +80,7 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sensorDevices for workplace
+     * Delete a workplace sensor device.
      * @param SensorDevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +98,7 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of sensor devices.
+     * Get the properties of a workplace sensor device, including tags, MAC address, sensors, and more.
      * @param SensorDevicesWithDeviceIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +119,7 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sensorDevices in workplace
+     * Update the properties of a workplace sensor device.
      * @param WorkplaceSensorDevice $body The request body
      * @param SensorDevicesWithDeviceIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

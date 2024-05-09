@@ -61,10 +61,11 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenants associated with the managing entity.
+     * Read the properties and relationships of a tenant object.
      * @param TenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Tenant|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-tenant-get?view=graph-rest-beta Find more info here
     */
     public function get(?TenantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,7 +109,7 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of tenants associated with the managing entity.
+     * Read the properties and relationships of a tenant object.
      * @param TenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

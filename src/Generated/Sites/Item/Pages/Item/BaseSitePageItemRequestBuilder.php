@@ -69,10 +69,11 @@ class BaseSitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of pages in the baseSitePages list on this site.
+     * Get the metadata for a baseSitePage in the site pages list in a site.
      * @param BaseSitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BaseSitePage|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/basesitepage-get?view=graph-rest-beta Find more info here
     */
     public function get(?BaseSitePageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -116,7 +117,7 @@ class BaseSitePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of pages in the baseSitePages list on this site.
+     * Get the metadata for a baseSitePage in the site pages list in a site.
      * @param BaseSitePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

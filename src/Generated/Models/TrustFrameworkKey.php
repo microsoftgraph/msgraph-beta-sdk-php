@@ -57,7 +57,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the d property value. RSA Key - private exponent. Field can't be read back.
+     * Gets the d property value. RSA Key - private exponent. The field isn't readable.
      * @return string|null
     */
     public function getD(): ?string {
@@ -69,7 +69,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the dp property value. RSA Key - first exponent. Field can't be read back.
+     * Gets the dp property value. RSA Key - first exponent. The field isn't readable.
      * @return string|null
     */
     public function getDp(): ?string {
@@ -81,7 +81,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the dq property value. RSA Key - second exponent. Field can't be read back.
+     * Gets the dq property value. RSA Key - second exponent. The field isn't readable.
      * @return string|null
     */
     public function getDq(): ?string {
@@ -93,7 +93,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the e property value. RSA Key - public exponent
+     * Gets the e property value. RSA Key - public exponent.
      * @return string|null
     */
     public function getE(): ?string {
@@ -105,7 +105,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the use property value. The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
+     * Gets the use property value. The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption).
      * @return string|null
     */
     public function getEscapedUse(): ?string {
@@ -117,7 +117,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the exp property value. This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
+     * Gets the exp property value. This value is a NumericDate as defined in RFC 7519. That is, a JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.
      * @return int|null
     */
     public function getExp(): ?int {
@@ -150,6 +150,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
             'p' => fn(ParseNode $n) => $o->setP($n->getStringValue()),
             'q' => fn(ParseNode $n) => $o->setQ($n->getStringValue()),
             'qi' => fn(ParseNode $n) => $o->setQi($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(TrustFrameworkKeyStatus::class)),
             'x5c' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -163,7 +164,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the k property value. Symmetric Key for oct key type. Field can't be read back.
+     * Gets the k property value. Symmetric Key for oct key type. The field isn't readable.
      * @return string|null
     */
     public function getK(): ?string {
@@ -187,7 +188,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the kty property value. The kty (key type) parameter identifies the cryptographic algorithm family used with the key, The valid values are rsa, oct.
+     * Gets the kty property value. The kty (key type) parameter identifies the cryptographic algorithm family used with the key. The valid values are rsa, oct.
      * @return string|null
     */
     public function getKty(): ?string {
@@ -199,7 +200,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the n property value. RSA Key - modulus
+     * Gets the n property value. RSA Key - modulus.
      * @return string|null
     */
     public function getN(): ?string {
@@ -211,7 +212,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the nbf property value. This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
+     * Gets the nbf property value. This value is a NumericDate as defined in RFC 7519. That is, a JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.
      * @return int|null
     */
     public function getNbf(): ?int {
@@ -235,7 +236,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the p property value. RSA Key - first prime. Field can't be read back.
+     * Gets the p property value. RSA Key - first prime. The field isn't readable.
      * @return string|null
     */
     public function getP(): ?string {
@@ -247,7 +248,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the q property value. RSA Key - second prime. Field can't be read back.
+     * Gets the q property value. RSA Key - second prime. The field isn't readable.
      * @return string|null
     */
     public function getQ(): ?string {
@@ -259,7 +260,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the qi property value. RSA Key - Coefficient. Field can't be read back.
+     * Gets the qi property value. RSA Key - Coefficient. The field isn't readable.
      * @return string|null
     */
     public function getQi(): ?string {
@@ -271,7 +272,19 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the x5c property value. The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.
+     * Gets the status property value. Status of the key. The possible values are: enabled, disabled, unknownFutureValue.
+     * @return TrustFrameworkKeyStatus|null
+    */
+    public function getStatus(): ?TrustFrameworkKeyStatus {
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof TrustFrameworkKeyStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
+    }
+
+    /**
+     * Gets the x5c property value. The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates. For more information, see RFC 5280.
      * @return array<string>|null
     */
     public function getX5c(): ?array {
@@ -285,7 +298,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the x5t property value. The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (also known as digest) of the DER encoding of an X.509 certificate RFC 5280.
+     * Gets the x5t property value. The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (also known as digest) of the DER encoding of an X.509 certificate. For more information, see RFC 5280.
      * @return string|null
     */
     public function getX5t(): ?string {
@@ -316,6 +329,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('p', $this->getP());
         $writer->writeStringValue('q', $this->getQ());
         $writer->writeStringValue('qi', $this->getQi());
+        $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeCollectionOfPrimitiveValues('x5c', $this->getX5c());
         $writer->writeStringValue('x5t', $this->getX5t());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -338,7 +352,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the d property value. RSA Key - private exponent. Field can't be read back.
+     * Sets the d property value. RSA Key - private exponent. The field isn't readable.
      * @param string|null $value Value to set for the d property.
     */
     public function setD(?string $value): void {
@@ -346,7 +360,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the dp property value. RSA Key - first exponent. Field can't be read back.
+     * Sets the dp property value. RSA Key - first exponent. The field isn't readable.
      * @param string|null $value Value to set for the dp property.
     */
     public function setDp(?string $value): void {
@@ -354,7 +368,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the dq property value. RSA Key - second exponent. Field can't be read back.
+     * Sets the dq property value. RSA Key - second exponent. The field isn't readable.
      * @param string|null $value Value to set for the dq property.
     */
     public function setDq(?string $value): void {
@@ -362,7 +376,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the e property value. RSA Key - public exponent
+     * Sets the e property value. RSA Key - public exponent.
      * @param string|null $value Value to set for the e property.
     */
     public function setE(?string $value): void {
@@ -370,7 +384,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the use property value. The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
+     * Sets the use property value. The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption).
      * @param string|null $value Value to set for the use property.
     */
     public function setEscapedUse(?string $value): void {
@@ -378,7 +392,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the exp property value. This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
+     * Sets the exp property value. This value is a NumericDate as defined in RFC 7519. That is, a JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.
      * @param int|null $value Value to set for the exp property.
     */
     public function setExp(?int $value): void {
@@ -386,7 +400,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the k property value. Symmetric Key for oct key type. Field can't be read back.
+     * Sets the k property value. Symmetric Key for oct key type. The field isn't readable.
      * @param string|null $value Value to set for the k property.
     */
     public function setK(?string $value): void {
@@ -402,7 +416,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the kty property value. The kty (key type) parameter identifies the cryptographic algorithm family used with the key, The valid values are rsa, oct.
+     * Sets the kty property value. The kty (key type) parameter identifies the cryptographic algorithm family used with the key. The valid values are rsa, oct.
      * @param string|null $value Value to set for the kty property.
     */
     public function setKty(?string $value): void {
@@ -410,7 +424,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the n property value. RSA Key - modulus
+     * Sets the n property value. RSA Key - modulus.
      * @param string|null $value Value to set for the n property.
     */
     public function setN(?string $value): void {
@@ -418,7 +432,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the nbf property value. This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
+     * Sets the nbf property value. This value is a NumericDate as defined in RFC 7519. That is, a JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.
      * @param int|null $value Value to set for the nbf property.
     */
     public function setNbf(?int $value): void {
@@ -434,7 +448,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the p property value. RSA Key - first prime. Field can't be read back.
+     * Sets the p property value. RSA Key - first prime. The field isn't readable.
      * @param string|null $value Value to set for the p property.
     */
     public function setP(?string $value): void {
@@ -442,7 +456,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the q property value. RSA Key - second prime. Field can't be read back.
+     * Sets the q property value. RSA Key - second prime. The field isn't readable.
      * @param string|null $value Value to set for the q property.
     */
     public function setQ(?string $value): void {
@@ -450,7 +464,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the qi property value. RSA Key - Coefficient. Field can't be read back.
+     * Sets the qi property value. RSA Key - Coefficient. The field isn't readable.
      * @param string|null $value Value to set for the qi property.
     */
     public function setQi(?string $value): void {
@@ -458,7 +472,15 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the x5c property value. The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.
+     * Sets the status property value. Status of the key. The possible values are: enabled, disabled, unknownFutureValue.
+     * @param TrustFrameworkKeyStatus|null $value Value to set for the status property.
+    */
+    public function setStatus(?TrustFrameworkKeyStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the x5c property value. The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates. For more information, see RFC 5280.
      * @param array<string>|null $value Value to set for the x5c property.
     */
     public function setX5c(?array $value): void {
@@ -466,7 +488,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the x5t property value. The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (also known as digest) of the DER encoding of an X.509 certificate RFC 5280.
+     * Sets the x5t property value. The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (also known as digest) of the DER encoding of an X.509 certificate. For more information, see RFC 5280.
      * @param string|null $value Value to set for the x5t property.
     */
     public function setX5t(?string $value): void {

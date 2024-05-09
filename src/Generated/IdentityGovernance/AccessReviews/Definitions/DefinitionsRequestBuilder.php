@@ -62,10 +62,11 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the template and scheduling for an access review.
+     * Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewScheduleDefinitionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-beta Find more info here
     */
     public function get(?DefinitionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -76,11 +77,12 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to definitions for identityGovernance
+     * Create a new accessReviewScheduleDefinition object.
      * @param AccessReviewScheduleDefinition $body The request body
      * @param DefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewScheduleDefinition|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-beta Find more info here
     */
     public function post(AccessReviewScheduleDefinition $body, ?DefinitionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -91,7 +93,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the template and scheduling for an access review.
+     * Retrieve the accessReviewScheduleDefinition objects. A list of zero or more accessReviewScheduleDefinition objects are returned, including all of their nested properties, for each access review series created. This does not include the associated accessReviewInstance objects.
      * @param DefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +114,7 @@ class DefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to definitions for identityGovernance
+     * Create a new accessReviewScheduleDefinition object.
      * @param AccessReviewScheduleDefinition $body The request body
      * @param DefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

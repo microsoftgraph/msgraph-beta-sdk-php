@@ -45,10 +45,11 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Defines whether conditional access settings are enabled for traffic profiles. Each tenant has only one conditional access settings object.
+     * Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, and the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-get?view=graph-rest-beta Find more info here
     */
     public function get(?ConditionalAccessRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property conditionalAccess in networkAccess
+     * Update the conditional access settings to include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessSettings $body The request body
      * @param ConditionalAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-conditionalaccesssettings-update?view=graph-rest-beta Find more info here
     */
     public function patch(ConditionalAccessSettings $body, ?ConditionalAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Defines whether conditional access settings are enabled for traffic profiles. Each tenant has only one conditional access settings object.
+     * Retrieve the conditional access settings, which include the preservation of the original source IP address in network traffic for accurate identification and tracking, and the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property conditionalAccess in networkAccess
+     * Update the conditional access settings to include the preservation of the original source IP address in network traffic for accurate identification and tracking, as well as the establishment of scalable network connectivity through the Global Secure Access services.
      * @param ConditionalAccessSettings $body The request body
      * @param ConditionalAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

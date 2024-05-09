@@ -95,10 +95,11 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property printers for print
+     * Delete (unregister) a printer.
      * @param PrinterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printer-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?PrinterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -109,10 +110,11 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The list of printers registered in the tenant.
+     * Retrieve the properties and relationships of a printer object.
      * @param PrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Printer|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printer-get?view=graph-rest-beta Find more info here
     */
     public function get(?PrinterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -123,11 +125,12 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property printers in print
+     * Update the properties of a printer object.
      * @param Printer $body The request body
      * @param PrinterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Printer|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/printer-update?view=graph-rest-beta Find more info here
     */
     public function patch(Printer $body, ?PrinterItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -138,7 +141,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property printers for print
+     * Delete (unregister) a printer.
      * @param PrinterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -156,7 +159,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The list of printers registered in the tenant.
+     * Retrieve the properties and relationships of a printer object.
      * @param PrinterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -177,7 +180,7 @@ class PrinterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property printers in print
+     * Update the properties of a printer object.
      * @param Printer $body The request body
      * @param PrinterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

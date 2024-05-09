@@ -31,10 +31,11 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property awards for users
+     * Deletes a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/personaward-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?PersonAwardItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property awards in users
+     * Update the properties of a personAward object from a user's profile.
      * @param PersonAward $body The request body
      * @param PersonAwardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonAward|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/personaward-update?view=graph-rest-beta Find more info here
     */
     public function patch(PersonAward $body, ?PersonAwardItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +76,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property awards for users
+     * Deletes a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property awards in users
+     * Update the properties of a personAward object from a user's profile.
      * @param PersonAward $body The request body
      * @param PersonAwardItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

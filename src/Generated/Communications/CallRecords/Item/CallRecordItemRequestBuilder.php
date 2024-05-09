@@ -69,10 +69,11 @@ class CallRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get callRecords from communications
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
      * @param CallRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CallRecord|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/callrecords-callrecord-get?view=graph-rest-beta Find more info here
     */
     public function get(?CallRecordItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -116,7 +117,7 @@ class CallRecordItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get callRecords from communications
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
      * @param CallRecordItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

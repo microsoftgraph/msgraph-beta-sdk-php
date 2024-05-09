@@ -45,10 +45,11 @@ class UrlThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get urlThreats from security
+     * Read the properties and relationships of an urlThreatSubmission object.
      * @param UrlThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UrlThreatSubmission|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-urlthreatsubmission-get?view=graph-rest-beta Find more info here
     */
     public function get(?UrlThreatSubmissionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class UrlThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get urlThreats from security
+     * Read the properties and relationships of an urlThreatSubmission object.
      * @param UrlThreatSubmissionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

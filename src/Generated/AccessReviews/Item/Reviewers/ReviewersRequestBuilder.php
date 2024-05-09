@@ -52,10 +52,11 @@ class ReviewersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
+     * In the Microsoft Entra access reviews feature, retrieve the reviewers of an accessReview object.
      * @param ReviewersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewReviewerCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreview-listreviewers?view=graph-rest-beta Find more info here
     */
     public function get(?ReviewersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ReviewersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to reviewers for accessReviews
+     * In the Microsoft Entra access reviews feature, update an existing accessReview object to add another user as a reviewer.  This operation is only permitted for an access review that isn't yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn't permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. 
      * @param AccessReviewReviewer $body The request body
      * @param ReviewersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewReviewer|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreview-addreviewer?view=graph-rest-beta Find more info here
     */
     public function post(AccessReviewReviewer $body, ?ReviewersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ReviewersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
+     * In the Microsoft Entra access reviews feature, retrieve the reviewers of an accessReview object.
      * @param ReviewersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ReviewersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to reviewers for accessReviews
+     * In the Microsoft Entra access reviews feature, update an existing accessReview object to add another user as a reviewer.  This operation is only permitted for an access review that isn't yet completed, and only for an access review where the reviewers are explicitly specified. This operation isn't permitted for an access review in which users review their own access, and not intended for an access review in which the group owners are assigned as the reviewers. 
      * @param AccessReviewReviewer $body The request body
      * @param ReviewersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

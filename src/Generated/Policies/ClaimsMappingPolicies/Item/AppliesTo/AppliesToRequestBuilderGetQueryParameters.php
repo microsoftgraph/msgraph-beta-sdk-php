@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\ClaimsMappingPolicies\Item\App
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get appliesTo from policies
+ * Get a list of directoryObject objects that a claimsMappingPolicy object has been applied to. The claimsMappingPolicy can only be applied to application and servicePrincipal resources.
 */
 class AppliesToRequestBuilderGetQueryParameters 
 {

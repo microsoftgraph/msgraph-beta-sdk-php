@@ -45,10 +45,11 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a policy to control enabling or disabling validation of federation authentication tokens.
+     * Get a list of the federatedTokenValidationPolicy objects and their properties.
      * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedTokenValidationPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/policyroot-list-federatedtokenvalidationpolicy?view=graph-rest-beta Find more info here
     */
     public function get(?FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property federatedTokenValidationPolicy in policies
+     * Update the properties of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicy $body The request body
      * @param FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedTokenValidationPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/federatedtokenvalidationpolicy-update?view=graph-rest-beta Find more info here
     */
     public function patch(FederatedTokenValidationPolicy $body, ?FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a policy to control enabling or disabling validation of federation authentication tokens.
+     * Get a list of the federatedTokenValidationPolicy objects and their properties.
      * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property federatedTokenValidationPolicy in policies
+     * Update the properties of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicy $body The request body
      * @param FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscove
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
+ * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
 */
 class HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters 
 {

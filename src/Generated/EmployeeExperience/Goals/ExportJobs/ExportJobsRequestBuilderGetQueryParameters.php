@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\ExportJobs;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents a collection of goals export jobs for Viva Goals.
+ * Get a list of goalsExportJob objects and their properties in a Viva Goals organization.
 */
 class ExportJobsRequestBuilderGetQueryParameters 
 {

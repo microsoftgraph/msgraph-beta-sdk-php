@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\SourceSystems\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Set of source definitions that represents real-world external systems.
+ * Read the properties and relationships of a sourceSystemDefinition object.
 */
 class SourceSystemDefinitionItemRequestBuilderGetQueryParameters 
 {

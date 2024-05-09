@@ -259,6 +259,20 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the conditionalAccessAudiences property value. A list that indicates the audience that was evaluated by Conditional Access during a sign-in event.  Supports $filter (eq).
+     * @return array<ConditionalAccessAudience>|null
+    */
+    public function getConditionalAccessAudiences(): ?array {
+        $val = $this->getBackingStore()->get('conditionalAccessAudiences');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConditionalAccessAudience::class);
+            /** @var array<ConditionalAccessAudience>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessAudiences'");
+    }
+
+    /**
      * Gets the conditionalAccessStatus property value. The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).
      * @return ConditionalAccessStatus|null
     */
@@ -362,6 +376,7 @@ class SignIn extends Entity implements Parsable
             'azureResourceId' => fn(ParseNode $n) => $o->setAzureResourceId($n->getStringValue()),
             'clientAppUsed' => fn(ParseNode $n) => $o->setClientAppUsed($n->getStringValue()),
             'clientCredentialType' => fn(ParseNode $n) => $o->setClientCredentialType($n->getEnumValue(ClientCredentialType::class)),
+            'conditionalAccessAudiences' => fn(ParseNode $n) => $o->setConditionalAccessAudiences($n->getCollectionOfObjectValues([ConditionalAccessAudience::class, 'createFromDiscriminatorValue'])),
             'conditionalAccessStatus' => fn(ParseNode $n) => $o->setConditionalAccessStatus($n->getEnumValue(ConditionalAccessStatus::class)),
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -369,6 +384,7 @@ class SignIn extends Entity implements Parsable
             'deviceDetail' => fn(ParseNode $n) => $o->setDeviceDetail($n->getObjectValue([DeviceDetail::class, 'createFromDiscriminatorValue'])),
             'federatedCredentialId' => fn(ParseNode $n) => $o->setFederatedCredentialId($n->getStringValue()),
             'flaggedForReview' => fn(ParseNode $n) => $o->setFlaggedForReview($n->getBooleanValue()),
+            'globalSecureAccessIpAddress' => fn(ParseNode $n) => $o->setGlobalSecureAccessIpAddress($n->getStringValue()),
             'homeTenantId' => fn(ParseNode $n) => $o->setHomeTenantId($n->getStringValue()),
             'homeTenantName' => fn(ParseNode $n) => $o->setHomeTenantName($n->getStringValue()),
             'incomingTokenType' => fn(ParseNode $n) => $o->setIncomingTokenType($n->getEnumValue(IncomingTokenType::class)),
@@ -376,6 +392,7 @@ class SignIn extends Entity implements Parsable
             'ipAddressFromResourceProvider' => fn(ParseNode $n) => $o->setIpAddressFromResourceProvider($n->getStringValue()),
             'isInteractive' => fn(ParseNode $n) => $o->setIsInteractive($n->getBooleanValue()),
             'isTenantRestricted' => fn(ParseNode $n) => $o->setIsTenantRestricted($n->getBooleanValue()),
+            'isThroughGlobalSecureAccess' => fn(ParseNode $n) => $o->setIsThroughGlobalSecureAccess($n->getBooleanValue()),
             'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([SignInLocation::class, 'createFromDiscriminatorValue'])),
             'managedServiceIdentity' => fn(ParseNode $n) => $o->setManagedServiceIdentity($n->getObjectValue([ManagedIdentity::class, 'createFromDiscriminatorValue'])),
             'mfaDetail' => fn(ParseNode $n) => $o->setMfaDetail($n->getObjectValue([MfaDetail::class, 'createFromDiscriminatorValue'])),
@@ -438,6 +455,18 @@ class SignIn extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'flaggedForReview'");
+    }
+
+    /**
+     * Gets the globalSecureAccessIpAddress property value. The Global Secure Access IP address that the sign-in was initiated from.
+     * @return string|null
+    */
+    public function getGlobalSecureAccessIpAddress(): ?string {
+        $val = $this->getBackingStore()->get('globalSecureAccessIpAddress');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'globalSecureAccessIpAddress'");
     }
 
     /**
@@ -522,6 +551,18 @@ class SignIn extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isTenantRestricted'");
+    }
+
+    /**
+     * Gets the isThroughGlobalSecureAccess property value. Indicates whether a user came through Global Secure Access service.
+     * @return bool|null
+    */
+    public function getIsThroughGlobalSecureAccess(): ?bool {
+        $val = $this->getBackingStore()->get('isThroughGlobalSecureAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isThroughGlobalSecureAccess'");
     }
 
     /**
@@ -976,6 +1017,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('azureResourceId', $this->getAzureResourceId());
         $writer->writeStringValue('clientAppUsed', $this->getClientAppUsed());
         $writer->writeEnumValue('clientCredentialType', $this->getClientCredentialType());
+        $writer->writeCollectionOfObjectValues('conditionalAccessAudiences', $this->getConditionalAccessAudiences());
         $writer->writeEnumValue('conditionalAccessStatus', $this->getConditionalAccessStatus());
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
@@ -983,6 +1025,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeObjectValue('deviceDetail', $this->getDeviceDetail());
         $writer->writeStringValue('federatedCredentialId', $this->getFederatedCredentialId());
         $writer->writeBooleanValue('flaggedForReview', $this->getFlaggedForReview());
+        $writer->writeStringValue('globalSecureAccessIpAddress', $this->getGlobalSecureAccessIpAddress());
         $writer->writeStringValue('homeTenantId', $this->getHomeTenantId());
         $writer->writeStringValue('homeTenantName', $this->getHomeTenantName());
         $writer->writeEnumValue('incomingTokenType', $this->getIncomingTokenType());
@@ -990,6 +1033,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('ipAddressFromResourceProvider', $this->getIpAddressFromResourceProvider());
         $writer->writeBooleanValue('isInteractive', $this->getIsInteractive());
         $writer->writeBooleanValue('isTenantRestricted', $this->getIsTenantRestricted());
+        $writer->writeBooleanValue('isThroughGlobalSecureAccess', $this->getIsThroughGlobalSecureAccess());
         $writer->writeObjectValue('location', $this->getLocation());
         $writer->writeObjectValue('managedServiceIdentity', $this->getManagedServiceIdentity());
         $writer->writeObjectValue('mfaDetail', $this->getMfaDetail());
@@ -1172,6 +1216,14 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Sets the conditionalAccessAudiences property value. A list that indicates the audience that was evaluated by Conditional Access during a sign-in event.  Supports $filter (eq).
+     * @param array<ConditionalAccessAudience>|null $value Value to set for the conditionalAccessAudiences property.
+    */
+    public function setConditionalAccessAudiences(?array $value): void {
+        $this->getBackingStore()->set('conditionalAccessAudiences', $value);
+    }
+
+    /**
      * Sets the conditionalAccessStatus property value. The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).
      * @param ConditionalAccessStatus|null $value Value to set for the conditionalAccessStatus property.
     */
@@ -1228,6 +1280,14 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Sets the globalSecureAccessIpAddress property value. The Global Secure Access IP address that the sign-in was initiated from.
+     * @param string|null $value Value to set for the globalSecureAccessIpAddress property.
+    */
+    public function setGlobalSecureAccessIpAddress(?string $value): void {
+        $this->getBackingStore()->set('globalSecureAccessIpAddress', $value);
+    }
+
+    /**
      * Sets the homeTenantId property value. The tenant identifier of the user initiating the sign-in. Not applicable in Managed Identity or service principal sign ins.
      * @param string|null $value Value to set for the homeTenantId property.
     */
@@ -1281,6 +1341,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setIsTenantRestricted(?bool $value): void {
         $this->getBackingStore()->set('isTenantRestricted', $value);
+    }
+
+    /**
+     * Sets the isThroughGlobalSecureAccess property value. Indicates whether a user came through Global Secure Access service.
+     * @param bool|null $value Value to set for the isThroughGlobalSecureAccess property.
+    */
+    public function setIsThroughGlobalSecureAccess(?bool $value): void {
+        $this->getBackingStore()->set('isThroughGlobalSecureAccess', $value);
     }
 
     /**

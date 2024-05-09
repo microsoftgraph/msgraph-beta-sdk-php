@@ -52,10 +52,11 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+     * Get a list of the complianceChange objects and their properties.
      * @param ComplianceChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComplianceChangeCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-list-compliancechanges?view=graph-rest-beta Find more info here
     */
     public function get(?ComplianceChangesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to complianceChanges for admin
+     * Create a new contentApproval object.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComplianceChange|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-post-compliancechanges-contentapproval?view=graph-rest-beta Find more info here
     */
     public function post(ComplianceChange $body, ?ComplianceChangesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+     * Get a list of the complianceChange objects and their properties.
      * @param ComplianceChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ComplianceChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to complianceChanges for admin
+     * Create a new contentApproval object.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

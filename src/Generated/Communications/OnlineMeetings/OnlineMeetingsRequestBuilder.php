@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\CreateOrGet\CreateOrGetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllRecordings\GetAllRecordingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllTranscripts\GetAllTranscriptsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime\GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime\GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
@@ -39,15 +39,15 @@ class OnlineMeetingsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getAllRecordings method.
     */
-    public function getAllRecordings(): GetAllRecordingsRequestBuilder {
-        return new GetAllRecordingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime(): GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder {
+        return new GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getAllTranscripts method.
     */
-    public function getAllTranscripts(): GetAllTranscriptsRequestBuilder {
-        return new GetAllTranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime(): GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder {
+        return new GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -76,10 +76,11 @@ class OnlineMeetingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get onlineMeetings from communications
+     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report (deprecated) and Teams live event recordings (deprecated) are online meeting artifacts. For details, see Online meeting artifacts and permissions. 
      * @param OnlineMeetingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnlineMeetingCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta Find more info here
     */
     public function get(?OnlineMeetingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -105,7 +106,7 @@ class OnlineMeetingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get onlineMeetings from communications
+     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report (deprecated) and Teams live event recordings (deprecated) are online meeting artifacts. For details, see Online meeting artifacts and permissions. 
      * @param OnlineMeetingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

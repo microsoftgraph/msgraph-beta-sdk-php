@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\TaskDefinitions\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get taskDefinitions from print
+ * Get details about a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
 */
 class PrintTaskDefinitionItemRequestBuilderGetQueryParameters 
 {

@@ -52,10 +52,11 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     }
 
     /**
-     * Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+     * Get a list of certificateBasedApplicationConfiguration objects.
      * @param CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedApplicationConfigurationCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificateauthoritypath-list-certificatebasedapplicationconfigurations?view=graph-rest-beta Find more info here
     */
     public function get(?CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     }
 
     /**
-     * Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
+     * Get a list of certificateBasedApplicationConfiguration objects.
      * @param CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

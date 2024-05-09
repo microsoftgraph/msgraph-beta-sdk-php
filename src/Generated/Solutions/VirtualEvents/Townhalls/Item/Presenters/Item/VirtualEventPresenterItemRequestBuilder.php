@@ -40,10 +40,11 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property presenters for solutions
+     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event type is virtualEventTownhall.
      * @param VirtualEventPresenterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventpresenter-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?VirtualEventPresenterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,10 +55,11 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The virtual event presenters.
+     * Read the properties and relationships of a virtualEventPresenter object.
      * @param VirtualEventPresenterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenter|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventpresenter-get?view=graph-rest-beta Find more info here
     */
     public function get(?VirtualEventPresenterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +94,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property presenters for solutions
+     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event type is virtualEventTownhall.
      * @param VirtualEventPresenterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -110,7 +112,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The virtual event presenters.
+     * Read the properties and relationships of a virtualEventPresenter object.
      * @param VirtualEventPresenterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

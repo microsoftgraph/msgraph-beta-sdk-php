@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\TaskTriggers
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A list of task triggers that are associated with the printer.
+ * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
 */
 class PrintTaskTriggerItemRequestBuilderGetQueryParameters 
 {

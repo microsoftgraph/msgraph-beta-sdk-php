@@ -59,11 +59,12 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property publications in users
+     * Update the properties of an itemPublication object in a user's profile.
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPublication|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/itempublication-update?view=graph-rest-beta Find more info here
     */
     public function patch(ItemPublication $body, ?ItemPublicationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -113,7 +114,7 @@ class ItemPublicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property publications in users
+     * Update the properties of an itemPublication object in a user's profile.
      * @param ItemPublication $body The request body
      * @param ItemPublicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

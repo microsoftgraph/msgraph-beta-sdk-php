@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\TenantStatus;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents the status of the Global Secure Access services for the tenant.
+ * Retrieve the onboarding status of a specific tenant.
 */
 class TenantStatusRequestBuilderGetQueryParameters 
 {

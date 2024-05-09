@@ -52,10 +52,11 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a collection of sign-in activities of service principals.
+     * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
      * @param ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalSignInActivityCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/reportroot-list-serviceprincipalsigninactivities?view=graph-rest-beta Find more info here
     */
     public function get(?ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a collection of sign-in activities of service principals.
+     * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
      * @param ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

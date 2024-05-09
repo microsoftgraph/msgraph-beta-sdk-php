@@ -47,10 +47,11 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property authenticationEventsFlows for identity
+     * Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
      * @param AuthenticationEventsFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationeventsflow-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?AuthenticationEventsFlowItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -61,10 +62,11 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+     * Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
      * @param AuthenticationEventsFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventsFlow|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationeventsflow-get?view=graph-rest-beta Find more info here
     */
     public function get(?AuthenticationEventsFlowItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -75,11 +77,12 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property authenticationEventsFlows in identity
+     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventsFlow|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationeventsflow-update?view=graph-rest-beta Find more info here
     */
     public function patch(AuthenticationEventsFlow $body, ?AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -90,7 +93,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property authenticationEventsFlows for identity
+     * Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
      * @param AuthenticationEventsFlowItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -108,7 +111,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+     * Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
      * @param AuthenticationEventsFlowItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -129,7 +132,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property authenticationEventsFlows in identity
+     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

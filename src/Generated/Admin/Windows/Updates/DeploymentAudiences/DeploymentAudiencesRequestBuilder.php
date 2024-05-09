@@ -52,10 +52,11 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of updatableAsset resources to which a deployment can apply.
+     * Get a list of deploymentAudience objects and their properties.
      * @param DeploymentAudiencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentAudienceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-list-deploymentaudiences?view=graph-rest-beta Find more info here
     */
     public function get(?DeploymentAudiencesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to deploymentAudiences for admin
+     * Create a new deploymentAudience object.
      * @param DeploymentAudience $body The request body
      * @param DeploymentAudiencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentAudience|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deploymentaudiences?view=graph-rest-beta Find more info here
     */
     public function post(DeploymentAudience $body, ?DeploymentAudiencesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of updatableAsset resources to which a deployment can apply.
+     * Get a list of deploymentAudience objects and their properties.
      * @param DeploymentAudiencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class DeploymentAudiencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to deploymentAudiences for admin
+     * Create a new deploymentAudience object.
      * @param DeploymentAudience $body The request body
      * @param DeploymentAudiencesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

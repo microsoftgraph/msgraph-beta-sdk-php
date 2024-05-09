@@ -39,10 +39,11 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property complianceChanges for admin
+     * Delete a contentApproval object.
      * @param ComplianceChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-contentapproval-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ComplianceChangeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+     * Read the properties and relationships of a complianceChange object.
      * @param ComplianceChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComplianceChange|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-get?view=graph-rest-beta Find more info here
     */
     public function get(?ComplianceChangeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property complianceChanges in admin
+     * Update the properties of a contentApproval object.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComplianceChange|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-contentapproval-update?view=graph-rest-beta Find more info here
     */
     public function patch(ComplianceChange $body, ?ComplianceChangeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property complianceChanges for admin
+     * Delete a contentApproval object.
      * @param ComplianceChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.
+     * Read the properties and relationships of a complianceChange object.
      * @param ComplianceChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class ComplianceChangeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property complianceChanges in admin
+     * Update the properties of a contentApproval object.
      * @param ComplianceChange $body The request body
      * @param ComplianceChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

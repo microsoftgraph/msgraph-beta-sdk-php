@@ -59,11 +59,12 @@ class PolicyRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property policyRules in networkAccess
+     * Update an existing forwarding rule within a forwarding policy.
      * @param PolicyRule $body The request body
      * @param PolicyRuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyRule|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-policyrule-update?view=graph-rest-beta Find more info here
     */
     public function patch(PolicyRule $body, ?PolicyRuleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -113,7 +114,7 @@ class PolicyRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property policyRules in networkAccess
+     * Update an existing forwarding rule within a forwarding policy.
      * @param PolicyRule $body The request body
      * @param PolicyRuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

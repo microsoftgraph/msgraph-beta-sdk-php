@@ -31,10 +31,11 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property externalUserProfiles for directory
+     * Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.
      * @param ExternalUserProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/directory-delete-externaluserprofiles?view=graph-rest-beta Find more info here
     */
     public function delete(?ExternalUserProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of external user profiles that represent collaborators in the directory.
+     * Retrieve the properties of a specific externalUserProfile.
      * @param ExternalUserProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalUserProfile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/externaluserprofile-get?view=graph-rest-beta Find more info here
     */
     public function get(?ExternalUserProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalUserProfiles in directory
+     * Update the properties of a externalUserProfile object.
      * @param ExternalUserProfile $body The request body
      * @param ExternalUserProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalUserProfile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/externaluserprofile-update?view=graph-rest-beta Find more info here
     */
     public function patch(ExternalUserProfile $body, ?ExternalUserProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +77,7 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property externalUserProfiles for directory
+     * Delete an externalUserProfile object. Note: To permanently delete the externalUserProfile, follow permanently delete an item. To restore an externalUserProfile, follow restore a deleted item.
      * @param ExternalUserProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +95,7 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of external user profiles that represent collaborators in the directory.
+     * Retrieve the properties of a specific externalUserProfile.
      * @param ExternalUserProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +116,7 @@ class ExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalUserProfiles in directory
+     * Update the properties of a externalUserProfile object.
      * @param ExternalUserProfile $body The request body
      * @param ExternalUserProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

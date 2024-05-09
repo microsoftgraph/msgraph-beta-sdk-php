@@ -31,10 +31,11 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property patents for users
+     * Deletes an itemPatent object.
      * @param ItemPatentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/itempatent-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ItemPatentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property patents in users
+     * Update the properties of an itemPatent object.
      * @param ItemPatent $body The request body
      * @param ItemPatentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemPatent|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/itempatent-update?view=graph-rest-beta Find more info here
     */
     public function patch(ItemPatent $body, ?ItemPatentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +76,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property patents for users
+     * Deletes an itemPatent object.
      * @param ItemPatentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ItemPatentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property patents in users
+     * Update the properties of an itemPatent object.
      * @param ItemPatent $body The request body
      * @param ItemPatentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

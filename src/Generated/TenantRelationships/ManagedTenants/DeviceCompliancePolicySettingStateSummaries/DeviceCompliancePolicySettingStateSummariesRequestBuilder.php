@@ -52,10 +52,11 @@ class DeviceCompliancePolicySettingStateSummariesRequestBuilder extends BaseRequ
     }
 
     /**
-     * Summary information for device compliance policy setting states across managed tenants.
+     * Get a list of the deviceCompliancePolicySettingStateSummary objects and their properties.
      * @param DeviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCompliancePolicySettingStateSummaryCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-devicecompliancepolicysettingstatesummary?view=graph-rest-beta Find more info here
     */
     public function get(?DeviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class DeviceCompliancePolicySettingStateSummariesRequestBuilder extends BaseRequ
     }
 
     /**
-     * Summary information for device compliance policy setting states across managed tenants.
+     * Get a list of the deviceCompliancePolicySettingStateSummary objects and their properties.
      * @param DeviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

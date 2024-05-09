@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Specifies the connectivity details of all device links associated with a branch.
+ * Retrieve the IPSec tunnel configuration required to establish a bidirectional communication link between your organization's router and the Microsoft gateway. This information is vital for configuring your router (customer premise equipment) after creating a deviceLink.
 */
 class ConnectivityConfigurationRequestBuilderGetQueryParameters 
 {

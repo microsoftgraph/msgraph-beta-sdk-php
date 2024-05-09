@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Learning catalog items for the provider.
+ * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
 */
 class LearningContentItemRequestBuilderGetQueryParameters 
 {

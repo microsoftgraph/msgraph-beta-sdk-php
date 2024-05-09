@@ -52,10 +52,11 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The virtual event presenters.
+     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event type is virtualEventTownhall.
      * @param PresentersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenterCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualevent-list-presenters?view=graph-rest-beta Find more info here
     */
     public function get(?PresentersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to presenters for solutions
+     * Create a new virtualEventPresenter object on a virtual event.  Currently the supported virtual event type is virtualEventTownhall.
      * @param VirtualEventPresenter $body The request body
      * @param PresentersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenter|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualevent-post-presenters?view=graph-rest-beta Find more info here
     */
     public function post(VirtualEventPresenter $body, ?PresentersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The virtual event presenters.
+     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event type is virtualEventTownhall.
      * @param PresentersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to presenters for solutions
+     * Create a new virtualEventPresenter object on a virtual event.  Currently the supported virtual event type is virtualEventTownhall.
      * @param VirtualEventPresenter $body The request body
      * @param PresentersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

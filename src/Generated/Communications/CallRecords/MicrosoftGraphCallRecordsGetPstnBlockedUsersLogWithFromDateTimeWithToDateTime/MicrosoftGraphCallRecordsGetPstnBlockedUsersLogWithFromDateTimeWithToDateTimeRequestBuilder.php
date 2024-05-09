@@ -36,7 +36,7 @@ class MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateT
     }
 
     /**
-     * Invoke function getPstnBlockedUsersLog
+     * Get the log of users who are blocked/unblocked from making public switched telephone network (PSTN) calls in Microsoft Teams as a collection of pstnBlockedUsersLogRow entries. The log includes information about each blocked user such as their assigned phone number and the reason they were blocked/unblocked from making calls.
      * @param MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse|null>
      * @throws Exception
@@ -50,7 +50,7 @@ class MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateT
     }
 
     /**
-     * Invoke function getPstnBlockedUsersLog
+     * Get the log of users who are blocked/unblocked from making public switched telephone network (PSTN) calls in Microsoft Teams as a collection of pstnBlockedUsersLogRow entries. The log includes information about each blocked user such as their assigned phone number and the reason they were blocked/unblocked from making calls.
      * @param MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

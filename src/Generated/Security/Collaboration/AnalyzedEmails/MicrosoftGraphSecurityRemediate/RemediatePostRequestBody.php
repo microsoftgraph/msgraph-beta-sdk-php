@@ -78,18 +78,6 @@ class RemediatePostRequestBody implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the approverUpn property value. The approverUpn property
-     * @return string|null
-    */
-    public function getApproverUpn(): ?string {
-        $val = $this->getBackingStore()->get('approverUpn');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'approverUpn'");
-    }
-
-    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -130,7 +118,6 @@ class RemediatePostRequestBody implements AdditionalDataHolder, BackedModel, Par
         return  [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(RemediationAction::class)),
             'analyzedEmails' => fn(ParseNode $n) => $o->setAnalyzedEmails($n->getCollectionOfObjectValues([AnalyzedEmail::class, 'createFromDiscriminatorValue'])),
-            'approverUpn' => fn(ParseNode $n) => $o->setApproverUpn($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'remediateSendersCopy' => fn(ParseNode $n) => $o->setRemediateSendersCopy($n->getBooleanValue()),
@@ -169,7 +156,6 @@ class RemediatePostRequestBody implements AdditionalDataHolder, BackedModel, Par
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('action', $this->getAction());
         $writer->writeCollectionOfObjectValues('analyzedEmails', $this->getAnalyzedEmails());
-        $writer->writeStringValue('approverUpn', $this->getApproverUpn());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('remediateSendersCopy', $this->getRemediateSendersCopy());
@@ -199,14 +185,6 @@ class RemediatePostRequestBody implements AdditionalDataHolder, BackedModel, Par
     */
     public function setAnalyzedEmails(?array $value): void {
         $this->getBackingStore()->set('analyzedEmails', $value);
-    }
-
-    /**
-     * Sets the approverUpn property value. The approverUpn property
-     * @param string|null $value Value to set for the approverUpn property.
-    */
-    public function setApproverUpn(?string $value): void {
-        $this->getBackingStore()->set('approverUpn', $value);
     }
 
     /**

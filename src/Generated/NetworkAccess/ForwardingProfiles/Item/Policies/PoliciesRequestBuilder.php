@@ -52,10 +52,11 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Traffic forwarding policies associated with this profile.
+     * Retrieve a list of forwarding policy links that are associated with a specific forwarding profile.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLinkCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-forwardingprofile-list-policies?view=graph-rest-beta Find more info here
     */
     public function get(?PoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Traffic forwarding policies associated with this profile.
+     * Retrieve a list of forwarding policy links that are associated with a specific forwarding profile.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

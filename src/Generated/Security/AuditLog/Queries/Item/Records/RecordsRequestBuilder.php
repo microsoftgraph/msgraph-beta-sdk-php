@@ -52,10 +52,11 @@ class RecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * An individual audit log record.
+     * Get a list of the auditLogRecord objects and their properties.
      * @param RecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuditLogRecordCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-auditlogquery-list-records?view=graph-rest-beta Find more info here
     */
     public function get(?RecordsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class RecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * An individual audit log record.
+     * Get a list of the auditLogRecord objects and their properties.
      * @param RecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

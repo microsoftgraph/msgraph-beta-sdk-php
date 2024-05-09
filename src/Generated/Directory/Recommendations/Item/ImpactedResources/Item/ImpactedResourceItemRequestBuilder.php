@@ -77,10 +77,11 @@ class ImpactedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The list of directory objects associated with the recommendation.
+     * Read the properties and relationships of an impactedResource object.
      * @param ImpactedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImpactedResource|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/impactedresource-get?view=graph-rest-beta Find more info here
     */
     public function get(?ImpactedResourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -124,7 +125,7 @@ class ImpactedResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The list of directory objects associated with the recommendation.
+     * Read the properties and relationships of an impactedResource object.
      * @param ImpactedResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -45,10 +45,11 @@ class SignInItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signIns from auditLogs
+     * Get a signIn object that contains a specific user sign-in event for your tenant that includes sign-ins where a user is asked to enter a username or password, and session tokens.
      * @param SignInItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignIn|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/signin-get?view=graph-rest-beta Find more info here
     */
     public function get(?SignInItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class SignInItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signIns from auditLogs
+     * Get a signIn object that contains a specific user sign-in event for your tenant that includes sign-ins where a user is asked to enter a username or password, and session tokens.
      * @param SignInItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

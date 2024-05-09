@@ -66,11 +66,12 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to groups for external
+     * Create a new externalGroup object.
      * @param ExternalGroup $body The request body
      * @param GroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalGroup|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-post-groups?view=graph-rest-beta Find more info here
     */
     public function post(ExternalGroup $body, ?GroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -102,7 +103,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to groups for external
+     * Create a new externalGroup object.
      * @param ExternalGroup $body The request body
      * @param GroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

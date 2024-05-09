@@ -59,10 +59,11 @@ class IncludedGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
+     * Get the list of groups that are included in a mobile app management policy.
      * @param IncludedGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list-includedgroups?view=graph-rest-beta Find more info here
     */
     public function get(?IncludedGroupsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -73,7 +74,7 @@ class IncludedGroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Microsoft Entra groups under the scope of the mobility management application if appliesTo is selected
+     * Get the list of groups that are included in a mobile app management policy.
      * @param IncludedGroupsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

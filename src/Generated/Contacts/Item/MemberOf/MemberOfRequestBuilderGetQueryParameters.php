@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
+ * Retrieve the list of groups and adminstrative units the contact is a member of.
 */
 class MemberOfRequestBuilderGetQueryParameters 
 {

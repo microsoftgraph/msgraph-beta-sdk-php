@@ -69,10 +69,11 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies class-level assignments settings.
+     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
      * @param AssignmentSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationAssignmentSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationassignmentsettings-get?view=graph-rest-beta Find more info here
     */
     public function get(?AssignmentSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -83,11 +84,12 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property assignmentSettings in education
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param EducationAssignmentSettings $body The request body
      * @param AssignmentSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationAssignmentSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-beta Find more info here
     */
     public function patch(EducationAssignmentSettings $body, ?AssignmentSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -116,7 +118,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Specifies class-level assignments settings.
+     * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
      * @param AssignmentSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -137,7 +139,7 @@ class AssignmentSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property assignmentSettings in education
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param EducationAssignmentSettings $body The request body
      * @param AssignmentSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

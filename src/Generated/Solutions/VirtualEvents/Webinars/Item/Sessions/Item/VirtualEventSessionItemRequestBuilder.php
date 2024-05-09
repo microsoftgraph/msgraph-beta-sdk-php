@@ -71,10 +71,11 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Sessions for the virtual event.
+     * Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
      * @param VirtualEventSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventSession|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventsession-get?view=graph-rest-beta Find more info here
     */
     public function get(?VirtualEventSessionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -136,7 +137,7 @@ class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Sessions for the virtual event.
+     * Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: virtualEventTownhall and virtualEventWebinar.
      * @param VirtualEventSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

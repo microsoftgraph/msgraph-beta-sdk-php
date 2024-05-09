@@ -56,11 +56,12 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to scheduledPermissionsRequests for identityGovernance
+     * Create a new scheduledPermissionsRequest object.
      * @param ScheduledPermissionsRequest $body The request body
      * @param ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScheduledPermissionsRequest|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/permissionsmanagement-post-scheduledpermissionsrequests?view=graph-rest-beta Find more info here
     */
     public function post(ScheduledPermissionsRequest $body, ?ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -92,7 +93,7 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to scheduledPermissionsRequests for identityGovernance
+     * Create a new scheduledPermissionsRequest object.
      * @param ScheduledPermissionsRequest $body The request body
      * @param ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

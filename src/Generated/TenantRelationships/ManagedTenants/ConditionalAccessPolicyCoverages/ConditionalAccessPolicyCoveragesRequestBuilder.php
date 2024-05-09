@@ -52,10 +52,11 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Aggregate view of conditional access policy coverage across managed tenants.
+     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform.
      * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessPolicyCoverageCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-conditionalaccesspolicycoverages?view=graph-rest-beta Find more info here
     */
     public function get(?ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Aggregate view of conditional access policy coverage across managed tenants.
+     * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform.
      * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

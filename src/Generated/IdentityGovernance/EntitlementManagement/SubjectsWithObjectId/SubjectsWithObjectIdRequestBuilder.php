@@ -62,11 +62,12 @@ class SubjectsWithObjectIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property subjects in identityGovernance
+     * Update an existing accessPackageSubject object to change the subject lifecycle.
      * @param AccessPackageSubject $body The request body
      * @param SubjectsWithObjectIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageSubject|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackagesubject-update?view=graph-rest-beta Find more info here
     */
     public function patch(AccessPackageSubject $body, ?SubjectsWithObjectIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -116,7 +117,7 @@ class SubjectsWithObjectIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property subjects in identityGovernance
+     * Update an existing accessPackageSubject object to change the subject lifecycle.
      * @param AccessPackageSubject $body The request body
      * @param SubjectsWithObjectIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

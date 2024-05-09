@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TermStore\Groups;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Collection of all groups available in the term store.
+ * Get the list of group objects of a store
 */
 class GroupsRequestBuilderGetQueryParameters 
 {

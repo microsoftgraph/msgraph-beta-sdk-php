@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
+ * Get a list of the filteringProfile objects and their properties.
 */
 class FilteringProfilesRequestBuilderGetQueryParameters 
 {

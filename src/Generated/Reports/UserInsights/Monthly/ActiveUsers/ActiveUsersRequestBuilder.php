@@ -51,10 +51,11 @@ class ActiveUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Insights for active users on apps registered in the tenant for a specified period.
+     * Get a list of monthly active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param ActiveUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActiveUsersMetricCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/monthlyuserinsightmetricsroot-list-activeusers?view=graph-rest-beta Find more info here
     */
     public function get(?ActiveUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class ActiveUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Insights for active users on apps registered in the tenant for a specified period.
+     * Get a list of monthly active users on apps registered in your tenant configured for Microsoft Entra External ID for customers.
      * @param ActiveUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

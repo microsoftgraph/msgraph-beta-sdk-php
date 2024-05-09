@@ -52,10 +52,11 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The external partner settings on a Cloud PC.
+     * Get a list of the cloudPcExternalPartnerSetting objects and their properties.
      * @param ExternalPartnerSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSettingCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-externalpartnersettings?view=graph-rest-beta Find more info here
     */
     public function get(?ExternalPartnerSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to externalPartnerSettings for deviceManagement
+     * Create a new cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param ExternalPartnerSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSetting|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-post-externalpartnersettings?view=graph-rest-beta Find more info here
     */
     public function post(CloudPcExternalPartnerSetting $body, ?ExternalPartnerSettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The external partner settings on a Cloud PC.
+     * Get a list of the cloudPcExternalPartnerSetting objects and their properties.
      * @param ExternalPartnerSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ExternalPartnerSettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to externalPartnerSettings for deviceManagement
+     * Create a new cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
      * @param ExternalPartnerSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

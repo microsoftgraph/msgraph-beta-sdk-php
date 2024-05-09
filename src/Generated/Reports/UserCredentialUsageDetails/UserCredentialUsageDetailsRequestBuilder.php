@@ -52,10 +52,11 @@ class UserCredentialUsageDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the self-service password reset (SSPR) usage for a given tenant.
+     * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
      * @param UserCredentialUsageDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserCredentialUsageDetailsCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/reportroot-list-usercredentialusagedetails?view=graph-rest-beta Find more info here
     */
     public function get(?UserCredentialUsageDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class UserCredentialUsageDetailsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents the self-service password reset (SSPR) usage for a given tenant.
+     * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
      * @param UserCredentialUsageDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

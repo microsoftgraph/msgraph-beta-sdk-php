@@ -52,7 +52,7 @@ class AppointmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All the appointments of this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The start and end properties are always returned in UTC.
      * @param AppointmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingAppointmentCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class AppointmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All the appointments of this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The start and end properties are always returned in UTC.
      * @param AppointmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

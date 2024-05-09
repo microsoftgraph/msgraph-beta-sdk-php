@@ -52,10 +52,11 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Teams devices provisioned for the tenant.
+     * Get a list of all Microsoft Teams-enabled devices provisioned for a tenant.
      * @param DevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkDeviceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkdevice-list?view=graph-rest-beta Find more info here
     */
     public function get(?DevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class DevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Teams devices provisioned for the tenant.
+     * Get a list of all Microsoft Teams-enabled devices provisioned for a tenant.
      * @param DevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

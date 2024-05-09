@@ -85,10 +85,11 @@ class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get roleAssignmentSchedules from roleManagement
+     * Retrieve the schedule for an active role assignment operation.
      * @param UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleAssignmentSchedule|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/unifiedroleassignmentschedule-get?view=graph-rest-beta Find more info here
     */
     public function get(?UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -132,7 +133,7 @@ class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get roleAssignmentSchedules from roleManagement
+     * Retrieve the schedule for an active role assignment operation.
      * @param UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

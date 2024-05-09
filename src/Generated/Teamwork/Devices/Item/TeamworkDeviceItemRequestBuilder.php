@@ -101,10 +101,11 @@ class TeamworkDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Teams devices provisioned for the tenant.
+     * Get the properties of a Microsoft Teams-enabled device. For example, you can use this method to get the device type, hardware detail, activity state, and health status information for a device that's enabled for Teams.
      * @param TeamworkDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkdevice-get?view=graph-rest-beta Find more info here
     */
     public function get(?TeamworkDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -148,7 +149,7 @@ class TeamworkDeviceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Teams devices provisioned for the tenant.
+     * Get the properties of a Microsoft Teams-enabled device. For example, you can use this method to get the device type, hardware detail, activity state, and health status information for a device that's enabled for Teams.
      * @param TeamworkDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

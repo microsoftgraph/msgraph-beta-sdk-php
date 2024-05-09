@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\ArticleIndi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of an articleIndicator object.
 */
 class ArticleIndicatorsRequestBuilderGetQueryParameters 
 {

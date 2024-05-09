@@ -52,10 +52,11 @@ class ManagementActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management actions across managed tenants.
+     * Get a list of the managementAction objects and their properties.
      * @param ManagementActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-managementactions?view=graph-rest-beta Find more info here
     */
     public function get(?ManagementActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ManagementActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of baseline management actions across managed tenants.
+     * Get a list of the managementAction objects and their properties.
      * @param ManagementActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

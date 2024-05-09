@@ -52,10 +52,11 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get securityActions from security
+     * Retrieve a list of securityAction objects.
      * @param SecurityActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityActionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/securityactions-list?view=graph-rest-beta Find more info here
     */
     public function get(?SecurityActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to securityActions for security
+     * Create a new securityAction object.
      * @param SecurityAction $body The request body
      * @param SecurityActionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityAction|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/securityactions-post?view=graph-rest-beta Find more info here
     */
     public function post(SecurityAction $body, ?SecurityActionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get securityActions from security
+     * Retrieve a list of securityAction objects.
      * @param SecurityActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class SecurityActionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to securityActions for security
+     * Create a new securityAction object.
      * @param SecurityAction $body The request body
      * @param SecurityActionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

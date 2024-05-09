@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Cloud managed virtual desktops.
+ * Read the properties and relationships of a specific cloudPC object.
 */
 class CloudPCItemRequestBuilderGetQueryParameters 
 {

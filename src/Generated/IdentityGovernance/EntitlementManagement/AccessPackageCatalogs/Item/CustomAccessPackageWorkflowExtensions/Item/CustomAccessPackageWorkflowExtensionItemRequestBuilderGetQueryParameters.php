@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get customAccessPackageWorkflowExtensions from identityGovernance
+ * Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
 */
 class CustomAccessPackageWorkflowExtensionItemRequestBuilderGetQueryParameters 
 {

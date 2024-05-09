@@ -61,11 +61,12 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the ref of navigation property connectorGroup in applications
+     * Assign a connectorGroup to an application.
      * @param ReferenceUpdate $body The request body
      * @param RefRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/connectorgroup-post-applications?view=graph-rest-beta Find more info here
     */
     public function put(ReferenceUpdate $body, ?RefRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
@@ -112,7 +113,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the ref of navigation property connectorGroup in applications
+     * Assign a connectorGroup to an application.
      * @param ReferenceUpdate $body The request body
      * @param RefRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

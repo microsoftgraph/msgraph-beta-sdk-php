@@ -39,10 +39,11 @@ class GraphRoomRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the items of type microsoft.graph.room in the microsoft.graph.place collection
+     * Get a collection of the specified type of place objects defined in the tenant.  You can do the following for a given tenant:- List all the rooms.- List all the workspaces.- List all the room lists.- List rooms in a specific room list.- List workspaces in a specific room list. A place object can be one of the following types: The room, workspace and roomList resources are derived from the place object. By default, this operation returns up to 100 places per page.  Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. For details about how they compare, see Using the places API.
      * @param GraphRoomRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RoomCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/place-list?view=graph-rest-beta Find more info here
     */
     public function get(?GraphRoomRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -53,7 +54,7 @@ class GraphRoomRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the items of type microsoft.graph.room in the microsoft.graph.place collection
+     * Get a collection of the specified type of place objects defined in the tenant.  You can do the following for a given tenant:- List all the rooms.- List all the workspaces.- List all the room lists.- List rooms in a specific room list.- List workspaces in a specific room list. A place object can be one of the following types: The room, workspace and roomList resources are derived from the place object. By default, this operation returns up to 100 places per page.  Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. For details about how they compare, see Using the places API.
      * @param GraphRoomRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\MonthlyUserInsightMetricsRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\ActiveUsers\ActiveUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\ActiveUsersBreakdown\ActiveUsersBreakdownRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Authentications\AuthenticationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsers\InactiveUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\InactiveUsersByApplicationRequestBuilder;
@@ -30,13 +29,6 @@ class MonthlyRequestBuilder extends BaseRequestBuilder
     */
     public function activeUsers(): ActiveUsersRequestBuilder {
         return new ActiveUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the activeUsersBreakdown property of the microsoft.graph.monthlyUserInsightMetricsRoot entity.
-    */
-    public function activeUsersBreakdown(): ActiveUsersBreakdownRequestBuilder {
-        return new ActiveUsersBreakdownRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

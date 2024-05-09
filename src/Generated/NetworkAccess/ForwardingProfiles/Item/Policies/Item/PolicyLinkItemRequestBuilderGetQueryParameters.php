@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\Item\P
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Traffic forwarding policies associated with this profile.
+ * Retrieve information about a specific link between a forwarding policy and a forwarding profile.
 */
 class PolicyLinkItemRequestBuilderGetQueryParameters 
 {

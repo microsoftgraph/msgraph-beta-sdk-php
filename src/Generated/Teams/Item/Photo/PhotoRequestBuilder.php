@@ -53,11 +53,12 @@ class PhotoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property photo in teams
+     * Update the photo for the specified contact, group, team, or user in a tenant. The size of the photo you can update to is limited to 4 MB. You can use either PATCH or PUT for this operation.
      * @param ProfilePhoto $body The request body
      * @param PhotoRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProfilePhoto|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/profilephoto-update?view=graph-rest-beta Find more info here
     */
     public function patch(ProfilePhoto $body, ?PhotoRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -89,7 +90,7 @@ class PhotoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property photo in teams
+     * Update the photo for the specified contact, group, team, or user in a tenant. The size of the photo you can update to is limited to 4 MB. You can use either PATCH or PUT for this operation.
      * @param ProfilePhoto $body The request body
      * @param PhotoRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

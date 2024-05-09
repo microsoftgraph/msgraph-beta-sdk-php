@@ -31,10 +31,11 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property certifications for users
+     * Deletes a personCertification object from a user's profile.
      * @param PersonCertificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/personcertification-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?PersonCertificationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property certifications in users
+     * Update the properties of a personCertification object from a user's profile.
      * @param PersonCertification $body The request body
      * @param PersonCertificationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PersonCertification|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/personcertification-update?view=graph-rest-beta Find more info here
     */
     public function patch(PersonCertification $body, ?PersonCertificationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +76,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property certifications for users
+     * Deletes a personCertification object from a user's profile.
      * @param PersonCertificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class PersonCertificationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property certifications in users
+     * Update the properties of a personCertification object from a user's profile.
      * @param PersonCertification $body The request body
      * @param PersonCertificationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

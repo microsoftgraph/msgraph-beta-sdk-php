@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tena
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of a logical grouping of managed tenants used by the multi-tenant management platform.
+ * Get a list of the tenantGroup objects and their properties.
 */
 class TenantGroupsRequestBuilderGetQueryParameters 
 {

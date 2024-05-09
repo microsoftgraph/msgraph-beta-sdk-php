@@ -45,10 +45,11 @@ class ContactInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+     * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
      * @param ContactInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InsightsSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/organizationsettings-list-contactinsights?view=graph-rest-beta Find more info here
     */
     public function get(?ContactInsightsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ContactInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property contactInsights in organization
+     * Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
      * @param InsightsSettings $body The request body
      * @param ContactInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InsightsSettings|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/insightssettings-update?view=graph-rest-beta Find more info here
     */
     public function patch(InsightsSettings $body, ?ContactInsightsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class ContactInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+     * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
      * @param ContactInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ContactInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property contactInsights in organization
+     * Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
      * @param InsightsSettings $body The request body
      * @param ContactInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
