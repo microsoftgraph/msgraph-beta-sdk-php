@@ -53,7 +53,7 @@ class PartnerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get partner from security
+     * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners’ customers, including alerts, scores, and all aspects of security.
      * @param PartnerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PartnerSecurity|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class PartnerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get partner from security
+     * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners’ customers, including alerts, scores, and all aspects of security.
      * @param PartnerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

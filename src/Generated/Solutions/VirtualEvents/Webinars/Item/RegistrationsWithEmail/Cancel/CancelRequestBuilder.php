@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\LogCollectionRequests\Item\DownloadDeviceLogs;
+namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationsWithEmail\Cancel;
 
 use Exception;
 use Http\Promise\Promise;
@@ -11,17 +11,17 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to call the downloadDeviceLogs method.
+ * Provides operations to call the cancel method.
 */
-class DownloadDeviceLogsRequestBuilder extends BaseRequestBuilder 
+class CancelRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Instantiates a new DownloadDeviceLogsRequestBuilder and sets the default values.
+     * Instantiates a new CancelRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/downloadDeviceLogs');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(email=\'{email}\')/cancel');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -30,25 +30,25 @@ class DownloadDeviceLogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action downloadDeviceLogs
-     * @param DownloadDeviceLogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<DownloadDeviceLogsPostResponse|null>
+     * Invoke action cancel
+     * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?DownloadDeviceLogsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?CancelRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [DownloadDeviceLogsPostResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
     }
 
     /**
-     * Invoke action downloadDeviceLogs
-     * @param DownloadDeviceLogsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Invoke action cancel
+     * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?DownloadDeviceLogsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?CancelRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -64,10 +64,10 @@ class DownloadDeviceLogsRequestBuilder extends BaseRequestBuilder
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param string $rawUrl The raw URL to use for the request builder.
-     * @return DownloadDeviceLogsRequestBuilder
+     * @return CancelRequestBuilder
     */
-    public function withUrl(string $rawUrl): DownloadDeviceLogsRequestBuilder {
-        return new DownloadDeviceLogsRequestBuilder($rawUrl, $this->requestAdapter);
+    public function withUrl(string $rawUrl): CancelRequestBuilder {
+        return new CancelRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

@@ -28,7 +28,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityLogs property value. The activityLogs property
+     * Gets the activityLogs property value. Represents the activity by a partner and includes details of state transitions, who performed them, and when they occurred.
      * @return array<ActivityLog>|null
     */
     public function getActivityLogs(): ?array {
@@ -42,7 +42,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the additionalDetails property value. The additionalDetails property
+     * Gets the additionalDetails property value. A bag of name-value pairs that contain additional details about an alert.
      * @return AdditionalDataDictionary|null
     */
     public function getAdditionalDetails(): ?AdditionalDataDictionary {
@@ -54,7 +54,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the affectedResources property value. The affectedResources property
+     * Gets the affectedResources property value. Contains details of the resources affected by the security alert.
      * @return array<AffectedResource>|null
     */
     public function getAffectedResources(): ?array {
@@ -68,7 +68,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertType property value. The alertType property
+     * Gets the alertType property value. The type of vulnerability that impacts the customer due to this alert.
      * @return string|null
     */
     public function getAlertType(): ?string {
@@ -80,7 +80,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the catalogOfferId property value. The catalogOfferId property
+     * Gets the catalogOfferId property value. The modern offer category ID of the subscription.
      * @return string|null
     */
     public function getCatalogOfferId(): ?string {
@@ -104,7 +104,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the customerTenantId property value. The customerTenantId property
+     * Gets the customerTenantId property value. The impacted customer tenant associated with the alert.
      * @return string|null
     */
     public function getCustomerTenantId(): ?string {
@@ -116,7 +116,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description for each alert.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -128,7 +128,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectedDateTime property value. The detectedDateTime property
+     * Gets the detectedDateTime property value. Time when the alert was detected or created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getDetectedDateTime(): ?DateTime {
@@ -140,7 +140,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the alert.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -182,7 +182,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the firstObservedDateTime property value. The firstObservedDateTime property
+     * Gets the firstObservedDateTime property value. Time of the first activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  subscription.
      * @return DateTime|null
     */
     public function getFirstObservedDateTime(): ?DateTime {
@@ -194,7 +194,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the isTest property value. The isTest property
+     * Gets the isTest property value. Indicates whehter an alert is a test alert.
      * @return bool|null
     */
     public function getIsTest(): ?bool {
@@ -206,7 +206,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastObservedDateTime property value. The lastObservedDateTime property
+     * Gets the lastObservedDateTime property value. Time of the latest activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastObservedDateTime(): ?DateTime {
@@ -218,7 +218,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the resolvedBy property value. The resolvedBy property
+     * Gets the resolvedBy property value. The UPN of the partner user who resolved the alert.
      * @return string|null
     */
     public function getResolvedBy(): ?string {
@@ -230,7 +230,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the resolvedOnDateTime property value. The resolvedOnDateTime property
+     * Gets the resolvedOnDateTime property value. Time when the alert was resolved. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getResolvedOnDateTime(): ?DateTime {
@@ -242,7 +242,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the resolvedReason property value. The resolvedReason property
+     * Gets the resolvedReason property value. The reason provided by the partner for addressing the alert. The possible values are: legitimate, ignore, fraud, unknownFutureValue.
      * @return SecurityAlertResolvedReason|null
     */
     public function getResolvedReason(): ?SecurityAlertResolvedReason {
@@ -278,7 +278,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptionId property value. The subscriptionId property
+     * Gets the subscriptionId property value. The subscription associated with the alert for the customer.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -290,7 +290,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the valueAddedResellerTenantId property value. The valueAddedResellerTenantId property
+     * Gets the valueAddedResellerTenantId property value. The value-added reseller tenant associated with the partner tenant and customer tenant.
      * @return string|null
     */
     public function getValueAddedResellerTenantId(): ?string {
@@ -330,7 +330,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityLogs property value. The activityLogs property
+     * Sets the activityLogs property value. Represents the activity by a partner and includes details of state transitions, who performed them, and when they occurred.
      * @param array<ActivityLog>|null $value Value to set for the activityLogs property.
     */
     public function setActivityLogs(?array $value): void {
@@ -338,7 +338,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the additionalDetails property value. The additionalDetails property
+     * Sets the additionalDetails property value. A bag of name-value pairs that contain additional details about an alert.
      * @param AdditionalDataDictionary|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?AdditionalDataDictionary $value): void {
@@ -346,7 +346,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the affectedResources property value. The affectedResources property
+     * Sets the affectedResources property value. Contains details of the resources affected by the security alert.
      * @param array<AffectedResource>|null $value Value to set for the affectedResources property.
     */
     public function setAffectedResources(?array $value): void {
@@ -354,7 +354,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertType property value. The alertType property
+     * Sets the alertType property value. The type of vulnerability that impacts the customer due to this alert.
      * @param string|null $value Value to set for the alertType property.
     */
     public function setAlertType(?string $value): void {
@@ -362,7 +362,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the catalogOfferId property value. The catalogOfferId property
+     * Sets the catalogOfferId property value. The modern offer category ID of the subscription.
      * @param string|null $value Value to set for the catalogOfferId property.
     */
     public function setCatalogOfferId(?string $value): void {
@@ -378,7 +378,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the customerTenantId property value. The customerTenantId property
+     * Sets the customerTenantId property value. The impacted customer tenant associated with the alert.
      * @param string|null $value Value to set for the customerTenantId property.
     */
     public function setCustomerTenantId(?string $value): void {
@@ -386,7 +386,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description for each alert.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -394,7 +394,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectedDateTime property value. The detectedDateTime property
+     * Sets the detectedDateTime property value. Time when the alert was detected or created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the detectedDateTime property.
     */
     public function setDetectedDateTime(?DateTime $value): void {
@@ -402,7 +402,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the alert.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -410,7 +410,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the firstObservedDateTime property value. The firstObservedDateTime property
+     * Sets the firstObservedDateTime property value. Time of the first activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  subscription.
      * @param DateTime|null $value Value to set for the firstObservedDateTime property.
     */
     public function setFirstObservedDateTime(?DateTime $value): void {
@@ -418,7 +418,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the isTest property value. The isTest property
+     * Sets the isTest property value. Indicates whehter an alert is a test alert.
      * @param bool|null $value Value to set for the isTest property.
     */
     public function setIsTest(?bool $value): void {
@@ -426,7 +426,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastObservedDateTime property value. The lastObservedDateTime property
+     * Sets the lastObservedDateTime property value. Time of the latest activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastObservedDateTime property.
     */
     public function setLastObservedDateTime(?DateTime $value): void {
@@ -434,7 +434,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the resolvedBy property value. The resolvedBy property
+     * Sets the resolvedBy property value. The UPN of the partner user who resolved the alert.
      * @param string|null $value Value to set for the resolvedBy property.
     */
     public function setResolvedBy(?string $value): void {
@@ -442,7 +442,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the resolvedOnDateTime property value. The resolvedOnDateTime property
+     * Sets the resolvedOnDateTime property value. Time when the alert was resolved. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the resolvedOnDateTime property.
     */
     public function setResolvedOnDateTime(?DateTime $value): void {
@@ -450,7 +450,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the resolvedReason property value. The resolvedReason property
+     * Sets the resolvedReason property value. The reason provided by the partner for addressing the alert. The possible values are: legitimate, ignore, fraud, unknownFutureValue.
      * @param SecurityAlertResolvedReason|null $value Value to set for the resolvedReason property.
     */
     public function setResolvedReason(?SecurityAlertResolvedReason $value): void {
@@ -474,7 +474,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptionId property value. The subscriptionId property
+     * Sets the subscriptionId property value. The subscription associated with the alert for the customer.
      * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
@@ -482,7 +482,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the valueAddedResellerTenantId property value. The valueAddedResellerTenantId property
+     * Sets the valueAddedResellerTenantId property value. The value-added reseller tenant associated with the partner tenant and customer tenant.
      * @param string|null $value Value to set for the valueAddedResellerTenantId property.
     */
     public function setValueAddedResellerTenantId(?string $value): void {

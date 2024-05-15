@@ -48,7 +48,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authDetail property value. Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
+     * Gets the authDetail property value. Indicates the MFA auth detail for the corresponding sign-in activity when the MFA Required is 'Yes'.
      * @return string|null
     */
     public function getAuthDetail(): ?string {
@@ -60,7 +60,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authMethod property value. Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
+     * Gets the authMethod property value. Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the values) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
      * @return string|null
     */
     public function getAuthMethod(): ?string {
@@ -124,7 +124,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authDetail property value. Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
+     * Sets the authDetail property value. Indicates the MFA auth detail for the corresponding sign-in activity when the MFA Required is 'Yes'.
      * @param string|null $value Value to set for the authDetail property.
     */
     public function setAuthDetail(?string $value): void {
@@ -132,7 +132,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authMethod property value. Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
+     * Sets the authMethod property value. Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the values) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
      * @param string|null $value Value to set for the authMethod property.
     */
     public function setAuthMethod(?string $value): void {

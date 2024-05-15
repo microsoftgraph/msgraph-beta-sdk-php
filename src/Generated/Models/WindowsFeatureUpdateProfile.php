@@ -129,6 +129,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endOfSupportDate' => fn(ParseNode $n) => $o->setEndOfSupportDate($n->getDateTimeValue()),
             'featureUpdateVersion' => fn(ParseNode $n) => $o->setFeatureUpdateVersion($n->getStringValue()),
+            'installFeatureUpdatesOptional' => fn(ParseNode $n) => $o->setInstallFeatureUpdatesOptional($n->getBooleanValue()),
             'installLatestWindows10OnWindows11IneligibleDevice' => fn(ParseNode $n) => $o->setInstallLatestWindows10OnWindows11IneligibleDevice($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
@@ -141,6 +142,18 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
             },
             'rolloutSettings' => fn(ParseNode $n) => $o->setRolloutSettings($n->getObjectValue([WindowsUpdateRolloutSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the installFeatureUpdatesOptional property value. If true, the Windows 11 update will become optional
+     * @return bool|null
+    */
+    public function getInstallFeatureUpdatesOptional(): ?bool {
+        $val = $this->getBackingStore()->get('installFeatureUpdatesOptional');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installFeatureUpdatesOptional'");
     }
 
     /**
@@ -206,6 +219,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('endOfSupportDate', $this->getEndOfSupportDate());
         $writer->writeStringValue('featureUpdateVersion', $this->getFeatureUpdateVersion());
+        $writer->writeBooleanValue('installFeatureUpdatesOptional', $this->getInstallFeatureUpdatesOptional());
         $writer->writeBooleanValue('installLatestWindows10OnWindows11IneligibleDevice', $this->getInstallLatestWindows10OnWindows11IneligibleDevice());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
@@ -266,6 +280,14 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
     */
     public function setFeatureUpdateVersion(?string $value): void {
         $this->getBackingStore()->set('featureUpdateVersion', $value);
+    }
+
+    /**
+     * Sets the installFeatureUpdatesOptional property value. If true, the Windows 11 update will become optional
+     * @param bool|null $value Value to set for the installFeatureUpdatesOptional property.
+    */
+    public function setInstallFeatureUpdatesOptional(?bool $value): void {
+        $this->getBackingStore()->set('installFeatureUpdatesOptional', $value);
     }
 
     /**

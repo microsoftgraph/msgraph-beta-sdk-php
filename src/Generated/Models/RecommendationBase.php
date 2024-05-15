@@ -148,6 +148,7 @@ class RecommendationBase extends Entity implements Parsable
             'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationType::class)),
             'releaseType' => fn(ParseNode $n) => $o->setReleaseType($n->getStringValue()),
             'remediationImpact' => fn(ParseNode $n) => $o->setRemediationImpact($n->getStringValue()),
+            'requiredLicenses' => fn(ParseNode $n) => $o->setRequiredLicenses($n->getEnumValue(RequiredLicenses::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
         ]);
     }
@@ -311,6 +312,18 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue.
+     * @return RequiredLicenses|null
+    */
+    public function getRequiredLicenses(): ?RequiredLicenses {
+        $val = $this->getBackingStore()->get('requiredLicenses');
+        if (is_null($val) || $val instanceof RequiredLicenses) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredLicenses'");
+    }
+
+    /**
      * Gets the status property value. The status property
      * @return RecommendationStatus|null
     */
@@ -348,6 +361,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeEnumValue('recommendationType', $this->getRecommendationType());
         $writer->writeStringValue('releaseType', $this->getReleaseType());
         $writer->writeStringValue('remediationImpact', $this->getRemediationImpact());
+        $writer->writeEnumValue('requiredLicenses', $this->getRequiredLicenses());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 
@@ -509,6 +523,14 @@ class RecommendationBase extends Entity implements Parsable
     */
     public function setRemediationImpact(?string $value): void {
         $this->getBackingStore()->set('remediationImpact', $value);
+    }
+
+    /**
+     * Sets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue.
+     * @param RequiredLicenses|null $value Value to set for the requiredLicenses property.
+    */
+    public function setRequiredLicenses(?RequiredLicenses $value): void {
+        $this->getBackingStore()->set('requiredLicenses', $value);
     }
 
     /**

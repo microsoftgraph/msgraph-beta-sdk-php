@@ -25,7 +25,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Gets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
      * @return AppScope|null
     */
     public function getAppScope(): ?AppScope {
@@ -37,7 +37,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the appScopeId property value. Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by a resource application only. For the entitlement management provider, use this property to specify a catalog, for example /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997. Supports $filter (eq, in). For example /roleManagement/entitlementManagement/roleAssignments?$filter=appScopeId eq '/AccessPackageCatalog/{catalog id}'.
+     * Gets the appScopeId property value. Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by a resource application only. For the entitlement management provider, use this property to specify a catalog. For example, /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997. Supports $filter (eq, in). For example /roleManagement/entitlementManagement/roleAssignments?$filter=appScopeId eq '/AccessPackageCatalog/{catalog id}'.
      * @return string|null
     */
     public function getAppScopeId(): ?string {
@@ -197,7 +197,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Sets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
      * @param AppScope|null $value Value to set for the appScope property.
     */
     public function setAppScope(?AppScope $value): void {
@@ -205,7 +205,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the appScopeId property value. Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by a resource application only. For the entitlement management provider, use this property to specify a catalog, for example /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997. Supports $filter (eq, in). For example /roleManagement/entitlementManagement/roleAssignments?$filter=appScopeId eq '/AccessPackageCatalog/{catalog id}'.
+     * Sets the appScopeId property value. Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by a resource application only. For the entitlement management provider, use this property to specify a catalog. For example, /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997. Supports $filter (eq, in). For example /roleManagement/entitlementManagement/roleAssignments?$filter=appScopeId eq '/AccessPackageCatalog/{catalog id}'.
      * @param string|null $value Value to set for the appScopeId property.
     */
     public function setAppScopeId(?string $value): void {

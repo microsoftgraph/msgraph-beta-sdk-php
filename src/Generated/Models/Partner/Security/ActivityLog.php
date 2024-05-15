@@ -108,7 +108,7 @@ class ActivityLog implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the updatedBy property value. The updatedBy property
+     * Gets the updatedBy property value. The UPN of the partner user who did the status update activity. This attribute is set by the system.
      * @return string|null
     */
     public function getUpdatedBy(): ?string {
@@ -120,7 +120,7 @@ class ActivityLog implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the updatedDateTime property value. The updatedDateTime property
+     * Gets the updatedDateTime property value. The date and time for the status update activity. This attribute is set by the system. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getUpdatedDateTime(): ?DateTime {
@@ -185,7 +185,7 @@ class ActivityLog implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the updatedBy property value. The updatedBy property
+     * Sets the updatedBy property value. The UPN of the partner user who did the status update activity. This attribute is set by the system.
      * @param string|null $value Value to set for the updatedBy property.
     */
     public function setUpdatedBy(?string $value): void {
@@ -193,7 +193,7 @@ class ActivityLog implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the updatedDateTime property value. The updatedDateTime property
+     * Sets the updatedDateTime property value. The date and time for the status update activity. This attribute is set by the system. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the updatedDateTime property.
     */
     public function setUpdatedDateTime(?DateTime $value): void {

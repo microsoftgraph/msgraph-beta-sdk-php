@@ -30,11 +30,11 @@ class PrivilegeManagementElevationRequest extends Entity implements Parsable
 
     /**
      * Gets the applicationDetail property value. Details of the application which is being requested to elevate, allowing the admin to understand the identity of the application. It includes file info such as FilePath, FileHash, FilePublisher, and etc. Returned by default. Read-only.
-     * @return ApplicationDetail|null
+     * @return ElevationRequestApplicationDetail|null
     */
-    public function getApplicationDetail(): ?ApplicationDetail {
+    public function getApplicationDetail(): ?ElevationRequestApplicationDetail {
         $val = $this->getBackingStore()->get('applicationDetail');
-        if (is_null($val) || $val instanceof ApplicationDetail) {
+        if (is_null($val) || $val instanceof ElevationRequestApplicationDetail) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationDetail'");
@@ -59,7 +59,7 @@ class PrivilegeManagementElevationRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationDetail' => fn(ParseNode $n) => $o->setApplicationDetail($n->getObjectValue([ApplicationDetail::class, 'createFromDiscriminatorValue'])),
+            'applicationDetail' => fn(ParseNode $n) => $o->setApplicationDetail($n->getObjectValue([ElevationRequestApplicationDetail::class, 'createFromDiscriminatorValue'])),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'requestCreatedDateTime' => fn(ParseNode $n) => $o->setRequestCreatedDateTime($n->getDateTimeValue()),
             'requestedByUserId' => fn(ParseNode $n) => $o->setRequestedByUserId($n->getStringValue()),
@@ -244,9 +244,9 @@ class PrivilegeManagementElevationRequest extends Entity implements Parsable
 
     /**
      * Sets the applicationDetail property value. Details of the application which is being requested to elevate, allowing the admin to understand the identity of the application. It includes file info such as FilePath, FileHash, FilePublisher, and etc. Returned by default. Read-only.
-     * @param ApplicationDetail|null $value Value to set for the applicationDetail property.
+     * @param ElevationRequestApplicationDetail|null $value Value to set for the applicationDetail property.
     */
-    public function setApplicationDetail(?ApplicationDetail $value): void {
+    public function setApplicationDetail(?ElevationRequestApplicationDetail $value): void {
         $this->getBackingStore()->set('applicationDetail', $value);
     }
 

@@ -68,6 +68,18 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
+     * Gets the allowWidgetContentSync property value. Indicates  if content sync for widgets is allowed for iOS on App Protection Policies
+     * @return bool|null
+    */
+    public function getAllowWidgetContentSync(): ?bool {
+        $val = $this->getBackingStore()->get('allowWidgetContentSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowWidgetContentSync'");
+    }
+
+    /**
      * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
      * @return ManagedAppRemediationAction|null
     */
@@ -464,6 +476,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
                 $this->setAllowedAndroidDeviceModels($val);
             },
             'allowedIosDeviceModels' => fn(ParseNode $n) => $o->setAllowedIosDeviceModels($n->getStringValue()),
+            'allowWidgetContentSync' => fn(ParseNode $n) => $o->setAllowWidgetContentSync($n->getBooleanValue()),
             'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidDeviceManufacturerNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceManufacturerNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
@@ -819,6 +832,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
         $writer->writeStringValue('allowedAndroidDeviceManufacturers', $this->getAllowedAndroidDeviceManufacturers());
         $writer->writeCollectionOfPrimitiveValues('allowedAndroidDeviceModels', $this->getAllowedAndroidDeviceModels());
         $writer->writeStringValue('allowedIosDeviceModels', $this->getAllowedIosDeviceModels());
+        $writer->writeBooleanValue('allowWidgetContentSync', $this->getAllowWidgetContentSync());
         $writer->writeEnumValue('appActionIfAccountIsClockedOut', $this->getAppActionIfAccountIsClockedOut());
         $writer->writeEnumValue('appActionIfAndroidDeviceManufacturerNotAllowed', $this->getAppActionIfAndroidDeviceManufacturerNotAllowed());
         $writer->writeEnumValue('appActionIfAndroidDeviceModelNotAllowed', $this->getAppActionIfAndroidDeviceModelNotAllowed());
@@ -898,6 +912,14 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     */
     public function setAllowedIosDeviceModels(?string $value): void {
         $this->getBackingStore()->set('allowedIosDeviceModels', $value);
+    }
+
+    /**
+     * Sets the allowWidgetContentSync property value. Indicates  if content sync for widgets is allowed for iOS on App Protection Policies
+     * @param bool|null $value Value to set for the allowWidgetContentSync property.
+    */
+    public function setAllowWidgetContentSync(?bool $value): void {
+        $this->getBackingStore()->set('allowWidgetContentSync', $value);
     }
 
     /**

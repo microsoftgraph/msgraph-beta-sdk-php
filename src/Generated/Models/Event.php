@@ -183,6 +183,7 @@ class Event extends OutlookItem implements Parsable
             'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
             'hasAttachments' => fn(ParseNode $n) => $o->setHasAttachments($n->getBooleanValue()),
             'hideAttendees' => fn(ParseNode $n) => $o->setHideAttendees($n->getBooleanValue()),
+            'iCalUId' => fn(ParseNode $n) => $o->setICalUId($n->getStringValue()),
             'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(Importance::class)),
             'instances' => fn(ParseNode $n) => $o->setInstances($n->getCollectionOfObjectValues([Event::class, 'createFromDiscriminatorValue'])),
             'isAllDay' => fn(ParseNode $n) => $o->setIsAllDay($n->getBooleanValue()),
@@ -241,6 +242,18 @@ class Event extends OutlookItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hideAttendees'");
+    }
+
+    /**
+     * Gets the iCalUId property value. A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.
+     * @return string|null
+    */
+    public function getICalUId(): ?string {
+        $val = $this->getBackingStore()->get('iCalUId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'iCalUId'");
     }
 
     /**
@@ -665,6 +678,7 @@ class Event extends OutlookItem implements Parsable
         $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
         $writer->writeBooleanValue('hasAttachments', $this->getHasAttachments());
         $writer->writeBooleanValue('hideAttendees', $this->getHideAttendees());
+        $writer->writeStringValue('iCalUId', $this->getICalUId());
         $writer->writeEnumValue('importance', $this->getImportance());
         $writer->writeCollectionOfObjectValues('instances', $this->getInstances());
         $writer->writeBooleanValue('isAllDay', $this->getIsAllDay());
@@ -794,6 +808,14 @@ class Event extends OutlookItem implements Parsable
     */
     public function setHideAttendees(?bool $value): void {
         $this->getBackingStore()->set('hideAttendees', $value);
+    }
+
+    /**
+     * Sets the iCalUId property value. A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.
+     * @param string|null $value Value to set for the iCalUId property.
+    */
+    public function setICalUId(?string $value): void {
+        $this->getBackingStore()->set('iCalUId', $value);
     }
 
     /**

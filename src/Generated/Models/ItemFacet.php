@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ItemFacet extends Entity implements Parsable 
 {
@@ -102,6 +103,7 @@ class ItemFacet extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([PersonDataSources::class, 'createFromDiscriminatorValue'])),
+            'sources' => fn(ParseNode $n) => $o->setSources($n->getCollectionOfObjectValues([ProfileSourceAnnotation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -166,6 +168,20 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
+     * Gets the sources property value. The sources property
+     * @return array<ProfileSourceAnnotation>|null
+    */
+    public function getSources(): ?array {
+        $val = $this->getBackingStore()->get('sources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProfileSourceAnnotation::class);
+            /** @var array<ProfileSourceAnnotation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sources'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -179,6 +195,7 @@ class ItemFacet extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('source', $this->getSource());
+        $writer->writeCollectionOfObjectValues('sources', $this->getSources());
     }
 
     /**
@@ -243,6 +260,14 @@ class ItemFacet extends Entity implements Parsable
     */
     public function setSource(?PersonDataSources $value): void {
         $this->getBackingStore()->set('source', $value);
+    }
+
+    /**
+     * Sets the sources property value. The sources property
+     * @param array<ProfileSourceAnnotation>|null $value Value to set for the sources property.
+    */
+    public function setSources(?array $value): void {
+        $this->getBackingStore()->set('sources', $value);
     }
 
 }

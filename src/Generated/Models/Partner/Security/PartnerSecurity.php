@@ -38,7 +38,7 @@ class PartnerSecurity extends Entity implements Parsable
     }
 
     /**
-     * Gets the securityAlerts property value. The securityAlerts property
+     * Gets the securityAlerts property value. The security alerts or a vulnerability of a CSP partner's customer that the partner must be made aware of for further action.
      * @return array<PartnerSecurityAlert>|null
     */
     public function getSecurityAlerts(): ?array {
@@ -61,7 +61,7 @@ class PartnerSecurity extends Entity implements Parsable
     }
 
     /**
-     * Sets the securityAlerts property value. The securityAlerts property
+     * Sets the securityAlerts property value. The security alerts or a vulnerability of a CSP partner's customer that the partner must be made aware of for further action.
      * @param array<PartnerSecurityAlert>|null $value Value to set for the securityAlerts property.
     */
     public function setSecurityAlerts(?array $value): void {

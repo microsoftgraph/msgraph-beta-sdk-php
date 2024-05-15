@@ -69,6 +69,7 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
             'managedAppComponentDescription' => fn(ParseNode $n) => $o->setManagedAppComponentDescription($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'referenceId' => fn(ParseNode $n) => $o->setReferenceId($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ManagedAppLogUploadState::class)),
         ];
     }
 
@@ -121,6 +122,18 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the status property value. Represents the current status of the associated `managedAppLogCollectionRequest`.
+     * @return ManagedAppLogUploadState|null
+    */
+    public function getStatus(): ?ManagedAppLogUploadState {
+        $val = $this->getBackingStore()->get('status');
+        if (is_null($val) || $val instanceof ManagedAppLogUploadState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -129,6 +142,7 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('managedAppComponentDescription', $this->getManagedAppComponentDescription());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('referenceId', $this->getReferenceId());
+        $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -178,6 +192,14 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setReferenceId(?string $value): void {
         $this->getBackingStore()->set('referenceId', $value);
+    }
+
+    /**
+     * Sets the status property value. Represents the current status of the associated `managedAppLogCollectionRequest`.
+     * @param ManagedAppLogUploadState|null $value Value to set for the status property.
+    */
+    public function setStatus(?ManagedAppLogUploadState $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }
