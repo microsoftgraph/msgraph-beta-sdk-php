@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 /**
  * The details of the application which the user has requested to elevate
 */
-class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable 
+class ElevationRequestApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -21,7 +21,7 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new ApplicationDetail and sets the default values.
+     * Instantiates a new ElevationRequestApplicationDetail and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -31,10 +31,10 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return ApplicationDetail
+     * @return ElevationRequestApplicationDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationDetail {
-        return new ApplicationDetail();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ElevationRequestApplicationDetail {
+        return new ElevationRequestApplicationDetail();
     }
 
     /**
@@ -175,7 +175,7 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encodedleafcert1, encodedleafcert2....]
+     * Gets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encoded_leaf_cert1, encoded_leaf_cert2....]
      * @return string|null
     */
     public function getPublisherCert(): ?string {
@@ -297,7 +297,7 @@ class ApplicationDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encodedleafcert1, encodedleafcert2....]
+     * Sets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encoded_leaf_cert1, encoded_leaf_cert2....]
      * @param string|null $value Value to set for the publisherCert property.
     */
     public function setPublisherCert(?string $value): void {

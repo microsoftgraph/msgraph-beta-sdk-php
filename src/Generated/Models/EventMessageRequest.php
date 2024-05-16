@@ -45,11 +45,24 @@ class EventMessageRequest extends EventMessage implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowNewTimeProposals' => fn(ParseNode $n) => $o->setAllowNewTimeProposals($n->getBooleanValue()),
+            'meetingRequestType' => fn(ParseNode $n) => $o->setMeetingRequestType($n->getEnumValue(MeetingRequestType::class)),
             'previousEndDateTime' => fn(ParseNode $n) => $o->setPreviousEndDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'previousLocation' => fn(ParseNode $n) => $o->setPreviousLocation($n->getObjectValue([Location::class, 'createFromDiscriminatorValue'])),
             'previousStartDateTime' => fn(ParseNode $n) => $o->setPreviousStartDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'responseRequested' => fn(ParseNode $n) => $o->setResponseRequested($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the meetingRequestType property value. The meetingRequestType property
+     * @return MeetingRequestType|null
+    */
+    public function getMeetingRequestType(): ?MeetingRequestType {
+        $val = $this->getBackingStore()->get('meetingRequestType');
+        if (is_null($val) || $val instanceof MeetingRequestType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingRequestType'");
     }
 
     /**
@@ -107,6 +120,7 @@ class EventMessageRequest extends EventMessage implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('allowNewTimeProposals', $this->getAllowNewTimeProposals());
+        $writer->writeEnumValue('meetingRequestType', $this->getMeetingRequestType());
         $writer->writeObjectValue('previousEndDateTime', $this->getPreviousEndDateTime());
         $writer->writeObjectValue('previousLocation', $this->getPreviousLocation());
         $writer->writeObjectValue('previousStartDateTime', $this->getPreviousStartDateTime());
@@ -119,6 +133,14 @@ class EventMessageRequest extends EventMessage implements Parsable
     */
     public function setAllowNewTimeProposals(?bool $value): void {
         $this->getBackingStore()->set('allowNewTimeProposals', $value);
+    }
+
+    /**
+     * Sets the meetingRequestType property value. The meetingRequestType property
+     * @param MeetingRequestType|null $value Value to set for the meetingRequestType property.
+    */
+    public function setMeetingRequestType(?MeetingRequestType $value): void {
+        $this->getBackingStore()->set('meetingRequestType', $value);
     }
 
     /**

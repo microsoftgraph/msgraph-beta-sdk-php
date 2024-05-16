@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Partner\SecurityAlerts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get securityAlerts from security
+ * Get a list of the partnerSecurityAlert objects and their properties.
 */
 class SecurityAlertsRequestBuilderGetQueryParameters 
 {

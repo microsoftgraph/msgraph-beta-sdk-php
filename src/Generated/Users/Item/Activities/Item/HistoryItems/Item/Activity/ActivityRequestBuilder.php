@@ -31,7 +31,7 @@ class ActivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activity from users
+     * Optional. NavigationProperty/Containment; navigation property to the associated activity.
      * @param ActivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserActivity|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class ActivityRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activity from users
+     * Optional. NavigationProperty/Containment; navigation property to the associated activity.
      * @param ActivityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

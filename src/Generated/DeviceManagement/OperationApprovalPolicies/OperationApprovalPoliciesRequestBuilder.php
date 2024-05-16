@@ -5,8 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolic
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\GetApprovableOperations\GetApprovableOperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\GetOperationsRequiringApproval\GetOperationsRequiringApprovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\Item\OperationApprovalPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveApprovableOperations\RetrieveApprovableOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveOperationsRequiringApproval\RetrieveOperationsRequiringApprovalRequestBuilder;
@@ -28,20 +26,6 @@ class OperationApprovalPoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getApprovableOperations method.
-    */
-    public function getApprovableOperations(): GetApprovableOperationsRequestBuilder {
-        return new GetApprovableOperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getOperationsRequiringApproval method.
-    */
-    public function getOperationsRequiringApproval(): GetOperationsRequiringApprovalRequestBuilder {
-        return new GetOperationsRequiringApprovalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -81,7 +81,7 @@ class AffectedResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceId property value. The resourceId property
+     * Gets the resourceId property value. The resource path of the resource affected by the security alert.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -93,7 +93,7 @@ class AffectedResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. The type of resource.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -140,7 +140,7 @@ class AffectedResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceId property value. The resourceId property
+     * Sets the resourceId property value. The resource path of the resource affected by the security alert.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
@@ -148,7 +148,7 @@ class AffectedResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. The type of resource.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {

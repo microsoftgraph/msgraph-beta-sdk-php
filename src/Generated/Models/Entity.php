@@ -1579,6 +1579,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.profile': return new Profile();
                 case '#microsoft.graph.profileCardProperty': return new ProfileCardProperty();
                 case '#microsoft.graph.profilePhoto': return new ProfilePhoto();
+                case '#microsoft.graph.profileSource': return new ProfileSource();
                 case '#microsoft.graph.program': return new Program();
                 case '#microsoft.graph.programControl': return new ProgramControl();
                 case '#microsoft.graph.programControlType': return new ProgramControlType();
@@ -1650,7 +1651,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sectionGroup': return new SectionGroup();
                 case '#microsoft.graph.secureScore': return new SecureScore();
                 case '#microsoft.graph.secureScoreControlProfile': return new SecureScoreControlProfile();
-                case '#microsoft.graph.security': return new Security();
                 case '#microsoft.graph.security.alert': return new \Microsoft\Graph\Beta\Generated\Models\Security\Alert();
                 case '#microsoft.graph.security.analyzedEmail': return new AnalyzedEmail();
                 case '#microsoft.graph.security.article': return new Article();
