@@ -45,10 +45,11 @@ class PartnerSecurityAlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get securityAlerts from security
+     * Read the properties and relationships of a partnerSecurityAlert object.
      * @param PartnerSecurityAlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PartnerSecurityAlert|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/partner-security-partnersecurityalert-get?view=graph-rest-beta Find more info here
     */
     public function get(?PartnerSecurityAlertItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class PartnerSecurityAlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property securityAlerts in security
+     * Update the properties of a partnerSecurityAlert object.
      * @param PartnerSecurityAlert $body The request body
      * @param PartnerSecurityAlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PartnerSecurityAlert|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/partner-security-partnersecurityalert-update?view=graph-rest-beta Find more info here
     */
     public function patch(PartnerSecurityAlert $body, ?PartnerSecurityAlertItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class PartnerSecurityAlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get securityAlerts from security
+     * Read the properties and relationships of a partnerSecurityAlert object.
      * @param PartnerSecurityAlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class PartnerSecurityAlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property securityAlerts in security
+     * Update the properties of a partnerSecurityAlert object.
      * @param PartnerSecurityAlert $body The request body
      * @param PartnerSecurityAlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

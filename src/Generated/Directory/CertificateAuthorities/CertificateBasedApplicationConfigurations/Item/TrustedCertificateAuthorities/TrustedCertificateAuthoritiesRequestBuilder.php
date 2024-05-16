@@ -52,10 +52,11 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a certificateAuthorityAsEntity object.
+     * List the trusted certificate authorities in a certificateBasedApplicationConfiguration object.
      * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntityCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-list-trustedcertificateauthorities?view=graph-rest-beta Find more info here
     */
     public function get(?TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to trustedCertificateAuthorities for directory
+     * Create a new trusted certificate authority in a certificateBasedApplicationConfiguration object.
      * @param CertificateAuthorityAsEntity $body The request body
      * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntity|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-post-trustedcertificateauthorities?view=graph-rest-beta Find more info here
     */
     public function post(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a certificateAuthorityAsEntity object.
+     * List the trusted certificate authorities in a certificateBasedApplicationConfiguration object.
      * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to trustedCertificateAuthorities for directory
+     * Create a new trusted certificate authority in a certificateBasedApplicationConfiguration object.
      * @param CertificateAuthorityAsEntity $body The request body
      * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

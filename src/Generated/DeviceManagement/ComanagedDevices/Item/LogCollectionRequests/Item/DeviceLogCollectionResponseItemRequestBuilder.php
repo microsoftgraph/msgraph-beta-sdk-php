@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\LogCollectionRequests\Item\CreateDownloadUrl\CreateDownloadUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\LogCollectionRequests\Item\DownloadDeviceLogs\DownloadDeviceLogsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceLogCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -23,13 +22,6 @@ class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBuilder
     */
     public function createDownloadUrl(): CreateDownloadUrlRequestBuilder {
         return new CreateDownloadUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the downloadDeviceLogs method.
-    */
-    public function downloadDeviceLogs(): DownloadDeviceLogsRequestBuilder {
-        return new DownloadDeviceLogsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

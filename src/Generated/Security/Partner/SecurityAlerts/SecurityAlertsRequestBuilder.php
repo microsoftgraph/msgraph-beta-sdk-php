@@ -52,10 +52,11 @@ class SecurityAlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get securityAlerts from security
+     * Get a list of the partnerSecurityAlert objects and their properties.
      * @param SecurityAlertsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PartnerSecurityAlertCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/partner-security-partnersecurityalert-list-securityalerts?view=graph-rest-beta Find more info here
     */
     public function get(?SecurityAlertsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class SecurityAlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get securityAlerts from security
+     * Get a list of the partnerSecurityAlert objects and their properties.
      * @param SecurityAlertsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

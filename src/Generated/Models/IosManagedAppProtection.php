@@ -42,6 +42,18 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
+     * Gets the allowWidgetContentSync property value. Indicates  if content sync for widgets is allowed for iOS on App Protection Policies
+     * @return bool|null
+    */
+    public function getAllowWidgetContentSync(): ?bool {
+        $val = $this->getBackingStore()->get('allowWidgetContentSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowWidgetContentSync'");
+    }
+
+    /**
      * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
      * @return ManagedAppRemediationAction|null
     */
@@ -199,6 +211,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowedIosDeviceModels' => fn(ParseNode $n) => $o->setAllowedIosDeviceModels($n->getStringValue()),
+            'allowWidgetContentSync' => fn(ParseNode $n) => $o->setAllowWidgetContentSync($n->getBooleanValue()),
             'appActionIfAccountIsClockedOut' => fn(ParseNode $n) => $o->setAppActionIfAccountIsClockedOut($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfIosDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfIosDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appDataEncryptionType' => fn(ParseNode $n) => $o->setAppDataEncryptionType($n->getEnumValue(ManagedAppDataEncryptionType::class)),
@@ -341,6 +354,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('allowedIosDeviceModels', $this->getAllowedIosDeviceModels());
+        $writer->writeBooleanValue('allowWidgetContentSync', $this->getAllowWidgetContentSync());
         $writer->writeEnumValue('appActionIfAccountIsClockedOut', $this->getAppActionIfAccountIsClockedOut());
         $writer->writeEnumValue('appActionIfIosDeviceModelNotAllowed', $this->getAppActionIfIosDeviceModelNotAllowed());
         $writer->writeEnumValue('appDataEncryptionType', $this->getAppDataEncryptionType());
@@ -369,6 +383,14 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     */
     public function setAllowedIosDeviceModels(?string $value): void {
         $this->getBackingStore()->set('allowedIosDeviceModels', $value);
+    }
+
+    /**
+     * Sets the allowWidgetContentSync property value. Indicates  if content sync for widgets is allowed for iOS on App Protection Policies
+     * @param bool|null $value Value to set for the allowWidgetContentSync property.
+    */
+    public function setAllowWidgetContentSync(?bool $value): void {
+        $this->getBackingStore()->set('allowWidgetContentSync', $value);
     }
 
     /**

@@ -39,7 +39,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the allotmentDisplayName property value. The allotment name divides tenant licenses into smaller batches or groups that helps restrict the number of licenses available for use in a specific assignment. When the provisioningType is dedicated, the allotment name is null. Read-only.
+     * Gets the allotmentDisplayName property value. The allotment name divides tenant licenses into smaller batches or groups that help restrict the number of licenses available for use in a specific assignment. When the provisioningType is dedicated, the allotment name is null. Read-only.
      * @return string|null
     */
     public function getAllotmentDisplayName(): ?string {
@@ -157,7 +157,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the gracePeriodEndDateTime property value. The date and time when the grace period ends and reprovisioning or deprovisioning happen. Required only if the status is inGracePeriod. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the gracePeriodEndDateTime property value. The date and time when the grace period ends and reprovisioning or deprovisioning happens. Required only if the status is inGracePeriod. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getGracePeriodEndDateTime(): ?DateTime {
@@ -193,7 +193,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the lastModifiedDateTime property value. The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -315,7 +315,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
+     * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue,sharedByUser, sharedByUser. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup. The default value is dedicated. CAUTION: The shared member is deprecated and will stop returning on April 30, 2027； in the future, use the sharedByUser member.
      * @return CloudPcProvisioningType|null
     */
     public function getProvisioningType(): ?CloudPcProvisioningType {
@@ -470,7 +470,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the allotmentDisplayName property value. The allotment name divides tenant licenses into smaller batches or groups that helps restrict the number of licenses available for use in a specific assignment. When the provisioningType is dedicated, the allotment name is null. Read-only.
+     * Sets the allotmentDisplayName property value. The allotment name divides tenant licenses into smaller batches or groups that help restrict the number of licenses available for use in a specific assignment. When the provisioningType is dedicated, the allotment name is null. Read-only.
      * @param string|null $value Value to set for the allotmentDisplayName property.
     */
     public function setAllotmentDisplayName(?string $value): void {
@@ -518,7 +518,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the gracePeriodEndDateTime property value. The date and time when the grace period ends and reprovisioning or deprovisioning happen. Required only if the status is inGracePeriod. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the gracePeriodEndDateTime property value. The date and time when the grace period ends and reprovisioning or deprovisioning happens. Required only if the status is inGracePeriod. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the gracePeriodEndDateTime property.
     */
     public function setGracePeriodEndDateTime(?DateTime $value): void {
@@ -542,7 +542,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the lastModifiedDateTime property value. The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -622,7 +622,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
+     * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue,sharedByUser, sharedByUser. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup. The default value is dedicated. CAUTION: The shared member is deprecated and will stop returning on April 30, 2027； in the future, use the sharedByUser member.
      * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
     */
     public function setProvisioningType(?CloudPcProvisioningType $value): void {

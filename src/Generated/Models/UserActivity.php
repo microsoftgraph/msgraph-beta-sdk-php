@@ -159,7 +159,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
+     * Gets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's activityHistoryItems.
      * @return array<ActivityHistoryItem>|null
     */
     public function getHistoryItems(): ?array {
@@ -315,7 +315,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
+     * Sets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's activityHistoryItems.
      * @param array<ActivityHistoryItem>|null $value Value to set for the historyItems property.
     */
     public function setHistoryItems(?array $value): void {

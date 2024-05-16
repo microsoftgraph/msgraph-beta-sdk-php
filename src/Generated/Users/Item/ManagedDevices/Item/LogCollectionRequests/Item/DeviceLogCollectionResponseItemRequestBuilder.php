@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\DeviceLogCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\LogCollectionRequests\Item\CreateDownloadUrl\CreateDownloadUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\LogCollectionRequests\Item\DownloadDeviceLogs\DownloadDeviceLogsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -23,13 +22,6 @@ class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBuilder
     */
     public function createDownloadUrl(): CreateDownloadUrlRequestBuilder {
         return new CreateDownloadUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the downloadDeviceLogs method.
-    */
-    public function downloadDeviceLogs(): DownloadDeviceLogsRequestBuilder {
-        return new DownloadDeviceLogsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
