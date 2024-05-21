@@ -32,7 +32,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get content for the navigation property resources from sites
+     * The content of the resource.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
@@ -48,7 +48,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update content for the navigation property resources in sites
+     * The content of the resource.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnenoteResource|null>
@@ -63,7 +63,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get content for the navigation property resources from sites
+     * The content of the resource.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -81,7 +81,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update content for the navigation property resources in sites
+     * The content of the resource.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

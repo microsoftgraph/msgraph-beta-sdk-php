@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\FilesFol
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get content for the navigation property filesFolder from groups
+ * The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
 */
 class ContentRequestBuilderGetQueryParameters 
 {

@@ -27,7 +27,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Gets the namespace property value. The namespace property
+     * Gets the namespace property value. An optional namespace to be included as part of the claim name.
      * @return string|null
     */
     public function getEscapedNamespace(): ?string {
@@ -53,7 +53,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the claim to be emitted.
      * @return string|null
     */
     public function getName(): ?string {
@@ -65,7 +65,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Gets the samlAttributeNameFormat property value. The samlAttributeNameFormat property
+     * Gets the samlAttributeNameFormat property value. If specified, it sets the nameFormat attribute associated with the claim in the SAML response. The possible values are: unspecified, uri, basic, unknownFutureValue.
      * @return SamlAttributeNameFormat|null
     */
     public function getSamlAttributeNameFormat(): ?SamlAttributeNameFormat {
@@ -77,7 +77,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Gets the tokenFormat property value. The tokenFormat property
+     * Gets the tokenFormat property value. List of token formats for which this claim should be emitted. The possible values are: saml,jwt, unknownFutureValue
      * @return array<TokenFormat>|null
     */
     public function getTokenFormat(): ?array {
@@ -103,7 +103,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Sets the namespace property value. The namespace property
+     * Sets the namespace property value. An optional namespace to be included as part of the claim name.
      * @param string|null $value Value to set for the namespace property.
     */
     public function setEscapedNamespace(?string $value): void {
@@ -111,7 +111,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the claim to be emitted.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -119,7 +119,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Sets the samlAttributeNameFormat property value. The samlAttributeNameFormat property
+     * Sets the samlAttributeNameFormat property value. If specified, it sets the nameFormat attribute associated with the claim in the SAML response. The possible values are: unspecified, uri, basic, unknownFutureValue.
      * @param SamlAttributeNameFormat|null $value Value to set for the samlAttributeNameFormat property.
     */
     public function setSamlAttributeNameFormat(?SamlAttributeNameFormat $value): void {
@@ -127,7 +127,7 @@ class CustomClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Sets the tokenFormat property value. The tokenFormat property
+     * Sets the tokenFormat property value. List of token formats for which this claim should be emitted. The possible values are: saml,jwt, unknownFutureValue
      * @param array<TokenFormat>|null $value Value to set for the tokenFormat property.
     */
     public function setTokenFormat(?array $value): void {

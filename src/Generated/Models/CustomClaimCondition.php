@@ -46,7 +46,7 @@ class CustomClaimCondition extends CustomClaimConditionBase implements Parsable
     }
 
     /**
-     * Gets the memberOf property value. The memberOf property
+     * Gets the memberOf property value. A list of groups (GUIDs) to which the user/application must be a member for this condition to be applied.
      * @return array<string>|null
     */
     public function getMemberOf(): ?array {
@@ -60,7 +60,7 @@ class CustomClaimCondition extends CustomClaimConditionBase implements Parsable
     }
 
     /**
-     * Gets the userType property value. The userType property
+     * Gets the userType property value. The type of user this condition applies to. The possible values are: any, members, allGuests, aadGuests, externalGuests, unknownFutureValue.
      * @return ClaimConditionUserType|null
     */
     public function getUserType(): ?ClaimConditionUserType {
@@ -82,7 +82,7 @@ class CustomClaimCondition extends CustomClaimConditionBase implements Parsable
     }
 
     /**
-     * Sets the memberOf property value. The memberOf property
+     * Sets the memberOf property value. A list of groups (GUIDs) to which the user/application must be a member for this condition to be applied.
      * @param array<string>|null $value Value to set for the memberOf property.
     */
     public function setMemberOf(?array $value): void {
@@ -90,7 +90,7 @@ class CustomClaimCondition extends CustomClaimConditionBase implements Parsable
     }
 
     /**
-     * Sets the userType property value. The userType property
+     * Sets the userType property value. The type of user this condition applies to. The possible values are: any, members, allGuests, aadGuests, externalGuests, unknownFutureValue.
      * @param ClaimConditionUserType|null $value Value to set for the userType property.
     */
     public function setUserType(?ClaimConditionUserType $value): void {

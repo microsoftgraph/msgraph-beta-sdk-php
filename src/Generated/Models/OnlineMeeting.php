@@ -29,7 +29,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the alternativeRecording property value. The alternativeRecording property
+     * Gets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @return StreamInterface|null
     */
     public function getAlternativeRecording(): ?StreamInterface {
@@ -41,7 +41,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the attendeeReport property value. The attendeeReport property
+     * Gets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
      * @return StreamInterface|null
     */
     public function getAttendeeReport(): ?StreamInterface {
@@ -65,7 +65,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the broadcastSettings property value. The broadcastSettings property
+     * Gets the broadcastSettings property value. Settings related to a live event.
      * @return BroadcastMeetingSettings|null
     */
     public function getBroadcastSettings(): ?BroadcastMeetingSettings {
@@ -77,7 +77,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the capabilities property value. The capabilities property
+     * Gets the capabilities property value. The list of meeting capabilities. Possible values are: questionAndAnswer,unknownFutureValue.
      * @return array<MeetingCapabilities>|null
     */
     public function getCapabilities(): ?array {
@@ -155,7 +155,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the isBroadcast property value. The isBroadcast property
+     * Gets the isBroadcast property value. Indicates whether this event is a Teams live event.
      * @return bool|null
     */
     public function getIsBroadcast(): ?bool {
@@ -179,7 +179,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the meetingAttendanceReport property value. The meetingAttendanceReport property
+     * Gets the meetingAttendanceReport property value. The attendance report of the latest online meeting session. Read-only.
      * @return MeetingAttendanceReport|null
     */
     public function getMeetingAttendanceReport(): ?MeetingAttendanceReport {
@@ -215,7 +215,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the recording property value. The recording property
+     * Gets the recording property value. The content stream of the recording of a Teams live event. Read-only.
      * @return StreamInterface|null
     */
     public function getRecording(): ?StreamInterface {
@@ -305,7 +305,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the alternativeRecording property value. The alternativeRecording property
+     * Sets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param StreamInterface|null $value Value to set for the alternativeRecording property.
     */
     public function setAlternativeRecording(?StreamInterface $value): void {
@@ -313,7 +313,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the attendeeReport property value. The attendeeReport property
+     * Sets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
      * @param StreamInterface|null $value Value to set for the attendeeReport property.
     */
     public function setAttendeeReport(?StreamInterface $value): void {
@@ -329,7 +329,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the broadcastSettings property value. The broadcastSettings property
+     * Sets the broadcastSettings property value. Settings related to a live event.
      * @param BroadcastMeetingSettings|null $value Value to set for the broadcastSettings property.
     */
     public function setBroadcastSettings(?BroadcastMeetingSettings $value): void {
@@ -337,7 +337,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the capabilities property value. The capabilities property
+     * Sets the capabilities property value. The list of meeting capabilities. Possible values are: questionAndAnswer,unknownFutureValue.
      * @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
     */
     public function setCapabilities(?array $value): void {
@@ -369,7 +369,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the isBroadcast property value. The isBroadcast property
+     * Sets the isBroadcast property value. Indicates whether this event is a Teams live event.
      * @param bool|null $value Value to set for the isBroadcast property.
     */
     public function setIsBroadcast(?bool $value): void {
@@ -385,7 +385,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the meetingAttendanceReport property value. The meetingAttendanceReport property
+     * Sets the meetingAttendanceReport property value. The attendance report of the latest online meeting session. Read-only.
      * @param MeetingAttendanceReport|null $value Value to set for the meetingAttendanceReport property.
     */
     public function setMeetingAttendanceReport(?MeetingAttendanceReport $value): void {
@@ -409,7 +409,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the recording property value. The recording property
+     * Sets the recording property value. The content stream of the recording of a Teams live event. Read-only.
      * @param StreamInterface|null $value Value to set for the recording property.
     */
     public function setRecording(?StreamInterface $value): void {

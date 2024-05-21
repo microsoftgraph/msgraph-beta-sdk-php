@@ -295,7 +295,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
+     * Gets the onPremisesApplicationSegments property value. Represents the application segment collection for an on-premises wildcard application. This property is deprecated and will stop returning data on June 1, 2023. Use segmentsConfiguration instead.
      * @return array<OnPremisesApplicationSegment>|null
     */
     public function getOnPremisesApplicationSegments(): ?array {
@@ -565,7 +565,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
+     * Sets the onPremisesApplicationSegments property value. Represents the application segment collection for an on-premises wildcard application. This property is deprecated and will stop returning data on June 1, 2023. Use segmentsConfiguration instead.
      * @param array<OnPremisesApplicationSegment>|null $value Value to set for the onPremisesApplicationSegments property.
     */
     public function setOnPremisesApplicationSegments(?array $value): void {

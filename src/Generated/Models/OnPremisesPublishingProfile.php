@@ -54,6 +54,20 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the applicationSegments property value. The applicationSegments property
+     * @return array<IpApplicationSegment>|null
+    */
+    public function getApplicationSegments(): ?array {
+        $val = $this->getBackingStore()->get('applicationSegments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IpApplicationSegment::class);
+            /** @var array<IpApplicationSegment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationSegments'");
+    }
+
+    /**
      * Gets the connectorGroups property value. List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      * @return array<ConnectorGroup>|null
     */
@@ -90,6 +104,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'agentGroups' => fn(ParseNode $n) => $o->setAgentGroups($n->getCollectionOfObjectValues([OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'])),
             'agents' => fn(ParseNode $n) => $o->setAgents($n->getCollectionOfObjectValues([OnPremisesAgent::class, 'createFromDiscriminatorValue'])),
+            'applicationSegments' => fn(ParseNode $n) => $o->setApplicationSegments($n->getCollectionOfObjectValues([IpApplicationSegment::class, 'createFromDiscriminatorValue'])),
             'connectorGroups' => fn(ParseNode $n) => $o->setConnectorGroups($n->getCollectionOfObjectValues([ConnectorGroup::class, 'createFromDiscriminatorValue'])),
             'connectors' => fn(ParseNode $n) => $o->setConnectors($n->getCollectionOfObjectValues([Connector::class, 'createFromDiscriminatorValue'])),
             'hybridAgentUpdaterConfiguration' => fn(ParseNode $n) => $o->setHybridAgentUpdaterConfiguration($n->getObjectValue([HybridAgentUpdaterConfiguration::class, 'createFromDiscriminatorValue'])),
@@ -157,6 +172,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('agentGroups', $this->getAgentGroups());
         $writer->writeCollectionOfObjectValues('agents', $this->getAgents());
+        $writer->writeCollectionOfObjectValues('applicationSegments', $this->getApplicationSegments());
         $writer->writeCollectionOfObjectValues('connectorGroups', $this->getConnectorGroups());
         $writer->writeCollectionOfObjectValues('connectors', $this->getConnectors());
         $writer->writeObjectValue('hybridAgentUpdaterConfiguration', $this->getHybridAgentUpdaterConfiguration());
@@ -179,6 +195,14 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     */
     public function setAgents(?array $value): void {
         $this->getBackingStore()->set('agents', $value);
+    }
+
+    /**
+     * Sets the applicationSegments property value. The applicationSegments property
+     * @param array<IpApplicationSegment>|null $value Value to set for the applicationSegments property.
+    */
+    public function setApplicationSegments(?array $value): void {
+        $this->getBackingStore()->set('applicationSegments', $value);
     }
 
     /**

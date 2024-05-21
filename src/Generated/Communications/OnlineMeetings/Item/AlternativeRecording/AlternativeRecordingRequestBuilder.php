@@ -31,7 +31,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete alternativeRecording for the navigation property onlineMeetings in communications
+     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param AlternativeRecordingRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alternativeRecording for the navigation property onlineMeetings from communications
+     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param AlternativeRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update alternativeRecording for the navigation property onlineMeetings in communications
+     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param StreamInterface $body Binary request body
      * @param AlternativeRecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
@@ -78,7 +78,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete alternativeRecording for the navigation property onlineMeetings in communications
+     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param AlternativeRecordingRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -96,7 +96,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alternativeRecording for the navigation property onlineMeetings from communications
+     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param AlternativeRecordingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class AlternativeRecordingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update alternativeRecording for the navigation property onlineMeetings in communications
+     * The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @param StreamInterface $body Binary request body
      * @param AlternativeRecordingRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

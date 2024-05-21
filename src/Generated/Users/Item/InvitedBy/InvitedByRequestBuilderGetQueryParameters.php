@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InvitedBy;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get invitedBy from users
+ * Get the user or servicePrincipal that invited the specified user into the tenant.
 */
 class InvitedByRequestBuilderGetQueryParameters 
 {

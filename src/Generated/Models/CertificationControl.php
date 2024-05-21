@@ -69,7 +69,7 @@ class CertificationControl implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Certification control name.
      * @return string|null
     */
     public function getName(): ?string {
@@ -93,7 +93,7 @@ class CertificationControl implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. URL for the Microsoft Service Trust Portal.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -132,7 +132,7 @@ class CertificationControl implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Certification control name.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -148,7 +148,7 @@ class CertificationControl implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. URL for the Microsoft Service Trust Portal.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

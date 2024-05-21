@@ -63,7 +63,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     }
 
     /**
-     * Gets the servicePrincipalId property value. The servicePrincipalId property
+     * Gets the servicePrincipalId property value. The identifier of the service principal whose access is being reviewed.
      * @return string|null
     */
     public function getServicePrincipalId(): ?string {
@@ -102,7 +102,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     }
 
     /**
-     * Sets the servicePrincipalId property value. The servicePrincipalId property
+     * Sets the servicePrincipalId property value. The identifier of the service principal whose access is being reviewed.
      * @param string|null $value Value to set for the servicePrincipalId property.
     */
     public function setServicePrincipalId(?string $value): void {

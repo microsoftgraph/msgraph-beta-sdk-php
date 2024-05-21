@@ -63,7 +63,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Gets the assignmentCreatedDateTime property value. The assignmentCreatedDateTime property
+     * Gets the assignmentCreatedDateTime property value. Date and time of assignment creation.
      * @return DateTime|null
     */
     public function getAssignmentCreatedDateTime(): ?DateTime {
@@ -167,7 +167,7 @@ class RolesAssignedOutsidePrivilegedIdentityManagementAlertIncident extends Unif
     }
 
     /**
-     * Sets the assignmentCreatedDateTime property value. The assignmentCreatedDateTime property
+     * Sets the assignmentCreatedDateTime property value. Date and time of assignment creation.
      * @param DateTime|null $value Value to set for the assignmentCreatedDateTime property.
     */
     public function setAssignmentCreatedDateTime(?DateTime $value): void {

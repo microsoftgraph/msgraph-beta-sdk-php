@@ -53,7 +53,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     }
 
     /**
-     * Gets the upns property value. The upns property
+     * Gets the upns property value. Collection of mailboxes that should be included in the search. Includes the UPN of each mailbox, for example, Monica.Thompson@contoso.com. Going forward, use the userPrincipalNames property. If you specify either upns or userPrincipalNames, the same values are populated automatically to the other property.
      * @return array<string>|null
     */
     public function getUpns(): ?array {
@@ -91,7 +91,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     }
 
     /**
-     * Sets the upns property value. The upns property
+     * Sets the upns property value. Collection of mailboxes that should be included in the search. Includes the UPN of each mailbox, for example, Monica.Thompson@contoso.com. Going forward, use the userPrincipalNames property. If you specify either upns or userPrincipalNames, the same values are populated automatically to the other property.
      * @param array<string>|null $value Value to set for the upns property.
     */
     public function setUpns(?array $value): void {

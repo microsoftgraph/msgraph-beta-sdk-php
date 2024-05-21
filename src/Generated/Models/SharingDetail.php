@@ -109,7 +109,7 @@ class SharingDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sharingReference property value. The sharingReference property
+     * Gets the sharingReference property value. Reference properties of the document, such as the URL and type of the document. Read-only
      * @return ResourceReference|null
     */
     public function getSharingReference(): ?ResourceReference {
@@ -198,7 +198,7 @@ class SharingDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sharingReference property value. The sharingReference property
+     * Sets the sharingReference property value. Reference properties of the document, such as the URL and type of the document. Read-only
      * @param ResourceReference|null $value Value to set for the sharingReference property.
     */
     public function setSharingReference(?ResourceReference $value): void {

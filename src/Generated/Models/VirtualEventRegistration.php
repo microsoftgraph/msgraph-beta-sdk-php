@@ -61,6 +61,8 @@ class VirtualEventRegistration extends Entity implements Parsable
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'firstName' => fn(ParseNode $n) => $o->setFirstName($n->getStringValue()),
             'lastName' => fn(ParseNode $n) => $o->setLastName($n->getStringValue()),
+            'preferredLanguage' => fn(ParseNode $n) => $o->setPreferredLanguage($n->getStringValue()),
+            'preferredTimezone' => fn(ParseNode $n) => $o->setPreferredTimezone($n->getStringValue()),
             'registrationDateTime' => fn(ParseNode $n) => $o->setRegistrationDateTime($n->getDateTimeValue()),
             'registrationQuestionAnswers' => fn(ParseNode $n) => $o->setRegistrationQuestionAnswers($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestionAnswer::class, 'createFromDiscriminatorValue'])),
             'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
@@ -91,6 +93,30 @@ class VirtualEventRegistration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastName'");
+    }
+
+    /**
+     * Gets the preferredLanguage property value. The preferredLanguage property
+     * @return string|null
+    */
+    public function getPreferredLanguage(): ?string {
+        $val = $this->getBackingStore()->get('preferredLanguage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preferredLanguage'");
+    }
+
+    /**
+     * Gets the preferredTimezone property value. The preferredTimezone property
+     * @return string|null
+    */
+    public function getPreferredTimezone(): ?string {
+        $val = $this->getBackingStore()->get('preferredTimezone');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preferredTimezone'");
     }
 
     /**
@@ -167,6 +193,8 @@ class VirtualEventRegistration extends Entity implements Parsable
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeStringValue('firstName', $this->getFirstName());
         $writer->writeStringValue('lastName', $this->getLastName());
+        $writer->writeStringValue('preferredLanguage', $this->getPreferredLanguage());
+        $writer->writeStringValue('preferredTimezone', $this->getPreferredTimezone());
         $writer->writeDateTimeValue('registrationDateTime', $this->getRegistrationDateTime());
         $writer->writeCollectionOfObjectValues('registrationQuestionAnswers', $this->getRegistrationQuestionAnswers());
         $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
@@ -204,6 +232,22 @@ class VirtualEventRegistration extends Entity implements Parsable
     */
     public function setLastName(?string $value): void {
         $this->getBackingStore()->set('lastName', $value);
+    }
+
+    /**
+     * Sets the preferredLanguage property value. The preferredLanguage property
+     * @param string|null $value Value to set for the preferredLanguage property.
+    */
+    public function setPreferredLanguage(?string $value): void {
+        $this->getBackingStore()->set('preferredLanguage', $value);
+    }
+
+    /**
+     * Sets the preferredTimezone property value. The preferredTimezone property
+     * @param string|null $value Value to set for the preferredTimezone property.
+    */
+    public function setPreferredTimezone(?string $value): void {
+        $this->getBackingStore()->set('preferredTimezone', $value);
     }
 
     /**

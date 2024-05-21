@@ -107,7 +107,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the updateWindow property value. The updateWindow property
+     * Gets the updateWindow property value. The time window during which the agent can receive updates.
      * @return UpdateWindow|null
     */
     public function getUpdateWindow(): ?UpdateWindow {
@@ -171,7 +171,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the updateWindow property value. The updateWindow property
+     * Sets the updateWindow property value. The time window during which the agent can receive updates.
      * @param UpdateWindow|null $value Value to set for the updateWindow property.
     */
     public function setUpdateWindow(?UpdateWindow $value): void {

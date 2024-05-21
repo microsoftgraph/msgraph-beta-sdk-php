@@ -53,7 +53,7 @@ class TenantReferenceTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+     * The collection of external Microsoft Entra tenants that the user shared profile data with. Read-only.
      * @param TenantReferenceTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantReference|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class TenantReferenceTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+     * The collection of external Microsoft Entra tenants that the user shared profile data with. Read-only.
      * @param TenantReferenceTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -27,6 +27,18 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
+     * Gets the application property value. The application property
+     * @return Application|null
+    */
+    public function getApplication(): ?Application {
+        $val = $this->getBackingStore()->get('application');
+        if (is_null($val) || $val instanceof Application) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'application'");
+    }
+
+    /**
      * Gets the destinationHost property value. The destinationHost property
      * @return string|null
     */
@@ -57,6 +69,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'application' => fn(ParseNode $n) => $o->setApplication($n->getObjectValue([Application::class, 'createFromDiscriminatorValue'])),
             'destinationHost' => fn(ParseNode $n) => $o->setDestinationHost($n->getStringValue()),
             'destinationType' => fn(ParseNode $n) => $o->setDestinationType($n->getEnumValue(PrivateNetworkDestinationType::class)),
             'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
@@ -116,11 +129,20 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('application', $this->getApplication());
         $writer->writeStringValue('destinationHost', $this->getDestinationHost());
         $writer->writeEnumValue('destinationType', $this->getDestinationType());
         $writer->writeIntegerValue('port', $this->getPort());
         $writer->writeCollectionOfPrimitiveValues('ports', $this->getPorts());
         $writer->writeEnumValue('protocol', $this->getProtocol());
+    }
+
+    /**
+     * Sets the application property value. The application property
+     * @param Application|null $value Value to set for the application property.
+    */
+    public function setApplication(?Application $value): void {
+        $this->getBackingStore()->set('application', $value);
     }
 
     /**

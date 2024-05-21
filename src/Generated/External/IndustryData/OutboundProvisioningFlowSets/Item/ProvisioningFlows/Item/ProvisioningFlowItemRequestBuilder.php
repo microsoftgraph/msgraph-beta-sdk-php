@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvision
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows\Item\MicrosoftGraphIndustryDataReset\MicrosoftGraphIndustryDataResetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IndustryData\ProvisioningFlow;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ProvisioningFlowItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the reset method.
+    */
+    public function microsoftGraphIndustryDataReset(): MicrosoftGraphIndustryDataResetRequestBuilder {
+        return new MicrosoftGraphIndustryDataResetRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new ProvisioningFlowItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
