@@ -50,7 +50,7 @@ class SamlNameIdClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Gets the serviceProviderNameQualifier property value. The serviceProviderNameQualifier property
+     * Gets the serviceProviderNameQualifier property value. Allows the specification of a service provider name qualifier reflected in the sAML response. The value provided must match one of the service provider names configured for the application and is only applicable for IdP-initiated applications (the sign-on URL should be empty for the IdP-initiated applications), in all other cases this value is ignored.
      * @return string|null
     */
     public function getServiceProviderNameQualifier(): ?string {
@@ -80,7 +80,7 @@ class SamlNameIdClaim extends CustomClaimBase implements Parsable
     }
 
     /**
-     * Sets the serviceProviderNameQualifier property value. The serviceProviderNameQualifier property
+     * Sets the serviceProviderNameQualifier property value. Allows the specification of a service provider name qualifier reflected in the sAML response. The value provided must match one of the service provider names configured for the application and is only applicable for IdP-initiated applications (the sign-on URL should be empty for the IdP-initiated applications), in all other cases this value is ignored.
      * @param string|null $value Value to set for the serviceProviderNameQualifier property.
     */
     public function setServiceProviderNameQualifier(?string $value): void {

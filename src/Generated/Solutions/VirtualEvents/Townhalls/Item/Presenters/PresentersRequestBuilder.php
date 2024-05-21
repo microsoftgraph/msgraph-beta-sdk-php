@@ -52,7 +52,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event type is virtualEventTownhall.
+     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param PresentersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenterCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new virtualEventPresenter object on a virtual event.  Currently the supported virtual event type is virtualEventTownhall.
+     * Create a new virtualEventPresenter object on a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param VirtualEventPresenter $body The request body
      * @param PresentersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenter|null>
@@ -83,7 +83,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event type is virtualEventTownhall.
+     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param PresentersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class PresentersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new virtualEventPresenter object on a virtual event.  Currently the supported virtual event type is virtualEventTownhall.
+     * Create a new virtualEventPresenter object on a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param VirtualEventPresenter $body The request body
      * @param PresentersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

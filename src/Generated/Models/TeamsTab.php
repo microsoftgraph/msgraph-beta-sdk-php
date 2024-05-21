@@ -102,7 +102,7 @@ class TeamsTab extends Entity implements Parsable
     }
 
     /**
-     * Gets the teamsAppId property value. The teamsAppId property
+     * Gets the teamsAppId property value. App definition identifier of the tab. This value can't be changed after tab creation. Because this property is deprecated, we recommend expanding teamsApp to retrieve the application that is linked to the tab.
      * @return string|null
     */
     public function getTeamsAppId(): ?string {
@@ -181,7 +181,7 @@ class TeamsTab extends Entity implements Parsable
     }
 
     /**
-     * Sets the teamsAppId property value. The teamsAppId property
+     * Sets the teamsAppId property value. App definition identifier of the tab. This value can't be changed after tab creation. Because this property is deprecated, we recommend expanding teamsApp to retrieve the application that is linked to the tab.
      * @param string|null $value Value to set for the teamsAppId property.
     */
     public function setTeamsAppId(?string $value): void {

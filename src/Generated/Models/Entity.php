@@ -37,6 +37,7 @@ use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalItem;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\Identity;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\Schema;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\CustomTaskExtension;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\Insights;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\LifecycleManagementSettings;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\LifecycleWorkflowsContainer;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\Run;
@@ -1042,6 +1043,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.identityCustomUserFlowAttribute': return new IdentityCustomUserFlowAttribute();
                 case '#microsoft.graph.identityFinding': return new IdentityFinding();
                 case '#microsoft.graph.identityGovernance.customTaskExtension': return new CustomTaskExtension();
+                case '#microsoft.graph.identityGovernance.insights': return new Insights();
                 case '#microsoft.graph.identityGovernance.lifecycleManagementSettings': return new LifecycleManagementSettings();
                 case '#microsoft.graph.identityGovernance.lifecycleWorkflowsContainer': return new LifecycleWorkflowsContainer();
                 case '#microsoft.graph.identityGovernance.run': return new Run();
@@ -1473,6 +1475,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.partners.billing.operation': return new Operation();
                 case '#microsoft.graph.partners.billing.runningOperation': return new RunningOperation();
                 case '#microsoft.graph.partners.billing.unbilledUsage': return new UnbilledUsage();
+                case '#microsoft.graph.passkeyAuthenticationMethodTarget': return new PasskeyAuthenticationMethodTarget();
                 case '#microsoft.graph.passwordAuthenticationMethod': return new PasswordAuthenticationMethod();
                 case '#microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod': return new PasswordlessMicrosoftAuthenticatorAuthenticationMethod();
                 case '#microsoft.graph.payload': return new Payload();

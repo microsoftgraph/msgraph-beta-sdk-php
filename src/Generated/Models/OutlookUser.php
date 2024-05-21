@@ -54,7 +54,7 @@ class OutlookUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskFolders property value. The taskFolders property
+     * Gets the taskFolders property value. The user's Outlook task folders. Read-only. Nullable.
      * @return array<OutlookTaskFolder>|null
     */
     public function getTaskFolders(): ?array {
@@ -68,7 +68,7 @@ class OutlookUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskGroups property value. The taskGroups property
+     * Gets the taskGroups property value. The user's Outlook task groups. Read-only. Nullable.
      * @return array<OutlookTaskGroup>|null
     */
     public function getTaskGroups(): ?array {
@@ -82,7 +82,7 @@ class OutlookUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the tasks property value. The tasks property
+     * Gets the tasks property value. The user's Outlook tasks. Read-only. Nullable.
      * @return array<OutlookTask>|null
     */
     public function getTasks(): ?array {
@@ -116,7 +116,7 @@ class OutlookUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskFolders property value. The taskFolders property
+     * Sets the taskFolders property value. The user's Outlook task folders. Read-only. Nullable.
      * @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
     */
     public function setTaskFolders(?array $value): void {
@@ -124,7 +124,7 @@ class OutlookUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskGroups property value. The taskGroups property
+     * Sets the taskGroups property value. The user's Outlook task groups. Read-only. Nullable.
      * @param array<OutlookTaskGroup>|null $value Value to set for the taskGroups property.
     */
     public function setTaskGroups(?array $value): void {
@@ -132,7 +132,7 @@ class OutlookUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the tasks property value. The tasks property
+     * Sets the tasks property value. The user's Outlook tasks. Read-only. Nullable.
      * @param array<OutlookTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {

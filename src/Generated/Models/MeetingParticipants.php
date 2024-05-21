@@ -71,7 +71,7 @@ class MeetingParticipants implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contributors property value. The contributors property
+     * Gets the contributors property value. For broadcast meeting only.
      * @return array<MeetingParticipantInfo>|null
     */
     public function getContributors(): ?array {
@@ -124,7 +124,7 @@ class MeetingParticipants implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the producers property value. The producers property
+     * Gets the producers property value. For broadcast meeting only.
      * @return array<MeetingParticipantInfo>|null
     */
     public function getProducers(): ?array {
@@ -175,7 +175,7 @@ class MeetingParticipants implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contributors property value. The contributors property
+     * Sets the contributors property value. For broadcast meeting only.
      * @param array<MeetingParticipantInfo>|null $value Value to set for the contributors property.
     */
     public function setContributors(?array $value): void {
@@ -199,7 +199,7 @@ class MeetingParticipants implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the producers property value. The producers property
+     * Sets the producers property value. For broadcast meeting only.
      * @param array<MeetingParticipantInfo>|null $value Value to set for the producers property.
     */
     public function setProducers(?array $value): void {

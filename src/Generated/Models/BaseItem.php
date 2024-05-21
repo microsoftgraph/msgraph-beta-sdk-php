@@ -80,7 +80,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description of the item.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -240,7 +240,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description of the item.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {

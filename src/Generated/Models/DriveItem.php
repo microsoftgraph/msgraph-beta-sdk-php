@@ -92,7 +92,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -630,7 +630,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. The content stream, if the item represents a file. The content property will have a potentially breaking change in behavior in the future. It will stream content directly instead of redirecting. To proactively opt in to the new behavior ahead of time, use the contentStream property instead.
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {

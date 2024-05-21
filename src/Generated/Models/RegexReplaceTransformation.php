@@ -27,7 +27,7 @@ class RegexReplaceTransformation extends CustomClaimTransformation implements Pa
     }
 
     /**
-     * Gets the additionalAttributes property value. The additionalAttributes property
+     * Gets the additionalAttributes property value. Additional attributes that can be referenced within the replacement string.
      * @return array<SourcedAttribute>|null
     */
     public function getAdditionalAttributes(): ?array {
@@ -54,7 +54,7 @@ class RegexReplaceTransformation extends CustomClaimTransformation implements Pa
     }
 
     /**
-     * Gets the regex property value. The regex property
+     * Gets the regex property value. The regular expression to be applied on the input directory attribute or constant.
      * @return string|null
     */
     public function getRegex(): ?string {
@@ -66,7 +66,7 @@ class RegexReplaceTransformation extends CustomClaimTransformation implements Pa
     }
 
     /**
-     * Gets the replacement property value. The replacement property
+     * Gets the replacement property value. The transformation output replacement pattern with regular expression output group and input parameter group reference.
      * @return string|null
     */
     public function getReplacement(): ?string {
@@ -89,7 +89,7 @@ class RegexReplaceTransformation extends CustomClaimTransformation implements Pa
     }
 
     /**
-     * Sets the additionalAttributes property value. The additionalAttributes property
+     * Sets the additionalAttributes property value. Additional attributes that can be referenced within the replacement string.
      * @param array<SourcedAttribute>|null $value Value to set for the additionalAttributes property.
     */
     public function setAdditionalAttributes(?array $value): void {
@@ -97,7 +97,7 @@ class RegexReplaceTransformation extends CustomClaimTransformation implements Pa
     }
 
     /**
-     * Sets the regex property value. The regex property
+     * Sets the regex property value. The regular expression to be applied on the input directory attribute or constant.
      * @param string|null $value Value to set for the regex property.
     */
     public function setRegex(?string $value): void {
@@ -105,7 +105,7 @@ class RegexReplaceTransformation extends CustomClaimTransformation implements Pa
     }
 
     /**
-     * Sets the replacement property value. The replacement property
+     * Sets the replacement property value. The transformation output replacement pattern with regular expression output group and input parameter group reference.
      * @param string|null $value Value to set for the replacement property.
     */
     public function setReplacement(?string $value): void {

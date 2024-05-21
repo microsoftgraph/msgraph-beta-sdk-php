@@ -45,10 +45,11 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get claimsPolicy from servicePrincipals
+     * Get the properties and relationships of a customClaimsPolicy object.
      * @param ClaimsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomClaimsPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/customclaimspolicy-get?view=graph-rest-beta Find more info here
     */
     public function get(?ClaimsPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property claimsPolicy in servicePrincipals
+     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomClaimsPolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceprincipal-put-customclaimspolicy?view=graph-rest-beta Find more info here
     */
     public function patch(CustomClaimsPolicy $body, ?ClaimsPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get claimsPolicy from servicePrincipals
+     * Get the properties and relationships of a customClaimsPolicy object.
      * @param ClaimsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property claimsPolicy in servicePrincipals
+     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

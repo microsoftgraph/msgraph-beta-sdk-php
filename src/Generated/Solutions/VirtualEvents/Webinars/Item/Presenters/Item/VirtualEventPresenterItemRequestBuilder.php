@@ -68,11 +68,12 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property presenters in solutions
+     * Update the properties of a virtualEventPresenter object. Currently the supported virtual event type is virtualEventWebinar.
      * @param VirtualEventPresenter $body The request body
      * @param VirtualEventPresenterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenter|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventpresenter-update?view=graph-rest-beta Find more info here
     */
     public function patch(VirtualEventPresenter $body, ?VirtualEventPresenterItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -131,7 +132,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property presenters in solutions
+     * Update the properties of a virtualEventPresenter object. Currently the supported virtual event type is virtualEventWebinar.
      * @param VirtualEventPresenter $body The request body
      * @param VirtualEventPresenterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

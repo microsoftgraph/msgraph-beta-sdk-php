@@ -101,7 +101,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the organizer property value. The organizer property
+     * Gets the organizer property value. The organizing party's identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship.
      * @return IdentitySet|null
     */
     public function getOrganizer(): ?IdentitySet {
@@ -125,7 +125,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the participants property value. The participants property
+     * Gets the participants property value. List of distinct identities involved in the call. Limited to 130 entries. The participants property is deprecated and will stop returning data on June 30, 2026. Going forward, use the participants_v2 relationship.
      * @return array<IdentitySet>|null
     */
     public function getParticipants(): ?array {
@@ -255,7 +255,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the organizer property value. The organizer property
+     * Sets the organizer property value. The organizing party's identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship.
      * @param IdentitySet|null $value Value to set for the organizer property.
     */
     public function setOrganizer(?IdentitySet $value): void {
@@ -271,7 +271,7 @@ class CallRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the participants property value. The participants property
+     * Sets the participants property value. List of distinct identities involved in the call. Limited to 130 entries. The participants property is deprecated and will stop returning data on June 30, 2026. Going forward, use the participants_v2 relationship.
      * @param array<IdentitySet>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value): void {

@@ -63,7 +63,7 @@ class SecurityAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the clientContext property value. The clientContext property
+     * Gets the clientContext property value. Unique client context string. Can have a maximum of 256 characters.
      * @return string|null
     */
     public function getClientContext(): ?string {
@@ -269,7 +269,7 @@ class SecurityAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the clientContext property value. The clientContext property
+     * Sets the clientContext property value. Unique client context string. Can have a maximum of 256 characters.
      * @param string|null $value Value to set for the clientContext property.
     */
     public function setClientContext(?string $value): void {

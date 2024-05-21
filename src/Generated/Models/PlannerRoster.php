@@ -26,12 +26,25 @@ class PlannerRoster extends Entity implements Parsable
     }
 
     /**
+     * Gets the assignedSensitivityLabel property value. The assignedSensitivityLabel property
+     * @return SensitivityLabelAssignment|null
+    */
+    public function getAssignedSensitivityLabel(): ?SensitivityLabelAssignment {
+        $val = $this->getBackingStore()->get('assignedSensitivityLabel');
+        if (is_null($val) || $val instanceof SensitivityLabelAssignment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedSensitivityLabel'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assignedSensitivityLabel' => fn(ParseNode $n) => $o->setAssignedSensitivityLabel($n->getObjectValue([SensitivityLabelAssignment::class, 'createFromDiscriminatorValue'])),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([PlannerRosterMember::class, 'createFromDiscriminatorValue'])),
             'plans' => fn(ParseNode $n) => $o->setPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -71,8 +84,17 @@ class PlannerRoster extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('assignedSensitivityLabel', $this->getAssignedSensitivityLabel());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
         $writer->writeCollectionOfObjectValues('plans', $this->getPlans());
+    }
+
+    /**
+     * Sets the assignedSensitivityLabel property value. The assignedSensitivityLabel property
+     * @param SensitivityLabelAssignment|null $value Value to set for the assignedSensitivityLabel property.
+    */
+    public function setAssignedSensitivityLabel(?SensitivityLabelAssignment $value): void {
+        $this->getBackingStore()->set('assignedSensitivityLabel', $value);
     }
 
     /**

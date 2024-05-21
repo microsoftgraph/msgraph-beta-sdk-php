@@ -50,7 +50,7 @@ class JoinTransformation extends CustomClaimTransformation implements Parsable
     }
 
     /**
-     * Gets the separator property value. The separator property
+     * Gets the separator property value. The separator value to be used.
      * @return string|null
     */
     public function getSeparator(): ?string {
@@ -80,7 +80,7 @@ class JoinTransformation extends CustomClaimTransformation implements Parsable
     }
 
     /**
-     * Sets the separator property value. The separator property
+     * Sets the separator property value. The separator value to be used.
      * @param string|null $value Value to set for the separator property.
     */
     public function setSeparator(?string $value): void {

@@ -49,7 +49,7 @@ class CustomClaimConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the attribute property value. The attribute property
+     * Gets the attribute property value. The attribute on which we source this property.
      * @return CustomClaimAttributeBase|null
     */
     public function getAttribute(): ?CustomClaimAttributeBase {
@@ -69,7 +69,7 @@ class CustomClaimConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the condition property value. The condition property
+     * Gets the condition property value. The condition, if any, associated with this configuration.
      * @return CustomClaimConditionBase|null
     */
     public function getCondition(): ?CustomClaimConditionBase {
@@ -107,7 +107,7 @@ class CustomClaimConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the transformations property value. The transformations property
+     * Gets the transformations property value. An ordered list of transformations that are applied in sequence.
      * @return array<CustomClaimTransformation>|null
     */
     public function getTransformations(): ?array {
@@ -141,7 +141,7 @@ class CustomClaimConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the attribute property value. The attribute property
+     * Sets the attribute property value. The attribute on which we source this property.
      * @param CustomClaimAttributeBase|null $value Value to set for the attribute property.
     */
     public function setAttribute(?CustomClaimAttributeBase $value): void {
@@ -157,7 +157,7 @@ class CustomClaimConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the condition property value. The condition property
+     * Sets the condition property value. The condition, if any, associated with this configuration.
      * @param CustomClaimConditionBase|null $value Value to set for the condition property.
     */
     public function setCondition(?CustomClaimConditionBase $value): void {
@@ -173,7 +173,7 @@ class CustomClaimConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the transformations property value. The transformations property
+     * Sets the transformations property value. An ordered list of transformations that are applied in sequence.
      * @param array<CustomClaimTransformation>|null $value Value to set for the transformations property.
     */
     public function setTransformations(?array $value): void {

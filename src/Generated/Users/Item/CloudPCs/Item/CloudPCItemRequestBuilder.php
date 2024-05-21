@@ -21,7 +21,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Rename\RenameRequest
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Resize\ResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveReviewStatus\RetrieveReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\SetReviewStatus\SetReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Start\StartRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Troubleshoot\TroubleshootRequestBuilder;
@@ -141,10 +143,24 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the retrieveReviewStatus method.
+    */
+    public function retrieveReviewStatus(): RetrieveReviewStatusRequestBuilder {
+        return new RetrieveReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the retryPartnerAgentInstallation method.
     */
     public function retryPartnerAgentInstallation(): RetryPartnerAgentInstallationRequestBuilder {
         return new RetryPartnerAgentInstallationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setReviewStatus method.
+    */
+    public function setReviewStatus(): SetReviewStatusRequestBuilder {
+        return new SetReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

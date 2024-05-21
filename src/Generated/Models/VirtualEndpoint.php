@@ -229,7 +229,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharedUseServicePlans property value. The sharedUseServicePlans property
+     * Gets the sharedUseServicePlans property value. Cloud PC shared-use service plans. The sharedUseServicePlans relationship is deprecated and stopped returning data on October 8, 2023. Going forward, use the frontLineServicePlans relationship.
      * @return array<CloudPcSharedUseServicePlan>|null
     */
     public function getSharedUseServicePlans(): ?array {
@@ -414,7 +414,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharedUseServicePlans property value. The sharedUseServicePlans property
+     * Sets the sharedUseServicePlans property value. Cloud PC shared-use service plans. The sharedUseServicePlans relationship is deprecated and stopped returning data on October 8, 2023. Going forward, use the frontLineServicePlans relationship.
      * @param array<CloudPcSharedUseServicePlan>|null $value Value to set for the sharedUseServicePlans property.
     */
     public function setSharedUseServicePlans(?array $value): void {

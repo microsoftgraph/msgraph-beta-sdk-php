@@ -40,7 +40,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event type is virtualEventTownhall.
+     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param VirtualEventPresenterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a virtualEventPresenter object.
+     * Read the properties and relationships of a virtualEventPresenter object. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param VirtualEventPresenterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventPresenter|null>
      * @throws Exception
@@ -94,7 +94,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event type is virtualEventTownhall.
+     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param VirtualEventPresenterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -112,7 +112,7 @@ class VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a virtualEventPresenter object.
+     * Read the properties and relationships of a virtualEventPresenter object. Currently the supported virtual event types are: virtualEventTownhall, virtualEventWebinar.
      * @param VirtualEventPresenterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

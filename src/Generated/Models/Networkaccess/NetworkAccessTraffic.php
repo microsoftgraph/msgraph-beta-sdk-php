@@ -37,7 +37,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the action property value. The action property
+     * Gets the action property value. Indicates what action to take based on filtering policies. The possible values are: block, allow.
      * @return FilteringPolicyAction|null
     */
     public function getAction(): ?FilteringPolicyAction {
@@ -645,7 +645,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the action property value. The action property
+     * Sets the action property value. Indicates what action to take based on filtering policies. The possible values are: block, allow.
      * @param FilteringPolicyAction|null $value Value to set for the action property.
     */
     public function setAction(?FilteringPolicyAction $value): void {

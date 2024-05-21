@@ -93,7 +93,7 @@ class TransformationAttribute implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the treatAsMultiValue property value. The treatAsMultiValue property
+     * Gets the treatAsMultiValue property value. This flag is only relevant in the case where the attribute is multivalued. By default, transformations are only applied to the first element in a multi-valued claim, however setting this flag to true ensures the transformation is applied to all values, resulting in a multivalued output.
      * @return bool|null
     */
     public function getTreatAsMultiValue(): ?bool {
@@ -148,7 +148,7 @@ class TransformationAttribute implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the treatAsMultiValue property value. The treatAsMultiValue property
+     * Sets the treatAsMultiValue property value. This flag is only relevant in the case where the attribute is multivalued. By default, transformations are only applied to the first element in a multi-valued claim, however setting this flag to true ensures the transformation is applied to all values, resulting in a multivalued output.
      * @param bool|null $value Value to set for the treatAsMultiValue property.
     */
     public function setTreatAsMultiValue(?bool $value): void {

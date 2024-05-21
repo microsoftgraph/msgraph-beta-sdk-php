@@ -84,7 +84,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. The unique identifier (ID) of the source image. Read-only. The id property is deprecated and will stop returning data on January 31, 2024. Going forward, use the resourceId property.
      * @return string|null
     */
     public function getId(): ?string {
@@ -182,7 +182,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. The unique identifier (ID) of the source image. Read-only. The id property is deprecated and will stop returning data on January 31, 2024. Going forward, use the resourceId property.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {

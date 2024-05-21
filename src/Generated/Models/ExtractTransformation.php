@@ -39,7 +39,7 @@ class ExtractTransformation extends CustomClaimTransformation implements Parsabl
     }
 
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. The type of extract transformation to apply.
      * @return string|null
     */
     public function getType(): ?string {
@@ -51,7 +51,7 @@ class ExtractTransformation extends CustomClaimTransformation implements Parsabl
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The value to be used as part of the transformation.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -63,7 +63,7 @@ class ExtractTransformation extends CustomClaimTransformation implements Parsabl
     }
 
     /**
-     * Gets the value2 property value. The value2 property
+     * Gets the value2 property value. An optional secondary value to be used when dealing with between extract operations.
      * @return string|null
     */
     public function getValue2(): ?string {
@@ -86,7 +86,7 @@ class ExtractTransformation extends CustomClaimTransformation implements Parsabl
     }
 
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. The type of extract transformation to apply.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
@@ -94,7 +94,7 @@ class ExtractTransformation extends CustomClaimTransformation implements Parsabl
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The value to be used as part of the transformation.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
@@ -102,7 +102,7 @@ class ExtractTransformation extends CustomClaimTransformation implements Parsabl
     }
 
     /**
-     * Sets the value2 property value. The value2 property
+     * Sets the value2 property value. An optional secondary value to be used when dealing with between extract operations.
      * @param string|null $value Value to set for the value2 property.
     */
     public function setValue2(?string $value): void {

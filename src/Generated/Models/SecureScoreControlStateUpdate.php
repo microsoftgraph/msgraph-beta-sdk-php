@@ -49,7 +49,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. Assign the control to the user who will take the action
      * @return string|null
     */
     public function getAssignedTo(): ?string {
@@ -69,7 +69,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the comment property value. The comment property
+     * Gets the comment property value. Provides optional comment about the control
      * @return string|null
     */
     public function getComment(): ?string {
@@ -109,7 +109,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. State of the control can be modified using PATCH command(Ex: ignored, thirdParty etc)
      * @return string|null
     */
     public function getState(): ?string {
@@ -121,7 +121,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the updatedBy property value. The updatedBy property
+     * Gets the updatedBy property value. ID of the user who updated tenant state
      * @return string|null
     */
     public function getUpdatedBy(): ?string {
@@ -133,7 +133,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the updatedDateTime property value. The updatedDateTime property
+     * Gets the updatedDateTime property value. Time at which control state was updated
      * @return DateTime|null
     */
     public function getUpdatedDateTime(): ?DateTime {
@@ -167,7 +167,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. Assign the control to the user who will take the action
      * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
@@ -183,7 +183,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the comment property value. The comment property
+     * Sets the comment property value. Provides optional comment about the control
      * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
@@ -199,7 +199,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. State of the control can be modified using PATCH command(Ex: ignored, thirdParty etc)
      * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {
@@ -207,7 +207,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the updatedBy property value. The updatedBy property
+     * Sets the updatedBy property value. ID of the user who updated tenant state
      * @param string|null $value Value to set for the updatedBy property.
     */
     public function setUpdatedBy(?string $value): void {
@@ -215,7 +215,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the updatedDateTime property value. The updatedDateTime property
+     * Sets the updatedDateTime property value. Time at which control state was updated
      * @param DateTime|null $value Value to set for the updatedDateTime property.
     */
     public function setUpdatedDateTime(?DateTime $value): void {

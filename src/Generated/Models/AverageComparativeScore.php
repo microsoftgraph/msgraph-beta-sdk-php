@@ -48,7 +48,7 @@ class AverageComparativeScore implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the averageScore property value. The averageScore property
+     * Gets the averageScore property value. Average score within a specified basis.
      * @return float|null
     */
     public function getAverageScore(): ?float {
@@ -68,7 +68,7 @@ class AverageComparativeScore implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the basis property value. The basis property
+     * Gets the basis property value. Scope type (by AllTenants, TotalSeats, IndustryTypes).
      * @return string|null
     */
     public function getBasis(): ?string {
@@ -124,7 +124,7 @@ class AverageComparativeScore implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the averageScore property value. The averageScore property
+     * Sets the averageScore property value. Average score within a specified basis.
      * @param float|null $value Value to set for the averageScore property.
     */
     public function setAverageScore(?float $value): void {
@@ -140,7 +140,7 @@ class AverageComparativeScore implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the basis property value. The basis property
+     * Sets the basis property value. Scope type (by AllTenants, TotalSeats, IndustryTypes).
      * @param string|null $value Value to set for the basis property.
     */
     public function setBasis(?string $value): void {
