@@ -69,7 +69,7 @@ class PasswordSingleSignOnSettings implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the fields property value. The fields property
+     * Gets the fields property value. The fields to capture to fill the user credentials for password-based single sign-on.
      * @return array<PasswordSingleSignOnField>|null
     */
     public function getFields(): ?array {
@@ -121,7 +121,7 @@ class PasswordSingleSignOnSettings implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the fields property value. The fields property
+     * Sets the fields property value. The fields to capture to fill the user credentials for password-based single sign-on.
      * @param array<PasswordSingleSignOnField>|null $value Value to set for the fields property.
     */
     public function setFields(?array $value): void {

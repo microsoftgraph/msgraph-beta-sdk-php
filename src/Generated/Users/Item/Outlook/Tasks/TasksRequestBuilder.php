@@ -52,7 +52,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tasks from users
+     * The user's Outlook tasks. Read-only. Nullable.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tasks from users
+     * The user's Outlook tasks. Read-only. Nullable.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

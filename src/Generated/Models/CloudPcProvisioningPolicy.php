@@ -52,6 +52,18 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the autopatch property value. The autopatch property
+     * @return CloudPcProvisioningPolicyAutopatch|null
+    */
+    public function getAutopatch(): ?CloudPcProvisioningPolicyAutopatch {
+        $val = $this->getBackingStore()->get('autopatch');
+        if (is_null($val) || $val instanceof CloudPcProvisioningPolicyAutopatch) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autopatch'");
+    }
+
+    /**
      * Gets the cloudPcGroupDisplayName property value. The display name of the Cloud PC group that the Cloud PCs reside in. Read-only.
      * @return string|null
     */
@@ -100,18 +112,6 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the domainJoinConfiguration property value. The domainJoinConfiguration property
-     * @return CloudPcDomainJoinConfiguration|null
-    */
-    public function getDomainJoinConfiguration(): ?CloudPcDomainJoinConfiguration {
-        $val = $this->getBackingStore()->get('domainJoinConfiguration');
-        if (is_null($val) || $val instanceof CloudPcDomainJoinConfiguration) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinConfiguration'");
-    }
-
-    /**
      * Gets the domainJoinConfigurations property value. Specifies a list ordered by priority on how Cloud PCs join Microsoft Entra ID (Azure AD). Supports $select.
      * @return array<CloudPcDomainJoinConfiguration>|null
     */
@@ -146,11 +146,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([CloudPcProvisioningPolicyAssignment::class, 'createFromDiscriminatorValue'])),
+            'autopatch' => fn(ParseNode $n) => $o->setAutopatch($n->getObjectValue([CloudPcProvisioningPolicyAutopatch::class, 'createFromDiscriminatorValue'])),
             'cloudPcGroupDisplayName' => fn(ParseNode $n) => $o->setCloudPcGroupDisplayName($n->getStringValue()),
             'cloudPcNamingTemplate' => fn(ParseNode $n) => $o->setCloudPcNamingTemplate($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'domainJoinConfiguration' => fn(ParseNode $n) => $o->setDomainJoinConfiguration($n->getObjectValue([CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'])),
             'domainJoinConfigurations' => fn(ParseNode $n) => $o->setDomainJoinConfigurations($n->getCollectionOfObjectValues([CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'])),
             'enableSingleSignOn' => fn(ParseNode $n) => $o->setEnableSingleSignOn($n->getBooleanValue()),
             'gracePeriodInHours' => fn(ParseNode $n) => $o->setGracePeriodInHours($n->getIntegerValue()),
@@ -160,7 +160,6 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
             'microsoftManagedDesktop' => fn(ParseNode $n) => $o->setMicrosoftManagedDesktop($n->getObjectValue([MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'])),
-            'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
             'scopeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -260,18 +259,6 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the onPremisesConnectionId property value. The onPremisesConnectionId property
-     * @return string|null
-    */
-    public function getOnPremisesConnectionId(): ?string {
-        $val = $this->getBackingStore()->get('onPremisesConnectionId');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesConnectionId'");
-    }
-
-    /**
      * Gets the provisioningType property value. Specifies the type of licenses to be used when provisioning Cloud PCs using this policy. The possible values are dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member. For example, a dedicated service plan can be assigned to only one user and provision only one Cloud PC. The shared and sharedByUser plans require customers to purchase a shared service plan. Each shared license purchased can enable up to three Cloud PCs, with only one user signed in at a time. The sharedByEntraGroup plan also requires the purchase of a shared service plan. Each shared license under this plan can enable one Cloud PC, which is shared for the group according to the assignments of this policy. By default, the license type is dedicated if the provisioningType isn't specified when you create the cloudPcProvisioningPolicy. You can't change this property after the cloudPcProvisioningPolicy is created.
      * @return CloudPcProvisioningType|null
     */
@@ -310,7 +297,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the windowsSettings property value. The windowsSettings property
+     * Gets the windowsSettings property value. Specific Windows settings to configure during the creation of Cloud PCs for this provisioning policy. Supports $select. The windowsSettings property is deprecated and will stop returning data on January 31, 2024. Going forward, use the windowsSetting property.
      * @return CloudPcWindowsSettings|null
     */
     public function getWindowsSettings(): ?CloudPcWindowsSettings {
@@ -329,11 +316,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('alternateResourceUrl', $this->getAlternateResourceUrl());
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeObjectValue('autopatch', $this->getAutopatch());
         $writer->writeStringValue('cloudPcGroupDisplayName', $this->getCloudPcGroupDisplayName());
         $writer->writeStringValue('cloudPcNamingTemplate', $this->getCloudPcNamingTemplate());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeObjectValue('domainJoinConfiguration', $this->getDomainJoinConfiguration());
         $writer->writeCollectionOfObjectValues('domainJoinConfigurations', $this->getDomainJoinConfigurations());
         $writer->writeBooleanValue('enableSingleSignOn', $this->getEnableSingleSignOn());
         $writer->writeIntegerValue('gracePeriodInHours', $this->getGracePeriodInHours());
@@ -343,7 +330,6 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
         $writer->writeObjectValue('microsoftManagedDesktop', $this->getMicrosoftManagedDesktop());
-        $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeObjectValue('windowsSetting', $this->getWindowsSetting());
@@ -364,6 +350,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
+    }
+
+    /**
+     * Sets the autopatch property value. The autopatch property
+     * @param CloudPcProvisioningPolicyAutopatch|null $value Value to set for the autopatch property.
+    */
+    public function setAutopatch(?CloudPcProvisioningPolicyAutopatch $value): void {
+        $this->getBackingStore()->set('autopatch', $value);
     }
 
     /**
@@ -396,14 +390,6 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
-    }
-
-    /**
-     * Sets the domainJoinConfiguration property value. The domainJoinConfiguration property
-     * @param CloudPcDomainJoinConfiguration|null $value Value to set for the domainJoinConfiguration property.
-    */
-    public function setDomainJoinConfiguration(?CloudPcDomainJoinConfiguration $value): void {
-        $this->getBackingStore()->set('domainJoinConfiguration', $value);
     }
 
     /**
@@ -479,14 +465,6 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the onPremisesConnectionId property value. The onPremisesConnectionId property
-     * @param string|null $value Value to set for the onPremisesConnectionId property.
-    */
-    public function setOnPremisesConnectionId(?string $value): void {
-        $this->getBackingStore()->set('onPremisesConnectionId', $value);
-    }
-
-    /**
      * Sets the provisioningType property value. Specifies the type of licenses to be used when provisioning Cloud PCs using this policy. The possible values are dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member. For example, a dedicated service plan can be assigned to only one user and provision only one Cloud PC. The shared and sharedByUser plans require customers to purchase a shared service plan. Each shared license purchased can enable up to three Cloud PCs, with only one user signed in at a time. The sharedByEntraGroup plan also requires the purchase of a shared service plan. Each shared license under this plan can enable one Cloud PC, which is shared for the group according to the assignments of this policy. By default, the license type is dedicated if the provisioningType isn't specified when you create the cloudPcProvisioningPolicy. You can't change this property after the cloudPcProvisioningPolicy is created.
      * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
     */
@@ -511,7 +489,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the windowsSettings property value. The windowsSettings property
+     * Sets the windowsSettings property value. Specific Windows settings to configure during the creation of Cloud PCs for this provisioning policy. Supports $select. The windowsSettings property is deprecated and will stop returning data on January 31, 2024. Going forward, use the windowsSetting property.
      * @param CloudPcWindowsSettings|null $value Value to set for the windowsSettings property.
     */
     public function setWindowsSettings(?CloudPcWindowsSettings $value): void {

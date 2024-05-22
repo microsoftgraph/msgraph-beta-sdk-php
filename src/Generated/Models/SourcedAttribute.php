@@ -39,7 +39,7 @@ class SourcedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. The identifier of the attribute on the specified source.
      * @return string|null
     */
     public function getId(): ?string {
@@ -51,7 +51,7 @@ class SourcedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Gets the isExtensionAttribute property value. The isExtensionAttribute property
+     * Gets the isExtensionAttribute property value. A flag that indicates if the name specified is that of an extension attribute.
      * @return bool|null
     */
     public function getIsExtensionAttribute(): ?bool {
@@ -63,7 +63,7 @@ class SourcedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Gets the source property value. The source property
+     * Gets the source property value. The source where the claim is going to retrieve its value. Valid sources include user, application, resource, audience and company.
      * @return string|null
     */
     public function getSource(): ?string {
@@ -86,7 +86,7 @@ class SourcedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. The identifier of the attribute on the specified source.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
@@ -94,7 +94,7 @@ class SourcedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Sets the isExtensionAttribute property value. The isExtensionAttribute property
+     * Sets the isExtensionAttribute property value. A flag that indicates if the name specified is that of an extension attribute.
      * @param bool|null $value Value to set for the isExtensionAttribute property.
     */
     public function setIsExtensionAttribute(?bool $value): void {
@@ -102,7 +102,7 @@ class SourcedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Sets the source property value. The source property
+     * Sets the source property value. The source where the claim is going to retrieve its value. Valid sources include user, application, resource, audience and company.
      * @param string|null $value Value to set for the source property.
     */
     public function setSource(?string $value): void {

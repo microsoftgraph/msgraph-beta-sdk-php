@@ -61,7 +61,7 @@ class AuthenticationStrengthsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authenticationStrengths from identity
+     * DEPRECATED. See the authenticationStrength relationship instead.
      * @param AuthenticationStrengthsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationStrengthRoot|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class AuthenticationStrengthsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authenticationStrengths from identity
+     * DEPRECATED. See the authenticationStrength relationship instead.
      * @param AuthenticationStrengthsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

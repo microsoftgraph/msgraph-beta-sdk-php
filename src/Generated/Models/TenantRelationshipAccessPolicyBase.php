@@ -34,7 +34,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the definition property value. The definition property
+     * Gets the definition property value. The raw JSON definition of the cross-tenant access policy. Deprecated. Do not use.
      * @return array<string>|null
     */
     public function getDefinition(): ?array {
@@ -75,7 +75,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the definition property value. The definition property
+     * Sets the definition property value. The raw JSON definition of the cross-tenant access policy. Deprecated. Do not use.
      * @param array<string>|null $value Value to set for the definition property.
     */
     public function setDefinition(?array $value): void {

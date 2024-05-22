@@ -210,7 +210,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the claimsPolicy property value. The claimsPolicy property
+     * Gets the claimsPolicy property value. A claims policy that allows application admins to customize the claims that will be emitted in tokens affected by this policy.
      * @return CustomClaimsPolicy|null
     */
     public function getClaimsPolicy(): ?CustomClaimsPolicy {
@@ -1059,7 +1059,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the claimsPolicy property value. The claimsPolicy property
+     * Sets the claimsPolicy property value. A claims policy that allows application admins to customize the claims that will be emitted in tokens affected by this policy.
      * @param CustomClaimsPolicy|null $value Value to set for the claimsPolicy property.
     */
     public function setClaimsPolicy(?CustomClaimsPolicy $value): void {

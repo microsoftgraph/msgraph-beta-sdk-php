@@ -79,7 +79,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the appTokenProtectionStatus property value. The appTokenProtectionStatus property
+     * Gets the appTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.
      * @return TokenProtectionStatus|null
     */
     public function getAppTokenProtectionStatus(): ?TokenProtectionStatus {
@@ -590,7 +590,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the mfaDetail property value. The mfaDetail property
+     * Gets the mfaDetail property value. This property is deprecated.
      * @return MfaDetail|null
     */
     public function getMfaDetail(): ?MfaDetail {
@@ -1104,7 +1104,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the appTokenProtectionStatus property value. The appTokenProtectionStatus property
+     * Sets the appTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.
      * @param TokenProtectionStatus|null $value Value to set for the appTokenProtectionStatus property.
     */
     public function setAppTokenProtectionStatus(?TokenProtectionStatus $value): void {
@@ -1368,7 +1368,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the mfaDetail property value. The mfaDetail property
+     * Sets the mfaDetail property value. This property is deprecated.
      * @param MfaDetail|null $value Value to set for the mfaDetail property.
     */
     public function setMfaDetail(?MfaDetail $value): void {

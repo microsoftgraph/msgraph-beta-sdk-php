@@ -237,7 +237,7 @@ class RiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the riskType property value. The riskType property
+     * Gets the riskType property value. List of risk event types.Note: This property is deprecated. Use riskEventType instead.
      * @return RiskEventType|null
     */
     public function getRiskType(): ?RiskEventType {
@@ -458,7 +458,7 @@ class RiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the riskType property value. The riskType property
+     * Sets the riskType property value. List of risk event types.Note: This property is deprecated. Use riskEventType instead.
      * @param RiskEventType|null $value Value to set for the riskType property.
     */
     public function setRiskType(?RiskEventType $value): void {

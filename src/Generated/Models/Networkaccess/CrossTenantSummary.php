@@ -121,7 +121,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the rarelyUsedTenantCount property value. The rarelyUsedTenantCount property
+     * Gets the rarelyUsedTenantCount property value. The number of tenants that are rarely used.
      * @return int|null
     */
     public function getRarelyUsedTenantCount(): ?int {
@@ -220,7 +220,7 @@ class CrossTenantSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the rarelyUsedTenantCount property value. The rarelyUsedTenantCount property
+     * Sets the rarelyUsedTenantCount property value. The number of tenants that are rarely used.
      * @param int|null $value Value to set for the rarelyUsedTenantCount property.
     */
     public function setRarelyUsedTenantCount(?int $value): void {

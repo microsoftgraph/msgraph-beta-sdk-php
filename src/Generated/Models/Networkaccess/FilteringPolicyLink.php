@@ -77,7 +77,7 @@ class FilteringPolicyLink extends PolicyLink implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. Provides an integer priority level for each instance of a URL filtering policy linked to a profile. Required.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -125,7 +125,7 @@ class FilteringPolicyLink extends PolicyLink implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. Provides an integer priority level for each instance of a URL filtering policy linked to a profile. Required.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {

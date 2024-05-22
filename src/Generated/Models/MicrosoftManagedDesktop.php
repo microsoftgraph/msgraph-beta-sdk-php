@@ -106,7 +106,7 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. Indicates whether the provisioning policy enables Microsoft Managed Desktop and, if enabled, specifies the type of plan managing the device. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue. The type property is deprecated and will stop returning data on January 31, 2024. Going forward, use the managedType property.
      * @return MicrosoftManagedDesktopType|null
     */
     public function getType(): ?MicrosoftManagedDesktopType {
@@ -170,7 +170,7 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. Indicates whether the provisioning policy enables Microsoft Managed Desktop and, if enabled, specifies the type of plan managing the device. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue. The type property is deprecated and will stop returning data on January 31, 2024. Going forward, use the managedType property.
      * @param MicrosoftManagedDesktopType|null $value Value to set for the type property.
     */
     public function setType(?MicrosoftManagedDesktopType $value): void {

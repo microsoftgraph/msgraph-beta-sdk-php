@@ -26,7 +26,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the azureBlobContainer property value. The azureBlobContainer property
+     * Gets the azureBlobContainer property value. The name of the Azure storage location where the export is stored. This only applies to exports stored in your own Azure storage location. The azureBlobContainer property is deprecated and will stop returning data on April 30th, 2023.
      * @return string|null
     */
     public function getAzureBlobContainer(): ?string {
@@ -38,7 +38,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the azureBlobToken property value. The azureBlobToken property
+     * Gets the azureBlobToken property value. The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location. The azureBlobToken property is deprecated and will stop returning data on April 30, 2023.
      * @return string|null
     */
     public function getAzureBlobToken(): ?string {
@@ -62,7 +62,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the exportFileMetadata property value. The exportFileMetadata property
+     * Gets the exportFileMetadata property value. Contains the properties for an export file metadata, including downloadUrl, fileName, and size. If you export to an Azure storage location, this property returns empty.
      * @return array<ExportFileMetadata>|null
     */
     public function getExportFileMetadata(): ?array {
@@ -120,7 +120,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the outputFolderId property value. The outputFolderId property
+     * Gets the outputFolderId property value. The output folder ID. The outputFolderId property is deprecated and will stop returning data on April 30, 2023.
      * @return string|null
     */
     public function getOutputFolderId(): ?string {
@@ -186,7 +186,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the azureBlobContainer property value. The azureBlobContainer property
+     * Sets the azureBlobContainer property value. The name of the Azure storage location where the export is stored. This only applies to exports stored in your own Azure storage location. The azureBlobContainer property is deprecated and will stop returning data on April 30th, 2023.
      * @param string|null $value Value to set for the azureBlobContainer property.
     */
     public function setAzureBlobContainer(?string $value): void {
@@ -194,7 +194,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the azureBlobToken property value. The azureBlobToken property
+     * Sets the azureBlobToken property value. The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location. The azureBlobToken property is deprecated and will stop returning data on April 30, 2023.
      * @param string|null $value Value to set for the azureBlobToken property.
     */
     public function setAzureBlobToken(?string $value): void {
@@ -210,7 +210,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the exportFileMetadata property value. The exportFileMetadata property
+     * Sets the exportFileMetadata property value. Contains the properties for an export file metadata, including downloadUrl, fileName, and size. If you export to an Azure storage location, this property returns empty.
      * @param array<ExportFileMetadata>|null $value Value to set for the exportFileMetadata property.
     */
     public function setExportFileMetadata(?array $value): void {
@@ -234,7 +234,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the outputFolderId property value. The outputFolderId property
+     * Sets the outputFolderId property value. The output folder ID. The outputFolderId property is deprecated and will stop returning data on April 30, 2023.
      * @param string|null $value Value to set for the outputFolderId property.
     */
     public function setOutputFolderId(?string $value): void {

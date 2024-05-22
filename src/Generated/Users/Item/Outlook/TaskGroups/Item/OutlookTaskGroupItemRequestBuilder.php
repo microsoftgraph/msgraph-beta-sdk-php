@@ -53,7 +53,7 @@ class OutlookTaskGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get taskGroups from users
+     * The user's Outlook task groups. Read-only. Nullable.
      * @param OutlookTaskGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutlookTaskGroup|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class OutlookTaskGroupItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get taskGroups from users
+     * The user's Outlook task groups. Read-only. Nullable.
      * @param OutlookTaskGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -319,7 +319,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the stored_fields property value. The stored_fields property
+     * Gets the stored_fields property value. This is now replaced by the fields property.
      * @return array<string>|null
     */
     public function getStoredFields(): ?array {
@@ -515,7 +515,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the stored_fields property value. The stored_fields property
+     * Sets the stored_fields property value. This is now replaced by the fields property.
      * @param array<string>|null $value Value to set for the stored_fields property.
     */
     public function setStoredFields(?array $value): void {

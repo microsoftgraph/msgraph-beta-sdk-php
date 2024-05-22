@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfile;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\AgentGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\AgentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ApplicationSegments\ApplicationSegmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\ConnectorGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\ConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\PublishedResourcesRequestBuilder;
@@ -33,6 +34,13 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function agents(): AgentsRequestBuilder {
         return new AgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the applicationSegments property of the microsoft.graph.onPremisesPublishingProfile entity.
+    */
+    public function applicationSegments(): ApplicationSegmentsRequestBuilder {
+        return new ApplicationSegmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

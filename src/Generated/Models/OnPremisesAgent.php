@@ -91,7 +91,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the supportedPublishingTypes property value. The supportedPublishingTypes property
+     * Gets the supportedPublishingTypes property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
      * @return array<OnPremisesPublishingType>|null
     */
     public function getSupportedPublishingTypes(): ?array {
@@ -150,7 +150,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the supportedPublishingTypes property value. The supportedPublishingTypes property
+     * Sets the supportedPublishingTypes property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
      * @param array<OnPremisesPublishingType>|null $value Value to set for the supportedPublishingTypes property.
     */
     public function setSupportedPublishingTypes(?array $value): void {

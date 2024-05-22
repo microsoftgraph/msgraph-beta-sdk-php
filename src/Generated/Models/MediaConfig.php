@@ -88,7 +88,7 @@ class MediaConfig implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the removeFromDefaultAudioGroup property value. The removeFromDefaultAudioGroup property
+     * Gets the removeFromDefaultAudioGroup property value. Remove media from the default audio group.
      * @return bool|null
     */
     public function getRemoveFromDefaultAudioGroup(): ?bool {
@@ -134,7 +134,7 @@ class MediaConfig implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the removeFromDefaultAudioGroup property value. The removeFromDefaultAudioGroup property
+     * Sets the removeFromDefaultAudioGroup property value. Remove media from the default audio group.
      * @param bool|null $value Value to set for the removeFromDefaultAudioGroup property.
     */
     public function setRemoveFromDefaultAudioGroup(?bool $value): void {

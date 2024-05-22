@@ -26,7 +26,7 @@ class WorkbookRangeView extends Entity implements Parsable
     }
 
     /**
-     * Gets the cellAddresses property value. The cellAddresses property
+     * Gets the cellAddresses property value. Represents the cell addresses
      * @return Json|null
     */
     public function getCellAddresses(): ?Json {
@@ -214,7 +214,7 @@ class WorkbookRangeView extends Entity implements Parsable
     }
 
     /**
-     * Sets the cellAddresses property value. The cellAddresses property
+     * Sets the cellAddresses property value. Represents the cell addresses
      * @param Json|null $value Value to set for the cellAddresses property.
     */
     public function setCellAddresses(?Json $value): void {

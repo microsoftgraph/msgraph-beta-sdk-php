@@ -52,7 +52,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationStrengths property value. The authenticationStrengths property
+     * Gets the authenticationStrengths property value. DEPRECATED. See the authenticationStrength relationship instead.
      * @return AuthenticationStrengthRoot|null
     */
     public function getAuthenticationStrengths(): ?AuthenticationStrengthRoot {
@@ -152,7 +152,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationStrengths property value. The authenticationStrengths property
+     * Sets the authenticationStrengths property value. DEPRECATED. See the authenticationStrength relationship instead.
      * @param AuthenticationStrengthRoot|null $value Value to set for the authenticationStrengths property.
     */
     public function setAuthenticationStrengths(?AuthenticationStrengthRoot $value): void {

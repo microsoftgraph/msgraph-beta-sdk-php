@@ -82,7 +82,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Gets the fileName property value. The fileName property
+     * Gets the fileName property value. Source file that contains the error.
      * @return string|null
     */
     public function getFileName(): ?string {
@@ -154,7 +154,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Sets the fileName property value. The fileName property
+     * Sets the fileName property value. Source file that contains the error.
      * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {

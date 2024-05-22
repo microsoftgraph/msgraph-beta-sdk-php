@@ -69,7 +69,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventTypes property value. The eventTypes property
+     * Gets the eventTypes property value. List of risk event types. Deprecated. Use riskEventType instead.
      * @return array<RiskEventType>|null
     */
     public function getEventTypes(): ?array {
@@ -116,7 +116,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the riskEventTypes property value. The riskEventTypes property
+     * Gets the riskEventTypes property value. The type of risk event detected. The possible values are: anonymizedIPAddress, investigationsThreatIntelligence, investigationsThreatIntelligenceSigninLinked,leakedCredentials, maliciousIPAddress, maliciousIPAddressValidCredentialsBlockedIP, malwareInfectedIPAddress, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, suspiciousAPITraffic, suspiciousIPAddress,   unfamiliarFeatures, unlikelyTravel. For more information about each value, see Risk types and detection.
      * @return array<string>|null
     */
     public function getRiskEventTypes(): ?array {
@@ -166,7 +166,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventTypes property value. The eventTypes property
+     * Sets the eventTypes property value. List of risk event types. Deprecated. Use riskEventType instead.
      * @param array<RiskEventType>|null $value Value to set for the eventTypes property.
     */
     public function setEventTypes(?array $value): void {
@@ -182,7 +182,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the riskEventTypes property value. The riskEventTypes property
+     * Sets the riskEventTypes property value. The type of risk event detected. The possible values are: anonymizedIPAddress, investigationsThreatIntelligence, investigationsThreatIntelligenceSigninLinked,leakedCredentials, maliciousIPAddress, maliciousIPAddressValidCredentialsBlockedIP, malwareInfectedIPAddress, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, suspiciousAPITraffic, suspiciousIPAddress,   unfamiliarFeatures, unlikelyTravel. For more information about each value, see Risk types and detection.
      * @param array<string>|null $value Value to set for the riskEventTypes property.
     */
     public function setRiskEventTypes(?array $value): void {

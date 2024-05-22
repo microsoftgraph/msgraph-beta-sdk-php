@@ -83,7 +83,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ipAddress property value. The ipAddress property
+     * Gets the ipAddress property value. Specifies the BGP IP address.
      * @return string|null
     */
     public function getIpAddress(): ?string {
@@ -168,7 +168,7 @@ class BgpConfiguration implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ipAddress property value. The ipAddress property
+     * Sets the ipAddress property value. Specifies the BGP IP address.
      * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
