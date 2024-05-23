@@ -39,7 +39,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessPackageAssignment property value. For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.
+     * Gets the accessPackageAssignment property value. For a requestType of UserAdd or AdminAdd, an access package assignment requested to be created. For a requestType of UserRemove, AdminRemove, or SystemRemove, this property has the id property of an existing assignment to be removed. Supports $expand.
      * @return AccessPackageAssignment|null
     */
     public function getAccessPackageAssignment(): ?AccessPackageAssignment {
@@ -117,7 +117,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -155,7 +155,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the isValidationOnly property value. True if the request is not to be processed for assignment.
+     * Gets the isValidationOnly property value. True if the request isn't to be processed for assignment.
      * @return bool|null
     */
     public function getIsValidationOnly(): ?bool {
@@ -191,7 +191,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestState property value. One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted or Scheduled. Read-only.
+     * Gets the requestState property value. One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted, or Scheduled. Read-only.
      * @return string|null
     */
     public function getRequestState(): ?string {
@@ -215,7 +215,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestType property value. One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd, UserUpdate or UserRemove. Read-only.
+     * Gets the requestType property value. One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove, or SystemRemove. A request from the user has a requestType of UserAdd, UserUpdate, or UserRemove. Read-only.
      * @return string|null
     */
     public function getRequestType(): ?string {
@@ -239,7 +239,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the verifiedCredentialsData property value. The details of the verifiable credential that was presented by the requestor, such as the issuer and claims. Read-only.
+     * Gets the verifiedCredentialsData property value. The details of the verifiable credential that the requestor presented, such as the issuer and claims. Read-only.
      * @return array<VerifiedCredentialData>|null
     */
     public function getVerifiedCredentialsData(): ?array {
@@ -285,7 +285,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessPackageAssignment property value. For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.
+     * Sets the accessPackageAssignment property value. For a requestType of UserAdd or AdminAdd, an access package assignment requested to be created. For a requestType of UserRemove, AdminRemove, or SystemRemove, this property has the id property of an existing assignment to be removed. Supports $expand.
      * @param AccessPackageAssignment|null $value Value to set for the accessPackageAssignment property.
     */
     public function setAccessPackageAssignment(?AccessPackageAssignment $value): void {
@@ -333,7 +333,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -341,7 +341,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the isValidationOnly property value. True if the request is not to be processed for assignment.
+     * Sets the isValidationOnly property value. True if the request isn't to be processed for assignment.
      * @param bool|null $value Value to set for the isValidationOnly property.
     */
     public function setIsValidationOnly(?bool $value): void {
@@ -365,7 +365,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestState property value. One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted or Scheduled. Read-only.
+     * Sets the requestState property value. One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted, or Scheduled. Read-only.
      * @param string|null $value Value to set for the requestState property.
     */
     public function setRequestState(?string $value): void {
@@ -381,7 +381,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestType property value. One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd, UserUpdate or UserRemove. Read-only.
+     * Sets the requestType property value. One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove, or SystemRemove. A request from the user has a requestType of UserAdd, UserUpdate, or UserRemove. Read-only.
      * @param string|null $value Value to set for the requestType property.
     */
     public function setRequestType(?string $value): void {
@@ -397,7 +397,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the verifiedCredentialsData property value. The details of the verifiable credential that was presented by the requestor, such as the issuer and claims. Read-only.
+     * Sets the verifiedCredentialsData property value. The details of the verifiable credential that the requestor presented, such as the issuer and claims. Read-only.
      * @param array<VerifiedCredentialData>|null $value Value to set for the verifiedCredentialsData property.
     */
     public function setVerifiedCredentialsData(?array $value): void {

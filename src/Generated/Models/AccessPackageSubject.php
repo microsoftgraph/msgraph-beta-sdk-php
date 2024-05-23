@@ -131,7 +131,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * Gets the onPremisesSecurityIdentifier property value. A string representation of the principal's security identifier, if known, or null if the subject doesn't have a security identifier.
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
@@ -254,7 +254,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * Sets the onPremisesSecurityIdentifier property value. A string representation of the principal's security identifier, if known, or null if the subject doesn't have a security identifier.
      * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {

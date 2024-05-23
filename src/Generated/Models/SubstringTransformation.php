@@ -38,7 +38,7 @@ class SubstringTransformation extends CustomClaimTransformation implements Parsa
     }
 
     /**
-     * Gets the index property value. The index property
+     * Gets the index property value. The start index of the substring operation, where 0 is the first character in the string.
      * @return int|null
     */
     public function getIndex(): ?int {
@@ -50,7 +50,7 @@ class SubstringTransformation extends CustomClaimTransformation implements Parsa
     }
 
     /**
-     * Gets the length property value. The length property
+     * Gets the length property value. The maximum length of the string, starting from the provided index.
      * @return int|null
     */
     public function getLength(): ?int {
@@ -72,7 +72,7 @@ class SubstringTransformation extends CustomClaimTransformation implements Parsa
     }
 
     /**
-     * Sets the index property value. The index property
+     * Sets the index property value. The start index of the substring operation, where 0 is the first character in the string.
      * @param int|null $value Value to set for the index property.
     */
     public function setIndex(?int $value): void {
@@ -80,7 +80,7 @@ class SubstringTransformation extends CustomClaimTransformation implements Parsa
     }
 
     /**
-     * Sets the length property value. The length property
+     * Sets the length property value. The maximum length of the string, starting from the provided index.
      * @param int|null $value Value to set for the length property.
     */
     public function setLength(?int $value): void {

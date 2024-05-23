@@ -64,7 +64,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Gets the presenterDetails property value. Other detail information of the presenter.
+     * Gets the presenterDetails property value. Other detail information of the presenter. This property returns null when the virtual event type is virtualEventTownhall.
      * @return VirtualEventPresenterDetails|null
     */
     public function getPresenterDetails(): ?VirtualEventPresenterDetails {
@@ -118,7 +118,7 @@ class VirtualEventPresenter extends Entity implements Parsable
     }
 
     /**
-     * Sets the presenterDetails property value. Other detail information of the presenter.
+     * Sets the presenterDetails property value. Other detail information of the presenter. This property returns null when the virtual event type is virtualEventTownhall.
      * @param VirtualEventPresenterDetails|null $value Value to set for the presenterDetails property.
     */
     public function setPresenterDetails(?VirtualEventPresenterDetails $value): void {

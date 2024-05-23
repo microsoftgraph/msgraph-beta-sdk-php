@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of external Microsoft Entra tenants that the user has shared profile data with. Read-only.
+ * The collection of external Microsoft Entra tenants that the user shared profile data with. Read-only.
 */
 class TenantReferenceTenantItemRequestBuilderGetQueryParameters 
 {

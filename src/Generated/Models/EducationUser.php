@@ -296,7 +296,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the officeLocation property value. The officeLocation property
+     * Gets the officeLocation property value. The office location for the user.
      * @return string|null
     */
     public function getOfficeLocation(): ?string {
@@ -740,7 +740,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the officeLocation property value. The officeLocation property
+     * Sets the officeLocation property value. The office location for the user.
      * @param string|null $value Value to set for the officeLocation property.
     */
     public function setOfficeLocation(?string $value): void {

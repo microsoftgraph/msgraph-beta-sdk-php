@@ -78,7 +78,7 @@ class ProfileSourceAnnotation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the isDefaultSource property value. The isDefaultSource property
+     * Gets the isDefaultSource property value. Indicates whether the source is the default one.
      * @return bool|null
     */
     public function getIsDefaultSource(): ?bool {
@@ -102,7 +102,7 @@ class ProfileSourceAnnotation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the properties property value. The properties property
+     * Gets the properties property value. The names of properties that have data from this source.
      * @return array<string>|null
     */
     public function getProperties(): ?array {
@@ -156,7 +156,7 @@ class ProfileSourceAnnotation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the isDefaultSource property value. The isDefaultSource property
+     * Sets the isDefaultSource property value. Indicates whether the source is the default one.
      * @param bool|null $value Value to set for the isDefaultSource property.
     */
     public function setIsDefaultSource(?bool $value): void {
@@ -172,7 +172,7 @@ class ProfileSourceAnnotation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the properties property value. The properties property
+     * Sets the properties property value. The names of properties that have data from this source.
      * @param array<string>|null $value Value to set for the properties property.
     */
     public function setProperties(?array $value): void {

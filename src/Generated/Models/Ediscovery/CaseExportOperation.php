@@ -103,7 +103,7 @@ class CaseExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the outputFolderId property value. The outputFolderId property
+     * Gets the outputFolderId property value. The output folder ID.
      * @return string|null
     */
     public function getOutputFolderId(): ?string {
@@ -195,7 +195,7 @@ class CaseExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the outputFolderId property value. The outputFolderId property
+     * Sets the outputFolderId property value. The output folder ID.
      * @param string|null $value Value to set for the outputFolderId property.
     */
     public function setOutputFolderId(?string $value): void {

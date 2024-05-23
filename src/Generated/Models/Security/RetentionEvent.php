@@ -77,7 +77,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventPropagationResults property value. The eventPropagationResults property
+     * Gets the eventPropagationResults property value. Represents the success status of a created event and additional information.
      * @return array<EventPropagationResult>|null
     */
     public function getEventPropagationResults(): ?array {
@@ -91,7 +91,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventQueries property value. The eventQueries property
+     * Gets the eventQueries property value. Represents the workload (SharePoint Online, OneDrive for Business, Exchange Online) and identification information associated with a retention event.
      * @return array<EventQuery>|null
     */
     public function getEventQueries(): ?array {
@@ -105,7 +105,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventStatus property value. The eventStatus property
+     * Gets the eventStatus property value. Status of event propogation to the scoped locations after the event has been created.
      * @return RetentionEventStatus|null
     */
     public function getEventStatus(): ?RetentionEventStatus {
@@ -251,7 +251,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventPropagationResults property value. The eventPropagationResults property
+     * Sets the eventPropagationResults property value. Represents the success status of a created event and additional information.
      * @param array<EventPropagationResult>|null $value Value to set for the eventPropagationResults property.
     */
     public function setEventPropagationResults(?array $value): void {
@@ -259,7 +259,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventQueries property value. The eventQueries property
+     * Sets the eventQueries property value. Represents the workload (SharePoint Online, OneDrive for Business, Exchange Online) and identification information associated with a retention event.
      * @param array<EventQuery>|null $value Value to set for the eventQueries property.
     */
     public function setEventQueries(?array $value): void {
@@ -267,7 +267,7 @@ class RetentionEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventStatus property value. The eventStatus property
+     * Sets the eventStatus property value. Status of event propogation to the scoped locations after the event has been created.
      * @param RetentionEventStatus|null $value Value to set for the eventStatus property.
     */
     public function setEventStatus(?RetentionEventStatus $value): void {

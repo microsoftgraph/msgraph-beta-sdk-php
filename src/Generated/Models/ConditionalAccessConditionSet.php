@@ -93,7 +93,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.
+     * Gets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member is deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.
      * @return array<ConditionalAccessClientApp>|null
     */
     public function getClientAppTypes(): ?array {
@@ -155,7 +155,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the insiderRiskLevels property value. The insiderRiskLevels property
+     * Gets the insiderRiskLevels property value. Insider risk levels included in the policy. The possible values are: minor, moderate, elevated, unknownFutureValue.
      * @return ConditionalAccessInsiderRiskLevels|null
     */
     public function getInsiderRiskLevels(): ?ConditionalAccessInsiderRiskLevels {
@@ -319,7 +319,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.
+     * Sets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member is deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.
      * @param array<ConditionalAccessClientApp>|null $value Value to set for the clientAppTypes property.
     */
     public function setClientAppTypes(?array $value): void {
@@ -343,7 +343,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the insiderRiskLevels property value. The insiderRiskLevels property
+     * Sets the insiderRiskLevels property value. Insider risk levels included in the policy. The possible values are: minor, moderate, elevated, unknownFutureValue.
      * @param ConditionalAccessInsiderRiskLevels|null $value Value to set for the insiderRiskLevels property.
     */
     public function setInsiderRiskLevels(?ConditionalAccessInsiderRiskLevels $value): void {

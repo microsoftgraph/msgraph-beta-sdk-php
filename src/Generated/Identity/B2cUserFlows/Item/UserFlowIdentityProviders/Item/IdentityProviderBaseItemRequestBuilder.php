@@ -31,7 +31,7 @@ class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userFlowIdentityProviders from identity
+     * The identity providers included in the user flow.
      * @param IdentityProviderBaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityProviderBase|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userFlowIdentityProviders from identity
+     * The identity providers included in the user flow.
      * @param IdentityProviderBaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

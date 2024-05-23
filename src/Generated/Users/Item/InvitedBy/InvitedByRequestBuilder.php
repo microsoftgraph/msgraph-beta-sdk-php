@@ -31,10 +31,11 @@ class InvitedByRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get invitedBy from users
+     * Get the user or servicePrincipal that invited the specified user into the tenant.
      * @param InvitedByRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObject|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/user-list-invitedby?view=graph-rest-beta Find more info here
     */
     public function get(?InvitedByRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class InvitedByRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get invitedBy from users
+     * Get the user or servicePrincipal that invited the specified user into the tenant.
      * @param InvitedByRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

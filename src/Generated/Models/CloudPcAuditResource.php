@@ -135,7 +135,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. The type of the audit resource. The type property is deprecated and will stop returning data on May 8, 2024. Going forward, use the resourceType property.
      * @return string|null
     */
     public function getType(): ?string {
@@ -217,7 +217,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. The type of the audit resource. The type property is deprecated and will stop returning data on May 8, 2024. Going forward, use the resourceType property.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

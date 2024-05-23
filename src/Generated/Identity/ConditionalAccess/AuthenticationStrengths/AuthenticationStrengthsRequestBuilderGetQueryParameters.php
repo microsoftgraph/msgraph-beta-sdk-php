@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get authenticationStrengths from identity
+ * DEPRECATED. See the authenticationStrength relationship instead.
 */
 class AuthenticationStrengthsRequestBuilderGetQueryParameters 
 {

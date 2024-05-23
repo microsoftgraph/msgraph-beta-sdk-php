@@ -26,7 +26,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the audienceOverride property value. The audienceOverride property
+     * Gets the audienceOverride property value. If specified, it overrides the content of the audience claim for WS-Federation and SAML2 protocols. A custom signing key must be used for audienceOverride to be applied, otherwise, the audienceOverride value is ignored. The value provided must be in the format of an absolute URI.
      * @return string|null
     */
     public function getAudienceOverride(): ?string {
@@ -38,7 +38,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the claims property value. The claims property
+     * Gets the claims property value. Defines which claims are present in the tokens affected by the policy, in addition to the basic claim and the core claim set. Inherited from customclaimbase.
      * @return array<CustomClaimBase>|null
     */
     public function getClaims(): ?array {
@@ -66,7 +66,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the includeApplicationIdInIssuer property value. The includeApplicationIdInIssuer property
+     * Gets the includeApplicationIdInIssuer property value. Indicates whether the application ID is added to the claim. It is relevant only for SAML2.0 and if a custom signing key is used. the default value is true. Optional.
      * @return bool|null
     */
     public function getIncludeApplicationIdInIssuer(): ?bool {
@@ -78,7 +78,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the includeBasicClaimSet property value. The includeBasicClaimSet property
+     * Gets the includeBasicClaimSet property value. Determines whether the basic claim set is included in tokens affected by this policy. If set to true, all claims in the basic claim set are emitted in tokens affected by the policy. By default the basic claim set isn't in the tokens unless they're explicitly configured in this policy.
      * @return bool|null
     */
     public function getIncludeBasicClaimSet(): ?bool {
@@ -102,7 +102,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the audienceOverride property value. The audienceOverride property
+     * Sets the audienceOverride property value. If specified, it overrides the content of the audience claim for WS-Federation and SAML2 protocols. A custom signing key must be used for audienceOverride to be applied, otherwise, the audienceOverride value is ignored. The value provided must be in the format of an absolute URI.
      * @param string|null $value Value to set for the audienceOverride property.
     */
     public function setAudienceOverride(?string $value): void {
@@ -110,7 +110,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the claims property value. The claims property
+     * Sets the claims property value. Defines which claims are present in the tokens affected by the policy, in addition to the basic claim and the core claim set. Inherited from customclaimbase.
      * @param array<CustomClaimBase>|null $value Value to set for the claims property.
     */
     public function setClaims(?array $value): void {
@@ -118,7 +118,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the includeApplicationIdInIssuer property value. The includeApplicationIdInIssuer property
+     * Sets the includeApplicationIdInIssuer property value. Indicates whether the application ID is added to the claim. It is relevant only for SAML2.0 and if a custom signing key is used. the default value is true. Optional.
      * @param bool|null $value Value to set for the includeApplicationIdInIssuer property.
     */
     public function setIncludeApplicationIdInIssuer(?bool $value): void {
@@ -126,7 +126,7 @@ class CustomClaimsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the includeBasicClaimSet property value. The includeBasicClaimSet property
+     * Sets the includeBasicClaimSet property value. Determines whether the basic claim set is included in tokens affected by this policy. If set to true, all claims in the basic claim set are emitted in tokens affected by the policy. By default the basic claim set isn't in the tokens unless they're explicitly configured in this policy.
      * @param bool|null $value Value to set for the includeBasicClaimSet property.
     */
     public function setIncludeBasicClaimSet(?bool $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsPolicy;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get claimsPolicy from servicePrincipals
+ * Get the properties and relationships of a customClaimsPolicy object.
 */
 class ClaimsPolicyRequestBuilderGetQueryParameters 
 {

@@ -83,7 +83,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the excludeDeviceStates property value. The excludeDeviceStates property
+     * Gets the excludeDeviceStates property value. States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
      * @return array<string>|null
     */
     public function getExcludeDeviceStates(): ?array {
@@ -155,7 +155,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the includeDeviceStates property value. The includeDeviceStates property
+     * Gets the includeDeviceStates property value. States in the scope of the policy. All is the only allowed value.
      * @return array<string>|null
     */
     public function getIncludeDeviceStates(): ?array {
@@ -227,7 +227,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the excludeDeviceStates property value. The excludeDeviceStates property
+     * Sets the excludeDeviceStates property value. States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
      * @param array<string>|null $value Value to set for the excludeDeviceStates property.
     */
     public function setExcludeDeviceStates(?array $value): void {
@@ -243,7 +243,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the includeDeviceStates property value. The includeDeviceStates property
+     * Sets the includeDeviceStates property value. States in the scope of the policy. All is the only allowed value.
      * @param array<string>|null $value Value to set for the includeDeviceStates property.
     */
     public function setIncludeDeviceStates(?array $value): void {

@@ -160,7 +160,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the owner property value. The owner property
+     * Gets the owner property value. Use the container property instead. ID of the group that owns the plan. After it's set, this property can’t be updated. This property doesn't return a valid group ID if the container of the plan isn't a group.
      * @return string|null
     */
     public function getOwner(): ?string {
@@ -305,7 +305,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the owner property value. The owner property
+     * Sets the owner property value. Use the container property instead. ID of the group that owns the plan. After it's set, this property can’t be updated. This property doesn't return a valid group ID if the container of the plan isn't a group.
      * @param string|null $value Value to set for the owner property.
     */
     public function setOwner(?string $value): void {

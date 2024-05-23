@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable 
 {
@@ -32,10 +33,25 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([PasskeyAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
             'isAttestationEnforced' => fn(ParseNode $n) => $o->setIsAttestationEnforced($n->getBooleanValue()),
             'isSelfServiceRegistrationAllowed' => fn(ParseNode $n) => $o->setIsSelfServiceRegistrationAllowed($n->getBooleanValue()),
             'keyRestrictions' => fn(ParseNode $n) => $o->setKeyRestrictions($n->getObjectValue([Fido2KeyRestrictions::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
+     * @return array<PasskeyAuthenticationMethodTarget>|null
+    */
+    public function getIncludeTargets(): ?array {
+        $val = $this->getBackingStore()->get('includeTargets');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PasskeyAuthenticationMethodTarget::class);
+            /** @var array<PasskeyAuthenticationMethodTarget>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeTargets'");
     }
 
     /**
@@ -80,9 +96,18 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
         $writer->writeBooleanValue('isAttestationEnforced', $this->getIsAttestationEnforced());
         $writer->writeBooleanValue('isSelfServiceRegistrationAllowed', $this->getIsSelfServiceRegistrationAllowed());
         $writer->writeObjectValue('keyRestrictions', $this->getKeyRestrictions());
+    }
+
+    /**
+     * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
+     * @param array<PasskeyAuthenticationMethodTarget>|null $value Value to set for the includeTargets property.
+    */
+    public function setIncludeTargets(?array $value): void {
+        $this->getBackingStore()->set('includeTargets', $value);
     }
 
     /**

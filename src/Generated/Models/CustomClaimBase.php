@@ -65,7 +65,7 @@ class CustomClaimBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the configurations property value. The configurations property
+     * Gets the configurations property value. One or more configurations that describe how the claim is sourced and under what conditions.
      * @return array<CustomClaimConfiguration>|null
     */
     public function getConfigurations(): ?array {
@@ -129,7 +129,7 @@ class CustomClaimBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the configurations property value. The configurations property
+     * Sets the configurations property value. One or more configurations that describe how the claim is sourced and under what conditions.
      * @param array<CustomClaimConfiguration>|null $value Value to set for the configurations property.
     */
     public function setConfigurations(?array $value): void {

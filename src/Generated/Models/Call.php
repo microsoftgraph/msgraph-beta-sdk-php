@@ -294,7 +294,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestedModalities property value. The requestedModalities property
+     * Gets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
      * @return array<Modality>|null
     */
     public function getRequestedModalities(): ?array {
@@ -308,7 +308,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the resultInfo property value. The resultInfo property
+     * Gets the resultInfo property value. The result information. For example, the result can hold termination reason. Read-only.
      * @return ResultInfo|null
     */
     public function getResultInfo(): ?ResultInfo {
@@ -320,7 +320,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the ringingTimeoutInSeconds property value. The ringingTimeoutInSeconds property
+     * Gets the ringingTimeoutInSeconds property value. Ringing timeout in seconds for outgoing peer to peer calls. The max value for this attribute is 115 seconds.
      * @return int|null
     */
     public function getRingingTimeoutInSeconds(): ?int {
@@ -332,7 +332,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the routingPolicies property value. The routingPolicies property
+     * Gets the routingPolicies property value. This property is applicable for peer to peer calls only. Possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
      * @return array<RoutingPolicy>|null
     */
     public function getRoutingPolicies(): ?array {
@@ -346,7 +346,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the source property value. The source property
+     * Gets the source property value. The originator of the call.
      * @return ParticipantInfo|null
     */
     public function getSource(): ?ParticipantInfo {
@@ -358,7 +358,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
      * @return CallState|null
     */
     public function getState(): ?CallState {
@@ -370,7 +370,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. The subject of the conversation.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -382,7 +382,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the targets property value. The targets property
+     * Gets the targets property value. The targets of the call. Required information for creating peer to peer call.
      * @return array<InvitationParticipantInfo>|null
     */
     public function getTargets(): ?array {
@@ -396,7 +396,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. Read-only. tenantId in Microsoft Entra ID.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -626,7 +626,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestedModalities property value. The requestedModalities property
+     * Sets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
      * @param array<Modality>|null $value Value to set for the requestedModalities property.
     */
     public function setRequestedModalities(?array $value): void {
@@ -634,7 +634,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the resultInfo property value. The resultInfo property
+     * Sets the resultInfo property value. The result information. For example, the result can hold termination reason. Read-only.
      * @param ResultInfo|null $value Value to set for the resultInfo property.
     */
     public function setResultInfo(?ResultInfo $value): void {
@@ -642,7 +642,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the ringingTimeoutInSeconds property value. The ringingTimeoutInSeconds property
+     * Sets the ringingTimeoutInSeconds property value. Ringing timeout in seconds for outgoing peer to peer calls. The max value for this attribute is 115 seconds.
      * @param int|null $value Value to set for the ringingTimeoutInSeconds property.
     */
     public function setRingingTimeoutInSeconds(?int $value): void {
@@ -650,7 +650,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the routingPolicies property value. The routingPolicies property
+     * Sets the routingPolicies property value. This property is applicable for peer to peer calls only. Possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
      * @param array<RoutingPolicy>|null $value Value to set for the routingPolicies property.
     */
     public function setRoutingPolicies(?array $value): void {
@@ -658,7 +658,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the source property value. The source property
+     * Sets the source property value. The originator of the call.
      * @param ParticipantInfo|null $value Value to set for the source property.
     */
     public function setSource(?ParticipantInfo $value): void {
@@ -666,7 +666,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
      * @param CallState|null $value Value to set for the state property.
     */
     public function setState(?CallState $value): void {
@@ -674,7 +674,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. The subject of the conversation.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
@@ -682,7 +682,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the targets property value. The targets property
+     * Sets the targets property value. The targets of the call. Required information for creating peer to peer call.
      * @param array<InvitationParticipantInfo>|null $value Value to set for the targets property.
     */
     public function setTargets(?array $value): void {
@@ -690,7 +690,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. Read-only. tenantId in Microsoft Entra ID.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

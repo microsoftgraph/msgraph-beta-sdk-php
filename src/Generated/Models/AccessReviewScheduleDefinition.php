@@ -41,7 +41,7 @@ class AccessReviewScheduleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the backupReviewers property value. The backupReviewers property
+     * Gets the backupReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers are notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner doesn't exist, or manager is specified as reviewer but a user's manager doesn't exist.  Supports $select. Note: This property has been replaced by fallbackReviewers. However, specifying either backupReviewers or fallbackReviewers automatically populates the same values to the other property.
      * @return array<AccessReviewReviewerScope>|null
     */
     public function getBackupReviewers(): ?array {
@@ -289,7 +289,7 @@ class AccessReviewScheduleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the backupReviewers property value. The backupReviewers property
+     * Sets the backupReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers are notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner doesn't exist, or manager is specified as reviewer but a user's manager doesn't exist.  Supports $select. Note: This property has been replaced by fallbackReviewers. However, specifying either backupReviewers or fallbackReviewers automatically populates the same values to the other property.
      * @param array<AccessReviewReviewerScope>|null $value Value to set for the backupReviewers property.
     */
     public function setBackupReviewers(?array $value): void {

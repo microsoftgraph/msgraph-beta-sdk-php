@@ -179,7 +179,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusDetails property value. The statusDetails property
+     * Gets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Read-only. The statusDetails property is deprecated and will stop returning data on January 31, 2024. Going forward, use the errorCode property.
      * @return CloudPcDeviceImageStatusDetails|null
     */
     public function getStatusDetails(): ?CloudPcDeviceImageStatusDetails {
@@ -303,7 +303,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the statusDetails property value. The statusDetails property
+     * Sets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Read-only. The statusDetails property is deprecated and will stop returning data on January 31, 2024. Going forward, use the errorCode property.
      * @param CloudPcDeviceImageStatusDetails|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?CloudPcDeviceImageStatusDetails $value): void {

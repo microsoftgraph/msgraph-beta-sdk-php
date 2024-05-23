@@ -56,7 +56,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the controlCategory property value. The controlCategory property
+     * Gets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
      * @return string|null
     */
     public function getControlCategory(): ?string {
@@ -68,7 +68,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the controlName property value. The controlName property
+     * Gets the controlName property value. Control unique name
      * @return string|null
     */
     public function getControlName(): ?string {
@@ -80,7 +80,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the control.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -119,7 +119,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the score property value. The score property
+     * Gets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
      * @return float|null
     */
     public function getScore(): ?float {
@@ -160,7 +160,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the controlCategory property value. The controlCategory property
+     * Sets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
      * @param string|null $value Value to set for the controlCategory property.
     */
     public function setControlCategory(?string $value): void {
@@ -168,7 +168,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the controlName property value. The controlName property
+     * Sets the controlName property value. Control unique name
      * @param string|null $value Value to set for the controlName property.
     */
     public function setControlName(?string $value): void {
@@ -176,7 +176,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the control.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -192,7 +192,7 @@ class ControlScore implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the score property value. The score property
+     * Sets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
      * @param float|null $value Value to set for the score property.
     */
     public function setScore(?float $value): void {

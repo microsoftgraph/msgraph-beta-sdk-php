@@ -168,7 +168,7 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
-     * Gets the sources property value. The sources property
+     * Gets the sources property value. Where the values within an entity originated if synced from another source.
      * @return array<ProfileSourceAnnotation>|null
     */
     public function getSources(): ?array {
@@ -263,7 +263,7 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
-     * Sets the sources property value. The sources property
+     * Sets the sources property value. Where the values within an entity originated if synced from another source.
      * @param array<ProfileSourceAnnotation>|null $value Value to set for the sources property.
     */
     public function setSources(?array $value): void {

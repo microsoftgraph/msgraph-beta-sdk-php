@@ -105,7 +105,7 @@ class ParticipantEndpoint extends Endpoint implements Parsable
     }
 
     /**
-     * Gets the identity property value. The identity property
+     * Gets the identity property value. Identity associated with the endpoint. The identity property is deprecated and will stop returning data on June 30, 2026. Going forward, use the associatedIdentity property.
      * @return IdentitySet|null
     */
     public function getIdentity(): ?IdentitySet {
@@ -184,7 +184,7 @@ class ParticipantEndpoint extends Endpoint implements Parsable
     }
 
     /**
-     * Sets the identity property value. The identity property
+     * Sets the identity property value. Identity associated with the endpoint. The identity property is deprecated and will stop returning data on June 30, 2026. Going forward, use the associatedIdentity property.
      * @param IdentitySet|null $value Value to set for the identity property.
     */
     public function setIdentity(?IdentitySet $value): void {

@@ -37,7 +37,7 @@ class ValueBasedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The static value to be used an the attribute.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -58,7 +58,7 @@ class ValueBasedAttribute extends CustomClaimAttributeBase implements Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The static value to be used an the attribute.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

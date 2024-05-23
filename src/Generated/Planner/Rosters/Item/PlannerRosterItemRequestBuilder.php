@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerRoster;
+use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\AssignSensitivityLabel\AssignSensitivityLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Plans\PlansRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class PlannerRosterItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the assignSensitivityLabel method.
+    */
+    public function assignSensitivityLabel(): AssignSensitivityLabelRequestBuilder {
+        return new AssignSensitivityLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the members property of the microsoft.graph.plannerRoster entity.
     */

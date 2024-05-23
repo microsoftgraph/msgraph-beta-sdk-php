@@ -27,7 +27,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the action property value. The action property
+     * Gets the action property value. Indicates the activity name or the operation name (for example, Create user, Add member to group). For a list of activities logged, refer to Microsoft Entra activity list. This is deprecated. Please use provisioningAction instead. Supports $filter (eq, contains).
      * @return string|null
     */
     public function getAction(): ?string {
@@ -227,7 +227,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusInfo property value. The statusInfo property
+     * Gets the statusInfo property value. Details of provisioning status. This is deprecated. Please use provisioningStatusInfo instead. Supports $filter (eq, contains) for status.
      * @return StatusBase|null
     */
     public function getStatusInfo(): ?StatusBase {
@@ -301,7 +301,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the action property value. The action property
+     * Sets the action property value. Indicates the activity name or the operation name (for example, Create user, Add member to group). For a list of activities logged, refer to Microsoft Entra activity list. This is deprecated. Please use provisioningAction instead. Supports $filter (eq, contains).
      * @param string|null $value Value to set for the action property.
     */
     public function setAction(?string $value): void {
@@ -413,7 +413,7 @@ class ProvisioningObjectSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the statusInfo property value. The statusInfo property
+     * Sets the statusInfo property value. Details of provisioning status. This is deprecated. Please use provisioningStatusInfo instead. Supports $filter (eq, contains) for status.
      * @param StatusBase|null $value Value to set for the statusInfo property.
     */
     public function setStatusInfo(?StatusBase $value): void {

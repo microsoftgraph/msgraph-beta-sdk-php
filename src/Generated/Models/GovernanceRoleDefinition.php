@@ -37,7 +37,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalId property value. The external id of the role definition.
+     * Gets the externalId property value. The external ID of the role definition.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -77,7 +77,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceId property value. Required. The id of the resource associated with the role definition.
+     * Gets the resourceId property value. Required. The ID of the resource associated with the role definition.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -101,7 +101,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the templateId property value. The templateId property
+     * Gets the templateId property value. The unique identifier for the template.
      * @return string|null
     */
     public function getTemplateId(): ?string {
@@ -135,7 +135,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalId property value. The external id of the role definition.
+     * Sets the externalId property value. The external ID of the role definition.
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
@@ -151,7 +151,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceId property value. Required. The id of the resource associated with the role definition.
+     * Sets the resourceId property value. Required. The ID of the resource associated with the role definition.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
@@ -167,7 +167,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the templateId property value. The templateId property
+     * Sets the templateId property value. The unique identifier for the template.
      * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {

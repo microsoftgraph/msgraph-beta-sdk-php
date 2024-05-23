@@ -27,7 +27,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. The content of the resource.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -39,7 +39,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Gets the contentUrl property value. The contentUrl property
+     * Gets the contentUrl property value. The URL for the content stream.
      * @return string|null
     */
     public function getContentUrl(): ?string {
@@ -73,7 +73,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. The content of the resource.
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
@@ -81,7 +81,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Sets the contentUrl property value. The contentUrl property
+     * Sets the contentUrl property value. The URL for the content stream.
      * @param string|null $value Value to set for the contentUrl property.
     */
     public function setContentUrl(?string $value): void {
