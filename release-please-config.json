@@ -14,7 +14,7 @@
 	"changelog-type": "github",
 	"packages": {
 		".": {
-			"package-name": "microsoft/microsoft-graph",
+			"package-name": "microsoft/microsoft-graph-beta",
 			"changelog-path": "CHANGELOG.md",
 			"extra-files": [
 				"src/GraphConstants.php",
