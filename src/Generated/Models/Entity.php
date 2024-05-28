@@ -974,6 +974,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.fileAttachment': return new FileAttachment();
                 case '#microsoft.graph.fileClassificationRequest': return new FileClassificationRequest();
                 case '#microsoft.graph.fileSecurityProfile': return new FileSecurityProfile();
+                case '#microsoft.graph.fileStorage': return new FileStorage();
+                case '#microsoft.graph.fileStorageContainer': return new FileStorageContainer();
                 case '#microsoft.graph.filterOperatorSchema': return new FilterOperatorSchema();
                 case '#microsoft.graph.finding': return new Finding();
                 case '#microsoft.graph.focusActivityStatistics': return new FocusActivityStatistics();

@@ -37,6 +37,7 @@ class RelatedResource implements AdditionalDataHolder, BackedModel, Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.networkaccess.relatedDestination': return new RelatedDestination();
                 case '#microsoft.graph.networkaccess.relatedDevice': return new RelatedDevice();
+                case '#microsoft.graph.networkaccess.relatedMalware': return new RelatedMalware();
                 case '#microsoft.graph.networkaccess.relatedProcess': return new RelatedProcess();
                 case '#microsoft.graph.networkaccess.relatedRemoteNetwork': return new RelatedRemoteNetwork();
                 case '#microsoft.graph.networkaccess.relatedTenant': return new RelatedTenant();

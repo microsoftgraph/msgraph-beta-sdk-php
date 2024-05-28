@@ -42,7 +42,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the additionalDetails property value. A bag of name-value pairs that contain additional details about an alert.
+     * Gets the additionalDetails property value. A bag of name-value pairs that contain more details about an alert.
      * @return AdditionalDataDictionary|null
     */
     public function getAdditionalDetails(): ?AdditionalDataDictionary {
@@ -68,7 +68,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertType property value. The type of vulnerability that impacts the customer due to this alert.
+     * Gets the alertType property value. The type of vulnerability that impacts the customer due to this alert. For more information, see Security alerts reference guide.
      * @return string|null
     */
     public function getAlertType(): ?string {
@@ -182,7 +182,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the firstObservedDateTime property value. Time of the first activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  subscription.
+     * Gets the firstObservedDateTime property value. Time of the first activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstObservedDateTime(): ?DateTime {
@@ -194,7 +194,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Gets the isTest property value. Indicates whehter an alert is a test alert.
+     * Gets the isTest property value. Indicates whether an alert is a test alert.
      * @return bool|null
     */
     public function getIsTest(): ?bool {
@@ -338,7 +338,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the additionalDetails property value. A bag of name-value pairs that contain additional details about an alert.
+     * Sets the additionalDetails property value. A bag of name-value pairs that contain more details about an alert.
      * @param AdditionalDataDictionary|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?AdditionalDataDictionary $value): void {
@@ -354,7 +354,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertType property value. The type of vulnerability that impacts the customer due to this alert.
+     * Sets the alertType property value. The type of vulnerability that impacts the customer due to this alert. For more information, see Security alerts reference guide.
      * @param string|null $value Value to set for the alertType property.
     */
     public function setAlertType(?string $value): void {
@@ -410,7 +410,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the firstObservedDateTime property value. Time of the first activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  subscription.
+     * Sets the firstObservedDateTime property value. Time of the first activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstObservedDateTime property.
     */
     public function setFirstObservedDateTime(?DateTime $value): void {
@@ -418,7 +418,7 @@ class PartnerSecurityAlert extends Entity implements Parsable
     }
 
     /**
-     * Sets the isTest property value. Indicates whehter an alert is a test alert.
+     * Sets the isTest property value. Indicates whether an alert is a test alert.
      * @param bool|null $value Value to set for the isTest property.
     */
     public function setIsTest(?bool $value): void {

@@ -95,11 +95,12 @@ class VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property webinars in solutions
+     * Update the properties of a virtualEventWebinar object.
      * @param VirtualEventWebinar $body The request body
      * @param VirtualEventWebinarItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventWebinar|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventwebinar-update?view=graph-rest-beta Find more info here
     */
     public function patch(VirtualEventWebinar $body, ?VirtualEventWebinarItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -176,7 +177,7 @@ class VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property webinars in solutions
+     * Update the properties of a virtualEventWebinar object.
      * @param VirtualEventWebinar $body The request body
      * @param VirtualEventWebinarItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

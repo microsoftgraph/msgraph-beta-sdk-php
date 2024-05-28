@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Members\Item\GraphServicePr
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
+ * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation isn't transitive.
 */
 class GraphServicePrincipalRequestBuilderGetQueryParameters 
 {

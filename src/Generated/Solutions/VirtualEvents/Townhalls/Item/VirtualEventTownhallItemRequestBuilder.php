@@ -77,7 +77,7 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a virtualEventTownhall object.
+     * Update the properties of a vvirtualEventTownhall object.
      * @param VirtualEventTownhall $body The request body
      * @param VirtualEventTownhallItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventTownhall|null>
@@ -141,7 +141,7 @@ class VirtualEventTownhallItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a virtualEventTownhall object.
+     * Update the properties of a vvirtualEventTownhall object.
      * @param VirtualEventTownhall $body The request body
      * @param VirtualEventTownhallItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

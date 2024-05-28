@@ -39,7 +39,7 @@ class ConditionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The conditions representing the context of the authentication request that will be used to decide whether the events policy will be invoked.
+     * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.
      * @param ConditionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationConditions|null>
      * @throws Exception
@@ -53,7 +53,7 @@ class ConditionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The conditions representing the context of the authentication request that will be used to decide whether the events policy will be invoked.
+     * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.
      * @param ConditionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

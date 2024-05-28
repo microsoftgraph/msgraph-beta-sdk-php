@@ -31,7 +31,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a signInPreferences object.
+     * Read the properties of a user's authentication method states. Use this API to retrieve the following information:
      * @param SignInPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignInPreferences|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a signInPreferences object.
+     * Update the properties of a user's authentication method states. Use this API to update the following information:
      * @param SignInPreferences $body The request body
      * @param SignInPreferencesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignInPreferences|null>
@@ -62,7 +62,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a signInPreferences object.
+     * Read the properties of a user's authentication method states. Use this API to retrieve the following information:
      * @param SignInPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -83,7 +83,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a signInPreferences object.
+     * Update the properties of a user's authentication method states. Use this API to update the following information:
      * @param SignInPreferences $body The request body
      * @param SignInPreferencesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

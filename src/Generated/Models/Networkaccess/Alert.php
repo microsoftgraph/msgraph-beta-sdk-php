@@ -78,6 +78,30 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Gets the detectionTechnology property value. The detectionTechnology property
+     * @return string|null
+    */
+    public function getDetectionTechnology(): ?string {
+        $val = $this->getBackingStore()->get('detectionTechnology');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detectionTechnology'");
+    }
+
+    /**
+     * Gets the displayName property value. The displayName property
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -88,8 +112,25 @@ class Alert extends Entity implements Parsable
             'alertType' => fn(ParseNode $n) => $o->setAlertType($n->getEnumValue(AlertType::class)),
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'detectionTechnology' => fn(ParseNode $n) => $o->setDetectionTechnology($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([FilteringPolicy::class, 'createFromDiscriminatorValue'])),
             'relatedResources' => fn(ParseNode $n) => $o->setRelatedResources($n->getCollectionOfObjectValues([RelatedResource::class, 'createFromDiscriminatorValue'])),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(ThreatSeverity::class)),
+            'vendorName' => fn(ParseNode $n) => $o->setVendorName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the policy property value. The policy property
+     * @return FilteringPolicy|null
+    */
+    public function getPolicy(): ?FilteringPolicy {
+        $val = $this->getBackingStore()->get('policy');
+        if (is_null($val) || $val instanceof FilteringPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policy'");
     }
 
     /**
@@ -107,6 +148,30 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Gets the severity property value. The severity property
+     * @return ThreatSeverity|null
+    */
+    public function getSeverity(): ?ThreatSeverity {
+        $val = $this->getBackingStore()->get('severity');
+        if (is_null($val) || $val instanceof ThreatSeverity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
+    }
+
+    /**
+     * Gets the vendorName property value. The vendorName property
+     * @return string|null
+    */
+    public function getVendorName(): ?string {
+        $val = $this->getBackingStore()->get('vendorName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vendorName'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -116,7 +181,12 @@ class Alert extends Entity implements Parsable
         $writer->writeEnumValue('alertType', $this->getAlertType());
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('detectionTechnology', $this->getDetectionTechnology());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('policy', $this->getPolicy());
         $writer->writeCollectionOfObjectValues('relatedResources', $this->getRelatedResources());
+        $writer->writeEnumValue('severity', $this->getSeverity());
+        $writer->writeStringValue('vendorName', $this->getVendorName());
     }
 
     /**
@@ -152,11 +222,51 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Sets the detectionTechnology property value. The detectionTechnology property
+     * @param string|null $value Value to set for the detectionTechnology property.
+    */
+    public function setDetectionTechnology(?string $value): void {
+        $this->getBackingStore()->set('detectionTechnology', $value);
+    }
+
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the policy property value. The policy property
+     * @param FilteringPolicy|null $value Value to set for the policy property.
+    */
+    public function setPolicy(?FilteringPolicy $value): void {
+        $this->getBackingStore()->set('policy', $value);
+    }
+
+    /**
      * Sets the relatedResources property value. The relatedResources property
      * @param array<RelatedResource>|null $value Value to set for the relatedResources property.
     */
     public function setRelatedResources(?array $value): void {
         $this->getBackingStore()->set('relatedResources', $value);
+    }
+
+    /**
+     * Sets the severity property value. The severity property
+     * @param ThreatSeverity|null $value Value to set for the severity property.
+    */
+    public function setSeverity(?ThreatSeverity $value): void {
+        $this->getBackingStore()->set('severity', $value);
+    }
+
+    /**
+     * Sets the vendorName property value. The vendorName property
+     * @param string|null $value Value to set for the vendorName property.
+    */
+    public function setVendorName(?string $value): void {
+        $this->getBackingStore()->set('vendorName', $value);
     }
 
 }
