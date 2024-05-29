@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SoftwareOathM
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get softwareOathMethods from users
+ * The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.
 */
 class SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

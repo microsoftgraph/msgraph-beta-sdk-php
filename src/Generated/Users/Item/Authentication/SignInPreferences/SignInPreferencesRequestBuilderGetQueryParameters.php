@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SignInPrefere
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a signInPreferences object.
+ * Read the properties of a user's authentication method states. Use this API to retrieve the following information:
 */
 class SignInPreferencesRequestBuilderGetQueryParameters 
 {

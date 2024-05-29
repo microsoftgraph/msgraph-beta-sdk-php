@@ -175,7 +175,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
+     * Gets the signInPreferences property value. The settings and preferences for the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
      * @return SignInPreferences|null
     */
     public function getSignInPreferences(): ?SignInPreferences {
@@ -187,7 +187,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the softwareOathMethods property value. The softwareOathMethods property
+     * Gets the softwareOathMethods property value. The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.
      * @return array<SoftwareOathAuthenticationMethod>|null
     */
     public function getSoftwareOathMethods(): ?array {
@@ -322,7 +322,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the signInPreferences property value. The settings and preferences for to the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
+     * Sets the signInPreferences property value. The settings and preferences for the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
      * @param SignInPreferences|null $value Value to set for the signInPreferences property.
     */
     public function setSignInPreferences(?SignInPreferences $value): void {
@@ -330,7 +330,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the softwareOathMethods property value. The softwareOathMethods property
+     * Sets the softwareOathMethods property value. The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.
      * @param array<SoftwareOathAuthenticationMethod>|null $value Value to set for the softwareOathMethods property.
     */
     public function setSoftwareOathMethods(?array $value): void {

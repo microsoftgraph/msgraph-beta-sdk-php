@@ -52,6 +52,7 @@ use Microsoft\Graph\Beta\Generated\Education\EducationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\EmployeeExperienceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrintRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\ExternalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\FilteringPolicies\FilteringPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\FilterOperators\FilterOperatorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Financials\FinancialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Functions\FunctionsRequestBuilder;
@@ -110,6 +111,7 @@ use Microsoft\Graph\Beta\Generated\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\SharesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\SitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\SolutionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\StorageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\SubscribedSkus\SubscribedSkusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\TeamsRequestBuilder;
@@ -460,6 +462,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function external(): ExternalRequestBuilder {
         return new ExternalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the collection of filteringPolicy entities.
+    */
+    public function filteringPolicies(): FilteringPoliciesRequestBuilder {
+        return new FilteringPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -845,6 +854,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function solutions(): SolutionsRequestBuilder {
         return new SolutionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the storage singleton.
+    */
+    public function storage(): StorageRequestBuilder {
+        return new StorageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

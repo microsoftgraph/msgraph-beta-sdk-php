@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Sessions for the virtual event.
+ * The sessions for the virtual event.
 */
 class SessionsWithJoinWebUrlRequestBuilderGetQueryParameters 
 {

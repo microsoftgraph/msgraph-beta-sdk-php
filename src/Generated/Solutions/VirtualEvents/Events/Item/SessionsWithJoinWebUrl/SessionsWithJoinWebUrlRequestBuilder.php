@@ -48,7 +48,7 @@ class SessionsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Sessions for the virtual event.
+     * The sessions for the virtual event.
      * @param SessionsWithJoinWebUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventSession|null>
      * @throws Exception
@@ -95,7 +95,7 @@ class SessionsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Sessions for the virtual event.
+     * The sessions for the virtual event.
      * @param SessionsWithJoinWebUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

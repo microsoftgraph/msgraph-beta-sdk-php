@@ -39,7 +39,7 @@ class GraphUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
+     * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation isn't transitive.
      * @param GraphUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserCollectionResponse|null>
      * @throws Exception
@@ -54,7 +54,7 @@ class GraphUserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation is not transitive.
+     * Get a list of the group's direct members. A group can have users, contacts, devices, service principals, and other groups as members. This operation isn't transitive.
      * @param GraphUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -94,7 +94,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the isValidationOnly property value. If set, does not add the resource.
+     * Gets the isValidationOnly property value. If set, doesn't add the resource.
      * @return bool|null
     */
     public function getIsValidationOnly(): ?bool {
@@ -130,7 +130,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestState property value. The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only.
+     * Gets the requestState property value. The outcome of whether the service was able to add the resource to the catalog. The value is Delivered if the resource was added or removed. Read-Only.
      * @return string|null
     */
     public function getRequestState(): ?string {
@@ -216,7 +216,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the isValidationOnly property value. If set, does not add the resource.
+     * Sets the isValidationOnly property value. If set, doesn't add the resource.
      * @param bool|null $value Value to set for the isValidationOnly property.
     */
     public function setIsValidationOnly(?bool $value): void {
@@ -240,7 +240,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestState property value. The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only.
+     * Sets the requestState property value. The outcome of whether the service was able to add the resource to the catalog. The value is Delivered if the resource was added or removed. Read-Only.
      * @param string|null $value Value to set for the requestState property.
     */
     public function setRequestState(?string $value): void {

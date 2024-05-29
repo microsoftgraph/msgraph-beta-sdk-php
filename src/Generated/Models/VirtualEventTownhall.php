@@ -67,7 +67,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Gets the invitedAttendees property value. The attendees invited to the town hall. The supported identites are: communicationsUserIdentity and communicationsGuestIdentity.
+     * Gets the invitedAttendees property value. The attendees invited to the town hall. The supported identities are: communicationsUserIdentity and communicationsGuestIdentity.
      * @return array<Identity>|null
     */
     public function getInvitedAttendees(): ?array {
@@ -121,7 +121,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
-     * Sets the invitedAttendees property value. The attendees invited to the town hall. The supported identites are: communicationsUserIdentity and communicationsGuestIdentity.
+     * Sets the invitedAttendees property value. The attendees invited to the town hall. The supported identities are: communicationsUserIdentity and communicationsGuestIdentity.
      * @param array<Identity>|null $value Value to set for the invitedAttendees property.
     */
     public function setInvitedAttendees(?array $value): void {

@@ -76,13 +76,29 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'firstAccessDateTime' => fn(ParseNode $n) => $o->setFirstAccessDateTime($n->getDateTimeValue()),
             'lastAccessDateTime' => fn(ParseNode $n) => $o->setLastAccessDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'totalBytesReceived' => fn(ParseNode $n) => $o->setTotalBytesReceived($n->getIntegerValue()),
+            'totalBytesSent' => fn(ParseNode $n) => $o->setTotalBytesSent($n->getIntegerValue()),
             'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
+            'transactionCount' => fn(ParseNode $n) => $o->setTransactionCount($n->getIntegerValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
             'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(UserType::class)),
         ];
+    }
+
+    /**
+     * Gets the firstAccessDateTime property value. The firstAccessDateTime property
+     * @return DateTime|null
+    */
+    public function getFirstAccessDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('firstAccessDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'firstAccessDateTime'");
     }
 
     /**
@@ -110,6 +126,30 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the totalBytesReceived property value. The totalBytesReceived property
+     * @return int|null
+    */
+    public function getTotalBytesReceived(): ?int {
+        $val = $this->getBackingStore()->get('totalBytesReceived');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalBytesReceived'");
+    }
+
+    /**
+     * Gets the totalBytesSent property value. The totalBytesSent property
+     * @return int|null
+    */
+    public function getTotalBytesSent(): ?int {
+        $val = $this->getBackingStore()->get('totalBytesSent');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'totalBytesSent'");
+    }
+
+    /**
      * Gets the trafficType property value. The trafficType property
      * @return TrafficType|null
     */
@@ -119,6 +159,18 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficType'");
+    }
+
+    /**
+     * Gets the transactionCount property value. The transactionCount property
+     * @return int|null
+    */
+    public function getTransactionCount(): ?int {
+        $val = $this->getBackingStore()->get('transactionCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transactionCount'");
     }
 
     /**
@@ -163,9 +215,13 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('firstAccessDateTime', $this->getFirstAccessDateTime());
         $writer->writeDateTimeValue('lastAccessDateTime', $this->getLastAccessDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('totalBytesReceived', $this->getTotalBytesReceived());
+        $writer->writeIntegerValue('totalBytesSent', $this->getTotalBytesSent());
         $writer->writeEnumValue('trafficType', $this->getTrafficType());
+        $writer->writeIntegerValue('transactionCount', $this->getTransactionCount());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeEnumValue('userType', $this->getUserType());
@@ -197,6 +253,14 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the firstAccessDateTime property value. The firstAccessDateTime property
+     * @param DateTime|null $value Value to set for the firstAccessDateTime property.
+    */
+    public function setFirstAccessDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('firstAccessDateTime', $value);
+    }
+
+    /**
      * Sets the lastAccessDateTime property value. The date and time of the most recent access.
      * @param DateTime|null $value Value to set for the lastAccessDateTime property.
     */
@@ -213,11 +277,35 @@ class User implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the totalBytesReceived property value. The totalBytesReceived property
+     * @param int|null $value Value to set for the totalBytesReceived property.
+    */
+    public function setTotalBytesReceived(?int $value): void {
+        $this->getBackingStore()->set('totalBytesReceived', $value);
+    }
+
+    /**
+     * Sets the totalBytesSent property value. The totalBytesSent property
+     * @param int|null $value Value to set for the totalBytesSent property.
+    */
+    public function setTotalBytesSent(?int $value): void {
+        $this->getBackingStore()->set('totalBytesSent', $value);
+    }
+
+    /**
      * Sets the trafficType property value. The trafficType property
      * @param TrafficType|null $value Value to set for the trafficType property.
     */
     public function setTrafficType(?TrafficType $value): void {
         $this->getBackingStore()->set('trafficType', $value);
+    }
+
+    /**
+     * Sets the transactionCount property value. The transactionCount property
+     * @param int|null $value Value to set for the transactionCount property.
+    */
+    public function setTransactionCount(?int $value): void {
+        $this->getBackingStore()->set('transactionCount', $value);
     }
 
     /**

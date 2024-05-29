@@ -79,7 +79,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Gets the reviewHistoryPeriodEndDateTime property value. Timestamp, reviews ending on or before this date are in the fetched history data.
+     * Gets the reviewHistoryPeriodEndDateTime property value. The date and time for which reviews ended before this date are included in the fetched history data.
      * @return DateTime|null
     */
     public function getReviewHistoryPeriodEndDateTime(): ?DateTime {
@@ -91,7 +91,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Gets the reviewHistoryPeriodStartDateTime property value. Timestamp, reviews starting on or after this date are in the fetched history data.
+     * Gets the reviewHistoryPeriodStartDateTime property value. The date and time for which reviews started on or after this date are included in the fetched history data.
      * @return DateTime|null
     */
     public function getReviewHistoryPeriodStartDateTime(): ?DateTime {
@@ -103,7 +103,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Gets the runDateTime property value. Timestamp when the instance's history data is scheduled to be generated.
+     * Gets the runDateTime property value. The date and time when the instance's history data is scheduled to be generated.
      * @return DateTime|null
     */
     public function getRunDateTime(): ?DateTime {
@@ -115,7 +115,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method.
+     * Gets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status is marked as done, you can generate a link retrieve the instance's data by calling generateDownloadUri method.
      * @return AccessReviewHistoryStatus|null
     */
     public function getStatus(): ?AccessReviewHistoryStatus {
@@ -166,7 +166,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Sets the reviewHistoryPeriodEndDateTime property value. Timestamp, reviews ending on or before this date are in the fetched history data.
+     * Sets the reviewHistoryPeriodEndDateTime property value. The date and time for which reviews ended before this date are included in the fetched history data.
      * @param DateTime|null $value Value to set for the reviewHistoryPeriodEndDateTime property.
     */
     public function setReviewHistoryPeriodEndDateTime(?DateTime $value): void {
@@ -174,7 +174,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Sets the reviewHistoryPeriodStartDateTime property value. Timestamp, reviews starting on or after this date are in the fetched history data.
+     * Sets the reviewHistoryPeriodStartDateTime property value. The date and time for which reviews started on or after this date are included in the fetched history data.
      * @param DateTime|null $value Value to set for the reviewHistoryPeriodStartDateTime property.
     */
     public function setReviewHistoryPeriodStartDateTime(?DateTime $value): void {
@@ -182,7 +182,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Sets the runDateTime property value. Timestamp when the instance's history data is scheduled to be generated.
+     * Sets the runDateTime property value. The date and time when the instance's history data is scheduled to be generated.
      * @param DateTime|null $value Value to set for the runDateTime property.
     */
     public function setRunDateTime(?DateTime $value): void {
@@ -190,7 +190,7 @@ class AccessReviewHistoryInstance extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method.
+     * Sets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status is marked as done, you can generate a link retrieve the instance's data by calling generateDownloadUri method.
      * @param AccessReviewHistoryStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AccessReviewHistoryStatus $value): void {
