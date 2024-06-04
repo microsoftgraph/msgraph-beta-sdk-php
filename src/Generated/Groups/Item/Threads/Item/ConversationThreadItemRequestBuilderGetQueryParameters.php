@@ -5,10 +5,16 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+ * Get a thread object.
 */
 class ConversationThreadItemRequestBuilderGetQueryParameters 
 {
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
+    
     /**
      * @QueryParameter("%24select")
      * @var array<string>|null $select Select properties to be returned
@@ -17,9 +23,11 @@ class ConversationThreadItemRequestBuilderGetQueryParameters
     
     /**
      * Instantiates a new ConversationThreadItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */
-    public function __construct(?array $select = null) {
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
         $this->select = $select;
     }
 

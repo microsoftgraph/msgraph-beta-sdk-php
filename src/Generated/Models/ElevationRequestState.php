@@ -12,4 +12,5 @@ class ElevationRequestState extends Enum {
     public const EXPIRED = 'expired';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const REVOKED = 'revoked';
+    public const COMPLETED = 'completed';
 }

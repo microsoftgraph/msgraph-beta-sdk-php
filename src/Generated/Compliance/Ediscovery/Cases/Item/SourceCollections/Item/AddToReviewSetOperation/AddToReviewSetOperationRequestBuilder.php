@@ -31,10 +31,11 @@ class AddToReviewSetOperationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds the results of the sourceCollection to the specified reviewSet.
+     * Get the last addToReviewSetOperation object associated with a source collection. 
      * @param AddToReviewSetOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AddToReviewSetOperation|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-addtoreviewsetoperation?view=graph-rest-beta Find more info here
     */
     public function get(?AddToReviewSetOperationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class AddToReviewSetOperationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds the results of the sourceCollection to the specified reviewSet.
+     * Get the last addToReviewSetOperation object associated with a source collection. 
      * @param AddToReviewSetOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

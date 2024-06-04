@@ -8,7 +8,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices.
+ * Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices. Starting from June, 2024 (Intune Release 2406), this type will no longer be supported and will be marked as deprecated
 */
 class HardwarePasswordInfo extends Entity implements Parsable 
 {
@@ -92,8 +92,6 @@ class HardwarePasswordInfo extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('currentPassword', $this->getCurrentPassword());
-        $writer->writeCollectionOfPrimitiveValues('previousPasswords', $this->getPreviousPasswords());
         $writer->writeStringValue('serialNumber', $this->getSerialNumber());
     }
 

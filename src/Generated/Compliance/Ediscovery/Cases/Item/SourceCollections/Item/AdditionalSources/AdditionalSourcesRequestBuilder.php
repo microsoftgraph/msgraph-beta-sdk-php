@@ -52,10 +52,11 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds an additional source to the sourceCollection.
+     * Get a list of additional dataSource objects associated with a source collection.
      * @param AdditionalSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataSourceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-additionalsources?view=graph-rest-beta Find more info here
     */
     public function get(?AdditionalSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class AdditionalSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Adds an additional source to the sourceCollection.
+     * Get a list of additional dataSource objects associated with a source collection.
      * @param AdditionalSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

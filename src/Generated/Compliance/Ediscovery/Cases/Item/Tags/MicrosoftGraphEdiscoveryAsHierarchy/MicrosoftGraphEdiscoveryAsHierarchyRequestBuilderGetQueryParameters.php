@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\M
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function asHierarchy
+ * Return a list of tag objects in hierarchial form
 */
 class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetQueryParameters 
 {

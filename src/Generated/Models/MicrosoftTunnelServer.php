@@ -41,6 +41,18 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
+     * Gets the deploymentMode property value. Microsoft Tunnel server deployment mode. The value is set when the server is registered. Possible values are standaloneRootful, standaloneRootless, podRootful, podRootless. Default value: standaloneRootful. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
+     * @return MicrosoftTunnelDeploymentMode|null
+    */
+    public function getDeploymentMode(): ?MicrosoftTunnelDeploymentMode {
+        $val = $this->getBackingStore()->get('deploymentMode');
+        if (is_null($val) || $val instanceof MicrosoftTunnelDeploymentMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentMode'");
+    }
+
+    /**
      * Gets the displayName property value. The display name for the server. This property is required when a server is created and cannot be cleared during updates.
      * @return string|null
     */
@@ -60,6 +72,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'agentImageDigest' => fn(ParseNode $n) => $o->setAgentImageDigest($n->getStringValue()),
+            'deploymentMode' => fn(ParseNode $n) => $o->setDeploymentMode($n->getEnumValue(MicrosoftTunnelDeploymentMode::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastCheckinDateTime' => fn(ParseNode $n) => $o->setLastCheckinDateTime($n->getDateTimeValue()),
             'serverImageDigest' => fn(ParseNode $n) => $o->setServerImageDigest($n->getStringValue()),
@@ -110,6 +123,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('agentImageDigest', $this->getAgentImageDigest());
+        $writer->writeEnumValue('deploymentMode', $this->getDeploymentMode());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastCheckinDateTime', $this->getLastCheckinDateTime());
         $writer->writeStringValue('serverImageDigest', $this->getServerImageDigest());
@@ -122,6 +136,14 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     */
     public function setAgentImageDigest(?string $value): void {
         $this->getBackingStore()->set('agentImageDigest', $value);
+    }
+
+    /**
+     * Sets the deploymentMode property value. Microsoft Tunnel server deployment mode. The value is set when the server is registered. Possible values are standaloneRootful, standaloneRootless, podRootful, podRootless. Default value: standaloneRootful. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
+     * @param MicrosoftTunnelDeploymentMode|null $value Value to set for the deploymentMode property.
+    */
+    public function setDeploymentMode(?MicrosoftTunnelDeploymentMode $value): void {
+        $this->getBackingStore()->set('deploymentMode', $value);
     }
 
     /**

@@ -31,10 +31,11 @@ class IdentityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property members for external
+     * Delete an externalGroupMember object.
      * @param IdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/externalconnectors-externalgroupmember-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?IdentityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -74,7 +75,7 @@ class IdentityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property members for external
+     * Delete an externalGroupMember object.
      * @param IdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

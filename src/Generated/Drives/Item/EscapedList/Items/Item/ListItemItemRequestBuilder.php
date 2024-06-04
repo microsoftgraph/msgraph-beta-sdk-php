@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\DriveItem\
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Fields\FieldsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ListItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -80,6 +81,13 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the permissions property of the microsoft.graph.listItem entity.
+    */
+    public function permissions(): PermissionsRequestBuilder {
+        return new PermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

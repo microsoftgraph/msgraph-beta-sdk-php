@@ -63,10 +63,11 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for solutions
+     * Delete a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/businessscenarioplanner-delete-tasks?view=graph-rest-beta Find more info here
     */
     public function delete(?BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -77,10 +78,11 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Planner tasks for the scenario.
+     * Read the properties and relationships of a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioTask|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/businessscenariotask-get?view=graph-rest-beta Find more info here
     */
     public function get(?BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,11 +93,12 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tasks in solutions
+     * Update the properties of a businessScenarioTask object.
      * @param BusinessScenarioTask $body The request body
      * @param BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioTask|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/businessscenariotask-update?view=graph-rest-beta Find more info here
     */
     public function patch(BusinessScenarioTask $body, ?BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -106,7 +109,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for solutions
+     * Delete a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +127,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Planner tasks for the scenario.
+     * Read the properties and relationships of a businessScenarioTask object.
      * @param BusinessScenarioTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -145,7 +148,7 @@ class BusinessScenarioTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property tasks in solutions
+     * Update the properties of a businessScenarioTask object.
      * @param BusinessScenarioTask $body The request body
      * @param BusinessScenarioTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

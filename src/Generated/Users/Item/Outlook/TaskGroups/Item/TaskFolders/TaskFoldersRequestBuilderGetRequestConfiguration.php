@@ -29,6 +29,7 @@ class TaskFoldersRequestBuilderGetRequestConfiguration extends BaseRequestConfig
     /**
      * Instantiates a new TaskFoldersRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
      * @param string|null $filter Filter items by property values
      * @param array<string>|null $orderby Order items by property values
      * @param string|null $search Search items by search phrases
@@ -37,8 +38,8 @@ class TaskFoldersRequestBuilderGetRequestConfiguration extends BaseRequestConfig
      * @param int|null $top Show only the first n items
      * @return TaskFoldersRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): TaskFoldersRequestBuilderGetQueryParameters {
-        return new TaskFoldersRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): TaskFoldersRequestBuilderGetQueryParameters {
+        return new TaskFoldersRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
     }
 
 }

@@ -61,10 +61,11 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstanceDecisionItem|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-get?view=graph-rest-beta Find more info here
     */
     public function get(?AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,7 +109,7 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

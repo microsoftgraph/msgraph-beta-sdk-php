@@ -51,10 +51,11 @@ class CustodianSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Custodian sources that are included in the sourceCollection.
+     * Get the list of dataSource objects associated with a source collection.
      * @param CustodianSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataSourceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-custodiansources?view=graph-rest-beta Find more info here
     */
     public function get(?CustodianSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class CustodianSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Custodian sources that are included in the sourceCollection.
+     * Get the list of dataSource objects associated with a source collection.
      * @param CustodianSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

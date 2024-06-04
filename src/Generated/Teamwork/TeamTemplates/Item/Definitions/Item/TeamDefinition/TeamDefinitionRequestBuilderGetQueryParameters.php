@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
+ * Get the properties of the team associated with a teamTemplateDefinition object.
 */
 class TeamDefinitionRequestBuilderGetQueryParameters 
 {

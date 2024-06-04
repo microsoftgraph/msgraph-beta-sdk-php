@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\LastMessagePrevie
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+ * Preview of the last message sent in the chat. Null if no messages are sent in the chat. Currently, only the list chats operation supports this property.
 */
 class LastMessagePreviewRequestBuilderGetQueryParameters 
 {

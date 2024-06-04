@@ -51,10 +51,11 @@ class ChildTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the tags that are a child of a tag.
+     * Get a list of child tag objects associated with a tag.
      * @param ChildTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TagCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-tag-childtags?view=graph-rest-beta Find more info here
     */
     public function get(?ChildTagsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class ChildTagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Returns the tags that are a child of a tag.
+     * Get a list of child tag objects associated with a tag.
      * @param ChildTagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

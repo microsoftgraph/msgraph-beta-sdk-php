@@ -205,10 +205,11 @@ class TeamDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
+     * Get the properties of the team associated with a teamTemplateDefinition object.
      * @param TeamDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Team|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamtemplatedefinition-get-teamdefinition?view=graph-rest-beta Find more info here
     */
     public function get(?TeamDefinitionRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -252,7 +253,7 @@ class TeamDefinitionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
+     * Get the properties of the team associated with a teamTemplateDefinition object.
      * @param TeamDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

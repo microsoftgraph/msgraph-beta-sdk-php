@@ -5,11 +5,11 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\AssignJustInTimeConfiguration\AssignJustInTimeConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\ClearEnrollmentTimeDeviceMembershipTarget\ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\CreateCopy\CreateCopyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Reorder\ReorderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\RetrieveJustInTimeConfiguration\RetrieveJustInTimeConfigurationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\RetrieveEnrollmentTimeDeviceMembershipTarget\RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\RetrieveLatestUpgradeDefaultBaselinePolicy\RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicy;
@@ -32,17 +32,17 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder extends BaseRequestB
     }
     
     /**
-     * Provides operations to call the assignJustInTimeConfiguration method.
-    */
-    public function assignJustInTimeConfiguration(): AssignJustInTimeConfigurationRequestBuilder {
-        return new AssignJustInTimeConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the clearEnrollmentTimeDeviceMembershipTarget method.
+    */
+    public function clearEnrollmentTimeDeviceMembershipTarget(): ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder {
+        return new ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -60,10 +60,10 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder extends BaseRequestB
     }
     
     /**
-     * Provides operations to call the retrieveJustInTimeConfiguration method.
+     * Provides operations to call the retrieveEnrollmentTimeDeviceMembershipTarget method.
     */
-    public function retrieveJustInTimeConfiguration(): RetrieveJustInTimeConfigurationRequestBuilder {
-        return new RetrieveJustInTimeConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function retrieveEnrollmentTimeDeviceMembershipTarget(): RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder {
+        return new RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

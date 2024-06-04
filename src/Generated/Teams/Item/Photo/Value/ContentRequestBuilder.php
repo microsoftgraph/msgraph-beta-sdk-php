@@ -61,11 +61,12 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The team photo.
+     * Update the photo for the specified contact, group, team, or user in a tenant. The size of the photo you can update to is limited to 4 MB. You can use either PATCH or PUT for this operation.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/profilephoto-update?view=graph-rest-beta Find more info here
     */
     public function put(StreamInterface $body, ?ContentRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
@@ -114,7 +115,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The team photo.
+     * Update the photo for the specified contact, group, team, or user in a tenant. The size of the photo you can update to is limited to 4 MB. You can use either PATCH or PUT for this operation.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

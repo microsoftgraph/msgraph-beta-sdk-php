@@ -57,12 +57,25 @@ class CopyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the childrenOnly property value. The childrenOnly property
+     * @return bool|null
+    */
+    public function getChildrenOnly(): ?bool {
+        $val = $this->getBackingStore()->get('childrenOnly');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'childrenOnly'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'childrenOnly' => fn(ParseNode $n) => $o->setChildrenOnly($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'parentReference' => fn(ParseNode $n) => $o->setParentReference($n->getObjectValue([ItemReference::class, 'createFromDiscriminatorValue'])),
         ];
@@ -97,6 +110,7 @@ class CopyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('childrenOnly', $this->getChildrenOnly());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeObjectValue('parentReference', $this->getParentReference());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -116,6 +130,14 @@ class CopyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the childrenOnly property value. The childrenOnly property
+     * @param bool|null $value Value to set for the childrenOnly property.
+    */
+    public function setChildrenOnly(?bool $value): void {
+        $this->getBackingStore()->set('childrenOnly', $value);
     }
 
     /**

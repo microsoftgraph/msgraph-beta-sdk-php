@@ -66,11 +66,12 @@ class RegistrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to registrants for users
+     * Enroll a meeting registrant in an online meeting that has meeting registration enabled on behalf of the registrant. This operation has two scenarios: In either scenario, the registrant will receive an email notification that contains their registration information.
      * @param MeetingRegistrantBase $body The request body
      * @param RegistrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrantBase|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/meetingregistration-post-registrants?view=graph-rest-beta Find more info here
     */
     public function post(MeetingRegistrantBase $body, ?RegistrantsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -102,7 +103,7 @@ class RegistrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to registrants for users
+     * Enroll a meeting registrant in an online meeting that has meeting registration enabled on behalf of the registrant. This operation has two scenarios: In either scenario, the registrant will receive an email notification that contains their registration information.
      * @param MeetingRegistrantBase $body The request body
      * @param RegistrantsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

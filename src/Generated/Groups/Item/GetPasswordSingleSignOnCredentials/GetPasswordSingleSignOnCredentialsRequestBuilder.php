@@ -30,10 +30,11 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action getPasswordSingleSignOnCredentials
+     * Get the list of password-based single sign-on credentials for a group. This API returns the encrypted passwords as null.
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetPasswordSingleSignOnCredentialsPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/group-getpasswordsinglesignoncredentials?view=graph-rest-beta Find more info here
     */
     public function post(?GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action getPasswordSingleSignOnCredentials
+     * Get the list of password-based single sign-on credentials for a group. This API returns the encrypted passwords as null.
      * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
