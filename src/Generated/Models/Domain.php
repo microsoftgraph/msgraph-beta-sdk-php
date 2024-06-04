@@ -95,6 +95,7 @@ class Domain extends Entity implements Parsable
             'isVerified' => fn(ParseNode $n) => $o->setIsVerified($n->getBooleanValue()),
             'passwordNotificationWindowInDays' => fn(ParseNode $n) => $o->setPasswordNotificationWindowInDays($n->getIntegerValue()),
             'passwordValidityPeriodInDays' => fn(ParseNode $n) => $o->setPasswordValidityPeriodInDays($n->getIntegerValue()),
+            'rootDomain' => fn(ParseNode $n) => $o->setRootDomain($n->getObjectValue([Domain::class, 'createFromDiscriminatorValue'])),
             'serviceConfigurationRecords' => fn(ParseNode $n) => $o->setServiceConfigurationRecords($n->getCollectionOfObjectValues([DomainDnsRecord::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomainInvitations' => fn(ParseNode $n) => $o->setSharedEmailDomainInvitations($n->getCollectionOfObjectValues([SharedEmailDomainInvitation::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getObjectValue([DomainState::class, 'createFromDiscriminatorValue'])),
@@ -111,7 +112,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the isAdminManaged property value. The value of the property is false if the DNS record management of the domain is delegated to Microsoft 365. Otherwise, the value is true. Not nullable
+     * Gets the isAdminManaged property value. The value of the property is false if the DNS record management of the domain is delegated to Microsoft 365. Otherwise, the value is true. Not nullable.
      * @return bool|null
     */
     public function getIsAdminManaged(): ?bool {
@@ -123,7 +124,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDefault property value. true if this is the default domain that is used for user creation. There's only one default domain per company. Not nullable
+     * Gets the isDefault property value. true for the default domain that is used for user creation. There's only one default domain per company. Not nullable.
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
@@ -135,7 +136,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the isInitial property value. true if this is the initial domain created by Microsoft Online Services (contoso.com). There's only one initial domain per company. Not nullable
+     * Gets the isInitial property value. true for the initial domain created by Microsoft Online Services. For example, contoso.onmicrosoft.com. There's only one initial domain per company. Not nullable.
      * @return bool|null
     */
     public function getIsInitial(): ?bool {
@@ -147,7 +148,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the isRoot property value. true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable
+     * Gets the isRoot property value. true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable.
      * @return bool|null
     */
     public function getIsRoot(): ?bool {
@@ -159,7 +160,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the isVerified property value. true if the domain has completed domain ownership verification. Not nullable
+     * Gets the isVerified property value. true for verified domains. Not nullable.
      * @return bool|null
     */
     public function getIsVerified(): ?bool {
@@ -171,7 +172,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the passwordNotificationWindowInDays property value. Specifies the number of days before a user receives notification that their password will expire. If the property isn't set, a default value of 14 days is used.
+     * Gets the passwordNotificationWindowInDays property value. Specifies the number of days before a user receives a password expiry notification. 14 days by default.
      * @return int|null
     */
     public function getPasswordNotificationWindowInDays(): ?int {
@@ -183,7 +184,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the passwordValidityPeriodInDays property value. Specifies the length of time that a password is valid before it must be changed. If the property isn't set, a default value of 90 days is used.
+     * Gets the passwordValidityPeriodInDays property value. Specifies the length of time that a password is valid before it must be changed. 90 days by default.
      * @return int|null
     */
     public function getPasswordValidityPeriodInDays(): ?int {
@@ -192,6 +193,18 @@ class Domain extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordValidityPeriodInDays'");
+    }
+
+    /**
+     * Gets the rootDomain property value. Root domain of a subdomain. Read-only, Nullable. Supports $expand.
+     * @return Domain|null
+    */
+    public function getRootDomain(): ?Domain {
+        $val = $this->getBackingStore()->get('rootDomain');
+        if (is_null($val) || $val instanceof Domain) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootDomain'");
     }
 
     /**
@@ -235,7 +248,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values that you can add or remove using the API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1, or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune, CustomUrlDomain. The values that you can add or remove using the API include: Email, OfficeCommunicationsOnline, Yammer, and CustomUrlDomain. Not nullable.  For more information about CustomUrlDomain, see Custom URL domains in external tenants.
      * @return array<string>|null
     */
     public function getSupportedServices(): ?array {
@@ -279,6 +292,7 @@ class Domain extends Entity implements Parsable
         $writer->writeBooleanValue('isVerified', $this->getIsVerified());
         $writer->writeIntegerValue('passwordNotificationWindowInDays', $this->getPasswordNotificationWindowInDays());
         $writer->writeIntegerValue('passwordValidityPeriodInDays', $this->getPasswordValidityPeriodInDays());
+        $writer->writeObjectValue('rootDomain', $this->getRootDomain());
         $writer->writeCollectionOfObjectValues('serviceConfigurationRecords', $this->getServiceConfigurationRecords());
         $writer->writeCollectionOfObjectValues('sharedEmailDomainInvitations', $this->getSharedEmailDomainInvitations());
         $writer->writeObjectValue('state', $this->getState());
@@ -319,7 +333,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the isAdminManaged property value. The value of the property is false if the DNS record management of the domain is delegated to Microsoft 365. Otherwise, the value is true. Not nullable
+     * Sets the isAdminManaged property value. The value of the property is false if the DNS record management of the domain is delegated to Microsoft 365. Otherwise, the value is true. Not nullable.
      * @param bool|null $value Value to set for the isAdminManaged property.
     */
     public function setIsAdminManaged(?bool $value): void {
@@ -327,7 +341,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDefault property value. true if this is the default domain that is used for user creation. There's only one default domain per company. Not nullable
+     * Sets the isDefault property value. true for the default domain that is used for user creation. There's only one default domain per company. Not nullable.
      * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
@@ -335,7 +349,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the isInitial property value. true if this is the initial domain created by Microsoft Online Services (contoso.com). There's only one initial domain per company. Not nullable
+     * Sets the isInitial property value. true for the initial domain created by Microsoft Online Services. For example, contoso.onmicrosoft.com. There's only one initial domain per company. Not nullable.
      * @param bool|null $value Value to set for the isInitial property.
     */
     public function setIsInitial(?bool $value): void {
@@ -343,7 +357,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the isRoot property value. true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable
+     * Sets the isRoot property value. true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable.
      * @param bool|null $value Value to set for the isRoot property.
     */
     public function setIsRoot(?bool $value): void {
@@ -351,7 +365,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the isVerified property value. true if the domain has completed domain ownership verification. Not nullable
+     * Sets the isVerified property value. true for verified domains. Not nullable.
      * @param bool|null $value Value to set for the isVerified property.
     */
     public function setIsVerified(?bool $value): void {
@@ -359,7 +373,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the passwordNotificationWindowInDays property value. Specifies the number of days before a user receives notification that their password will expire. If the property isn't set, a default value of 14 days is used.
+     * Sets the passwordNotificationWindowInDays property value. Specifies the number of days before a user receives a password expiry notification. 14 days by default.
      * @param int|null $value Value to set for the passwordNotificationWindowInDays property.
     */
     public function setPasswordNotificationWindowInDays(?int $value): void {
@@ -367,11 +381,19 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the passwordValidityPeriodInDays property value. Specifies the length of time that a password is valid before it must be changed. If the property isn't set, a default value of 90 days is used.
+     * Sets the passwordValidityPeriodInDays property value. Specifies the length of time that a password is valid before it must be changed. 90 days by default.
      * @param int|null $value Value to set for the passwordValidityPeriodInDays property.
     */
     public function setPasswordValidityPeriodInDays(?int $value): void {
         $this->getBackingStore()->set('passwordValidityPeriodInDays', $value);
+    }
+
+    /**
+     * Sets the rootDomain property value. Root domain of a subdomain. Read-only, Nullable. Supports $expand.
+     * @param Domain|null $value Value to set for the rootDomain property.
+    */
+    public function setRootDomain(?Domain $value): void {
+        $this->getBackingStore()->set('rootDomain', $value);
     }
 
     /**
@@ -399,7 +421,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values that you can add or remove using the API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1, or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune, CustomUrlDomain. The values that you can add or remove using the API include: Email, OfficeCommunicationsOnline, Yammer, and CustomUrlDomain. Not nullable.  For more information about CustomUrlDomain, see Custom URL domains in external tenants.
      * @param array<string>|null $value Value to set for the supportedServices property.
     */
     public function setSupportedServices(?array $value): void {

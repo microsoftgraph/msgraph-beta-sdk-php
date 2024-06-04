@@ -64,7 +64,6 @@ class MetaDataKeyValuePair implements AdditionalDataHolder, BackedModel, Parsabl
         return  [
             'key' => fn(ParseNode $n) => $o->setKey($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'value' => fn(ParseNode $n) => $o->setValue($n->getObjectValue([Json::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -93,25 +92,12 @@ class MetaDataKeyValuePair implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the value property value. Value of the metadata. Should be an object.
-     * @return Json|null
-    */
-    public function getValue(): ?Json {
-        $val = $this->getBackingStore()->get('value');
-        if (is_null($val) || $val instanceof Json) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('key', $this->getKey());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeObjectValue('value', $this->getValue());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -145,14 +131,6 @@ class MetaDataKeyValuePair implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
-    }
-
-    /**
-     * Sets the value property value. Value of the metadata. Should be an object.
-     * @param Json|null $value Value to set for the value property.
-    */
-    public function setValue(?Json $value): void {
-        $this->getBackingStore()->set('value', $value);
     }
 
 }

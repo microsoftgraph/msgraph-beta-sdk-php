@@ -27,7 +27,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Gets the callId property value. The callId property
+     * Gets the callId property value. The unique identifier for the call that is related to this transcript. Read-only.
      * @return string|null
     */
     public function getCallId(): ?string {
@@ -51,7 +51,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentCorrelationId property value. The contentCorrelationId property
+     * Gets the contentCorrelationId property value. The unique identifier that links the transcript with its corresponding recording. Read-only.
      * @return string|null
     */
     public function getContentCorrelationId(): ?string {
@@ -63,7 +63,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Date and time at which the transcript was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the createdDateTime property value. Date and time at which the transcript was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -75,7 +75,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. Date and time at which the transcription ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -155,7 +155,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Gets the transcriptContentUrl property value. The URL which can be used to access the content of the transcript. Read-only.
+     * Gets the transcriptContentUrl property value. The URL that can be used to access the content of the transcript. Read-only.
      * @return string|null
     */
     public function getTranscriptContentUrl(): ?string {
@@ -185,7 +185,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Sets the callId property value. The callId property
+     * Sets the callId property value. The unique identifier for the call that is related to this transcript. Read-only.
      * @param string|null $value Value to set for the callId property.
     */
     public function setCallId(?string $value): void {
@@ -201,7 +201,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentCorrelationId property value. The contentCorrelationId property
+     * Sets the contentCorrelationId property value. The unique identifier that links the transcript with its corresponding recording. Read-only.
      * @param string|null $value Value to set for the contentCorrelationId property.
     */
     public function setContentCorrelationId(?string $value): void {
@@ -209,7 +209,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Date and time at which the transcript was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the createdDateTime property value. Date and time at which the transcript was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -217,7 +217,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. Date and time at which the transcription ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
@@ -257,7 +257,7 @@ class CallTranscript extends Entity implements Parsable
     }
 
     /**
-     * Sets the transcriptContentUrl property value. The URL which can be used to access the content of the transcript. Read-only.
+     * Sets the transcriptContentUrl property value. The URL that can be used to access the content of the transcript. Read-only.
      * @param string|null $value Value to set for the transcriptContentUrl property.
     */
     public function setTranscriptContentUrl(?string $value): void {

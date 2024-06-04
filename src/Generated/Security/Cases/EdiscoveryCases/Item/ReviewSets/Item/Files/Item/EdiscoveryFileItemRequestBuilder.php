@@ -77,10 +77,11 @@ class EdiscoveryFileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents files within the review set.
+     * Read the properties and relationships of an ediscoveryFile object.
      * @param EdiscoveryFileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EdiscoveryFile|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoveryfile-get?view=graph-rest-beta Find more info here
     */
     public function get(?EdiscoveryFileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -124,7 +125,7 @@ class EdiscoveryFileItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents files within the review set.
+     * Read the properties and relationships of an ediscoveryFile object.
      * @param EdiscoveryFileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

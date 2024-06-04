@@ -135,6 +135,7 @@ class PermissionGrantConditionSet extends Entity implements Parsable
             },
             'permissionType' => fn(ParseNode $n) => $o->setPermissionType($n->getEnumValue(PermissionType::class)),
             'resourceApplication' => fn(ParseNode $n) => $o->setResourceApplication($n->getStringValue()),
+            'scopeSensitivityLabels' => fn(ParseNode $n) => $o->setScopeSensitivityLabels($n->getObjectValue([ScopeSensitivityLabels::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -189,6 +190,18 @@ class PermissionGrantConditionSet extends Entity implements Parsable
     }
 
     /**
+     * Gets the scopeSensitivityLabels property value. The scopeSensitivityLabels property
+     * @return ScopeSensitivityLabels|null
+    */
+    public function getScopeSensitivityLabels(): ?ScopeSensitivityLabels {
+        $val = $this->getBackingStore()->get('scopeSensitivityLabels');
+        if (is_null($val) || $val instanceof ScopeSensitivityLabels) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeSensitivityLabels'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -203,6 +216,7 @@ class PermissionGrantConditionSet extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('permissions', $this->getPermissions());
         $writer->writeEnumValue('permissionType', $this->getPermissionType());
         $writer->writeStringValue('resourceApplication', $this->getResourceApplication());
+        $writer->writeObjectValue('scopeSensitivityLabels', $this->getScopeSensitivityLabels());
     }
 
     /**
@@ -275,6 +289,14 @@ class PermissionGrantConditionSet extends Entity implements Parsable
     */
     public function setResourceApplication(?string $value): void {
         $this->getBackingStore()->set('resourceApplication', $value);
+    }
+
+    /**
+     * Sets the scopeSensitivityLabels property value. The scopeSensitivityLabels property
+     * @param ScopeSensitivityLabels|null $value Value to set for the scopeSensitivityLabels property.
+    */
+    public function setScopeSensitivityLabels(?ScopeSensitivityLabels $value): void {
+        $this->getBackingStore()->set('scopeSensitivityLabels', $value);
     }
 
 }

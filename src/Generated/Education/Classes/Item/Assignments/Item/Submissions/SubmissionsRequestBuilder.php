@@ -52,10 +52,11 @@ class SubmissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
+     * List all the submission objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions, a student can only get submissions that they're associated with. Provide the header Prefer: include-unknown-enum-members to properly list submissions with the reassigned status. For details, see the examples section.
      * @param SubmissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSubmissionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationassignment-list-submissions?view=graph-rest-beta Find more info here
     */
     public function get(?SubmissionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class SubmissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
+     * List all the submission objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions, a student can only get submissions that they're associated with. Provide the header Prefer: include-unknown-enum-members to properly list submissions with the reassigned status. For details, see the examples section.
      * @param SubmissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

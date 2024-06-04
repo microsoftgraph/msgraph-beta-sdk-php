@@ -30,7 +30,7 @@ class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke function asHierarchy
+     * Return a list of tag objects in hierarchial form
      * @param MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AsHierarchyGetResponse|null>
      * @throws Exception
@@ -44,7 +44,7 @@ class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke function asHierarchy
+     * Return a list of tag objects in hierarchial form
      * @param MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

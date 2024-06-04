@@ -27,7 +27,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Gets the callId property value. The callId property
+     * Gets the callId property value. The unique identifier for the call that is related to this recording. Read-only.
      * @return string|null
     */
     public function getCallId(): ?string {
@@ -51,7 +51,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentCorrelationId property value. The contentCorrelationId property
+     * Gets the contentCorrelationId property value. The unique identifier that links the transcript with its corresponding recording. Read-only.
      * @return string|null
     */
     public function getContentCorrelationId(): ?string {
@@ -75,7 +75,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. Date and time at which the recording ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -142,7 +142,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Gets the recordingContentUrl property value. The URL which can be used to access the content of the recording. Read-only.
+     * Gets the recordingContentUrl property value. The URL that can be used to access the content of the recording. Read-only.
      * @return string|null
     */
     public function getRecordingContentUrl(): ?string {
@@ -171,7 +171,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Sets the callId property value. The callId property
+     * Sets the callId property value. The unique identifier for the call that is related to this recording. Read-only.
      * @param string|null $value Value to set for the callId property.
     */
     public function setCallId(?string $value): void {
@@ -187,7 +187,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentCorrelationId property value. The contentCorrelationId property
+     * Sets the contentCorrelationId property value. The unique identifier that links the transcript with its corresponding recording. Read-only.
      * @param string|null $value Value to set for the contentCorrelationId property.
     */
     public function setContentCorrelationId(?string $value): void {
@@ -203,7 +203,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. Date and time at which the recording ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
@@ -235,7 +235,7 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Sets the recordingContentUrl property value. The URL which can be used to access the content of the recording. Read-only.
+     * Sets the recordingContentUrl property value. The URL that can be used to access the content of the recording. Read-only.
      * @param string|null $value Value to set for the recordingContentUrl property.
     */
     public function setRecordingContentUrl(?string $value): void {

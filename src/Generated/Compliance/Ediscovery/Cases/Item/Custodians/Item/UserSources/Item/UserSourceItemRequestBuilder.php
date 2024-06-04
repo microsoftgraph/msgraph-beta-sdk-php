@@ -31,10 +31,11 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property userSources for compliance
+     * Delete a userSource object.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-usersource-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?UserSourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+     * Read the properties and relationships of a userSource object.
      * @param UserSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSource|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-usersource-get?view=graph-rest-beta Find more info here
     */
     public function get(?UserSourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +76,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property userSources for compliance
+     * Delete a userSource object.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +94,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+     * Read the properties and relationships of a userSource object.
      * @param UserSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

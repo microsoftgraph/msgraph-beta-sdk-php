@@ -66,11 +66,12 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to siteSources for security
+     * Create a new siteSource object.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteSource|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoveryholdpolicy-post-sitesources?view=graph-rest-beta Find more info here
     */
     public function post(SiteSource $body, ?SiteSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -102,7 +103,7 @@ class SiteSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to siteSources for security
+     * Create a new siteSource object.
      * @param SiteSource $body The request body
      * @param SiteSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -94,7 +94,7 @@ class AzureADJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the localAdmins property value. The localAdmins property
+     * Gets the localAdmins property value. Determines who becomes a local administrator on joined devices.
      * @return LocalAdminSettings|null
     */
     public function getLocalAdmins(): ?LocalAdminSettings {
@@ -162,7 +162,7 @@ class AzureADJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the localAdmins property value. The localAdmins property
+     * Sets the localAdmins property value. Determines who becomes a local administrator on joined devices.
      * @param LocalAdminSettings|null $value Value to set for the localAdmins property.
     */
     public function setLocalAdmins(?LocalAdminSettings $value): void {

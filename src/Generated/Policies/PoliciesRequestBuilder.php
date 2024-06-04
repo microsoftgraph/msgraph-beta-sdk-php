@@ -29,6 +29,7 @@ use Microsoft\Graph\Beta\Generated\Policies\IdentitySecurityDefaultsEnforcementP
 use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\MobileAppManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\MobileDeviceManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\PermissionGrantPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPreApprovalPolicies\PermissionGrantPreApprovalPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\RoleManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignments\RoleManagementPolicyAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\ServicePrincipalCreationPoliciesRequestBuilder;
@@ -203,6 +204,13 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
         return new PermissionGrantPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the permissionGrantPreApprovalPolicies property of the microsoft.graph.policyRoot entity.
+    */
+    public function permissionGrantPreApprovalPolicies(): PermissionGrantPreApprovalPoliciesRequestBuilder {
+        return new PermissionGrantPreApprovalPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

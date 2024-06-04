@@ -48,9 +48,22 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'excludes' => fn(ParseNode $n) => $o->setExcludes($n->getCollectionOfObjectValues([PermissionGrantConditionSet::class, 'createFromDiscriminatorValue'])),
+            'includeAllPreApprovedApplications' => fn(ParseNode $n) => $o->setIncludeAllPreApprovedApplications($n->getBooleanValue()),
             'includes' => fn(ParseNode $n) => $o->setIncludes($n->getCollectionOfObjectValues([PermissionGrantConditionSet::class, 'createFromDiscriminatorValue'])),
             'resourceScopeType' => fn(ParseNode $n) => $o->setResourceScopeType($n->getEnumValue(ResourceScopeType::class)),
         ]);
+    }
+
+    /**
+     * Gets the includeAllPreApprovedApplications property value. Set to true to create all pre-approval policies in the tenant. Set to false to disable all pre-approval policies in the tenant. The default is false.
+     * @return bool|null
+    */
+    public function getIncludeAllPreApprovedApplications(): ?bool {
+        $val = $this->getBackingStore()->get('includeAllPreApprovedApplications');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeAllPreApprovedApplications'");
     }
 
     /**
@@ -86,6 +99,7 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('excludes', $this->getExcludes());
+        $writer->writeBooleanValue('includeAllPreApprovedApplications', $this->getIncludeAllPreApprovedApplications());
         $writer->writeCollectionOfObjectValues('includes', $this->getIncludes());
         $writer->writeEnumValue('resourceScopeType', $this->getResourceScopeType());
     }
@@ -96,6 +110,14 @@ class PermissionGrantPolicy extends PolicyBase implements Parsable
     */
     public function setExcludes(?array $value): void {
         $this->getBackingStore()->set('excludes', $value);
+    }
+
+    /**
+     * Sets the includeAllPreApprovedApplications property value. Set to true to create all pre-approval policies in the tenant. Set to false to disable all pre-approval policies in the tenant. The default is false.
+     * @param bool|null $value Value to set for the includeAllPreApprovedApplications property.
+    */
+    public function setIncludeAllPreApprovedApplications(?bool $value): void {
+        $this->getBackingStore()->set('includeAllPreApprovedApplications', $value);
     }
 
     /**

@@ -461,6 +461,18 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
+     * Gets the enrolledByUserPrincipalName property value. The Entra (Azure AD) User Principal Name (UPN) of the user responsible for the enrollment of the device. This property is read-only.
+     * @return string|null
+    */
+    public function getEnrolledByUserPrincipalName(): ?string {
+        $val = $this->getBackingStore()->get('enrolledByUserPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrolledByUserPrincipalName'");
+    }
+
+    /**
      * Gets the enrolledDateTime property value. Enrollment time of the device. Supports $filter operator 'lt' and 'gt'. This property is read-only.
      * @return DateTime|null
     */
@@ -573,6 +585,7 @@ class ManagedDevice extends Entity implements Parsable
             'easActivationDateTime' => fn(ParseNode $n) => $o->setEasActivationDateTime($n->getDateTimeValue()),
             'easDeviceId' => fn(ParseNode $n) => $o->setEasDeviceId($n->getStringValue()),
             'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
+            'enrolledByUserPrincipalName' => fn(ParseNode $n) => $o->setEnrolledByUserPrincipalName($n->getStringValue()),
             'enrolledDateTime' => fn(ParseNode $n) => $o->setEnrolledDateTime($n->getDateTimeValue()),
             'enrollmentProfileName' => fn(ParseNode $n) => $o->setEnrollmentProfileName($n->getStringValue()),
             'ethernetMacAddress' => fn(ParseNode $n) => $o->setEthernetMacAddress($n->getStringValue()),
@@ -1604,6 +1617,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function setEmailAddress(?string $value): void {
         $this->getBackingStore()->set('emailAddress', $value);
+    }
+
+    /**
+     * Sets the enrolledByUserPrincipalName property value. The Entra (Azure AD) User Principal Name (UPN) of the user responsible for the enrollment of the device. This property is read-only.
+     * @param string|null $value Value to set for the enrolledByUserPrincipalName property.
+    */
+    public function setEnrolledByUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('enrolledByUserPrincipalName', $value);
     }
 
     /**

@@ -397,6 +397,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'owners' => fn(ParseNode $n) => $o->setOwners($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'passwordCredentials' => fn(ParseNode $n) => $o->setPasswordCredentials($n->getCollectionOfObjectValues([PasswordCredential::class, 'createFromDiscriminatorValue'])),
             'passwordSingleSignOnSettings' => fn(ParseNode $n) => $o->setPasswordSingleSignOnSettings($n->getObjectValue([PasswordSingleSignOnSettings::class, 'createFromDiscriminatorValue'])),
+            'permissionGrantPreApprovalPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPreApprovalPolicies($n->getCollectionOfObjectValues([PermissionGrantPreApprovalPolicy::class, 'createFromDiscriminatorValue'])),
             'preferredSingleSignOnMode' => fn(ParseNode $n) => $o->setPreferredSingleSignOnMode($n->getStringValue()),
             'preferredTokenSigningKeyEndDateTime' => fn(ParseNode $n) => $o->setPreferredTokenSigningKeyEndDateTime($n->getDateTimeValue()),
             'preferredTokenSigningKeyThumbprint' => fn(ParseNode $n) => $o->setPreferredTokenSigningKeyThumbprint($n->getStringValue()),
@@ -636,6 +637,20 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordSingleSignOnSettings'");
+    }
+
+    /**
+     * Gets the permissionGrantPreApprovalPolicies property value. The permissionGrantPreApprovalPolicies property
+     * @return array<PermissionGrantPreApprovalPolicy>|null
+    */
+    public function getPermissionGrantPreApprovalPolicies(): ?array {
+        $val = $this->getBackingStore()->get('permissionGrantPreApprovalPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PermissionGrantPreApprovalPolicy::class);
+            /** @var array<PermissionGrantPreApprovalPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionGrantPreApprovalPolicies'");
     }
 
     /**
@@ -925,6 +940,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
         $writer->writeCollectionOfObjectValues('passwordCredentials', $this->getPasswordCredentials());
         $writer->writeObjectValue('passwordSingleSignOnSettings', $this->getPasswordSingleSignOnSettings());
+        $writer->writeCollectionOfObjectValues('permissionGrantPreApprovalPolicies', $this->getPermissionGrantPreApprovalPolicies());
         $writer->writeStringValue('preferredSingleSignOnMode', $this->getPreferredSingleSignOnMode());
         $writer->writeDateTimeValue('preferredTokenSigningKeyEndDateTime', $this->getPreferredTokenSigningKeyEndDateTime());
         $writer->writeStringValue('preferredTokenSigningKeyThumbprint', $this->getPreferredTokenSigningKeyThumbprint());
@@ -1256,6 +1272,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setPasswordSingleSignOnSettings(?PasswordSingleSignOnSettings $value): void {
         $this->getBackingStore()->set('passwordSingleSignOnSettings', $value);
+    }
+
+    /**
+     * Sets the permissionGrantPreApprovalPolicies property value. The permissionGrantPreApprovalPolicies property
+     * @param array<PermissionGrantPreApprovalPolicy>|null $value Value to set for the permissionGrantPreApprovalPolicies property.
+    */
+    public function setPermissionGrantPreApprovalPolicies(?array $value): void {
+        $this->getBackingStore()->set('permissionGrantPreApprovalPolicies', $value);
     }
 
     /**

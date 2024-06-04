@@ -69,6 +69,7 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceManagementTroubleshootingEvent;
 use Microsoft\Graph\Beta\Generated\Models\DeviceProtectionOverview;
 use Microsoft\Graph\Beta\Generated\Models\DeviceShellScript;
 use Microsoft\Graph\Beta\Generated\Models\EmbeddedSIMActivationCodePool;
+use Microsoft\Graph\Beta\Generated\Models\EndpointPrivilegeManagementProvisioningStatus;
 use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyCategory;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyConfiguration;
@@ -78,6 +79,7 @@ use Microsoft\Graph\Beta\Generated\Models\GroupPolicyMigrationReport;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyObjectFile;
 use Microsoft\Graph\Beta\Generated\Models\GroupPolicyUploadedDefinitionFile;
 use Microsoft\Graph\Beta\Generated\Models\HardwareConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\HardwarePasswordDetail;
 use Microsoft\Graph\Beta\Generated\Models\HardwarePasswordInfo;
 use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentity;
 use Microsoft\Graph\Beta\Generated\Models\ImportedWindowsAutopilotDeviceIdentity;
@@ -170,6 +172,7 @@ use Microsoft\Graph\Beta\Generated\Models\WindowsInformationProtectionAppLearnin
 use Microsoft\Graph\Beta\Generated\Models\WindowsInformationProtectionNetworkLearningSummary;
 use Microsoft\Graph\Beta\Generated\Models\WindowsMalwareInformation;
 use Microsoft\Graph\Beta\Generated\Models\WindowsMalwareOverview;
+use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdatePolicy;
 use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdateProfile;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdateCatalogItem;
 use Microsoft\Graph\Beta\Generated\Models\ZebraFotaArtifact;
@@ -1016,6 +1019,18 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the endpointPrivilegeManagementProvisioningStatus property value. Endpoint privilege management (EPM) tenant provisioning status contains tenant level license and onboarding state information.
+     * @return EndpointPrivilegeManagementProvisioningStatus|null
+    */
+    public function getEndpointPrivilegeManagementProvisioningStatus(): ?EndpointPrivilegeManagementProvisioningStatus {
+        $val = $this->getBackingStore()->get('endpointPrivilegeManagementProvisioningStatus');
+        if (is_null($val) || $val instanceof EndpointPrivilegeManagementProvisioningStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpointPrivilegeManagementProvisioningStatus'");
+    }
+
+    /**
      * Gets the exchangeConnectors property value. The list of Exchange Connectors configured by the tenant.
      * @return array<DeviceManagementExchangeConnector>|null
     */
@@ -1122,6 +1137,7 @@ class DeviceManagement extends Entity implements Parsable
             'domainJoinConnectors' => fn(ParseNode $n) => $o->setDomainJoinConnectors($n->getCollectionOfObjectValues([DeviceManagementDomainJoinConnector::class, 'createFromDiscriminatorValue'])),
             'elevationRequests' => fn(ParseNode $n) => $o->setElevationRequests($n->getCollectionOfObjectValues([PrivilegeManagementElevationRequest::class, 'createFromDiscriminatorValue'])),
             'embeddedSIMActivationCodePools' => fn(ParseNode $n) => $o->setEmbeddedSIMActivationCodePools($n->getCollectionOfObjectValues([EmbeddedSIMActivationCodePool::class, 'createFromDiscriminatorValue'])),
+            'endpointPrivilegeManagementProvisioningStatus' => fn(ParseNode $n) => $o->setEndpointPrivilegeManagementProvisioningStatus($n->getObjectValue([EndpointPrivilegeManagementProvisioningStatus::class, 'createFromDiscriminatorValue'])),
             'exchangeConnectors' => fn(ParseNode $n) => $o->setExchangeConnectors($n->getCollectionOfObjectValues([DeviceManagementExchangeConnector::class, 'createFromDiscriminatorValue'])),
             'exchangeOnPremisesPolicies' => fn(ParseNode $n) => $o->setExchangeOnPremisesPolicies($n->getCollectionOfObjectValues([DeviceManagementExchangeOnPremisesPolicy::class, 'createFromDiscriminatorValue'])),
             'exchangeOnPremisesPolicy' => fn(ParseNode $n) => $o->setExchangeOnPremisesPolicy($n->getObjectValue([DeviceManagementExchangeOnPremisesPolicy::class, 'createFromDiscriminatorValue'])),
@@ -1133,6 +1149,7 @@ class DeviceManagement extends Entity implements Parsable
             'groupPolicyObjectFiles' => fn(ParseNode $n) => $o->setGroupPolicyObjectFiles($n->getCollectionOfObjectValues([GroupPolicyObjectFile::class, 'createFromDiscriminatorValue'])),
             'groupPolicyUploadedDefinitionFiles' => fn(ParseNode $n) => $o->setGroupPolicyUploadedDefinitionFiles($n->getCollectionOfObjectValues([GroupPolicyUploadedDefinitionFile::class, 'createFromDiscriminatorValue'])),
             'hardwareConfigurations' => fn(ParseNode $n) => $o->setHardwareConfigurations($n->getCollectionOfObjectValues([HardwareConfiguration::class, 'createFromDiscriminatorValue'])),
+            'hardwarePasswordDetails' => fn(ParseNode $n) => $o->setHardwarePasswordDetails($n->getCollectionOfObjectValues([HardwarePasswordDetail::class, 'createFromDiscriminatorValue'])),
             'hardwarePasswordInfo' => fn(ParseNode $n) => $o->setHardwarePasswordInfo($n->getCollectionOfObjectValues([HardwarePasswordInfo::class, 'createFromDiscriminatorValue'])),
             'importedDeviceIdentities' => fn(ParseNode $n) => $o->setImportedDeviceIdentities($n->getCollectionOfObjectValues([ImportedDeviceIdentity::class, 'createFromDiscriminatorValue'])),
             'importedWindowsAutopilotDeviceIdentities' => fn(ParseNode $n) => $o->setImportedWindowsAutopilotDeviceIdentities($n->getCollectionOfObjectValues([ImportedWindowsAutopilotDeviceIdentity::class, 'createFromDiscriminatorValue'])),
@@ -1244,6 +1261,7 @@ class DeviceManagement extends Entity implements Parsable
             'windowsInformationProtectionNetworkLearningSummaries' => fn(ParseNode $n) => $o->setWindowsInformationProtectionNetworkLearningSummaries($n->getCollectionOfObjectValues([WindowsInformationProtectionNetworkLearningSummary::class, 'createFromDiscriminatorValue'])),
             'windowsMalwareInformation' => fn(ParseNode $n) => $o->setWindowsMalwareInformation($n->getCollectionOfObjectValues([WindowsMalwareInformation::class, 'createFromDiscriminatorValue'])),
             'windowsMalwareOverview' => fn(ParseNode $n) => $o->setWindowsMalwareOverview($n->getObjectValue([WindowsMalwareOverview::class, 'createFromDiscriminatorValue'])),
+            'windowsQualityUpdatePolicies' => fn(ParseNode $n) => $o->setWindowsQualityUpdatePolicies($n->getCollectionOfObjectValues([WindowsQualityUpdatePolicy::class, 'createFromDiscriminatorValue'])),
             'windowsQualityUpdateProfiles' => fn(ParseNode $n) => $o->setWindowsQualityUpdateProfiles($n->getCollectionOfObjectValues([WindowsQualityUpdateProfile::class, 'createFromDiscriminatorValue'])),
             'windowsUpdateCatalogItems' => fn(ParseNode $n) => $o->setWindowsUpdateCatalogItems($n->getCollectionOfObjectValues([WindowsUpdateCatalogItem::class, 'createFromDiscriminatorValue'])),
             'zebraFotaArtifacts' => fn(ParseNode $n) => $o->setZebraFotaArtifacts($n->getCollectionOfObjectValues([ZebraFotaArtifact::class, 'createFromDiscriminatorValue'])),
@@ -1362,6 +1380,20 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwareConfigurations'");
+    }
+
+    /**
+     * Gets the hardwarePasswordDetails property value. Device BIOS password information for devices with managed BIOS and firmware configuration, which provides device serial number, list of previous passwords, and current password.
+     * @return array<HardwarePasswordDetail>|null
+    */
+    public function getHardwarePasswordDetails(): ?array {
+        $val = $this->getBackingStore()->get('hardwarePasswordDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HardwarePasswordDetail::class);
+            /** @var array<HardwarePasswordDetail>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwarePasswordDetails'");
     }
 
     /**
@@ -2865,6 +2897,20 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the windowsQualityUpdatePolicies property value. A collection of Windows quality update policies
+     * @return array<WindowsQualityUpdatePolicy>|null
+    */
+    public function getWindowsQualityUpdatePolicies(): ?array {
+        $val = $this->getBackingStore()->get('windowsQualityUpdatePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsQualityUpdatePolicy::class);
+            /** @var array<WindowsQualityUpdatePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'windowsQualityUpdatePolicies'");
+    }
+
+    /**
      * Gets the windowsQualityUpdateProfiles property value. A collection of windows quality update profiles
      * @return array<WindowsQualityUpdateProfile>|null
     */
@@ -2997,6 +3043,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('domainJoinConnectors', $this->getDomainJoinConnectors());
         $writer->writeCollectionOfObjectValues('elevationRequests', $this->getElevationRequests());
         $writer->writeCollectionOfObjectValues('embeddedSIMActivationCodePools', $this->getEmbeddedSIMActivationCodePools());
+        $writer->writeObjectValue('endpointPrivilegeManagementProvisioningStatus', $this->getEndpointPrivilegeManagementProvisioningStatus());
         $writer->writeCollectionOfObjectValues('exchangeConnectors', $this->getExchangeConnectors());
         $writer->writeCollectionOfObjectValues('exchangeOnPremisesPolicies', $this->getExchangeOnPremisesPolicies());
         $writer->writeObjectValue('exchangeOnPremisesPolicy', $this->getExchangeOnPremisesPolicy());
@@ -3008,6 +3055,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('groupPolicyObjectFiles', $this->getGroupPolicyObjectFiles());
         $writer->writeCollectionOfObjectValues('groupPolicyUploadedDefinitionFiles', $this->getGroupPolicyUploadedDefinitionFiles());
         $writer->writeCollectionOfObjectValues('hardwareConfigurations', $this->getHardwareConfigurations());
+        $writer->writeCollectionOfObjectValues('hardwarePasswordDetails', $this->getHardwarePasswordDetails());
         $writer->writeCollectionOfObjectValues('hardwarePasswordInfo', $this->getHardwarePasswordInfo());
         $writer->writeCollectionOfObjectValues('importedDeviceIdentities', $this->getImportedDeviceIdentities());
         $writer->writeCollectionOfObjectValues('importedWindowsAutopilotDeviceIdentities', $this->getImportedWindowsAutopilotDeviceIdentities());
@@ -3116,6 +3164,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('windowsInformationProtectionNetworkLearningSummaries', $this->getWindowsInformationProtectionNetworkLearningSummaries());
         $writer->writeCollectionOfObjectValues('windowsMalwareInformation', $this->getWindowsMalwareInformation());
         $writer->writeObjectValue('windowsMalwareOverview', $this->getWindowsMalwareOverview());
+        $writer->writeCollectionOfObjectValues('windowsQualityUpdatePolicies', $this->getWindowsQualityUpdatePolicies());
         $writer->writeCollectionOfObjectValues('windowsQualityUpdateProfiles', $this->getWindowsQualityUpdateProfiles());
         $writer->writeCollectionOfObjectValues('windowsUpdateCatalogItems', $this->getWindowsUpdateCatalogItems());
         $writer->writeCollectionOfObjectValues('zebraFotaArtifacts', $this->getZebraFotaArtifacts());
@@ -3604,6 +3653,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Sets the endpointPrivilegeManagementProvisioningStatus property value. Endpoint privilege management (EPM) tenant provisioning status contains tenant level license and onboarding state information.
+     * @param EndpointPrivilegeManagementProvisioningStatus|null $value Value to set for the endpointPrivilegeManagementProvisioningStatus property.
+    */
+    public function setEndpointPrivilegeManagementProvisioningStatus(?EndpointPrivilegeManagementProvisioningStatus $value): void {
+        $this->getBackingStore()->set('endpointPrivilegeManagementProvisioningStatus', $value);
+    }
+
+    /**
      * Sets the exchangeConnectors property value. The list of Exchange Connectors configured by the tenant.
      * @param array<DeviceManagementExchangeConnector>|null $value Value to set for the exchangeConnectors property.
     */
@@ -3689,6 +3746,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setHardwareConfigurations(?array $value): void {
         $this->getBackingStore()->set('hardwareConfigurations', $value);
+    }
+
+    /**
+     * Sets the hardwarePasswordDetails property value. Device BIOS password information for devices with managed BIOS and firmware configuration, which provides device serial number, list of previous passwords, and current password.
+     * @param array<HardwarePasswordDetail>|null $value Value to set for the hardwarePasswordDetails property.
+    */
+    public function setHardwarePasswordDetails(?array $value): void {
+        $this->getBackingStore()->set('hardwarePasswordDetails', $value);
     }
 
     /**
@@ -4577,6 +4642,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setWindowsMalwareOverview(?WindowsMalwareOverview $value): void {
         $this->getBackingStore()->set('windowsMalwareOverview', $value);
+    }
+
+    /**
+     * Sets the windowsQualityUpdatePolicies property value. A collection of Windows quality update policies
+     * @param array<WindowsQualityUpdatePolicy>|null $value Value to set for the windowsQualityUpdatePolicies property.
+    */
+    public function setWindowsQualityUpdatePolicies(?array $value): void {
+        $this->getBackingStore()->set('windowsQualityUpdatePolicies', $value);
     }
 
     /**

@@ -31,10 +31,11 @@ class AuthenticationConditionApplicationAppItemRequestBuilder extends BaseReques
     }
 
     /**
-     * Delete navigation property includeApplications for identity
+     * Remove or unlink an application from an external identities self-service sign-up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object. This disables the authentication experience that's defined by the user flow for the application.
      * @param AuthenticationConditionApplicationAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationconditionapplication-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?AuthenticationConditionApplicationAppItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -74,7 +75,7 @@ class AuthenticationConditionApplicationAppItemRequestBuilder extends BaseReques
     }
 
     /**
-     * Delete navigation property includeApplications for identity
+     * Remove or unlink an application from an external identities self-service sign-up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object. This disables the authentication experience that's defined by the user flow for the application.
      * @param AuthenticationConditionApplicationAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

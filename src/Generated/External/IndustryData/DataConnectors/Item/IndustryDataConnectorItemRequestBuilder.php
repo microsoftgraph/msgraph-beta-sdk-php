@@ -62,11 +62,11 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an industryDataConnector object.
+     * Read the properties and relationships of an azureDataLakeConnector object.
      * @param IndustryDataConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataConnector|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/industrydata-azuredatalakeconnector-get?view=graph-rest-beta Find more info here
     */
     public function get(?IndustryDataConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -111,7 +111,7 @@ class IndustryDataConnectorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an industryDataConnector object.
+     * Read the properties and relationships of an azureDataLakeConnector object.
      * @param IndustryDataConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -39,10 +39,11 @@ class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property unifiedGroupSources for compliance
+     * Delete a unifiedGroupSource object.
      * @param UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-unifiedgroupsource-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for groups associated with the custodian.
+     * Read the properties and relationships of a unifiedGroupSource object.
      * @param UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedGroupSource|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-unifiedgroupsource-get?view=graph-rest-beta Find more info here
     */
     public function get(?UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +84,7 @@ class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property unifiedGroupSources for compliance
+     * Delete a unifiedGroupSource object.
      * @param UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +102,7 @@ class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for groups associated with the custodian.
+     * Read the properties and relationships of a unifiedGroupSource object.
      * @param UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

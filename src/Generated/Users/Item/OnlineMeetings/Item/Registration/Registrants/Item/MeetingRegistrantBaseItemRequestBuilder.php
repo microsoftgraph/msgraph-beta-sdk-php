@@ -31,10 +31,11 @@ class MeetingRegistrantBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property registrants for users
+     * Cancel an onlineMeeting registration for a meetingRegistrant on behalf of the registrant. Only use this method when the allowedRegistrant property of the meetingRegistration object has a value of organization and the registrant's delegated permission was used to enroll. When the allowedRegistrant value is everyone, registrants can only use the link in the email they receive to cancel their registration.
      * @param MeetingRegistrantBaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/meetingregistrant-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?MeetingRegistrantBaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -74,7 +75,7 @@ class MeetingRegistrantBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property registrants for users
+     * Cancel an onlineMeeting registration for a meetingRegistrant on behalf of the registrant. Only use this method when the allowedRegistrant property of the meetingRegistration object has a value of organization and the registrant's delegated permission was used to enroll. When the allowedRegistrant value is everyone, registrants can only use the link in the email they receive to cancel their registration.
      * @param MeetingRegistrantBaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

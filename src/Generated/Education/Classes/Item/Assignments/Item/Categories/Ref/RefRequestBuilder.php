@@ -46,10 +46,11 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
+     * List all categories for an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StringCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-beta Find more info here
     */
     public function get(?RefRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -96,7 +97,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
+     * List all categories for an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

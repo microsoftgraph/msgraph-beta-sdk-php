@@ -52,10 +52,11 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
+     * Get the list of userSource objects associated with a legal hold.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSourceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-list-usersources?view=graph-rest-beta Find more info here
     */
     public function get(?UserSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to userSources for compliance
+     * Adds a userSource to a legalHold object.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSource|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-legalhold-post-usersources?view=graph-rest-beta Find more info here
     */
     public function post(UserSource $body, ?UserSourcesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
+     * Get the list of userSource objects associated with a legal hold.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class UserSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to userSources for compliance
+     * Adds a userSource to a legalHold object.
      * @param UserSource $body The request body
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

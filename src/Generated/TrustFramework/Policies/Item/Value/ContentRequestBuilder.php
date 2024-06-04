@@ -31,10 +31,11 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The unique identifier for an entity. Read-only.
+     * Delete an existing trustFrameworkPolicy.
      * @param ContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trustframeworkpolicy-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ContentRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The unique identifier for an entity. Read-only.
+     * Retrieve a list of trustFrameworkPolicies in the tenant/directory.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies?view=graph-rest-beta Find more info here
     */
     public function get(?ContentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -78,7 +80,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The unique identifier for an entity. Read-only.
+     * Delete an existing trustFrameworkPolicy.
      * @param ContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -96,7 +98,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The unique identifier for an entity. Read-only.
+     * Retrieve a list of trustFrameworkPolicies in the tenant/directory.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

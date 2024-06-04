@@ -52,10 +52,11 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Planner tasks for the scenario.
+     * Get a list of the businessScenarioTask objects and their properties.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioTaskCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/businessscenarioplanner-list-tasks?view=graph-rest-beta Find more info here
     */
     public function get(?TasksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tasks for solutions
+     * Create a new businessScenarioTask object.
      * @param BusinessScenarioTask $body The request body
      * @param TasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioTask|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/businessscenarioplanner-post-tasks?view=graph-rest-beta Find more info here
     */
     public function post(BusinessScenarioTask $body, ?TasksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The Planner tasks for the scenario.
+     * Get a list of the businessScenarioTask objects and their properties.
      * @param TasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class TasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to tasks for solutions
+     * Create a new businessScenarioTask object.
      * @param BusinessScenarioTask $body The request body
      * @param TasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

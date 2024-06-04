@@ -39,6 +39,18 @@ class Chat extends Entity implements Parsable
     }
 
     /**
+     * Gets the createdBy property value. The user or application that created the chat. Read-only.
+     * @return IdentitySet|null
+    */
+    public function getCreatedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
+    }
+
+    /**
      * Gets the createdDateTime property value. Date and time at which the chat was created. Read-only.
      * @return DateTime|null
     */
@@ -58,6 +70,7 @@ class Chat extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'chatType' => fn(ParseNode $n) => $o->setChatType($n->getEnumValue(ChatType::class)),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'installedApps' => fn(ParseNode $n) => $o->setInstalledApps($n->getCollectionOfObjectValues([TeamsAppInstallation::class, 'createFromDiscriminatorValue'])),
             'isHiddenForAllMembers' => fn(ParseNode $n) => $o->setIsHiddenForAllMembers($n->getBooleanValue()),
@@ -104,7 +117,7 @@ class Chat extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastMessagePreview property value. Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+     * Gets the lastMessagePreview property value. Preview of the last message sent in the chat. Null if no messages are sent in the chat. Currently, only the list chats operation supports this property.
      * @return ChatMessageInfo|null
     */
     public function getLastMessagePreview(): ?ChatMessageInfo {
@@ -278,6 +291,7 @@ class Chat extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('chatType', $this->getChatType());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeCollectionOfObjectValues('installedApps', $this->getInstalledApps());
         $writer->writeBooleanValue('isHiddenForAllMembers', $this->getIsHiddenForAllMembers());
@@ -305,6 +319,14 @@ class Chat extends Entity implements Parsable
     }
 
     /**
+     * Sets the createdBy property value. The user or application that created the chat. Read-only.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
+    */
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
+    }
+
+    /**
      * Sets the createdDateTime property value. Date and time at which the chat was created. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
@@ -329,7 +351,7 @@ class Chat extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastMessagePreview property value. Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+     * Sets the lastMessagePreview property value. Preview of the last message sent in the chat. Null if no messages are sent in the chat. Currently, only the list chats operation supports this property.
      * @param ChatMessageInfo|null $value Value to set for the lastMessagePreview property.
     */
     public function setLastMessagePreview(?ChatMessageInfo $value): void {

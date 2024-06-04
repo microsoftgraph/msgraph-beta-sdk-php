@@ -30,7 +30,7 @@ class MicrosoftGraphSecurityExportResultRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action exportResult
+     * Export results from an estimated ediscoverySearch. For details, see Manage a collection estimate.
      * @param ExportResultPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityExportResultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -45,7 +45,7 @@ class MicrosoftGraphSecurityExportResultRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action exportResult
+     * Export results from an estimated ediscoverySearch. For details, see Manage a collection estimate.
      * @param ExportResultPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityExportResultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -58,6 +58,18 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the allowBreakoutRooms property value. The allowBreakoutRooms property
+     * @return bool|null
+    */
+    public function getAllowBreakoutRooms(): ?bool {
+        $val = $this->getBackingStore()->get('allowBreakoutRooms');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowBreakoutRooms'");
+    }
+
+    /**
      * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
      * @return OnlineMeetingPresenters|null
     */
@@ -67,6 +79,18 @@ class OnlineMeetingBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedPresenters'");
+    }
+
+    /**
+     * Gets the allowLiveShare property value. The allowLiveShare property
+     * @return bool|null
+    */
+    public function getAllowLiveShare(): ?bool {
+        $val = $this->getBackingStore()->get('allowLiveShare');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowLiveShare'");
     }
 
     /**
@@ -91,6 +115,18 @@ class OnlineMeetingBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowParticipantsToChangeName'");
+    }
+
+    /**
+     * Gets the allowPowerPointSharing property value. The allowPowerPointSharing property
+     * @return bool|null
+    */
+    public function getAllowPowerPointSharing(): ?bool {
+        $val = $this->getBackingStore()->get('allowPowerPointSharing');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowPowerPointSharing'");
     }
 
     /**
@@ -127,6 +163,18 @@ class OnlineMeetingBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowTranscription'");
+    }
+
+    /**
+     * Gets the allowWhiteboard property value. The allowWhiteboard property
+     * @return bool|null
+    */
+    public function getAllowWhiteboard(): ?bool {
+        $val = $this->getBackingStore()->get('allowWhiteboard');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowWhiteboard'");
     }
 
     /**
@@ -202,12 +250,16 @@ class OnlineMeetingBase extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allowAttendeeToEnableCamera' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableCamera($n->getBooleanValue()),
             'allowAttendeeToEnableMic' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableMic($n->getBooleanValue()),
+            'allowBreakoutRooms' => fn(ParseNode $n) => $o->setAllowBreakoutRooms($n->getBooleanValue()),
             'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
+            'allowLiveShare' => fn(ParseNode $n) => $o->setAllowLiveShare($n->getBooleanValue()),
             'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)),
             'allowParticipantsToChangeName' => fn(ParseNode $n) => $o->setAllowParticipantsToChangeName($n->getBooleanValue()),
+            'allowPowerPointSharing' => fn(ParseNode $n) => $o->setAllowPowerPointSharing($n->getBooleanValue()),
             'allowRecording' => fn(ParseNode $n) => $o->setAllowRecording($n->getBooleanValue()),
             'allowTeamworkReactions' => fn(ParseNode $n) => $o->setAllowTeamworkReactions($n->getBooleanValue()),
             'allowTranscription' => fn(ParseNode $n) => $o->setAllowTranscription($n->getBooleanValue()),
+            'allowWhiteboard' => fn(ParseNode $n) => $o->setAllowWhiteboard($n->getBooleanValue()),
             'anonymizeIdentityForRoles' => fn(ParseNode $n) => $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingRole::class)),
             'attendanceReports' => fn(ParseNode $n) => $o->setAttendanceReports($n->getCollectionOfObjectValues([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
             'audioConferencing' => fn(ParseNode $n) => $o->setAudioConferencing($n->getObjectValue([AudioConferencing::class, 'createFromDiscriminatorValue'])),
@@ -367,12 +419,16 @@ class OnlineMeetingBase extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('allowAttendeeToEnableCamera', $this->getAllowAttendeeToEnableCamera());
         $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->getAllowAttendeeToEnableMic());
+        $writer->writeBooleanValue('allowBreakoutRooms', $this->getAllowBreakoutRooms());
         $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
+        $writer->writeBooleanValue('allowLiveShare', $this->getAllowLiveShare());
         $writer->writeEnumValue('allowMeetingChat', $this->getAllowMeetingChat());
         $writer->writeBooleanValue('allowParticipantsToChangeName', $this->getAllowParticipantsToChangeName());
+        $writer->writeBooleanValue('allowPowerPointSharing', $this->getAllowPowerPointSharing());
         $writer->writeBooleanValue('allowRecording', $this->getAllowRecording());
         $writer->writeBooleanValue('allowTeamworkReactions', $this->getAllowTeamworkReactions());
         $writer->writeBooleanValue('allowTranscription', $this->getAllowTranscription());
+        $writer->writeBooleanValue('allowWhiteboard', $this->getAllowWhiteboard());
         $writer->writeCollectionOfEnumValues('anonymizeIdentityForRoles', $this->getAnonymizeIdentityForRoles());
         $writer->writeCollectionOfObjectValues('attendanceReports', $this->getAttendanceReports());
         $writer->writeObjectValue('audioConferencing', $this->getAudioConferencing());
@@ -408,11 +464,27 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
+     * Sets the allowBreakoutRooms property value. The allowBreakoutRooms property
+     * @param bool|null $value Value to set for the allowBreakoutRooms property.
+    */
+    public function setAllowBreakoutRooms(?bool $value): void {
+        $this->getBackingStore()->set('allowBreakoutRooms', $value);
+    }
+
+    /**
      * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
      * @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
     */
     public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
         $this->getBackingStore()->set('allowedPresenters', $value);
+    }
+
+    /**
+     * Sets the allowLiveShare property value. The allowLiveShare property
+     * @param bool|null $value Value to set for the allowLiveShare property.
+    */
+    public function setAllowLiveShare(?bool $value): void {
+        $this->getBackingStore()->set('allowLiveShare', $value);
     }
 
     /**
@@ -429,6 +501,14 @@ class OnlineMeetingBase extends Entity implements Parsable
     */
     public function setAllowParticipantsToChangeName(?bool $value): void {
         $this->getBackingStore()->set('allowParticipantsToChangeName', $value);
+    }
+
+    /**
+     * Sets the allowPowerPointSharing property value. The allowPowerPointSharing property
+     * @param bool|null $value Value to set for the allowPowerPointSharing property.
+    */
+    public function setAllowPowerPointSharing(?bool $value): void {
+        $this->getBackingStore()->set('allowPowerPointSharing', $value);
     }
 
     /**
@@ -453,6 +533,14 @@ class OnlineMeetingBase extends Entity implements Parsable
     */
     public function setAllowTranscription(?bool $value): void {
         $this->getBackingStore()->set('allowTranscription', $value);
+    }
+
+    /**
+     * Sets the allowWhiteboard property value. The allowWhiteboard property
+     * @param bool|null $value Value to set for the allowWhiteboard property.
+    */
+    public function setAllowWhiteboard(?bool $value): void {
+        $this->getBackingStore()->set('allowWhiteboard', $value);
     }
 
     /**

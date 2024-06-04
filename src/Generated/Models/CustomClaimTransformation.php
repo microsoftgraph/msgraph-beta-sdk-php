@@ -89,7 +89,7 @@ class CustomClaimTransformation implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the input property value. The input property
+     * Gets the input property value. The input attribute that provides the source for the transformation. This parameter is required if it's the first or only transformation in the list of transformations to be applied. Subsequent transformations use the output of the prior transformation as input.
      * @return TransformationAttribute|null
     */
     public function getInput(): ?TransformationAttribute {
@@ -139,7 +139,7 @@ class CustomClaimTransformation implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the input property value. The input property
+     * Sets the input property value. The input attribute that provides the source for the transformation. This parameter is required if it's the first or only transformation in the list of transformations to be applied. Subsequent transformations use the output of the prior transformation as input.
      * @param TransformationAttribute|null $value Value to set for the input property.
     */
     public function setInput(?TransformationAttribute $value): void {

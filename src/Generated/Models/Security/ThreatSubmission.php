@@ -64,7 +64,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.
+     * Gets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft, other, and unkownFutureValue.
      * @return SubmissionClientSource|null
     */
     public function getClientSource(): ?SubmissionClientSource {
@@ -76,7 +76,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.
+     * Gets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app, and unkownFutureValue.
      * @return SubmissionContentType|null
     */
     public function getContentType(): ?SubmissionContentType {
@@ -144,7 +144,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user and unkownFutureValue.
+     * Gets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user, and unkownFutureValue.
      * @return SubmissionSource|null
     */
     public function getSource(): ?SubmissionSource {
@@ -156,7 +156,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
+     * Gets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped, and unkownFutureValue.
      * @return LongRunningOperationStatus|null
     */
     public function getStatus(): ?LongRunningOperationStatus {
@@ -214,7 +214,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.
+     * Sets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft, other, and unkownFutureValue.
      * @param SubmissionClientSource|null $value Value to set for the clientSource property.
     */
     public function setClientSource(?SubmissionClientSource $value): void {
@@ -222,7 +222,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.
+     * Sets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app, and unkownFutureValue.
      * @param SubmissionContentType|null $value Value to set for the contentType property.
     */
     public function setContentType(?SubmissionContentType $value): void {
@@ -254,7 +254,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user and unkownFutureValue.
+     * Sets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user, and unkownFutureValue.
      * @param SubmissionSource|null $value Value to set for the source property.
     */
     public function setSource(?SubmissionSource $value): void {
@@ -262,7 +262,7 @@ class ThreatSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
+     * Sets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped, and unkownFutureValue.
      * @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?LongRunningOperationStatus $value): void {

@@ -76,6 +76,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpd
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAssignedApplicationsReport\RetrieveAssignedApplicationsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -590,6 +591,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getZebraFotaDeploymentReport(): GetZebraFotaDeploymentReportRequestBuilder {
         return new GetZebraFotaDeploymentReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveAssignedApplicationsReport method.
+    */
+    public function retrieveAssignedApplicationsReport(): RetrieveAssignedApplicationsReportRequestBuilder {
+        return new RetrieveAssignedApplicationsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

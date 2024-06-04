@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Drive\Esc
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Drive\EscapedList\Items\ItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Drive\EscapedList\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Drive\EscapedList\Operations\OperationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Drive\EscapedList\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Drive\EscapedList\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -79,6 +80,13 @@ class ListRequestBuilder extends BaseRequestBuilder
     */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the permissions property of the microsoft.graph.list entity.
+    */
+    public function permissions(): PermissionsRequestBuilder {
+        return new PermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

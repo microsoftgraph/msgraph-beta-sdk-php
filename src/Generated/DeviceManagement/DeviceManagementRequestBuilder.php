@@ -61,6 +61,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePoo
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableAndroidDeviceAdministratorEnrollment\EnableAndroidDeviceAdministratorEnrollmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableLegacyPcManagement\EnableLegacyPcManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableUnlicensedAdminstrators\EnableUnlicensedAdminstratorsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\EndpointPrivilegeManagementProvisioningStatus\EndpointPrivilegeManagementProvisioningStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EvaluateAssignmentFilter\EvaluateAssignmentFilterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\ExchangeConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\ExchangeOnPremisesPoliciesRequestBuilder;
@@ -82,6 +83,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationReports\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyObjectFiles\GroupPolicyObjectFilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDefinitionFiles\GroupPolicyUploadedDefinitionFilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\HardwareConfigurationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordDetails\HardwarePasswordDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordInfo\HardwarePasswordInfoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\ImportedDeviceIdentitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedWindowsAutopilotDeviceIdentities\ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder;
@@ -185,6 +187,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsInformationProtectionAppLearningSummaries\WindowsInformationProtectionAppLearningSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsInformationProtectionNetworkLearningSummaries\WindowsInformationProtectionNetworkLearningSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsMalwareInformation\WindowsMalwareInformationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\WindowsQualityUpdatePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\WindowsQualityUpdateProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogItems\WindowsUpdateCatalogItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts\ZebraFotaArtifactsRequestBuilder;
@@ -602,6 +605,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the endpointPrivilegeManagementProvisioningStatus property of the microsoft.graph.deviceManagement entity.
+    */
+    public function endpointPrivilegeManagementProvisioningStatus(): EndpointPrivilegeManagementProvisioningStatusRequestBuilder {
+        return new EndpointPrivilegeManagementProvisioningStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the evaluateAssignmentFilter method.
     */
     public function evaluateAssignmentFilter(): EvaluateAssignmentFilterRequestBuilder {
@@ -718,6 +728,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function hardwareConfigurations(): HardwareConfigurationsRequestBuilder {
         return new HardwareConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the hardwarePasswordDetails property of the microsoft.graph.deviceManagement entity.
+    */
+    public function hardwarePasswordDetails(): HardwarePasswordDetailsRequestBuilder {
+        return new HardwarePasswordDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1425,6 +1442,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function windowsMalwareInformation(): WindowsMalwareInformationRequestBuilder {
         return new WindowsMalwareInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the windowsQualityUpdatePolicies property of the microsoft.graph.deviceManagement entity.
+    */
+    public function windowsQualityUpdatePolicies(): WindowsQualityUpdatePoliciesRequestBuilder {
+        return new WindowsQualityUpdatePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

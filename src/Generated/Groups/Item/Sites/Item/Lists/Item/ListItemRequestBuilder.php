@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Drive\Drive
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\ItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Operations\OperationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EscapedList;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -79,6 +80,13 @@ class ListItemRequestBuilder extends BaseRequestBuilder
     */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the permissions property of the microsoft.graph.list entity.
+    */
+    public function permissions(): PermissionsRequestBuilder {
+        return new PermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

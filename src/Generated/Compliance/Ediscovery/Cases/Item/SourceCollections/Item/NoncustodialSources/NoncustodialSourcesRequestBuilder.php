@@ -51,10 +51,11 @@ class NoncustodialSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * noncustodialDataSource sources that are included in the sourceCollection
+     * Get a list of noncustodialDataSource associated with a sourceCollection.
      * @param NoncustodialSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NoncustodialDataSourceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ediscovery-sourcecollection-list-noncustodialsources?view=graph-rest-beta Find more info here
     */
     public function get(?NoncustodialSourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class NoncustodialSourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * noncustodialDataSource sources that are included in the sourceCollection
+     * Get a list of noncustodialDataSource associated with a sourceCollection.
      * @param NoncustodialSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

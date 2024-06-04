@@ -285,6 +285,7 @@ class PolicyRoot extends Entity implements Parsable
             'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'mobileDeviceManagementPolicies' => fn(ParseNode $n) => $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'permissionGrantPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues([PermissionGrantPolicy::class, 'createFromDiscriminatorValue'])),
+            'permissionGrantPreApprovalPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPreApprovalPolicies($n->getCollectionOfObjectValues([PermissionGrantPreApprovalPolicy::class, 'createFromDiscriminatorValue'])),
             'roleManagementPolicies' => fn(ParseNode $n) => $o->setRoleManagementPolicies($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'roleManagementPolicyAssignments' => fn(ParseNode $n) => $o->setRoleManagementPolicyAssignments($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicyAssignment::class, 'createFromDiscriminatorValue'])),
             'servicePrincipalCreationPolicies' => fn(ParseNode $n) => $o->setServicePrincipalCreationPolicies($n->getCollectionOfObjectValues([ServicePrincipalCreationPolicy::class, 'createFromDiscriminatorValue'])),
@@ -359,6 +360,20 @@ class PolicyRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionGrantPolicies'");
+    }
+
+    /**
+     * Gets the permissionGrantPreApprovalPolicies property value. Policies that specify the conditions under which consent can be granted to a specific application.
+     * @return array<PermissionGrantPreApprovalPolicy>|null
+    */
+    public function getPermissionGrantPreApprovalPolicies(): ?array {
+        $val = $this->getBackingStore()->get('permissionGrantPreApprovalPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PermissionGrantPreApprovalPolicy::class);
+            /** @var array<PermissionGrantPreApprovalPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissionGrantPreApprovalPolicies'");
     }
 
     /**
@@ -460,6 +475,7 @@ class PolicyRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->getMobileAppManagementPolicies());
         $writer->writeCollectionOfObjectValues('mobileDeviceManagementPolicies', $this->getMobileDeviceManagementPolicies());
         $writer->writeCollectionOfObjectValues('permissionGrantPolicies', $this->getPermissionGrantPolicies());
+        $writer->writeCollectionOfObjectValues('permissionGrantPreApprovalPolicies', $this->getPermissionGrantPreApprovalPolicies());
         $writer->writeCollectionOfObjectValues('roleManagementPolicies', $this->getRoleManagementPolicies());
         $writer->writeCollectionOfObjectValues('roleManagementPolicyAssignments', $this->getRoleManagementPolicyAssignments());
         $writer->writeCollectionOfObjectValues('servicePrincipalCreationPolicies', $this->getServicePrincipalCreationPolicies());
@@ -649,6 +665,14 @@ class PolicyRoot extends Entity implements Parsable
     */
     public function setPermissionGrantPolicies(?array $value): void {
         $this->getBackingStore()->set('permissionGrantPolicies', $value);
+    }
+
+    /**
+     * Sets the permissionGrantPreApprovalPolicies property value. Policies that specify the conditions under which consent can be granted to a specific application.
+     * @param array<PermissionGrantPreApprovalPolicy>|null $value Value to set for the permissionGrantPreApprovalPolicies property.
+    */
+    public function setPermissionGrantPreApprovalPolicies(?array $value): void {
+        $this->getBackingStore()->set('permissionGrantPreApprovalPolicies', $value);
     }
 
     /**

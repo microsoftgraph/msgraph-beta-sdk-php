@@ -28,11 +28,12 @@ class OutlookTaskGroupItemRequestBuilderGetRequestConfiguration extends BaseRequ
 
     /**
      * Instantiates a new OutlookTaskGroupItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
      * @return OutlookTaskGroupItemRequestBuilderGetQueryParameters
     */
-    public static function createQueryParameters(?array $select = null): OutlookTaskGroupItemRequestBuilderGetQueryParameters {
-        return new OutlookTaskGroupItemRequestBuilderGetQueryParameters($select);
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): OutlookTaskGroupItemRequestBuilderGetQueryParameters {
+        return new OutlookTaskGroupItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

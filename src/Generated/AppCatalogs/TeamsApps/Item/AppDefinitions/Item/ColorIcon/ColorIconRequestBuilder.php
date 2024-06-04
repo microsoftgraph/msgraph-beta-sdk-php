@@ -53,10 +53,11 @@ class ColorIconRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The color version of the Teams app's icon.
+     * Retrieve a Teams app icon associated with a specific definition of an app.
      * @param ColorIconRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppIcon|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamsappicon-get?view=graph-rest-beta Find more info here
     */
     public function get(?ColorIconRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,7 +101,7 @@ class ColorIconRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The color version of the Teams app's icon.
+     * Retrieve a Teams app icon associated with a specific definition of an app.
      * @param ColorIconRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

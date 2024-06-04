@@ -30,10 +30,11 @@ class CreateSnapshotRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action createSnapshot
+     * Create a snapshot for a specific Cloud PC device.
      * @param CreateSnapshotRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-createsnapshot?view=graph-rest-beta Find more info here
     */
     public function post(?CreateSnapshotRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class CreateSnapshotRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action createSnapshot
+     * Create a snapshot for a specific Cloud PC device.
      * @param CreateSnapshotRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

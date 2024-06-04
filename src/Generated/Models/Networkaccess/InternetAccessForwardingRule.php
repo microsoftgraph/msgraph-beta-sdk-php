@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class InternetAccessForwardingRule extends ForwardingRule implements Parsable 
 {
@@ -32,7 +33,42 @@ class InternetAccessForwardingRule extends ForwardingRule implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'ports' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPorts($val);
+            },
+            'protocol' => fn(ParseNode $n) => $o->setProtocol($n->getEnumValue(NetworkingProtocol::class)),
         ]);
+    }
+
+    /**
+     * Gets the ports property value. The ports property
+     * @return array<string>|null
+    */
+    public function getPorts(): ?array {
+        $val = $this->getBackingStore()->get('ports');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ports'");
+    }
+
+    /**
+     * Gets the protocol property value. The protocol property
+     * @return NetworkingProtocol|null
+    */
+    public function getProtocol(): ?NetworkingProtocol {
+        $val = $this->getBackingStore()->get('protocol');
+        if (is_null($val) || $val instanceof NetworkingProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protocol'");
     }
 
     /**
@@ -41,6 +77,24 @@ class InternetAccessForwardingRule extends ForwardingRule implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfPrimitiveValues('ports', $this->getPorts());
+        $writer->writeEnumValue('protocol', $this->getProtocol());
+    }
+
+    /**
+     * Sets the ports property value. The ports property
+     * @param array<string>|null $value Value to set for the ports property.
+    */
+    public function setPorts(?array $value): void {
+        $this->getBackingStore()->set('ports', $value);
+    }
+
+    /**
+     * Sets the protocol property value. The protocol property
+     * @param NetworkingProtocol|null $value Value to set for the protocol property.
+    */
+    public function setProtocol(?NetworkingProtocol $value): void {
+        $this->getBackingStore()->set('protocol', $value);
     }
 
 }
