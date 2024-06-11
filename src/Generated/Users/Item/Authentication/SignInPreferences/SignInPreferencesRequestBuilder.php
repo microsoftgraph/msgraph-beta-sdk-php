@@ -31,7 +31,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a user's authentication method states. Use this API to retrieve the following information:
+     * Read the properties of a user's authentication states. Use this API to retrieve the following information:
      * @param SignInPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignInPreferences|null>
      * @throws Exception
@@ -62,7 +62,7 @@ class SignInPreferencesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties of a user's authentication method states. Use this API to retrieve the following information:
+     * Read the properties of a user's authentication states. Use this API to retrieve the following information:
      * @param SignInPreferencesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

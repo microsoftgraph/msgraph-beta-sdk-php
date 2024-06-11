@@ -39,7 +39,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Date time the module was created.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
+     * Gets the createdDateTime property value. Date time the module was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -119,7 +119,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Date time the module was last modified.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
+     * Gets the lastModifiedDateTime property value. Date time the module was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -131,7 +131,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the resources property value. Learning objects that are associated with this module.  Only teachers can modify this list. Nullable.
+     * Gets the resources property value. Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
      * @return array<EducationModuleResource>|null
     */
     public function getResources(): ?array {
@@ -157,7 +157,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Status of the module.  You can't use a PATCH operation to update this value. Possible values are: draft and published.
+     * Gets the status property value. Status of the module. You can't use a PATCH operation to update this value. Possible values are: draft and published.
      * @return EducationModuleStatus|null
     */
     public function getStatus(): ?EducationModuleStatus {
@@ -189,7 +189,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Date time the module was created.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
+     * Sets the createdDateTime property value. Date time the module was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -229,7 +229,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Date time the module was last modified.  The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
+     * Sets the lastModifiedDateTime property value. Date time the module was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -237,7 +237,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the resources property value. Learning objects that are associated with this module.  Only teachers can modify this list. Nullable.
+     * Sets the resources property value. Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
      * @param array<EducationModuleResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -253,7 +253,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Status of the module.  You can't use a PATCH operation to update this value. Possible values are: draft and published.
+     * Sets the status property value. Status of the module. You can't use a PATCH operation to update this value. Possible values are: draft and published.
      * @param EducationModuleStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationModuleStatus $value): void {

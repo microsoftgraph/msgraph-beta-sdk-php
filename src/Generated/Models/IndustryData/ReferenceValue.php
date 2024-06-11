@@ -35,6 +35,7 @@ class ReferenceValue implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.industryData.fileFormatReferenceValue': return new FileFormatReferenceValue();
                 case '#microsoft.graph.industryData.identifierTypeReferenceValue': return new IdentifierTypeReferenceValue();
                 case '#microsoft.graph.industryData.roleReferenceValue': return new RoleReferenceValue();
                 case '#microsoft.graph.industryData.sectionRoleReferenceValue': return new SectionRoleReferenceValue();

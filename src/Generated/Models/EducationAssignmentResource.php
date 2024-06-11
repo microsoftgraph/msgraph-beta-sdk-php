@@ -65,7 +65,7 @@ class EducationAssignmentResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the resource property value. Resource object that has been associated with this assignment.
+     * Gets the resource property value. Resource object that is associated with this assignment.
      * @return EducationResource|null
     */
     public function getResource(): ?EducationResource {
@@ -104,7 +104,7 @@ class EducationAssignmentResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the resource property value. Resource object that has been associated with this assignment.
+     * Sets the resource property value. Resource object that is associated with this assignment.
      * @param EducationResource|null $value Value to set for the resource property.
     */
     public function setResource(?EducationResource $value): void {

@@ -27,6 +27,7 @@ class InboundFlow extends IndustryDataActivity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.industryData.inboundApiFlow': return new InboundApiFlow();
                 case '#microsoft.graph.industryData.inboundFileFlow': return new InboundFileFlow();
             }
         }

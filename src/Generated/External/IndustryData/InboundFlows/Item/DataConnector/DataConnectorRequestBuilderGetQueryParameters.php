@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The data connector in the context of which this flow pulls in data from a source system.
+ * The data connector to the source system from where this flow gets its data.
 */
 class DataConnectorRequestBuilderGetQueryParameters 
 {

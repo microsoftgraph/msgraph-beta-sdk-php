@@ -32,13 +32,14 @@ class ActivateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Activate a serviceApp.
+     * @param ActivatePostRequestBody $body The request body
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServiceApp|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/serviceapp-activate?view=graph-rest-beta Find more info here
     */
-    public function post(?ActivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPostRequestInformation($requestConfiguration);
+    public function post(ActivatePostRequestBody $body, ?ActivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
@@ -47,10 +48,11 @@ class ActivateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Activate a serviceApp.
+     * @param ActivatePostRequestBody $body The request body
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?ActivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ActivatePostRequestBody $body, ?ActivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -60,6 +62,7 @@ class ActivateRequestBuilder extends BaseRequestBuilder
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

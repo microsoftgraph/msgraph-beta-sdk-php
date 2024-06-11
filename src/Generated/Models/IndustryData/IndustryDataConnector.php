@@ -26,8 +26,10 @@ class IndustryDataConnector extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.industryData.apiDataConnector': return new ApiDataConnector();
                 case '#microsoft.graph.industryData.azureDataLakeConnector': return new AzureDataLakeConnector();
                 case '#microsoft.graph.industryData.fileDataConnector': return new FileDataConnector();
+                case '#microsoft.graph.industryData.oneRosterApiDataConnector': return new OneRosterApiDataConnector();
             }
         }
         return new IndustryDataConnector();

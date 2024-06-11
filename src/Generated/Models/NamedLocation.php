@@ -26,6 +26,7 @@ class NamedLocation extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.compliantNetworkNamedLocation': return new CompliantNetworkNamedLocation();
                 case '#microsoft.graph.countryNamedLocation': return new CountryNamedLocation();
                 case '#microsoft.graph.ipNamedLocation': return new IpNamedLocation();
             }
