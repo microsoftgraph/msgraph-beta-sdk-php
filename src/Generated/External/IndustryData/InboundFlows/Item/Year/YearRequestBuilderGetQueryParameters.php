@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The year that the data brought in via this flow applies to.
+ * The year associated to the data that this flow brings in.
 */
 class YearRequestBuilderGetQueryParameters 
 {

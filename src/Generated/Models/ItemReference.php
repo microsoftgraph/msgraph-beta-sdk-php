@@ -68,7 +68,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the driveType property value. Identifies the type of drive. Only returned if the item is located in a drive.  See drive resource for values.
+     * Gets the driveType property value. Identifies the type of drive. Only returned if the item is located in a drive. See drive resource for values.
      * @return string|null
     */
     public function getDriveType(): ?string {
@@ -135,7 +135,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the path property value. Path that can be used to navigate to the item. Read-only.
+     * Gets the path property value. Percent-encoded path that can be used to navigate to the item. Read-only.
      * @return string|null
     */
     public function getPath(): ?string {
@@ -171,7 +171,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that site resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
+     * Gets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that site resource. It's an opaque string that consists of three identifiers of the site. For OneDrive, this property isn't populated.
      * @return string|null
     */
     public function getSiteId(): ?string {
@@ -224,7 +224,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the driveType property value. Identifies the type of drive. Only returned if the item is located in a drive.  See drive resource for values.
+     * Sets the driveType property value. Identifies the type of drive. Only returned if the item is located in a drive. See drive resource for values.
      * @param string|null $value Value to set for the driveType property.
     */
     public function setDriveType(?string $value): void {
@@ -256,7 +256,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the path property value. Path that can be used to navigate to the item. Read-only.
+     * Sets the path property value. Percent-encoded path that can be used to navigate to the item. Read-only.
      * @param string|null $value Value to set for the path property.
     */
     public function setPath(?string $value): void {
@@ -280,7 +280,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that site resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
+     * Sets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that site resource. It's an opaque string that consists of three identifiers of the site. For OneDrive, this property isn't populated.
      * @param string|null $value Value to set for the siteId property.
     */
     public function setSiteId(?string $value): void {

@@ -32,7 +32,20 @@ class AzureDataLakeConnector extends FileDataConnector implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'fileFormat' => fn(ParseNode $n) => $o->setFileFormat($n->getObjectValue([FileFormatReferenceValue::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the fileFormat property value. The file format that external systems can upload using this connector.
+     * @return FileFormatReferenceValue|null
+    */
+    public function getFileFormat(): ?FileFormatReferenceValue {
+        $val = $this->getBackingStore()->get('fileFormat');
+        if (is_null($val) || $val instanceof FileFormatReferenceValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileFormat'");
     }
 
     /**
@@ -41,6 +54,15 @@ class AzureDataLakeConnector extends FileDataConnector implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('fileFormat', $this->getFileFormat());
+    }
+
+    /**
+     * Sets the fileFormat property value. The file format that external systems can upload using this connector.
+     * @param FileFormatReferenceValue|null $value Value to set for the fileFormat property.
+    */
+    public function setFileFormat(?FileFormatReferenceValue $value): void {
+        $this->getBackingStore()->set('fileFormat', $value);
     }
 
 }

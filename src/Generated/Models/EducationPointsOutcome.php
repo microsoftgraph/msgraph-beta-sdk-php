@@ -38,7 +38,7 @@ class EducationPointsOutcome extends EducationOutcome implements Parsable
     }
 
     /**
-     * Gets the points property value. The numeric grade the teacher has given the student for this assignment.
+     * Gets the points property value. The numeric grade that the teacher gave the student for this assignment.
      * @return EducationAssignmentPointsGrade|null
     */
     public function getPoints(): ?EducationAssignmentPointsGrade {
@@ -72,7 +72,7 @@ class EducationPointsOutcome extends EducationOutcome implements Parsable
     }
 
     /**
-     * Sets the points property value. The numeric grade the teacher has given the student for this assignment.
+     * Sets the points property value. The numeric grade that the teacher gave the student for this assignment.
      * @param EducationAssignmentPointsGrade|null $value Value to set for the points property.
     */
     public function setPoints(?EducationAssignmentPointsGrade $value): void {

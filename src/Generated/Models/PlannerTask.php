@@ -82,7 +82,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the assigneePriority property value. A hint that is used to order items of this type in a list view. For more information, see Using order hints in Planner.
+     * Gets the assigneePriority property value. A hint that is used to order items of this type in a list view. For more information, see Using order hints in planner.
      * @return string|null
     */
     public function getAssigneePriority(): ?string {
@@ -226,7 +226,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. The date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the dueDateTime property value. The date and time at which the task is due. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
@@ -304,7 +304,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the isOnMyDay property value. A Boolean value that indicates whether to show this task in the MyDay view. true to show the task. Otherwise, false.
+     * Gets the isOnMyDay property value. Indicates whether to show this task in the MyDay view. If true, it shows the task.
      * @return bool|null
     */
     public function getIsOnMyDay(): ?bool {
@@ -328,7 +328,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in Plannern.
+     * Gets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in plannern.
      * @return string|null
     */
     public function getOrderHint(): ?string {
@@ -376,7 +376,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'. Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
+     * Gets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'. Currently, planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -532,7 +532,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the assigneePriority property value. A hint that is used to order items of this type in a list view. For more information, see Using order hints in Planner.
+     * Sets the assigneePriority property value. A hint that is used to order items of this type in a list view. For more information, see Using order hints in planner.
      * @param string|null $value Value to set for the assigneePriority property.
     */
     public function setAssigneePriority(?string $value): void {
@@ -628,7 +628,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. The date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the dueDateTime property value. The date and time at which the task is due. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
@@ -652,7 +652,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the isOnMyDay property value. A Boolean value that indicates whether to show this task in the MyDay view. true to show the task. Otherwise, false.
+     * Sets the isOnMyDay property value. Indicates whether to show this task in the MyDay view. If true, it shows the task.
      * @param bool|null $value Value to set for the isOnMyDay property.
     */
     public function setIsOnMyDay(?bool $value): void {
@@ -668,7 +668,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in Plannern.
+     * Sets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in plannern.
      * @param string|null $value Value to set for the orderHint property.
     */
     public function setOrderHint(?string $value): void {
@@ -700,7 +700,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'. Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
+     * Sets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'. Currently, planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {

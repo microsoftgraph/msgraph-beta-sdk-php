@@ -90,6 +90,8 @@ class ServiceStatus implements AdditionalDataHolder, BackedModel, Parsable
             'backupServiceConsumer' => fn(ParseNode $n) => $o->setBackupServiceConsumer($n->getEnumValue(BackupServiceConsumer::class)),
             'disableReason' => fn(ParseNode $n) => $o->setDisableReason($n->getEnumValue(DisableReason::class)),
             'gracePeriodDateTime' => fn(ParseNode $n) => $o->setGracePeriodDateTime($n->getDateTimeValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restoreAllowedTillDateTime' => fn(ParseNode $n) => $o->setRestoreAllowedTillDateTime($n->getDateTimeValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(BackupServiceStatus::class)),
@@ -106,6 +108,30 @@ class ServiceStatus implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'gracePeriodDateTime'");
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. Identity of the person who last modified the entity.
+     * @return IdentitySet|null
+    */
+    public function getLastModifiedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. Timestamp of the last modification of the entity.
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -152,6 +178,8 @@ class ServiceStatus implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeEnumValue('backupServiceConsumer', $this->getBackupServiceConsumer());
         $writer->writeEnumValue('disableReason', $this->getDisableReason());
         $writer->writeDateTimeValue('gracePeriodDateTime', $this->getGracePeriodDateTime());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('restoreAllowedTillDateTime', $this->getRestoreAllowedTillDateTime());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -196,6 +224,22 @@ class ServiceStatus implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setGracePeriodDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('gracePeriodDateTime', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. Identity of the person who last modified the entity.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. Timestamp of the last modification of the entity.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**

@@ -320,7 +320,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the passwordPolicies property value. Specifies password policies for the user. See standard [user] resource for more details.
+     * Gets the passwordPolicies property value. Specifies password policies for the user. For more details, see the standard [user] resource.
      * @return string|null
     */
     public function getPasswordPolicies(): ?string {
@@ -332,7 +332,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for more details.
+     * Gets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. For more details, see the standard [user] resource.
      * @return PasswordProfile|null
     */
     public function getPasswordProfile(): ?PasswordProfile {
@@ -498,7 +498,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the teacher property value. If the primary role is teacher, this block will contain teacher specific data.
+     * Gets the teacher property value. If the primary role is teacher, this block contains teacher specific data.
      * @return EducationTeacher|null
     */
     public function getTeacher(): ?EducationTeacher {
@@ -510,7 +510,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the usageLocation property value. A two-letter country code ([ISO 3166 Alpha-2]). Required for users who will be assigned licenses. Not nullable. Supports /$filter.
+     * Gets the usageLocation property value. A two-letter country code ([ISO 3166 Alpha-2]). Required for users who are assigned licenses. Not nullable. Supports /$filter.
      * @return string|null
     */
     public function getUsageLocation(): ?string {
@@ -534,7 +534,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The user principal name (UPN) for the user. Supports $filter and $orderby. See standard [user] resource for additional details.
+     * Gets the userPrincipalName property value. The user principal name (UPN) for the user. Supports $filter and $orderby. For more details, see the standard [user] resource.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -756,7 +756,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the passwordPolicies property value. Specifies password policies for the user. See standard [user] resource for more details.
+     * Sets the passwordPolicies property value. Specifies password policies for the user. For more details, see the standard [user] resource.
      * @param string|null $value Value to set for the passwordPolicies property.
     */
     public function setPasswordPolicies(?string $value): void {
@@ -764,7 +764,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for more details.
+     * Sets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. For more details, see the standard [user] resource.
      * @param PasswordProfile|null $value Value to set for the passwordProfile property.
     */
     public function setPasswordProfile(?PasswordProfile $value): void {
@@ -868,7 +868,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the teacher property value. If the primary role is teacher, this block will contain teacher specific data.
+     * Sets the teacher property value. If the primary role is teacher, this block contains teacher specific data.
      * @param EducationTeacher|null $value Value to set for the teacher property.
     */
     public function setTeacher(?EducationTeacher $value): void {
@@ -876,7 +876,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the usageLocation property value. A two-letter country code ([ISO 3166 Alpha-2]). Required for users who will be assigned licenses. Not nullable. Supports /$filter.
+     * Sets the usageLocation property value. A two-letter country code ([ISO 3166 Alpha-2]). Required for users who are assigned licenses. Not nullable. Supports /$filter.
      * @param string|null $value Value to set for the usageLocation property.
     */
     public function setUsageLocation(?string $value): void {
@@ -892,7 +892,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The user principal name (UPN) for the user. Supports $filter and $orderby. See standard [user] resource for additional details.
+     * Sets the userPrincipalName property value. The user principal name (UPN) for the user. Supports $filter and $orderby. For more details, see the standard [user] resource.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

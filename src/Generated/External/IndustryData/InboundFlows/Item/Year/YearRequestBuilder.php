@@ -31,7 +31,7 @@ class YearRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The year that the data brought in via this flow applies to.
+     * The year associated to the data that this flow brings in.
      * @param YearRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class YearRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The year that the data brought in via this flow applies to.
+     * The year associated to the data that this flow brings in.
      * @param YearRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

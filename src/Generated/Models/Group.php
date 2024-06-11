@@ -775,7 +775,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the group synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only.
+     * Gets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the group synchronized from on-premises to the cloud. Read-only. Returned by default. Supports $filter (eq including on null values). Read-only.
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
@@ -981,7 +981,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the securityIdentifier property value. Security identifier of the group, used in Windows scenarios. Returned by default.
+     * Gets the securityIdentifier property value. Security identifier of the group, used in Windows scenarios. Read-only. Returned by default.
      * @return string|null
     */
     public function getSecurityIdentifier(): ?string {
@@ -1653,7 +1653,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the group synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only.
+     * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the group synchronized from on-premises to the cloud. Read-only. Returned by default. Supports $filter (eq including on null values). Read-only.
      * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {
@@ -1781,7 +1781,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the securityIdentifier property value. Security identifier of the group, used in Windows scenarios. Returned by default.
+     * Sets the securityIdentifier property value. Security identifier of the group, used in Windows scenarios. Read-only. Returned by default.
      * @param string|null $value Value to set for the securityIdentifier property.
     */
     public function setSecurityIdentifier(?string $value): void {

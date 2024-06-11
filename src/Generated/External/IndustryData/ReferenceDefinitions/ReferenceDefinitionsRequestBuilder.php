@@ -67,11 +67,12 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to referenceDefinitions for external
+     * Create a new referenceDefinition object. referenceDefinition objects associate incoming data with standardized reference types values for validation. You can extend the following reference types with other codes that better align with your source data.
      * @param ReferenceDefinition $body The request body
      * @param ReferenceDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReferenceDefinition|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/industrydata-referencedefinition-post?view=graph-rest-beta Find more info here
     */
     public function post(ReferenceDefinition $body, ?ReferenceDefinitionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -103,7 +104,7 @@ class ReferenceDefinitionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to referenceDefinitions for external
+     * Create a new referenceDefinition object. referenceDefinition objects associate incoming data with standardized reference types values for validation. You can extend the following reference types with other codes that better align with your source data.
      * @param ReferenceDefinition $body The request body
      * @param ReferenceDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

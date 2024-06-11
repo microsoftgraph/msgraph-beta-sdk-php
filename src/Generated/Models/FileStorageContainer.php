@@ -190,7 +190,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the lockState property value. The lockState property
+     * Gets the lockState property value. Indicates the lock state of the fileStorageContainer. The possible values are unlocked and lockedReadOnly. Read-only.
      * @return SiteLockState|null
     */
     public function getLockState(): ?SiteLockState {
@@ -266,7 +266,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the storageUsedInBytes property value. Storage used in the fileStorageContainer. In bytes. Read-only.
+     * Gets the storageUsedInBytes property value. Storage used in the fileStorageContainer, in bytes. Read-only.
      * @return int|null
     */
     public function getStorageUsedInBytes(): ?int {
@@ -405,7 +405,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the lockState property value. The lockState property
+     * Sets the lockState property value. Indicates the lock state of the fileStorageContainer. The possible values are unlocked and lockedReadOnly. Read-only.
      * @param SiteLockState|null $value Value to set for the lockState property.
     */
     public function setLockState(?SiteLockState $value): void {
@@ -453,7 +453,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the storageUsedInBytes property value. Storage used in the fileStorageContainer. In bytes. Read-only.
+     * Sets the storageUsedInBytes property value. Storage used in the fileStorageContainer, in bytes. Read-only.
      * @param int|null $value Value to set for the storageUsedInBytes property.
     */
     public function setStorageUsedInBytes(?int $value): void {

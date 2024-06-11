@@ -31,7 +31,7 @@ class DataConnectorRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The data connector in the context of which this flow pulls in data from a source system.
+     * The data connector to the source system from where this flow gets its data.
      * @param DataConnectorRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataConnector|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class DataConnectorRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The data connector in the context of which this flow pulls in data from a source system.
+     * The data connector to the source system from where this flow gets its data.
      * @param DataConnectorRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

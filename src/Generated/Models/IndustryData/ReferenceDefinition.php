@@ -51,6 +51,18 @@ class ReferenceDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the displayName property value. A human-readable representation of the reference code value for display in a user interface.
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -59,6 +71,7 @@ class ReferenceDefinition extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'referenceType' => fn(ParseNode $n) => $o->setReferenceType($n->getStringValue()),
@@ -68,7 +81,7 @@ class ReferenceDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDisabled property value. Indicates whether the definition has been disabled.
+     * Gets the isDisabled property value. Indicates whether the definition is disabled.
      * @return bool|null
     */
     public function getIsDisabled(): ?bool {
@@ -104,7 +117,7 @@ class ReferenceDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the sortIndex property value. The ordering index to present the definitions within a type consistently in user interfaces.
+     * Gets the sortIndex property value. The index that specifies the order in which to present the definition to the user. Must be unique within the referenceType.
      * @return int|null
     */
     public function getSortIndex(): ?int {
@@ -134,6 +147,7 @@ class ReferenceDefinition extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('code', $this->getCode());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
         $writer->writeStringValue('referenceType', $this->getReferenceType());
         $writer->writeIntegerValue('sortIndex', $this->getSortIndex());
@@ -156,7 +170,15 @@ class ReferenceDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDisabled property value. Indicates whether the definition has been disabled.
+     * Sets the displayName property value. A human-readable representation of the reference code value for display in a user interface.
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the isDisabled property value. Indicates whether the definition is disabled.
      * @param bool|null $value Value to set for the isDisabled property.
     */
     public function setIsDisabled(?bool $value): void {
@@ -180,7 +202,7 @@ class ReferenceDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the sortIndex property value. The ordering index to present the definitions within a type consistently in user interfaces.
+     * Sets the sortIndex property value. The index that specifies the order in which to present the definition to the user. Must be unique within the referenceType.
      * @param int|null $value Value to set for the sortIndex property.
     */
     public function setSortIndex(?int $value): void {

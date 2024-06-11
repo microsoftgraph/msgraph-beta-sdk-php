@@ -31,11 +31,12 @@ class AssignSensitivityLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action assignSensitivityLabel
+     * Assign a sensitivity label to a plannerRoster object.
      * @param AssignSensitivityLabelPostRequestBody $body The request body
      * @param AssignSensitivityLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerRoster|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/plannerroster-assignsensitivitylabel?view=graph-rest-beta Find more info here
     */
     public function post(AssignSensitivityLabelPostRequestBody $body, ?AssignSensitivityLabelRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class AssignSensitivityLabelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action assignSensitivityLabel
+     * Assign a sensitivity label to a plannerRoster object.
      * @param AssignSensitivityLabelPostRequestBody $body The request body
      * @param AssignSensitivityLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
