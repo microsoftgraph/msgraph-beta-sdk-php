@@ -45,7 +45,7 @@ class HardwarePasswordInfoItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The hardware password info for this account.
+     * Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices. Starting from June, 2024 (Intune Release 2406), this type will no longer be supported and will be marked as deprecated
      * @param HardwarePasswordInfoItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwarePasswordInfo|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class HardwarePasswordInfoItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The hardware password info for this account.
+     * Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices. Starting from June, 2024 (Intune Release 2406), this type will no longer be supported and will be marked as deprecated
      * @param HardwarePasswordInfoItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

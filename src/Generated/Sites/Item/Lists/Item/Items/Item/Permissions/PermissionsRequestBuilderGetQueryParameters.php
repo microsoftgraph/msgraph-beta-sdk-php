@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Permis
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get permissions from sites
+ * The set of permissions for the item. Read-only. Nullable.
 */
 class PermissionsRequestBuilderGetQueryParameters 
 {

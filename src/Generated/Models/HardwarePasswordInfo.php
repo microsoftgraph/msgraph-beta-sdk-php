@@ -29,7 +29,7 @@ class HardwarePasswordInfo extends Entity implements Parsable
     }
 
     /**
-     * Gets the currentPassword property value. Current device password
+     * Gets the currentPassword property value. Current device password. This property is read-only.
      * @return string|null
     */
     public function getCurrentPassword(): ?string {
@@ -61,7 +61,7 @@ class HardwarePasswordInfo extends Entity implements Parsable
     }
 
     /**
-     * Gets the previousPasswords property value. List of previous device passwords
+     * Gets the previousPasswords property value. List of previous device passwords. This property is read-only.
      * @return array<string>|null
     */
     public function getPreviousPasswords(): ?array {
@@ -75,7 +75,7 @@ class HardwarePasswordInfo extends Entity implements Parsable
     }
 
     /**
-     * Gets the serialNumber property value. Device serial number
+     * Gets the serialNumber property value. Associated device's serial number . This property is read-only.
      * @return string|null
     */
     public function getSerialNumber(): ?string {
@@ -96,7 +96,7 @@ class HardwarePasswordInfo extends Entity implements Parsable
     }
 
     /**
-     * Sets the currentPassword property value. Current device password
+     * Sets the currentPassword property value. Current device password. This property is read-only.
      * @param string|null $value Value to set for the currentPassword property.
     */
     public function setCurrentPassword(?string $value): void {
@@ -104,7 +104,7 @@ class HardwarePasswordInfo extends Entity implements Parsable
     }
 
     /**
-     * Sets the previousPasswords property value. List of previous device passwords
+     * Sets the previousPasswords property value. List of previous device passwords. This property is read-only.
      * @param array<string>|null $value Value to set for the previousPasswords property.
     */
     public function setPreviousPasswords(?array $value): void {
@@ -112,7 +112,7 @@ class HardwarePasswordInfo extends Entity implements Parsable
     }
 
     /**
-     * Sets the serialNumber property value. Device serial number
+     * Sets the serialNumber property value. Associated device's serial number . This property is read-only.
      * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {

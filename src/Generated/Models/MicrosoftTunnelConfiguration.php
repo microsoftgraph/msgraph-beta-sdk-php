@@ -204,7 +204,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the network property value. The subnet that will be used to allocate virtual address for the clients
+     * Gets the network property value. The IPv4 subnet that will be used to allocate virtual address for the clients
      * @return string|null
     */
     public function getNetwork(): ?string {
@@ -387,7 +387,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the network property value. The subnet that will be used to allocate virtual address for the clients
+     * Sets the network property value. The IPv4 subnet that will be used to allocate virtual address for the clients
      * @param string|null $value Value to set for the network property.
     */
     public function setNetwork(?string $value): void {

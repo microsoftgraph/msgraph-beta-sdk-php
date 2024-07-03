@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordInfo;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The hardware password info for this account.
+ * Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices. Starting from June, 2024 (Intune Release 2406), this type will no longer be supported and will be marked as deprecated
 */
 class HardwarePasswordInfoRequestBuilderGetQueryParameters 
 {

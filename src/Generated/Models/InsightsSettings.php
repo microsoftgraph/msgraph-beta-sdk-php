@@ -25,7 +25,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the disabledForGroup property value. The ID of a Microsoft Entra group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
+     * Gets the disabledForGroup property value. The ID of a Microsoft Entra group, of which the specified type of insights are disabled for its members. The default value is null. Optional.
      * @return string|null
     */
     public function getDisabledForGroup(): ?string {
@@ -49,7 +49,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabledInOrganization property value. true if insights of the specified type are enabled for the organization; false if insights of the specified type are disabled for all users without exceptions. Default is true. Optional.
+     * Gets the isEnabledInOrganization property value. true if insights of the specified type are enabled for the organization; false if insights of the specified type are disabled for all users without exceptions. The default value is true. Optional.
      * @return bool|null
     */
     public function getIsEnabledInOrganization(): ?bool {
@@ -71,7 +71,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the disabledForGroup property value. The ID of a Microsoft Entra group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
+     * Sets the disabledForGroup property value. The ID of a Microsoft Entra group, of which the specified type of insights are disabled for its members. The default value is null. Optional.
      * @param string|null $value Value to set for the disabledForGroup property.
     */
     public function setDisabledForGroup(?string $value): void {
@@ -79,7 +79,7 @@ class InsightsSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabledInOrganization property value. true if insights of the specified type are enabled for the organization; false if insights of the specified type are disabled for all users without exceptions. Default is true. Optional.
+     * Sets the isEnabledInOrganization property value. true if insights of the specified type are enabled for the organization; false if insights of the specified type are disabled for all users without exceptions. The default value is true. Optional.
      * @param bool|null $value Value to set for the isEnabledInOrganization property.
     */
     public function setIsEnabledInOrganization(?bool $value): void {

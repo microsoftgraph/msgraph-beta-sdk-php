@@ -67,11 +67,12 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to registrations for solutions
+     * Create a registration record for a registrant of a webinar. This method registers the person for the webinar. 
      * @param VirtualEventRegistration $body The request body
      * @param RegistrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventRegistration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventwebinar-post-registrations?view=graph-rest-beta Find more info here
     */
     public function post(VirtualEventRegistration $body, ?RegistrationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -103,7 +104,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to registrations for solutions
+     * Create a registration record for a registrant of a webinar. This method registers the person for the webinar. 
      * @param VirtualEventRegistration $body The request body
      * @param RegistrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -96,7 +96,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the preferredLanguage property value. The preferredLanguage property
+     * Gets the preferredLanguage property value. The registrant's preferred language.
      * @return string|null
     */
     public function getPreferredLanguage(): ?string {
@@ -108,7 +108,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the preferredTimezone property value. The preferredTimezone property
+     * Gets the preferredTimezone property value. The registrant's time zone details.
      * @return string|null
     */
     public function getPreferredTimezone(): ?string {
@@ -235,7 +235,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the preferredLanguage property value. The preferredLanguage property
+     * Sets the preferredLanguage property value. The registrant's preferred language.
      * @param string|null $value Value to set for the preferredLanguage property.
     */
     public function setPreferredLanguage(?string $value): void {
@@ -243,7 +243,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the preferredTimezone property value. The preferredTimezone property
+     * Sets the preferredTimezone property value. The registrant's time zone details.
      * @param string|null $value Value to set for the preferredTimezone property.
     */
     public function setPreferredTimezone(?string $value): void {

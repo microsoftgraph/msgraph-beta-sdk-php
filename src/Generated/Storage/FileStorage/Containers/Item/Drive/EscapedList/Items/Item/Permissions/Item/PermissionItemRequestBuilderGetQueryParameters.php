@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Dri
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get permissions from storage
+ * The set of permissions for the item. Read-only. Nullable.
 */
 class PermissionItemRequestBuilderGetQueryParameters 
 {

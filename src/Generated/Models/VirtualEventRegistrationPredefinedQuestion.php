@@ -37,7 +37,7 @@ class VirtualEventRegistrationPredefinedQuestion extends VirtualEventRegistratio
     }
 
     /**
-     * Gets the label property value. The label property
+     * Gets the label property value. Label of the predefined registration question. The following label values accept a single line  of text: street, city, state, postalCode, countryOrRegion, industry, jobTitle, and organization. unknownFutureValue is an evolvable enumeration sentinel value; do not use this label.
      * @return VirtualEventRegistrationPredefinedQuestionLabel|null
     */
     public function getLabel(): ?VirtualEventRegistrationPredefinedQuestionLabel {
@@ -58,7 +58,7 @@ class VirtualEventRegistrationPredefinedQuestion extends VirtualEventRegistratio
     }
 
     /**
-     * Sets the label property value. The label property
+     * Sets the label property value. Label of the predefined registration question. The following label values accept a single line  of text: street, city, state, postalCode, countryOrRegion, industry, jobTitle, and organization. unknownFutureValue is an evolvable enumeration sentinel value; do not use this label.
      * @param VirtualEventRegistrationPredefinedQuestionLabel|null $value Value to set for the label property.
     */
     public function setLabel(?VirtualEventRegistrationPredefinedQuestionLabel $value): void {

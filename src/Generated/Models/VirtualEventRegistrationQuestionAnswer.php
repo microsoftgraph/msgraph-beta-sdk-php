@@ -57,7 +57,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the booleanValue property value. Boolean answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is boolean.
+     * Gets the booleanValue property value. Boolean answer to the virtualEventRegistrationCustomQuestion. Only appears when answerInputType is boolean.
      * @return bool|null
     */
     public function getBooleanValue(): ?bool {
@@ -104,7 +104,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the multiChoiceValues property value. Collection of text answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is multiChoice.
+     * Gets the multiChoiceValues property value. A collection of text answers to the virtualEventRegistrationCustomQuestion. Only appears when answerInputType is multiChoice.
      * @return array<string>|null
     */
     public function getMultiChoiceValues(): ?array {
@@ -130,7 +130,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the questionId property value. id of the virtualEventRegistrationQuestion.
+     * Gets the questionId property value. The identifier of either a virtualEventRegistrationCustomQuestion or a virtualEventRegistrationPredefinedQuestion.
      * @return string|null
     */
     public function getQuestionId(): ?string {
@@ -142,7 +142,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the value property value. Text answer of the virtualEventRegistrationQuestion. Appears when answerInputType is text, multilineText or singleChoice.
+     * Gets the value property value. Text answer to the virtualEventRegistrationCustomQuestion or the virtualEventRegistrationPredefinedQuestion. Appears when answerInputType is text, multilineText or singleChoice.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -184,7 +184,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the booleanValue property value. Boolean answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is boolean.
+     * Sets the booleanValue property value. Boolean answer to the virtualEventRegistrationCustomQuestion. Only appears when answerInputType is boolean.
      * @param bool|null $value Value to set for the booleanValue property.
     */
     public function setBooleanValue(?bool $value): void {
@@ -200,7 +200,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the multiChoiceValues property value. Collection of text answer of the virtualEventRegistrationQuestion. Only appears when answerInputType is multiChoice.
+     * Sets the multiChoiceValues property value. A collection of text answers to the virtualEventRegistrationCustomQuestion. Only appears when answerInputType is multiChoice.
      * @param array<string>|null $value Value to set for the multiChoiceValues property.
     */
     public function setMultiChoiceValues(?array $value): void {
@@ -216,7 +216,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the questionId property value. id of the virtualEventRegistrationQuestion.
+     * Sets the questionId property value. The identifier of either a virtualEventRegistrationCustomQuestion or a virtualEventRegistrationPredefinedQuestion.
      * @param string|null $value Value to set for the questionId property.
     */
     public function setQuestionId(?string $value): void {
@@ -224,7 +224,7 @@ class VirtualEventRegistrationQuestionAnswer implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the value property value. Text answer of the virtualEventRegistrationQuestion. Appears when answerInputType is text, multilineText or singleChoice.
+     * Sets the value property value. Text answer to the virtualEventRegistrationCustomQuestion or the virtualEventRegistrationPredefinedQuestion. Appears when answerInputType is text, multilineText or singleChoice.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAss
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+ * Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
 */
 class PrincipalsRequestBuilderGetQueryParameters 
 {

@@ -27,7 +27,7 @@ class VirtualEventRegistrationCustomQuestion extends VirtualEventRegistrationQue
     }
 
     /**
-     * Gets the answerChoices property value. The answerChoices property
+     * Gets the answerChoices property value. Answer choices when answerInputType is singleChoice or multiChoice.
      * @return array<string>|null
     */
     public function getAnswerChoices(): ?array {
@@ -41,7 +41,7 @@ class VirtualEventRegistrationCustomQuestion extends VirtualEventRegistrationQue
     }
 
     /**
-     * Gets the answerInputType property value. The answerInputType property
+     * Gets the answerInputType property value. Input type of the registration question answer.
      * @return VirtualEventRegistrationQuestionAnswerInputType|null
     */
     public function getAnswerInputType(): ?VirtualEventRegistrationQuestionAnswerInputType {
@@ -82,7 +82,7 @@ class VirtualEventRegistrationCustomQuestion extends VirtualEventRegistrationQue
     }
 
     /**
-     * Sets the answerChoices property value. The answerChoices property
+     * Sets the answerChoices property value. Answer choices when answerInputType is singleChoice or multiChoice.
      * @param array<string>|null $value Value to set for the answerChoices property.
     */
     public function setAnswerChoices(?array $value): void {
@@ -90,7 +90,7 @@ class VirtualEventRegistrationCustomQuestion extends VirtualEventRegistrationQue
     }
 
     /**
-     * Sets the answerInputType property value. The answerInputType property
+     * Sets the answerInputType property value. Input type of the registration question answer.
      * @param VirtualEventRegistrationQuestionAnswerInputType|null $value Value to set for the answerInputType property.
     */
     public function setAnswerInputType(?VirtualEventRegistrationQuestionAnswerInputType $value): void {

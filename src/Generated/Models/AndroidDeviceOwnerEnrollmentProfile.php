@@ -126,7 +126,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentTokenUsageCount property value. Total number of AOSP devices that have enrolled using the current token.
+     * Gets the enrollmentTokenUsageCount property value. Total number of AOSP devices that have enrolled using the current token. Valid values 0 to 20000
      * @return int|null
     */
     public function getEnrollmentTokenUsageCount(): ?int {
@@ -415,7 +415,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentTokenUsageCount property value. Total number of AOSP devices that have enrolled using the current token.
+     * Sets the enrollmentTokenUsageCount property value. Total number of AOSP devices that have enrolled using the current token. Valid values 0 to 20000
      * @param int|null $value Value to set for the enrollmentTokenUsageCount property.
     */
     public function setEnrollmentTokenUsageCount(?int $value): void {

@@ -183,7 +183,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the manufacturer property value. The manufacturer name of the device.
+     * Gets the manufacturer property value. The manufacturer name of the device. Deprecated in favor of DeviceManufacturerName.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -207,7 +207,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the model property value. The model name of the device.
+     * Gets the model property value. The model name of the device. Deprecated in favor of DeviceModelName.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -320,7 +320,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the manufacturer property value. The manufacturer name of the device.
+     * Sets the manufacturer property value. The manufacturer name of the device. Deprecated in favor of DeviceManufacturerName.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -336,7 +336,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the model property value. The model name of the device.
+     * Sets the model property value. The model name of the device. Deprecated in favor of DeviceModelName.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
