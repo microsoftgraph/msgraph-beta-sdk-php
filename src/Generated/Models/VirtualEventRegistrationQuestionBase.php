@@ -33,7 +33,7 @@ class VirtualEventRegistrationQuestionBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of the registration question.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -57,7 +57,7 @@ class VirtualEventRegistrationQuestionBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the isRequired property value. The isRequired property
+     * Gets the isRequired property value. Indicates whether an answer to the question is required. The default value is false.
      * @return bool|null
     */
     public function getIsRequired(): ?bool {
@@ -79,7 +79,7 @@ class VirtualEventRegistrationQuestionBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name of the registration question.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -87,7 +87,7 @@ class VirtualEventRegistrationQuestionBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the isRequired property value. The isRequired property
+     * Sets the isRequired property value. Indicates whether an answer to the question is required. The default value is false.
      * @param bool|null $value Value to set for the isRequired property.
     */
     public function setIsRequired(?bool $value): void {

@@ -105,7 +105,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the enforcedGrantControls property value. Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
+     * Gets the enforcedGrantControls property value. Refers to the grant controls enforced by the conditional access policy (example: 'Require multifactor authentication').
      * @return array<string>|null
     */
     public function getEnforcedGrantControls(): ?array {
@@ -322,7 +322,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the enforcedGrantControls property value. Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
+     * Sets the enforcedGrantControls property value. Refers to the grant controls enforced by the conditional access policy (example: 'Require multifactor authentication').
      * @param array<string>|null $value Value to set for the enforcedGrantControls property.
     */
     public function setEnforcedGrantControls(?array $value): void {

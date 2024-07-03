@@ -51,10 +51,11 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sessions from solutions
+     * Get a list of sessions that a registrant registered for in a webinar.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventSessionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualeventregistration-list-sessions?view=graph-rest-beta Find more info here
     */
     public function get(?SessionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sessions from solutions
+     * Get a list of sessions that a registrant registered for in a webinar.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

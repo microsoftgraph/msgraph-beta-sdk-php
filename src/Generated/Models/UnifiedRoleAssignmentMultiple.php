@@ -26,7 +26,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the appScopeIds property value. Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
+     * Gets the appScopeIds property value. Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determine the set of resources for which the principal has access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
      * @return array<string>|null
     */
     public function getAppScopeIds(): ?array {
@@ -92,7 +92,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the directoryScopes property value. Read-only collection that references the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Gets the directoryScopes property value. Read-only collection that references the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getDirectoryScopes(): ?array {
@@ -160,7 +160,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the principalIds property value. Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only).
+     * Gets the principalIds property value. Identifiers of the principals to which the assignment is granted. Supports $filter (any operator only).
      * @return array<string>|null
     */
     public function getPrincipalIds(): ?array {
@@ -174,7 +174,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the principals property value. Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Gets the principals property value. Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getPrincipals(): ?array {
@@ -188,7 +188,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleDefinition property value. Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment.  Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.
+     * Gets the roleDefinition property value. Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.
      * @return UnifiedRoleDefinition|null
     */
     public function getRoleDefinition(): ?UnifiedRoleDefinition {
@@ -231,7 +231,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the appScopeIds property value. Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
+     * Sets the appScopeIds property value. Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determine the set of resources for which the principal has access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
      * @param array<string>|null $value Value to set for the appScopeIds property.
     */
     public function setAppScopeIds(?array $value): void {
@@ -271,7 +271,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the directoryScopes property value. Read-only collection that references the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Sets the directoryScopes property value. Read-only collection that references the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the directoryScopes property.
     */
     public function setDirectoryScopes(?array $value): void {
@@ -287,7 +287,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the principalIds property value. Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only).
+     * Sets the principalIds property value. Identifiers of the principals to which the assignment is granted. Supports $filter (any operator only).
      * @param array<string>|null $value Value to set for the principalIds property.
     */
     public function setPrincipalIds(?array $value): void {
@@ -295,7 +295,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the principals property value. Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+     * Sets the principals property value. Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the principals property.
     */
     public function setPrincipals(?array $value): void {
@@ -303,7 +303,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleDefinition property value. Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment.  Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.
+     * Sets the roleDefinition property value. Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.
      * @param UnifiedRoleDefinition|null $value Value to set for the roleDefinition property.
     */
     public function setRoleDefinition(?UnifiedRoleDefinition $value): void {

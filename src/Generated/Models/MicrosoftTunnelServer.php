@@ -29,7 +29,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the agentImageDigest property value. The digest of the current agent image running on this server
+     * Gets the agentImageDigest property value. The digest of the current agent image running on this server. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
      * @return string|null
     */
     public function getAgentImageDigest(): ?string {
@@ -41,7 +41,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the deploymentMode property value. Microsoft Tunnel server deployment mode. The value is set when the server is registered. Possible values are standaloneRootful, standaloneRootless, podRootful, podRootless. Default value: standaloneRootful. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
+     * Gets the deploymentMode property value. Microsoft Tunnel server deployment mode. The value is set when the server is registered. Possible values are standaloneRootful, standaloneRootless, podRootful, podRootless. Default value: standaloneRootful. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only. Possible values are: standaloneRootful, standaloneRootless, podRootful, podRootless, unknownFutureValue.
      * @return MicrosoftTunnelDeploymentMode|null
     */
     public function getDeploymentMode(): ?MicrosoftTunnelDeploymentMode {
@@ -53,7 +53,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name for the server. This property is required when a server is created and cannot be cleared during updates.
+     * Gets the displayName property value. The display name of the server. It is the same as the host name during registration and can be changed later. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Max allowed length is 200 chars.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -81,7 +81,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastCheckinDateTime property value. Indicates when the server last checked in
+     * Gets the lastCheckinDateTime property value. Indicates when the server last checked in. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported Read-only.
      * @return DateTime|null
     */
     public function getLastCheckinDateTime(): ?DateTime {
@@ -93,7 +93,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the serverImageDigest property value. The digest of the current server image running on this server
+     * Gets the serverImageDigest property value. The digest of the current server image running on this server. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
      * @return string|null
     */
     public function getServerImageDigest(): ?string {
@@ -131,7 +131,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the agentImageDigest property value. The digest of the current agent image running on this server
+     * Sets the agentImageDigest property value. The digest of the current agent image running on this server. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
      * @param string|null $value Value to set for the agentImageDigest property.
     */
     public function setAgentImageDigest(?string $value): void {
@@ -139,7 +139,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the deploymentMode property value. Microsoft Tunnel server deployment mode. The value is set when the server is registered. Possible values are standaloneRootful, standaloneRootless, podRootful, podRootless. Default value: standaloneRootful. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
+     * Sets the deploymentMode property value. Microsoft Tunnel server deployment mode. The value is set when the server is registered. Possible values are standaloneRootful, standaloneRootless, podRootful, podRootless. Default value: standaloneRootful. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only. Possible values are: standaloneRootful, standaloneRootless, podRootful, podRootless, unknownFutureValue.
      * @param MicrosoftTunnelDeploymentMode|null $value Value to set for the deploymentMode property.
     */
     public function setDeploymentMode(?MicrosoftTunnelDeploymentMode $value): void {
@@ -147,7 +147,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name for the server. This property is required when a server is created and cannot be cleared during updates.
+     * Sets the displayName property value. The display name of the server. It is the same as the host name during registration and can be changed later. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Max allowed length is 200 chars.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -155,7 +155,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastCheckinDateTime property value. Indicates when the server last checked in
+     * Sets the lastCheckinDateTime property value. Indicates when the server last checked in. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported Read-only.
      * @param DateTime|null $value Value to set for the lastCheckinDateTime property.
     */
     public function setLastCheckinDateTime(?DateTime $value): void {
@@ -163,7 +163,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the serverImageDigest property value. The digest of the current server image running on this server
+     * Sets the serverImageDigest property value. The digest of the current server image running on this server. Supports: $filter, $select, $top, $skip, $orderby. $search is not supported. Read-only.
      * @param string|null $value Value to set for the serverImageDigest property.
     */
     public function setServerImageDigest(?string $value): void {

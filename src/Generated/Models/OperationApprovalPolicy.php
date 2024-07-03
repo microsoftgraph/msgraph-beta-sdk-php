@@ -30,7 +30,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the approverGroupIds property value. The Microsoft Entra ID (Azure AD) security group IDs for the approvers for the policy. This property is required when the policy is created, and is defined by the user to define the possible approvers for the policy.
+     * Gets the approverGroupIds property value. The Microsoft Entra ID (Azure AD) security group IDs for the approvers for the policy. This property is required when the policy is created, and is defined by the IT Admins to define the possible approvers for the policy.
      * @return array<string>|null
     */
     public function getApproverGroupIds(): ?array {
@@ -44,7 +44,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Indicates the description of the policy. Maximum length of the description is 1024 characters. This property is not required, but can be used by the user to describe the policy.
+     * Gets the description property value. Indicates the description of the policy. Maximum length of the description is 1024 characters. This property is not required, but can be used by the IT Admin to describe the policy.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -56,7 +56,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Indicates the display name of the policy. Maximum length of the display name is 128 characters. This property is required when the policy is created, and is defined by the user to identify the policy.
+     * Gets the displayName property value. Indicates the display name of the policy. Maximum length of the display name is 128 characters. This property is required when the policy is created, and is defined by the IT Admins to identify the policy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -116,7 +116,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in user. This property is required, and is defined by the user in order to correctly show the expected experience.
+     * Gets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in IT Admin. This property is required, and is defined by the IT Admins in order to correctly show the expected experience.
      * @return OperationApprovalPolicySet|null
     */
     public function getPolicySet(): ?OperationApprovalPolicySet {
@@ -154,7 +154,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the approverGroupIds property value. The Microsoft Entra ID (Azure AD) security group IDs for the approvers for the policy. This property is required when the policy is created, and is defined by the user to define the possible approvers for the policy.
+     * Sets the approverGroupIds property value. The Microsoft Entra ID (Azure AD) security group IDs for the approvers for the policy. This property is required when the policy is created, and is defined by the IT Admins to define the possible approvers for the policy.
      * @param array<string>|null $value Value to set for the approverGroupIds property.
     */
     public function setApproverGroupIds(?array $value): void {
@@ -162,7 +162,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Indicates the description of the policy. Maximum length of the description is 1024 characters. This property is not required, but can be used by the user to describe the policy.
+     * Sets the description property value. Indicates the description of the policy. Maximum length of the description is 1024 characters. This property is not required, but can be used by the IT Admin to describe the policy.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -170,7 +170,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Indicates the display name of the policy. Maximum length of the display name is 128 characters. This property is required when the policy is created, and is defined by the user to identify the policy.
+     * Sets the displayName property value. Indicates the display name of the policy. Maximum length of the display name is 128 characters. This property is required when the policy is created, and is defined by the IT Admins to identify the policy.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -194,7 +194,7 @@ class OperationApprovalPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in user. This property is required, and is defined by the user in order to correctly show the expected experience.
+     * Sets the policySet property value. Indicates areas of the Intune UX that could support MAA UX for the current logged in IT Admin. This property is required, and is defined by the IT Admins in order to correctly show the expected experience.
      * @param OperationApprovalPolicySet|null $value Value to set for the policySet property.
     */
     public function setPolicySet(?OperationApprovalPolicySet $value): void {

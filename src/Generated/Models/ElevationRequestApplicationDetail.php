@@ -175,7 +175,7 @@ class ElevationRequestApplicationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encoded_leaf_cert1, encoded_leaf_cert2....]
+     * Gets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encodedleafcert1, encodedleafcert2....]
      * @return string|null
     */
     public function getPublisherCert(): ?string {
@@ -297,7 +297,7 @@ class ElevationRequestApplicationDetail implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encoded_leaf_cert1, encoded_leaf_cert2....]
+     * Sets the publisherCert property value. The list of base64 encoded certificate for each signer, for example, string[encodedleafcert1, encodedleafcert2....]
      * @param string|null $value Value to set for the publisherCert property.
     */
     public function setPublisherCert(?string $value): void {

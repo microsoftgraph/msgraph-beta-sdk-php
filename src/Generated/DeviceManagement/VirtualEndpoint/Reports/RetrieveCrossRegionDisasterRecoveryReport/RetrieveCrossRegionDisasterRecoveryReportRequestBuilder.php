@@ -31,11 +31,12 @@ class RetrieveCrossRegionDisasterRecoveryReportRequestBuilder extends BaseReques
     }
 
     /**
-     * Invoke action retrieveCrossRegionDisasterRecoveryReport
+     * Retrieve the Windows 365 cross-region disaster recovery report, including CloudPcId, UserId, DeviceId, CloudPCDeviceDisplayName, UserPrincipalName, IsCrossRegionEnabled, CrossRegionHealthStatus, LicenseType, DisasterRecoveryStatus, CurrentRestorePointDateTime, and ActivationExpirationDateTime.
      * @param RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body The request body
      * @param RetrieveCrossRegionDisasterRecoveryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievecrossregiondisasterrecoveryreport?view=graph-rest-beta Find more info here
     */
     public function post(RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body, ?RetrieveCrossRegionDisasterRecoveryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -48,7 +49,7 @@ class RetrieveCrossRegionDisasterRecoveryReportRequestBuilder extends BaseReques
     }
 
     /**
-     * Invoke action retrieveCrossRegionDisasterRecoveryReport
+     * Retrieve the Windows 365 cross-region disaster recovery report, including CloudPcId, UserId, DeviceId, CloudPCDeviceDisplayName, UserPrincipalName, IsCrossRegionEnabled, CrossRegionHealthStatus, LicenseType, DisasterRecoveryStatus, CurrentRestorePointDateTime, and ActivationExpirationDateTime.
      * @param RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body The request body
      * @param RetrieveCrossRegionDisasterRecoveryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

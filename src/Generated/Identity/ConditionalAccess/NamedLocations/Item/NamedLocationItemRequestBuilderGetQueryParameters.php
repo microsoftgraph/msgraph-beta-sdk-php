@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocatio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a compliantNetworkNamedLocation object.
+ * Retrieve the properties and relationships of an ipNamedLocation object.
 */
 class NamedLocationItemRequestBuilderGetQueryParameters 
 {

@@ -26,7 +26,7 @@ class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB
     }
 
     /**
-     * Gets the devices property value. Defines the rule for filtering devices and whether devices satisfying the rule should be allowed or blocked. Not implemented.
+     * Gets the devices property value. Defines the rule for filtering devices and whether devices satisfying the rule should be allowed or blocked. This property isn't supported on the server side yet.
      * @return DevicesFilter|null
     */
     public function getDevices(): ?DevicesFilter {
@@ -58,7 +58,7 @@ class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB
     }
 
     /**
-     * Sets the devices property value. Defines the rule for filtering devices and whether devices satisfying the rule should be allowed or blocked. Not implemented.
+     * Sets the devices property value. Defines the rule for filtering devices and whether devices satisfying the rule should be allowed or blocked. This property isn't supported on the server side yet.
      * @param DevicesFilter|null $value Value to set for the devices property.
     */
     public function setDevices(?DevicesFilter $value): void {

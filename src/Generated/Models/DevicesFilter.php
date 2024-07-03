@@ -69,7 +69,7 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.
+     * Gets the mode property value. Determines whether devices that satisfy the rule should be allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.
      * @return CrossTenantAccessPolicyTargetConfigurationAccessType|null
     */
     public function getMode(): ?CrossTenantAccessPolicyTargetConfigurationAccessType {
@@ -132,7 +132,7 @@ class DevicesFilter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mode property value. Determines whether devices satisfying the rule should be allowed or blocked.The possible values are: allowed, blocked, unknownFutureValue.
+     * Sets the mode property value. Determines whether devices that satisfy the rule should be allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.
      * @param CrossTenantAccessPolicyTargetConfigurationAccessType|null $value Value to set for the mode property.
     */
     public function setMode(?CrossTenantAccessPolicyTargetConfigurationAccessType $value): void {

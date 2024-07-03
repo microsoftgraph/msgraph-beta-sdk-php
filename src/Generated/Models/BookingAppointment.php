@@ -127,7 +127,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Gets the customerNotes property value. Notes from the customer associated with this appointment. You can get the value only when reading this bookingAppointment by its ID.  You can set this property only when initially creating an appointment with a new customer. After that point, the value is computed from the customer represented by customerId.
+     * Gets the customerNotes property value. Notes from the customer associated with this appointment. You can get the value only when you read this bookingAppointment by its ID. You can set this property only when you initially create an appointment with a new customer.
      * @return string|null
     */
     public function getCustomerNotes(): ?string {
@@ -684,7 +684,7 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the customerNotes property value. Notes from the customer associated with this appointment. You can get the value only when reading this bookingAppointment by its ID.  You can set this property only when initially creating an appointment with a new customer. After that point, the value is computed from the customer represented by customerId.
+     * Sets the customerNotes property value. Notes from the customer associated with this appointment. You can get the value only when you read this bookingAppointment by its ID. You can set this property only when you initially create an appointment with a new customer.
      * @param string|null $value Value to set for the customerNotes property.
     */
     public function setCustomerNotes(?string $value): void {

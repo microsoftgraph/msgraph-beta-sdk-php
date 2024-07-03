@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Permissions\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get permissions from drives
+ * The set of permissions for the item. Read-only. Nullable.
 */
 class PermissionItemRequestBuilderGetQueryParameters 
 {

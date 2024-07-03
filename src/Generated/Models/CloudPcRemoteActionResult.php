@@ -159,7 +159,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the statusDetails property value. The details of the Cloud PC status.
+     * Gets the statusDetails property value. The details of the Cloud PC status. This property is deprecated and will no longer be supported effective August 31, 2024. Use statusDetail instead.
      * @return CloudPcStatusDetails|null
     */
     public function getStatusDetails(): ?CloudPcStatusDetails {
@@ -259,7 +259,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the statusDetails property value. The details of the Cloud PC status.
+     * Sets the statusDetails property value. The details of the Cloud PC status. This property is deprecated and will no longer be supported effective August 31, 2024. Use statusDetail instead.
      * @param CloudPcStatusDetails|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?CloudPcStatusDetails $value): void {

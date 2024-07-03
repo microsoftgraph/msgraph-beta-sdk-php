@@ -1369,7 +1369,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the hardwareConfigurations property value. The hardware configurations for this account.
+     * Gets the hardwareConfigurations property value. BIOS configuration and other settings provides customers the ability to configure hardware/bios settings on the enrolled Windows 10/11 Entra ID joined devices by uploading a configuration file generated with their OEM tool (e.g. Dell Command tool). A BIOS configuration policy can be assigned to multiple devices, allowing admins to remotely control a device's hardware properties (e.g. enable Secure Boot) from the Intune Portal. Supported for Dell only at this time.
      * @return array<HardwareConfiguration>|null
     */
     public function getHardwareConfigurations(): ?array {
@@ -1397,7 +1397,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the hardwarePasswordInfo property value. The hardware password info for this account.
+     * Gets the hardwarePasswordInfo property value. Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices. Starting from June, 2024 (Intune Release 2406), this type will no longer be supported and will be marked as deprecated
      * @return array<HardwarePasswordInfo>|null
     */
     public function getHardwarePasswordInfo(): ?array {
@@ -1453,7 +1453,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the intuneAccountId property value. Intune Account Id for given tenant
+     * Gets the intuneAccountId property value. Intune Account ID for given tenant
      * @return string|null
     */
     public function getIntuneAccountId(): ?string {
@@ -1609,7 +1609,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the maximumDepTokens property value. Maximum number of dep tokens allowed per-tenant.
+     * Gets the maximumDepTokens property value. Maximum number of DEP tokens allowed per-tenant.
      * @return int|null
     */
     public function getMaximumDepTokens(): ?int {
@@ -3741,7 +3741,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the hardwareConfigurations property value. The hardware configurations for this account.
+     * Sets the hardwareConfigurations property value. BIOS configuration and other settings provides customers the ability to configure hardware/bios settings on the enrolled Windows 10/11 Entra ID joined devices by uploading a configuration file generated with their OEM tool (e.g. Dell Command tool). A BIOS configuration policy can be assigned to multiple devices, allowing admins to remotely control a device's hardware properties (e.g. enable Secure Boot) from the Intune Portal. Supported for Dell only at this time.
      * @param array<HardwareConfiguration>|null $value Value to set for the hardwareConfigurations property.
     */
     public function setHardwareConfigurations(?array $value): void {
@@ -3757,7 +3757,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the hardwarePasswordInfo property value. The hardware password info for this account.
+     * Sets the hardwarePasswordInfo property value. Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices. Starting from June, 2024 (Intune Release 2406), this type will no longer be supported and will be marked as deprecated
      * @param array<HardwarePasswordInfo>|null $value Value to set for the hardwarePasswordInfo property.
     */
     public function setHardwarePasswordInfo(?array $value): void {
@@ -3789,7 +3789,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the intuneAccountId property value. Intune Account Id for given tenant
+     * Sets the intuneAccountId property value. Intune Account ID for given tenant
      * @param string|null $value Value to set for the intuneAccountId property.
     */
     public function setIntuneAccountId(?string $value): void {
@@ -3885,7 +3885,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the maximumDepTokens property value. Maximum number of dep tokens allowed per-tenant.
+     * Sets the maximumDepTokens property value. Maximum number of DEP tokens allowed per-tenant.
      * @param int|null $value Value to set for the maximumDepTokens property.
     */
     public function setMaximumDepTokens(?int $value): void {
