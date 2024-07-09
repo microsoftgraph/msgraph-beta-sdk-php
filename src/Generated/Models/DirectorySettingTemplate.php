@@ -64,7 +64,7 @@ class DirectorySettingTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the values property value. Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only.
+     * Gets the values property value. Collection of settingTemplateValues that list the set of available settings, defaults, and types that make up this template. Read-only.
      * @return array<SettingTemplateValue>|null
     */
     public function getValues(): ?array {
@@ -105,7 +105,7 @@ class DirectorySettingTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the values property value. Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only.
+     * Sets the values property value. Collection of settingTemplateValues that list the set of available settings, defaults, and types that make up this template. Read-only.
      * @param array<SettingTemplateValue>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {

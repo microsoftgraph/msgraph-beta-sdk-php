@@ -222,7 +222,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendedActions property value. A rich text string that represents the actions that are reccomnded to take in order to resolve the incident
+     * Gets the recommendedActions property value. A rich text string that represents the actions that are reccomnded to take in order to resolve the incident.
      * @return string|null
     */
     public function getRecommendedActions(): ?string {
@@ -234,7 +234,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendedHuntingQueries property value. List of hunting Kusto Query Language (KQL) queries related to the incident
+     * Gets the recommendedHuntingQueries property value. List of hunting Kusto Query Language (KQL) queries related to the incident.
      * @return array<RecommendedHuntingQuery>|null
     */
     public function getRecommendedHuntingQueries(): ?array {
@@ -446,7 +446,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the recommendedActions property value. A rich text string that represents the actions that are reccomnded to take in order to resolve the incident
+     * Sets the recommendedActions property value. A rich text string that represents the actions that are reccomnded to take in order to resolve the incident.
      * @param string|null $value Value to set for the recommendedActions property.
     */
     public function setRecommendedActions(?string $value): void {
@@ -454,7 +454,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the recommendedHuntingQueries property value. List of hunting Kusto Query Language (KQL) queries related to the incident
+     * Sets the recommendedHuntingQueries property value. List of hunting Kusto Query Language (KQL) queries related to the incident.
      * @param array<RecommendedHuntingQuery>|null $value Value to set for the recommendedHuntingQueries property.
     */
     public function setRecommendedHuntingQueries(?array $value): void {

@@ -26,7 +26,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Gets the authority property value. The authority property
+     * Gets the authority property value. Represents the file plan descriptor of type authority applied to a particular retention label.
      * @return FilePlanAuthority|null
     */
     public function getAuthority(): ?FilePlanAuthority {
@@ -50,7 +50,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. Represents the file plan descriptor of type category applied to a particular retention label.
      * @return FilePlanAppliedCategory|null
     */
     public function getCategory(): ?FilePlanAppliedCategory {
@@ -74,7 +74,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Gets the citation property value. The citation property
+     * Gets the citation property value. Represents the file plan descriptor of type citation applied to a particular retention label.
      * @return FilePlanCitation|null
     */
     public function getCitation(): ?FilePlanCitation {
@@ -98,7 +98,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Gets the department property value. The department property
+     * Gets the department property value. Represents the file plan descriptor of type department applied to a particular retention label.
      * @return FilePlanDepartment|null
     */
     public function getDepartment(): ?FilePlanDepartment {
@@ -142,7 +142,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Gets the filePlanReference property value. The filePlanReference property
+     * Gets the filePlanReference property value. Represents the file plan descriptor of type filePlanReference applied to a particular retention label.
      * @return FilePlanReference|null
     */
     public function getFilePlanReference(): ?FilePlanReference {
@@ -184,7 +184,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Sets the authority property value. The authority property
+     * Sets the authority property value. Represents the file plan descriptor of type authority applied to a particular retention label.
      * @param FilePlanAuthority|null $value Value to set for the authority property.
     */
     public function setAuthority(?FilePlanAuthority $value): void {
@@ -200,7 +200,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. Represents the file plan descriptor of type category applied to a particular retention label.
      * @param FilePlanAppliedCategory|null $value Value to set for the category property.
     */
     public function setCategory(?FilePlanAppliedCategory $value): void {
@@ -216,7 +216,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Sets the citation property value. The citation property
+     * Sets the citation property value. Represents the file plan descriptor of type citation applied to a particular retention label.
      * @param FilePlanCitation|null $value Value to set for the citation property.
     */
     public function setCitation(?FilePlanCitation $value): void {
@@ -232,7 +232,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Sets the department property value. The department property
+     * Sets the department property value. Represents the file plan descriptor of type department applied to a particular retention label.
      * @param FilePlanDepartment|null $value Value to set for the department property.
     */
     public function setDepartment(?FilePlanDepartment $value): void {
@@ -248,7 +248,7 @@ class FilePlanDescriptor extends Entity implements Parsable
     }
 
     /**
-     * Sets the filePlanReference property value. The filePlanReference property
+     * Sets the filePlanReference property value. Represents the file plan descriptor of type filePlanReference applied to a particular retention label.
      * @param FilePlanReference|null $value Value to set for the filePlanReference property.
     */
     public function setFilePlanReference(?FilePlanReference $value): void {

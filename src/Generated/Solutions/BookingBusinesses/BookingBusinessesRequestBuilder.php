@@ -52,7 +52,7 @@ class BookingBusinessesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get bookingBusinesses from solutions
+     * A collection of businesses in Microsoft Bookings. Read-only. Nullable.
      * @param BookingBusinessesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BookingBusinessCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class BookingBusinessesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get bookingBusinesses from solutions
+     * A collection of businesses in Microsoft Bookings. Read-only. Nullable.
      * @param BookingBusinessesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

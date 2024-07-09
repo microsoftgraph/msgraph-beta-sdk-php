@@ -26,7 +26,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the archivalInfo property value. The archivalInfo property
+     * Gets the archivalInfo property value. Read-only. Nullable. Contains information about who archived or unarchived the bucket and why.
      * @return PlannerArchivalInfo|null
     */
     public function getArchivalInfo(): ?PlannerArchivalInfo {
@@ -67,7 +67,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the isArchived property value. The isArchived property
+     * Gets the isArchived property value. Read-only. If set totrue, the bucket is archived. An archived bucket is read-only.
      * @return bool|null
     */
     public function getIsArchived(): ?bool {
@@ -144,7 +144,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the archivalInfo property value. The archivalInfo property
+     * Sets the archivalInfo property value. Read-only. Nullable. Contains information about who archived or unarchived the bucket and why.
      * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
     */
     public function setArchivalInfo(?PlannerArchivalInfo $value): void {
@@ -160,7 +160,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the isArchived property value. The isArchived property
+     * Sets the isArchived property value. Read-only. If set totrue, the bucket is archived. An archived bucket is read-only.
      * @param bool|null $value Value to set for the isArchived property.
     */
     public function setIsArchived(?bool $value): void {

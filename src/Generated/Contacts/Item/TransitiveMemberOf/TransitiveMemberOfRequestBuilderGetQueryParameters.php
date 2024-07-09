@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get transitiveMemberOf from contacts
+ * Get groups that this organizational contact is a member of. The API request is transitive, and returns all groups the organizational contact is a nested member of.
 */
 class TransitiveMemberOfRequestBuilderGetQueryParameters 
 {

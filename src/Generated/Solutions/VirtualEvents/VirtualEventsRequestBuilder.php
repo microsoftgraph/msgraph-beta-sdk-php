@@ -69,7 +69,7 @@ class VirtualEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get virtualEvents from solutions
+     * A collection of virtual events.
      * @param VirtualEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventsRoot|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class VirtualEventsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get virtualEvents from solutions
+     * A collection of virtual events.
      * @param VirtualEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

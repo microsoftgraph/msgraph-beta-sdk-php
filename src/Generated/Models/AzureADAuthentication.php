@@ -26,7 +26,7 @@ class AzureADAuthentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the attainments property value. A list of monthly serviceLevelAgreementAttainment objects.
+     * Gets the attainments property value. SLA data for a Microsoft Entra tenant for a calendar month.
      * @return array<ServiceLevelAgreementAttainment>|null
     */
     public function getAttainments(): ?array {
@@ -60,7 +60,7 @@ class AzureADAuthentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the attainments property value. A list of monthly serviceLevelAgreementAttainment objects.
+     * Sets the attainments property value. SLA data for a Microsoft Entra tenant for a calendar month.
      * @param array<ServiceLevelAgreementAttainment>|null $value Value to set for the attainments property.
     */
     public function setAttainments(?array $value): void {

@@ -30,11 +30,12 @@ class UnarchiveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action unarchive
+     * Unarchive a plannerPlan object. Unarchiving a plan, also unarchives the plannerTasks and plannerBuckets in the plan.  Only a plan that is archived can be unarchived.
      * @param UnarchivePostRequestBody $body The request body
      * @param UnarchiveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/plannerplan-unarchive?view=graph-rest-beta Find more info here
     */
     public function post(UnarchivePostRequestBody $body, ?UnarchiveRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class UnarchiveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action unarchive
+     * Unarchive a plannerPlan object. Unarchiving a plan, also unarchives the plannerTasks and plannerBuckets in the plan.  Only a plan that is archived can be unarchived.
      * @param UnarchivePostRequestBody $body The request body
      * @param UnarchiveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
