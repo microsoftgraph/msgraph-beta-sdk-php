@@ -58,7 +58,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the archivalInfo property value. The archivalInfo property
+     * Gets the archivalInfo property value. Read-only. Nullable. Contains information about who archived or unarchived the task and why.
      * @return PlannerArchivalInfo|null
     */
     public function getArchivalInfo(): ?PlannerArchivalInfo {
@@ -292,7 +292,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the isArchived property value. The isArchived property
+     * Gets the isArchived property value. Read-only. If set to true, the task is archived. An archived task is read-only.
      * @return bool|null
     */
     public function getIsArchived(): ?bool {
@@ -516,7 +516,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the archivalInfo property value. The archivalInfo property
+     * Sets the archivalInfo property value. Read-only. Nullable. Contains information about who archived or unarchived the task and why.
      * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
     */
     public function setArchivalInfo(?PlannerArchivalInfo $value): void {
@@ -644,7 +644,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the isArchived property value. The isArchived property
+     * Sets the isArchived property value. Read-only. If set to true, the task is archived. An archived task is read-only.
      * @param bool|null $value Value to set for the isArchived property.
     */
     public function setIsArchived(?bool $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get virtualEvents from solutions
+ * A collection of virtual events.
 */
 class VirtualEventsRequestBuilderGetQueryParameters 
 {

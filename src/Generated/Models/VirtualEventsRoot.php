@@ -53,7 +53,7 @@ class VirtualEventsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the townhalls property value. The townhalls property
+     * Gets the townhalls property value. A collection of town halls. Nullable.
      * @return array<VirtualEventTownhall>|null
     */
     public function getTownhalls(): ?array {
@@ -67,7 +67,7 @@ class VirtualEventsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the webinars property value. The webinars property
+     * Gets the webinars property value. A collection of webinars. Nullable.
      * @return array<VirtualEventWebinar>|null
     */
     public function getWebinars(): ?array {
@@ -100,7 +100,7 @@ class VirtualEventsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the townhalls property value. The townhalls property
+     * Sets the townhalls property value. A collection of town halls. Nullable.
      * @param array<VirtualEventTownhall>|null $value Value to set for the townhalls property.
     */
     public function setTownhalls(?array $value): void {
@@ -108,7 +108,7 @@ class VirtualEventsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the webinars property value. The webinars property
+     * Sets the webinars property value. A collection of webinars. Nullable.
      * @param array<VirtualEventWebinar>|null $value Value to set for the webinars property.
     */
     public function setWebinars(?array $value): void {

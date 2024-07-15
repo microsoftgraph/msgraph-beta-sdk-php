@@ -69,7 +69,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bookingBusinesses property value. The bookingBusinesses property
+     * Gets the bookingBusinesses property value. A collection of businesses in Microsoft Bookings. Read-only. Nullable.
      * @return array<BookingBusiness>|null
     */
     public function getBookingBusinesses(): ?array {
@@ -83,7 +83,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bookingCurrencies property value. The bookingCurrencies property
+     * Gets the bookingCurrencies property value. A collection of monetary currencies supported by a bookingBusiness. Read-only. Nullable.
      * @return array<BookingCurrency>|null
     */
     public function getBookingCurrencies(): ?array {
@@ -97,7 +97,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the businessScenarios property value. The businessScenarios property
+     * Gets the businessScenarios property value. A collection of scenarios that contain relevant data and configuration information for a specific problem domain.
      * @return array<BusinessScenario>|null
     */
     public function getBusinessScenarios(): ?array {
@@ -139,7 +139,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the virtualEvents property value. The virtualEvents property
+     * Gets the virtualEvents property value. A collection of virtual events.
      * @return VirtualEventsRoot|null
     */
     public function getVirtualEvents(): ?VirtualEventsRoot {
@@ -189,7 +189,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bookingBusinesses property value. The bookingBusinesses property
+     * Sets the bookingBusinesses property value. A collection of businesses in Microsoft Bookings. Read-only. Nullable.
      * @param array<BookingBusiness>|null $value Value to set for the bookingBusinesses property.
     */
     public function setBookingBusinesses(?array $value): void {
@@ -197,7 +197,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bookingCurrencies property value. The bookingCurrencies property
+     * Sets the bookingCurrencies property value. A collection of monetary currencies supported by a bookingBusiness. Read-only. Nullable.
      * @param array<BookingCurrency>|null $value Value to set for the bookingCurrencies property.
     */
     public function setBookingCurrencies(?array $value): void {
@@ -205,7 +205,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the businessScenarios property value. The businessScenarios property
+     * Sets the businessScenarios property value. A collection of scenarios that contain relevant data and configuration information for a specific problem domain.
      * @param array<BusinessScenario>|null $value Value to set for the businessScenarios property.
     */
     public function setBusinessScenarios(?array $value): void {
@@ -221,7 +221,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the virtualEvents property value. The virtualEvents property
+     * Sets the virtualEvents property value. A collection of virtual events.
      * @param VirtualEventsRoot|null $value Value to set for the virtualEvents property.
     */
     public function setVirtualEvents(?VirtualEventsRoot $value): void {

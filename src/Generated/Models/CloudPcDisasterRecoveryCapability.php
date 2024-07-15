@@ -56,7 +56,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the capabilityType property value. The capabilityType property
+     * Gets the capabilityType property value. The disaster recovery action that can be performed for the Cloud PC. The possible values are: none, failover, failback, unknownFutureValue.
      * @return CloudPcDisasterRecoveryCapabilityType|null
     */
     public function getCapabilityType(): ?CloudPcDisasterRecoveryCapabilityType {
@@ -94,7 +94,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the primaryRegion property value. The primaryRegion property
+     * Gets the primaryRegion property value. The primary and mainly used region where the Cloud PC is located.
      * @return string|null
     */
     public function getPrimaryRegion(): ?string {
@@ -106,7 +106,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the secondaryRegion property value. The secondaryRegion property
+     * Gets the secondaryRegion property value. The secondary region to which the Cloud PC can be failed over during a regional outage.
      * @return string|null
     */
     public function getSecondaryRegion(): ?string {
@@ -146,7 +146,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the capabilityType property value. The capabilityType property
+     * Sets the capabilityType property value. The disaster recovery action that can be performed for the Cloud PC. The possible values are: none, failover, failback, unknownFutureValue.
      * @param CloudPcDisasterRecoveryCapabilityType|null $value Value to set for the capabilityType property.
     */
     public function setCapabilityType(?CloudPcDisasterRecoveryCapabilityType $value): void {
@@ -162,7 +162,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the primaryRegion property value. The primaryRegion property
+     * Sets the primaryRegion property value. The primary and mainly used region where the Cloud PC is located.
      * @param string|null $value Value to set for the primaryRegion property.
     */
     public function setPrimaryRegion(?string $value): void {
@@ -170,7 +170,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the secondaryRegion property value. The secondaryRegion property
+     * Sets the secondaryRegion property value. The secondary region to which the Cloud PC can be failed over during a regional outage.
      * @param string|null $value Value to set for the secondaryRegion property.
     */
     public function setSecondaryRegion(?string $value): void {

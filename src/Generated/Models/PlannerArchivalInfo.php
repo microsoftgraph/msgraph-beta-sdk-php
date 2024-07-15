@@ -71,7 +71,7 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the justification property value. The justification property
+     * Gets the justification property value. Read-only. Reason why the entity was archived or unarchived.
      * @return string|null
     */
     public function getJustification(): ?string {
@@ -95,7 +95,7 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the statusChangedBy property value. The statusChangedBy property
+     * Gets the statusChangedBy property value. Read-only. Identity of the user who archived or unarchived the entity
      * @return IdentitySet|null
     */
     public function getStatusChangedBy(): ?IdentitySet {
@@ -107,7 +107,7 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the statusChangedDateTime property value. The statusChangedDateTime property
+     * Gets the statusChangedDateTime property value. Read-only. Date and time at which the entity's archive status changed.
      * @return DateTime|null
     */
     public function getStatusChangedDateTime(): ?DateTime {
@@ -147,7 +147,7 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the justification property value. The justification property
+     * Sets the justification property value. Read-only. Reason why the entity was archived or unarchived.
      * @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value): void {
@@ -163,7 +163,7 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the statusChangedBy property value. The statusChangedBy property
+     * Sets the statusChangedBy property value. Read-only. Identity of the user who archived or unarchived the entity
      * @param IdentitySet|null $value Value to set for the statusChangedBy property.
     */
     public function setStatusChangedBy(?IdentitySet $value): void {
@@ -171,7 +171,7 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the statusChangedDateTime property value. The statusChangedDateTime property
+     * Sets the statusChangedDateTime property value. Read-only. Date and time at which the entity's archive status changed.
      * @param DateTime|null $value Value to set for the statusChangedDateTime property.
     */
     public function setStatusChangedDateTime(?DateTime $value): void {
