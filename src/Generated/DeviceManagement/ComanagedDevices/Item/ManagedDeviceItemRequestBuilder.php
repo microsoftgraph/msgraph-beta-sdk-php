@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ActivateDeviceEsim\ActivateDeviceEsimRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\AssignmentFilterEvaluationStatusDetails\AssignmentFilterEvaluationStatusDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\BypassActivationLock\BypassActivationLockRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ChangeAssignments\ChangeAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\CleanWindowsDevice\CleanWindowsDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\CreateDeviceLogCollectionRequest\CreateDeviceLogCollectionRequestRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\DeleteUserFromSharedAppleDevice\DeleteUserFromSharedAppleDeviceRequestBuilder;
@@ -93,6 +94,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function bypassActivationLock(): BypassActivationLockRequestBuilder {
         return new BypassActivationLockRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the changeAssignments method.
+    */
+    public function changeAssignments(): ChangeAssignmentsRequestBuilder {
+        return new ChangeAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

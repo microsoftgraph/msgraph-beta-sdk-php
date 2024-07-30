@@ -968,6 +968,7 @@ class User extends DirectoryObject implements Parsable
                 /** @var array<string>|null $val */
                 $this->setSkills($val);
             },
+            'solutions' => fn(ParseNode $n) => $o->setSolutions($n->getObjectValue([UserSolutionRoot::class, 'createFromDiscriminatorValue'])),
             'sponsors' => fn(ParseNode $n) => $o->setSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
             'streetAddress' => fn(ParseNode $n) => $o->setStreetAddress($n->getStringValue()),
@@ -2080,6 +2081,18 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the solutions property value. The solutions property
+     * @return UserSolutionRoot|null
+    */
+    public function getSolutions(): ?UserSolutionRoot {
+        $val = $this->getBackingStore()->get('solutions');
+        if (is_null($val) || $val instanceof UserSolutionRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'solutions'");
+    }
+
+    /**
      * Gets the sponsors property value. The users and groups responsible for this guest user's privileges in the tenant and keep the guest user's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
      * @return array<DirectoryObject>|null
     */
@@ -2404,6 +2417,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('signInActivity', $this->getSignInActivity());
         $writer->writeDateTimeValue('signInSessionsValidFromDateTime', $this->getSignInSessionsValidFromDateTime());
         $writer->writeCollectionOfPrimitiveValues('skills', $this->getSkills());
+        $writer->writeObjectValue('solutions', $this->getSolutions());
         $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
         $writer->writeStringValue('state', $this->getState());
         $writer->writeStringValue('streetAddress', $this->getStreetAddress());
@@ -3546,6 +3560,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setSkills(?array $value): void {
         $this->getBackingStore()->set('skills', $value);
+    }
+
+    /**
+     * Sets the solutions property value. The solutions property
+     * @param UserSolutionRoot|null $value Value to set for the solutions property.
+    */
+    public function setSolutions(?UserSolutionRoot $value): void {
+        $this->getBackingStore()->set('solutions', $value);
     }
 
     /**

@@ -19,4 +19,5 @@ class CloudPcStatus extends Enum {
     public const MOVING_REGION = 'movingRegion';
     public const RESIZE_PENDING_LICENSE = 'resizePendingLicense';
     public const UPDATING_SINGLE_SIGN_ON = 'updatingSingleSignOn';
+    public const MODIFYING_SINGLE_SIGN_ON = 'modifyingSingleSignOn';
 }

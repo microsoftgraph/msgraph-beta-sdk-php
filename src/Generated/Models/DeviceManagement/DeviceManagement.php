@@ -93,6 +93,7 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupRule;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupSettings;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceEncryptionState;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceOverview;
+use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceWindowsOperatingSystemImage;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelHealthThreshold;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServerLogCollectionResponse;
@@ -1166,6 +1167,7 @@ class DeviceManagement extends Entity implements Parsable
             'managedDeviceEncryptionStates' => fn(ParseNode $n) => $o->setManagedDeviceEncryptionStates($n->getCollectionOfObjectValues([ManagedDeviceEncryptionState::class, 'createFromDiscriminatorValue'])),
             'managedDeviceOverview' => fn(ParseNode $n) => $o->setManagedDeviceOverview($n->getObjectValue([ManagedDeviceOverview::class, 'createFromDiscriminatorValue'])),
             'managedDevices' => fn(ParseNode $n) => $o->setManagedDevices($n->getCollectionOfObjectValues([ManagedDevice::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceWindowsOSImages' => fn(ParseNode $n) => $o->setManagedDeviceWindowsOSImages($n->getCollectionOfObjectValues([ManagedDeviceWindowsOperatingSystemImage::class, 'createFromDiscriminatorValue'])),
             'maximumDepTokens' => fn(ParseNode $n) => $o->setMaximumDepTokens($n->getIntegerValue()),
             'microsoftTunnelConfigurations' => fn(ParseNode $n) => $o->setMicrosoftTunnelConfigurations($n->getCollectionOfObjectValues([MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'])),
             'microsoftTunnelHealthThresholds' => fn(ParseNode $n) => $o->setMicrosoftTunnelHealthThresholds($n->getCollectionOfObjectValues([MicrosoftTunnelHealthThreshold::class, 'createFromDiscriminatorValue'])),
@@ -1606,6 +1608,20 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDevices'");
+    }
+
+    /**
+     * Gets the managedDeviceWindowsOSImages property value. A list of ManagedDeviceWindowsOperatingSystemImages
+     * @return array<ManagedDeviceWindowsOperatingSystemImage>|null
+    */
+    public function getManagedDeviceWindowsOSImages(): ?array {
+        $val = $this->getBackingStore()->get('managedDeviceWindowsOSImages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ManagedDeviceWindowsOperatingSystemImage::class);
+            /** @var array<ManagedDeviceWindowsOperatingSystemImage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceWindowsOSImages'");
     }
 
     /**
@@ -3070,6 +3086,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('managedDeviceEncryptionStates', $this->getManagedDeviceEncryptionStates());
         $writer->writeObjectValue('managedDeviceOverview', $this->getManagedDeviceOverview());
         $writer->writeCollectionOfObjectValues('managedDevices', $this->getManagedDevices());
+        $writer->writeCollectionOfObjectValues('managedDeviceWindowsOSImages', $this->getManagedDeviceWindowsOSImages());
         $writer->writeIntegerValue('maximumDepTokens', $this->getMaximumDepTokens());
         $writer->writeCollectionOfObjectValues('microsoftTunnelConfigurations', $this->getMicrosoftTunnelConfigurations());
         $writer->writeCollectionOfObjectValues('microsoftTunnelHealthThresholds', $this->getMicrosoftTunnelHealthThresholds());
@@ -3882,6 +3899,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setManagedDevices(?array $value): void {
         $this->getBackingStore()->set('managedDevices', $value);
+    }
+
+    /**
+     * Sets the managedDeviceWindowsOSImages property value. A list of ManagedDeviceWindowsOperatingSystemImages
+     * @param array<ManagedDeviceWindowsOperatingSystemImage>|null $value Value to set for the managedDeviceWindowsOSImages property.
+    */
+    public function setManagedDeviceWindowsOSImages(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceWindowsOSImages', $value);
     }
 
     /**

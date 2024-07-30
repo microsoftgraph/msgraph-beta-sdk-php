@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -41,12 +42,25 @@ class AuthenticationMethod extends Entity implements Parsable
     }
 
     /**
+     * Gets the createdDateTime property value. The createdDateTime property
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
         ]);
     }
 
@@ -56,6 +70,15 @@ class AuthenticationMethod extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+    }
+
+    /**
+     * Sets the createdDateTime property value. The createdDateTime property
+     * @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
 }

@@ -106,6 +106,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'statusDetail' => fn(ParseNode $n) => $o->setStatusDetail($n->getObjectValue([CloudPcStatusDetail::class, 'createFromDiscriminatorValue'])),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getObjectValue([CloudPcStatusDetails::class, 'createFromDiscriminatorValue'])),
         ];
     }
@@ -159,6 +160,18 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the statusDetail property value. The extended details of the action status, including error code, error message, and additional information. For example, 'statusDetail': {'code': 'internalServerError','message': 'There was an internal server error. Please contact support xxx.','additionalInformation': [ { '@odata.type':'microsoft.graph.keyValuePair','name': 'correlationId','value': '52367774-cfb7-4e9c-ab51-1b864c31f2d1'} ]}
+     * @return CloudPcStatusDetail|null
+    */
+    public function getStatusDetail(): ?CloudPcStatusDetail {
+        $val = $this->getBackingStore()->get('statusDetail');
+        if (is_null($val) || $val instanceof CloudPcStatusDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusDetail'");
+    }
+
+    /**
      * Gets the statusDetails property value. The details of the Cloud PC status. This property is deprecated and will no longer be supported effective August 31, 2024. Use statusDetail instead.
      * @return CloudPcStatusDetails|null
     */
@@ -182,6 +195,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeObjectValue('statusDetail', $this->getStatusDetail());
         $writer->writeObjectValue('statusDetails', $this->getStatusDetails());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -256,6 +270,14 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
+    }
+
+    /**
+     * Sets the statusDetail property value. The extended details of the action status, including error code, error message, and additional information. For example, 'statusDetail': {'code': 'internalServerError','message': 'There was an internal server error. Please contact support xxx.','additionalInformation': [ { '@odata.type':'microsoft.graph.keyValuePair','name': 'correlationId','value': '52367774-cfb7-4e9c-ab51-1b864c31f2d1'} ]}
+     * @param CloudPcStatusDetail|null $value Value to set for the statusDetail property.
+    */
+    public function setStatusDetail(?CloudPcStatusDetail $value): void {
+        $this->getBackingStore()->set('statusDetail', $value);
     }
 
     /**
