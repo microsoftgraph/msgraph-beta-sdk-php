@@ -42,6 +42,18 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @return AppleDeploymentChannel|null
+    */
+    public function getDeploymentChannel(): ?AppleDeploymentChannel {
+        $val = $this->getBackingStore()->get('deploymentChannel');
+        if (is_null($val) || $val instanceof AppleDeploymentChannel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentChannel'");
+    }
+
+    /**
      * Gets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
      * @return EapFastConfiguration|null
     */
@@ -85,6 +97,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)),
+            'deploymentChannel' => fn(ParseNode $n) => $o->setDeploymentChannel($n->getEnumValue(AppleDeploymentChannel::class)),
             'eapFastConfiguration' => fn(ParseNode $n) => $o->setEapFastConfiguration($n->getEnumValue(EapFastConfiguration::class)),
             'eapType' => fn(ParseNode $n) => $o->setEapType($n->getEnumValue(EapType::class)),
             'enableOuterIdentityPrivacy' => fn(ParseNode $n) => $o->setEnableOuterIdentityPrivacy($n->getStringValue()),
@@ -185,6 +198,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeEnumValue('deploymentChannel', $this->getDeploymentChannel());
         $writer->writeEnumValue('eapFastConfiguration', $this->getEapFastConfiguration());
         $writer->writeEnumValue('eapType', $this->getEapType());
         $writer->writeStringValue('enableOuterIdentityPrivacy', $this->getEnableOuterIdentityPrivacy());
@@ -202,6 +216,14 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     */
     public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
+    }
+
+    /**
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
+    */
+    public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
+        $this->getBackingStore()->set('deploymentChannel', $value);
     }
 
     /**

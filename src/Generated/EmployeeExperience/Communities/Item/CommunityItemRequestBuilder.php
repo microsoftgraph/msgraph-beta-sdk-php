@@ -47,10 +47,11 @@ class CommunityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property communities for employeeExperience
+     * Delete a Viva Engage community along with all associated Microsoft 365 content, including the connected Microsoft 365 group, OneNote notebook, and Planner plans. For more information, see What happens if I delete a Viva Engage community connected to Microsoft 365 groups.
      * @param CommunityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/community-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CommunityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -76,11 +77,12 @@ class CommunityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property communities in employeeExperience
+     * Update the properties of an existing Viva Engage community.
      * @param Community $body The request body
      * @param CommunityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Community|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/community-update?view=graph-rest-beta Find more info here
     */
     public function patch(Community $body, ?CommunityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -91,7 +93,7 @@ class CommunityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property communities for employeeExperience
+     * Delete a Viva Engage community along with all associated Microsoft 365 content, including the connected Microsoft 365 group, OneNote notebook, and Planner plans. For more information, see What happens if I delete a Viva Engage community connected to Microsoft 365 groups.
      * @param CommunityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +132,7 @@ class CommunityItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property communities in employeeExperience
+     * Update the properties of an existing Viva Engage community.
      * @param Community $body The request body
      * @param CommunityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

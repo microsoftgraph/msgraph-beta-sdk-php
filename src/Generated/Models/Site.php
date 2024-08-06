@@ -54,6 +54,20 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the contentModels property value. The collection of content models applied to this site.
+     * @return array<ContentModel>|null
+    */
+    public function getContentModels(): ?array {
+        $val = $this->getBackingStore()->get('contentModels');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ContentModel::class);
+            /** @var array<ContentModel>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentModels'");
+    }
+
+    /**
      * Gets the contentTypes property value. The collection of content types defined for this site.
      * @return array<ContentType>|null
     */
@@ -89,6 +103,20 @@ class Site extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
+     * Gets the documentProcessingJobs property value. The document processing jobs running on this site.
+     * @return array<DocumentProcessingJob>|null
+    */
+    public function getDocumentProcessingJobs(): ?array {
+        $val = $this->getBackingStore()->get('documentProcessingJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DocumentProcessingJob::class);
+            /** @var array<DocumentProcessingJob>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'documentProcessingJobs'");
     }
 
     /**
@@ -140,9 +168,11 @@ class Site extends BaseItem implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'analytics' => fn(ParseNode $n) => $o->setAnalytics($n->getObjectValue([ItemAnalytics::class, 'createFromDiscriminatorValue'])),
             'columns' => fn(ParseNode $n) => $o->setColumns($n->getCollectionOfObjectValues([ColumnDefinition::class, 'createFromDiscriminatorValue'])),
+            'contentModels' => fn(ParseNode $n) => $o->setContentModels($n->getCollectionOfObjectValues([ContentModel::class, 'createFromDiscriminatorValue'])),
             'contentTypes' => fn(ParseNode $n) => $o->setContentTypes($n->getCollectionOfObjectValues([ContentType::class, 'createFromDiscriminatorValue'])),
             'deleted' => fn(ParseNode $n) => $o->setDeleted($n->getObjectValue([Deleted::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'documentProcessingJobs' => fn(ParseNode $n) => $o->setDocumentProcessingJobs($n->getCollectionOfObjectValues([DocumentProcessingJob::class, 'createFromDiscriminatorValue'])),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'drives' => fn(ParseNode $n) => $o->setDrives($n->getCollectionOfObjectValues([Drive::class, 'createFromDiscriminatorValue'])),
             'externalColumns' => fn(ParseNode $n) => $o->setExternalColumns($n->getCollectionOfObjectValues([ColumnDefinition::class, 'createFromDiscriminatorValue'])),
@@ -364,9 +394,11 @@ class Site extends BaseItem implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('analytics', $this->getAnalytics());
         $writer->writeCollectionOfObjectValues('columns', $this->getColumns());
+        $writer->writeCollectionOfObjectValues('contentModels', $this->getContentModels());
         $writer->writeCollectionOfObjectValues('contentTypes', $this->getContentTypes());
         $writer->writeObjectValue('deleted', $this->getDeleted());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('documentProcessingJobs', $this->getDocumentProcessingJobs());
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeCollectionOfObjectValues('drives', $this->getDrives());
         $writer->writeCollectionOfObjectValues('externalColumns', $this->getExternalColumns());
@@ -404,6 +436,14 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Sets the contentModels property value. The collection of content models applied to this site.
+     * @param array<ContentModel>|null $value Value to set for the contentModels property.
+    */
+    public function setContentModels(?array $value): void {
+        $this->getBackingStore()->set('contentModels', $value);
+    }
+
+    /**
      * Sets the contentTypes property value. The collection of content types defined for this site.
      * @param array<ContentType>|null $value Value to set for the contentTypes property.
     */
@@ -425,6 +465,14 @@ class Site extends BaseItem implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the documentProcessingJobs property value. The document processing jobs running on this site.
+     * @param array<DocumentProcessingJob>|null $value Value to set for the documentProcessingJobs property.
+    */
+    public function setDocumentProcessingJobs(?array $value): void {
+        $this->getBackingStore()->set('documentProcessingJobs', $value);
     }
 
     /**

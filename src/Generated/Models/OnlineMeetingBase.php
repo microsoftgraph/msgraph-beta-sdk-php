@@ -83,11 +83,11 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Gets the allowLiveShare property value. The allowLiveShare property
-     * @return bool|null
+     * @return MeetingLiveShareOptions|null
     */
-    public function getAllowLiveShare(): ?bool {
+    public function getAllowLiveShare(): ?MeetingLiveShareOptions {
         $val = $this->getBackingStore()->get('allowLiveShare');
-        if (is_null($val) || is_bool($val)) {
+        if (is_null($val) || $val instanceof MeetingLiveShareOptions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowLiveShare'");
@@ -252,7 +252,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'allowAttendeeToEnableMic' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableMic($n->getBooleanValue()),
             'allowBreakoutRooms' => fn(ParseNode $n) => $o->setAllowBreakoutRooms($n->getBooleanValue()),
             'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
-            'allowLiveShare' => fn(ParseNode $n) => $o->setAllowLiveShare($n->getBooleanValue()),
+            'allowLiveShare' => fn(ParseNode $n) => $o->setAllowLiveShare($n->getEnumValue(MeetingLiveShareOptions::class)),
             'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)),
             'allowParticipantsToChangeName' => fn(ParseNode $n) => $o->setAllowParticipantsToChangeName($n->getBooleanValue()),
             'allowPowerPointSharing' => fn(ParseNode $n) => $o->setAllowPowerPointSharing($n->getBooleanValue()),
@@ -421,7 +421,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->getAllowAttendeeToEnableMic());
         $writer->writeBooleanValue('allowBreakoutRooms', $this->getAllowBreakoutRooms());
         $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
-        $writer->writeBooleanValue('allowLiveShare', $this->getAllowLiveShare());
+        $writer->writeEnumValue('allowLiveShare', $this->getAllowLiveShare());
         $writer->writeEnumValue('allowMeetingChat', $this->getAllowMeetingChat());
         $writer->writeBooleanValue('allowParticipantsToChangeName', $this->getAllowParticipantsToChangeName());
         $writer->writeBooleanValue('allowPowerPointSharing', $this->getAllowPowerPointSharing());
@@ -481,9 +481,9 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Sets the allowLiveShare property value. The allowLiveShare property
-     * @param bool|null $value Value to set for the allowLiveShare property.
+     * @param MeetingLiveShareOptions|null $value Value to set for the allowLiveShare property.
     */
-    public function setAllowLiveShare(?bool $value): void {
+    public function setAllowLiveShare(?MeetingLiveShareOptions $value): void {
         $this->getBackingStore()->set('allowLiveShare', $value);
     }
 

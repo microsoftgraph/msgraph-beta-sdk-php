@@ -32,7 +32,7 @@ class IdentityProvider extends Entity implements Parsable
     }
 
     /**
-     * Gets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
+     * Gets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field. Required. Not nullable.
      * @return string|null
     */
     public function getClientId(): ?string {
@@ -44,7 +44,7 @@ class IdentityProvider extends Entity implements Parsable
     }
 
     /**
-     * Gets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return . This is a required field. Required. Not nullable.
+     * Gets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation returns . This is a required field. Required. Not nullable.
      * @return string|null
     */
     public function getClientSecret(): ?string {
@@ -106,7 +106,7 @@ class IdentityProvider extends Entity implements Parsable
     }
 
     /**
-     * Sets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
+     * Sets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field. Required. Not nullable.
      * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
@@ -114,7 +114,7 @@ class IdentityProvider extends Entity implements Parsable
     }
 
     /**
-     * Sets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return . This is a required field. Required. Not nullable.
+     * Sets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation returns . This is a required field. Required. Not nullable.
      * @param string|null $value Value to set for the clientSecret property.
     */
     public function setClientSecret(?string $value): void {

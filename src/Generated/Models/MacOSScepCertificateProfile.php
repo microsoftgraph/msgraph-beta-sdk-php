@@ -68,6 +68,18 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @return AppleDeploymentChannel|null
+    */
+    public function getDeploymentChannel(): ?AppleDeploymentChannel {
+        $val = $this->getBackingStore()->get('deploymentChannel');
+        if (is_null($val) || $val instanceof AppleDeploymentChannel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentChannel'");
+    }
+
+    /**
      * Gets the extendedKeyUsages property value. Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      * @return array<ExtendedKeyUsage>|null
     */
@@ -91,6 +103,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
             'allowAllAppsAccess' => fn(ParseNode $n) => $o->setAllowAllAppsAccess($n->getBooleanValue()),
             'certificateStore' => fn(ParseNode $n) => $o->setCertificateStore($n->getEnumValue(CertificateStore::class)),
             'customSubjectAlternativeNames' => fn(ParseNode $n) => $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues([CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
+            'deploymentChannel' => fn(ParseNode $n) => $o->setDeploymentChannel($n->getEnumValue(AppleDeploymentChannel::class)),
             'extendedKeyUsages' => fn(ParseNode $n) => $o->setExtendedKeyUsages($n->getCollectionOfObjectValues([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
             'hashAlgorithm' => fn(ParseNode $n) => $o->setHashAlgorithm($n->getEnumValue(HashAlgorithms::class)),
             'keySize' => fn(ParseNode $n) => $o->setKeySize($n->getEnumValue(KeySize::class)),
@@ -219,6 +232,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
         $writer->writeBooleanValue('allowAllAppsAccess', $this->getAllowAllAppsAccess());
         $writer->writeEnumValue('certificateStore', $this->getCertificateStore());
         $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->getCustomSubjectAlternativeNames());
+        $writer->writeEnumValue('deploymentChannel', $this->getDeploymentChannel());
         $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->getExtendedKeyUsages());
         $writer->writeEnumValue('hashAlgorithm', $this->getHashAlgorithm());
         $writer->writeEnumValue('keySize', $this->getKeySize());
@@ -252,6 +266,14 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     */
     public function setCustomSubjectAlternativeNames(?array $value): void {
         $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
+    }
+
+    /**
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
+    */
+    public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
+        $this->getBackingStore()->set('deploymentChannel', $value);
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
-use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -28,7 +27,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     }
 
     /**
-     * Gets the aaGuid property value. Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.
+     * Gets the aaGuid property value. Authenticator Attestation GUID, an identifier that indicates the type (such as make and model) of the authenticator.
      * @return string|null
     */
     public function getAaGuid(): ?string {
@@ -40,7 +39,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     }
 
     /**
-     * Gets the attestationCertificates property value. The attestation certificate(s) attached to this security key.
+     * Gets the attestationCertificates property value. The attestation certificate or certificates attached to this security key.
      * @return array<string>|null
     */
     public function getAttestationCertificates(): ?array {
@@ -63,18 +62,6 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'attestationLevel'");
-    }
-
-    /**
-     * Gets the createdDateTime property value. The timestamp when this key was registered to the user.
-     * @return DateTime|null
-    */
-    public function getCreatedDateTime(): ?DateTime {
-        $val = $this->getBackingStore()->get('createdDateTime');
-        if (is_null($val) || $val instanceof DateTime) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -106,9 +93,9 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
                 $this->setAttestationCertificates($val);
             },
             'attestationLevel' => fn(ParseNode $n) => $o->setAttestationLevel($n->getEnumValue(AttestationLevel::class)),
-            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'publicKeyCredential' => fn(ParseNode $n) => $o->setPublicKeyCredential($n->getObjectValue([WebauthnPublicKeyCredential::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -125,6 +112,18 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     }
 
     /**
+     * Gets the publicKeyCredential property value. Contains the WebAuthn public key credential information being registered. Only used for write requests. This property isn't returned on read operations.
+     * @return WebauthnPublicKeyCredential|null
+    */
+    public function getPublicKeyCredential(): ?WebauthnPublicKeyCredential {
+        $val = $this->getBackingStore()->get('publicKeyCredential');
+        if (is_null($val) || $val instanceof WebauthnPublicKeyCredential) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publicKeyCredential'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -133,13 +132,13 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
         $writer->writeStringValue('aaGuid', $this->getAaGuid());
         $writer->writeCollectionOfPrimitiveValues('attestationCertificates', $this->getAttestationCertificates());
         $writer->writeEnumValue('attestationLevel', $this->getAttestationLevel());
-        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeObjectValue('publicKeyCredential', $this->getPublicKeyCredential());
     }
 
     /**
-     * Sets the aaGuid property value. Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.
+     * Sets the aaGuid property value. Authenticator Attestation GUID, an identifier that indicates the type (such as make and model) of the authenticator.
      * @param string|null $value Value to set for the aaGuid property.
     */
     public function setAaGuid(?string $value): void {
@@ -147,7 +146,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     }
 
     /**
-     * Sets the attestationCertificates property value. The attestation certificate(s) attached to this security key.
+     * Sets the attestationCertificates property value. The attestation certificate or certificates attached to this security key.
      * @param array<string>|null $value Value to set for the attestationCertificates property.
     */
     public function setAttestationCertificates(?array $value): void {
@@ -160,14 +159,6 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     */
     public function setAttestationLevel(?AttestationLevel $value): void {
         $this->getBackingStore()->set('attestationLevel', $value);
-    }
-
-    /**
-     * Sets the createdDateTime property value. The timestamp when this key was registered to the user.
-     * @param DateTime|null $value Value to set for the createdDateTime property.
-    */
-    public function setCreatedDateTime(?DateTime $value): void {
-        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
@@ -184,6 +175,14 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
+    }
+
+    /**
+     * Sets the publicKeyCredential property value. Contains the WebAuthn public key credential information being registered. Only used for write requests. This property isn't returned on read operations.
+     * @param WebauthnPublicKeyCredential|null $value Value to set for the publicKeyCredential property.
+    */
+    public function setPublicKeyCredential(?WebauthnPublicKeyCredential $value): void {
+        $this->getBackingStore()->set('publicKeyCredential', $value);
     }
 
 }

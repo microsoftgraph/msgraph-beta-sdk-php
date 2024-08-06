@@ -79,10 +79,23 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
         $o = $this;
         return  [
             'failedHealthCheckItems' => fn(ParseNode $n) => $o->setFailedHealthCheckItems($n->getCollectionOfObjectValues([CloudPcHealthCheckItem::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcConnectivityStatus::class)),
             'updatedDateTime' => fn(ParseNode $n) => $o->setUpdatedDateTime($n->getDateTimeValue()),
         ];
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The last modified time for connectivity status of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z.
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -127,6 +140,7 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('failedHealthCheckItems', $this->getFailedHealthCheckItems());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeDateTimeValue('updatedDateTime', $this->getUpdatedDateTime());
@@ -155,6 +169,14 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setFailedHealthCheckItems(?array $value): void {
         $this->getBackingStore()->set('failedHealthCheckItems', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The last modified time for connectivity status of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**

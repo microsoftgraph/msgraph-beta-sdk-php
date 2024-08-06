@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ActivateDeviceEsim\ActivateDeviceEsimRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\AssignmentFilterEvaluationStatusDetails\AssignmentFilterEvaluationStatusDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\BypassActivationLock\BypassActivationLockRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ChangeAssignments\ChangeAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CleanWindowsDevice\CleanWindowsDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CreateDeviceLogCollectionRequest\CreateDeviceLogCollectionRequestRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DeleteUserFromSharedAppleDevice\DeleteUserFromSharedAppleDeviceRequestBuilder;
@@ -93,6 +94,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function bypassActivationLock(): BypassActivationLockRequestBuilder {
         return new BypassActivationLockRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the changeAssignments method.
+    */
+    public function changeAssignments(): ChangeAssignmentsRequestBuilder {
+        return new ChangeAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

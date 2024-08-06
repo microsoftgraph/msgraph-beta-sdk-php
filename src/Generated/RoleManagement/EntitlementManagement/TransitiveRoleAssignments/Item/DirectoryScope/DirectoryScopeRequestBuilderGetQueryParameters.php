@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Tr
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+ * The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
 */
 class DirectoryScopeRequestBuilderGetQueryParameters 
 {

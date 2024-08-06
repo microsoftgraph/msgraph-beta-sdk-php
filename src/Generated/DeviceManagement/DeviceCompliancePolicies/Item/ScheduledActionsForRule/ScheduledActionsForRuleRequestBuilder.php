@@ -52,7 +52,7 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * The list of scheduled action for this rule
      * @param ScheduledActionsForRuleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceComplianceScheduledActionForRuleCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * The list of scheduled action for this rule
      * @param ScheduledActionsForRuleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -49,7 +49,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the approvalStageTimeOutInDays property value. The number of days that a request can be pending a response before it's automatically denied.
+     * Gets the approvalStageTimeOutInDays property value. The number of days that a request can be pending a response before it is automatically denied.
      * @return int|null
     */
     public function getApprovalStageTimeOutInDays(): ?int {
@@ -69,7 +69,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the escalationApprovers property value. If escalation is enabled and the primary approvers don't respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers aren't required for the stage, the value of this property should be an empty collection.
+     * Gets the escalationApprovers property value. The users who are asked to approve requests if escalation is enabled and the primary approvers don't respond before the escalation time. This property can be a collection of singleUser, groupMembers, requestorManager, internalSponsors, and externalSponsors. When you create or update a policy, if there are no escalation approvers, or escalation approvers aren't required for the stage, assign an empty collection to this property.
      * @return array<UserSet>|null
     */
     public function getEscalationApprovers(): ?array {
@@ -148,7 +148,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the primaryApprovers property value. The users who are asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors and targetUserSponsors. When creating or updating a policy, include at least one userSet in this collection.
+     * Gets the primaryApprovers property value. The users who are asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors, and targetUserSponsors. When creating or updating a policy, include at least one userSet in this collection.
      * @return array<UserSet>|null
     */
     public function getPrimaryApprovers(): ?array {
@@ -185,7 +185,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the approvalStageTimeOutInDays property value. The number of days that a request can be pending a response before it's automatically denied.
+     * Sets the approvalStageTimeOutInDays property value. The number of days that a request can be pending a response before it is automatically denied.
      * @param int|null $value Value to set for the approvalStageTimeOutInDays property.
     */
     public function setApprovalStageTimeOutInDays(?int $value): void {
@@ -201,7 +201,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the escalationApprovers property value. If escalation is enabled and the primary approvers don't respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers aren't required for the stage, the value of this property should be an empty collection.
+     * Sets the escalationApprovers property value. The users who are asked to approve requests if escalation is enabled and the primary approvers don't respond before the escalation time. This property can be a collection of singleUser, groupMembers, requestorManager, internalSponsors, and externalSponsors. When you create or update a policy, if there are no escalation approvers, or escalation approvers aren't required for the stage, assign an empty collection to this property.
      * @param array<UserSet>|null $value Value to set for the escalationApprovers property.
     */
     public function setEscalationApprovers(?array $value): void {
@@ -241,7 +241,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the primaryApprovers property value. The users who are asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors and targetUserSponsors. When creating or updating a policy, include at least one userSet in this collection.
+     * Sets the primaryApprovers property value. The users who are asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors, and targetUserSponsors. When creating or updating a policy, include at least one userSet in this collection.
      * @param array<UserSet>|null $value Value to set for the primaryApprovers property.
     */
     public function setPrimaryApprovers(?array $value): void {

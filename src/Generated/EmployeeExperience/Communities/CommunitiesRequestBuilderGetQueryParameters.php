@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a community object.
+ * Get a list of the Viva Engage community objects and their properties.
 */
 class CommunitiesRequestBuilderGetQueryParameters 
 {

@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\C
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Reorder\ReorderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\RetrieveEnrollmentTimeDeviceMembershipTarget\RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\RetrieveLatestUpgradeDefaultBaselinePolicy\RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\SetEnrollmentTimeDeviceMembershipTarget\SetEnrollmentTimeDeviceMembershipTargetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -71,6 +72,13 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder extends BaseRequestB
     */
     public function retrieveLatestUpgradeDefaultBaselinePolicy(): RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder {
         return new RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setEnrollmentTimeDeviceMembershipTarget method.
+    */
+    public function setEnrollmentTimeDeviceMembershipTarget(): SetEnrollmentTimeDeviceMembershipTargetRequestBuilder {
+        return new SetEnrollmentTimeDeviceMembershipTargetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

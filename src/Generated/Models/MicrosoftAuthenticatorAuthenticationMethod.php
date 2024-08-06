@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
-use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -39,19 +38,7 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod im
     }
 
     /**
-     * Gets the createdDateTime property value. The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @return DateTime|null
-    */
-    public function getCreatedDateTime(): ?DateTime {
-        $val = $this->getBackingStore()->get('createdDateTime');
-        if (is_null($val) || $val instanceof DateTime) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
-    }
-
-    /**
-     * Gets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * Gets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device isn't registered for passwordless Phone Sign-In.
      * @return Device|null
     */
     public function getDevice(): ?Device {
@@ -94,7 +81,6 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod im
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'clientAppName' => fn(ParseNode $n) => $o->setClientAppName($n->getEnumValue(MicrosoftAuthenticatorAuthenticationMethodClientAppName::class)),
-            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'device' => fn(ParseNode $n) => $o->setDevice($n->getObjectValue([Device::class, 'createFromDiscriminatorValue'])),
             'deviceTag' => fn(ParseNode $n) => $o->setDeviceTag($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -121,7 +107,6 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod im
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('clientAppName', $this->getClientAppName());
-        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('device', $this->getDevice());
         $writer->writeStringValue('deviceTag', $this->getDeviceTag());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -137,15 +122,7 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod im
     }
 
     /**
-     * Sets the createdDateTime property value. The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @param DateTime|null $value Value to set for the createdDateTime property.
-    */
-    public function setCreatedDateTime(?DateTime $value): void {
-        $this->getBackingStore()->set('createdDateTime', $value);
-    }
-
-    /**
-     * Sets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * Sets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device isn't registered for passwordless Phone Sign-In.
      * @param Device|null $value Value to set for the device property.
     */
     public function setDevice(?Device $value): void {

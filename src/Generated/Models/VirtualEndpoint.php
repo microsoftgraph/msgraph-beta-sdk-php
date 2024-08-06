@@ -127,7 +127,6 @@ class VirtualEndpoint extends Entity implements Parsable
             'provisioningPolicies' => fn(ParseNode $n) => $o->setProvisioningPolicies($n->getCollectionOfObjectValues([CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'])),
             'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([CloudPcReports::class, 'createFromDiscriminatorValue'])),
             'servicePlans' => fn(ParseNode $n) => $o->setServicePlans($n->getCollectionOfObjectValues([CloudPcServicePlan::class, 'createFromDiscriminatorValue'])),
-            'sharedUseServicePlans' => fn(ParseNode $n) => $o->setSharedUseServicePlans($n->getCollectionOfObjectValues([CloudPcSharedUseServicePlan::class, 'createFromDiscriminatorValue'])),
             'snapshots' => fn(ParseNode $n) => $o->setSnapshots($n->getCollectionOfObjectValues([CloudPcSnapshot::class, 'createFromDiscriminatorValue'])),
             'supportedRegions' => fn(ParseNode $n) => $o->setSupportedRegions($n->getCollectionOfObjectValues([CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'])),
             'userSettings' => fn(ParseNode $n) => $o->setUserSettings($n->getCollectionOfObjectValues([CloudPcUserSetting::class, 'createFromDiscriminatorValue'])),
@@ -229,20 +228,6 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharedUseServicePlans property value. Cloud PC shared-use service plans. The sharedUseServicePlans relationship is deprecated and stopped returning data on October 8, 2023. Going forward, use the frontLineServicePlans relationship.
-     * @return array<CloudPcSharedUseServicePlan>|null
-    */
-    public function getSharedUseServicePlans(): ?array {
-        $val = $this->getBackingStore()->get('sharedUseServicePlans');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, CloudPcSharedUseServicePlan::class);
-            /** @var array<CloudPcSharedUseServicePlan>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedUseServicePlans'");
-    }
-
-    /**
      * Gets the snapshots property value. Cloud PC snapshots.
      * @return array<CloudPcSnapshot>|null
     */
@@ -303,7 +288,6 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->getProvisioningPolicies());
         $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeCollectionOfObjectValues('servicePlans', $this->getServicePlans());
-        $writer->writeCollectionOfObjectValues('sharedUseServicePlans', $this->getSharedUseServicePlans());
         $writer->writeCollectionOfObjectValues('snapshots', $this->getSnapshots());
         $writer->writeCollectionOfObjectValues('supportedRegions', $this->getSupportedRegions());
         $writer->writeCollectionOfObjectValues('userSettings', $this->getUserSettings());
@@ -411,14 +395,6 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setServicePlans(?array $value): void {
         $this->getBackingStore()->set('servicePlans', $value);
-    }
-
-    /**
-     * Sets the sharedUseServicePlans property value. Cloud PC shared-use service plans. The sharedUseServicePlans relationship is deprecated and stopped returning data on October 8, 2023. Going forward, use the frontLineServicePlans relationship.
-     * @param array<CloudPcSharedUseServicePlan>|null $value Value to set for the sharedUseServicePlans property.
-    */
-    public function setSharedUseServicePlans(?array $value): void {
-        $this->getBackingStore()->set('sharedUseServicePlans', $value);
     }
 
     /**

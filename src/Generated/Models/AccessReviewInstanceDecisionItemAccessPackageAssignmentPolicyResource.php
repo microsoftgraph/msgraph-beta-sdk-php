@@ -26,7 +26,7 @@ class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource exte
     }
 
     /**
-     * Gets the accessPackageDisplayName property value. Display name of the access package to which access has been granted.
+     * Gets the accessPackageDisplayName property value. Display name of the access package to which access is granted.
      * @return string|null
     */
     public function getAccessPackageDisplayName(): ?string {
@@ -38,7 +38,7 @@ class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource exte
     }
 
     /**
-     * Gets the accessPackageId property value. Identifier of the access package to which access has been granted.
+     * Gets the accessPackageId property value. Identifier of the access package to which access is granted.
      * @return string|null
     */
     public function getAccessPackageId(): ?string {
@@ -72,7 +72,7 @@ class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource exte
     }
 
     /**
-     * Sets the accessPackageDisplayName property value. Display name of the access package to which access has been granted.
+     * Sets the accessPackageDisplayName property value. Display name of the access package to which access is granted.
      * @param string|null $value Value to set for the accessPackageDisplayName property.
     */
     public function setAccessPackageDisplayName(?string $value): void {
@@ -80,7 +80,7 @@ class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource exte
     }
 
     /**
-     * Sets the accessPackageId property value. Identifier of the access package to which access has been granted.
+     * Sets the accessPackageId property value. Identifier of the access package to which access is granted.
      * @param string|null $value Value to set for the accessPackageId property.
     */
     public function setAccessPackageId(?string $value): void {

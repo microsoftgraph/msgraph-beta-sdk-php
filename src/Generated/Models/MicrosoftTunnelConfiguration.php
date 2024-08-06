@@ -125,6 +125,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setDnsServers($val);
             },
+            'ipv6Network' => fn(ParseNode $n) => $o->setIpv6Network($n->getStringValue()),
             'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
             'listenPort' => fn(ParseNode $n) => $o->setListenPort($n->getIntegerValue()),
             'network' => fn(ParseNode $n) => $o->setNetwork($n->getStringValue()),
@@ -177,6 +178,18 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
                 $this->setSplitDNS($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the ipv6Network property value. The IPv6 subnet that will be used to allocate virtual address for the clients
+     * @return string|null
+    */
+    public function getIpv6Network(): ?string {
+        $val = $this->getBackingStore()->get('ipv6Network');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ipv6Network'");
     }
 
     /**
@@ -311,6 +324,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
         $writer->writeBooleanValue('disableUdpConnections', $this->getDisableUdpConnections());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfPrimitiveValues('dnsServers', $this->getDnsServers());
+        $writer->writeStringValue('ipv6Network', $this->getIpv6Network());
         $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
         $writer->writeIntegerValue('listenPort', $this->getListenPort());
         $writer->writeStringValue('network', $this->getNetwork());
@@ -368,6 +382,14 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     */
     public function setDnsServers(?array $value): void {
         $this->getBackingStore()->set('dnsServers', $value);
+    }
+
+    /**
+     * Sets the ipv6Network property value. The IPv6 subnet that will be used to allocate virtual address for the clients
+     * @param string|null $value Value to set for the ipv6Network property.
+    */
+    public function setIpv6Network(?string $value): void {
+        $this->getBackingStore()->set('ipv6Network', $value);
     }
 
     /**

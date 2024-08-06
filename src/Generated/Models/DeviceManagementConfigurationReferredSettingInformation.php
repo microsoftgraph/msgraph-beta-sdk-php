@@ -83,7 +83,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
     }
 
     /**
-     * Gets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting.
+     * Gets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting
      * @return string|null
     */
     public function getSettingDefinitionId(): ?string {
@@ -129,7 +129,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
     }
 
     /**
-     * Sets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting.
+     * Sets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting
      * @param string|null $value Value to set for the settingDefinitionId property.
     */
     public function setSettingDefinitionId(?string $value): void {

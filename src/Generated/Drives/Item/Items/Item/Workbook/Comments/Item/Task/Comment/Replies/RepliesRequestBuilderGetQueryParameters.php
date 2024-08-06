@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Comment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get replies from drives
+ * The list of replies to the comment. Read-only. Nullable.
 */
 class RepliesRequestBuilderGetQueryParameters 
 {

@@ -29,12 +29,25 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration implements Parsable
     }
 
     /**
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @return AppleDeploymentChannel|null
+    */
+    public function getDeploymentChannel(): ?AppleDeploymentChannel {
+        $val = $this->getBackingStore()->get('deploymentChannel');
+        if (is_null($val) || $val instanceof AppleDeploymentChannel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentChannel'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'deploymentChannel' => fn(ParseNode $n) => $o->setDeploymentChannel($n->getEnumValue(AppleDeploymentChannel::class)),
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([MacOSCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -57,7 +70,16 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('deploymentChannel', $this->getDeploymentChannel());
         $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+    }
+
+    /**
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
+    */
+    public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
+        $this->getBackingStore()->set('deploymentChannel', $value);
     }
 
     /**

@@ -37,7 +37,7 @@ class GcpAuthorizationSystemResource extends AuthorizationSystemResource impleme
     }
 
     /**
-     * Gets the service property value. The service associated with the resource in an GCP authorization system. This object is auto-expanded.
+     * Gets the service property value. The service associated with the resource in a GCP authorization system. This object is autoexpanded.
      * @return AuthorizationSystemTypeService|null
     */
     public function getService(): ?AuthorizationSystemTypeService {
@@ -58,7 +58,7 @@ class GcpAuthorizationSystemResource extends AuthorizationSystemResource impleme
     }
 
     /**
-     * Sets the service property value. The service associated with the resource in an GCP authorization system. This object is auto-expanded.
+     * Sets the service property value. The service associated with the resource in a GCP authorization system. This object is autoexpanded.
      * @param AuthorizationSystemTypeService|null $value Value to set for the service property.
     */
     public function setService(?AuthorizationSystemTypeService $value): void {

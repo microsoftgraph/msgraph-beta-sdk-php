@@ -194,7 +194,7 @@ class AccessPackage extends Entity implements Parsable
     }
 
     /**
-     * Gets the isHidden property value. Whether the access package is hidden from the requestor.
+     * Gets the isHidden property value. Indicates whether the access package is hidden from the requestor.
      * @return bool|null
     */
     public function getIsHidden(): ?bool {
@@ -353,7 +353,7 @@ class AccessPackage extends Entity implements Parsable
     }
 
     /**
-     * Sets the isHidden property value. Whether the access package is hidden from the requestor.
+     * Sets the isHidden property value. Indicates whether the access package is hidden from the requestor.
      * @param bool|null $value Value to set for the isHidden property.
     */
     public function setIsHidden(?bool $value): void {

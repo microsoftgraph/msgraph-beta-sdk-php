@@ -69,6 +69,7 @@ class Authentication extends Entity implements Parsable
             'passwordMethods' => fn(ParseNode $n) => $o->setPasswordMethods($n->getCollectionOfObjectValues([PasswordAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'phoneMethods' => fn(ParseNode $n) => $o->setPhoneMethods($n->getCollectionOfObjectValues([PhoneAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'platformCredentialMethods' => fn(ParseNode $n) => $o->setPlatformCredentialMethods($n->getCollectionOfObjectValues([PlatformCredentialAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            'requirements' => fn(ParseNode $n) => $o->setRequirements($n->getObjectValue([StrongAuthenticationRequirements::class, 'createFromDiscriminatorValue'])),
             'signInPreferences' => fn(ParseNode $n) => $o->setSignInPreferences($n->getObjectValue([SignInPreferences::class, 'createFromDiscriminatorValue'])),
             'softwareOathMethods' => fn(ParseNode $n) => $o->setSoftwareOathMethods($n->getCollectionOfObjectValues([SoftwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'temporaryAccessPassMethods' => fn(ParseNode $n) => $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues([TemporaryAccessPassAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -105,7 +106,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the operations property value. The operations property
+     * Gets the operations property value. Represents the status of a long-running operation, such as a password reset operation.
      * @return array<LongRunningOperation>|null
     */
     public function getOperations(): ?array {
@@ -172,6 +173,18 @@ class Authentication extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'platformCredentialMethods'");
+    }
+
+    /**
+     * Gets the requirements property value. The settings and preferences for per-user Microsoft Entra multifactor authentication.
+     * @return StrongAuthenticationRequirements|null
+    */
+    public function getRequirements(): ?StrongAuthenticationRequirements {
+        $val = $this->getBackingStore()->get('requirements');
+        if (is_null($val) || $val instanceof StrongAuthenticationRequirements) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requirements'");
     }
 
     /**
@@ -243,6 +256,7 @@ class Authentication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('passwordMethods', $this->getPasswordMethods());
         $writer->writeCollectionOfObjectValues('phoneMethods', $this->getPhoneMethods());
         $writer->writeCollectionOfObjectValues('platformCredentialMethods', $this->getPlatformCredentialMethods());
+        $writer->writeObjectValue('requirements', $this->getRequirements());
         $writer->writeObjectValue('signInPreferences', $this->getSignInPreferences());
         $writer->writeCollectionOfObjectValues('softwareOathMethods', $this->getSoftwareOathMethods());
         $writer->writeCollectionOfObjectValues('temporaryAccessPassMethods', $this->getTemporaryAccessPassMethods());
@@ -282,7 +296,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the operations property value. The operations property
+     * Sets the operations property value. Represents the status of a long-running operation, such as a password reset operation.
      * @param array<LongRunningOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
@@ -319,6 +333,14 @@ class Authentication extends Entity implements Parsable
     */
     public function setPlatformCredentialMethods(?array $value): void {
         $this->getBackingStore()->set('platformCredentialMethods', $value);
+    }
+
+    /**
+     * Sets the requirements property value. The settings and preferences for per-user Microsoft Entra multifactor authentication.
+     * @param StrongAuthenticationRequirements|null $value Value to set for the requirements property.
+    */
+    public function setRequirements(?StrongAuthenticationRequirements $value): void {
+        $this->getBackingStore()->set('requirements', $value);
     }
 
     /**

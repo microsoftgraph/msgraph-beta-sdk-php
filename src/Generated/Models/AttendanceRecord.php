@@ -80,7 +80,7 @@ class AttendanceRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the registrantId property value. Unique identifier of a meetingRegistrant. Presents when the participant has registered for the meeting.
+     * Gets the registrantId property value. Unique identifier of a meetingRegistrant. Presents when the participant has registered for the meeting. (deprecated)
      * @return string|null
     */
     public function getRegistrantId(): ?string {
@@ -154,7 +154,7 @@ class AttendanceRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the registrantId property value. Unique identifier of a meetingRegistrant. Presents when the participant has registered for the meeting.
+     * Sets the registrantId property value. Unique identifier of a meetingRegistrant. Presents when the participant has registered for the meeting. (deprecated)
      * @param string|null $value Value to set for the registrantId property.
     */
     public function setRegistrantId(?string $value): void {

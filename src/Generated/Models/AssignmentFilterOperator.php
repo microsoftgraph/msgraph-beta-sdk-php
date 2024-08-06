@@ -16,4 +16,9 @@ class AssignmentFilterOperator extends Enum {
     public const NOT_IN = 'notIn';
     public const ENDS_WITH = 'endsWith';
     public const NOT_ENDS_WITH = 'notEndsWith';
+    public const GREATER_THAN = 'greaterThan';
+    public const GREATER_THAN_OR_EQUALS = 'greaterThanOrEquals';
+    public const LESS_THAN = 'lessThan';
+    public const LESS_THAN_OR_EQUALS = 'lessThanOrEquals';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

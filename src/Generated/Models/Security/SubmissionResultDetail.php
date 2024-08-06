@@ -59,4 +59,21 @@ class SubmissionResultDetail extends Enum {
     public const BAD_RECLASSIFIED_AS_BAD = 'badReclassifiedAsBad';
     public const BAD_RECLASSIFIED_AS_CANNOT_MAKE_DECISION = 'badReclassifiedAsCannotMakeDecision';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const WILL_NOTIFY_ONCE_DONE = 'willNotifyOnceDone';
+    public const CHECK_USER_REPORTED_SETTINGS = 'checkUserReportedSettings';
+    public const PART_OF_EDUCATION_CAMPAIGN = 'partOfEducationCampaign';
+    public const ALLOWED_BY_ADVANCED_DELIVERY = 'allowedByAdvancedDelivery';
+    public const ALLOWED_BY_ENHANCED_FILTERING = 'allowedByEnhancedFiltering';
+    public const ITEM_DELETED = 'itemDeleted';
+    public const ITEM_FOUND_CLEAN = 'itemFoundClean';
+    public const ITEM_FOUND_MALICIOUS = 'itemFoundMalicious';
+    public const UNABLE_TO_MAKE_DECISION = 'unableToMakeDecision';
+    public const DOMAIN_RESEMBLED_YOUR_ORGANIZATION = 'domainResembledYourOrganization';
+    public const END_USER_BEING_IMPERSONATED = 'endUserBeingImpersonated';
+    public const ASSOCIATED_WITH_BRAND = 'associatedWithBrand';
+    public const SENDER_FAILED_AUTHENTICATION = 'senderFailedAuthentication';
+    public const END_USER_BEING_SPOOFED = 'endUserBeingSpoofed';
+    public const ITEM_FOUND_BULK = 'itemFoundBulk';
+    public const ITEM_NOT_RECEIVED_BY_SERVICE = 'itemNotReceivedByService';
+    public const ITEM_FOUND_SPAM = 'itemFoundSpam';
 }
