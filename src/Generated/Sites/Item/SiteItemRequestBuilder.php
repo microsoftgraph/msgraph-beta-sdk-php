@@ -8,8 +8,10 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Site;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Columns\ColumnsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\ContentModelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\ContentTypes\ContentTypesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\DocumentProcessingJobs\DocumentProcessingJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\ExternalColumns\ExternalColumnsRequestBuilder;
@@ -52,6 +54,13 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the contentModels property of the microsoft.graph.site entity.
+    */
+    public function contentModels(): ContentModelsRequestBuilder {
+        return new ContentModelsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
     */
     public function contentTypes(): ContentTypesRequestBuilder {
@@ -63,6 +72,13 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     */
     public function createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the documentProcessingJobs property of the microsoft.graph.site entity.
+    */
+    public function documentProcessingJobs(): DocumentProcessingJobsRequestBuilder {
+        return new DocumentProcessingJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

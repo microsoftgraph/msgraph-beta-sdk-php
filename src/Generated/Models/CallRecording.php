@@ -100,7 +100,6 @@ class CallRecording extends Entity implements Parsable
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'meetingId' => fn(ParseNode $n) => $o->setMeetingId($n->getStringValue()),
             'meetingOrganizer' => fn(ParseNode $n) => $o->setMeetingOrganizer($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
-            'meetingOrganizerId' => fn(ParseNode $n) => $o->setMeetingOrganizerId($n->getStringValue()),
             'recordingContentUrl' => fn(ParseNode $n) => $o->setRecordingContentUrl($n->getStringValue()),
         ]);
     }
@@ -130,18 +129,6 @@ class CallRecording extends Entity implements Parsable
     }
 
     /**
-     * Gets the meetingOrganizerId property value. The unique identifier of the organizer of the onlineMeeting related to this recording. Read-only.
-     * @return string|null
-    */
-    public function getMeetingOrganizerId(): ?string {
-        $val = $this->getBackingStore()->get('meetingOrganizerId');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingOrganizerId'");
-    }
-
-    /**
      * Gets the recordingContentUrl property value. The URL that can be used to access the content of the recording. Read-only.
      * @return string|null
     */
@@ -166,7 +153,6 @@ class CallRecording extends Entity implements Parsable
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeStringValue('meetingId', $this->getMeetingId());
         $writer->writeObjectValue('meetingOrganizer', $this->getMeetingOrganizer());
-        $writer->writeStringValue('meetingOrganizerId', $this->getMeetingOrganizerId());
         $writer->writeStringValue('recordingContentUrl', $this->getRecordingContentUrl());
     }
 
@@ -224,14 +210,6 @@ class CallRecording extends Entity implements Parsable
     */
     public function setMeetingOrganizer(?IdentitySet $value): void {
         $this->getBackingStore()->set('meetingOrganizer', $value);
-    }
-
-    /**
-     * Sets the meetingOrganizerId property value. The unique identifier of the organizer of the onlineMeeting related to this recording. Read-only.
-     * @param string|null $value Value to set for the meetingOrganizerId property.
-    */
-    public function setMeetingOrganizerId(?string $value): void {
-        $this->getBackingStore()->set('meetingOrganizerId', $value);
     }
 
     /**

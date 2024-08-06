@@ -37,7 +37,7 @@ class AwsAuthorizationSystemResource extends AuthorizationSystemResource impleme
     }
 
     /**
-     * Gets the service property value. The service associated with the resource in an AWS authorization system. This is auto-expanded.
+     * Gets the service property value. The service associated with the resource in an AWS authorization system. This is autoexpanded.
      * @return AuthorizationSystemTypeService|null
     */
     public function getService(): ?AuthorizationSystemTypeService {
@@ -58,7 +58,7 @@ class AwsAuthorizationSystemResource extends AuthorizationSystemResource impleme
     }
 
     /**
-     * Sets the service property value. The service associated with the resource in an AWS authorization system. This is auto-expanded.
+     * Sets the service property value. The service associated with the resource in an AWS authorization system. This is autoexpanded.
      * @param AuthorizationSystemTypeService|null $value Value to set for the service property.
     */
     public function setService(?AuthorizationSystemTypeService $value): void {

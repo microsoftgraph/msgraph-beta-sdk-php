@@ -70,7 +70,7 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the lastSyncDateTime property value. The lastSyncDateTime property
+     * Gets the lastSyncDateTime property value. Indicates the date and time when last sync tenant encryption setting.
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
@@ -94,7 +94,7 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the tenantDiskEncryptionType property value. The tenantDiskEncryptionType property
+     * Gets the tenantDiskEncryptionType property value. Indicates the Cloud PC disk encryption type for a tenant. It is a tenant-level setting that applies globally to all Cloud PCs in the tenant. Possible values are: platformManagedKey, customerManagedKey, unknownFutureValue. Read-only.
      * @return CloudPcDiskEncryptionType|null
     */
     public function getTenantDiskEncryptionType(): ?CloudPcDiskEncryptionType {
@@ -133,7 +133,7 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the lastSyncDateTime property value. The lastSyncDateTime property
+     * Sets the lastSyncDateTime property value. Indicates the date and time when last sync tenant encryption setting.
      * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
@@ -149,7 +149,7 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the tenantDiskEncryptionType property value. The tenantDiskEncryptionType property
+     * Sets the tenantDiskEncryptionType property value. Indicates the Cloud PC disk encryption type for a tenant. It is a tenant-level setting that applies globally to all Cloud PCs in the tenant. Possible values are: platformManagedKey, customerManagedKey, unknownFutureValue. Read-only.
      * @param CloudPcDiskEncryptionType|null $value Value to set for the tenantDiskEncryptionType property.
     */
     public function setTenantDiskEncryptionType(?CloudPcDiskEncryptionType $value): void {

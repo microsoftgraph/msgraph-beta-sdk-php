@@ -53,6 +53,18 @@ class RemoteActionAudit extends Entity implements Parsable
     }
 
     /**
+     * Gets the bulkDeviceActionId property value. BulkAction ID
+     * @return string|null
+    */
+    public function getBulkDeviceActionId(): ?string {
+        $val = $this->getBackingStore()->get('bulkDeviceActionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bulkDeviceActionId'");
+    }
+
+    /**
      * Gets the deviceDisplayName property value. Intune device name.
      * @return string|null
     */
@@ -97,6 +109,7 @@ class RemoteActionAudit extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(RemoteAction::class)),
             'actionState' => fn(ParseNode $n) => $o->setActionState($n->getEnumValue(ActionState::class)),
+            'bulkDeviceActionId' => fn(ParseNode $n) => $o->setBulkDeviceActionId($n->getStringValue()),
             'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
             'deviceIMEI' => fn(ParseNode $n) => $o->setDeviceIMEI($n->getStringValue()),
             'deviceOwnerUserPrincipalName' => fn(ParseNode $n) => $o->setDeviceOwnerUserPrincipalName($n->getStringValue()),
@@ -163,6 +176,7 @@ class RemoteActionAudit extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('action', $this->getAction());
         $writer->writeEnumValue('actionState', $this->getActionState());
+        $writer->writeStringValue('bulkDeviceActionId', $this->getBulkDeviceActionId());
         $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
         $writer->writeStringValue('deviceIMEI', $this->getDeviceIMEI());
         $writer->writeStringValue('deviceOwnerUserPrincipalName', $this->getDeviceOwnerUserPrincipalName());
@@ -186,6 +200,14 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function setActionState(?ActionState $value): void {
         $this->getBackingStore()->set('actionState', $value);
+    }
+
+    /**
+     * Sets the bulkDeviceActionId property value. BulkAction ID
+     * @param string|null $value Value to set for the bulkDeviceActionId property.
+    */
+    public function setBulkDeviceActionId(?string $value): void {
+        $this->getBackingStore()->set('bulkDeviceActionId', $value);
     }
 
     /**

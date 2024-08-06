@@ -25,7 +25,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the appId property value. The application ID of the resource.
+     * Gets the appId property value. The globally unique appId (also called client ID on the Microsoft Entra admin center) of the credentialed resource application.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -127,7 +127,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the appId property value. The application ID of the resource.
+     * Sets the appId property value. The globally unique appId (also called client ID on the Microsoft Entra admin center) of the credentialed resource application.
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {

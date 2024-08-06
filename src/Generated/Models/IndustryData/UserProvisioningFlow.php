@@ -26,7 +26,7 @@ class UserProvisioningFlow extends ProvisioningFlow implements Parsable
     }
 
     /**
-     * Gets the createUnmatchedUsers property value. A boolean choice indicating whether unmatched users should be created or ignored.
+     * Gets the createUnmatchedUsers property value. A Boolean choice indicating whether unmatched users should be created or ignored.
      * @return bool|null
     */
     public function getCreateUnmatchedUsers(): ?bool {
@@ -86,7 +86,7 @@ class UserProvisioningFlow extends ProvisioningFlow implements Parsable
     }
 
     /**
-     * Sets the createUnmatchedUsers property value. A boolean choice indicating whether unmatched users should be created or ignored.
+     * Sets the createUnmatchedUsers property value. A Boolean choice indicating whether unmatched users should be created or ignored.
      * @param bool|null $value Value to set for the createUnmatchedUsers property.
     */
     public function setCreateUnmatchedUsers(?bool $value): void {

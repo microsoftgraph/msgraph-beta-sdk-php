@@ -82,7 +82,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
     }
 
     /**
-     * Gets the lastName property value. The last name of the registrant.
+     * Gets the lastName property value. The family name of the registrant.
      * @return string|null
     */
     public function getLastName(): ?string {
@@ -156,7 +156,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
     }
 
     /**
-     * Sets the lastName property value. The last name of the registrant.
+     * Sets the lastName property value. The family name of the registrant.
      * @param string|null $value Value to set for the lastName property.
     */
     public function setLastName(?string $value): void {

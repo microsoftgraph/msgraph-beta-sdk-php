@@ -40,6 +40,20 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
+     * Gets the configurationUris property value. The URIs required for the single sign-on configuration of a preintegrated application.
+     * @return array<ConfigurationUri>|null
+    */
+    public function getConfigurationUris(): ?array {
+        $val = $this->getBackingStore()->get('configurationUris');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConfigurationUri::class);
+            /** @var array<ConfigurationUri>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationUris'");
+    }
+
+    /**
      * Gets the description property value. A description of the application.
      * @return string|null
     */
@@ -78,6 +92,7 @@ class ApplicationTemplate extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setCategories($val);
             },
+            'configurationUris' => fn(ParseNode $n) => $o->setConfigurationUris($n->getCollectionOfObjectValues([ConfigurationUri::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'homePageUrl' => fn(ParseNode $n) => $o->setHomePageUrl($n->getStringValue()),
@@ -199,6 +214,7 @@ class ApplicationTemplate extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
+        $writer->writeCollectionOfObjectValues('configurationUris', $this->getConfigurationUris());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('homePageUrl', $this->getHomePageUrl());
@@ -216,6 +232,14 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
+    }
+
+    /**
+     * Sets the configurationUris property value. The URIs required for the single sign-on configuration of a preintegrated application.
+     * @param array<ConfigurationUri>|null $value Value to set for the configurationUris property.
+    */
+    public function setConfigurationUris(?array $value): void {
+        $this->getBackingStore()->set('configurationUris', $value);
     }
 
     /**

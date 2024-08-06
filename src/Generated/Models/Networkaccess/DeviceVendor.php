@@ -20,5 +20,6 @@ class DeviceVendor extends Enum {
     public const VM_WARE_SD_WAN = 'vmWareSdWan';
     public const VERSA = 'versa';
     public const OTHER = 'other';
+    public const CISCO_CATALYST = 'ciscoCatalyst';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

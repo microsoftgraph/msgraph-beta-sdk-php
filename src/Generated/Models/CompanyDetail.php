@@ -68,6 +68,18 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the companyCode property value. Legal entity number of the company or its subdivision. For information on how to set the value for the companyCode, see profileSourceAnnotation.
+     * @return string|null
+    */
+    public function getCompanyCode(): ?string {
+        $val = $this->getBackingStore()->get('companyCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'companyCode'");
+    }
+
+    /**
      * Gets the department property value. Department Name within a company.
      * @return string|null
     */
@@ -99,11 +111,13 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'address' => fn(ParseNode $n) => $o->setAddress($n->getObjectValue([PhysicalAddress::class, 'createFromDiscriminatorValue'])),
+            'companyCode' => fn(ParseNode $n) => $o->setCompanyCode($n->getStringValue()),
             'department' => fn(ParseNode $n) => $o->setDepartment($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'officeLocation' => fn(ParseNode $n) => $o->setOfficeLocation($n->getStringValue()),
             'pronunciation' => fn(ParseNode $n) => $o->setPronunciation($n->getStringValue()),
+            'secondaryDepartment' => fn(ParseNode $n) => $o->setSecondaryDepartment($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ];
     }
@@ -145,6 +159,18 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the secondaryDepartment property value. The secondaryDepartment property
+     * @return string|null
+    */
+    public function getSecondaryDepartment(): ?string {
+        $val = $this->getBackingStore()->get('secondaryDepartment');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryDepartment'");
+    }
+
+    /**
      * Gets the webUrl property value. Link to the company home page.
      * @return string|null
     */
@@ -162,11 +188,13 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('address', $this->getAddress());
+        $writer->writeStringValue('companyCode', $this->getCompanyCode());
         $writer->writeStringValue('department', $this->getDepartment());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('officeLocation', $this->getOfficeLocation());
         $writer->writeStringValue('pronunciation', $this->getPronunciation());
+        $writer->writeStringValue('secondaryDepartment', $this->getSecondaryDepartment());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -193,6 +221,14 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the companyCode property value. Legal entity number of the company or its subdivision. For information on how to set the value for the companyCode, see profileSourceAnnotation.
+     * @param string|null $value Value to set for the companyCode property.
+    */
+    public function setCompanyCode(?string $value): void {
+        $this->getBackingStore()->set('companyCode', $value);
     }
 
     /**
@@ -233,6 +269,14 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setPronunciation(?string $value): void {
         $this->getBackingStore()->set('pronunciation', $value);
+    }
+
+    /**
+     * Sets the secondaryDepartment property value. The secondaryDepartment property
+     * @param string|null $value Value to set for the secondaryDepartment property.
+    */
+    public function setSecondaryDepartment(?string $value): void {
+        $this->getBackingStore()->set('secondaryDepartment', $value);
     }
 
     /**

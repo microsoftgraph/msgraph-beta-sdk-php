@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateLink\CreateLinkR
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateUploadSession\CreateUploadSessionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\DeltaWithToken\DeltaWithTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\DiscardCheckout\DiscardCheckoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ExtractSensitivityLabels\ExtractSensitivityLabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Follow\FollowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
@@ -137,6 +138,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the discardCheckout method.
+    */
+    public function discardCheckout(): DiscardCheckoutRequestBuilder {
+        return new DiscardCheckoutRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

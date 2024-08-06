@@ -159,6 +159,7 @@ class FileStorageContainer extends Entity implements Parsable
             'ownershipType' => fn(ParseNode $n) => $o->setOwnershipType($n->getEnumValue(FileStorageContainerOwnershipType::class)),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
             'recycleBin' => fn(ParseNode $n) => $o->setRecycleBin($n->getObjectValue([RecycleBin::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([FileStorageContainerSettings::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(FileStorageContainerStatus::class)),
             'storageUsedInBytes' => fn(ParseNode $n) => $o->setStorageUsedInBytes($n->getIntegerValue()),
             'viewpoint' => fn(ParseNode $n) => $o->setViewpoint($n->getObjectValue([FileStorageContainerViewpoint::class, 'createFromDiscriminatorValue'])),
@@ -254,6 +255,18 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
+     * Gets the settings property value. The settings property
+     * @return FileStorageContainerSettings|null
+    */
+    public function getSettings(): ?FileStorageContainerSettings {
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof FileStorageContainerSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
+    }
+
+    /**
      * Gets the status property value. Status of the fileStorageContainer. Containers are created as inactive and require activation. Inactive containers are subjected to automatic deletion in 24 hours. The possible values are: inactive, active. Read-only.
      * @return FileStorageContainerStatus|null
     */
@@ -311,6 +324,7 @@ class FileStorageContainer extends Entity implements Parsable
         $writer->writeEnumValue('ownershipType', $this->getOwnershipType());
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
         $writer->writeObjectValue('recycleBin', $this->getRecycleBin());
+        $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeIntegerValue('storageUsedInBytes', $this->getStorageUsedInBytes());
         $writer->writeObjectValue('viewpoint', $this->getViewpoint());
@@ -442,6 +456,14 @@ class FileStorageContainer extends Entity implements Parsable
     */
     public function setRecycleBin(?RecycleBin $value): void {
         $this->getBackingStore()->set('recycleBin', $value);
+    }
+
+    /**
+     * Sets the settings property value. The settings property
+     * @param FileStorageContainerSettings|null $value Value to set for the settings property.
+    */
+    public function setSettings(?FileStorageContainerSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**
