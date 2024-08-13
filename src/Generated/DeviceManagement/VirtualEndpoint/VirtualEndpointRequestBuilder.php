@@ -20,7 +20,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\Repo
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\RetrieveScopedPermissions\RetrieveScopedPermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\RetrieveTenantEncryptionSetting\RetrieveTenantEncryptionSettingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ServicePlans\ServicePlansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SharedUseServicePlans\SharedUseServicePlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\SnapshotsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SupportedRegions\SupportedRegionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSettings\UserSettingsRequestBuilder;
@@ -146,13 +145,6 @@ class VirtualEndpointRequestBuilder extends BaseRequestBuilder
     */
     public function servicePlans(): ServicePlansRequestBuilder {
         return new ServicePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the sharedUseServicePlans property of the microsoft.graph.virtualEndpoint entity.
-    */
-    public function sharedUseServicePlans(): SharedUseServicePlansRequestBuilder {
-        return new SharedUseServicePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

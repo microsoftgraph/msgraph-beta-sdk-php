@@ -159,7 +159,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationProcessingDetails property value. More authentication processing details, such as the agent name for  PTA and PHS, or a server or farm name for federated authentication.
+     * Gets the authenticationProcessingDetails property value. More authentication processing details, such as the agent name for PTA and PHS, or a server or farm name for federated authentication.
      * @return array<KeyValue>|null
     */
     public function getAuthenticationProcessingDetails(): ?array {
@@ -259,7 +259,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the conditionalAccessAudiences property value. A list that indicates the audience that was evaluated by Conditional Access during a sign-in event.  Supports $filter (eq).
+     * Gets the conditionalAccessAudiences property value. A list that indicates the audience that Conditional Access evaluated during a sign-in event.  Supports $filter (eq).
      * @return array<ConditionalAccessAudience>|null
     */
     public function getConditionalAccessAudiences(): ?array {
@@ -285,7 +285,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the correlationId property value. The identifier the client sends when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).
+     * Gets the correlationId property value. The identifier the client sends when sign-in is initiated. This property is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -482,7 +482,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the homeTenantName property value. For user sign ins, the identifier of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Microsoft Entra ID to show the tenant content.
+     * Gets the homeTenantName property value. For user sign ins, the identifier of the tenant that the user is a member of. Only populated in cases where the home tenant provides affirmative consent to Microsoft Entra ID to show the tenant content.
      * @return string|null
     */
     public function getHomeTenantName(): ?string {
@@ -970,7 +970,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The UPN of the user.  Supports $filter (eq, startsWith).
+     * Gets the userPrincipalName property value. User principal name of the user that initiated the sign-in. This value is always in lowercase. For guest users whose values in the user object typically contain #EXT# before the domain part, this property stores the value in both lowercase and the 'true' format. For example, while the user object stores AdeleVance_fabrikam.com#EXT#@contoso.com, the sign-in logs store adelevance@fabrikam.com. Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -1152,7 +1152,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationProcessingDetails property value. More authentication processing details, such as the agent name for  PTA and PHS, or a server or farm name for federated authentication.
+     * Sets the authenticationProcessingDetails property value. More authentication processing details, such as the agent name for PTA and PHS, or a server or farm name for federated authentication.
      * @param array<KeyValue>|null $value Value to set for the authenticationProcessingDetails property.
     */
     public function setAuthenticationProcessingDetails(?array $value): void {
@@ -1216,7 +1216,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the conditionalAccessAudiences property value. A list that indicates the audience that was evaluated by Conditional Access during a sign-in event.  Supports $filter (eq).
+     * Sets the conditionalAccessAudiences property value. A list that indicates the audience that Conditional Access evaluated during a sign-in event.  Supports $filter (eq).
      * @param array<ConditionalAccessAudience>|null $value Value to set for the conditionalAccessAudiences property.
     */
     public function setConditionalAccessAudiences(?array $value): void {
@@ -1232,7 +1232,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the correlationId property value. The identifier the client sends when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).
+     * Sets the correlationId property value. The identifier the client sends when sign-in is initiated. This property is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
@@ -1296,7 +1296,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the homeTenantName property value. For user sign ins, the identifier of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Microsoft Entra ID to show the tenant content.
+     * Sets the homeTenantName property value. For user sign ins, the identifier of the tenant that the user is a member of. Only populated in cases where the home tenant provides affirmative consent to Microsoft Entra ID to show the tenant content.
      * @param string|null $value Value to set for the homeTenantName property.
     */
     public function setHomeTenantName(?string $value): void {
@@ -1616,7 +1616,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The UPN of the user.  Supports $filter (eq, startsWith).
+     * Sets the userPrincipalName property value. User principal name of the user that initiated the sign-in. This value is always in lowercase. For guest users whose values in the user object typically contain #EXT# before the domain part, this property stores the value in both lowercase and the 'true' format. For example, while the user object stores AdeleVance_fabrikam.com#EXT#@contoso.com, the sign-in logs store adelevance@fabrikam.com. Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

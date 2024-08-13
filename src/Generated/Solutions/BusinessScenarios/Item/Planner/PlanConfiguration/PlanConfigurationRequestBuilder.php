@@ -68,7 +68,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlanConfiguration object for a businessScenario.
+     * Update the properties of a plannerPlanConfiguration object and its plannerPlanConfigurationLocalization collection for a businessScenario.
      * @param PlannerPlanConfiguration $body The request body
      * @param PlanConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerPlanConfiguration|null>
@@ -123,7 +123,7 @@ class PlanConfigurationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a plannerPlanConfiguration object for a businessScenario.
+     * Update the properties of a plannerPlanConfiguration object and its plannerPlanConfigurationLocalization collection for a businessScenario.
      * @param PlannerPlanConfiguration $body The request body
      * @param PlanConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

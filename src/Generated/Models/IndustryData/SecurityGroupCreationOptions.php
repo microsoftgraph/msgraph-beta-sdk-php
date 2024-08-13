@@ -68,7 +68,7 @@ class SecurityGroupCreationOptions implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the createBasedOnRoleGroup property value. A boolean choice indicating whether the security group should be created based on the role group
+     * Gets the createBasedOnRoleGroup property value. A Boolean choice indicating whether the security group should be created based on the role group
      * @return bool|null
     */
     public function getCreateBasedOnRoleGroup(): ?bool {
@@ -140,7 +140,7 @@ class SecurityGroupCreationOptions implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the createBasedOnRoleGroup property value. A boolean choice indicating whether the security group should be created based on the role group
+     * Sets the createBasedOnRoleGroup property value. A Boolean choice indicating whether the security group should be created based on the role group
      * @param bool|null $value Value to set for the createBasedOnRoleGroup property.
     */
     public function setCreateBasedOnRoleGroup(?bool $value): void {

@@ -51,6 +51,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read Only.
+     * @return CloudPcConnectionSetting|null
+    */
+    public function getConnectionSetting(): ?CloudPcConnectionSetting {
+        $val = $this->getBackingStore()->get('connectionSetting');
+        if (is_null($val) || $val instanceof CloudPcConnectionSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connectionSetting'");
+    }
+
+    /**
      * Gets the connectionSettings property value. The connectionSettings property
      * @return CloudPcConnectionSettings|null
     */
@@ -72,6 +84,18 @@ class CloudPC extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'connectivityResult'");
+    }
+
+    /**
+     * Gets the deviceRegionName property value. The name of the geographical region where the Cloud PC is currently provisioned. For example, westus3, eastus2, and southeastasia. Read-only.
+     * @return string|null
+    */
+    public function getDeviceRegionName(): ?string {
+        $val = $this->getBackingStore()->get('deviceRegionName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceRegionName'");
     }
 
     /**
@@ -119,8 +143,10 @@ class CloudPC extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'aadDeviceId' => fn(ParseNode $n) => $o->setAadDeviceId($n->getStringValue()),
             'allotmentDisplayName' => fn(ParseNode $n) => $o->setAllotmentDisplayName($n->getStringValue()),
+            'connectionSetting' => fn(ParseNode $n) => $o->setConnectionSetting($n->getObjectValue([CloudPcConnectionSetting::class, 'createFromDiscriminatorValue'])),
             'connectionSettings' => fn(ParseNode $n) => $o->setConnectionSettings($n->getObjectValue([CloudPcConnectionSettings::class, 'createFromDiscriminatorValue'])),
             'connectivityResult' => fn(ParseNode $n) => $o->setConnectivityResult($n->getObjectValue([CloudPcConnectivityResult::class, 'createFromDiscriminatorValue'])),
+            'deviceRegionName' => fn(ParseNode $n) => $o->setDeviceRegionName($n->getStringValue()),
             'disasterRecoveryCapability' => fn(ParseNode $n) => $o->setDisasterRecoveryCapability($n->getObjectValue([CloudPcDisasterRecoveryCapability::class, 'createFromDiscriminatorValue'])),
             'diskEncryptionState' => fn(ParseNode $n) => $o->setDiskEncryptionState($n->getEnumValue(CloudPcDiskEncryptionState::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -150,6 +176,7 @@ class CloudPC extends Entity implements Parsable
             'servicePlanName' => fn(ParseNode $n) => $o->setServicePlanName($n->getStringValue()),
             'servicePlanType' => fn(ParseNode $n) => $o->setServicePlanType($n->getEnumValue(CloudPcServicePlanType::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcStatus::class)),
+            'statusDetail' => fn(ParseNode $n) => $o->setStatusDetail($n->getObjectValue([CloudPcStatusDetail::class, 'createFromDiscriminatorValue'])),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getObjectValue([CloudPcStatusDetails::class, 'createFromDiscriminatorValue'])),
             'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -389,6 +416,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the statusDetail property value. Indicates the detailed status associated with Cloud PC, including error/warning code, error/warning message, additionalInformation. For example, { 'code': 'internalServerError', 'message': 'There was an error during the Cloud PC upgrade. Please contact support.', 'additionalInformation': null }.
+     * @return CloudPcStatusDetail|null
+    */
+    public function getStatusDetail(): ?CloudPcStatusDetail {
+        $val = $this->getBackingStore()->get('statusDetail');
+        if (is_null($val) || $val instanceof CloudPcStatusDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusDetail'");
+    }
+
+    /**
      * Gets the statusDetails property value. The details of the Cloud PC status. For example, { 'code': 'internalServerError', 'message': 'There was an error during the Cloud PC upgrade. Please contact support.', 'additionalInformation': null }. This property is deprecated and will no longer be supported effective August 31, 2024. Use statusDetail instead.
      * @return CloudPcStatusDetails|null
     */
@@ -432,8 +471,10 @@ class CloudPC extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('aadDeviceId', $this->getAadDeviceId());
         $writer->writeStringValue('allotmentDisplayName', $this->getAllotmentDisplayName());
+        $writer->writeObjectValue('connectionSetting', $this->getConnectionSetting());
         $writer->writeObjectValue('connectionSettings', $this->getConnectionSettings());
         $writer->writeObjectValue('connectivityResult', $this->getConnectivityResult());
+        $writer->writeStringValue('deviceRegionName', $this->getDeviceRegionName());
         $writer->writeObjectValue('disasterRecoveryCapability', $this->getDisasterRecoveryCapability());
         $writer->writeEnumValue('diskEncryptionState', $this->getDiskEncryptionState());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -456,6 +497,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('servicePlanName', $this->getServicePlanName());
         $writer->writeEnumValue('servicePlanType', $this->getServicePlanType());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeObjectValue('statusDetail', $this->getStatusDetail());
         $writer->writeObjectValue('statusDetails', $this->getStatusDetails());
         $writer->writeEnumValue('userAccountType', $this->getUserAccountType());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
@@ -478,6 +520,14 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Sets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read Only.
+     * @param CloudPcConnectionSetting|null $value Value to set for the connectionSetting property.
+    */
+    public function setConnectionSetting(?CloudPcConnectionSetting $value): void {
+        $this->getBackingStore()->set('connectionSetting', $value);
+    }
+
+    /**
      * Sets the connectionSettings property value. The connectionSettings property
      * @param CloudPcConnectionSettings|null $value Value to set for the connectionSettings property.
     */
@@ -491,6 +541,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setConnectivityResult(?CloudPcConnectivityResult $value): void {
         $this->getBackingStore()->set('connectivityResult', $value);
+    }
+
+    /**
+     * Sets the deviceRegionName property value. The name of the geographical region where the Cloud PC is currently provisioned. For example, westus3, eastus2, and southeastasia. Read-only.
+     * @param string|null $value Value to set for the deviceRegionName property.
+    */
+    public function setDeviceRegionName(?string $value): void {
+        $this->getBackingStore()->set('deviceRegionName', $value);
     }
 
     /**
@@ -667,6 +725,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setStatus(?CloudPcStatus $value): void {
         $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the statusDetail property value. Indicates the detailed status associated with Cloud PC, including error/warning code, error/warning message, additionalInformation. For example, { 'code': 'internalServerError', 'message': 'There was an error during the Cloud PC upgrade. Please contact support.', 'additionalInformation': null }.
+     * @param CloudPcStatusDetail|null $value Value to set for the statusDetail property.
+    */
+    public function setStatusDetail(?CloudPcStatusDetail $value): void {
+        $this->getBackingStore()->set('statusDetail', $value);
     }
 
     /**

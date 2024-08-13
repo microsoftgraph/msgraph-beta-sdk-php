@@ -94,6 +94,7 @@ class VirtualEvent extends Entity implements Parsable
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'presenters' => fn(ParseNode $n) => $o->setPresenters($n->getCollectionOfObjectValues([VirtualEventPresenter::class, 'createFromDiscriminatorValue'])),
             'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([VirtualEventSettings::class, 'createFromDiscriminatorValue'])),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(VirtualEventStatus::class)),
         ]);
@@ -125,6 +126,18 @@ class VirtualEvent extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sessions'");
+    }
+
+    /**
+     * Gets the settings property value. The virtual event settings.
+     * @return VirtualEventSettings|null
+    */
+    public function getSettings(): ?VirtualEventSettings {
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof VirtualEventSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
     }
 
     /**
@@ -163,6 +176,7 @@ class VirtualEvent extends Entity implements Parsable
         $writer->writeObjectValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('presenters', $this->getPresenters());
         $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
+        $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('startDateTime', $this->getStartDateTime());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -213,6 +227,14 @@ class VirtualEvent extends Entity implements Parsable
     */
     public function setSessions(?array $value): void {
         $this->getBackingStore()->set('sessions', $value);
+    }
+
+    /**
+     * Sets the settings property value. The virtual event settings.
+     * @param VirtualEventSettings|null $value Value to set for the settings property.
+    */
+    public function setSettings(?VirtualEventSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Tables\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the filter applied to the column. Read-only.
+ * The filter applied to the column. Read-only.
 */
 class FilterRequestBuilderGetQueryParameters 
 {

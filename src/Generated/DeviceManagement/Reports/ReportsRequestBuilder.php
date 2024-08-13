@@ -77,6 +77,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAler
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAssignedApplicationsReport\RetrieveAssignedApplicationsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveWin32CatalogAppsUpdateReport\RetrieveWin32CatalogAppsUpdateReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -598,6 +599,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function retrieveAssignedApplicationsReport(): RetrieveAssignedApplicationsReportRequestBuilder {
         return new RetrieveAssignedApplicationsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveWin32CatalogAppsUpdateReport method.
+    */
+    public function retrieveWin32CatalogAppsUpdateReport(): RetrieveWin32CatalogAppsUpdateReportRequestBuilder {
+        return new RetrieveWin32CatalogAppsUpdateReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

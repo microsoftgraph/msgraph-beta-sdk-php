@@ -69,7 +69,7 @@ class InsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get insights from users
+     * Represents relationships between a user and items such as OneDrive for work or school documents, calculated using advanced analytics and machine learning techniques. Read-only. Nullable.
      * @param InsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ItemInsights|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class InsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get insights from users
+     * Represents relationships between a user and items such as OneDrive for work or school documents, calculated using advanced analytics and machine learning techniques. Read-only. Nullable.
      * @param InsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

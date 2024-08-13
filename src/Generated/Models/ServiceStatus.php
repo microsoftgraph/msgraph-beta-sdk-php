@@ -69,7 +69,7 @@ class ServiceStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the disableReason property value. The reason the service is disabled. The possible values are: none, invalidBillingProfile, userRequested, unknownFutureValue.
+     * Gets the disableReason property value. The reason the service is disabled. The possible values are: none, controllerServiceAppDeleted, invalidBillingProfile, userRequested, unknownFutureValue.
      * @return DisableReason|null
     */
     public function getDisableReason(): ?DisableReason {
@@ -211,7 +211,7 @@ class ServiceStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the disableReason property value. The reason the service is disabled. The possible values are: none, invalidBillingProfile, userRequested, unknownFutureValue.
+     * Sets the disableReason property value. The reason the service is disabled. The possible values are: none, controllerServiceAppDeleted, invalidBillingProfile, userRequested, unknownFutureValue.
      * @param DisableReason|null $value Value to set for the disableReason property.
     */
     public function setDisableReason(?DisableReason $value): void {

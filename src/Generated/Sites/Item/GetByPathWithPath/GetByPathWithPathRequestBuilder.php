@@ -8,14 +8,15 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Site;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\Columns\ColumnsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\ContentModels\ContentModelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\ContentTypes\ContentTypesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\DocumentProcessingJobs\DocumentProcessingJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\ExternalColumns\ExternalColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\GetApplicableContentTypesForListWithListId\GetApplicableContentTypesForListWithListIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\GetByPathWithPath1\GetByPathWithPath1RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\Items\ItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\LastModifiedByUser\LastModifiedByUserRequestBuilder;
@@ -52,6 +53,13 @@ class GetByPathWithPathRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the contentModels property of the microsoft.graph.site entity.
+    */
+    public function contentModels(): ContentModelsRequestBuilder {
+        return new ContentModelsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
     */
     public function contentTypes(): ContentTypesRequestBuilder {
@@ -63,6 +71,13 @@ class GetByPathWithPathRequestBuilder extends BaseRequestBuilder
     */
     public function createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the documentProcessingJobs property of the microsoft.graph.site entity.
+    */
+    public function documentProcessingJobs(): DocumentProcessingJobsRequestBuilder {
+        return new DocumentProcessingJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -212,15 +227,6 @@ class GetByPathWithPathRequestBuilder extends BaseRequestBuilder
     */
     public function getApplicableContentTypesForListWithListId(string $listId): GetApplicableContentTypesForListWithListIdRequestBuilder {
         return new GetApplicableContentTypesForListWithListIdRequestBuilder($this->pathParameters, $this->requestAdapter, $listId);
-    }
-
-    /**
-     * Provides operations to call the getByPath method.
-     * @param string $path1 Usage: path='{path1}'
-     * @return GetByPathWithPath1RequestBuilder
-    */
-    public function getByPathWithPath1(string $path1): GetByPathWithPath1RequestBuilder {
-        return new GetByPathWithPath1RequestBuilder($this->pathParameters, $this->requestAdapter, $path1);
     }
 
     /**

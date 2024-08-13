@@ -60,6 +60,18 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @return AppleDeploymentChannel|null
+    */
+    public function getDeploymentChannel(): ?AppleDeploymentChannel {
+        $val = $this->getBackingStore()->get('deploymentChannel');
+        if (is_null($val) || $val instanceof AppleDeploymentChannel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentChannel'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -68,6 +80,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'connectAutomatically' => fn(ParseNode $n) => $o->setConnectAutomatically($n->getBooleanValue()),
             'connectWhenNetworkNameIsHidden' => fn(ParseNode $n) => $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()),
+            'deploymentChannel' => fn(ParseNode $n) => $o->setDeploymentChannel($n->getEnumValue(AppleDeploymentChannel::class)),
             'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
             'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
             'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
@@ -183,6 +196,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('connectAutomatically', $this->getConnectAutomatically());
         $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->getConnectWhenNetworkNameIsHidden());
+        $writer->writeEnumValue('deploymentChannel', $this->getDeploymentChannel());
         $writer->writeStringValue('networkName', $this->getNetworkName());
         $writer->writeStringValue('preSharedKey', $this->getPreSharedKey());
         $writer->writeStringValue('proxyAutomaticConfigurationUrl', $this->getProxyAutomaticConfigurationUrl());
@@ -207,6 +221,14 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
         $this->getBackingStore()->set('connectWhenNetworkNameIsHidden', $value);
+    }
+
+    /**
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
+    */
+    public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
+        $this->getBackingStore()->set('deploymentChannel', $value);
     }
 
     /**

@@ -76,6 +76,30 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     }
 
     /**
+     * Gets the deviceManufacturerName property value. The manufacturer name of the device.
+     * @return string|null
+    */
+    public function getDeviceManufacturerName(): ?string {
+        $val = $this->getBackingStore()->get('deviceManufacturerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManufacturerName'");
+    }
+
+    /**
+     * Gets the deviceModelName property value. The model name of the device.
+     * @return string|null
+    */
+    public function getDeviceModelName(): ?string {
+        $val = $this->getBackingStore()->get('deviceModelName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModelName'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -86,6 +110,8 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
             'averageBatteryAgeInDays' => fn(ParseNode $n) => $o->setAverageBatteryAgeInDays($n->getIntegerValue()),
             'averageEstimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setAverageEstimatedRuntimeInMinutes($n->getIntegerValue()),
             'averageMaxCapacityPercentage' => fn(ParseNode $n) => $o->setAverageMaxCapacityPercentage($n->getIntegerValue()),
+            'deviceManufacturerName' => fn(ParseNode $n) => $o->setDeviceManufacturerName($n->getStringValue()),
+            'deviceModelName' => fn(ParseNode $n) => $o->setDeviceModelName($n->getStringValue()),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'meanFullBatteryDrainCount' => fn(ParseNode $n) => $o->setMeanFullBatteryDrainCount($n->getIntegerValue()),
             'medianEstimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setMedianEstimatedRuntimeInMinutes($n->getIntegerValue()),
@@ -203,6 +229,8 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
         $writer->writeIntegerValue('averageBatteryAgeInDays', $this->getAverageBatteryAgeInDays());
         $writer->writeIntegerValue('averageEstimatedRuntimeInMinutes', $this->getAverageEstimatedRuntimeInMinutes());
         $writer->writeIntegerValue('averageMaxCapacityPercentage', $this->getAverageMaxCapacityPercentage());
+        $writer->writeStringValue('deviceManufacturerName', $this->getDeviceManufacturerName());
+        $writer->writeStringValue('deviceModelName', $this->getDeviceModelName());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeIntegerValue('meanFullBatteryDrainCount', $this->getMeanFullBatteryDrainCount());
         $writer->writeIntegerValue('medianEstimatedRuntimeInMinutes', $this->getMedianEstimatedRuntimeInMinutes());
@@ -243,6 +271,22 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     */
     public function setAverageMaxCapacityPercentage(?int $value): void {
         $this->getBackingStore()->set('averageMaxCapacityPercentage', $value);
+    }
+
+    /**
+     * Sets the deviceManufacturerName property value. The manufacturer name of the device.
+     * @param string|null $value Value to set for the deviceManufacturerName property.
+    */
+    public function setDeviceManufacturerName(?string $value): void {
+        $this->getBackingStore()->set('deviceManufacturerName', $value);
+    }
+
+    /**
+     * Sets the deviceModelName property value. The model name of the device.
+     * @param string|null $value Value to set for the deviceModelName property.
+    */
+    public function setDeviceModelName(?string $value): void {
+        $this->getBackingStore()->set('deviceModelName', $value);
     }
 
     /**

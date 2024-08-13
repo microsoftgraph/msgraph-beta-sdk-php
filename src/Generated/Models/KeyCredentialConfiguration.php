@@ -91,6 +91,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restrictForAppsCreatedAfterDateTime' => fn(ParseNode $n) => $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()),
             'restrictionType' => fn(ParseNode $n) => $o->setRestrictionType($n->getEnumValue(AppKeyCredentialRestrictionType::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AppManagementRestrictionState::class)),
         ];
     }
 
@@ -143,6 +144,18 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
+     * Gets the state property value. String value that indicates if the restriction is evaluated. The possible values are: enabled, disabled, and unknownFutureValue. If enabled, the restriction is evaluated. If disabled, the restriction isn't evaluated or enforced.
+     * @return AppManagementRestrictionState|null
+    */
+    public function getState(): ?AppManagementRestrictionState {
+        $val = $this->getBackingStore()->get('state');
+        if (is_null($val) || $val instanceof AppManagementRestrictionState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'state'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -152,6 +165,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('restrictForAppsCreatedAfterDateTime', $this->getRestrictForAppsCreatedAfterDateTime());
         $writer->writeEnumValue('restrictionType', $this->getRestrictionType());
+        $writer->writeEnumValue('state', $this->getState());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -209,6 +223,14 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     */
     public function setRestrictionType(?AppKeyCredentialRestrictionType $value): void {
         $this->getBackingStore()->set('restrictionType', $value);
+    }
+
+    /**
+     * Sets the state property value. String value that indicates if the restriction is evaluated. The possible values are: enabled, disabled, and unknownFutureValue. If enabled, the restriction is evaluated. If disabled, the restriction isn't evaluated or enforced.
+     * @param AppManagementRestrictionState|null $value Value to set for the state property.
+    */
+    public function setState(?AppManagementRestrictionState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }
