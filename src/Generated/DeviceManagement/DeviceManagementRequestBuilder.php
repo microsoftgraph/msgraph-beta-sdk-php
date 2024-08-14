@@ -95,6 +95,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceCleanupRules\Ma
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\ManagedDeviceEncryptionStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceOverview\ManagedDeviceOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\ManagedDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\ManagedDeviceWindowsOSImagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\MicrosoftTunnelConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\MicrosoftTunnelHealthThresholdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\MicrosoftTunnelServerLogCollectionResponsesRequestBuilder;
@@ -812,6 +813,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the managedDeviceWindowsOSImages property of the microsoft.graph.deviceManagement entity.
+    */
+    public function managedDeviceWindowsOSImages(): ManagedDeviceWindowsOSImagesRequestBuilder {
+        return new ManagedDeviceWindowsOSImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -104,6 +104,18 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @return AppleDeploymentChannel|null
+    */
+    public function getDeploymentChannel(): ?AppleDeploymentChannel {
+        $val = $this->getBackingStore()->get('deploymentChannel');
+        if (is_null($val) || $val instanceof AppleDeploymentChannel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentChannel'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -116,6 +128,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
             'certificationAuthority' => fn(ParseNode $n) => $o->setCertificationAuthority($n->getStringValue()),
             'certificationAuthorityName' => fn(ParseNode $n) => $o->setCertificationAuthorityName($n->getStringValue()),
             'customSubjectAlternativeNames' => fn(ParseNode $n) => $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues([CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
+            'deploymentChannel' => fn(ParseNode $n) => $o->setDeploymentChannel($n->getEnumValue(AppleDeploymentChannel::class)),
             'managedDeviceCertificateStates' => fn(ParseNode $n) => $o->setManagedDeviceCertificateStates($n->getCollectionOfObjectValues([ManagedDeviceCertificateState::class, 'createFromDiscriminatorValue'])),
             'subjectAlternativeNameFormatString' => fn(ParseNode $n) => $o->setSubjectAlternativeNameFormatString($n->getStringValue()),
             'subjectNameFormatString' => fn(ParseNode $n) => $o->setSubjectNameFormatString($n->getStringValue()),
@@ -172,6 +185,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
         $writer->writeStringValue('certificationAuthority', $this->getCertificationAuthority());
         $writer->writeStringValue('certificationAuthorityName', $this->getCertificationAuthorityName());
         $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->getCustomSubjectAlternativeNames());
+        $writer->writeEnumValue('deploymentChannel', $this->getDeploymentChannel());
         $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
         $writer->writeStringValue('subjectAlternativeNameFormatString', $this->getSubjectAlternativeNameFormatString());
         $writer->writeStringValue('subjectNameFormatString', $this->getSubjectNameFormatString());
@@ -223,6 +237,14 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
     */
     public function setCustomSubjectAlternativeNames(?array $value): void {
         $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
+    }
+
+    /**
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
+    */
+    public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
+        $this->getBackingStore()->set('deploymentChannel', $value);
     }
 
     /**

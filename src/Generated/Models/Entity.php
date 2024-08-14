@@ -631,7 +631,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudPcProvisioningPolicyAssignment': return new CloudPcProvisioningPolicyAssignment();
                 case '#microsoft.graph.cloudPcReports': return new CloudPcReports();
                 case '#microsoft.graph.cloudPcServicePlan': return new CloudPcServicePlan();
-                case '#microsoft.graph.cloudPcSharedUseServicePlan': return new CloudPcSharedUseServicePlan();
                 case '#microsoft.graph.cloudPcSnapshot': return new CloudPcSnapshot();
                 case '#microsoft.graph.cloudPcSupportedRegion': return new CloudPcSupportedRegion();
                 case '#microsoft.graph.cloudPcUserSetting': return new CloudPcUserSetting();
@@ -657,6 +656,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.contact': return new Contact();
                 case '#microsoft.graph.contactFolder': return new ContactFolder();
                 case '#microsoft.graph.contactMergeSuggestions': return new ContactMergeSuggestions();
+                case '#microsoft.graph.contentModel': return new ContentModel();
                 case '#microsoft.graph.contentSharingSession': return new ContentSharingSession();
                 case '#microsoft.graph.contentType': return new ContentType();
                 case '#microsoft.graph.continuousAccessEvaluationPolicy': return new ContinuousAccessEvaluationPolicy();
@@ -844,6 +844,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.document': return new Document();
                 case '#microsoft.graph.documentComment': return new DocumentComment();
                 case '#microsoft.graph.documentCommentReply': return new DocumentCommentReply();
+                case '#microsoft.graph.documentProcessingJob': return new DocumentProcessingJob();
                 case '#microsoft.graph.documentSetVersion': return new DocumentSetVersion();
                 case '#microsoft.graph.domain': return new Domain();
                 case '#microsoft.graph.domainDnsCnameRecord': return new DomainDnsCnameRecord();
@@ -1265,6 +1266,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.managedDeviceMobileAppConfigurationUserStatus': return new ManagedDeviceMobileAppConfigurationUserStatus();
                 case '#microsoft.graph.managedDeviceMobileAppConfigurationUserSummary': return new ManagedDeviceMobileAppConfigurationUserSummary();
                 case '#microsoft.graph.managedDeviceOverview': return new ManagedDeviceOverview();
+                case '#microsoft.graph.managedDeviceWindowsOperatingSystemImage': return new ManagedDeviceWindowsOperatingSystemImage();
                 case '#microsoft.graph.managedEBook': return new ManagedEBook();
                 case '#microsoft.graph.managedEBookAssignment': return new ManagedEBookAssignment();
                 case '#microsoft.graph.managedEBookCategory': return new ManagedEBookCategory();
@@ -1466,6 +1468,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.organizationalBranding': return new OrganizationalBranding();
                 case '#microsoft.graph.organizationalBrandingLocalization': return new OrganizationalBrandingLocalization();
                 case '#microsoft.graph.organizationalBrandingProperties': return new OrganizationalBrandingProperties();
+                case '#microsoft.graph.organizationalBrandingTheme': return new OrganizationalBrandingTheme();
                 case '#microsoft.graph.organizationSettings': return new OrganizationSettings();
                 case '#microsoft.graph.orgContact': return new OrgContact();
                 case '#microsoft.graph.outlookCategory': return new OutlookCategory();
@@ -2052,6 +2055,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userSettings': return new UserSettings();
                 case '#microsoft.graph.userSignInInsight': return new UserSignInInsight();
                 case '#microsoft.graph.userSignUpMetric': return new UserSignUpMetric();
+                case '#microsoft.graph.userSolutionRoot': return new UserSolutionRoot();
                 case '#microsoft.graph.userStorage': return new UserStorage();
                 case '#microsoft.graph.userTeamwork': return new UserTeamwork();
                 case '#microsoft.graph.userVirtualEventsRoot': return new UserVirtualEventsRoot();
@@ -2260,6 +2264,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.workbookWorksheet': return new WorkbookWorksheet();
                 case '#microsoft.graph.workbookWorksheetProtection': return new WorkbookWorksheetProtection();
                 case '#microsoft.graph.workforceIntegration': return new WorkforceIntegration();
+                case '#microsoft.graph.workingTimeSchedule': return new WorkingTimeSchedule();
                 case '#microsoft.graph.workplaceSensorDevice': return new WorkplaceSensorDevice();
                 case '#microsoft.graph.workPosition': return new WorkPosition();
                 case '#microsoft.graph.workspace': return new Workspace();

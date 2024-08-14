@@ -56,7 +56,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the browser property value. Indicates the browser information of the used for signing-in.
+     * Gets the browser property value. Indicates the browser information of the used in the sign-in. Populated for devices registered in Microsoft Entra.
      * @return string|null
     */
     public function getBrowser(): ?string {
@@ -80,7 +80,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceId property value. Refers to the UniqueID of the device used for signing-in.
+     * Gets the deviceId property value. Refers to the unique ID of the device used in the sign-in. Populated for devices registered in Microsoft Entra.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -92,7 +92,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. Refers to the name of the device used for signing-in.
+     * Gets the displayName property value. Refers to the name of the device used in the sign-in. Populated for devices registered in Microsoft Entra.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -159,7 +159,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the operatingSystem property value. Indicates the OS name and version used for signing-in.
+     * Gets the operatingSystem property value. Indicates the OS name and version used in the sign-in.
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
@@ -171,7 +171,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the trustType property value. Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+     * Gets the trustType property value. Indicates information on whether the device used in the sign-in is workplace-joined, Microsoft Entra-joined, domain-joined.
      * @return string|null
     */
     public function getTrustType(): ?string {
@@ -216,7 +216,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the browser property value. Indicates the browser information of the used for signing-in.
+     * Sets the browser property value. Indicates the browser information of the used in the sign-in. Populated for devices registered in Microsoft Entra.
      * @param string|null $value Value to set for the browser property.
     */
     public function setBrowser(?string $value): void {
@@ -232,7 +232,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceId property value. Refers to the UniqueID of the device used for signing-in.
+     * Sets the deviceId property value. Refers to the unique ID of the device used in the sign-in. Populated for devices registered in Microsoft Entra.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -240,7 +240,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. Refers to the name of the device used for signing-in.
+     * Sets the displayName property value. Refers to the name of the device used in the sign-in. Populated for devices registered in Microsoft Entra.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -272,7 +272,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the operatingSystem property value. Indicates the OS name and version used for signing-in.
+     * Sets the operatingSystem property value. Indicates the OS name and version used in the sign-in.
      * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
@@ -280,7 +280,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the trustType property value. Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+     * Sets the trustType property value. Indicates information on whether the device used in the sign-in is workplace-joined, Microsoft Entra-joined, domain-joined.
      * @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value): void {

@@ -107,6 +107,8 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
             'level' => fn(ParseNode $n) => $o->setLevel($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
+            'secondaryJobTitle' => fn(ParseNode $n) => $o->setSecondaryJobTitle($n->getStringValue()),
+            'secondaryRole' => fn(ParseNode $n) => $o->setSecondaryRole($n->getStringValue()),
             'startMonthYear' => fn(ParseNode $n) => $o->setStartMonthYear($n->getDateValue()),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getStringValue()),
         ];
@@ -173,6 +175,30 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the secondaryJobTitle property value. The secondaryJobTitle property
+     * @return string|null
+    */
+    public function getSecondaryJobTitle(): ?string {
+        $val = $this->getBackingStore()->get('secondaryJobTitle');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryJobTitle'");
+    }
+
+    /**
+     * Gets the secondaryRole property value. The secondaryRole property
+     * @return string|null
+    */
+    public function getSecondaryRole(): ?string {
+        $val = $this->getBackingStore()->get('secondaryRole');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'secondaryRole'");
+    }
+
+    /**
      * Gets the startMonthYear property value. The start month and year of the position.
      * @return Date|null
     */
@@ -209,6 +235,8 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('level', $this->getLevel());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('role', $this->getRole());
+        $writer->writeStringValue('secondaryJobTitle', $this->getSecondaryJobTitle());
+        $writer->writeStringValue('secondaryRole', $this->getSecondaryRole());
         $writer->writeDateValue('startMonthYear', $this->getStartMonthYear());
         $writer->writeStringValue('summary', $this->getSummary());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -292,6 +320,22 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setRole(?string $value): void {
         $this->getBackingStore()->set('role', $value);
+    }
+
+    /**
+     * Sets the secondaryJobTitle property value. The secondaryJobTitle property
+     * @param string|null $value Value to set for the secondaryJobTitle property.
+    */
+    public function setSecondaryJobTitle(?string $value): void {
+        $this->getBackingStore()->set('secondaryJobTitle', $value);
+    }
+
+    /**
+     * Sets the secondaryRole property value. The secondaryRole property
+     * @param string|null $value Value to set for the secondaryRole property.
+    */
+    public function setSecondaryRole(?string $value): void {
+        $this->getBackingStore()->set('secondaryRole', $value);
     }
 
     /**

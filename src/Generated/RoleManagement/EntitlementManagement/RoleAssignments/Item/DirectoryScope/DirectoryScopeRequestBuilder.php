@@ -31,7 +31,7 @@ class DirectoryScopeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
      * @param DirectoryScopeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObject|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class DirectoryScopeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
      * @param DirectoryScopeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

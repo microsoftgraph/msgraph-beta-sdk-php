@@ -25,7 +25,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
+     * Gets the appScope property value. Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
      * @return AppScope|null
     */
     public function getAppScope(): ?AppScope {
@@ -61,7 +61,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the directoryScope property value. The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * Gets the directoryScope property value. The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
      * @return DirectoryObject|null
     */
     public function getDirectoryScope(): ?DirectoryObject {
@@ -106,7 +106,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the principal property value. The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * Gets the principal property value. Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
      * @return DirectoryObject|null
     */
     public function getPrincipal(): ?DirectoryObject {
@@ -154,7 +154,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleDefinition property value. The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * Gets the roleDefinition property value. The roleDefinition the assignment is for. Supports $expand.
      * @return UnifiedRoleDefinition|null
     */
     public function getRoleDefinition(): ?UnifiedRoleDefinition {
@@ -197,7 +197,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
+     * Sets the appScope property value. Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
      * @param AppScope|null $value Value to set for the appScope property.
     */
     public function setAppScope(?AppScope $value): void {
@@ -221,7 +221,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the directoryScope property value. The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * Sets the directoryScope property value. The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
      * @param DirectoryObject|null $value Value to set for the directoryScope property.
     */
     public function setDirectoryScope(?DirectoryObject $value): void {
@@ -237,7 +237,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the principal property value. The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * Sets the principal property value. Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
      * @param DirectoryObject|null $value Value to set for the principal property.
     */
     public function setPrincipal(?DirectoryObject $value): void {
@@ -269,7 +269,7 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleDefinition property value. The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * Sets the roleDefinition property value. The roleDefinition the assignment is for. Supports $expand.
      * @param UnifiedRoleDefinition|null $value Value to set for the roleDefinition property.
     */
     public function setRoleDefinition(?UnifiedRoleDefinition $value): void {

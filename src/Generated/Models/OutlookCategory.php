@@ -25,7 +25,7 @@ class OutlookCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the color property value. A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. For more details, see the following note.
+     * Gets the color property value. A preset color constant that characterizes a category, and that is mapped to one of 25 predefined colors. For more information, see the following note.
      * @return CategoryColor|null
     */
     public function getColor(): ?CategoryColor {
@@ -37,7 +37,7 @@ class OutlookCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.
+     * Gets the displayName property value. A unique name that identifies a category in the user's mailbox. After a category is created, the name can't be changed. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -71,7 +71,7 @@ class OutlookCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the color property value. A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. For more details, see the following note.
+     * Sets the color property value. A preset color constant that characterizes a category, and that is mapped to one of 25 predefined colors. For more information, see the following note.
      * @param CategoryColor|null $value Value to set for the color property.
     */
     public function setColor(?CategoryColor $value): void {
@@ -79,7 +79,7 @@ class OutlookCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.
+     * Sets the displayName property value. A unique name that identifies a category in the user's mailbox. After a category is created, the name can't be changed. Read-only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

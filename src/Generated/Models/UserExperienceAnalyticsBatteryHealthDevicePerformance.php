@@ -105,6 +105,30 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
+     * Gets the deviceManufacturerName property value. The manufacturer name of the device.
+     * @return string|null
+    */
+    public function getDeviceManufacturerName(): ?string {
+        $val = $this->getBackingStore()->get('deviceManufacturerName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceManufacturerName'");
+    }
+
+    /**
+     * Gets the deviceModelName property value. The model name of the device.
+     * @return string|null
+    */
+    public function getDeviceModelName(): ?string {
+        $val = $this->getBackingStore()->get('deviceModelName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceModelName'");
+    }
+
+    /**
      * Gets the deviceName property value. Device friendly name.
      * @return string|null
     */
@@ -148,6 +172,8 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
                 $this->setDeviceBatteryTags($val);
             },
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceManufacturerName' => fn(ParseNode $n) => $o->setDeviceManufacturerName($n->getStringValue()),
+            'deviceModelName' => fn(ParseNode $n) => $o->setDeviceModelName($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'estimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()),
             'fullBatteryDrainCount' => fn(ParseNode $n) => $o->setFullBatteryDrainCount($n->getIntegerValue()),
@@ -230,6 +256,8 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
         $writer->writeIntegerValue('deviceBatteryHealthScore', $this->getDeviceBatteryHealthScore());
         $writer->writeCollectionOfPrimitiveValues('deviceBatteryTags', $this->getDeviceBatteryTags());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('deviceManufacturerName', $this->getDeviceManufacturerName());
+        $writer->writeStringValue('deviceModelName', $this->getDeviceModelName());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
         $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->getEstimatedRuntimeInMinutes());
         $writer->writeIntegerValue('fullBatteryDrainCount', $this->getFullBatteryDrainCount());
@@ -285,6 +313,22 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
+    }
+
+    /**
+     * Sets the deviceManufacturerName property value. The manufacturer name of the device.
+     * @param string|null $value Value to set for the deviceManufacturerName property.
+    */
+    public function setDeviceManufacturerName(?string $value): void {
+        $this->getBackingStore()->set('deviceManufacturerName', $value);
+    }
+
+    /**
+     * Sets the deviceModelName property value. The model name of the device.
+     * @param string|null $value Value to set for the deviceModelName property.
+    */
+    public function setDeviceModelName(?string $value): void {
+        $this->getBackingStore()->set('deviceModelName', $value);
     }
 
     /**

@@ -58,7 +58,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowBreakoutRooms property value. The allowBreakoutRooms property
+     * Gets the allowBreakoutRooms property value. Indicates whether breakout rooms are enabled for the meeting.
      * @return bool|null
     */
     public function getAllowBreakoutRooms(): ?bool {
@@ -70,7 +70,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
+     * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue.
      * @return OnlineMeetingPresenters|null
     */
     public function getAllowedPresenters(): ?OnlineMeetingPresenters {
@@ -82,19 +82,19 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowLiveShare property value. The allowLiveShare property
-     * @return bool|null
+     * Gets the allowLiveShare property value. Indicates whether live share is enabled for the meeting. Possible values are: enabled, disabled, unknownFutureValue.
+     * @return MeetingLiveShareOptions|null
     */
-    public function getAllowLiveShare(): ?bool {
+    public function getAllowLiveShare(): ?MeetingLiveShareOptions {
         $val = $this->getBackingStore()->get('allowLiveShare');
-        if (is_null($val) || is_bool($val)) {
+        if (is_null($val) || $val instanceof MeetingLiveShareOptions) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowLiveShare'");
     }
 
     /**
-     * Gets the allowMeetingChat property value. Specifies the mode of meeting chat.
+     * Gets the allowMeetingChat property value. Specifies the mode of meeting chat. Possible values are: enabled, disabled, limited, unknownFutureValue.
      * @return MeetingChatMode|null
     */
     public function getAllowMeetingChat(): ?MeetingChatMode {
@@ -118,7 +118,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowPowerPointSharing property value. The allowPowerPointSharing property
+     * Gets the allowPowerPointSharing property value. Indicates whether PowerPoint live is enabled for the meeting.
      * @return bool|null
     */
     public function getAllowPowerPointSharing(): ?bool {
@@ -166,7 +166,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowWhiteboard property value. The allowWhiteboard property
+     * Gets the allowWhiteboard property value. Indicates whether whiteboard is enabled for the meeting.
      * @return bool|null
     */
     public function getAllowWhiteboard(): ?bool {
@@ -252,7 +252,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'allowAttendeeToEnableMic' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableMic($n->getBooleanValue()),
             'allowBreakoutRooms' => fn(ParseNode $n) => $o->setAllowBreakoutRooms($n->getBooleanValue()),
             'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
-            'allowLiveShare' => fn(ParseNode $n) => $o->setAllowLiveShare($n->getBooleanValue()),
+            'allowLiveShare' => fn(ParseNode $n) => $o->setAllowLiveShare($n->getEnumValue(MeetingLiveShareOptions::class)),
             'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)),
             'allowParticipantsToChangeName' => fn(ParseNode $n) => $o->setAllowParticipantsToChangeName($n->getBooleanValue()),
             'allowPowerPointSharing' => fn(ParseNode $n) => $o->setAllowPowerPointSharing($n->getBooleanValue()),
@@ -421,7 +421,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->getAllowAttendeeToEnableMic());
         $writer->writeBooleanValue('allowBreakoutRooms', $this->getAllowBreakoutRooms());
         $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
-        $writer->writeBooleanValue('allowLiveShare', $this->getAllowLiveShare());
+        $writer->writeEnumValue('allowLiveShare', $this->getAllowLiveShare());
         $writer->writeEnumValue('allowMeetingChat', $this->getAllowMeetingChat());
         $writer->writeBooleanValue('allowParticipantsToChangeName', $this->getAllowParticipantsToChangeName());
         $writer->writeBooleanValue('allowPowerPointSharing', $this->getAllowPowerPointSharing());
@@ -464,7 +464,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowBreakoutRooms property value. The allowBreakoutRooms property
+     * Sets the allowBreakoutRooms property value. Indicates whether breakout rooms are enabled for the meeting.
      * @param bool|null $value Value to set for the allowBreakoutRooms property.
     */
     public function setAllowBreakoutRooms(?bool $value): void {
@@ -472,7 +472,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
+     * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue.
      * @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
     */
     public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
@@ -480,15 +480,15 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowLiveShare property value. The allowLiveShare property
-     * @param bool|null $value Value to set for the allowLiveShare property.
+     * Sets the allowLiveShare property value. Indicates whether live share is enabled for the meeting. Possible values are: enabled, disabled, unknownFutureValue.
+     * @param MeetingLiveShareOptions|null $value Value to set for the allowLiveShare property.
     */
-    public function setAllowLiveShare(?bool $value): void {
+    public function setAllowLiveShare(?MeetingLiveShareOptions $value): void {
         $this->getBackingStore()->set('allowLiveShare', $value);
     }
 
     /**
-     * Sets the allowMeetingChat property value. Specifies the mode of meeting chat.
+     * Sets the allowMeetingChat property value. Specifies the mode of meeting chat. Possible values are: enabled, disabled, limited, unknownFutureValue.
      * @param MeetingChatMode|null $value Value to set for the allowMeetingChat property.
     */
     public function setAllowMeetingChat(?MeetingChatMode $value): void {
@@ -504,7 +504,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowPowerPointSharing property value. The allowPowerPointSharing property
+     * Sets the allowPowerPointSharing property value. Indicates whether PowerPoint live is enabled for the meeting.
      * @param bool|null $value Value to set for the allowPowerPointSharing property.
     */
     public function setAllowPowerPointSharing(?bool $value): void {
@@ -536,7 +536,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowWhiteboard property value. The allowWhiteboard property
+     * Sets the allowWhiteboard property value. Indicates whether whiteboard is enabled for the meeting.
      * @param bool|null $value Value to set for the allowWhiteboard property.
     */
     public function setAllowWhiteboard(?bool $value): void {

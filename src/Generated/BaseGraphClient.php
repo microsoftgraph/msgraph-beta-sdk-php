@@ -76,6 +76,7 @@ use Microsoft\Graph\Beta\Generated\MessageRecipients\MessageRecipientsRequestBui
 use Microsoft\Graph\Beta\Generated\MessageTraces\MessageTracesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\MobilityManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Monitoring\MonitoringRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Network\NetworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\NetworkAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\OnPremisesPublishingProfilesRequestBuilder;
@@ -623,6 +624,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function monitoring(): MonitoringRequestBuilder {
         return new MonitoringRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the network singleton.
+    */
+    public function network(): NetworkRequestBuilder {
+        return new NetworkRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
