@@ -26,7 +26,7 @@ class Community extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description of the community. The maximum length is 1024 characters.
+     * Gets the description property value. The description of the community. The maximum length is 1,024 characters.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -130,7 +130,7 @@ class Community extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description of the community. The maximum length is 1024 characters.
+     * Sets the description property value. The description of the community. The maximum length is 1,024 characters.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {

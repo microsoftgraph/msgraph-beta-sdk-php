@@ -69,6 +69,18 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the displayName property value. The name of the reaction.
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -76,6 +88,7 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reactionContentUrl' => fn(ParseNode $n) => $o->setReactionContentUrl($n->getStringValue()),
             'reactionType' => fn(ParseNode $n) => $o->setReactionType($n->getStringValue()),
@@ -108,7 +121,7 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the reactionType property value. Supported values are Unicode characters and custom. Some backward-compatible reaction types include like, angry, sad, laugh, heart, and surprised.
+     * Gets the reactionType property value. The reaction type. Supported values include Unicode characters, custom, and some backward-compatible reaction types, such as like, angry, sad, laugh, heart, and surprised.
      * @return string|null
     */
     public function getReactionType(): ?string {
@@ -137,6 +150,7 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('reactionContentUrl', $this->getReactionContentUrl());
         $writer->writeStringValue('reactionType', $this->getReactionType());
@@ -169,6 +183,14 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the displayName property value. The name of the reaction.
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
      * @param string|null $value Value to set for the @odata.type property.
     */
@@ -185,7 +207,7 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the reactionType property value. Supported values are Unicode characters and custom. Some backward-compatible reaction types include like, angry, sad, laugh, heart, and surprised.
+     * Sets the reactionType property value. The reaction type. Supported values include Unicode characters, custom, and some backward-compatible reaction types, such as like, angry, sad, laugh, heart, and surprised.
      * @param string|null $value Value to set for the reactionType property.
     */
     public function setReactionType(?string $value): void {

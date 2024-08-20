@@ -48,6 +48,18 @@ class RestorePointSearchResult implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
+     * Gets the artifactHitCount property value. Total number of artifacts restored.
+     * @return int|null
+    */
+    public function getArtifactHitCount(): ?int {
+        $val = $this->getBackingStore()->get('artifactHitCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'artifactHitCount'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -62,6 +74,7 @@ class RestorePointSearchResult implements AdditionalDataHolder, BackedModel, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'artifactHitCount' => fn(ParseNode $n) => $o->setArtifactHitCount($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restorePoint' => fn(ParseNode $n) => $o->setRestorePoint($n->getObjectValue([RestorePoint::class, 'createFromDiscriminatorValue'])),
         ];
@@ -96,6 +109,7 @@ class RestorePointSearchResult implements AdditionalDataHolder, BackedModel, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeIntegerValue('artifactHitCount', $this->getArtifactHitCount());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('restorePoint', $this->getRestorePoint());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -107,6 +121,14 @@ class RestorePointSearchResult implements AdditionalDataHolder, BackedModel, Par
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the artifactHitCount property value. Total number of artifacts restored.
+     * @param int|null $value Value to set for the artifactHitCount property.
+    */
+    public function setArtifactHitCount(?int $value): void {
+        $this->getBackingStore()->set('artifactHitCount', $value);
     }
 
     /**
