@@ -33,8 +33,23 @@ class ExchangeRestoreSession extends RestoreSessionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'granularMailboxRestoreArtifacts' => fn(ParseNode $n) => $o->setGranularMailboxRestoreArtifacts($n->getCollectionOfObjectValues([GranularMailboxRestoreArtifact::class, 'createFromDiscriminatorValue'])),
             'mailboxRestoreArtifacts' => fn(ParseNode $n) => $o->setMailboxRestoreArtifacts($n->getCollectionOfObjectValues([MailboxRestoreArtifact::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the granularMailboxRestoreArtifacts property value. The granularMailboxRestoreArtifacts property
+     * @return array<GranularMailboxRestoreArtifact>|null
+    */
+    public function getGranularMailboxRestoreArtifacts(): ?array {
+        $val = $this->getBackingStore()->get('granularMailboxRestoreArtifacts');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GranularMailboxRestoreArtifact::class);
+            /** @var array<GranularMailboxRestoreArtifact>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'granularMailboxRestoreArtifacts'");
     }
 
     /**
@@ -57,7 +72,16 @@ class ExchangeRestoreSession extends RestoreSessionBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('granularMailboxRestoreArtifacts', $this->getGranularMailboxRestoreArtifacts());
         $writer->writeCollectionOfObjectValues('mailboxRestoreArtifacts', $this->getMailboxRestoreArtifacts());
+    }
+
+    /**
+     * Sets the granularMailboxRestoreArtifacts property value. The granularMailboxRestoreArtifacts property
+     * @param array<GranularMailboxRestoreArtifact>|null $value Value to set for the granularMailboxRestoreArtifacts property.
+    */
+    public function setGranularMailboxRestoreArtifacts(?array $value): void {
+        $this->getBackingStore()->set('granularMailboxRestoreArtifacts', $value);
     }
 
     /**

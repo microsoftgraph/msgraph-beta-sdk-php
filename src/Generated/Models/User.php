@@ -2081,7 +2081,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the solutions property value. The solutions property
+     * Gets the solutions property value. Represents a user's custom solution entity. Read-Only. Nullable.
      * @return UserSolutionRoot|null
     */
     public function getSolutions(): ?UserSolutionRoot {
@@ -3563,7 +3563,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the solutions property value. The solutions property
+     * Sets the solutions property value. Represents a user's custom solution entity. Read-Only. Nullable.
      * @param UserSolutionRoot|null $value Value to set for the solutions property.
     */
     public function setSolutions(?UserSolutionRoot $value): void {

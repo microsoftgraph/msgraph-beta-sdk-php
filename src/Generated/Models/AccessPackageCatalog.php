@@ -204,6 +204,7 @@ class AccessPackageCatalog extends Entity implements Parsable
             'isExternallyVisible' => fn(ParseNode $n) => $o->setIsExternallyVisible($n->getBooleanValue()),
             'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getStringValue()),
             'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            'uniqueName' => fn(ParseNode $n) => $o->setUniqueName($n->getStringValue()),
         ]);
     }
 
@@ -244,6 +245,18 @@ class AccessPackageCatalog extends Entity implements Parsable
     }
 
     /**
+     * Gets the uniqueName property value. The uniqueName property
+     * @return string|null
+    */
+    public function getUniqueName(): ?string {
+        $val = $this->getBackingStore()->get('uniqueName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uniqueName'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -264,6 +277,7 @@ class AccessPackageCatalog extends Entity implements Parsable
         $writer->writeBooleanValue('isExternallyVisible', $this->getIsExternallyVisible());
         $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('uniqueName', $this->getUniqueName());
     }
 
     /**
@@ -384,6 +398,14 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the uniqueName property value. The uniqueName property
+     * @param string|null $value Value to set for the uniqueName property.
+    */
+    public function setUniqueName(?string $value): void {
+        $this->getBackingStore()->set('uniqueName', $value);
     }
 
 }

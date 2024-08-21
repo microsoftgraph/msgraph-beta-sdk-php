@@ -56,7 +56,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the blockAzureADGraphAccess property value. The blockAzureADGraphAccess property
+     * Gets the blockAzureADGraphAccess property value. If false, allows the app to have extended access to Azure AD Graph until June 30, 2025 when Azure AD Graph is fully retired. For more information on Azure AD retirement updates, see June 2024 update on Azure AD Graph API retirement.
      * @return bool|null
     */
     public function getBlockAzureADGraphAccess(): ?bool {
@@ -94,7 +94,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain can't be verified.
+     * Gets the removeUnverifiedEmailClaim property value. If true, removes the email claim from tokens sent to an application when the email address's domain can't be verified.
      * @return bool|null
     */
     public function getRemoveUnverifiedEmailClaim(): ?bool {
@@ -106,7 +106,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the requireClientServicePrincipal property value. Requires multitenant applications to have a service principal in the resource tenant as part of authorization checks before they're granted access tokens. This property is only modifiable for multi-tenant resource applications that rely on access from clients without a service principal and had this behavior as set to false by Microsoft. Tenant administrators should respond to security advisories sent through Azure Health Service events and the Microsoft 365 message center.
+     * Gets the requireClientServicePrincipal property value. If true, requires multitenant applications to have a service principal in the resource tenant as part of authorization checks before they're granted access tokens. This property is only modifiable for multitenant resource applications that rely on access from clients without a service principal and had this behavior as set to false by Microsoft. Tenant administrators should respond to security advisories sent through Azure Health Service events and the Microsoft 365 message center.
      * @return bool|null
     */
     public function getRequireClientServicePrincipal(): ?bool {
@@ -146,7 +146,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the blockAzureADGraphAccess property value. The blockAzureADGraphAccess property
+     * Sets the blockAzureADGraphAccess property value. If false, allows the app to have extended access to Azure AD Graph until June 30, 2025 when Azure AD Graph is fully retired. For more information on Azure AD retirement updates, see June 2024 update on Azure AD Graph API retirement.
      * @param bool|null $value Value to set for the blockAzureADGraphAccess property.
     */
     public function setBlockAzureADGraphAccess(?bool $value): void {
@@ -162,7 +162,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the removeUnverifiedEmailClaim property value. Removes the email claim from tokens sent to an application when the email address's domain can't be verified.
+     * Sets the removeUnverifiedEmailClaim property value. If true, removes the email claim from tokens sent to an application when the email address's domain can't be verified.
      * @param bool|null $value Value to set for the removeUnverifiedEmailClaim property.
     */
     public function setRemoveUnverifiedEmailClaim(?bool $value): void {
@@ -170,7 +170,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the requireClientServicePrincipal property value. Requires multitenant applications to have a service principal in the resource tenant as part of authorization checks before they're granted access tokens. This property is only modifiable for multi-tenant resource applications that rely on access from clients without a service principal and had this behavior as set to false by Microsoft. Tenant administrators should respond to security advisories sent through Azure Health Service events and the Microsoft 365 message center.
+     * Sets the requireClientServicePrincipal property value. If true, requires multitenant applications to have a service principal in the resource tenant as part of authorization checks before they're granted access tokens. This property is only modifiable for multitenant resource applications that rely on access from clients without a service principal and had this behavior as set to false by Microsoft. Tenant administrators should respond to security advisories sent through Azure Health Service events and the Microsoft 365 message center.
      * @param bool|null $value Value to set for the requireClientServicePrincipal property.
     */
     public function setRequireClientServicePrincipal(?bool $value): void {
