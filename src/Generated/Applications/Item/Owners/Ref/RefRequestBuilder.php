@@ -47,7 +47,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of owners for an application that are directoryObject objects.
+     * Retrieve a list of owners for an application that are directoryObject types.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StringCollectionResponse|null>
      * @throws Exception
@@ -99,7 +99,7 @@ class RefRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of owners for an application that are directoryObject objects.
+     * Retrieve a list of owners for an application that are directoryObject types.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

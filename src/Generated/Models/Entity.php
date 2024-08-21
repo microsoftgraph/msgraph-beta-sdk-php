@@ -466,6 +466,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.appManagementPolicy': return new AppManagementPolicy();
                 case '#microsoft.graph.appRoleAssignment': return new AppRoleAssignment();
                 case '#microsoft.graph.approval': return new Approval();
+                case '#microsoft.graph.approvalItem': return new ApprovalItem();
+                case '#microsoft.graph.approvalItemRequest': return new ApprovalItemRequest();
+                case '#microsoft.graph.approvalItemResponse': return new ApprovalItemResponse();
+                case '#microsoft.graph.approvalOperation': return new ApprovalOperation();
+                case '#microsoft.graph.approvalSolution': return new ApprovalSolution();
                 case '#microsoft.graph.approvalStep': return new ApprovalStep();
                 case '#microsoft.graph.approvalWorkflowProvider': return new ApprovalWorkflowProvider();
                 case '#microsoft.graph.appScope': return new AppScope();
@@ -935,6 +940,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.enterpriseCodeSigningCertificate': return new EnterpriseCodeSigningCertificate();
                 case '#microsoft.graph.entitlementManagement': return new EntitlementManagement();
                 case '#microsoft.graph.entitlementManagementSettings': return new EntitlementManagementSettings();
+                case '#microsoft.graph.entra': return new Entra();
                 case '#microsoft.graph.evaluateLabelJobResponse': return new EvaluateLabelJobResponse();
                 case '#microsoft.graph.event': return new Event();
                 case '#microsoft.graph.eventMessage': return new EventMessage();
@@ -1010,6 +1016,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.governanceRoleDefinition': return new GovernanceRoleDefinition();
                 case '#microsoft.graph.governanceRoleSetting': return new GovernanceRoleSetting();
                 case '#microsoft.graph.governanceSubject': return new GovernanceSubject();
+                case '#microsoft.graph.granularMailboxRestoreArtifact': return new GranularMailboxRestoreArtifact();
                 case '#microsoft.graph.group': return new Group();
                 case '#microsoft.graph.groupLifecyclePolicy': return new GroupLifecyclePolicy();
                 case '#microsoft.graph.groupPolicyCategory': return new GroupPolicyCategory();
@@ -2059,6 +2066,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userStorage': return new UserStorage();
                 case '#microsoft.graph.userTeamwork': return new UserTeamwork();
                 case '#microsoft.graph.userVirtualEventsRoot': return new UserVirtualEventsRoot();
+                case '#microsoft.graph.uxSetting': return new UxSetting();
                 case '#microsoft.graph.verticalSection': return new VerticalSection();
                 case '#microsoft.graph.videoNewsLinkPage': return new VideoNewsLinkPage();
                 case '#microsoft.graph.virtualEndpoint': return new VirtualEndpoint();

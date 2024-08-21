@@ -89,6 +89,7 @@ class CloudPcUserSetting extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
+            'notificationSetting' => fn(ParseNode $n) => $o->setNotificationSetting($n->getObjectValue([CloudPcNotificationSetting::class, 'createFromDiscriminatorValue'])),
             'resetEnabled' => fn(ParseNode $n) => $o->setResetEnabled($n->getBooleanValue()),
             'restorePointSetting' => fn(ParseNode $n) => $o->setRestorePointSetting($n->getObjectValue([CloudPcRestorePointSetting::class, 'createFromDiscriminatorValue'])),
             'selfServiceEnabled' => fn(ParseNode $n) => $o->setSelfServiceEnabled($n->getBooleanValue()),
@@ -117,6 +118,18 @@ class CloudPcUserSetting extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'localAdminEnabled'");
+    }
+
+    /**
+     * Gets the notificationSetting property value. The notificationSetting property
+     * @return CloudPcNotificationSetting|null
+    */
+    public function getNotificationSetting(): ?CloudPcNotificationSetting {
+        $val = $this->getBackingStore()->get('notificationSetting');
+        if (is_null($val) || $val instanceof CloudPcNotificationSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationSetting'");
     }
 
     /**
@@ -167,6 +180,7 @@ class CloudPcUserSetting extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
+        $writer->writeObjectValue('notificationSetting', $this->getNotificationSetting());
         $writer->writeBooleanValue('resetEnabled', $this->getResetEnabled());
         $writer->writeObjectValue('restorePointSetting', $this->getRestorePointSetting());
         $writer->writeBooleanValue('selfServiceEnabled', $this->getSelfServiceEnabled());
@@ -218,6 +232,14 @@ class CloudPcUserSetting extends Entity implements Parsable
     */
     public function setLocalAdminEnabled(?bool $value): void {
         $this->getBackingStore()->set('localAdminEnabled', $value);
+    }
+
+    /**
+     * Sets the notificationSetting property value. The notificationSetting property
+     * @param CloudPcNotificationSetting|null $value Value to set for the notificationSetting property.
+    */
+    public function setNotificationSetting(?CloudPcNotificationSetting $value): void {
+        $this->getBackingStore()->set('notificationSetting', $value);
     }
 
     /**

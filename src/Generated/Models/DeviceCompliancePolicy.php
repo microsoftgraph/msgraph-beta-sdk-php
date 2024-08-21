@@ -194,7 +194,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduledActionsForRule property value. The list of scheduled action for this rule
+     * Gets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @return array<DeviceComplianceScheduledActionForRule>|null
     */
     public function getScheduledActionsForRule(): ?array {
@@ -339,7 +339,7 @@ class DeviceCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduledActionsForRule property value. The list of scheduled action for this rule
+     * Sets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param array<DeviceComplianceScheduledActionForRule>|null $value Value to set for the scheduledActionsForRule property.
     */
     public function setScheduledActionsForRule(?array $value): void {

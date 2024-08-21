@@ -49,6 +49,18 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the approval property value. The approval property
+     * @return ApprovalSolution|null
+    */
+    public function getApproval(): ?ApprovalSolution {
+        $val = $this->getBackingStore()->get('approval');
+        if (is_null($val) || $val instanceof ApprovalSolution) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approval'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -117,6 +129,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'approval' => fn(ParseNode $n) => $o->setApproval($n->getObjectValue([ApprovalSolution::class, 'createFromDiscriminatorValue'])),
             'backupRestore' => fn(ParseNode $n) => $o->setBackupRestore($n->getObjectValue([BackupRestoreRoot::class, 'createFromDiscriminatorValue'])),
             'bookingBusinesses' => fn(ParseNode $n) => $o->setBookingBusinesses($n->getCollectionOfObjectValues([BookingBusiness::class, 'createFromDiscriminatorValue'])),
             'bookingCurrencies' => fn(ParseNode $n) => $o->setBookingCurrencies($n->getCollectionOfObjectValues([BookingCurrency::class, 'createFromDiscriminatorValue'])),
@@ -155,6 +168,7 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('approval', $this->getApproval());
         $writer->writeObjectValue('backupRestore', $this->getBackupRestore());
         $writer->writeCollectionOfObjectValues('bookingBusinesses', $this->getBookingBusinesses());
         $writer->writeCollectionOfObjectValues('bookingCurrencies', $this->getBookingCurrencies());
@@ -170,6 +184,14 @@ class SolutionsRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the approval property value. The approval property
+     * @param ApprovalSolution|null $value Value to set for the approval property.
+    */
+    public function setApproval(?ApprovalSolution $value): void {
+        $this->getBackingStore()->set('approval', $value);
     }
 
     /**
