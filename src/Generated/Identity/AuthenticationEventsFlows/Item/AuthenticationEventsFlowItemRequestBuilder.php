@@ -77,7 +77,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
+     * Update the properties of an authenticationEventsFlow object by ID. You must specify the @odata.type property and the value of the authenticationEventsFlow object type to update. The following derived subtypes are supported:- externalUsersSelfServiceSignupEventsFlow
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventsFlow|null>
@@ -132,7 +132,7 @@ class AuthenticationEventsFlowItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
+     * Update the properties of an authenticationEventsFlow object by ID. You must specify the @odata.type property and the value of the authenticationEventsFlow object type to update. The following derived subtypes are supported:- externalUsersSelfServiceSignupEventsFlow
      * @param AuthenticationEventsFlow $body The request body
      * @param AuthenticationEventsFlowItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -21,6 +21,13 @@ class MailboxRestoreArtifact extends RestoreArtifactBase implements Parsable
      * @return MailboxRestoreArtifact
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MailboxRestoreArtifact {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.granularMailboxRestoreArtifact': return new GranularMailboxRestoreArtifact();
+            }
+        }
         return new MailboxRestoreArtifact();
     }
 

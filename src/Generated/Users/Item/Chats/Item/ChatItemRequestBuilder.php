@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Chat;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\CompleteMigration\CompleteMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\HideForUser\HideForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\InstalledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\LastMessagePreview\LastMessagePreviewRequestBuilder;
@@ -30,6 +31,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ChatItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the completeMigration method.
+    */
+    public function completeMigration(): CompleteMigrationRequestBuilder {
+        return new CompleteMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the hideForUser method.
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Solutions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get solutions from users
+ * Represents a user's custom solution entity. Read-Only. Nullable.
 */
 class SolutionsRequestBuilderGetQueryParameters 
 {

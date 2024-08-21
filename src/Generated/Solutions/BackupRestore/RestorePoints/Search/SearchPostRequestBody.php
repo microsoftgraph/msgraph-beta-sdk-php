@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\RestorePoints\Search;
 
+use Microsoft\Graph\Beta\Generated\Models\ArtifactQuery;
 use Microsoft\Graph\Beta\Generated\Models\RestorePointPreference;
 use Microsoft\Graph\Beta\Generated\Models\RestorePointTags;
 use Microsoft\Graph\Beta\Generated\Models\TimePeriod;
@@ -52,6 +53,18 @@ class SearchPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
+     * Gets the artifactQuery property value. The artifactQuery property
+     * @return ArtifactQuery|null
+    */
+    public function getArtifactQuery(): ?ArtifactQuery {
+        $val = $this->getBackingStore()->get('artifactQuery');
+        if (is_null($val) || $val instanceof ArtifactQuery) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'artifactQuery'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -66,6 +79,7 @@ class SearchPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'artifactQuery' => fn(ParseNode $n) => $o->setArtifactQuery($n->getObjectValue([ArtifactQuery::class, 'createFromDiscriminatorValue'])),
             'protectionTimePeriod' => fn(ParseNode $n) => $o->setProtectionTimePeriod($n->getObjectValue([TimePeriod::class, 'createFromDiscriminatorValue'])),
             'protectionUnitIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -135,6 +149,7 @@ class SearchPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('artifactQuery', $this->getArtifactQuery());
         $writer->writeObjectValue('protectionTimePeriod', $this->getProtectionTimePeriod());
         $writer->writeCollectionOfPrimitiveValues('protectionUnitIds', $this->getProtectionUnitIds());
         $writer->writeEnumValue('restorePointPreference', $this->getRestorePointPreference());
@@ -148,6 +163,14 @@ class SearchPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the artifactQuery property value. The artifactQuery property
+     * @param ArtifactQuery|null $value Value to set for the artifactQuery property.
+    */
+    public function setArtifactQuery(?ArtifactQuery $value): void {
+        $this->getBackingStore()->set('artifactQuery', $value);
     }
 
     /**

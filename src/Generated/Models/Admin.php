@@ -92,6 +92,18 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the entra property value. The entra property
+     * @return Entra|null
+    */
+    public function getEntra(): ?Entra {
+        $val = $this->getBackingStore()->get('entra');
+        if (is_null($val) || $val instanceof Entra) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entra'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -101,6 +113,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
             'appsAndServices' => fn(ParseNode $n) => $o->setAppsAndServices($n->getObjectValue([AdminAppsAndServices::class, 'createFromDiscriminatorValue'])),
             'dynamics' => fn(ParseNode $n) => $o->setDynamics($n->getObjectValue([AdminDynamics::class, 'createFromDiscriminatorValue'])),
             'edge' => fn(ParseNode $n) => $o->setEdge($n->getObjectValue([Edge::class, 'createFromDiscriminatorValue'])),
+            'entra' => fn(ParseNode $n) => $o->setEntra($n->getObjectValue([Entra::class, 'createFromDiscriminatorValue'])),
             'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([AdminForms::class, 'createFromDiscriminatorValue'])),
             'microsoft365Apps' => fn(ParseNode $n) => $o->setMicrosoft365Apps($n->getObjectValue([AdminMicrosoft365Apps::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -229,6 +242,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('appsAndServices', $this->getAppsAndServices());
         $writer->writeObjectValue('dynamics', $this->getDynamics());
         $writer->writeObjectValue('edge', $this->getEdge());
+        $writer->writeObjectValue('entra', $this->getEntra());
         $writer->writeObjectValue('forms', $this->getForms());
         $writer->writeObjectValue('microsoft365Apps', $this->getMicrosoft365Apps());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -279,6 +293,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setEdge(?Edge $value): void {
         $this->getBackingStore()->set('edge', $value);
+    }
+
+    /**
+     * Sets the entra property value. The entra property
+     * @param Entra|null $value Value to set for the entra property.
+    */
+    public function setEntra(?Entra $value): void {
+        $this->getBackingStore()->set('entra', $value);
     }
 
     /**
