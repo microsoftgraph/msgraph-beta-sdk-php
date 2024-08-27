@@ -75,6 +75,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'microsoftAuthenticatorPlatformSettings' => fn(ParseNode $n) => $o->setMicrosoftAuthenticatorPlatformSettings($n->getObjectValue([MicrosoftAuthenticatorPlatformSettings::class, 'createFromDiscriminatorValue'])),
             'policyMigrationState' => fn(ParseNode $n) => $o->setPolicyMigrationState($n->getEnumValue(AuthenticationMethodsPolicyMigrationState::class)),
             'policyVersion' => fn(ParseNode $n) => $o->setPolicyVersion($n->getStringValue()),
             'reconfirmationInDays' => fn(ParseNode $n) => $o->setReconfirmationInDays($n->getIntegerValue()),
@@ -94,6 +95,18 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the microsoftAuthenticatorPlatformSettings property value. The microsoftAuthenticatorPlatformSettings property
+     * @return MicrosoftAuthenticatorPlatformSettings|null
+    */
+    public function getMicrosoftAuthenticatorPlatformSettings(): ?MicrosoftAuthenticatorPlatformSettings {
+        $val = $this->getBackingStore()->get('microsoftAuthenticatorPlatformSettings');
+        if (is_null($val) || $val instanceof MicrosoftAuthenticatorPlatformSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftAuthenticatorPlatformSettings'");
     }
 
     /**
@@ -178,6 +191,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('microsoftAuthenticatorPlatformSettings', $this->getMicrosoftAuthenticatorPlatformSettings());
         $writer->writeEnumValue('policyMigrationState', $this->getPolicyMigrationState());
         $writer->writeStringValue('policyVersion', $this->getPolicyVersion());
         $writer->writeIntegerValue('reconfirmationInDays', $this->getReconfirmationInDays());
@@ -216,6 +230,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the microsoftAuthenticatorPlatformSettings property value. The microsoftAuthenticatorPlatformSettings property
+     * @param MicrosoftAuthenticatorPlatformSettings|null $value Value to set for the microsoftAuthenticatorPlatformSettings property.
+    */
+    public function setMicrosoftAuthenticatorPlatformSettings(?MicrosoftAuthenticatorPlatformSettings $value): void {
+        $this->getBackingStore()->set('microsoftAuthenticatorPlatformSettings', $value);
     }
 
     /**

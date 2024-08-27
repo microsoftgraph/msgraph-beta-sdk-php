@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item\Task
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
+ * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task. Read-only. Nullable.
 */
 class AttachmentItemRequestBuilderGetQueryParameters 
 {

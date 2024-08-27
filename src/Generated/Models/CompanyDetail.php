@@ -159,7 +159,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the secondaryDepartment property value. The secondaryDepartment property
+     * Gets the secondaryDepartment property value. Secondary Department Name within a company.
      * @return string|null
     */
     public function getSecondaryDepartment(): ?string {
@@ -272,7 +272,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the secondaryDepartment property value. The secondaryDepartment property
+     * Sets the secondaryDepartment property value. Secondary Department Name within a company.
      * @param string|null $value Value to set for the secondaryDepartment property.
     */
     public function setSecondaryDepartment(?string $value): void {

@@ -81,6 +81,18 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
+     * Gets the eventValue property value. The extra values associated with badge signals.
+     * @return WorkplaceSensorEventValue|null
+    */
+    public function getEventValue(): ?WorkplaceSensorEventValue {
+        $val = $this->getBackingStore()->get('eventValue');
+        if (is_null($val) || $val instanceof WorkplaceSensorEventValue) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventValue'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -89,7 +101,9 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
         return  [
             'boolValue' => fn(ParseNode $n) => $o->setBoolValue($n->getBooleanValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'eventValue' => fn(ParseNode $n) => $o->setEventValue($n->getObjectValue([WorkplaceSensorEventValue::class, 'createFromDiscriminatorValue'])),
             'intValue' => fn(ParseNode $n) => $o->setIntValue($n->getIntegerValue()),
+            'locationHint' => fn(ParseNode $n) => $o->setLocationHint($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sensorId' => fn(ParseNode $n) => $o->setSensorId($n->getStringValue()),
             'sensorType' => fn(ParseNode $n) => $o->setSensorType($n->getEnumValue(WorkplaceSensorType::class)),
@@ -107,6 +121,18 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'intValue'");
+    }
+
+    /**
+     * Gets the locationHint property value. The additional information to indicate the location of the device.
+     * @return string|null
+    */
+    public function getLocationHint(): ?string {
+        $val = $this->getBackingStore()->get('locationHint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locationHint'");
     }
 
     /**
@@ -164,7 +190,9 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('boolValue', $this->getBoolValue());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeObjectValue('eventValue', $this->getEventValue());
         $writer->writeIntegerValue('intValue', $this->getIntValue());
+        $writer->writeStringValue('locationHint', $this->getLocationHint());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('sensorId', $this->getSensorId());
         $writer->writeEnumValue('sensorType', $this->getSensorType());
@@ -205,11 +233,27 @@ class WorkplaceSensorDeviceTelemetry implements AdditionalDataHolder, BackedMode
     }
 
     /**
+     * Sets the eventValue property value. The extra values associated with badge signals.
+     * @param WorkplaceSensorEventValue|null $value Value to set for the eventValue property.
+    */
+    public function setEventValue(?WorkplaceSensorEventValue $value): void {
+        $this->getBackingStore()->set('eventValue', $value);
+    }
+
+    /**
      * Sets the intValue property value. The value of the sensor as an integer. Use it for sensors that report numerical values, such as people count.
      * @param int|null $value Value to set for the intValue property.
     */
     public function setIntValue(?int $value): void {
         $this->getBackingStore()->set('intValue', $value);
+    }
+
+    /**
+     * Sets the locationHint property value. The additional information to indicate the location of the device.
+     * @param string|null $value Value to set for the locationHint property.
+    */
+    public function setLocationHint(?string $value): void {
+        $this->getBackingStore()->set('locationHint', $value);
     }
 
     /**

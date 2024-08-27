@@ -17,6 +17,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\MarkAsNotJunk\MarkAsNotJunkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Mentions\MentionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Move\MoveRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Reply\ReplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\ReplyAll\ReplyAllRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Send\SendRequestBuilder;
@@ -114,6 +115,13 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     */
     public function move(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the permanentDelete method.
+    */
+    public function permanentDelete(): PermanentDeleteRequestBuilder {
+        return new PermanentDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

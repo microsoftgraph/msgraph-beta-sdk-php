@@ -63,6 +63,18 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the accessPackageNotificationSettings property value. The accessPackageNotificationSettings property
+     * @return AccessPackageNotificationSettings|null
+    */
+    public function getAccessPackageNotificationSettings(): ?AccessPackageNotificationSettings {
+        $val = $this->getBackingStore()->get('accessPackageNotificationSettings');
+        if (is_null($val) || $val instanceof AccessPackageNotificationSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessPackageNotificationSettings'");
+    }
+
+    /**
      * Gets the accessReviewSettings property value. Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews aren't required.
      * @return AssignmentReviewSettings|null
     */
@@ -196,6 +208,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
             'accessPackage' => fn(ParseNode $n) => $o->setAccessPackage($n->getObjectValue([AccessPackage::class, 'createFromDiscriminatorValue'])),
             'accessPackageCatalog' => fn(ParseNode $n) => $o->setAccessPackageCatalog($n->getObjectValue([AccessPackageCatalog::class, 'createFromDiscriminatorValue'])),
             'accessPackageId' => fn(ParseNode $n) => $o->setAccessPackageId($n->getStringValue()),
+            'accessPackageNotificationSettings' => fn(ParseNode $n) => $o->setAccessPackageNotificationSettings($n->getObjectValue([AccessPackageNotificationSettings::class, 'createFromDiscriminatorValue'])),
             'accessReviewSettings' => fn(ParseNode $n) => $o->setAccessReviewSettings($n->getObjectValue([AssignmentReviewSettings::class, 'createFromDiscriminatorValue'])),
             'canExtend' => fn(ParseNode $n) => $o->setCanExtend($n->getBooleanValue()),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
@@ -298,6 +311,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
         $writer->writeObjectValue('accessPackage', $this->getAccessPackage());
         $writer->writeObjectValue('accessPackageCatalog', $this->getAccessPackageCatalog());
         $writer->writeStringValue('accessPackageId', $this->getAccessPackageId());
+        $writer->writeObjectValue('accessPackageNotificationSettings', $this->getAccessPackageNotificationSettings());
         $writer->writeObjectValue('accessReviewSettings', $this->getAccessReviewSettings());
         $writer->writeBooleanValue('canExtend', $this->getCanExtend());
         $writer->writeStringValue('createdBy', $this->getCreatedBy());
@@ -338,6 +352,14 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     */
     public function setAccessPackageId(?string $value): void {
         $this->getBackingStore()->set('accessPackageId', $value);
+    }
+
+    /**
+     * Sets the accessPackageNotificationSettings property value. The accessPackageNotificationSettings property
+     * @param AccessPackageNotificationSettings|null $value Value to set for the accessPackageNotificationSettings property.
+    */
+    public function setAccessPackageNotificationSettings(?AccessPackageNotificationSettings $value): void {
+        $this->getBackingStore()->set('accessPackageNotificationSettings', $value);
     }
 
     /**

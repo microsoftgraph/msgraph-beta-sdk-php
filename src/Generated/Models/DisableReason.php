@@ -9,4 +9,5 @@ class DisableReason extends Enum {
     public const INVALID_BILLING_PROFILE = 'invalidBillingProfile';
     public const USER_REQUESTED = 'userRequested';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const CONTROLLER_SERVICE_APP_DELETED = 'controllerServiceAppDeleted';
 }

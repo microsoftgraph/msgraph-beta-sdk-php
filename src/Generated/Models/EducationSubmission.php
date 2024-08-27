@@ -59,6 +59,8 @@ class EducationSubmission extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'excusedBy' => fn(ParseNode $n) => $o->setExcusedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'excusedDateTime' => fn(ParseNode $n) => $o->setExcusedDateTime($n->getDateTimeValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'outcomes' => fn(ParseNode $n) => $o->setOutcomes($n->getCollectionOfObjectValues([EducationOutcome::class, 'createFromDiscriminatorValue'])),
             'reassignedBy' => fn(ParseNode $n) => $o->setReassignedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'reassignedDateTime' => fn(ParseNode $n) => $o->setReassignedDateTime($n->getDateTimeValue()),
@@ -75,6 +77,30 @@ class EducationSubmission extends Entity implements Parsable
             'unsubmittedDateTime' => fn(ParseNode $n) => $o->setUnsubmittedDateTime($n->getDateTimeValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * @return IdentitySet|null
+    */
+    public function getLastModifiedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -289,6 +315,22 @@ class EducationSubmission extends Entity implements Parsable
     */
     public function setExcusedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('excusedDateTime', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**

@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\Item\Dismiss
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\Item\ExceptionOccurrences\ExceptionOccurrencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\Item\Forward\ForwardRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\Item\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Instances\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -91,6 +92,13 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the permanentDelete method.
+    */
+    public function permanentDelete(): PermanentDeleteRequestBuilder {
+        return new PermanentDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the snoozeReminder method.
     */
     public function snoozeReminder(): SnoozeReminderRequestBuilder {
@@ -119,7 +127,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but doesn't include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.
+     * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern and exceptions that have been modified. It doesn't include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Event|null>
      * @throws Exception
@@ -133,7 +141,7 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but doesn't include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.
+     * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern and exceptions that have been modified. It doesn't include occurrences that have been canceled from the series. Navigation property. Read-only. Nullable.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

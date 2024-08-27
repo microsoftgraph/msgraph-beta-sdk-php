@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class OutlookTaskFolderItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the permanentDelete method.
+    */
+    public function permanentDelete(): PermanentDeleteRequestBuilder {
+        return new PermanentDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.outlookTaskFolder entity.
     */
