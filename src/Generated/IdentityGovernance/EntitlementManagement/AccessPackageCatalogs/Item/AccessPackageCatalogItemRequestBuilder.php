@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResources\AccessPackageResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\AccessPackageResourceScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\AccessPackagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackagesWithUniqueName\AccessPackagesWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\CustomAccessPackageWorkflowExtensions\CustomAccessPackageWorkflowExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageCatalog;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -64,6 +65,15 @@ class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder
         return new CustomAccessPackageWorkflowExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
+     * @param string $uniqueName Alternate key of accessPackage
+     * @return AccessPackagesWithUniqueNameRequestBuilder
+    */
+    public function accessPackagesWithUniqueName(string $uniqueName): AccessPackagesWithUniqueNameRequestBuilder {
+        return new AccessPackagesWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
     /**
      * Instantiates a new AccessPackageCatalogItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

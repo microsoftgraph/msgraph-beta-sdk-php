@@ -57,7 +57,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the company property value. Detail about the company or employer.
+     * Gets the company property value. Information about the company or employer.
      * @return CompanyDetail|null
     */
     public function getCompany(): ?CompanyDetail {
@@ -69,7 +69,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the description property value. Description of the position in question.
+     * Gets the description property value. A description for the position in question.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -81,7 +81,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the endMonthYear property value. When the position ended.
+     * Gets the endMonthYear property value. The date when the position ended.
      * @return Date|null
     */
     public function getEndMonthYear(): ?Date {
@@ -115,7 +115,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the jobTitle property value. The title held when in that position.
+     * Gets the jobTitle property value. The title of the position.
      * @return string|null
     */
     public function getJobTitle(): ?string {
@@ -175,7 +175,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the secondaryJobTitle property value. The secondaryJobTitle property
+     * Gets the secondaryJobTitle property value. An optional job title for the position.
      * @return string|null
     */
     public function getSecondaryJobTitle(): ?string {
@@ -187,7 +187,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the secondaryRole property value. The secondaryRole property
+     * Gets the secondaryRole property value. An optional role for the position entailed.
      * @return string|null
     */
     public function getSecondaryRole(): ?string {
@@ -199,7 +199,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the startMonthYear property value. The start month and year of the position.
+     * Gets the startMonthYear property value. The start date of the position.
      * @return Date|null
     */
     public function getStartMonthYear(): ?Date {
@@ -211,7 +211,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the summary property value. summary of the position.
+     * Gets the summary property value. The summary of the position.
      * @return string|null
     */
     public function getSummary(): ?string {
@@ -259,7 +259,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the company property value. Detail about the company or employer.
+     * Sets the company property value. Information about the company or employer.
      * @param CompanyDetail|null $value Value to set for the company property.
     */
     public function setCompany(?CompanyDetail $value): void {
@@ -267,7 +267,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the description property value. Description of the position in question.
+     * Sets the description property value. A description for the position in question.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -275,7 +275,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the endMonthYear property value. When the position ended.
+     * Sets the endMonthYear property value. The date when the position ended.
      * @param Date|null $value Value to set for the endMonthYear property.
     */
     public function setEndMonthYear(?Date $value): void {
@@ -283,7 +283,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the jobTitle property value. The title held when in that position.
+     * Sets the jobTitle property value. The title of the position.
      * @param string|null $value Value to set for the jobTitle property.
     */
     public function setJobTitle(?string $value): void {
@@ -323,7 +323,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the secondaryJobTitle property value. The secondaryJobTitle property
+     * Sets the secondaryJobTitle property value. An optional job title for the position.
      * @param string|null $value Value to set for the secondaryJobTitle property.
     */
     public function setSecondaryJobTitle(?string $value): void {
@@ -331,7 +331,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the secondaryRole property value. The secondaryRole property
+     * Sets the secondaryRole property value. An optional role for the position entailed.
      * @param string|null $value Value to set for the secondaryRole property.
     */
     public function setSecondaryRole(?string $value): void {
@@ -339,7 +339,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the startMonthYear property value. The start month and year of the position.
+     * Sets the startMonthYear property value. The start date of the position.
      * @param Date|null $value Value to set for the startMonthYear property.
     */
     public function setStartMonthYear(?Date $value): void {
@@ -347,7 +347,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the summary property value. summary of the position.
+     * Sets the summary property value. The summary of the position.
      * @param string|null $value Value to set for the summary property.
     */
     public function setSummary(?string $value): void {

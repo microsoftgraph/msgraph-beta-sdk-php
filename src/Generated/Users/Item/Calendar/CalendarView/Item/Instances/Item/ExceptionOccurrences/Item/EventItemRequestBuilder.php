@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instanc
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\DismissReminder\DismissReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\Forward\ForwardRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\Item\Instances\Item\ExceptionOccurrences\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -80,6 +81,13 @@ class EventItemRequestBuilder extends BaseRequestBuilder
     */
     public function forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the permanentDelete method.
+    */
+    public function permanentDelete(): PermanentDeleteRequestBuilder {
+        return new PermanentDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

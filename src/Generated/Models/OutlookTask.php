@@ -39,7 +39,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
+     * Gets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task. Read-only. Nullable.
      * @return array<Attachment>|null
     */
     public function getAttachments(): ?array {
@@ -53,7 +53,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the body property value. The task body that typically contains information about the task. Note that only HTML type is supported.
+     * Gets the body property value. The task body that typically contains information about the task. Only the HTML type is supported.
      * @return ItemBody|null
     */
     public function getBody(): ?ItemBody {
@@ -311,7 +311,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
+     * Sets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task. Read-only. Nullable.
      * @param array<Attachment>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value): void {
@@ -319,7 +319,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the body property value. The task body that typically contains information about the task. Note that only HTML type is supported.
+     * Sets the body property value. The task body that typically contains information about the task. Only the HTML type is supported.
      * @param ItemBody|null $value Value to set for the body property.
     */
     public function setBody(?ItemBody $value): void {

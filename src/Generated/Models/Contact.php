@@ -91,7 +91,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.
+     * Gets the displayName property value. The contact's display name. You can specify the display name in a create or update operation. Later updates to other properties might cause an automatically generated value to overwrite the displayName value you specified. To preserve a pre-existing value, always include it as displayName in an update operation.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -637,7 +637,7 @@ class Contact extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.
+     * Sets the displayName property value. The contact's display name. You can specify the display name in a create or update operation. Later updates to other properties might cause an automatically generated value to overwrite the displayName value you specified. To preserve a pre-existing value, always include it as displayName in an update operation.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
