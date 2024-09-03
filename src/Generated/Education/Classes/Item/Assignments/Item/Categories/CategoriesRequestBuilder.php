@@ -83,11 +83,12 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to categories for education
+     * Add one or more existing educationCategory objects to this educationAssignment. Only teachers and students can perform this operation.
      * @param EducationCategory $body The request body
      * @param CategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationCategory|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationassignment-post-categories?view=graph-rest-beta Find more info here
     */
     public function post(EducationCategory $body, ?CategoriesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -119,7 +120,7 @@ class CategoriesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to categories for education
+     * Add one or more existing educationCategory objects to this educationAssignment. Only teachers and students can perform this operation.
      * @param EducationCategory $body The request body
      * @param CategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

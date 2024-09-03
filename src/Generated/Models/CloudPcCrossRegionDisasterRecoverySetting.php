@@ -56,7 +56,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the crossRegionDisasterRecoveryEnabled property value. The crossRegionDisasterRecoveryEnabled property
+     * Gets the crossRegionDisasterRecoveryEnabled property value. True if an end user is allowed to set up cross-region disaster recovery for Cloud PC; otherwise, false. The default value is false.
      * @return bool|null
     */
     public function getCrossRegionDisasterRecoveryEnabled(): ?bool {
@@ -68,7 +68,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the disasterRecoveryNetworkSetting property value. The disasterRecoveryNetworkSetting property
+     * Gets the disasterRecoveryNetworkSetting property value. Indicates the network settings of the Cloud PC during a cross-region disaster recovery operation.
      * @return CloudPcDisasterRecoveryNetworkSetting|null
     */
     public function getDisasterRecoveryNetworkSetting(): ?CloudPcDisasterRecoveryNetworkSetting {
@@ -94,7 +94,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the maintainCrossRegionRestorePointEnabled property value. The maintainCrossRegionRestorePointEnabled property
+     * Gets the maintainCrossRegionRestorePointEnabled property value. Indicates whether Windows 365 maintain the cross-region disaster recovery function generated restore points. If true, the Windows 365 stored restore points; false indicates that Windows 365 doesn't generate or keep the restore point from the original Cloud PC. If a disaster occurs, the new Cloud PC can only be provisioned using the initial image. This limitation can result in the loss of some user data on the original Cloud PC. The default value is false.
      * @return bool|null
     */
     public function getMaintainCrossRegionRestorePointEnabled(): ?bool {
@@ -146,7 +146,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the crossRegionDisasterRecoveryEnabled property value. The crossRegionDisasterRecoveryEnabled property
+     * Sets the crossRegionDisasterRecoveryEnabled property value. True if an end user is allowed to set up cross-region disaster recovery for Cloud PC; otherwise, false. The default value is false.
      * @param bool|null $value Value to set for the crossRegionDisasterRecoveryEnabled property.
     */
     public function setCrossRegionDisasterRecoveryEnabled(?bool $value): void {
@@ -154,7 +154,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the disasterRecoveryNetworkSetting property value. The disasterRecoveryNetworkSetting property
+     * Sets the disasterRecoveryNetworkSetting property value. Indicates the network settings of the Cloud PC during a cross-region disaster recovery operation.
      * @param CloudPcDisasterRecoveryNetworkSetting|null $value Value to set for the disasterRecoveryNetworkSetting property.
     */
     public function setDisasterRecoveryNetworkSetting(?CloudPcDisasterRecoveryNetworkSetting $value): void {
@@ -162,7 +162,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the maintainCrossRegionRestorePointEnabled property value. The maintainCrossRegionRestorePointEnabled property
+     * Sets the maintainCrossRegionRestorePointEnabled property value. Indicates whether Windows 365 maintain the cross-region disaster recovery function generated restore points. If true, the Windows 365 stored restore points; false indicates that Windows 365 doesn't generate or keep the restore point from the original Cloud PC. If a disaster occurs, the new Cloud PC can only be provisioned using the initial image. This limitation can result in the loss of some user data on the original Cloud PC. The default value is false.
      * @param bool|null $value Value to set for the maintainCrossRegionRestorePointEnabled property.
     */
     public function setMaintainCrossRegionRestorePointEnabled(?bool $value): void {

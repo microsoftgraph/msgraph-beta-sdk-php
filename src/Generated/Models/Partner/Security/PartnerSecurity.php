@@ -34,11 +34,12 @@ class PartnerSecurity extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'securityAlerts' => fn(ParseNode $n) => $o->setSecurityAlerts($n->getCollectionOfObjectValues([PartnerSecurityAlert::class, 'createFromDiscriminatorValue'])),
+            'securityScore' => fn(ParseNode $n) => $o->setSecurityScore($n->getObjectValue([PartnerSecurityScore::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the securityAlerts property value. The security alerts or a vulnerability of a CSP partner's customer that the partner must be made aware of for further action.
+     * Gets the securityAlerts property value. The security alerts or a vulnerability of a Cloud Solution Provider (CSP) partner's customer that the partner must be made aware of for further action.
      * @return array<PartnerSecurityAlert>|null
     */
     public function getSecurityAlerts(): ?array {
@@ -52,20 +53,41 @@ class PartnerSecurity extends Entity implements Parsable
     }
 
     /**
+     * Gets the securityScore property value. The security score calculated for the CSP partner and their customers.
+     * @return PartnerSecurityScore|null
+    */
+    public function getSecurityScore(): ?PartnerSecurityScore {
+        $val = $this->getBackingStore()->get('securityScore');
+        if (is_null($val) || $val instanceof PartnerSecurityScore) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityScore'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('securityAlerts', $this->getSecurityAlerts());
+        $writer->writeObjectValue('securityScore', $this->getSecurityScore());
     }
 
     /**
-     * Sets the securityAlerts property value. The security alerts or a vulnerability of a CSP partner's customer that the partner must be made aware of for further action.
+     * Sets the securityAlerts property value. The security alerts or a vulnerability of a Cloud Solution Provider (CSP) partner's customer that the partner must be made aware of for further action.
      * @param array<PartnerSecurityAlert>|null $value Value to set for the securityAlerts property.
     */
     public function setSecurityAlerts(?array $value): void {
         $this->getBackingStore()->set('securityAlerts', $value);
+    }
+
+    /**
+     * Sets the securityScore property value. The security score calculated for the CSP partner and their customers.
+     * @param PartnerSecurityScore|null $value Value to set for the securityScore property.
+    */
+    public function setSecurityScore(?PartnerSecurityScore $value): void {
+        $this->getBackingStore()->set('securityScore', $value);
     }
 
 }

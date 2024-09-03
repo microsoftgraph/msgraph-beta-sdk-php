@@ -31,7 +31,7 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Activate a protectionPolicyBase.
+     * Activate a protectionPolicyBase. Currently, only one active backup policy per underlying service is supported (that is, one for OneDrive accounts, one for SharePoint sites, and one for Exchange Online users). You can add or remove artifacts (sites or user accounts) to or from each active policy.
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProtectionPolicyBase|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Activate a protectionPolicyBase.
+     * Activate a protectionPolicyBase. Currently, only one active backup policy per underlying service is supported (that is, one for OneDrive accounts, one for SharePoint sites, and one for Exchange Online users). You can add or remove artifacts (sites or user accounts) to or from each active policy.
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

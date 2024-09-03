@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Partner\Security\PartnerSecurity;
 use Microsoft\Graph\Beta\Generated\Security\Partner\SecurityAlerts\SecurityAlertsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Partner\SecurityScore\SecurityScoreRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,6 +23,13 @@ class PartnerRequestBuilder extends BaseRequestBuilder
     */
     public function securityAlerts(): SecurityAlertsRequestBuilder {
         return new SecurityAlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the securityScore property of the microsoft.graph.partner.security.partnerSecurity entity.
+    */
+    public function securityScore(): SecurityScoreRequestBuilder {
+        return new SecurityScoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

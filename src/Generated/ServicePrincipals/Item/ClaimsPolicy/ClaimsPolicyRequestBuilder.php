@@ -60,15 +60,31 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
+     * Update a customClaimsPolicy object.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomClaimsPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/serviceprincipal-put-claimspolicy?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/customclaimspolicy-update?view=graph-rest-beta Find more info here
     */
     public function patch(CustomClaimsPolicy $body, ?ClaimsPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [CustomClaimsPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Update a customClaimsPolicy object.
+     * @param CustomClaimsPolicy $body The request body
+     * @param ClaimsPolicyRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<CustomClaimsPolicy|null>
+     * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/customclaimspolicy-update?view=graph-rest-beta Find more info here
+    */
+    public function put(CustomClaimsPolicy $body, ?ClaimsPolicyRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
@@ -115,7 +131,7 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
+     * Update a customClaimsPolicy object.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -125,6 +141,26 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        return $requestInfo;
+    }
+
+    /**
+     * Update a customClaimsPolicy object.
+     * @param CustomClaimsPolicy $body The request body
+     * @param ClaimsPolicyRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPutRequestInformation(CustomClaimsPolicy $body, ?ClaimsPolicyRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::PUT;
         if ($requestConfiguration !== null) {
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);

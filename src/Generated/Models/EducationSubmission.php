@@ -27,7 +27,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the excusedBy property value. The excusedBy property
+     * Gets the excusedBy property value. The user that marked the submission as excused.
      * @return IdentitySet|null
     */
     public function getExcusedBy(): ?IdentitySet {
@@ -39,7 +39,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the excusedDateTime property value. The excusedDateTime property
+     * Gets the excusedDateTime property value. Moment in time when the submission was moved to the excused state. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getExcusedDateTime(): ?DateTime {
@@ -302,7 +302,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the excusedBy property value. The excusedBy property
+     * Sets the excusedBy property value. The user that marked the submission as excused.
      * @param IdentitySet|null $value Value to set for the excusedBy property.
     */
     public function setExcusedBy(?IdentitySet $value): void {
@@ -310,7 +310,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the excusedDateTime property value. The excusedDateTime property
+     * Sets the excusedDateTime property value. Moment in time when the submission was moved to the excused state. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the excusedDateTime property.
     */
     public function setExcusedDateTime(?DateTime $value): void {
