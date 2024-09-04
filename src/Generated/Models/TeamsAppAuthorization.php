@@ -56,7 +56,7 @@ class TeamsAppAuthorization implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the clientAppId property value. The clientAppId property
+     * Gets the clientAppId property value. The registration ID of the Microsoft Entra app ID associated with the teamsApp.
      * @return string|null
     */
     public function getClientAppId(): ?string {
@@ -132,7 +132,7 @@ class TeamsAppAuthorization implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the clientAppId property value. The clientAppId property
+     * Sets the clientAppId property value. The registration ID of the Microsoft Entra app ID associated with the teamsApp.
      * @param string|null $value Value to set for the clientAppId property.
     */
     public function setClientAppId(?string $value): void {

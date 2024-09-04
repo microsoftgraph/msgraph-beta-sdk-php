@@ -50,7 +50,7 @@ class CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting extends CloudPcDisast
     }
 
     /**
-     * Gets the regionName property value. The regionName property
+     * Gets the regionName property value. Indicates the Azure region that the new Cloud PC is assigned to. The Windows 365 service creates and manages the underlying virtual network.
      * @return string|null
     */
     public function getRegionName(): ?string {
@@ -80,7 +80,7 @@ class CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting extends CloudPcDisast
     }
 
     /**
-     * Sets the regionName property value. The regionName property
+     * Sets the regionName property value. Indicates the Azure region that the new Cloud PC is assigned to. The Windows 365 service creates and manages the underlying virtual network.
      * @param string|null $value Value to set for the regionName property.
     */
     public function setRegionName(?string $value): void {

@@ -31,7 +31,7 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Activate a draft restoreSessionBase object.
+     * Activate a draft restoreSessionBase object to restore a protection unit. The following points apply to restoring a protection unit:
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RestoreSessionBase|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Activate a draft restoreSessionBase object.
+     * Activate a draft restoreSessionBase object to restore a protection unit. The following points apply to restoring a protection unit:
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

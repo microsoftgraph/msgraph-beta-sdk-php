@@ -494,7 +494,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken.
+     * Gets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken, refreshToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken, refreshToken.
      * @return IncomingTokenType|null
     */
     public function getIncomingTokenType(): ?IncomingTokenType {
@@ -1304,7 +1304,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken.
+     * Sets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken, refreshToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken, refreshToken.
      * @param IncomingTokenType|null $value Value to set for the incomingTokenType property.
     */
     public function setIncomingTokenType(?IncomingTokenType $value): void {

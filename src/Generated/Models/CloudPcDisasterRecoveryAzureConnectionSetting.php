@@ -37,7 +37,7 @@ class CloudPcDisasterRecoveryAzureConnectionSetting extends CloudPcDisasterRecov
     }
 
     /**
-     * Gets the onPremisesConnectionId property value. The onPremisesConnectionId property
+     * Gets the onPremisesConnectionId property value. Indicates the unique ID of the virtual network that the new Cloud PC joins.
      * @return string|null
     */
     public function getOnPremisesConnectionId(): ?string {
@@ -58,7 +58,7 @@ class CloudPcDisasterRecoveryAzureConnectionSetting extends CloudPcDisasterRecov
     }
 
     /**
-     * Sets the onPremisesConnectionId property value. The onPremisesConnectionId property
+     * Sets the onPremisesConnectionId property value. Indicates the unique ID of the virtual network that the new Cloud PC joins.
      * @param string|null $value Value to set for the onPremisesConnectionId property.
     */
     public function setOnPremisesConnectionId(?string $value): void {
