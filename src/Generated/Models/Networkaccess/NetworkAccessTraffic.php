@@ -3,6 +3,8 @@
 namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\Device;
+use Microsoft\Graph\Beta\Generated\Models\User;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -190,6 +192,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the device property value. The device property
+     * @return Device|null
+    */
+    public function getDevice(): ?Device {
+        $val = $this->getBackingStore()->get('device');
+        if (is_null($val) || $val instanceof Device) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'device'");
+    }
+
+    /**
      * Gets the deviceCategory property value. Represents the category classification of a device within a network infrastructure. The possible values are: client, branch, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return DeviceCategory|null
     */
@@ -255,6 +269,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'destinationPort' => fn(ParseNode $n) => $o->setDestinationPort($n->getIntegerValue()),
             'destinationUrl' => fn(ParseNode $n) => $o->setDestinationUrl($n->getStringValue()),
             'destinationWebCategory' => fn(ParseNode $n) => $o->setDestinationWebCategory($n->getObjectValue([WebCategory::class, 'createFromDiscriminatorValue'])),
+            'device' => fn(ParseNode $n) => $o->setDevice($n->getObjectValue([Device::class, 'createFromDiscriminatorValue'])),
             'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getEnumValue(DeviceCategory::class)),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceOperatingSystem' => fn(ParseNode $n) => $o->setDeviceOperatingSystem($n->getStringValue()),
@@ -281,6 +296,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'trafficType' => fn(ParseNode $n) => $o->setTrafficType($n->getEnumValue(TrafficType::class)),
             'transactionId' => fn(ParseNode $n) => $o->setTransactionId($n->getStringValue()),
             'transportProtocol' => fn(ParseNode $n) => $o->setTransportProtocol($n->getEnumValue(NetworkingProtocol::class)),
+            'user' => fn(ParseNode $n) => $o->setUser($n->getObjectValue([User::class, 'createFromDiscriminatorValue'])),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
             'vendorNames' => function (ParseNode $n) {
@@ -559,6 +575,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the user property value. The user property
+     * @return User|null
+    */
+    public function getUser(): ?User {
+        $val = $this->getBackingStore()->get('user');
+        if (is_null($val) || $val instanceof User) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'user'");
+    }
+
+    /**
      * Gets the userId property value. Represents a unique identifier assigned to a user. Supports $filter (eq) and $orderby.
      * @return string|null
     */
@@ -612,6 +640,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeIntegerValue('destinationPort', $this->getDestinationPort());
         $writer->writeStringValue('destinationUrl', $this->getDestinationUrl());
         $writer->writeObjectValue('destinationWebCategory', $this->getDestinationWebCategory());
+        $writer->writeObjectValue('device', $this->getDevice());
         $writer->writeEnumValue('deviceCategory', $this->getDeviceCategory());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceOperatingSystem', $this->getDeviceOperatingSystem());
@@ -638,6 +667,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeEnumValue('trafficType', $this->getTrafficType());
         $writer->writeStringValue('transactionId', $this->getTransactionId());
         $writer->writeEnumValue('transportProtocol', $this->getTransportProtocol());
+        $writer->writeObjectValue('user', $this->getUser());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeCollectionOfPrimitiveValues('vendorNames', $this->getVendorNames());
@@ -746,6 +776,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setDestinationWebCategory(?WebCategory $value): void {
         $this->getBackingStore()->set('destinationWebCategory', $value);
+    }
+
+    /**
+     * Sets the device property value. The device property
+     * @param Device|null $value Value to set for the device property.
+    */
+    public function setDevice(?Device $value): void {
+        $this->getBackingStore()->set('device', $value);
     }
 
     /**
@@ -954,6 +992,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setTransportProtocol(?NetworkingProtocol $value): void {
         $this->getBackingStore()->set('transportProtocol', $value);
+    }
+
+    /**
+     * Sets the user property value. The user property
+     * @param User|null $value Value to set for the user property.
+    */
+    public function setUser(?User $value): void {
+        $this->getBackingStore()->set('user', $value);
     }
 
     /**

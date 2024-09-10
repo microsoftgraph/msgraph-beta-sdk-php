@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetR
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRemoteConnectionHistoricalReports\GetRemoteConnectionHistoricalReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetSharedUseLicenseUsageReport\GetSharedUseLicenseUsageReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetTotalAggregatedRemoteConnectionReports\GetTotalAggregatedRemoteConnectionReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveConnectionQualityReports\RetrieveConnectionQualityReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCrossRegionDisasterRecoveryReport\RetrieveCrossRegionDisasterRecoveryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -113,6 +114,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getTotalAggregatedRemoteConnectionReports(): GetTotalAggregatedRemoteConnectionReportsRequestBuilder {
         return new GetTotalAggregatedRemoteConnectionReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveConnectionQualityReports method.
+    */
+    public function retrieveConnectionQualityReports(): RetrieveConnectionQualityReportsRequestBuilder {
+        return new RetrieveConnectionQualityReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

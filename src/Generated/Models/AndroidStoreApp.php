@@ -29,18 +29,6 @@ class AndroidStoreApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the appIdentifier property value. The Identity Name. This property is read-only.
-     * @return string|null
-    */
-    public function getAppIdentifier(): ?string {
-        $val = $this->getBackingStore()->get('appIdentifier');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'appIdentifier'");
-    }
-
-    /**
      * Gets the appStoreUrl property value. The Android app store URL.
      * @return string|null
     */
@@ -59,7 +47,6 @@ class AndroidStoreApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appIdentifier' => fn(ParseNode $n) => $o->setAppIdentifier($n->getStringValue()),
             'appStoreUrl' => fn(ParseNode $n) => $o->setAppStoreUrl($n->getStringValue()),
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([AndroidMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
             'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
@@ -98,14 +85,6 @@ class AndroidStoreApp extends MobileApp implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
-    }
-
-    /**
-     * Sets the appIdentifier property value. The Identity Name. This property is read-only.
-     * @param string|null $value Value to set for the appIdentifier property.
-    */
-    public function setAppIdentifier(?string $value): void {
-        $this->getBackingStore()->set('appIdentifier', $value);
     }
 
     /**

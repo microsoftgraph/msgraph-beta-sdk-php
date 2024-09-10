@@ -60,6 +60,18 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the appSegmentId property value. The appSegmentId property
+     * @return string|null
+    */
+    public function getAppSegmentId(): ?string {
+        $val = $this->getBackingStore()->get('appSegmentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appSegmentId'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -123,6 +135,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
         $o = $this;
         return  [
             'accessType' => fn(ParseNode $n) => $o->setAccessType($n->getEnumValue(AccessType::class)),
+            'appSegmentId' => fn(ParseNode $n) => $o->setAppSegmentId($n->getStringValue()),
             'connectionStatus' => fn(ParseNode $n) => $o->setConnectionStatus($n->getEnumValue(ConnectionStatus::class)),
             'connectorId' => fn(ParseNode $n) => $o->setConnectorId($n->getStringValue()),
             'connectorIp' => fn(ParseNode $n) => $o->setConnectorIp($n->getStringValue()),
@@ -175,6 +188,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('accessType', $this->getAccessType());
+        $writer->writeStringValue('appSegmentId', $this->getAppSegmentId());
         $writer->writeEnumValue('connectionStatus', $this->getConnectionStatus());
         $writer->writeStringValue('connectorId', $this->getConnectorId());
         $writer->writeStringValue('connectorIp', $this->getConnectorIp());
@@ -199,6 +213,14 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the appSegmentId property value. The appSegmentId property
+     * @param string|null $value Value to set for the appSegmentId property.
+    */
+    public function setAppSegmentId(?string $value): void {
+        $this->getBackingStore()->set('appSegmentId', $value);
     }
 
     /**

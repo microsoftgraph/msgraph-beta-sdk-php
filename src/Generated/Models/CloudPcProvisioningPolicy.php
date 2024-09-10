@@ -64,6 +64,18 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the autopilotConfiguration property value. The autopilotConfiguration property
+     * @return CloudPcAutopilotConfiguration|null
+    */
+    public function getAutopilotConfiguration(): ?CloudPcAutopilotConfiguration {
+        $val = $this->getBackingStore()->get('autopilotConfiguration');
+        if (is_null($val) || $val instanceof CloudPcAutopilotConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'autopilotConfiguration'");
+    }
+
+    /**
      * Gets the cloudPcGroupDisplayName property value. The display name of the Cloud PC group that the Cloud PCs reside in. Read-only.
      * @return string|null
     */
@@ -147,6 +159,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([CloudPcProvisioningPolicyAssignment::class, 'createFromDiscriminatorValue'])),
             'autopatch' => fn(ParseNode $n) => $o->setAutopatch($n->getObjectValue([CloudPcProvisioningPolicyAutopatch::class, 'createFromDiscriminatorValue'])),
+            'autopilotConfiguration' => fn(ParseNode $n) => $o->setAutopilotConfiguration($n->getObjectValue([CloudPcAutopilotConfiguration::class, 'createFromDiscriminatorValue'])),
             'cloudPcGroupDisplayName' => fn(ParseNode $n) => $o->setCloudPcGroupDisplayName($n->getStringValue()),
             'cloudPcNamingTemplate' => fn(ParseNode $n) => $o->setCloudPcNamingTemplate($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -317,6 +330,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeStringValue('alternateResourceUrl', $this->getAlternateResourceUrl());
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeObjectValue('autopatch', $this->getAutopatch());
+        $writer->writeObjectValue('autopilotConfiguration', $this->getAutopilotConfiguration());
         $writer->writeStringValue('cloudPcGroupDisplayName', $this->getCloudPcGroupDisplayName());
         $writer->writeStringValue('cloudPcNamingTemplate', $this->getCloudPcNamingTemplate());
         $writer->writeStringValue('description', $this->getDescription());
@@ -358,6 +372,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setAutopatch(?CloudPcProvisioningPolicyAutopatch $value): void {
         $this->getBackingStore()->set('autopatch', $value);
+    }
+
+    /**
+     * Sets the autopilotConfiguration property value. The autopilotConfiguration property
+     * @param CloudPcAutopilotConfiguration|null $value Value to set for the autopilotConfiguration property.
+    */
+    public function setAutopilotConfiguration(?CloudPcAutopilotConfiguration $value): void {
+        $this->getBackingStore()->set('autopilotConfiguration', $value);
     }
 
     /**

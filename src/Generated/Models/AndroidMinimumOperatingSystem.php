@@ -68,6 +68,9 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'v10_0' => fn(ParseNode $n) => $o->setV100($n->getBooleanValue()),
             'v11_0' => fn(ParseNode $n) => $o->setV110($n->getBooleanValue()),
+            'v12_0' => fn(ParseNode $n) => $o->setV120($n->getBooleanValue()),
+            'v13_0' => fn(ParseNode $n) => $o->setV130($n->getBooleanValue()),
+            'v14_0' => fn(ParseNode $n) => $o->setV140($n->getBooleanValue()),
             'v4_0' => fn(ParseNode $n) => $o->setV40($n->getBooleanValue()),
             'v4_0_3' => fn(ParseNode $n) => $o->setV403($n->getBooleanValue()),
             'v4_1' => fn(ParseNode $n) => $o->setV41($n->getBooleanValue()),
@@ -119,6 +122,42 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'v11_0'");
+    }
+
+    /**
+     * Gets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV120(): ?bool {
+        $val = $this->getBackingStore()->get('v12_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v12_0'");
+    }
+
+    /**
+     * Gets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV130(): ?bool {
+        $val = $this->getBackingStore()->get('v13_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v13_0'");
+    }
+
+    /**
+     * Gets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV140(): ?bool {
+        $val = $this->getBackingStore()->get('v14_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v14_0'");
     }
 
     /**
@@ -297,6 +336,9 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('v10_0', $this->getV100());
         $writer->writeBooleanValue('v11_0', $this->getV110());
+        $writer->writeBooleanValue('v12_0', $this->getV120());
+        $writer->writeBooleanValue('v13_0', $this->getV130());
+        $writer->writeBooleanValue('v14_0', $this->getV140());
         $writer->writeBooleanValue('v4_0', $this->getV40());
         $writer->writeBooleanValue('v4_0_3', $this->getV403());
         $writer->writeBooleanValue('v4_1', $this->getV41());
@@ -352,6 +394,30 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
     */
     public function setV110(?bool $value): void {
         $this->getBackingStore()->set('v11_0', $value);
+    }
+
+    /**
+     * Sets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v12_0 property.
+    */
+    public function setV120(?bool $value): void {
+        $this->getBackingStore()->set('v12_0', $value);
+    }
+
+    /**
+     * Sets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v13_0 property.
+    */
+    public function setV130(?bool $value): void {
+        $this->getBackingStore()->set('v13_0', $value);
+    }
+
+    /**
+     * Sets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v14_0 property.
+    */
+    public function setV140(?bool $value): void {
+        $this->getBackingStore()->set('v14_0', $value);
     }
 
     /**

@@ -59,6 +59,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\DomainJ
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\ElevationRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\EmbeddedSIMActivationCodePoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableAndroidDeviceAdministratorEnrollment\EnableAndroidDeviceAdministratorEnrollmentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableEndpointPrivilegeManagement\EnableEndpointPrivilegeManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableLegacyPcManagement\EnableLegacyPcManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableUnlicensedAdminstrators\EnableUnlicensedAdminstratorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EndpointPrivilegeManagementProvisioningStatus\EndpointPrivilegeManagementProvisioningStatusRequestBuilder;
@@ -589,6 +590,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function enableAndroidDeviceAdministratorEnrollment(): EnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
         return new EnableAndroidDeviceAdministratorEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enableEndpointPrivilegeManagement method.
+    */
+    public function enableEndpointPrivilegeManagement(): EnableEndpointPrivilegeManagementRequestBuilder {
+        return new EnableEndpointPrivilegeManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

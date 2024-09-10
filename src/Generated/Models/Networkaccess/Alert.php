@@ -116,7 +116,7 @@ class Alert extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([FilteringPolicy::class, 'createFromDiscriminatorValue'])),
             'relatedResources' => fn(ParseNode $n) => $o->setRelatedResources($n->getCollectionOfObjectValues([RelatedResource::class, 'createFromDiscriminatorValue'])),
-            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(ThreatSeverity::class)),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
             'vendorName' => fn(ParseNode $n) => $o->setVendorName($n->getStringValue()),
         ]);
     }
@@ -149,11 +149,11 @@ class Alert extends Entity implements Parsable
 
     /**
      * Gets the severity property value. The severity property
-     * @return ThreatSeverity|null
+     * @return AlertSeverity|null
     */
-    public function getSeverity(): ?ThreatSeverity {
+    public function getSeverity(): ?AlertSeverity {
         $val = $this->getBackingStore()->get('severity');
-        if (is_null($val) || $val instanceof ThreatSeverity) {
+        if (is_null($val) || $val instanceof AlertSeverity) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'severity'");
@@ -255,9 +255,9 @@ class Alert extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity property
-     * @param ThreatSeverity|null $value Value to set for the severity property.
+     * @param AlertSeverity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?ThreatSeverity $value): void {
+    public function setSeverity(?AlertSeverity $value): void {
         $this->getBackingStore()->set('severity', $value);
     }
 

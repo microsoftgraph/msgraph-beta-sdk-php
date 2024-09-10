@@ -92,6 +92,7 @@ class GetGroupPolicySettingsDeviceSettingsReportPostRequestBody implements Addit
             },
             'sessionId' => fn(ParseNode $n) => $o->setSessionId($n->getStringValue()),
             'skip' => fn(ParseNode $n) => $o->setSkip($n->getIntegerValue()),
+            'skiptoken' => fn(ParseNode $n) => $o->setSkiptoken($n->getStringValue()),
             'top' => fn(ParseNode $n) => $o->setTop($n->getIntegerValue()),
         ];
     }
@@ -199,6 +200,18 @@ class GetGroupPolicySettingsDeviceSettingsReportPostRequestBody implements Addit
     }
 
     /**
+     * Gets the skiptoken property value. The skiptoken property
+     * @return string|null
+    */
+    public function getSkiptoken(): ?string {
+        $val = $this->getBackingStore()->get('skiptoken');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'skiptoken'");
+    }
+
+    /**
      * Gets the top property value. The top property
      * @return int|null
     */
@@ -223,6 +236,7 @@ class GetGroupPolicySettingsDeviceSettingsReportPostRequestBody implements Addit
         $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
         $writer->writeStringValue('sessionId', $this->getSessionId());
         $writer->writeIntegerValue('skip', $this->getSkip());
+        $writer->writeStringValue('skiptoken', $this->getSkiptoken());
         $writer->writeIntegerValue('top', $this->getTop());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -305,6 +319,14 @@ class GetGroupPolicySettingsDeviceSettingsReportPostRequestBody implements Addit
     */
     public function setSkip(?int $value): void {
         $this->getBackingStore()->set('skip', $value);
+    }
+
+    /**
+     * Sets the skiptoken property value. The skiptoken property
+     * @param string|null $value Value to set for the skiptoken property.
+    */
+    public function setSkiptoken(?string $value): void {
+        $this->getBackingStore()->set('skiptoken', $value);
     }
 
     /**

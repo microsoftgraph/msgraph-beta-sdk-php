@@ -22,4 +22,7 @@ class CloudPcReportName extends Enum {
     public const CROSS_REGION_DISASTER_RECOVERY_REPORT = 'crossRegionDisasterRecoveryReport';
     public const PERFORMANCE_TREND_REPORT = 'performanceTrendReport';
     public const INACCESSIBLE_CLOUD_PC_TREND_REPORT = 'inaccessibleCloudPcTrendReport';
+    public const REGIONAL_CONNECTION_QUALITY_TREND_REPORT = 'regionalConnectionQualityTrendReport';
+    public const REGIONAL_CONNECTION_QUALITY_INSIGHTS_REPORT = 'regionalConnectionQualityInsightsReport';
+    public const REMOTE_CONNECTION_QUALITY_REPORT = 'remoteConnectionQualityReport';
 }

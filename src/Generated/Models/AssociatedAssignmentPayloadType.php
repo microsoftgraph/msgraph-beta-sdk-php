@@ -17,4 +17,5 @@ class AssociatedAssignmentPayloadType extends Enum {
     public const RESOURCE_ACCESS_POLICY = 'resourceAccessPolicy';
     public const WIN32APP = 'win32app';
     public const DEVICE_MANAGMENT_CONFIGURATION_AND_COMPLIANCE_POLICY = 'deviceManagmentConfigurationAndCompliancePolicy';
+    public const HARDWARE_CONFIGURATION = 'hardwareConfiguration';
 }
