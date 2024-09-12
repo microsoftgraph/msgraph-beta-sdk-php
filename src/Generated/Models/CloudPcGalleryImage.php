@@ -74,6 +74,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
             'offer' => fn(ParseNode $n) => $o->setOffer($n->getStringValue()),
             'offerDisplayName' => fn(ParseNode $n) => $o->setOfferDisplayName($n->getStringValue()),
             'offerName' => fn(ParseNode $n) => $o->setOfferName($n->getStringValue()),
+            'osVersionNumber' => fn(ParseNode $n) => $o->setOsVersionNumber($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
             'recommendedSku' => fn(ParseNode $n) => $o->setRecommendedSku($n->getStringValue()),
@@ -120,6 +121,18 @@ class CloudPcGalleryImage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'offerName'");
+    }
+
+    /**
+     * Gets the osVersionNumber property value. The osVersionNumber property
+     * @return string|null
+    */
+    public function getOsVersionNumber(): ?string {
+        $val = $this->getBackingStore()->get('osVersionNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersionNumber'");
     }
 
     /**
@@ -242,6 +255,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
         $writer->writeStringValue('offer', $this->getOffer());
         $writer->writeStringValue('offerDisplayName', $this->getOfferDisplayName());
         $writer->writeStringValue('offerName', $this->getOfferName());
+        $writer->writeStringValue('osVersionNumber', $this->getOsVersionNumber());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeStringValue('publisherName', $this->getPublisherName());
         $writer->writeStringValue('recommendedSku', $this->getRecommendedSku());
@@ -299,6 +313,14 @@ class CloudPcGalleryImage extends Entity implements Parsable
     */
     public function setOfferName(?string $value): void {
         $this->getBackingStore()->set('offerName', $value);
+    }
+
+    /**
+     * Sets the osVersionNumber property value. The osVersionNumber property
+     * @param string|null $value Value to set for the osVersionNumber property.
+    */
+    public function setOsVersionNumber(?string $value): void {
+        $this->getBackingStore()->set('osVersionNumber', $value);
     }
 
     /**

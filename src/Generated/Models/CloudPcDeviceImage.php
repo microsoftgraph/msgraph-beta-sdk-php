@@ -77,6 +77,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
             'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
             'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
             'osStatus' => fn(ParseNode $n) => $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)),
+            'osVersionNumber' => fn(ParseNode $n) => $o->setOsVersionNumber($n->getStringValue()),
             'scopeIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -138,6 +139,18 @@ class CloudPcDeviceImage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'osStatus'");
+    }
+
+    /**
+     * Gets the osVersionNumber property value. The osVersionNumber property
+     * @return string|null
+    */
+    public function getOsVersionNumber(): ?string {
+        $val = $this->getBackingStore()->get('osVersionNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osVersionNumber'");
     }
 
     /**
@@ -215,6 +228,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
         $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
         $writer->writeEnumValue('osStatus', $this->getOsStatus());
+        $writer->writeStringValue('osVersionNumber', $this->getOsVersionNumber());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeStringValue('sourceImageResourceId', $this->getSourceImageResourceId());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -276,6 +290,14 @@ class CloudPcDeviceImage extends Entity implements Parsable
     */
     public function setOsStatus(?CloudPcDeviceImageOsStatus $value): void {
         $this->getBackingStore()->set('osStatus', $value);
+    }
+
+    /**
+     * Sets the osVersionNumber property value. The osVersionNumber property
+     * @param string|null $value Value to set for the osVersionNumber property.
+    */
+    public function setOsVersionNumber(?string $value): void {
+        $this->getBackingStore()->set('osVersionNumber', $value);
     }
 
     /**

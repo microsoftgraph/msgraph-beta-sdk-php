@@ -26,4 +26,6 @@ class CloudPcRegionGroup extends Enum {
     public const NORWAY = 'norway';
     public const SWITZERLAND = 'switzerland';
     public const SOUTH_KOREA = 'southKorea';
+    public const MIDDLE_EAST = 'middleEast';
+    public const MEXICO = 'mexico';
 }

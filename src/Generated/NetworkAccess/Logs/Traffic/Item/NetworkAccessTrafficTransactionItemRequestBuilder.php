@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessTraffic;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item\Device\DeviceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -16,6 +18,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the device property of the microsoft.graph.networkaccess.networkAccessTraffic entity.
+    */
+    public function device(): DeviceRequestBuilder {
+        return new DeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the user property of the microsoft.graph.networkaccess.networkAccessTraffic entity.
+    */
+    public function user(): UserRequestBuilder {
+        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new NetworkAccessTrafficTransactionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

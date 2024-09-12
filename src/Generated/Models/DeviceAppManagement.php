@@ -112,6 +112,7 @@ class DeviceAppManagement extends Entity implements Parsable
             'mobileAppCatalogPackages' => fn(ParseNode $n) => $o->setMobileAppCatalogPackages($n->getCollectionOfObjectValues([MobileAppCatalogPackage::class, 'createFromDiscriminatorValue'])),
             'mobileAppCategories' => fn(ParseNode $n) => $o->setMobileAppCategories($n->getCollectionOfObjectValues([MobileAppCategory::class, 'createFromDiscriminatorValue'])),
             'mobileAppConfigurations' => fn(ParseNode $n) => $o->setMobileAppConfigurations($n->getCollectionOfObjectValues([ManagedDeviceMobileAppConfiguration::class, 'createFromDiscriminatorValue'])),
+            'mobileAppRelationships' => fn(ParseNode $n) => $o->setMobileAppRelationships($n->getCollectionOfObjectValues([MobileAppRelationship::class, 'createFromDiscriminatorValue'])),
             'mobileApps' => fn(ParseNode $n) => $o->setMobileApps($n->getCollectionOfObjectValues([MobileApp::class, 'createFromDiscriminatorValue'])),
             'policySets' => fn(ParseNode $n) => $o->setPolicySets($n->getCollectionOfObjectValues([PolicySet::class, 'createFromDiscriminatorValue'])),
             'symantecCodeSigningCertificate' => fn(ParseNode $n) => $o->setSymantecCodeSigningCertificate($n->getObjectValue([SymantecCodeSigningCertificate::class, 'createFromDiscriminatorValue'])),
@@ -341,6 +342,20 @@ class DeviceAppManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the mobileAppRelationships property value. List mobileAppRelationship objects for mobile applications.
+     * @return array<MobileAppRelationship>|null
+    */
+    public function getMobileAppRelationships(): ?array {
+        $val = $this->getBackingStore()->get('mobileAppRelationships');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MobileAppRelationship::class);
+            /** @var array<MobileAppRelationship>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppRelationships'");
+    }
+
+    /**
      * Gets the mobileApps property value. The mobile apps.
      * @return array<MobileApp>|null
     */
@@ -516,6 +531,7 @@ class DeviceAppManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('mobileAppCatalogPackages', $this->getMobileAppCatalogPackages());
         $writer->writeCollectionOfObjectValues('mobileAppCategories', $this->getMobileAppCategories());
         $writer->writeCollectionOfObjectValues('mobileAppConfigurations', $this->getMobileAppConfigurations());
+        $writer->writeCollectionOfObjectValues('mobileAppRelationships', $this->getMobileAppRelationships());
         $writer->writeCollectionOfObjectValues('mobileApps', $this->getMobileApps());
         $writer->writeCollectionOfObjectValues('policySets', $this->getPolicySets());
         $writer->writeObjectValue('symantecCodeSigningCertificate', $this->getSymantecCodeSigningCertificate());
@@ -687,6 +703,14 @@ class DeviceAppManagement extends Entity implements Parsable
     */
     public function setMobileAppConfigurations(?array $value): void {
         $this->getBackingStore()->set('mobileAppConfigurations', $value);
+    }
+
+    /**
+     * Sets the mobileAppRelationships property value. List mobileAppRelationship objects for mobile applications.
+     * @param array<MobileAppRelationship>|null $value Value to set for the mobileAppRelationships property.
+    */
+    public function setMobileAppRelationships(?array $value): void {
+        $this->getBackingStore()->set('mobileAppRelationships', $value);
     }
 
     /**

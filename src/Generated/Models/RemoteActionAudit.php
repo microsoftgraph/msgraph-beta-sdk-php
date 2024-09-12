@@ -65,6 +65,18 @@ class RemoteActionAudit extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceActionCategory property value. Enum type used for DeviceActionCategory
+     * @return DeviceActionCategory|null
+    */
+    public function getDeviceActionCategory(): ?DeviceActionCategory {
+        $val = $this->getBackingStore()->get('deviceActionCategory');
+        if (is_null($val) || $val instanceof DeviceActionCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceActionCategory'");
+    }
+
+    /**
      * Gets the deviceDisplayName property value. Intune device name.
      * @return string|null
     */
@@ -110,6 +122,7 @@ class RemoteActionAudit extends Entity implements Parsable
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(RemoteAction::class)),
             'actionState' => fn(ParseNode $n) => $o->setActionState($n->getEnumValue(ActionState::class)),
             'bulkDeviceActionId' => fn(ParseNode $n) => $o->setBulkDeviceActionId($n->getStringValue()),
+            'deviceActionCategory' => fn(ParseNode $n) => $o->setDeviceActionCategory($n->getEnumValue(DeviceActionCategory::class)),
             'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
             'deviceIMEI' => fn(ParseNode $n) => $o->setDeviceIMEI($n->getStringValue()),
             'deviceOwnerUserPrincipalName' => fn(ParseNode $n) => $o->setDeviceOwnerUserPrincipalName($n->getStringValue()),
@@ -177,6 +190,7 @@ class RemoteActionAudit extends Entity implements Parsable
         $writer->writeEnumValue('action', $this->getAction());
         $writer->writeEnumValue('actionState', $this->getActionState());
         $writer->writeStringValue('bulkDeviceActionId', $this->getBulkDeviceActionId());
+        $writer->writeEnumValue('deviceActionCategory', $this->getDeviceActionCategory());
         $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
         $writer->writeStringValue('deviceIMEI', $this->getDeviceIMEI());
         $writer->writeStringValue('deviceOwnerUserPrincipalName', $this->getDeviceOwnerUserPrincipalName());
@@ -208,6 +222,14 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function setBulkDeviceActionId(?string $value): void {
         $this->getBackingStore()->set('bulkDeviceActionId', $value);
+    }
+
+    /**
+     * Sets the deviceActionCategory property value. Enum type used for DeviceActionCategory
+     * @param DeviceActionCategory|null $value Value to set for the deviceActionCategory property.
+    */
+    public function setDeviceActionCategory(?DeviceActionCategory $value): void {
+        $this->getBackingStore()->set('deviceActionCategory', $value);
     }
 
     /**

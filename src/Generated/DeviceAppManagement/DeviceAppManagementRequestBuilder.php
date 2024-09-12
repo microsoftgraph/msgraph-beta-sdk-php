@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MdmWindowsInformationProt
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCatalogPackages\MobileAppCatalogPackagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCategories\MobileAppCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppConfigurations\MobileAppConfigurationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppRelationships\MobileAppRelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\MobileAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\PolicySetsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\SymantecCodeSigningCertificate\SymantecCodeSigningCertificateRequestBuilder;
@@ -146,6 +147,13 @@ class DeviceAppManagementRequestBuilder extends BaseRequestBuilder
     */
     public function mobileAppConfigurations(): MobileAppConfigurationsRequestBuilder {
         return new MobileAppConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the mobileAppRelationships property of the microsoft.graph.deviceAppManagement entity.
+    */
+    public function mobileAppRelationships(): MobileAppRelationshipsRequestBuilder {
+        return new MobileAppRelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
