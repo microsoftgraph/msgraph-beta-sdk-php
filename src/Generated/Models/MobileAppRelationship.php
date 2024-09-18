@@ -51,7 +51,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetDisplayName property value. The target mobile app's display name. This property is read-only.
+     * Gets the targetDisplayName property value. The display name of the app that is the target of the mobile app relationship entity. Read-Only. This property is read-only.
      * @return string|null
     */
     public function getTargetDisplayName(): ?string {
@@ -63,7 +63,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetDisplayVersion property value. The target mobile app's display version. This property is read-only.
+     * Gets the targetDisplayVersion property value. The display version of the app that is the target of the mobile app relationship entity. Read-Only. This property is read-only.
      * @return string|null
     */
     public function getTargetDisplayVersion(): ?string {
@@ -75,7 +75,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetId property value. The target mobile app's app id.
+     * Gets the targetId property value. App ID of the app that is the target of the mobile app relationship entity. Read-Only
      * @return string|null
     */
     public function getTargetId(): ?string {
@@ -87,7 +87,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetPublisher property value. The target mobile app's publisher. This property is read-only.
+     * Gets the targetPublisher property value. The publisher of the app that is the target of the mobile app relationship entity. Read-Only. This property is read-only.
      * @return string|null
     */
     public function getTargetPublisher(): ?string {
@@ -121,7 +121,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetDisplayName property value. The target mobile app's display name. This property is read-only.
+     * Sets the targetDisplayName property value. The display name of the app that is the target of the mobile app relationship entity. Read-Only. This property is read-only.
      * @param string|null $value Value to set for the targetDisplayName property.
     */
     public function setTargetDisplayName(?string $value): void {
@@ -129,7 +129,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetDisplayVersion property value. The target mobile app's display version. This property is read-only.
+     * Sets the targetDisplayVersion property value. The display version of the app that is the target of the mobile app relationship entity. Read-Only. This property is read-only.
      * @param string|null $value Value to set for the targetDisplayVersion property.
     */
     public function setTargetDisplayVersion(?string $value): void {
@@ -137,7 +137,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetId property value. The target mobile app's app id.
+     * Sets the targetId property value. App ID of the app that is the target of the mobile app relationship entity. Read-Only
      * @param string|null $value Value to set for the targetId property.
     */
     public function setTargetId(?string $value): void {
@@ -145,7 +145,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetPublisher property value. The target mobile app's publisher. This property is read-only.
+     * Sets the targetPublisher property value. The publisher of the app that is the target of the mobile app relationship entity. Read-Only. This property is read-only.
      * @param string|null $value Value to set for the targetPublisher property.
     */
     public function setTargetPublisher(?string $value): void {

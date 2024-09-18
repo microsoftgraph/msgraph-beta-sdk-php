@@ -265,6 +265,8 @@ class PlannerTask extends PlannerDelta implements Parsable
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'isOnMyDay' => fn(ParseNode $n) => $o->setIsOnMyDay($n->getBooleanValue()),
             'isOnMyDayLastModifiedDate' => fn(ParseNode $n) => $o->setIsOnMyDayLastModifiedDate($n->getDateValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'orderHint' => fn(ParseNode $n) => $o->setOrderHint($n->getStringValue()),
             'percentComplete' => fn(ParseNode $n) => $o->setPercentComplete($n->getIntegerValue()),
             'planId' => fn(ParseNode $n) => $o->setPlanId($n->getStringValue()),
@@ -325,6 +327,30 @@ class PlannerTask extends PlannerDelta implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isOnMyDayLastModifiedDate'");
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * @return IdentitySet|null
+    */
+    public function getLastModifiedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -486,6 +512,8 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeBooleanValue('isOnMyDay', $this->getIsOnMyDay());
         $writer->writeDateValue('isOnMyDayLastModifiedDate', $this->getIsOnMyDayLastModifiedDate());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('orderHint', $this->getOrderHint());
         $writer->writeIntegerValue('percentComplete', $this->getPercentComplete());
         $writer->writeStringValue('planId', $this->getPlanId());
@@ -665,6 +693,22 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setIsOnMyDayLastModifiedDate(?Date $value): void {
         $this->getBackingStore()->set('isOnMyDayLastModifiedDate', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**

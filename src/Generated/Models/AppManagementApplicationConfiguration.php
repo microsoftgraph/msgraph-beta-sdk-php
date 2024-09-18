@@ -37,7 +37,7 @@ class AppManagementApplicationConfiguration extends AppManagementConfiguration i
     }
 
     /**
-     * Gets the identifierUris property value. The identifierUris property
+     * Gets the identifierUris property value. Configuration object for restrictions on identifierUris property for an application
      * @return IdentifierUriConfiguration|null
     */
     public function getIdentifierUris(): ?IdentifierUriConfiguration {
@@ -58,7 +58,7 @@ class AppManagementApplicationConfiguration extends AppManagementConfiguration i
     }
 
     /**
-     * Sets the identifierUris property value. The identifierUris property
+     * Sets the identifierUris property value. Configuration object for restrictions on identifierUris property for an application
      * @param IdentifierUriConfiguration|null $value Value to set for the identifierUris property.
     */
     public function setIdentifierUris(?IdentifierUriConfiguration $value): void {

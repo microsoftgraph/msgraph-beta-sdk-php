@@ -34,10 +34,11 @@ class GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseR
     }
 
     /**
-     * Invoke function getMicrosoft365CopilotUserCountTrend
+     * Get the trend in the daily number of active and enabled users of Copilot for Microsoft 365 for a specified time period.
      * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/reportroot-getmicrosoft365copilotusercounttrend?view=graph-rest-beta Find more info here
     */
     public function get(?GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseR
     }
 
     /**
-     * Invoke function getMicrosoft365CopilotUserCountTrend
+     * Get the trend in the daily number of active and enabled users of Copilot for Microsoft 365 for a specified time period.
      * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

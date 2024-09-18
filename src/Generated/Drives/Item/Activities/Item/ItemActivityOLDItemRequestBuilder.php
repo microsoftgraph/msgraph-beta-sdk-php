@@ -4,8 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Activities\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Activities\Item\DriveItem\DriveItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Activities\Item\ListItem\ListItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ItemActivityOLD;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -21,15 +19,15 @@ class ItemActivityOLDItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the driveItem property of the microsoft.graph.itemActivityOLD entity.
     */
-    public function driveItem(): DriveItemRequestBuilder {
-        return new DriveItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function driveItem(): DriveItem_EscapedRequestBuilder {
+        return new DriveItem_EscapedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the listItem property of the microsoft.graph.itemActivityOLD entity.
     */
-    public function listItem(): ListItemRequestBuilder {
-        return new ListItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function listItem(): ListItem_EscapedRequestBuilder {
+        return new ListItem_EscapedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

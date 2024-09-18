@@ -74,9 +74,9 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '_id' => fn(ParseNode $n) => $o->setid($n->getStringValue()),
-            '_score' => fn(ParseNode $n) => $o->setscore($n->getIntegerValue()),
-            '_source' => fn(ParseNode $n) => $o->setsource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
+            '_id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '_score' => fn(ParseNode $n) => $o->setScore($n->getIntegerValue()),
+            '_source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'contentSource' => fn(ParseNode $n) => $o->setContentSource($n->getStringValue()),
             'hitId' => fn(ParseNode $n) => $o->setHitId($n->getStringValue()),
             'isCollapsed' => fn(ParseNode $n) => $o->setIsCollapsed($n->getBooleanValue()),
@@ -104,7 +104,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Gets the _id property value. The _id property
      * @return string|null
     */
-    public function getid(): ?string {
+    public function getId(): ?string {
         $val = $this->getBackingStore()->get('_id');
         if (is_null($val) || is_string($val)) {
             return $val;
@@ -176,7 +176,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Gets the _score property value. The _score property
      * @return int|null
     */
-    public function getscore(): ?int {
+    public function getScore(): ?int {
         $val = $this->getBackingStore()->get('_score');
         if (is_null($val) || is_int($val)) {
             return $val;
@@ -188,7 +188,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Gets the _source property value. The _source property
      * @return Entity|null
     */
-    public function getsource(): ?Entity {
+    public function getSource(): ?Entity {
         $val = $this->getBackingStore()->get('_source');
         if (is_null($val) || $val instanceof Entity) {
             return $val;
@@ -221,9 +221,9 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeStringValue('resultTemplateId', $this->getResultTemplateId());
         $writer->writeStringValue('summary', $this->getSummary());
-        $writer->writeStringValue('_id', $this->getid());
-        $writer->writeIntegerValue('_score', $this->getscore());
-        $writer->writeObjectValue('_source', $this->getsource());
+        $writer->writeStringValue('_id', $this->getId());
+        $writer->writeIntegerValue('_score', $this->getScore());
+        $writer->writeObjectValue('_source', $this->getSource());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -263,7 +263,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Sets the _id property value. The _id property
      * @param string|null $value Value to set for the _id property.
     */
-    public function setid(?string $value): void {
+    public function setId(?string $value): void {
         $this->getBackingStore()->set('_id', $value);
     }
 
@@ -311,7 +311,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Sets the _score property value. The _score property
      * @param int|null $value Value to set for the _score property.
     */
-    public function setscore(?int $value): void {
+    public function setScore(?int $value): void {
         $this->getBackingStore()->set('_score', $value);
     }
 
@@ -319,7 +319,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
      * Sets the _source property value. The _source property
      * @param Entity|null $value Value to set for the _source property.
     */
-    public function setsource(?Entity $value): void {
+    public function setSource(?Entity $value): void {
         $this->getBackingStore()->set('_source', $value);
     }
 

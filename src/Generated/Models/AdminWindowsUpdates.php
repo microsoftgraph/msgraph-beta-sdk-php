@@ -33,7 +33,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
     }
 
     /**
-     * Gets the catalog property value. Catalog of content that can be approved for deployment by the deployment service. Read-only.
+     * Gets the catalog property value. Catalog of content that can be approved for deployment by Windows Autopatch. Read-only.
      * @return Catalog|null
     */
     public function getCatalog(): ?Catalog {
@@ -59,7 +59,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
     }
 
     /**
-     * Gets the deployments property value. Deployments created using the deployment service.
+     * Gets the deployments property value. Deployments created using Windows Autopatch.
      * @return array<Deployment>|null
     */
     public function getDeployments(): ?array {
@@ -118,7 +118,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
     }
 
     /**
-     * Gets the updatableAssets property value. Assets registered with the deployment service that can receive updates.
+     * Gets the updatableAssets property value. Assets registered with Windows Autopatch that can receive updates.
      * @return array<UpdatableAsset>|null
     */
     public function getUpdatableAssets(): ?array {
@@ -161,7 +161,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
     }
 
     /**
-     * Sets the catalog property value. Catalog of content that can be approved for deployment by the deployment service. Read-only.
+     * Sets the catalog property value. Catalog of content that can be approved for deployment by Windows Autopatch. Read-only.
      * @param Catalog|null $value Value to set for the catalog property.
     */
     public function setCatalog(?Catalog $value): void {
@@ -177,7 +177,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
     }
 
     /**
-     * Sets the deployments property value. Deployments created using the deployment service.
+     * Sets the deployments property value. Deployments created using Windows Autopatch.
      * @param array<Deployment>|null $value Value to set for the deployments property.
     */
     public function setDeployments(?array $value): void {
@@ -201,7 +201,7 @@ class AdminWindowsUpdates extends Entity implements Parsable
     }
 
     /**
-     * Sets the updatableAssets property value. Assets registered with the deployment service that can receive updates.
+     * Sets the updatableAssets property value. Assets registered with Windows Autopatch that can receive updates.
      * @param array<UpdatableAsset>|null $value Value to set for the updatableAssets property.
     */
     public function setUpdatableAssets(?array $value): void {

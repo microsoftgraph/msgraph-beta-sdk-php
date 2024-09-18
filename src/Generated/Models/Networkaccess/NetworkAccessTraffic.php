@@ -286,6 +286,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'policyRuleName' => fn(ParseNode $n) => $o->setPolicyRuleName($n->getStringValue()),
             'privateAccessDetails' => fn(ParseNode $n) => $o->setPrivateAccessDetails($n->getObjectValue([PrivateAccessDetails::class, 'createFromDiscriminatorValue'])),
             'receivedBytes' => fn(ParseNode $n) => $o->setReceivedBytes($n->getIntegerValue()),
+            'remoteNetworkId' => fn(ParseNode $n) => $o->setRemoteNetworkId($n->getStringValue()),
             'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
             'sentBytes' => fn(ParseNode $n) => $o->setSentBytes($n->getIntegerValue()),
             'sessionId' => fn(ParseNode $n) => $o->setSessionId($n->getStringValue()),
@@ -452,6 +453,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'receivedBytes'");
+    }
+
+    /**
+     * Gets the remoteNetworkId property value. The remoteNetworkId property
+     * @return string|null
+    */
+    public function getRemoteNetworkId(): ?string {
+        $val = $this->getBackingStore()->get('remoteNetworkId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteNetworkId'");
     }
 
     /**
@@ -657,6 +670,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('policyRuleName', $this->getPolicyRuleName());
         $writer->writeObjectValue('privateAccessDetails', $this->getPrivateAccessDetails());
         $writer->writeIntegerValue('receivedBytes', $this->getReceivedBytes());
+        $writer->writeStringValue('remoteNetworkId', $this->getRemoteNetworkId());
         $writer->writeStringValue('resourceTenantId', $this->getResourceTenantId());
         $writer->writeIntegerValue('sentBytes', $this->getSentBytes());
         $writer->writeStringValue('sessionId', $this->getSessionId());
@@ -912,6 +926,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setReceivedBytes(?int $value): void {
         $this->getBackingStore()->set('receivedBytes', $value);
+    }
+
+    /**
+     * Sets the remoteNetworkId property value. The remoteNetworkId property
+     * @param string|null $value Value to set for the remoteNetworkId property.
+    */
+    public function setRemoteNetworkId(?string $value): void {
+        $this->getBackingStore()->set('remoteNetworkId', $value);
     }
 
     /**

@@ -59,7 +59,7 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the deviceId property value. DeviceId of device represented by this object
+     * Gets the deviceId property value. The unique identifier (DeviceId) associated with the device.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -135,7 +135,7 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the deviceId property value. DeviceId of device represented by this object
+     * Sets the deviceId property value. The unique identifier (DeviceId) associated with the device.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {

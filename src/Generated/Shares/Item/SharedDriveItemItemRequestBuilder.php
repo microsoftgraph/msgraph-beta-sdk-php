@@ -7,11 +7,9 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SharedDriveItem;
 use Microsoft\Graph\Beta\Generated\Shares\Item\CreatedByUser\CreatedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\DriveItem\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ListRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\Items\ItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\ListItem\ListItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\Permission\PermissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\Root\RootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\Site\SiteRequestBuilder;
@@ -35,8 +33,8 @@ class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.
     */
-    public function driveItem(): DriveItemRequestBuilder {
-        return new DriveItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function driveItem(): DriveItem_EscapedRequestBuilder {
+        return new DriveItem_EscapedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -63,8 +61,8 @@ class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity.
     */
-    public function listItem(): ListItemRequestBuilder {
-        return new ListItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function listItem(): ListItem_EscapedRequestBuilder {
+        return new ListItem_EscapedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

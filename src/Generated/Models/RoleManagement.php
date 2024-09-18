@@ -69,6 +69,18 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the defender property value. The defender property
+     * @return RbacApplicationMultiple|null
+    */
+    public function getDefender(): ?RbacApplicationMultiple {
+        $val = $this->getBackingStore()->get('defender');
+        if (is_null($val) || $val instanceof RbacApplicationMultiple) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defender'");
+    }
+
+    /**
      * Gets the deviceManagement property value. The RbacApplication for Device Management
      * @return RbacApplicationMultiple|null
     */
@@ -138,6 +150,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'cloudPC' => fn(ParseNode $n) => $o->setCloudPC($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
+            'defender' => fn(ParseNode $n) => $o->setDefender($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'deviceManagement' => fn(ParseNode $n) => $o->setDeviceManagement($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'directory' => fn(ParseNode $n) => $o->setDirectory($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
             'enterpriseApps' => fn(ParseNode $n) => $o->setEnterpriseApps($n->getCollectionOfObjectValues([RbacApplication::class, 'createFromDiscriminatorValue'])),
@@ -165,6 +178,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('cloudPC', $this->getCloudPC());
+        $writer->writeObjectValue('defender', $this->getDefender());
         $writer->writeObjectValue('deviceManagement', $this->getDeviceManagement());
         $writer->writeObjectValue('directory', $this->getDirectory());
         $writer->writeCollectionOfObjectValues('enterpriseApps', $this->getEnterpriseApps());
@@ -196,6 +210,14 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setCloudPC(?RbacApplicationMultiple $value): void {
         $this->getBackingStore()->set('cloudPC', $value);
+    }
+
+    /**
+     * Sets the defender property value. The defender property
+     * @param RbacApplicationMultiple|null $value Value to set for the defender property.
+    */
+    public function setDefender(?RbacApplicationMultiple $value): void {
+        $this->getBackingStore()->set('defender', $value);
     }
 
     /**

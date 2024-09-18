@@ -39,7 +39,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthIssues property value. Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
+     * Gets the healthIssues property value. Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration.
      * @return array<HealthIssue>|null
     */
     public function getHealthIssues(): ?array {
@@ -77,7 +77,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthIssues property value. Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
+     * Sets the healthIssues property value. Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration.
      * @param array<HealthIssue>|null $value Value to set for the healthIssues property.
     */
     public function setHealthIssues(?array $value): void {

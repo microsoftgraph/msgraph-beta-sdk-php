@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoleManagement;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\CloudPCRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\DefenderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\DeviceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\DirectoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\EnterpriseAppsRequestBuilder;
@@ -27,6 +28,13 @@ class RoleManagementRequestBuilder extends BaseRequestBuilder
     */
     public function cloudPC(): CloudPCRequestBuilder {
         return new CloudPCRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the defender property of the microsoft.graph.roleManagement entity.
+    */
+    public function defender(): DefenderRequestBuilder {
+        return new DefenderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

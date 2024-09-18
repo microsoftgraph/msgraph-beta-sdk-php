@@ -27,7 +27,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     }
 
     /**
-     * Gets the enrollments property value. Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
+     * Gets the enrollments property value. Specifies areas in which the device is enrolled. Read-only. Returned by default.
      * @return array<UpdatableAssetEnrollment>|null
     */
     public function getEnrollments(): ?array {
@@ -77,7 +77,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     }
 
     /**
-     * Sets the enrollments property value. Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
+     * Sets the enrollments property value. Specifies areas in which the device is enrolled. Read-only. Returned by default.
      * @param array<UpdatableAssetEnrollment>|null $value Value to set for the enrollments property.
     */
     public function setEnrollments(?array $value): void {

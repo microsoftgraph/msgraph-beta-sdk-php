@@ -39,7 +39,7 @@ class PeopleAdminSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the itemInsights property value. Represents administrator settings that manage the support for item insights in an organization.
+     * Gets the itemInsights property value. Administrator settings that manage the support for item insights in an organization.
      * @return InsightsSettings|null
     */
     public function getItemInsights(): ?InsightsSettings {
@@ -51,7 +51,7 @@ class PeopleAdminSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the profileCardProperties property value. Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+     * Gets the profileCardProperties property value. A collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
      * @return array<ProfileCardProperty>|null
     */
     public function getProfileCardProperties(): ?array {
@@ -65,7 +65,7 @@ class PeopleAdminSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * Gets the pronouns property value. Administrator settings that manage the support of pronouns in an organization.
      * @return PronounsSettings|null
     */
     public function getPronouns(): ?PronounsSettings {
@@ -88,7 +88,7 @@ class PeopleAdminSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the itemInsights property value. Represents administrator settings that manage the support for item insights in an organization.
+     * Sets the itemInsights property value. Administrator settings that manage the support for item insights in an organization.
      * @param InsightsSettings|null $value Value to set for the itemInsights property.
     */
     public function setItemInsights(?InsightsSettings $value): void {
@@ -96,7 +96,7 @@ class PeopleAdminSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the profileCardProperties property value. Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+     * Sets the profileCardProperties property value. A collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
      * @param array<ProfileCardProperty>|null $value Value to set for the profileCardProperties property.
     */
     public function setProfileCardProperties(?array $value): void {
@@ -104,7 +104,7 @@ class PeopleAdminSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * Sets the pronouns property value. Administrator settings that manage the support of pronouns in an organization.
      * @param PronounsSettings|null $value Value to set for the pronouns property.
     */
     public function setPronouns(?PronounsSettings $value): void {

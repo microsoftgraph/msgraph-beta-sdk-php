@@ -174,7 +174,7 @@ class EducationClass extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalSourceDetail property value. The name of the external source this resources was generated from.
+     * Gets the externalSourceDetail property value. The name of the external source from which this resource was generated.
      * @return string|null
     */
     public function getExternalSourceDetail(): ?string {
@@ -446,7 +446,7 @@ class EducationClass extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalSourceDetail property value. The name of the external source this resources was generated from.
+     * Sets the externalSourceDetail property value. The name of the external source from which this resource was generated.
      * @param string|null $value Value to set for the externalSourceDetail property.
     */
     public function setExternalSourceDetail(?string $value): void {
