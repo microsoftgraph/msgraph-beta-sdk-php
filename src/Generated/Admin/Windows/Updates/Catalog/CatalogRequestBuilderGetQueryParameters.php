@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Catalog of content that can be approved for deployment by the deployment service. Read-only.
+ * Catalog of content that can be approved for deployment by Windows Autopatch. Read-only.
 */
 class CatalogRequestBuilderGetQueryParameters 
 {

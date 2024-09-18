@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are 'reader', 'writer', 'manager', and 'owner'. Read-write.
+ * The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are reader, writer, manager, and owner. Read-write.
 */
 class PermissionItemRequestBuilderGetQueryParameters 
 {

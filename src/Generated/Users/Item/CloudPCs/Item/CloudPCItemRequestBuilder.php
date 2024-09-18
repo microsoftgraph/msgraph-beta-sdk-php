@@ -22,6 +22,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Resize\ResizeRequest
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveCloudPCRemoteActionResults\RetrieveCloudPCRemoteActionResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveReviewStatus\RetrieveReviewStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveSnapshots\RetrieveSnapshotsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\SetReviewStatus\SetReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Start\StartRequestBuilder;
@@ -147,6 +148,13 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     */
     public function retrieveReviewStatus(): RetrieveReviewStatusRequestBuilder {
         return new RetrieveReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveSnapshots method.
+    */
+    public function retrieveSnapshots(): RetrieveSnapshotsRequestBuilder {
+        return new RetrieveSnapshotsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

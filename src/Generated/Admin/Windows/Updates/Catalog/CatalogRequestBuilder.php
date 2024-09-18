@@ -53,7 +53,7 @@ class CatalogRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Catalog of content that can be approved for deployment by the deployment service. Read-only.
+     * Catalog of content that can be approved for deployment by Windows Autopatch. Read-only.
      * @param CatalogRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Catalog|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class CatalogRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Catalog of content that can be approved for deployment by the deployment service. Read-only.
+     * Catalog of content that can be approved for deployment by Windows Autopatch. Read-only.
      * @param CatalogRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

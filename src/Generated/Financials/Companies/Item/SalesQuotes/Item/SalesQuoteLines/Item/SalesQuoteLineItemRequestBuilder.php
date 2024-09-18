@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\I
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\Item\Account\AccountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\Item\Item\ItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\Item\Item_Escaped\Item_EscapedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesQuoteLine;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -28,8 +28,8 @@ class SalesQuoteLineItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the item property of the microsoft.graph.salesQuoteLine entity.
     */
-    public function item(): ItemRequestBuilder {
-        return new ItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function item(): Item_EscapedRequestBuilder {
+        return new Item_EscapedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

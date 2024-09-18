@@ -27,6 +27,18 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
+     * Gets the assignmentId property value. The unique identifier for the assignment with which this submission is associated. A submission is always associated with one and only one assignment.
+     * @return string|null
+    */
+    public function getAssignmentId(): ?string {
+        $val = $this->getBackingStore()->get('assignmentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentId'");
+    }
+
+    /**
      * Gets the excusedBy property value. The user that marked the submission as excused.
      * @return IdentitySet|null
     */
@@ -57,6 +69,7 @@ class EducationSubmission extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assignmentId' => fn(ParseNode $n) => $o->setAssignmentId($n->getStringValue()),
             'excusedBy' => fn(ParseNode $n) => $o->setExcusedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'excusedDateTime' => fn(ParseNode $n) => $o->setExcusedDateTime($n->getDateTimeValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
@@ -80,7 +93,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identities of those who modified the submission.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -92,7 +105,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time the submission was modified.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -204,7 +217,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Read-only. Possible values are: working, submitted, returned, unknownFutureValue, reassigned, and excused. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reassigned, and excused.
+     * Gets the status property value. Read-only. Possible values are: working, submitted, returned, unknownFutureValue, reassigned, and excused. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reassigned, and excused.
      * @return EducationSubmissionStatus|null
     */
     public function getStatus(): ?EducationSubmissionStatus {
@@ -302,6 +315,14 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
+     * Sets the assignmentId property value. The unique identifier for the assignment with which this submission is associated. A submission is always associated with one and only one assignment.
+     * @param string|null $value Value to set for the assignmentId property.
+    */
+    public function setAssignmentId(?string $value): void {
+        $this->getBackingStore()->set('assignmentId', $value);
+    }
+
+    /**
      * Sets the excusedBy property value. The user that marked the submission as excused.
      * @param IdentitySet|null $value Value to set for the excusedBy property.
     */
@@ -318,7 +339,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The identities of those who modified the submission.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
@@ -326,7 +347,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. The date and time the submission was modified.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -398,7 +419,7 @@ class EducationSubmission extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Read-only. Possible values are: working, submitted, returned, unknownFutureValue, reassigned, and excused. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reassigned, and excused.
+     * Sets the status property value. Read-only. Possible values are: working, submitted, returned, unknownFutureValue, reassigned, and excused. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reassigned, and excused.
      * @param EducationSubmissionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationSubmissionStatus $value): void {

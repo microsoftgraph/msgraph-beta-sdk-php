@@ -29,6 +29,20 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
+     * Gets the aiInsights property value. The aiInsights property
+     * @return array<CallAiInsight>|null
+    */
+    public function getAiInsights(): ?array {
+        $val = $this->getBackingStore()->get('aiInsights');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CallAiInsight::class);
+            /** @var array<CallAiInsight>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'aiInsights'");
+    }
+
+    /**
      * Gets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      * @return StreamInterface|null
     */
@@ -133,6 +147,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'aiInsights' => fn(ParseNode $n) => $o->setAiInsights($n->getCollectionOfObjectValues([CallAiInsight::class, 'createFromDiscriminatorValue'])),
             'alternativeRecording' => fn(ParseNode $n) => $o->setAlternativeRecording($n->getBinaryContent()),
             'attendeeReport' => fn(ParseNode $n) => $o->setAttendeeReport($n->getBinaryContent()),
             'broadcastRecording' => fn(ParseNode $n) => $o->setBroadcastRecording($n->getBinaryContent()),
@@ -284,6 +299,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('aiInsights', $this->getAiInsights());
         $writer->writeBinaryContent('alternativeRecording', $this->getAlternativeRecording());
         $writer->writeBinaryContent('attendeeReport', $this->getAttendeeReport());
         $writer->writeBinaryContent('broadcastRecording', $this->getBroadcastRecording());
@@ -302,6 +318,14 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
         $writer->writeObjectValue('registration', $this->getRegistration());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeCollectionOfObjectValues('transcripts', $this->getTranscripts());
+    }
+
+    /**
+     * Sets the aiInsights property value. The aiInsights property
+     * @param array<CallAiInsight>|null $value Value to set for the aiInsights property.
+    */
+    public function setAiInsights(?array $value): void {
+        $this->getBackingStore()->set('aiInsights', $value);
     }
 
     /**

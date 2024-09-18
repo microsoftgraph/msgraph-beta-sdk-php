@@ -41,7 +41,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Gets the dependentAppCount property value. The total number of apps that directly or indirectly depend on the parent app. This property is read-only.
+     * Gets the dependentAppCount property value. The total number of apps that directly or indirectly depend on the parent app. Read-Only. This property is read-only.
      * @return int|null
     */
     public function getDependentAppCount(): ?int {
@@ -53,7 +53,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Gets the dependsOnAppCount property value. The total number of apps the child app directly or indirectly depends on. This property is read-only.
+     * Gets the dependsOnAppCount property value. The total number of apps the child app directly or indirectly depends on. Read-Only. This property is read-only.
      * @return int|null
     */
     public function getDependsOnAppCount(): ?int {
@@ -95,7 +95,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Sets the dependentAppCount property value. The total number of apps that directly or indirectly depend on the parent app. This property is read-only.
+     * Sets the dependentAppCount property value. The total number of apps that directly or indirectly depend on the parent app. Read-Only. This property is read-only.
      * @param int|null $value Value to set for the dependentAppCount property.
     */
     public function setDependentAppCount(?int $value): void {
@@ -103,7 +103,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Sets the dependsOnAppCount property value. The total number of apps the child app directly or indirectly depends on. This property is read-only.
+     * Sets the dependsOnAppCount property value. The total number of apps the child app directly or indirectly depends on. Read-Only. This property is read-only.
      * @param int|null $value Value to set for the dependsOnAppCount property.
     */
     public function setDependsOnAppCount(?int $value): void {

@@ -32,6 +32,7 @@ class BaseItem extends Entity implements Parsable
                 case '#microsoft.graph.list': return new EscapedList();
                 case '#microsoft.graph.listItem': return new ListItem();
                 case '#microsoft.graph.newsLinkPage': return new NewsLinkPage();
+                case '#microsoft.graph.pageTemplate': return new PageTemplate();
                 case '#microsoft.graph.recycleBin': return new RecycleBin();
                 case '#microsoft.graph.recycleBinItem': return new RecycleBinItem();
                 case '#microsoft.graph.sharedDriveItem': return new SharedDriveItem();

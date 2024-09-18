@@ -30,7 +30,7 @@ class MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilder extends BaseR
     }
 
     /**
-     * Unenroll updatableAsset resources of the same type from update management by the deployment service. You can also use the method unenrollAssets to unenroll assets.
+     * Unenroll updatableAsset resources of the same type from update management by Windows Autopatch. You can also use the method unenrollAssets to unenroll assets.
      * @param UnenrollAssetsByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -45,7 +45,7 @@ class MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilder extends BaseR
     }
 
     /**
-     * Unenroll updatableAsset resources of the same type from update management by the deployment service. You can also use the method unenrollAssets to unenroll assets.
+     * Unenroll updatableAsset resources of the same type from update management by Windows Autopatch. You can also use the method unenrollAssets to unenroll assets.
      * @param UnenrollAssetsByIdPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
