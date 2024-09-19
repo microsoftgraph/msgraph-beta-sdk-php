@@ -76,9 +76,22 @@ class CopyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'childrenOnly' => fn(ParseNode $n) => $o->setChildrenOnly($n->getBooleanValue()),
+            'includeAllVersionHistory' => fn(ParseNode $n) => $o->setIncludeAllVersionHistory($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'parentReference' => fn(ParseNode $n) => $o->setParentReference($n->getObjectValue([ItemReference::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the includeAllVersionHistory property value. The includeAllVersionHistory property
+     * @return bool|null
+    */
+    public function getIncludeAllVersionHistory(): ?bool {
+        $val = $this->getBackingStore()->get('includeAllVersionHistory');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeAllVersionHistory'");
     }
 
     /**
@@ -111,6 +124,7 @@ class CopyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('childrenOnly', $this->getChildrenOnly());
+        $writer->writeBooleanValue('includeAllVersionHistory', $this->getIncludeAllVersionHistory());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeObjectValue('parentReference', $this->getParentReference());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -138,6 +152,14 @@ class CopyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setChildrenOnly(?bool $value): void {
         $this->getBackingStore()->set('childrenOnly', $value);
+    }
+
+    /**
+     * Sets the includeAllVersionHistory property value. The includeAllVersionHistory property
+     * @param bool|null $value Value to set for the includeAllVersionHistory property.
+    */
+    public function setIncludeAllVersionHistory(?bool $value): void {
+        $this->getBackingStore()->set('includeAllVersionHistory', $value);
     }
 
     /**

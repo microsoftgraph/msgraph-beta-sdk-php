@@ -57,7 +57,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the excludeAppsReceivingV2Tokens property value. The excludeAppsReceivingV2Tokens property
+     * Gets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Entra ID; else, the restriction isn't enforced for those applications.
      * @return bool|null
     */
     public function getExcludeAppsReceivingV2Tokens(): ?bool {
@@ -69,7 +69,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the excludeSaml property value. The excludeSaml property
+     * Gets the excludeSaml property value. If true, the restriction isn't enforced for SAML applications in Microsoft Entra ID; else, the restriction is enforced for those applications.
      * @return bool|null
     */
     public function getExcludeSaml(): ?bool {
@@ -108,7 +108,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Gets the restrictForAppsCreatedAfterDateTime property value. Specifies the date from which the policy restriction applies to newly created applications. For existing applications, the enforcement date can be retroactively applied.
      * @return DateTime|null
     */
     public function getRestrictForAppsCreatedAfterDateTime(): ?DateTime {
@@ -161,7 +161,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the excludeAppsReceivingV2Tokens property value. The excludeAppsReceivingV2Tokens property
+     * Sets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Entra ID; else, the restriction isn't enforced for those applications.
      * @param bool|null $value Value to set for the excludeAppsReceivingV2Tokens property.
     */
     public function setExcludeAppsReceivingV2Tokens(?bool $value): void {
@@ -169,7 +169,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the excludeSaml property value. The excludeSaml property
+     * Sets the excludeSaml property value. If true, the restriction isn't enforced for SAML applications in Microsoft Entra ID; else, the restriction is enforced for those applications.
      * @param bool|null $value Value to set for the excludeSaml property.
     */
     public function setExcludeSaml(?bool $value): void {
@@ -185,7 +185,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Sets the restrictForAppsCreatedAfterDateTime property value. Specifies the date from which the policy restriction applies to newly created applications. For existing applications, the enforcement date can be retroactively applied.
      * @param DateTime|null $value Value to set for the restrictForAppsCreatedAfterDateTime property.
     */
     public function setRestrictForAppsCreatedAfterDateTime(?DateTime $value): void {

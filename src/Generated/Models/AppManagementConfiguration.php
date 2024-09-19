@@ -79,7 +79,7 @@ class AppManagementConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the keyCredentials property value. Collection of keyCredential restrictions settings to be applied to an application or service principal.
+     * Gets the keyCredentials property value. Collection of certificate restrictions settings to be applied to an application or service principal.
      * @return array<KeyCredentialConfiguration>|null
     */
     public function getKeyCredentials(): ?array {
@@ -146,7 +146,7 @@ class AppManagementConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the keyCredentials property value. Collection of keyCredential restrictions settings to be applied to an application or service principal.
+     * Sets the keyCredentials property value. Collection of certificate restrictions settings to be applied to an application or service principal.
      * @param array<KeyCredentialConfiguration>|null $value Value to set for the keyCredentials property.
     */
     public function setKeyCredentials(?array $value): void {

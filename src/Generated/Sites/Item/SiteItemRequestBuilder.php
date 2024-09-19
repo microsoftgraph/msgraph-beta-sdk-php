@@ -25,6 +25,7 @@ use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\ListsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\OnenoteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\PagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\PageTemplates\PageTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\RecycleBinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Sites\SitesRequestBuilder;
@@ -149,6 +150,13 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     */
     public function pages(): PagesRequestBuilder {
         return new PagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the pageTemplates property of the microsoft.graph.site entity.
+    */
+    public function pageTemplates(): PageTemplatesRequestBuilder {
+        return new PageTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

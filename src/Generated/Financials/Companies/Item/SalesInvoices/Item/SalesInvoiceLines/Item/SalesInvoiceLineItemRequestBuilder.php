@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Account\AccountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Item\ItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Item_Escaped\Item_EscapedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SalesInvoiceLine;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -28,8 +28,8 @@ class SalesInvoiceLineItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the item property of the microsoft.graph.salesInvoiceLine entity.
     */
-    public function item(): ItemRequestBuilder {
-        return new ItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function item(): Item_EscapedRequestBuilder {
+        return new Item_EscapedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

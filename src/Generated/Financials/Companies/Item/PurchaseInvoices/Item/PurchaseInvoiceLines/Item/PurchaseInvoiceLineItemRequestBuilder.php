@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoi
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Item\Account\AccountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Item\Item\ItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\Item\Item_Escaped\Item_EscapedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PurchaseInvoiceLine;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -28,8 +28,8 @@ class PurchaseInvoiceLineItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the item property of the microsoft.graph.purchaseInvoiceLine entity.
     */
-    public function item(): ItemRequestBuilder {
-        return new ItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function item(): Item_EscapedRequestBuilder {
+        return new Item_EscapedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

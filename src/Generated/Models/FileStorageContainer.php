@@ -217,7 +217,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the ownershipType property value. Ownership type of the fileStorageContainer.The possible values are: tenantOwned. Read-only.
+     * Gets the ownershipType property value. Ownership type of the fileStorageContainer. The possible values are: tenantOwned. Read-only.
      * @return FileStorageContainerOwnershipType|null
     */
     public function getOwnershipType(): ?FileStorageContainerOwnershipType {
@@ -229,7 +229,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the permissions property value. The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are 'reader', 'writer', 'manager', and 'owner'. Read-write.
+     * Gets the permissions property value. The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are reader, writer, manager, and owner. Read-write.
      * @return array<Permission>|null
     */
     public function getPermissions(): ?array {
@@ -435,7 +435,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the ownershipType property value. Ownership type of the fileStorageContainer.The possible values are: tenantOwned. Read-only.
+     * Sets the ownershipType property value. Ownership type of the fileStorageContainer. The possible values are: tenantOwned. Read-only.
      * @param FileStorageContainerOwnershipType|null $value Value to set for the ownershipType property.
     */
     public function setOwnershipType(?FileStorageContainerOwnershipType $value): void {
@@ -443,7 +443,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the permissions property value. The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are 'reader', 'writer', 'manager', and 'owner'. Read-write.
+     * Sets the permissions property value. The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are reader, writer, manager, and owner. Read-write.
      * @param array<Permission>|null $value Value to set for the permissions property.
     */
     public function setPermissions(?array $value): void {

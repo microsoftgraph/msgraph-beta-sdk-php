@@ -183,6 +183,7 @@ class Site extends BaseItem implements Parsable
             'onenote' => fn(ParseNode $n) => $o->setOnenote($n->getObjectValue([Onenote::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([RichLongRunningOperation::class, 'createFromDiscriminatorValue'])),
             'pages' => fn(ParseNode $n) => $o->setPages($n->getCollectionOfObjectValues([BaseSitePage::class, 'createFromDiscriminatorValue'])),
+            'pageTemplates' => fn(ParseNode $n) => $o->setPageTemplates($n->getCollectionOfObjectValues([PageTemplate::class, 'createFromDiscriminatorValue'])),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
             'recycleBin' => fn(ParseNode $n) => $o->setRecycleBin($n->getObjectValue([RecycleBin::class, 'createFromDiscriminatorValue'])),
             'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([Root::class, 'createFromDiscriminatorValue'])),
@@ -284,6 +285,20 @@ class Site extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'pages'");
+    }
+
+    /**
+     * Gets the pageTemplates property value. The collection of page templates on this site.
+     * @return array<PageTemplate>|null
+    */
+    public function getPageTemplates(): ?array {
+        $val = $this->getBackingStore()->get('pageTemplates');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PageTemplate::class);
+            /** @var array<PageTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pageTemplates'");
     }
 
     /**
@@ -409,6 +424,7 @@ class Site extends BaseItem implements Parsable
         $writer->writeObjectValue('onenote', $this->getOnenote());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('pages', $this->getPages());
+        $writer->writeCollectionOfObjectValues('pageTemplates', $this->getPageTemplates());
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
         $writer->writeObjectValue('recycleBin', $this->getRecycleBin());
         $writer->writeObjectValue('root', $this->getRoot());
@@ -553,6 +569,14 @@ class Site extends BaseItem implements Parsable
     */
     public function setPages(?array $value): void {
         $this->getBackingStore()->set('pages', $value);
+    }
+
+    /**
+     * Sets the pageTemplates property value. The collection of page templates on this site.
+     * @param array<PageTemplate>|null $value Value to set for the pageTemplates property.
+    */
+    public function setPageTemplates(?array $value): void {
+        $this->getBackingStore()->set('pageTemplates', $value);
     }
 
     /**

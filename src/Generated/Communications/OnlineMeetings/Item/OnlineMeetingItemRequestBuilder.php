@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AiInsights\AiInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AttendanceReports\AttendanceReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\AttendeeReport\AttendeeReportRequestBuilder;
@@ -28,6 +29,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the aiInsights property of the microsoft.graph.onlineMeeting entity.
+    */
+    public function aiInsights(): AiInsightsRequestBuilder {
+        return new AiInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the media for the cloudCommunications entity.
     */

@@ -586,6 +586,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.calendarSharingMessage': return new CalendarSharingMessage();
                 case '#microsoft.graph.call': return new Call();
                 case '#microsoft.graph.callActivityStatistics': return new CallActivityStatistics();
+                case '#microsoft.graph.callAiInsight': return new CallAiInsight();
                 case '#microsoft.graph.callEvent': return new CallEvent();
                 case '#microsoft.graph.callRecording': return new CallRecording();
                 case '#microsoft.graph.callRecords.callRecord': return new CallRecord();
@@ -620,6 +621,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudPC': return new CloudPC();
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPcBulkAction': return new CloudPcBulkAction();
+                case '#microsoft.graph.cloudPcBulkCreateSnapshot': return new CloudPcBulkCreateSnapshot();
                 case '#microsoft.graph.cloudPcBulkDisasterRecoveryFailback': return new CloudPcBulkDisasterRecoveryFailback();
                 case '#microsoft.graph.cloudPcBulkDisasterRecoveryFailover': return new CloudPcBulkDisasterRecoveryFailover();
                 case '#microsoft.graph.cloudPcBulkModifyDiskEncryptionType': return new CloudPcBulkModifyDiskEncryptionType();
@@ -629,6 +631,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudPcBulkResize': return new CloudPcBulkResize();
                 case '#microsoft.graph.cloudPcBulkRestart': return new CloudPcBulkRestart();
                 case '#microsoft.graph.cloudPcBulkRestore': return new CloudPcBulkRestore();
+                case '#microsoft.graph.cloudPcBulkSetReviewStatus': return new CloudPcBulkSetReviewStatus();
                 case '#microsoft.graph.cloudPcBulkTroubleshoot': return new CloudPcBulkTroubleshoot();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
                 case '#microsoft.graph.cloudPcCrossCloudGovernmentOrganizationMapping': return new CloudPcCrossCloudGovernmentOrganizationMapping();
@@ -1497,6 +1500,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.overprovisionedGcpServiceAccountFinding': return new OverprovisionedGcpServiceAccountFinding();
                 case '#microsoft.graph.overprovisionedServerlessFunctionFinding': return new OverprovisionedServerlessFunctionFinding();
                 case '#microsoft.graph.overprovisionedUserFinding': return new OverprovisionedUserFinding();
+                case '#microsoft.graph.pageTemplate': return new PageTemplate();
                 case '#microsoft.graph.participant': return new Participant();
                 case '#microsoft.graph.participantJoiningNotification': return new ParticipantJoiningNotification();
                 case '#microsoft.graph.participantLeftNotification': return new ParticipantLeftNotification();
