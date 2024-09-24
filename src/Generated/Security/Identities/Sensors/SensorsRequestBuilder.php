@@ -76,10 +76,11 @@ class SensorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensors from security
+     * Get a list of sensor objects and their properties.
      * @param SensorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensorCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-identitycontainer-list-sensors?view=graph-rest-beta Find more info here
     */
     public function get(?SensorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -105,7 +106,7 @@ class SensorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensors from security
+     * Get a list of sensor objects and their properties.
      * @param SensorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

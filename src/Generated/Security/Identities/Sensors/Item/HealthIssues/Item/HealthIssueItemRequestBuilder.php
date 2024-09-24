@@ -31,7 +31,7 @@ class HealthIssueItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get healthIssues from security
+     * Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified related to the sensor.
      * @param HealthIssueItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HealthIssue|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class HealthIssueItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get healthIssues from security
+     * Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified related to the sensor.
      * @param HealthIssueItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

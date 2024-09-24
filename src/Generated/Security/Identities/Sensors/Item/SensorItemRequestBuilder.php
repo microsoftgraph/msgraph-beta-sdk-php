@@ -39,10 +39,11 @@ class SensorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sensors for security
+     * Delete a sensor object.
      * @param SensorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-identitycontainer-delete-sensors?view=graph-rest-beta Find more info here
     */
     public function delete(?SensorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class SensorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensors from security
+     * Read the properties and relationships of a sensor object.
      * @param SensorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Sensor|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensor-get?view=graph-rest-beta Find more info here
     */
     public function get(?SensorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class SensorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sensors in security
+     * Update the properties of a sensor object.
      * @param Sensor $body The request body
      * @param SensorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Sensor|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensor-update?view=graph-rest-beta Find more info here
     */
     public function patch(Sensor $body, ?SensorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class SensorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sensors for security
+     * Delete a sensor object.
      * @param SensorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class SensorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensors from security
+     * Read the properties and relationships of a sensor object.
      * @param SensorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class SensorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sensors in security
+     * Update the properties of a sensor object.
      * @param Sensor $body The request body
      * @param SensorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -28,7 +28,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the sensor was generated.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -52,7 +52,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the sensor.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -64,7 +64,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. The fully qualified domain name of the sensor.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -96,7 +96,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthIssues property value. The healthIssues property
+     * Gets the healthIssues property value. Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified related to the sensor.
      * @return array<HealthIssue>|null
     */
     public function getHealthIssues(): ?array {
@@ -122,7 +122,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Gets the openHealthIssuesCount property value. The openHealthIssuesCount property
+     * Gets the openHealthIssuesCount property value. This field displays the count of health issues related to this sensor.
      * @return int|null
     */
     public function getOpenHealthIssuesCount(): ?int {
@@ -158,7 +158,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The version of the sensor.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -188,7 +188,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the sensor was generated.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -204,7 +204,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the sensor.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -212,7 +212,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. The fully qualified domain name of the sensor.
      * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
@@ -220,7 +220,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthIssues property value. The healthIssues property
+     * Sets the healthIssues property value. Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified related to the sensor.
      * @param array<HealthIssue>|null $value Value to set for the healthIssues property.
     */
     public function setHealthIssues(?array $value): void {
@@ -236,7 +236,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Sets the openHealthIssuesCount property value. The openHealthIssuesCount property
+     * Sets the openHealthIssuesCount property value. This field displays the count of health issues related to this sensor.
      * @param int|null $value Value to set for the openHealthIssuesCount property.
     */
     public function setOpenHealthIssuesCount(?int $value): void {
@@ -260,7 +260,7 @@ class Sensor extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The version of the sensor.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

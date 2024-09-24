@@ -31,10 +31,11 @@ class MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder extends 
     }
 
     /**
-     * Invoke action regenerateDeploymentAccessKey
+     * Generate a new deployment access key that can be used to install a sensor associated with the workspace.
      * @param MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentAccessKeyType|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensor-regeneratedeploymentaccesskey?view=graph-rest-beta Find more info here
     */
     public function post(?MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder extends 
     }
 
     /**
-     * Invoke action regenerateDeploymentAccessKey
+     * Generate a new deployment access key that can be used to install a sensor associated with the workspace.
      * @param MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

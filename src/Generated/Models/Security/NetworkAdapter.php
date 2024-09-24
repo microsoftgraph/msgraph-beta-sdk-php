@@ -38,7 +38,7 @@ class NetworkAdapter extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Indicates whether the network adapter is selected for capturing and analyzing network traffic.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -50,7 +50,7 @@ class NetworkAdapter extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the network adapter.
      * @return string|null
     */
     public function getName(): ?string {
@@ -72,7 +72,7 @@ class NetworkAdapter extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Indicates whether the network adapter is selected for capturing and analyzing network traffic.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
@@ -80,7 +80,7 @@ class NetworkAdapter extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the network adapter.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

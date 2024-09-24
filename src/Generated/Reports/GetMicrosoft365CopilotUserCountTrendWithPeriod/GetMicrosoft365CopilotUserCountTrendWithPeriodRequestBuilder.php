@@ -34,7 +34,7 @@ class GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseR
     }
 
     /**
-     * Get the trend in the daily number of active and enabled users of Copilot for Microsoft 365 for a specified time period.
+     * Get the trend in the daily number of active and enabled users of Microsoft 365 Copilot for a specified time period.
      * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
@@ -51,7 +51,7 @@ class GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseR
     }
 
     /**
-     * Get the trend in the daily number of active and enabled users of Copilot for Microsoft 365 for a specified time period.
+     * Get the trend in the daily number of active and enabled users of Microsoft 365 Copilot for a specified time period.
      * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

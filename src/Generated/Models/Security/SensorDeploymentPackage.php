@@ -56,7 +56,7 @@ class SensorDeploymentPackage implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the downloadUrl property value. The downloadUrl property
+     * Gets the downloadUrl property value. URL to download the sensor deployment package.
      * @return string|null
     */
     public function getDownloadUrl(): ?string {
@@ -93,7 +93,7 @@ class SensorDeploymentPackage implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. Version of the sensor.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -132,7 +132,7 @@ class SensorDeploymentPackage implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the downloadUrl property value. The downloadUrl property
+     * Sets the downloadUrl property value. URL to download the sensor deployment package.
      * @param string|null $value Value to set for the downloadUrl property.
     */
     public function setDownloadUrl(?string $value): void {
@@ -148,7 +148,7 @@ class SensorDeploymentPackage implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. Version of the sensor.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
