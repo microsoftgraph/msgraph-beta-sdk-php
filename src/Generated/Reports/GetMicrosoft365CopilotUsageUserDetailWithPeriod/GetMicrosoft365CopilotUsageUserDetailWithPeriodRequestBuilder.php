@@ -34,7 +34,7 @@ class GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder extends Base
     }
 
     /**
-     * Get the most recent activity data for enabled users of Copilot for Microsoft 365 apps.
+     * Get the most recent activity data for enabled users of Microsoft 365 Copilot apps.
      * @param GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
@@ -51,7 +51,7 @@ class GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder extends Base
     }
 
     /**
-     * Get the most recent activity data for enabled users of Copilot for Microsoft 365 apps.
+     * Get the most recent activity data for enabled users of Microsoft 365 Copilot apps.
      * @param GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

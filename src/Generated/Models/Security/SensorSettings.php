@@ -57,7 +57,7 @@ class SensorSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the sensor.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -69,7 +69,7 @@ class SensorSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the domainControllerDnsNames property value. The domainControllerDnsNames property
+     * Gets the domainControllerDnsNames property value. DNS names for the domain controller
      * @return array<string>|null
     */
     public function getDomainControllerDnsNames(): ?array {
@@ -105,7 +105,7 @@ class SensorSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isDelayedDeploymentEnabled property value. The isDelayedDeploymentEnabled property
+     * Gets the isDelayedDeploymentEnabled property value. Indicates whether to delay updates for the sensor.
      * @return bool|null
     */
     public function getIsDelayedDeploymentEnabled(): ?bool {
@@ -172,7 +172,7 @@ class SensorSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the sensor.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -180,7 +180,7 @@ class SensorSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the domainControllerDnsNames property value. The domainControllerDnsNames property
+     * Sets the domainControllerDnsNames property value. DNS names for the domain controller
      * @param array<string>|null $value Value to set for the domainControllerDnsNames property.
     */
     public function setDomainControllerDnsNames(?array $value): void {
@@ -188,7 +188,7 @@ class SensorSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isDelayedDeploymentEnabled property value. The isDelayedDeploymentEnabled property
+     * Sets the isDelayedDeploymentEnabled property value. Indicates whether to delay updates for the sensor.
      * @param bool|null $value Value to set for the isDelayedDeploymentEnabled property.
     */
     public function setIsDelayedDeploymentEnabled(?bool $value): void {

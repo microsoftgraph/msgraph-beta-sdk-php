@@ -39,7 +39,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthIssues property value. Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration.
+     * Gets the healthIssues property value. Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
      * @return array<HealthIssue>|null
     */
     public function getHealthIssues(): ?array {
@@ -53,7 +53,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensors property value. The sensors property
+     * Gets the sensors property value. Represents a customer's Microsoft Defender for Identity sensors.
      * @return array<Sensor>|null
     */
     public function getSensors(): ?array {
@@ -77,7 +77,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthIssues property value. Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration.
+     * Sets the healthIssues property value. Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified.
      * @param array<HealthIssue>|null $value Value to set for the healthIssues property.
     */
     public function setHealthIssues(?array $value): void {
@@ -85,7 +85,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensors property value. The sensors property
+     * Sets the sensors property value. Represents a customer's Microsoft Defender for Identity sensors.
      * @param array<Sensor>|null $value Value to set for the sensors property.
     */
     public function setSensors(?array $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get sensors from security
+ * Read the properties and relationships of a sensor object.
 */
 class SensorItemRequestBuilderGetQueryParameters 
 {

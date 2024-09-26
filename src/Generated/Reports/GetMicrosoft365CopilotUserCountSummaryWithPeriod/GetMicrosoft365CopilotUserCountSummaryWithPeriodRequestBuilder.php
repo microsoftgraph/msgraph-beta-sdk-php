@@ -34,7 +34,7 @@ class GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder extends Bas
     }
 
     /**
-     * Get the aggregated number of active and enabled users of Copilot for Microsoft 365 for a specified time period.
+     * Get the aggregated number of active and enabled users of Microsoft 365 Copilot for a specified time period.
      * @param GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
@@ -51,7 +51,7 @@ class GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder extends Bas
     }
 
     /**
-     * Get the aggregated number of active and enabled users of Copilot for Microsoft 365 for a specified time period.
+     * Get the aggregated number of active and enabled users of Microsoft 365 Copilot for a specified time period.
      * @param GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,10 +31,11 @@ class MicrosoftGraphSecurityGetDeploymentPackageUriRequestBuilder extends BaseRe
     }
 
     /**
-     * Invoke function getDeploymentPackageUri
+     * Get the sensor deployment package URL and version. You can use this URL to download the installer to install the sensor on a server.
      * @param MicrosoftGraphSecurityGetDeploymentPackageUriRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensorDeploymentPackage|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensor-getdeploymentpackageuri?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphSecurityGetDeploymentPackageUriRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class MicrosoftGraphSecurityGetDeploymentPackageUriRequestBuilder extends BaseRe
     }
 
     /**
-     * Invoke function getDeploymentPackageUri
+     * Get the sensor deployment package URL and version. You can use this URL to download the installer to install the sensor on a server.
      * @param MicrosoftGraphSecurityGetDeploymentPackageUriRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -56,7 +56,7 @@ class DeploymentAccessKeyType implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the deploymentAccessKey property value. The deploymentAccessKey property
+     * Gets the deploymentAccessKey property value. The deployment access key.
      * @return string|null
     */
     public function getDeploymentAccessKey(): ?string {
@@ -118,7 +118,7 @@ class DeploymentAccessKeyType implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the deploymentAccessKey property value. The deploymentAccessKey property
+     * Sets the deploymentAccessKey property value. The deployment access key.
      * @param string|null $value Value to set for the deploymentAccessKey property.
     */
     public function setDeploymentAccessKey(?string $value): void {

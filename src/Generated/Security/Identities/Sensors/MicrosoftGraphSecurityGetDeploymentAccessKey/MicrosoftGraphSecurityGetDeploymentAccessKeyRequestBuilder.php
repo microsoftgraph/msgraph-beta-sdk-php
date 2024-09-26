@@ -31,10 +31,11 @@ class MicrosoftGraphSecurityGetDeploymentAccessKeyRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke function getDeploymentAccessKey
+     * Get the deployment access key associated with a Microsoft Defender for Identity, needed to install sensors associated with the workspace.
      * @param MicrosoftGraphSecurityGetDeploymentAccessKeyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeploymentAccessKeyType|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensor-getdeploymentaccesskey?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphSecurityGetDeploymentAccessKeyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class MicrosoftGraphSecurityGetDeploymentAccessKeyRequestBuilder extends BaseReq
     }
 
     /**
-     * Invoke function getDeploymentAccessKey
+     * Get the deployment access key associated with a Microsoft Defender for Identity, needed to install sensors associated with the workspace.
      * @param MicrosoftGraphSecurityGetDeploymentAccessKeyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

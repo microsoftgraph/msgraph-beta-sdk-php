@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\Item\Health
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get healthIssues from security
+ * Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified related to the sensor.
 */
 class HealthIssuesRequestBuilderGetQueryParameters 
 {

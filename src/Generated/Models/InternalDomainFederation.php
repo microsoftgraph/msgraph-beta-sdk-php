@@ -92,7 +92,7 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     }
 
     /**
-     * Gets the passwordResetUri property value. The passwordResetUri property
+     * Gets the passwordResetUri property value. URI that clients are redirected to for resetting their password.
      * @return string|null
     */
     public function getPasswordResetUri(): ?string {
@@ -188,7 +188,7 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     }
 
     /**
-     * Sets the passwordResetUri property value. The passwordResetUri property
+     * Sets the passwordResetUri property value. URI that clients are redirected to for resetting their password.
      * @param string|null $value Value to set for the passwordResetUri property.
     */
     public function setPasswordResetUri(?string $value): void {
