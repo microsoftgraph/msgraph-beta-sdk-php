@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.0](https://github.com/microsoftgraph/msgraph-beta-sdk-php/compare/v2.16.0...v2.17.0) (2024-09-26)
+
+
+### Features
+
+* **generation:** update request builders and models ([cdc825f](https://github.com/microsoftgraph/msgraph-beta-sdk-php/commit/cdc825f6608140add361b6e1b8b8e3dfa7d088c6))
+
 ## [2.16.0](https://github.com/microsoftgraph/msgraph-beta-sdk-php/compare/v2.15.0...v2.16.0) (2024-09-19)
 
 
