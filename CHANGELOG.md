@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.1](https://github.com/microsoftgraph/msgraph-beta-sdk-php/compare/v2.17.0...v2.17.1) (2024-09-30)
+
+
+### Bug Fixes
+
+* Remove Kiota DOM diff export from shipped files ([672f427](https://github.com/microsoftgraph/msgraph-beta-sdk-php/commit/672f427805289861b3b727a2d14db39aee970a54))
+
 ## [2.17.0](https://github.com/microsoftgraph/msgraph-beta-sdk-php/compare/v2.16.0...v2.17.0) (2024-09-26)
 
 
