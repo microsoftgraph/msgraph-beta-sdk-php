@@ -26,12 +26,25 @@ class CustomAppManagementConfiguration extends AppManagementConfiguration implem
     }
 
     /**
+     * Gets the applicationRestrictions property value. Restrictions applicable only to application objects that the policy applies to.
+     * @return CustomAppManagementApplicationConfiguration|null
+    */
+    public function getApplicationRestrictions(): ?CustomAppManagementApplicationConfiguration {
+        $val = $this->getBackingStore()->get('applicationRestrictions');
+        if (is_null($val) || $val instanceof CustomAppManagementApplicationConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationRestrictions'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'applicationRestrictions' => fn(ParseNode $n) => $o->setApplicationRestrictions($n->getObjectValue([CustomAppManagementApplicationConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -41,6 +54,15 @@ class CustomAppManagementConfiguration extends AppManagementConfiguration implem
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('applicationRestrictions', $this->getApplicationRestrictions());
+    }
+
+    /**
+     * Sets the applicationRestrictions property value. Restrictions applicable only to application objects that the policy applies to.
+     * @param CustomAppManagementApplicationConfiguration|null $value Value to set for the applicationRestrictions property.
+    */
+    public function setApplicationRestrictions(?CustomAppManagementApplicationConfiguration $value): void {
+        $this->getBackingStore()->set('applicationRestrictions', $value);
     }
 
 }

@@ -50,7 +50,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
+     * Gets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Does not support $expand. Supports $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
      * @return array<DirectoryObject>|null
     */
     public function getDomainNameReferences(): ?array {
@@ -64,7 +64,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the federationConfiguration property value. Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.
+     * Gets the federationConfiguration property value. Domain settings configured by customer when federated with Microsoft Entra ID. Does not support $expand.
      * @return array<InternalDomainFederation>|null
     */
     public function getFederationConfiguration(): ?array {
@@ -208,7 +208,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * Gets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Does not support $expand.
      * @return array<DomainDnsRecord>|null
     */
     public function getServiceConfigurationRecords(): ?array {
@@ -262,7 +262,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Supports $expand.
+     * Gets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Does not support $expand.
      * @return array<DomainDnsRecord>|null
     */
     public function getVerificationDnsRecords(): ?array {
@@ -317,7 +317,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
+     * Sets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Does not support $expand. Supports $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
      * @param array<DirectoryObject>|null $value Value to set for the domainNameReferences property.
     */
     public function setDomainNameReferences(?array $value): void {
@@ -325,7 +325,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the federationConfiguration property value. Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.
+     * Sets the federationConfiguration property value. Domain settings configured by customer when federated with Microsoft Entra ID. Does not support $expand.
      * @param array<InternalDomainFederation>|null $value Value to set for the federationConfiguration property.
     */
     public function setFederationConfiguration(?array $value): void {
@@ -397,7 +397,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * Sets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Does not support $expand.
      * @param array<DomainDnsRecord>|null $value Value to set for the serviceConfigurationRecords property.
     */
     public function setServiceConfigurationRecords(?array $value): void {
@@ -429,7 +429,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Supports $expand.
+     * Sets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Does not support $expand.
      * @param array<DomainDnsRecord>|null $value Value to set for the verificationDnsRecords property.
     */
     public function setVerificationDnsRecords(?array $value): void {

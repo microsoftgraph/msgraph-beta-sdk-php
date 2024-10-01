@@ -436,6 +436,7 @@ class SignIn extends Entity implements Parsable
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignInStatus::class, 'createFromDiscriminatorValue'])),
             'tokenIssuerName' => fn(ParseNode $n) => $o->setTokenIssuerName($n->getStringValue()),
             'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)),
+            'tokenProtectionStatusDetails' => fn(ParseNode $n) => $o->setTokenProtectionStatusDetails($n->getObjectValue([TokenProtectionStatusDetails::class, 'createFromDiscriminatorValue'])),
             'uniqueTokenIdentifier' => fn(ParseNode $n) => $o->setUniqueTokenIdentifier($n->getStringValue()),
             'userAgent' => fn(ParseNode $n) => $o->setUserAgent($n->getStringValue()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
@@ -922,6 +923,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the tokenProtectionStatusDetails property value. The tokenProtectionStatusDetails property
+     * @return TokenProtectionStatusDetails|null
+    */
+    public function getTokenProtectionStatusDetails(): ?TokenProtectionStatusDetails {
+        $val = $this->getBackingStore()->get('tokenProtectionStatusDetails');
+        if (is_null($val) || $val instanceof TokenProtectionStatusDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenProtectionStatusDetails'");
+    }
+
+    /**
      * Gets the uniqueTokenIdentifier property value. A unique base64 encoded request identifier used to track tokens issued by Microsoft Entra ID as they're redeemed at resource providers.
      * @return string|null
     */
@@ -1063,6 +1076,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeObjectValue('status', $this->getStatus());
         $writer->writeStringValue('tokenIssuerName', $this->getTokenIssuerName());
         $writer->writeEnumValue('tokenIssuerType', $this->getTokenIssuerType());
+        $writer->writeObjectValue('tokenProtectionStatusDetails', $this->getTokenProtectionStatusDetails());
         $writer->writeStringValue('uniqueTokenIdentifier', $this->getUniqueTokenIdentifier());
         $writer->writeStringValue('userAgent', $this->getUserAgent());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
@@ -1581,6 +1595,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setTokenIssuerType(?TokenIssuerType $value): void {
         $this->getBackingStore()->set('tokenIssuerType', $value);
+    }
+
+    /**
+     * Sets the tokenProtectionStatusDetails property value. The tokenProtectionStatusDetails property
+     * @param TokenProtectionStatusDetails|null $value Value to set for the tokenProtectionStatusDetails property.
+    */
+    public function setTokenProtectionStatusDetails(?TokenProtectionStatusDetails $value): void {
+        $this->getBackingStore()->set('tokenProtectionStatusDetails', $value);
     }
 
     /**

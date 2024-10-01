@@ -116,12 +116,11 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a fileStorageContainer object.
+     * Update the navigation property containers in storage
      * @param FileStorageContainer $body The request body
      * @param FileStorageContainerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainer|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainer-update?view=graph-rest-beta Find more info here
     */
     public function patch(FileStorageContainer $body, ?FileStorageContainerItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -171,7 +170,7 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a fileStorageContainer object.
+     * Update the navigation property containers in storage
      * @param FileStorageContainer $body The request body
      * @param FileStorageContainerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

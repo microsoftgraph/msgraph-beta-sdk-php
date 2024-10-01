@@ -30,10 +30,11 @@ class PermanentDeleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action permanentDelete
+     * Permanently delete a fileStorageContainer object. Deleting a file storage container with this method permanently removes it. It isn't sent to the deleted container collection. Therefore, it can't be restored later.
      * @param PermanentDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainer-permanentdelete?view=graph-rest-beta Find more info here
     */
     public function post(?PermanentDeleteRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class PermanentDeleteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action permanentDelete
+     * Permanently delete a fileStorageContainer object. Deleting a file storage container with this method permanently removes it. It isn't sent to the deleted container collection. Therefore, it can't be restored later.
      * @param PermanentDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

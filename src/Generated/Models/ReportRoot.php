@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\HealthMonitoringRoot;
 use Microsoft\Graph\Beta\Generated\Models\Partners\Partners;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -169,6 +170,7 @@ class ReportRoot extends Entity implements Parsable
             'dailyPrintUsageByUser' => fn(ParseNode $n) => $o->setDailyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
+            'healthMonitoring' => fn(ParseNode $n) => $o->setHealthMonitoring($n->getObjectValue([HealthMonitoringRoot::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
@@ -181,6 +183,18 @@ class ReportRoot extends Entity implements Parsable
             'userCredentialUsageDetails' => fn(ParseNode $n) => $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues([UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'])),
             'userInsights' => fn(ParseNode $n) => $o->setUserInsights($n->getObjectValue([UserInsightsRoot::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the healthMonitoring property value. The healthMonitoring property
+     * @return HealthMonitoringRoot|null
+    */
+    public function getHealthMonitoring(): ?HealthMonitoringRoot {
+        $val = $this->getBackingStore()->get('healthMonitoring');
+        if (is_null($val) || $val instanceof HealthMonitoringRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthMonitoring'");
     }
 
     /**
@@ -342,6 +356,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('dailyPrintUsageByUser', $this->getDailyPrintUsageByUser());
         $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByPrinter', $this->getDailyPrintUsageSummariesByPrinter());
         $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByUser', $this->getDailyPrintUsageSummariesByUser());
+        $writer->writeObjectValue('healthMonitoring', $this->getHealthMonitoring());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByPrinter', $this->getMonthlyPrintUsageByPrinter());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->getMonthlyPrintUsageByUser());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
@@ -425,6 +440,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setDailyPrintUsageSummariesByUser(?array $value): void {
         $this->getBackingStore()->set('dailyPrintUsageSummariesByUser', $value);
+    }
+
+    /**
+     * Sets the healthMonitoring property value. The healthMonitoring property
+     * @param HealthMonitoringRoot|null $value Value to set for the healthMonitoring property.
+    */
+    public function setHealthMonitoring(?HealthMonitoringRoot $value): void {
+        $this->getBackingStore()->set('healthMonitoring', $value);
     }
 
     /**

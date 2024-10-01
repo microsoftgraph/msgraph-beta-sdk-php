@@ -38,6 +38,18 @@ class UserRequestsMetric extends Entity implements Parsable
     }
 
     /**
+     * Gets the browser property value. The browser property
+     * @return string|null
+    */
+    public function getBrowser(): ?string {
+        $val = $this->getBackingStore()->get('browser');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'browser'");
+    }
+
+    /**
      * Gets the country property value. The country property
      * @return string|null
     */
@@ -69,6 +81,7 @@ class UserRequestsMetric extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'browser' => fn(ParseNode $n) => $o->setBrowser($n->getStringValue()),
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'factDate' => fn(ParseNode $n) => $o->setFactDate($n->getDateValue()),
             'identityProvider' => fn(ParseNode $n) => $o->setIdentityProvider($n->getStringValue()),
@@ -120,6 +133,7 @@ class UserRequestsMetric extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('browser', $this->getBrowser());
         $writer->writeStringValue('country', $this->getCountry());
         $writer->writeDateValue('factDate', $this->getFactDate());
         $writer->writeStringValue('identityProvider', $this->getIdentityProvider());
@@ -133,6 +147,14 @@ class UserRequestsMetric extends Entity implements Parsable
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
+    }
+
+    /**
+     * Sets the browser property value. The browser property
+     * @param string|null $value Value to set for the browser property.
+    */
+    public function setBrowser(?string $value): void {
+        $this->getBackingStore()->set('browser', $value);
     }
 
     /**

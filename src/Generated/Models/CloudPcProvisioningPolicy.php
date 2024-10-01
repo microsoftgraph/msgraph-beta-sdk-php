@@ -64,7 +64,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the autopilotConfiguration property value. The autopilotConfiguration property
+     * Gets the autopilotConfiguration property value. The specific settings for Windows Autopilot that enable Windows 365 customers to experience it on Cloud PC. Supports $select.
      * @return CloudPcAutopilotConfiguration|null
     */
     public function getAutopilotConfiguration(): ?CloudPcAutopilotConfiguration {
@@ -375,7 +375,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the autopilotConfiguration property value. The autopilotConfiguration property
+     * Sets the autopilotConfiguration property value. The specific settings for Windows Autopilot that enable Windows 365 customers to experience it on Cloud PC. Supports $select.
      * @param CloudPcAutopilotConfiguration|null $value Value to set for the autopilotConfiguration property.
     */
     public function setAutopilotConfiguration(?CloudPcAutopilotConfiguration $value): void {
