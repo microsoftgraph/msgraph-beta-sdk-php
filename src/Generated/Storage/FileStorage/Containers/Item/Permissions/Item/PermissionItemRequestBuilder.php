@@ -47,11 +47,10 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete permissions from a fileStorageContainer object.
+     * Delete navigation property permissions for storage
      * @param PermissionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainer-delete-permissions?view=graph-rest-beta Find more info here
     */
     public function delete(?PermissionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -76,12 +75,11 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing permission on a fileStorageContainer by making a PATCH request on the permission resource. Only the roles property can be updated.  One role per user is supported. A new ID is generated for the updated permissions object.
+     * Update the navigation property permissions in storage
      * @param Permission $body The request body
      * @param PermissionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Permission|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainer-update-permissions?view=graph-rest-beta Find more info here
     */
     public function patch(Permission $body, ?PermissionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +90,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete permissions from a fileStorageContainer object.
+     * Delete navigation property permissions for storage
      * @param PermissionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +129,7 @@ class PermissionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing permission on a fileStorageContainer by making a PATCH request on the permission resource. Only the roles property can be updated.  One role per user is supported. A new ID is generated for the updated permissions object.
+     * Update the navigation property permissions in storage
      * @param Permission $body The request body
      * @param PermissionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

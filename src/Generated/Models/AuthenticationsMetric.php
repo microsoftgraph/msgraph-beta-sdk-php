@@ -6,6 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AuthenticationsMetric extends Entity implements Parsable 
 {
@@ -50,6 +51,30 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
+     * Gets the authFlow property value. The authFlow property
+     * @return string|null
+    */
+    public function getAuthFlow(): ?string {
+        $val = $this->getBackingStore()->get('authFlow');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authFlow'");
+    }
+
+    /**
+     * Gets the browser property value. The browser property
+     * @return string|null
+    */
+    public function getBrowser(): ?string {
+        $val = $this->getBackingStore()->get('browser');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'browser'");
+    }
+
+    /**
      * Gets the country property value. The location where the customers authenticated from. Supports $filter (eq).
      * @return string|null
     */
@@ -74,6 +99,20 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
+     * Gets the failures property value. The failures property
+     * @return array<AuthenticationFailure>|null
+    */
+    public function getFailures(): ?array {
+        $val = $this->getBackingStore()->get('failures');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuthenticationFailure::class);
+            /** @var array<AuthenticationFailure>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failures'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -82,8 +121,11 @@ class AuthenticationsMetric extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'appid' => fn(ParseNode $n) => $o->setAppid($n->getStringValue()),
             'attemptsCount' => fn(ParseNode $n) => $o->setAttemptsCount($n->getIntegerValue()),
+            'authFlow' => fn(ParseNode $n) => $o->setAuthFlow($n->getStringValue()),
+            'browser' => fn(ParseNode $n) => $o->setBrowser($n->getStringValue()),
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'factDate' => fn(ParseNode $n) => $o->setFactDate($n->getDateValue()),
+            'failures' => fn(ParseNode $n) => $o->setFailures($n->getCollectionOfObjectValues([AuthenticationFailure::class, 'createFromDiscriminatorValue'])),
             'identityProvider' => fn(ParseNode $n) => $o->setIdentityProvider($n->getStringValue()),
             'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
             'os' => fn(ParseNode $n) => $o->setOs($n->getStringValue()),
@@ -147,8 +189,11 @@ class AuthenticationsMetric extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appid', $this->getAppid());
         $writer->writeIntegerValue('attemptsCount', $this->getAttemptsCount());
+        $writer->writeStringValue('authFlow', $this->getAuthFlow());
+        $writer->writeStringValue('browser', $this->getBrowser());
         $writer->writeStringValue('country', $this->getCountry());
         $writer->writeDateValue('factDate', $this->getFactDate());
+        $writer->writeCollectionOfObjectValues('failures', $this->getFailures());
         $writer->writeStringValue('identityProvider', $this->getIdentityProvider());
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeStringValue('os', $this->getOs());
@@ -172,6 +217,22 @@ class AuthenticationsMetric extends Entity implements Parsable
     }
 
     /**
+     * Sets the authFlow property value. The authFlow property
+     * @param string|null $value Value to set for the authFlow property.
+    */
+    public function setAuthFlow(?string $value): void {
+        $this->getBackingStore()->set('authFlow', $value);
+    }
+
+    /**
+     * Sets the browser property value. The browser property
+     * @param string|null $value Value to set for the browser property.
+    */
+    public function setBrowser(?string $value): void {
+        $this->getBackingStore()->set('browser', $value);
+    }
+
+    /**
      * Sets the country property value. The location where the customers authenticated from. Supports $filter (eq).
      * @param string|null $value Value to set for the country property.
     */
@@ -185,6 +246,14 @@ class AuthenticationsMetric extends Entity implements Parsable
     */
     public function setFactDate(?Date $value): void {
         $this->getBackingStore()->set('factDate', $value);
+    }
+
+    /**
+     * Sets the failures property value. The failures property
+     * @param array<AuthenticationFailure>|null $value Value to set for the failures property.
+    */
+    public function setFailures(?array $value): void {
+        $this->getBackingStore()->set('failures', $value);
     }
 
     /**

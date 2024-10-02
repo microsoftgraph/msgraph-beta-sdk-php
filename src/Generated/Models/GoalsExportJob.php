@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The status of a long-running operation.
+*/
 class GoalsExportJob extends LongRunningOperation implements Parsable 
 {
     /**

@@ -52,11 +52,10 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the permission objects associated with a fileStorageContainer.
+     * The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are reader, writer, manager, and owner. Read-write.
      * @param PermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainer-list-permissions?view=graph-rest-beta Find more info here
     */
     public function get(?PermissionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +66,11 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a permission to an existing fileStorageContainer. 
+     * Create new navigation property to permissions for storage
      * @param Permission $body The request body
      * @param PermissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Permission|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainer-post-permissions?view=graph-rest-beta Find more info here
     */
     public function post(Permission $body, ?PermissionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +81,7 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the permission objects associated with a fileStorageContainer.
+     * The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are reader, writer, manager, and owner. Read-write.
      * @param PermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +102,7 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add a permission to an existing fileStorageContainer. 
+     * Create new navigation property to permissions for storage
      * @param Permission $body The request body
      * @param PermissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

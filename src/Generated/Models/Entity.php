@@ -36,6 +36,8 @@ use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalGroup;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalItem;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\Identity;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\Schema;
+use Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\AlertConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\HealthMonitoringRoot;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\CustomTaskExtension;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\Insights;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\LifecycleManagementSettings;
@@ -503,6 +505,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.authenticationEventListener': return new AuthenticationEventListener();
                 case '#microsoft.graph.authenticationEventsFlow': return new AuthenticationEventsFlow();
                 case '#microsoft.graph.authenticationEventsPolicy': return new AuthenticationEventsPolicy();
+                case '#microsoft.graph.authenticationFailure': return new AuthenticationFailure();
                 case '#microsoft.graph.authenticationFlowsPolicy': return new AuthenticationFlowsPolicy();
                 case '#microsoft.graph.authenticationListener': return new AuthenticationListener();
                 case '#microsoft.graph.authenticationMethod': return new AuthenticationMethod();
@@ -934,6 +937,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.embeddedSIMActivationCodePool': return new EmbeddedSIMActivationCodePool();
                 case '#microsoft.graph.embeddedSIMActivationCodePoolAssignment': return new EmbeddedSIMActivationCodePoolAssignment();
                 case '#microsoft.graph.embeddedSIMDeviceState': return new EmbeddedSIMDeviceState();
+                case '#microsoft.graph.emergencyCallEvent': return new EmergencyCallEvent();
                 case '#microsoft.graph.employeeExperienceUser': return new EmployeeExperienceUser();
                 case '#microsoft.graph.encryptedAwsStorageBucketFinding': return new EncryptedAwsStorageBucketFinding();
                 case '#microsoft.graph.encryptedAzureStorageAccountFinding': return new EncryptedAzureStorageAccountFinding();
@@ -1066,6 +1070,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.hardwareOathAuthenticationMethodConfiguration': return new HardwareOathAuthenticationMethodConfiguration();
                 case '#microsoft.graph.hardwarePasswordDetail': return new HardwarePasswordDetail();
                 case '#microsoft.graph.hardwarePasswordInfo': return new HardwarePasswordInfo();
+                case '#microsoft.graph.healthMonitoring.alert': return new \Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\Alert();
+                case '#microsoft.graph.healthMonitoring.alertConfiguration': return new AlertConfiguration();
+                case '#microsoft.graph.healthMonitoring.healthMonitoringRoot': return new HealthMonitoringRoot();
                 case '#microsoft.graph.homeRealmDiscoveryPolicy': return new HomeRealmDiscoveryPolicy();
                 case '#microsoft.graph.horizontalSection': return new HorizontalSection();
                 case '#microsoft.graph.horizontalSectionColumn': return new HorizontalSectionColumn();

@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * The status of a long-running operation.
+*/
 class FileValidateOperation extends ValidateOperation implements Parsable 
 {
     /**

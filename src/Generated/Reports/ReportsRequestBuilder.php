@@ -137,6 +137,7 @@ use Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityCountsWithPeri
 use Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityDetailWithDate\GetYammerGroupsActivityDetailWithDateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityDetailWithPeriod\GetYammerGroupsActivityDetailWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityGroupCountsWithPeriod\GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\HealthMonitoringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipToken\ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipToken\ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipTokenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentFailureDetails\ManagedDeviceEnrollmentFailureDetailsRequestBuilder;
@@ -290,6 +291,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getOffice365ActivationsUserDetail(): GetOffice365ActivationsUserDetailRequestBuilder {
         return new GetOffice365ActivationsUserDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the healthMonitoring property of the microsoft.graph.reportRoot entity.
+    */
+    public function healthMonitoring(): HealthMonitoringRequestBuilder {
+        return new HealthMonitoringRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

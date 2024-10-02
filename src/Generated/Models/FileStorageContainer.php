@@ -167,7 +167,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the isItemVersioningEnabled property value. Indicates whether versioning is enabled for the fileStorageContainer. The setting is applicable to all items in the fileStorageContainer. Read-Write.
+     * Gets the isItemVersioningEnabled property value. The isItemVersioningEnabled property
      * @return bool|null
     */
     public function getIsItemVersioningEnabled(): ?bool {
@@ -179,7 +179,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the itemMajorVersionLimit property value. Maximum number of major versions allowed for items in the fileStorageContainer. Read-write.
+     * Gets the itemMajorVersionLimit property value. The itemMajorVersionLimit property
      * @return int|null
     */
     public function getItemMajorVersionLimit(): ?int {
@@ -403,7 +403,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the isItemVersioningEnabled property value. Indicates whether versioning is enabled for the fileStorageContainer. The setting is applicable to all items in the fileStorageContainer. Read-Write.
+     * Sets the isItemVersioningEnabled property value. The isItemVersioningEnabled property
      * @param bool|null $value Value to set for the isItemVersioningEnabled property.
     */
     public function setIsItemVersioningEnabled(?bool $value): void {
@@ -411,7 +411,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the itemMajorVersionLimit property value. Maximum number of major versions allowed for items in the fileStorageContainer. Read-write.
+     * Sets the itemMajorVersionLimit property value. The itemMajorVersionLimit property
      * @param int|null $value Value to set for the itemMajorVersionLimit property.
     */
     public function setItemMajorVersionLimit(?int $value): void {

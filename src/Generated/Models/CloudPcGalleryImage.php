@@ -124,7 +124,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the osVersionNumber property value. The osVersionNumber property
+     * Gets the osVersionNumber property value. The operating system version of this gallery image. For example, 10.0.22000.296. Read-only.
      * @return string|null
     */
     public function getOsVersionNumber(): ?string {
@@ -316,7 +316,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the osVersionNumber property value. The osVersionNumber property
+     * Sets the osVersionNumber property value. The operating system version of this gallery image. For example, 10.0.22000.296. Read-only.
      * @param string|null $value Value to set for the osVersionNumber property.
     */
     public function setOsVersionNumber(?string $value): void {
