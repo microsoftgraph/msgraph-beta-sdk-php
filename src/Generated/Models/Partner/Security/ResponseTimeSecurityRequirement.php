@@ -26,11 +26,11 @@ class ResponseTimeSecurityRequirement extends SecurityRequirement implements Par
 
     /**
      * Gets the averageResponseTimeInHours property value. The average response time for alerts from the past 30 days.
-     * @return float|null
+     * @return ResponseTimeSecurityRequirement_averageResponseTimeInHours|null
     */
-    public function getAverageResponseTimeInHours(): ?float {
+    public function getAverageResponseTimeInHours(): ?ResponseTimeSecurityRequirement_averageResponseTimeInHours {
         $val = $this->getBackingStore()->get('averageResponseTimeInHours');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof ResponseTimeSecurityRequirement_averageResponseTimeInHours) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'averageResponseTimeInHours'");
@@ -43,7 +43,7 @@ class ResponseTimeSecurityRequirement extends SecurityRequirement implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'averageResponseTimeInHours' => fn(ParseNode $n) => $o->setAverageResponseTimeInHours($n->getFloatValue()),
+            'averageResponseTimeInHours' => fn(ParseNode $n) => $o->setAverageResponseTimeInHours($n->getObjectValue([ResponseTimeSecurityRequirement_averageResponseTimeInHours::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -53,14 +53,14 @@ class ResponseTimeSecurityRequirement extends SecurityRequirement implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('averageResponseTimeInHours', $this->getAverageResponseTimeInHours());
+        $writer->writeObjectValue('averageResponseTimeInHours', $this->getAverageResponseTimeInHours());
     }
 
     /**
      * Sets the averageResponseTimeInHours property value. The average response time for alerts from the past 30 days.
-     * @param float|null $value Value to set for the averageResponseTimeInHours property.
+     * @param ResponseTimeSecurityRequirement_averageResponseTimeInHours|null $value Value to set for the averageResponseTimeInHours property.
     */
-    public function setAverageResponseTimeInHours(?float $value): void {
+    public function setAverageResponseTimeInHours(?ResponseTimeSecurityRequirement_averageResponseTimeInHours $value): void {
         $this->getBackingStore()->set('averageResponseTimeInHours', $value);
     }
 

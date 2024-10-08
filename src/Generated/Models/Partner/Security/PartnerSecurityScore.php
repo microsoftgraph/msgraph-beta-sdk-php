@@ -29,11 +29,11 @@ class PartnerSecurityScore extends Entity implements Parsable
 
     /**
      * Gets the currentScore property value. The current security score for the partner.
-     * @return float|null
+     * @return PartnerSecurityScore_currentScore|null
     */
-    public function getCurrentScore(): ?float {
+    public function getCurrentScore(): ?PartnerSecurityScore_currentScore {
         $val = $this->getBackingStore()->get('currentScore');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof PartnerSecurityScore_currentScore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'currentScore'");
@@ -60,11 +60,11 @@ class PartnerSecurityScore extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getFloatValue()),
+            'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getObjectValue([PartnerSecurityScore_currentScore::class, 'createFromDiscriminatorValue'])),
             'customerInsights' => fn(ParseNode $n) => $o->setCustomerInsights($n->getCollectionOfObjectValues([CustomerInsight::class, 'createFromDiscriminatorValue'])),
             'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([SecurityScoreHistory::class, 'createFromDiscriminatorValue'])),
             'lastRefreshDateTime' => fn(ParseNode $n) => $o->setLastRefreshDateTime($n->getDateTimeValue()),
-            'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getFloatValue()),
+            'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getObjectValue([PartnerSecurityScore_maxScore::class, 'createFromDiscriminatorValue'])),
             'requirements' => fn(ParseNode $n) => $o->setRequirements($n->getCollectionOfObjectValues([SecurityRequirement::class, 'createFromDiscriminatorValue'])),
             'updatedDateTime' => fn(ParseNode $n) => $o->setUpdatedDateTime($n->getDateTimeValue()),
         ]);
@@ -98,11 +98,11 @@ class PartnerSecurityScore extends Entity implements Parsable
 
     /**
      * Gets the maxScore property value. The maximum score possible.
-     * @return float|null
+     * @return PartnerSecurityScore_maxScore|null
     */
-    public function getMaxScore(): ?float {
+    public function getMaxScore(): ?PartnerSecurityScore_maxScore {
         $val = $this->getBackingStore()->get('maxScore');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof PartnerSecurityScore_maxScore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'maxScore'");
@@ -140,20 +140,20 @@ class PartnerSecurityScore extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('currentScore', $this->getCurrentScore());
+        $writer->writeObjectValue('currentScore', $this->getCurrentScore());
         $writer->writeCollectionOfObjectValues('customerInsights', $this->getCustomerInsights());
         $writer->writeCollectionOfObjectValues('history', $this->getHistory());
         $writer->writeDateTimeValue('lastRefreshDateTime', $this->getLastRefreshDateTime());
-        $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeObjectValue('maxScore', $this->getMaxScore());
         $writer->writeCollectionOfObjectValues('requirements', $this->getRequirements());
         $writer->writeDateTimeValue('updatedDateTime', $this->getUpdatedDateTime());
     }
 
     /**
      * Sets the currentScore property value. The current security score for the partner.
-     * @param float|null $value Value to set for the currentScore property.
+     * @param PartnerSecurityScore_currentScore|null $value Value to set for the currentScore property.
     */
-    public function setCurrentScore(?float $value): void {
+    public function setCurrentScore(?PartnerSecurityScore_currentScore $value): void {
         $this->getBackingStore()->set('currentScore', $value);
     }
 
@@ -183,9 +183,9 @@ class PartnerSecurityScore extends Entity implements Parsable
 
     /**
      * Sets the maxScore property value. The maximum score possible.
-     * @param float|null $value Value to set for the maxScore property.
+     * @param PartnerSecurityScore_maxScore|null $value Value to set for the maxScore property.
     */
-    public function setMaxScore(?float $value): void {
+    public function setMaxScore(?PartnerSecurityScore_maxScore $value): void {
         $this->getBackingStore()->set('maxScore', $value);
     }
 

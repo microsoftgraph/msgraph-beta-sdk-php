@@ -128,11 +128,11 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
 
     /**
      * Gets the correlationGroupPrevalencePercentage property value. The percentage of the devices in the correlation group that are anomalous. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @return float|null
+     * @return UserExperienceAnalyticsAnomalyCorrelationGroupOverview_correlationGroupPrevalencePercentage|null
     */
-    public function getCorrelationGroupPrevalencePercentage(): ?float {
+    public function getCorrelationGroupPrevalencePercentage(): ?UserExperienceAnalyticsAnomalyCorrelationGroupOverview_correlationGroupPrevalencePercentage {
         $val = $this->getBackingStore()->get('correlationGroupPrevalencePercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsAnomalyCorrelationGroupOverview_correlationGroupPrevalencePercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'correlationGroupPrevalencePercentage'");
@@ -153,7 +153,7 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
             'correlationGroupFeatures' => fn(ParseNode $n) => $o->setCorrelationGroupFeatures($n->getCollectionOfObjectValues([UserExperienceAnalyticsAnomalyCorrelationGroupFeature::class, 'createFromDiscriminatorValue'])),
             'correlationGroupId' => fn(ParseNode $n) => $o->setCorrelationGroupId($n->getStringValue()),
             'correlationGroupPrevalence' => fn(ParseNode $n) => $o->setCorrelationGroupPrevalence($n->getEnumValue(UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence::class)),
-            'correlationGroupPrevalencePercentage' => fn(ParseNode $n) => $o->setCorrelationGroupPrevalencePercentage($n->getFloatValue()),
+            'correlationGroupPrevalencePercentage' => fn(ParseNode $n) => $o->setCorrelationGroupPrevalencePercentage($n->getObjectValue([UserExperienceAnalyticsAnomalyCorrelationGroupOverview_correlationGroupPrevalencePercentage::class, 'createFromDiscriminatorValue'])),
             'totalDeviceCount' => fn(ParseNode $n) => $o->setTotalDeviceCount($n->getIntegerValue()),
         ]);
     }
@@ -184,7 +184,7 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
         $writer->writeCollectionOfObjectValues('correlationGroupFeatures', $this->getCorrelationGroupFeatures());
         $writer->writeStringValue('correlationGroupId', $this->getCorrelationGroupId());
         $writer->writeEnumValue('correlationGroupPrevalence', $this->getCorrelationGroupPrevalence());
-        $writer->writeFloatValue('correlationGroupPrevalencePercentage', $this->getCorrelationGroupPrevalencePercentage());
+        $writer->writeObjectValue('correlationGroupPrevalencePercentage', $this->getCorrelationGroupPrevalencePercentage());
         $writer->writeIntegerValue('totalDeviceCount', $this->getTotalDeviceCount());
     }
 
@@ -254,9 +254,9 @@ class UserExperienceAnalyticsAnomalyCorrelationGroupOverview extends Entity impl
 
     /**
      * Sets the correlationGroupPrevalencePercentage property value. The percentage of the devices in the correlation group that are anomalous. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @param float|null $value Value to set for the correlationGroupPrevalencePercentage property.
+     * @param UserExperienceAnalyticsAnomalyCorrelationGroupOverview_correlationGroupPrevalencePercentage|null $value Value to set for the correlationGroupPrevalencePercentage property.
     */
-    public function setCorrelationGroupPrevalencePercentage(?float $value): void {
+    public function setCorrelationGroupPrevalencePercentage(?UserExperienceAnalyticsAnomalyCorrelationGroupOverview_correlationGroupPrevalencePercentage $value): void {
         $this->getBackingStore()->set('correlationGroupPrevalencePercentage', $value);
     }
 

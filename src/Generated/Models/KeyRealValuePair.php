@@ -35,17 +35,17 @@ class KeyRealValuePair extends KeyTypedValuePair implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => fn(ParseNode $n) => $o->setValue($n->getFloatValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getObjectValue([KeyRealValuePair_value::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the value property value. The real (floating-point) value of the key-value pair.
-     * @return float|null
+     * @return KeyRealValuePair_value|null
     */
-    public function getValue(): ?float {
+    public function getValue(): ?KeyRealValuePair_value {
         $val = $this->getBackingStore()->get('value');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof KeyRealValuePair_value) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
@@ -57,14 +57,14 @@ class KeyRealValuePair extends KeyTypedValuePair implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('value', $this->getValue());
+        $writer->writeObjectValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The real (floating-point) value of the key-value pair.
-     * @param float|null $value Value to set for the value property.
+     * @param KeyRealValuePair_value|null $value Value to set for the value property.
     */
-    public function setValue(?float $value): void {
+    public function setValue(?KeyRealValuePair_value $value): void {
         $this->getBackingStore()->set('value', $value);
     }
 

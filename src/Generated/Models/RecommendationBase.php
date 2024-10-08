@@ -85,11 +85,11 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Gets the currentScore property value. The number of points the tenant has attained. Only applies to recommendations with category set to identitySecureScore.
-     * @return float|null
+     * @return RecommendationBase_currentScore|null
     */
-    public function getCurrentScore(): ?float {
+    public function getCurrentScore(): ?RecommendationBase_currentScore {
         $val = $this->getBackingStore()->get('currentScore');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof RecommendationBase_currentScore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'currentScore'");
@@ -132,7 +132,7 @@ class RecommendationBase extends Entity implements Parsable
             'benefits' => fn(ParseNode $n) => $o->setBenefits($n->getStringValue()),
             'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(RecommendationCategory::class)),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getFloatValue()),
+            'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getObjectValue([RecommendationBase_currentScore::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'featureAreas' => fn(ParseNode $n) => $o->setFeatureAreas($n->getCollectionOfEnumValues(RecommendationFeatureAreas::class)),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
@@ -142,7 +142,7 @@ class RecommendationBase extends Entity implements Parsable
             'lastCheckedDateTime' => fn(ParseNode $n) => $o->setLastCheckedDateTime($n->getDateTimeValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
-            'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getFloatValue()),
+            'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getObjectValue([RecommendationBase_maxScore::class, 'createFromDiscriminatorValue'])),
             'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(RecommendationPriority::class)),
             'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationType::class)),
@@ -241,11 +241,11 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Gets the maxScore property value. The maximum number of points attainable. Only applies to recommendations with category set to identitySecureScore.
-     * @return float|null
+     * @return RecommendationBase_maxScore|null
     */
-    public function getMaxScore(): ?float {
+    public function getMaxScore(): ?RecommendationBase_maxScore {
         $val = $this->getBackingStore()->get('maxScore');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof RecommendationBase_maxScore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'maxScore'");
@@ -345,7 +345,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeStringValue('benefits', $this->getBenefits());
         $writer->writeEnumValue('category', $this->getCategory());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeFloatValue('currentScore', $this->getCurrentScore());
+        $writer->writeObjectValue('currentScore', $this->getCurrentScore());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfEnumValues('featureAreas', $this->getFeatureAreas());
         $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
@@ -355,7 +355,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeDateTimeValue('lastCheckedDateTime', $this->getLastCheckedDateTime());
         $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
-        $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeObjectValue('maxScore', $this->getMaxScore());
         $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('recommendationType', $this->getRecommendationType());
@@ -399,9 +399,9 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Sets the currentScore property value. The number of points the tenant has attained. Only applies to recommendations with category set to identitySecureScore.
-     * @param float|null $value Value to set for the currentScore property.
+     * @param RecommendationBase_currentScore|null $value Value to set for the currentScore property.
     */
-    public function setCurrentScore(?float $value): void {
+    public function setCurrentScore(?RecommendationBase_currentScore $value): void {
         $this->getBackingStore()->set('currentScore', $value);
     }
 
@@ -479,9 +479,9 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Sets the maxScore property value. The maximum number of points attainable. Only applies to recommendations with category set to identitySecureScore.
-     * @param float|null $value Value to set for the maxScore property.
+     * @param RecommendationBase_maxScore|null $value Value to set for the maxScore property.
     */
-    public function setMaxScore(?float $value): void {
+    public function setMaxScore(?RecommendationBase_maxScore $value): void {
         $this->getBackingStore()->set('maxScore', $value);
     }
 

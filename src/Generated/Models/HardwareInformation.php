@@ -85,11 +85,11 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the batteryLevelPercentage property value. The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
-     * @return float|null
+     * @return HardwareInformation_batteryLevelPercentage|null
     */
-    public function getBatteryLevelPercentage(): ?float {
+    public function getBatteryLevelPercentage(): ?HardwareInformation_batteryLevelPercentage {
         $val = $this->getBackingStore()->get('batteryLevelPercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof HardwareInformation_batteryLevelPercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryLevelPercentage'");
@@ -224,7 +224,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'batteryChargeCycles' => fn(ParseNode $n) => $o->setBatteryChargeCycles($n->getIntegerValue()),
             'batteryHealthPercentage' => fn(ParseNode $n) => $o->setBatteryHealthPercentage($n->getIntegerValue()),
-            'batteryLevelPercentage' => fn(ParseNode $n) => $o->setBatteryLevelPercentage($n->getFloatValue()),
+            'batteryLevelPercentage' => fn(ParseNode $n) => $o->setBatteryLevelPercentage($n->getObjectValue([HardwareInformation_batteryLevelPercentage::class, 'createFromDiscriminatorValue'])),
             'batterySerialNumber' => fn(ParseNode $n) => $o->setBatterySerialNumber($n->getStringValue()),
             'cellularTechnology' => fn(ParseNode $n) => $o->setCellularTechnology($n->getStringValue()),
             'deviceFullQualifiedDomainName' => fn(ParseNode $n) => $o->setDeviceFullQualifiedDomainName($n->getStringValue()),
@@ -620,7 +620,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('batteryChargeCycles', $this->getBatteryChargeCycles());
         $writer->writeIntegerValue('batteryHealthPercentage', $this->getBatteryHealthPercentage());
-        $writer->writeFloatValue('batteryLevelPercentage', $this->getBatteryLevelPercentage());
+        $writer->writeObjectValue('batteryLevelPercentage', $this->getBatteryLevelPercentage());
         $writer->writeStringValue('batterySerialNumber', $this->getBatterySerialNumber());
         $writer->writeStringValue('cellularTechnology', $this->getCellularTechnology());
         $writer->writeStringValue('deviceFullQualifiedDomainName', $this->getDeviceFullQualifiedDomainName());
@@ -696,9 +696,9 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the batteryLevelPercentage property value. The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
-     * @param float|null $value Value to set for the batteryLevelPercentage property.
+     * @param HardwareInformation_batteryLevelPercentage|null $value Value to set for the batteryLevelPercentage property.
     */
-    public function setBatteryLevelPercentage(?float $value): void {
+    public function setBatteryLevelPercentage(?HardwareInformation_batteryLevelPercentage $value): void {
         $this->getBackingStore()->set('batteryLevelPercentage', $value);
     }
 

@@ -57,11 +57,11 @@ class InferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the confidenceScore property value. Confidence score reflecting the accuracy of the data inferred about the user.
-     * @return float|null
+     * @return InferenceData_confidenceScore|null
     */
-    public function getConfidenceScore(): ?float {
+    public function getConfidenceScore(): ?InferenceData_confidenceScore {
         $val = $this->getBackingStore()->get('confidenceScore');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof InferenceData_confidenceScore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'confidenceScore'");
@@ -74,7 +74,7 @@ class InferenceData implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'confidenceScore' => fn(ParseNode $n) => $o->setConfidenceScore($n->getFloatValue()),
+            'confidenceScore' => fn(ParseNode $n) => $o->setConfidenceScore($n->getObjectValue([InferenceData_confidenceScore::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'userHasVerifiedAccuracy' => fn(ParseNode $n) => $o->setUserHasVerifiedAccuracy($n->getBooleanValue()),
         ];
@@ -109,7 +109,7 @@ class InferenceData implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeFloatValue('confidenceScore', $this->getConfidenceScore());
+        $writer->writeObjectValue('confidenceScore', $this->getConfidenceScore());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('userHasVerifiedAccuracy', $this->getUserHasVerifiedAccuracy());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -133,9 +133,9 @@ class InferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the confidenceScore property value. Confidence score reflecting the accuracy of the data inferred about the user.
-     * @param float|null $value Value to set for the confidenceScore property.
+     * @param InferenceData_confidenceScore|null $value Value to set for the confidenceScore property.
     */
-    public function setConfidenceScore(?float $value): void {
+    public function setConfidenceScore(?InferenceData_confidenceScore $value): void {
         $this->getBackingStore()->set('confidenceScore', $value);
     }
 

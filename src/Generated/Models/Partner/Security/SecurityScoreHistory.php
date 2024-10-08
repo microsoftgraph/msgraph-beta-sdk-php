@@ -59,18 +59,18 @@ class SecurityScoreHistory extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'compliantRequirementsCount' => fn(ParseNode $n) => $o->setCompliantRequirementsCount($n->getIntegerValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'score' => fn(ParseNode $n) => $o->setScore($n->getFloatValue()),
+            'score' => fn(ParseNode $n) => $o->setScore($n->getObjectValue([SecurityScoreHistory_score::class, 'createFromDiscriminatorValue'])),
             'totalRequirementsCount' => fn(ParseNode $n) => $o->setTotalRequirementsCount($n->getIntegerValue()),
         ]);
     }
 
     /**
      * Gets the score property value. The score recorded at the time.
-     * @return float|null
+     * @return SecurityScoreHistory_score|null
     */
-    public function getScore(): ?float {
+    public function getScore(): ?SecurityScoreHistory_score {
         $val = $this->getBackingStore()->get('score');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof SecurityScoreHistory_score) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'score'");
@@ -96,7 +96,7 @@ class SecurityScoreHistory extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeIntegerValue('compliantRequirementsCount', $this->getCompliantRequirementsCount());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeFloatValue('score', $this->getScore());
+        $writer->writeObjectValue('score', $this->getScore());
         $writer->writeIntegerValue('totalRequirementsCount', $this->getTotalRequirementsCount());
     }
 
@@ -118,9 +118,9 @@ class SecurityScoreHistory extends Entity implements Parsable
 
     /**
      * Sets the score property value. The score recorded at the time.
-     * @param float|null $value Value to set for the score property.
+     * @param SecurityScoreHistory_score|null $value Value to set for the score property.
     */
-    public function setScore(?float $value): void {
+    public function setScore(?SecurityScoreHistory_score $value): void {
         $this->getBackingStore()->set('score', $value);
     }
 

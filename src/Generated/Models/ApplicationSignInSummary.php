@@ -58,7 +58,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
             'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
             'failedSignInCount' => fn(ParseNode $n) => $o->setFailedSignInCount($n->getIntegerValue()),
             'successfulSignInCount' => fn(ParseNode $n) => $o->setSuccessfulSignInCount($n->getIntegerValue()),
-            'successPercentage' => fn(ParseNode $n) => $o->setSuccessPercentage($n->getFloatValue()),
+            'successPercentage' => fn(ParseNode $n) => $o->setSuccessPercentage($n->getObjectValue([ApplicationSignInSummary_successPercentage::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -76,11 +76,11 @@ class ApplicationSignInSummary extends Entity implements Parsable
 
     /**
      * Gets the successPercentage property value. Percentage of successful sign-ins made by the application.
-     * @return float|null
+     * @return ApplicationSignInSummary_successPercentage|null
     */
-    public function getSuccessPercentage(): ?float {
+    public function getSuccessPercentage(): ?ApplicationSignInSummary_successPercentage {
         $val = $this->getBackingStore()->get('successPercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof ApplicationSignInSummary_successPercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'successPercentage'");
@@ -95,7 +95,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeIntegerValue('failedSignInCount', $this->getFailedSignInCount());
         $writer->writeIntegerValue('successfulSignInCount', $this->getSuccessfulSignInCount());
-        $writer->writeFloatValue('successPercentage', $this->getSuccessPercentage());
+        $writer->writeObjectValue('successPercentage', $this->getSuccessPercentage());
     }
 
     /**
@@ -124,9 +124,9 @@ class ApplicationSignInSummary extends Entity implements Parsable
 
     /**
      * Sets the successPercentage property value. Percentage of successful sign-ins made by the application.
-     * @param float|null $value Value to set for the successPercentage property.
+     * @param ApplicationSignInSummary_successPercentage|null $value Value to set for the successPercentage property.
     */
-    public function setSuccessPercentage(?float $value): void {
+    public function setSuccessPercentage(?ApplicationSignInSummary_successPercentage $value): void {
         $this->getBackingStore()->set('successPercentage', $value);
     }
 

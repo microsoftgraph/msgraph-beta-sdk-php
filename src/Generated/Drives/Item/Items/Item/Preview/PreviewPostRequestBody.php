@@ -90,7 +90,7 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
             'chromeless' => fn(ParseNode $n) => $o->setChromeless($n->getBooleanValue()),
             'page' => fn(ParseNode $n) => $o->setPage($n->getStringValue()),
             'viewer' => fn(ParseNode $n) => $o->setViewer($n->getStringValue()),
-            'zoom' => fn(ParseNode $n) => $o->setZoom($n->getFloatValue()),
+            'zoom' => fn(ParseNode $n) => $o->setZoom($n->getObjectValue([PreviewPostRequestBody_zoom::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -120,11 +120,11 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the zoom property value. The zoom property
-     * @return float|null
+     * @return PreviewPostRequestBody_zoom|null
     */
-    public function getZoom(): ?float {
+    public function getZoom(): ?PreviewPostRequestBody_zoom {
         $val = $this->getBackingStore()->get('zoom');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof PreviewPostRequestBody_zoom) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'zoom'");
@@ -139,7 +139,7 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
         $writer->writeBooleanValue('chromeless', $this->getChromeless());
         $writer->writeStringValue('page', $this->getPage());
         $writer->writeStringValue('viewer', $this->getViewer());
-        $writer->writeFloatValue('zoom', $this->getZoom());
+        $writer->writeObjectValue('zoom', $this->getZoom());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -193,9 +193,9 @@ class PreviewPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the zoom property value. The zoom property
-     * @param float|null $value Value to set for the zoom property.
+     * @param PreviewPostRequestBody_zoom|null $value Value to set for the zoom property.
     */
-    public function setZoom(?float $value): void {
+    public function setZoom(?PreviewPostRequestBody_zoom $value): void {
         $this->getBackingStore()->set('zoom', $value);
     }
 

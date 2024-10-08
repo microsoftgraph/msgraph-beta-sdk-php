@@ -41,11 +41,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Gets the cpuClockSpeedInMHz property value. The clock speed of the processor, in MHz. Valid values 0 to 1000000
-     * @return float|null
+     * @return UserExperienceAnalyticsResourcePerformance_cpuClockSpeedInMHz|null
     */
-    public function getCpuClockSpeedInMHz(): ?float {
+    public function getCpuClockSpeedInMHz(): ?UserExperienceAnalyticsResourcePerformance_cpuClockSpeedInMHz {
         $val = $this->getBackingStore()->get('cpuClockSpeedInMHz');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsResourcePerformance_cpuClockSpeedInMHz) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuClockSpeedInMHz'");
@@ -65,11 +65,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Gets the cpuSpikeTimePercentage property value. CPU spike time in percentage. Valid values 0 to 100
-     * @return float|null
+     * @return UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentage|null
     */
-    public function getCpuSpikeTimePercentage(): ?float {
+    public function getCpuSpikeTimePercentage(): ?UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentage {
         $val = $this->getBackingStore()->get('cpuSpikeTimePercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuSpikeTimePercentage'");
@@ -77,11 +77,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Gets the cpuSpikeTimePercentageThreshold property value. Threshold of cpuSpikeTimeScore. Valid values 0 to 100
-     * @return float|null
+     * @return UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentageThreshold|null
     */
-    public function getCpuSpikeTimePercentageThreshold(): ?float {
+    public function getCpuSpikeTimePercentageThreshold(): ?UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentageThreshold {
         $val = $this->getBackingStore()->get('cpuSpikeTimePercentageThreshold');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentageThreshold) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'cpuSpikeTimePercentageThreshold'");
@@ -167,10 +167,10 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'averageSpikeTimeScore' => fn(ParseNode $n) => $o->setAverageSpikeTimeScore($n->getIntegerValue()),
-            'cpuClockSpeedInMHz' => fn(ParseNode $n) => $o->setCpuClockSpeedInMHz($n->getFloatValue()),
+            'cpuClockSpeedInMHz' => fn(ParseNode $n) => $o->setCpuClockSpeedInMHz($n->getObjectValue([UserExperienceAnalyticsResourcePerformance_cpuClockSpeedInMHz::class, 'createFromDiscriminatorValue'])),
             'cpuDisplayName' => fn(ParseNode $n) => $o->setCpuDisplayName($n->getStringValue()),
-            'cpuSpikeTimePercentage' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentage($n->getFloatValue()),
-            'cpuSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentageThreshold($n->getFloatValue()),
+            'cpuSpikeTimePercentage' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentage($n->getObjectValue([UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentage::class, 'createFromDiscriminatorValue'])),
+            'cpuSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentageThreshold($n->getObjectValue([UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentageThreshold::class, 'createFromDiscriminatorValue'])),
             'cpuSpikeTimeScore' => fn(ParseNode $n) => $o->setCpuSpikeTimeScore($n->getIntegerValue()),
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
@@ -181,11 +181,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
             'machineType' => fn(ParseNode $n) => $o->setMachineType($n->getEnumValue(UserExperienceAnalyticsMachineType::class)),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
-            'ramSpikeTimePercentage' => fn(ParseNode $n) => $o->setRamSpikeTimePercentage($n->getFloatValue()),
-            'ramSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setRamSpikeTimePercentageThreshold($n->getFloatValue()),
+            'ramSpikeTimePercentage' => fn(ParseNode $n) => $o->setRamSpikeTimePercentage($n->getObjectValue([UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentage::class, 'createFromDiscriminatorValue'])),
+            'ramSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setRamSpikeTimePercentageThreshold($n->getObjectValue([UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentageThreshold::class, 'createFromDiscriminatorValue'])),
             'ramSpikeTimeScore' => fn(ParseNode $n) => $o->setRamSpikeTimeScore($n->getIntegerValue()),
             'totalProcessorCoreCount' => fn(ParseNode $n) => $o->setTotalProcessorCoreCount($n->getIntegerValue()),
-            'totalRamInMB' => fn(ParseNode $n) => $o->setTotalRamInMB($n->getFloatValue()),
+            'totalRamInMB' => fn(ParseNode $n) => $o->setTotalRamInMB($n->getObjectValue([UserExperienceAnalyticsResourcePerformance_totalRamInMB::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -239,11 +239,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Gets the ramSpikeTimePercentage property value. RAM spike time in percentage. Valid values 0 to 100
-     * @return float|null
+     * @return UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentage|null
     */
-    public function getRamSpikeTimePercentage(): ?float {
+    public function getRamSpikeTimePercentage(): ?UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentage {
         $val = $this->getBackingStore()->get('ramSpikeTimePercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ramSpikeTimePercentage'");
@@ -251,11 +251,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Gets the ramSpikeTimePercentageThreshold property value. Threshold of ramSpikeTimeScore. Valid values 0 to 100
-     * @return float|null
+     * @return UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentageThreshold|null
     */
-    public function getRamSpikeTimePercentageThreshold(): ?float {
+    public function getRamSpikeTimePercentageThreshold(): ?UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentageThreshold {
         $val = $this->getBackingStore()->get('ramSpikeTimePercentageThreshold');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentageThreshold) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'ramSpikeTimePercentageThreshold'");
@@ -287,11 +287,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Gets the totalRamInMB property value. The total RAM of the device, in MB. Valid values 0 to 1000000
-     * @return float|null
+     * @return UserExperienceAnalyticsResourcePerformance_totalRamInMB|null
     */
-    public function getTotalRamInMB(): ?float {
+    public function getTotalRamInMB(): ?UserExperienceAnalyticsResourcePerformance_totalRamInMB {
         $val = $this->getBackingStore()->get('totalRamInMB');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsResourcePerformance_totalRamInMB) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'totalRamInMB'");
@@ -304,10 +304,10 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('averageSpikeTimeScore', $this->getAverageSpikeTimeScore());
-        $writer->writeFloatValue('cpuClockSpeedInMHz', $this->getCpuClockSpeedInMHz());
+        $writer->writeObjectValue('cpuClockSpeedInMHz', $this->getCpuClockSpeedInMHz());
         $writer->writeStringValue('cpuDisplayName', $this->getCpuDisplayName());
-        $writer->writeFloatValue('cpuSpikeTimePercentage', $this->getCpuSpikeTimePercentage());
-        $writer->writeFloatValue('cpuSpikeTimePercentageThreshold', $this->getCpuSpikeTimePercentageThreshold());
+        $writer->writeObjectValue('cpuSpikeTimePercentage', $this->getCpuSpikeTimePercentage());
+        $writer->writeObjectValue('cpuSpikeTimePercentageThreshold', $this->getCpuSpikeTimePercentageThreshold());
         $writer->writeIntegerValue('cpuSpikeTimeScore', $this->getCpuSpikeTimeScore());
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
@@ -318,11 +318,11 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
         $writer->writeEnumValue('machineType', $this->getMachineType());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
-        $writer->writeFloatValue('ramSpikeTimePercentage', $this->getRamSpikeTimePercentage());
-        $writer->writeFloatValue('ramSpikeTimePercentageThreshold', $this->getRamSpikeTimePercentageThreshold());
+        $writer->writeObjectValue('ramSpikeTimePercentage', $this->getRamSpikeTimePercentage());
+        $writer->writeObjectValue('ramSpikeTimePercentageThreshold', $this->getRamSpikeTimePercentageThreshold());
         $writer->writeIntegerValue('ramSpikeTimeScore', $this->getRamSpikeTimeScore());
         $writer->writeIntegerValue('totalProcessorCoreCount', $this->getTotalProcessorCoreCount());
-        $writer->writeFloatValue('totalRamInMB', $this->getTotalRamInMB());
+        $writer->writeObjectValue('totalRamInMB', $this->getTotalRamInMB());
     }
 
     /**
@@ -335,9 +335,9 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the cpuClockSpeedInMHz property value. The clock speed of the processor, in MHz. Valid values 0 to 1000000
-     * @param float|null $value Value to set for the cpuClockSpeedInMHz property.
+     * @param UserExperienceAnalyticsResourcePerformance_cpuClockSpeedInMHz|null $value Value to set for the cpuClockSpeedInMHz property.
     */
-    public function setCpuClockSpeedInMHz(?float $value): void {
+    public function setCpuClockSpeedInMHz(?UserExperienceAnalyticsResourcePerformance_cpuClockSpeedInMHz $value): void {
         $this->getBackingStore()->set('cpuClockSpeedInMHz', $value);
     }
 
@@ -351,17 +351,17 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the cpuSpikeTimePercentage property value. CPU spike time in percentage. Valid values 0 to 100
-     * @param float|null $value Value to set for the cpuSpikeTimePercentage property.
+     * @param UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentage|null $value Value to set for the cpuSpikeTimePercentage property.
     */
-    public function setCpuSpikeTimePercentage(?float $value): void {
+    public function setCpuSpikeTimePercentage(?UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentage $value): void {
         $this->getBackingStore()->set('cpuSpikeTimePercentage', $value);
     }
 
     /**
      * Sets the cpuSpikeTimePercentageThreshold property value. Threshold of cpuSpikeTimeScore. Valid values 0 to 100
-     * @param float|null $value Value to set for the cpuSpikeTimePercentageThreshold property.
+     * @param UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentageThreshold|null $value Value to set for the cpuSpikeTimePercentageThreshold property.
     */
-    public function setCpuSpikeTimePercentageThreshold(?float $value): void {
+    public function setCpuSpikeTimePercentageThreshold(?UserExperienceAnalyticsResourcePerformance_cpuSpikeTimePercentageThreshold $value): void {
         $this->getBackingStore()->set('cpuSpikeTimePercentageThreshold', $value);
     }
 
@@ -447,17 +447,17 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the ramSpikeTimePercentage property value. RAM spike time in percentage. Valid values 0 to 100
-     * @param float|null $value Value to set for the ramSpikeTimePercentage property.
+     * @param UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentage|null $value Value to set for the ramSpikeTimePercentage property.
     */
-    public function setRamSpikeTimePercentage(?float $value): void {
+    public function setRamSpikeTimePercentage(?UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentage $value): void {
         $this->getBackingStore()->set('ramSpikeTimePercentage', $value);
     }
 
     /**
      * Sets the ramSpikeTimePercentageThreshold property value. Threshold of ramSpikeTimeScore. Valid values 0 to 100
-     * @param float|null $value Value to set for the ramSpikeTimePercentageThreshold property.
+     * @param UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentageThreshold|null $value Value to set for the ramSpikeTimePercentageThreshold property.
     */
-    public function setRamSpikeTimePercentageThreshold(?float $value): void {
+    public function setRamSpikeTimePercentageThreshold(?UserExperienceAnalyticsResourcePerformance_ramSpikeTimePercentageThreshold $value): void {
         $this->getBackingStore()->set('ramSpikeTimePercentageThreshold', $value);
     }
 
@@ -479,9 +479,9 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the totalRamInMB property value. The total RAM of the device, in MB. Valid values 0 to 1000000
-     * @param float|null $value Value to set for the totalRamInMB property.
+     * @param UserExperienceAnalyticsResourcePerformance_totalRamInMB|null $value Value to set for the totalRamInMB property.
     */
-    public function setTotalRamInMB(?float $value): void {
+    public function setTotalRamInMB(?UserExperienceAnalyticsResourcePerformance_totalRamInMB $value): void {
         $this->getBackingStore()->set('totalRamInMB', $value);
     }
 

@@ -76,7 +76,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'address' => fn(ParseNode $n) => $o->setAddress($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'rank' => fn(ParseNode $n) => $o->setRank($n->getFloatValue()),
+            'rank' => fn(ParseNode $n) => $o->setRank($n->getObjectValue([RankedEmailAddress_rank::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -94,11 +94,11 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the rank property value. The rank of the email address. A rank is used as a sort key, in relation to the other returned results. A higher rank value corresponds to a more relevant result. Relevance is determined by communication, collaboration, and business relationship signals.
-     * @return float|null
+     * @return RankedEmailAddress_rank|null
     */
-    public function getRank(): ?float {
+    public function getRank(): ?RankedEmailAddress_rank {
         $val = $this->getBackingStore()->get('rank');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof RankedEmailAddress_rank) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'rank'");
@@ -111,7 +111,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('address', $this->getAddress());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeFloatValue('rank', $this->getRank());
+        $writer->writeObjectValue('rank', $this->getRank());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -149,9 +149,9 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the rank property value. The rank of the email address. A rank is used as a sort key, in relation to the other returned results. A higher rank value corresponds to a more relevant result. Relevance is determined by communication, collaboration, and business relationship signals.
-     * @param float|null $value Value to set for the rank property.
+     * @param RankedEmailAddress_rank|null $value Value to set for the rank property.
     */
-    public function setRank(?float $value): void {
+    public function setRank(?RankedEmailAddress_rank $value): void {
         $this->getBackingStore()->set('rank', $value);
     }
 

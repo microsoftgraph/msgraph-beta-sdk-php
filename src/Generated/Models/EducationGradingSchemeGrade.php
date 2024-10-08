@@ -57,11 +57,11 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the defaultPercentage property value. The midpoint of the grade range.
-     * @return float|null
+     * @return EducationGradingSchemeGrade_defaultPercentage|null
     */
-    public function getDefaultPercentage(): ?float {
+    public function getDefaultPercentage(): ?EducationGradingSchemeGrade_defaultPercentage {
         $val = $this->getBackingStore()->get('defaultPercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof EducationGradingSchemeGrade_defaultPercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultPercentage'");
@@ -86,20 +86,20 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultPercentage' => fn(ParseNode $n) => $o->setDefaultPercentage($n->getFloatValue()),
+            'defaultPercentage' => fn(ParseNode $n) => $o->setDefaultPercentage($n->getObjectValue([EducationGradingSchemeGrade_defaultPercentage::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'minPercentage' => fn(ParseNode $n) => $o->setMinPercentage($n->getFloatValue()),
+            'minPercentage' => fn(ParseNode $n) => $o->setMinPercentage($n->getObjectValue([EducationGradingSchemeGrade_minPercentage::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
      * Gets the minPercentage property value. The minimum percentage of the total points needed to achieve this grade.
-     * @return float|null
+     * @return EducationGradingSchemeGrade_minPercentage|null
     */
-    public function getMinPercentage(): ?float {
+    public function getMinPercentage(): ?EducationGradingSchemeGrade_minPercentage {
         $val = $this->getBackingStore()->get('minPercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof EducationGradingSchemeGrade_minPercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'minPercentage'");
@@ -122,9 +122,9 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeFloatValue('defaultPercentage', $this->getDefaultPercentage());
+        $writer->writeObjectValue('defaultPercentage', $this->getDefaultPercentage());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeFloatValue('minPercentage', $this->getMinPercentage());
+        $writer->writeObjectValue('minPercentage', $this->getMinPercentage());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -147,9 +147,9 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the defaultPercentage property value. The midpoint of the grade range.
-     * @param float|null $value Value to set for the defaultPercentage property.
+     * @param EducationGradingSchemeGrade_defaultPercentage|null $value Value to set for the defaultPercentage property.
     */
-    public function setDefaultPercentage(?float $value): void {
+    public function setDefaultPercentage(?EducationGradingSchemeGrade_defaultPercentage $value): void {
         $this->getBackingStore()->set('defaultPercentage', $value);
     }
 
@@ -163,9 +163,9 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the minPercentage property value. The minimum percentage of the total points needed to achieve this grade.
-     * @param float|null $value Value to set for the minPercentage property.
+     * @param EducationGradingSchemeGrade_minPercentage|null $value Value to set for the minPercentage property.
     */
-    public function setMinPercentage(?float $value): void {
+    public function setMinPercentage(?EducationGradingSchemeGrade_minPercentage $value): void {
         $this->getBackingStore()->set('minPercentage', $value);
     }
 

@@ -222,7 +222,7 @@ class BookingAppointment extends Entity implements Parsable
             'duration' => fn(ParseNode $n) => $o->setDuration($n->getDateIntervalValue()),
             'end' => fn(ParseNode $n) => $o->setEnd($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'filledAttendeesCount' => fn(ParseNode $n) => $o->setFilledAttendeesCount($n->getIntegerValue()),
-            'invoiceAmount' => fn(ParseNode $n) => $o->setInvoiceAmount($n->getFloatValue()),
+            'invoiceAmount' => fn(ParseNode $n) => $o->setInvoiceAmount($n->getObjectValue([BookingAppointment_invoiceAmount::class, 'createFromDiscriminatorValue'])),
             'invoiceDate' => fn(ParseNode $n) => $o->setInvoiceDate($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'invoiceId' => fn(ParseNode $n) => $o->setInvoiceId($n->getStringValue()),
             'invoiceStatus' => fn(ParseNode $n) => $o->setInvoiceStatus($n->getEnumValue(BookingInvoiceStatus::class)),
@@ -236,7 +236,7 @@ class BookingAppointment extends Entity implements Parsable
             'optOutOfCustomerEmail' => fn(ParseNode $n) => $o->setOptOutOfCustomerEmail($n->getBooleanValue()),
             'postBuffer' => fn(ParseNode $n) => $o->setPostBuffer($n->getDateIntervalValue()),
             'preBuffer' => fn(ParseNode $n) => $o->setPreBuffer($n->getDateIntervalValue()),
-            'price' => fn(ParseNode $n) => $o->setPrice($n->getFloatValue()),
+            'price' => fn(ParseNode $n) => $o->setPrice($n->getObjectValue([BookingAppointment_price::class, 'createFromDiscriminatorValue'])),
             'priceType' => fn(ParseNode $n) => $o->setPriceType($n->getEnumValue(BookingPriceType::class)),
             'reminders' => fn(ParseNode $n) => $o->setReminders($n->getCollectionOfObjectValues([BookingReminder::class, 'createFromDiscriminatorValue'])),
             'selfServiceAppointmentId' => fn(ParseNode $n) => $o->setSelfServiceAppointmentId($n->getStringValue()),
@@ -271,11 +271,11 @@ class BookingAppointment extends Entity implements Parsable
 
     /**
      * Gets the invoiceAmount property value. The billed amount on the invoice.
-     * @return float|null
+     * @return BookingAppointment_invoiceAmount|null
     */
-    public function getInvoiceAmount(): ?float {
+    public function getInvoiceAmount(): ?BookingAppointment_invoiceAmount {
         $val = $this->getBackingStore()->get('invoiceAmount');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof BookingAppointment_invoiceAmount) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'invoiceAmount'");
@@ -439,11 +439,11 @@ class BookingAppointment extends Entity implements Parsable
 
     /**
      * Gets the price property value. The regular price for an appointment for the specified bookingService.
-     * @return float|null
+     * @return BookingAppointment_price|null
     */
-    public function getPrice(): ?float {
+    public function getPrice(): ?BookingAppointment_price {
         $val = $this->getBackingStore()->get('price');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof BookingAppointment_price) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'price'");
@@ -592,7 +592,7 @@ class BookingAppointment extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('customers', $this->getCustomers());
         $writer->writeStringValue('customerTimeZone', $this->getCustomerTimeZone());
         $writer->writeObjectValue('end', $this->getEnd());
-        $writer->writeFloatValue('invoiceAmount', $this->getInvoiceAmount());
+        $writer->writeObjectValue('invoiceAmount', $this->getInvoiceAmount());
         $writer->writeObjectValue('invoiceDate', $this->getInvoiceDate());
         $writer->writeStringValue('invoiceId', $this->getInvoiceId());
         $writer->writeEnumValue('invoiceStatus', $this->getInvoiceStatus());
@@ -606,7 +606,7 @@ class BookingAppointment extends Entity implements Parsable
         $writer->writeBooleanValue('optOutOfCustomerEmail', $this->getOptOutOfCustomerEmail());
         $writer->writeDateIntervalValue('postBuffer', $this->getPostBuffer());
         $writer->writeDateIntervalValue('preBuffer', $this->getPreBuffer());
-        $writer->writeFloatValue('price', $this->getPrice());
+        $writer->writeObjectValue('price', $this->getPrice());
         $writer->writeEnumValue('priceType', $this->getPriceType());
         $writer->writeCollectionOfObjectValues('reminders', $this->getReminders());
         $writer->writeStringValue('selfServiceAppointmentId', $this->getSelfServiceAppointmentId());
@@ -741,9 +741,9 @@ class BookingAppointment extends Entity implements Parsable
 
     /**
      * Sets the invoiceAmount property value. The billed amount on the invoice.
-     * @param float|null $value Value to set for the invoiceAmount property.
+     * @param BookingAppointment_invoiceAmount|null $value Value to set for the invoiceAmount property.
     */
-    public function setInvoiceAmount(?float $value): void {
+    public function setInvoiceAmount(?BookingAppointment_invoiceAmount $value): void {
         $this->getBackingStore()->set('invoiceAmount', $value);
     }
 
@@ -853,9 +853,9 @@ class BookingAppointment extends Entity implements Parsable
 
     /**
      * Sets the price property value. The regular price for an appointment for the specified bookingService.
-     * @param float|null $value Value to set for the price property.
+     * @param BookingAppointment_price|null $value Value to set for the price property.
     */
-    public function setPrice(?float $value): void {
+    public function setPrice(?BookingAppointment_price $value): void {
         $this->getBackingStore()->set('price', $value);
     }
 

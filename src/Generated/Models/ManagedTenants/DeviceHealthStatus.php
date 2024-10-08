@@ -40,11 +40,11 @@ class DeviceHealthStatus extends Entity implements Parsable
 
     /**
      * Gets the bootTotalDurationInSeconds property value. The bootTotalDurationInSeconds property
-     * @return float|null
+     * @return DeviceHealthStatus_bootTotalDurationInSeconds|null
     */
-    public function getBootTotalDurationInSeconds(): ?float {
+    public function getBootTotalDurationInSeconds(): ?DeviceHealthStatus_bootTotalDurationInSeconds {
         $val = $this->getBackingStore()->get('bootTotalDurationInSeconds');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof DeviceHealthStatus_bootTotalDurationInSeconds) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'bootTotalDurationInSeconds'");
@@ -106,7 +106,7 @@ class DeviceHealthStatus extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'blueScreenCount' => fn(ParseNode $n) => $o->setBlueScreenCount($n->getIntegerValue()),
-            'bootTotalDurationInSeconds' => fn(ParseNode $n) => $o->setBootTotalDurationInSeconds($n->getFloatValue()),
+            'bootTotalDurationInSeconds' => fn(ParseNode $n) => $o->setBootTotalDurationInSeconds($n->getObjectValue([DeviceHealthStatus_bootTotalDurationInSeconds::class, 'createFromDiscriminatorValue'])),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceMake' => fn(ParseNode $n) => $o->setDeviceMake($n->getStringValue()),
             'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
@@ -116,7 +116,7 @@ class DeviceHealthStatus extends Entity implements Parsable
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
             'primaryDiskType' => fn(ParseNode $n) => $o->setPrimaryDiskType($n->getStringValue()),
             'restartCount' => fn(ParseNode $n) => $o->setRestartCount($n->getIntegerValue()),
-            'startupPerformanceScore' => fn(ParseNode $n) => $o->setStartupPerformanceScore($n->getFloatValue()),
+            'startupPerformanceScore' => fn(ParseNode $n) => $o->setStartupPerformanceScore($n->getObjectValue([DeviceHealthStatus_startupPerformanceScore::class, 'createFromDiscriminatorValue'])),
             'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'topProcesses' => fn(ParseNode $n) => $o->setTopProcesses($n->getStringValue()),
@@ -185,11 +185,11 @@ class DeviceHealthStatus extends Entity implements Parsable
 
     /**
      * Gets the startupPerformanceScore property value. The startupPerformanceScore property
-     * @return float|null
+     * @return DeviceHealthStatus_startupPerformanceScore|null
     */
-    public function getStartupPerformanceScore(): ?float {
+    public function getStartupPerformanceScore(): ?DeviceHealthStatus_startupPerformanceScore {
         $val = $this->getBackingStore()->get('startupPerformanceScore');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof DeviceHealthStatus_startupPerformanceScore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'startupPerformanceScore'");
@@ -238,7 +238,7 @@ class DeviceHealthStatus extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('blueScreenCount', $this->getBlueScreenCount());
-        $writer->writeFloatValue('bootTotalDurationInSeconds', $this->getBootTotalDurationInSeconds());
+        $writer->writeObjectValue('bootTotalDurationInSeconds', $this->getBootTotalDurationInSeconds());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceMake', $this->getDeviceMake());
         $writer->writeStringValue('deviceModel', $this->getDeviceModel());
@@ -248,7 +248,7 @@ class DeviceHealthStatus extends Entity implements Parsable
         $writer->writeStringValue('osVersion', $this->getOsVersion());
         $writer->writeStringValue('primaryDiskType', $this->getPrimaryDiskType());
         $writer->writeIntegerValue('restartCount', $this->getRestartCount());
-        $writer->writeFloatValue('startupPerformanceScore', $this->getStartupPerformanceScore());
+        $writer->writeObjectValue('startupPerformanceScore', $this->getStartupPerformanceScore());
         $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('topProcesses', $this->getTopProcesses());
@@ -264,9 +264,9 @@ class DeviceHealthStatus extends Entity implements Parsable
 
     /**
      * Sets the bootTotalDurationInSeconds property value. The bootTotalDurationInSeconds property
-     * @param float|null $value Value to set for the bootTotalDurationInSeconds property.
+     * @param DeviceHealthStatus_bootTotalDurationInSeconds|null $value Value to set for the bootTotalDurationInSeconds property.
     */
-    public function setBootTotalDurationInSeconds(?float $value): void {
+    public function setBootTotalDurationInSeconds(?DeviceHealthStatus_bootTotalDurationInSeconds $value): void {
         $this->getBackingStore()->set('bootTotalDurationInSeconds', $value);
     }
 
@@ -344,9 +344,9 @@ class DeviceHealthStatus extends Entity implements Parsable
 
     /**
      * Sets the startupPerformanceScore property value. The startupPerformanceScore property
-     * @param float|null $value Value to set for the startupPerformanceScore property.
+     * @param DeviceHealthStatus_startupPerformanceScore|null $value Value to set for the startupPerformanceScore property.
     */
-    public function setStartupPerformanceScore(?float $value): void {
+    public function setStartupPerformanceScore(?DeviceHealthStatus_startupPerformanceScore $value): void {
         $this->getBackingStore()->set('startupPerformanceScore', $value);
     }
 

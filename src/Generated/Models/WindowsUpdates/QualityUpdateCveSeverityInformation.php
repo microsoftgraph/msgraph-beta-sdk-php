@@ -78,7 +78,7 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
         $o = $this;
         return  [
             'exploitedCves' => fn(ParseNode $n) => $o->setExploitedCves($n->getCollectionOfObjectValues([CveInformation::class, 'createFromDiscriminatorValue'])),
-            'maxBaseScore' => fn(ParseNode $n) => $o->setMaxBaseScore($n->getFloatValue()),
+            'maxBaseScore' => fn(ParseNode $n) => $o->setMaxBaseScore($n->getObjectValue([QualityUpdateCveSeverityInformation_maxBaseScore::class, 'createFromDiscriminatorValue'])),
             'maxSeverity' => fn(ParseNode $n) => $o->setMaxSeverity($n->getEnumValue(CveSeverityLevel::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -86,11 +86,11 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
 
     /**
      * Gets the maxBaseScore property value. Highest base score that occurs of any CVE addressed by the quality update. Read-only.
-     * @return float|null
+     * @return QualityUpdateCveSeverityInformation_maxBaseScore|null
     */
-    public function getMaxBaseScore(): ?float {
+    public function getMaxBaseScore(): ?QualityUpdateCveSeverityInformation_maxBaseScore {
         $val = $this->getBackingStore()->get('maxBaseScore');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof QualityUpdateCveSeverityInformation_maxBaseScore) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'maxBaseScore'");
@@ -126,7 +126,7 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('exploitedCves', $this->getExploitedCves());
-        $writer->writeFloatValue('maxBaseScore', $this->getMaxBaseScore());
+        $writer->writeObjectValue('maxBaseScore', $this->getMaxBaseScore());
         $writer->writeEnumValue('maxSeverity', $this->getMaxSeverity());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -158,9 +158,9 @@ class QualityUpdateCveSeverityInformation implements AdditionalDataHolder, Backe
 
     /**
      * Sets the maxBaseScore property value. Highest base score that occurs of any CVE addressed by the quality update. Read-only.
-     * @param float|null $value Value to set for the maxBaseScore property.
+     * @param QualityUpdateCveSeverityInformation_maxBaseScore|null $value Value to set for the maxBaseScore property.
     */
-    public function setMaxBaseScore(?float $value): void {
+    public function setMaxBaseScore(?QualityUpdateCveSeverityInformation_maxBaseScore $value): void {
         $this->getBackingStore()->set('maxBaseScore', $value);
     }
 

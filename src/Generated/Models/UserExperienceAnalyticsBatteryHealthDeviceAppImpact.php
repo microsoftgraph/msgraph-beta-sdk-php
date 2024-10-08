@@ -65,11 +65,11 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Gets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values 0 to 1.79769313486232E+308
-     * @return float|null
+     * @return UserExperienceAnalyticsBatteryHealthDeviceAppImpact_batteryUsagePercentage|null
     */
-    public function getBatteryUsagePercentage(): ?float {
+    public function getBatteryUsagePercentage(): ?UserExperienceAnalyticsBatteryHealthDeviceAppImpact_batteryUsagePercentage {
         $val = $this->getBackingStore()->get('batteryUsagePercentage');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsBatteryHealthDeviceAppImpact_batteryUsagePercentage) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'batteryUsagePercentage'");
@@ -97,7 +97,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
             'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
             'appName' => fn(ParseNode $n) => $o->setAppName($n->getStringValue()),
             'appPublisher' => fn(ParseNode $n) => $o->setAppPublisher($n->getStringValue()),
-            'batteryUsagePercentage' => fn(ParseNode $n) => $o->setBatteryUsagePercentage($n->getFloatValue()),
+            'batteryUsagePercentage' => fn(ParseNode $n) => $o->setBatteryUsagePercentage($n->getObjectValue([UserExperienceAnalyticsBatteryHealthDeviceAppImpact_batteryUsagePercentage::class, 'createFromDiscriminatorValue'])),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'isForegroundApp' => fn(ParseNode $n) => $o->setIsForegroundApp($n->getBooleanValue()),
         ]);
@@ -124,7 +124,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('appName', $this->getAppName());
         $writer->writeStringValue('appPublisher', $this->getAppPublisher());
-        $writer->writeFloatValue('batteryUsagePercentage', $this->getBatteryUsagePercentage());
+        $writer->writeObjectValue('batteryUsagePercentage', $this->getBatteryUsagePercentage());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeBooleanValue('isForegroundApp', $this->getIsForegroundApp());
     }
@@ -155,9 +155,9 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Sets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values 0 to 1.79769313486232E+308
-     * @param float|null $value Value to set for the batteryUsagePercentage property.
+     * @param UserExperienceAnalyticsBatteryHealthDeviceAppImpact_batteryUsagePercentage|null $value Value to set for the batteryUsagePercentage property.
     */
-    public function setBatteryUsagePercentage(?float $value): void {
+    public function setBatteryUsagePercentage(?UserExperienceAnalyticsBatteryHealthDeviceAppImpact_batteryUsagePercentage $value): void {
         $this->getBackingStore()->set('batteryUsagePercentage', $value);
     }
 

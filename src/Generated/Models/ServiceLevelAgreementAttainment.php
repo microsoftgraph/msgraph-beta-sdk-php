@@ -77,7 +77,7 @@ class ServiceLevelAgreementAttainment implements AdditionalDataHolder, BackedMod
         return  [
             'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'score' => fn(ParseNode $n) => $o->setScore($n->getFloatValue()),
+            'score' => fn(ParseNode $n) => $o->setScore($n->getObjectValue([ServiceLevelAgreementAttainment_score::class, 'createFromDiscriminatorValue'])),
             'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
         ];
     }
@@ -96,11 +96,11 @@ class ServiceLevelAgreementAttainment implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the score property value. The level of SLA attainment achieved by the tenant for the calendar month identified, as described in Microsoft Entra SLA performance. Values are truncated, not rounded, so the actual value is always equal to or higher than the displayed value. Values are expressed as a percentage of availability for the tenant.
-     * @return float|null
+     * @return ServiceLevelAgreementAttainment_score|null
     */
-    public function getScore(): ?float {
+    public function getScore(): ?ServiceLevelAgreementAttainment_score {
         $val = $this->getBackingStore()->get('score');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof ServiceLevelAgreementAttainment_score) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'score'");
@@ -125,7 +125,7 @@ class ServiceLevelAgreementAttainment implements AdditionalDataHolder, BackedMod
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateValue('endDate', $this->getEndDate());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeFloatValue('score', $this->getScore());
+        $writer->writeObjectValue('score', $this->getScore());
         $writer->writeDateValue('startDate', $this->getStartDate());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -164,9 +164,9 @@ class ServiceLevelAgreementAttainment implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the score property value. The level of SLA attainment achieved by the tenant for the calendar month identified, as described in Microsoft Entra SLA performance. Values are truncated, not rounded, so the actual value is always equal to or higher than the displayed value. Values are expressed as a percentage of availability for the tenant.
-     * @param float|null $value Value to set for the score property.
+     * @param ServiceLevelAgreementAttainment_score|null $value Value to set for the score property.
     */
-    public function setScore(?float $value): void {
+    public function setScore(?ServiceLevelAgreementAttainment_score $value): void {
         $this->getBackingStore()->set('score', $value);
     }
 

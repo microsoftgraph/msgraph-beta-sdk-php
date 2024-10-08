@@ -78,8 +78,8 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
             'receivedDateTimeUTC' => fn(ParseNode $n) => $o->setReceivedDateTimeUTC($n->getDateTimeValue()),
             'requestedDateTimeUTC' => fn(ParseNode $n) => $o->setRequestedDateTimeUTC($n->getDateTimeValue()),
-            'size' => fn(ParseNode $n) => $o->setSize($n->getFloatValue()),
-            'sizeInKB' => fn(ParseNode $n) => $o->setSizeInKB($n->getFloatValue()),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getObjectValue([DeviceLogCollectionResponse_size::class, 'createFromDiscriminatorValue'])),
+            'sizeInKB' => fn(ParseNode $n) => $o->setSizeInKB($n->getObjectValue([DeviceLogCollectionResponse_sizeInKB::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AppLogUploadState::class)),
         ]);
     }
@@ -134,11 +134,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
 
     /**
      * Gets the size property value. The size of the logs. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @return float|null
+     * @return DeviceLogCollectionResponse_size|null
     */
-    public function getSize(): ?float {
+    public function getSize(): ?DeviceLogCollectionResponse_size {
         $val = $this->getBackingStore()->get('size');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof DeviceLogCollectionResponse_size) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'size'");
@@ -146,11 +146,11 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
 
     /**
      * Gets the sizeInKB property value. The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @return float|null
+     * @return DeviceLogCollectionResponse_sizeInKB|null
     */
-    public function getSizeInKB(): ?float {
+    public function getSizeInKB(): ?DeviceLogCollectionResponse_sizeInKB {
         $val = $this->getBackingStore()->get('sizeInKB');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof DeviceLogCollectionResponse_sizeInKB) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeInKB'");
@@ -181,8 +181,8 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
         $writer->writeDateTimeValue('receivedDateTimeUTC', $this->getReceivedDateTimeUTC());
         $writer->writeDateTimeValue('requestedDateTimeUTC', $this->getRequestedDateTimeUTC());
-        $writer->writeFloatValue('size', $this->getSize());
-        $writer->writeFloatValue('sizeInKB', $this->getSizeInKB());
+        $writer->writeObjectValue('size', $this->getSize());
+        $writer->writeObjectValue('sizeInKB', $this->getSizeInKB());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 
@@ -244,17 +244,17 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
 
     /**
      * Sets the size property value. The size of the logs. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @param float|null $value Value to set for the size property.
+     * @param DeviceLogCollectionResponse_size|null $value Value to set for the size property.
     */
-    public function setSize(?float $value): void {
+    public function setSize(?DeviceLogCollectionResponse_size $value): void {
         $this->getBackingStore()->set('size', $value);
     }
 
     /**
      * Sets the sizeInKB property value. The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @param float|null $value Value to set for the sizeInKB property.
+     * @param DeviceLogCollectionResponse_sizeInKB|null $value Value to set for the sizeInKB property.
     */
-    public function setSizeInKB(?float $value): void {
+    public function setSizeInKB(?DeviceLogCollectionResponse_sizeInKB $value): void {
         $this->getBackingStore()->set('sizeInKB', $value);
     }
 

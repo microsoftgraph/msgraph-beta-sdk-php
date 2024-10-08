@@ -73,7 +73,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
             'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
-            'impactValue' => fn(ParseNode $n) => $o->setImpactValue($n->getFloatValue()),
+            'impactValue' => fn(ParseNode $n) => $o->setImpactValue($n->getObjectValue([UserExperienceAnalyticsImpactingProcess_impactValue::class, 'createFromDiscriminatorValue'])),
             'processName' => fn(ParseNode $n) => $o->setProcessName($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
         ]);
@@ -81,11 +81,11 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Gets the impactValue property value. The impact value of the process. Valid values 0 to 1.79769313486232E+308
-     * @return float|null
+     * @return UserExperienceAnalyticsImpactingProcess_impactValue|null
     */
-    public function getImpactValue(): ?float {
+    public function getImpactValue(): ?UserExperienceAnalyticsImpactingProcess_impactValue {
         $val = $this->getBackingStore()->get('impactValue');
-        if (is_null($val) || is_float($val)) {
+        if (is_null($val) || $val instanceof UserExperienceAnalyticsImpactingProcess_impactValue) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'impactValue'");
@@ -124,7 +124,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
         $writer->writeStringValue('category', $this->getCategory());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
-        $writer->writeFloatValue('impactValue', $this->getImpactValue());
+        $writer->writeObjectValue('impactValue', $this->getImpactValue());
         $writer->writeStringValue('processName', $this->getProcessName());
         $writer->writeStringValue('publisher', $this->getPublisher());
     }
@@ -155,9 +155,9 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Sets the impactValue property value. The impact value of the process. Valid values 0 to 1.79769313486232E+308
-     * @param float|null $value Value to set for the impactValue property.
+     * @param UserExperienceAnalyticsImpactingProcess_impactValue|null $value Value to set for the impactValue property.
     */
-    public function setImpactValue(?float $value): void {
+    public function setImpactValue(?UserExperienceAnalyticsImpactingProcess_impactValue $value): void {
         $this->getBackingStore()->set('impactValue', $value);
     }
 

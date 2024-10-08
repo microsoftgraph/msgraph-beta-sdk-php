@@ -69,11 +69,11 @@ class CloudPCsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPC object.
+     * List the cloudPC devices in a tenant.
      * @param CloudPCsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPCCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpc-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudpcs?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPCsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -109,7 +109,7 @@ class CloudPCsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a specific cloudPC object.
+     * List the cloudPC devices in a tenant.
      * @param CloudPCsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
