@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\De
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\DeviceCategory\Ref\RefRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCategory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DeviceCategoryRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the collection of deviceManagement entities.
+    */
+    public function ref(): RefRequestBuilder {
+        return new RefRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new DeviceCategoryRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

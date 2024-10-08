@@ -462,7 +462,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive.
+     * Gets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. Supports $filter (eq, ne, not , ge, le, in).
      * @return CustomSecurityAttributeValue|null
     */
     public function getCustomSecurityAttributes(): ?CustomSecurityAttributeValue {
@@ -642,7 +642,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs at least one of the following Microsoft Entra roles: Lifecycle Workflows Administrator, Global Reader. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
+     * Gets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs at least one of the following Microsoft Entra roles: Lifecycle Workflows Administrator (least privilege), Global Reader. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
      * @return DateTime|null
     */
     public function getEmployeeLeaveDateTime(): ?DateTime {
@@ -1510,7 +1510,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Gets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN.
      * @return string|null
     */
     public function getOnPremisesDistinguishedName(): ?string {
@@ -1522,7 +1522,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Gets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory.
      * @return string|null
     */
     public function getOnPremisesDomainName(): ?string {
@@ -1534,7 +1534,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
+     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. Each attribute can store up to 1024 characters. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      * @return OnPremisesExtensionAttributes|null
     */
     public function getOnPremisesExtensionAttributes(): ?OnPremisesExtensionAttributes {
@@ -1584,7 +1584,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Gets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @return string|null
     */
     public function getOnPremisesSamAccountName(): ?string {
@@ -1596,7 +1596,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user synchronized from on-premises to the cloud. Read-only. Supports $filter (eq including on null values).
+     * Gets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user synchronized from on-premises to the cloud. Must be in the format of SID, such as 'S-1-5-21-1180699209-877415012-3182824384-1006'. Supports $filter (eq including on null values).
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
@@ -1632,7 +1632,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Gets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @return string|null
     */
     public function getOnPremisesUserPrincipalName(): ?string {
@@ -2702,7 +2702,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive.
+     * Sets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. Supports $filter (eq, ne, not , ge, le, in).
      * @param CustomSecurityAttributeValue|null $value Value to set for the customSecurityAttributes property.
     */
     public function setCustomSecurityAttributes(?CustomSecurityAttributeValue $value): void {
@@ -2814,7 +2814,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs at least one of the following Microsoft Entra roles: Lifecycle Workflows Administrator, Global Reader. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
+     * Sets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs at least one of the following Microsoft Entra roles: Lifecycle Workflows Administrator (least privilege), Global Reader. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
      * @param DateTime|null $value Value to set for the employeeLeaveDateTime property.
     */
     public function setEmployeeLeaveDateTime(?DateTime $value): void {
@@ -3206,7 +3206,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Sets the onPremisesDistinguishedName property value. Contains the on-premises Active Directory distinguished name or DN.
      * @param string|null $value Value to set for the onPremisesDistinguishedName property.
     */
     public function setOnPremisesDistinguishedName(?string $value): void {
@@ -3214,7 +3214,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only.
+     * Sets the onPremisesDomainName property value. Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory.
      * @param string|null $value Value to set for the onPremisesDomainName property.
     */
     public function setOnPremisesDomainName(?string $value): void {
@@ -3222,7 +3222,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
+     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. Each attribute can store up to 1024 characters. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      * @param OnPremisesExtensionAttributes|null $value Value to set for the onPremisesExtensionAttributes property.
     */
     public function setOnPremisesExtensionAttributes(?OnPremisesExtensionAttributes $value): void {
@@ -3254,7 +3254,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Sets the onPremisesSamAccountName property value. Contains the on-premises sAMAccountName synchronized from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @param string|null $value Value to set for the onPremisesSamAccountName property.
     */
     public function setOnPremisesSamAccountName(?string $value): void {
@@ -3262,7 +3262,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user synchronized from on-premises to the cloud. Read-only. Supports $filter (eq including on null values).
+     * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the user synchronized from on-premises to the cloud. Must be in the format of SID, such as 'S-1-5-21-1180699209-877415012-3182824384-1006'. Supports $filter (eq including on null values).
      * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {
@@ -3286,7 +3286,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Sets the onPremisesUserPrincipalName property value. Contains the on-premises userPrincipalName synchronized from the on-premises directory. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @param string|null $value Value to set for the onPremisesUserPrincipalName property.
     */
     public function setOnPremisesUserPrincipalName(?string $value): void {
