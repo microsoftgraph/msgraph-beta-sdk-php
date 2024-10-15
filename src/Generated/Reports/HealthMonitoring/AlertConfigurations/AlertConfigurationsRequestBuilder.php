@@ -52,10 +52,11 @@ class AlertConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertConfigurations from reports
+     * Get a list of the Microsoft Entra health monitoring alertConfiguration objects and their properties.
      * @param AlertConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertConfigurationCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/healthmonitoring-healthmonitoringroot-list-alertconfigurations?view=graph-rest-beta Find more info here
     */
     public function get(?AlertConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class AlertConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertConfigurations from reports
+     * Get a list of the Microsoft Entra health monitoring alertConfiguration objects and their properties.
      * @param AlertConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

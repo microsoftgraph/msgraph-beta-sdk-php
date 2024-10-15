@@ -27,7 +27,7 @@ class AlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the emailNotificationConfigurations property value. The emailNotificationConfigurations property
+     * Gets the emailNotificationConfigurations property value. Defines the recipients of email notifications for an alert type. Currently, only one email notification configuration is supported for an alert configuration, meaning only one group can receive notifications for an alert type.
      * @return array<EmailNotificationConfiguration>|null
     */
     public function getEmailNotificationConfigurations(): ?array {
@@ -61,7 +61,7 @@ class AlertConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the emailNotificationConfigurations property value. The emailNotificationConfigurations property
+     * Sets the emailNotificationConfigurations property value. Defines the recipients of email notifications for an alert type. Currently, only one email notification configuration is supported for an alert configuration, meaning only one group can receive notifications for an alert type.
      * @param array<EmailNotificationConfiguration>|null $value Value to set for the emailNotificationConfigurations property.
     */
     public function setEmailNotificationConfigurations(?array $value): void {

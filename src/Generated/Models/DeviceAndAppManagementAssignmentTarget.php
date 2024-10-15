@@ -71,7 +71,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the deviceAndAppManagementAssignmentFilterId property value. The Id of the filter for the target assignment.
+     * Gets the deviceAndAppManagementAssignmentFilterId property value. The ID of the filter for the target assignment.
      * @return string|null
     */
     public function getDeviceAndAppManagementAssignmentFilterId(): ?string {
@@ -147,7 +147,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the deviceAndAppManagementAssignmentFilterId property value. The Id of the filter for the target assignment.
+     * Sets the deviceAndAppManagementAssignmentFilterId property value. The ID of the filter for the target assignment.
      * @param string|null $value Value to set for the deviceAndAppManagementAssignmentFilterId property.
     */
     public function setDeviceAndAppManagementAssignmentFilterId(?string $value): void {

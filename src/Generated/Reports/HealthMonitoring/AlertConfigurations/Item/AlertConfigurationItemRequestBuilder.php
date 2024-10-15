@@ -45,10 +45,11 @@ class AlertConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertConfigurations from reports
+     * Read the properties and relationships of a Microsoft Entra health monitoring alertConfiguration object. The returned alertConfiguration object contains the settings for the distribution groups where alert notifications are to be sent.
      * @param AlertConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertConfiguration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/healthmonitoring-alertconfiguration-get?view=graph-rest-beta Find more info here
     */
     public function get(?AlertConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class AlertConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property alertConfigurations in reports
+     * Update the properties of a Microsoft Entra health monitoring alertConfiguration object. You can use alertConfiguration settings to specify the distribution groups where alert notifications are to be sent. This API doesn't currently support group validation.
      * @param AlertConfiguration $body The request body
      * @param AlertConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AlertConfiguration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/healthmonitoring-alertconfiguration-update?view=graph-rest-beta Find more info here
     */
     public function patch(AlertConfiguration $body, ?AlertConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class AlertConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alertConfigurations from reports
+     * Read the properties and relationships of a Microsoft Entra health monitoring alertConfiguration object. The returned alertConfiguration object contains the settings for the distribution groups where alert notifications are to be sent.
      * @param AlertConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class AlertConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property alertConfigurations in reports
+     * Update the properties of a Microsoft Entra health monitoring alertConfiguration object. You can use alertConfiguration settings to specify the distribution groups where alert notifications are to be sent. This API doesn't currently support group validation.
      * @param AlertConfiguration $body The request body
      * @param AlertConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

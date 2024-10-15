@@ -61,7 +61,7 @@ class HealthMonitoringRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get healthMonitoring from reports
+     * Reports for Microsoft Entra Health Monitoring.
      * @param HealthMonitoringRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HealthMonitoringRoot|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class HealthMonitoringRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get healthMonitoring from reports
+     * Reports for Microsoft Entra Health Monitoring.
      * @param HealthMonitoringRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
