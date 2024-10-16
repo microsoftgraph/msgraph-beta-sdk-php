@@ -20,6 +20,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\CartToClassAssociations\Cart
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Categories\CategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\CertificateConnectorDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\ChromeOSOnboardingSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\CloudCertificationAuthorityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthorityLeafCertificate\CloudCertificationAuthorityLeafCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudPCConnectivityIssues\CloudPCConnectivityIssuesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\ComanagedDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices\ComanagementEligibleDevicesRequestBuilder;
@@ -44,7 +46,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicySettin
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScripts\DeviceComplianceScriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationConflictSummary\DeviceConfigurationConflictSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationDeviceStateSummaries\DeviceConfigurationDeviceStateSummariesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationProfiles\DeviceConfigurationProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\DeviceConfigurationRestrictedAppsViolationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\DeviceConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder;
@@ -320,6 +321,20 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the cloudCertificationAuthority property of the microsoft.graph.deviceManagement entity.
+    */
+    public function cloudCertificationAuthority(): CloudCertificationAuthorityRequestBuilder {
+        return new CloudCertificationAuthorityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the cloudCertificationAuthorityLeafCertificate property of the microsoft.graph.deviceManagement entity.
+    */
+    public function cloudCertificationAuthorityLeafCertificate(): CloudCertificationAuthorityLeafCertificateRequestBuilder {
+        return new CloudCertificationAuthorityLeafCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the cloudPCConnectivityIssues property of the microsoft.graph.deviceManagement entity.
     */
     public function cloudPCConnectivityIssues(): CloudPCConnectivityIssuesRequestBuilder {
@@ -485,13 +500,6 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function deviceConfigurationDeviceStateSummaries(): DeviceConfigurationDeviceStateSummariesRequestBuilder {
         return new DeviceConfigurationDeviceStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the deviceConfigurationProfiles property of the microsoft.graph.deviceManagement entity.
-    */
-    public function deviceConfigurationProfiles(): DeviceConfigurationProfilesRequestBuilder {
-        return new DeviceConfigurationProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

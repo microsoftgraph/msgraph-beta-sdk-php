@@ -99,6 +99,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ReminderViewWithStartDateTimeWithE
 use Microsoft\Graph\Beta\Generated\Users\Item\RemoveAllDevicesFromManagement\RemoveAllDevicesFromManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ReprocessLicenseAssignment\ReprocessLicenseAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\RetrieveManagedDevicesWithAppInstallationIssues\RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\RetryServiceProvisioning\RetryServiceProvisioningRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\RevokeSignInSessions\RevokeSignInSessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ScopedRoleMemberOf\ScopedRoleMemberOfRequestBuilder;
@@ -738,6 +739,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveManagedDevicesWithAppInstallationIssues method.
+    */
+    public function retrieveManagedDevicesWithAppInstallationIssues(): RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilder {
+        return new RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://go.microsoft.com/fwlink/?linkid=2283835.
+ * Invoke function summarizeDeviceRemoteConnection
 */
 class SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetQueryParameters 
 {

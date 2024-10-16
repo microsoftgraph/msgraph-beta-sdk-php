@@ -7,7 +7,6 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Represents an Autopilot flow event.
@@ -124,18 +123,6 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceId'");
-    }
-
-    /**
-     * Gets the devicePreparationDuration property value. Time spent in device enrollment.
-     * @return DateInterval|null
-    */
-    public function getDevicePreparationDuration(): ?DateInterval {
-        $val = $this->getBackingStore()->get('devicePreparationDuration');
-        if (is_null($val) || $val instanceof DateInterval) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'devicePreparationDuration'");
     }
 
     /**
@@ -261,7 +248,6 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
             'deploymentState' => fn(ParseNode $n) => $o->setDeploymentState($n->getEnumValue(WindowsAutopilotDeploymentState::class)),
             'deploymentTotalDuration' => fn(ParseNode $n) => $o->setDeploymentTotalDuration($n->getDateIntervalValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
-            'devicePreparationDuration' => fn(ParseNode $n) => $o->setDevicePreparationDuration($n->getDateIntervalValue()),
             'deviceRegisteredDateTime' => fn(ParseNode $n) => $o->setDeviceRegisteredDateTime($n->getDateTimeValue()),
             'deviceSerialNumber' => fn(ParseNode $n) => $o->setDeviceSerialNumber($n->getStringValue()),
             'deviceSetupDuration' => fn(ParseNode $n) => $o->setDeviceSetupDuration($n->getDateIntervalValue()),
@@ -273,9 +259,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
             'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
             'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
-            'policyStatusDetails' => fn(ParseNode $n) => $o->setPolicyStatusDetails($n->getCollectionOfObjectValues([DeviceManagementAutopilotPolicyStatusDetail::class, 'createFromDiscriminatorValue'])),
-            'targetedAppCount' => fn(ParseNode $n) => $o->setTargetedAppCount($n->getIntegerValue()),
-            'targetedPolicyCount' => fn(ParseNode $n) => $o->setTargetedPolicyCount($n->getIntegerValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
             'windows10EnrollmentCompletionPageConfigurationDisplayName' => fn(ParseNode $n) => $o->setWindows10EnrollmentCompletionPageConfigurationDisplayName($n->getStringValue()),
             'windows10EnrollmentCompletionPageConfigurationId' => fn(ParseNode $n) => $o->setWindows10EnrollmentCompletionPageConfigurationId($n->getStringValue()),
@@ -308,41 +292,15 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyStatusDetails property value. Policy and application status details for this device.
-     * @return array<DeviceManagementAutopilotPolicyStatusDetail>|null
+     * Gets the userId property value. UserId id associated with the object
+     * @return string|null
     */
-    public function getPolicyStatusDetails(): ?array {
-        $val = $this->getBackingStore()->get('policyStatusDetails');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, DeviceManagementAutopilotPolicyStatusDetail::class);
-            /** @var array<DeviceManagementAutopilotPolicyStatusDetail>|null $val */
+    public function getUserId(): ?string {
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyStatusDetails'");
-    }
-
-    /**
-     * Gets the targetedAppCount property value. Count of applications targeted.
-     * @return int|null
-    */
-    public function getTargetedAppCount(): ?int {
-        $val = $this->getBackingStore()->get('targetedAppCount');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedAppCount'");
-    }
-
-    /**
-     * Gets the targetedPolicyCount property value. Count of policies targeted.
-     * @return int|null
-    */
-    public function getTargetedPolicyCount(): ?int {
-        $val = $this->getBackingStore()->get('targetedPolicyCount');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetedPolicyCount'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -407,7 +365,6 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
         $writer->writeEnumValue('deploymentState', $this->getDeploymentState());
         $writer->writeDateIntervalValue('deploymentTotalDuration', $this->getDeploymentTotalDuration());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
-        $writer->writeDateIntervalValue('devicePreparationDuration', $this->getDevicePreparationDuration());
         $writer->writeDateTimeValue('deviceRegisteredDateTime', $this->getDeviceRegisteredDateTime());
         $writer->writeStringValue('deviceSerialNumber', $this->getDeviceSerialNumber());
         $writer->writeDateIntervalValue('deviceSetupDuration', $this->getDeviceSetupDuration());
@@ -419,9 +376,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
         $writer->writeStringValue('osVersion', $this->getOsVersion());
-        $writer->writeCollectionOfObjectValues('policyStatusDetails', $this->getPolicyStatusDetails());
-        $writer->writeIntegerValue('targetedAppCount', $this->getTargetedAppCount());
-        $writer->writeIntegerValue('targetedPolicyCount', $this->getTargetedPolicyCount());
+        $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationDisplayName', $this->getWindows10EnrollmentCompletionPageConfigurationDisplayName());
         $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationId', $this->getWindows10EnrollmentCompletionPageConfigurationId());
@@ -490,14 +445,6 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
-    }
-
-    /**
-     * Sets the devicePreparationDuration property value. Time spent in device enrollment.
-     * @param DateInterval|null $value Value to set for the devicePreparationDuration property.
-    */
-    public function setDevicePreparationDuration(?DateInterval $value): void {
-        $this->getBackingStore()->set('devicePreparationDuration', $value);
     }
 
     /**
@@ -589,27 +536,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyStatusDetails property value. Policy and application status details for this device.
-     * @param array<DeviceManagementAutopilotPolicyStatusDetail>|null $value Value to set for the policyStatusDetails property.
+     * Sets the userId property value. UserId id associated with the object
+     * @param string|null $value Value to set for the userId property.
     */
-    public function setPolicyStatusDetails(?array $value): void {
-        $this->getBackingStore()->set('policyStatusDetails', $value);
-    }
-
-    /**
-     * Sets the targetedAppCount property value. Count of applications targeted.
-     * @param int|null $value Value to set for the targetedAppCount property.
-    */
-    public function setTargetedAppCount(?int $value): void {
-        $this->getBackingStore()->set('targetedAppCount', $value);
-    }
-
-    /**
-     * Sets the targetedPolicyCount property value. Count of policies targeted.
-     * @param int|null $value Value to set for the targetedPolicyCount property.
-    */
-    public function setTargetedPolicyCount(?int $value): void {
-        $this->getBackingStore()->set('targetedPolicyCount', $value);
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**

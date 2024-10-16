@@ -277,6 +277,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'filteringProfileId' => fn(ParseNode $n) => $o->setFilteringProfileId($n->getStringValue()),
             'filteringProfileName' => fn(ParseNode $n) => $o->setFilteringProfileName($n->getStringValue()),
             'headers' => fn(ParseNode $n) => $o->setHeaders($n->getObjectValue([Headers::class, 'createFromDiscriminatorValue'])),
+            'httpMethod' => fn(ParseNode $n) => $o->setHttpMethod($n->getEnumValue(HttpMethod::class)),
             'initiatingProcessName' => fn(ParseNode $n) => $o->setInitiatingProcessName($n->getStringValue()),
             'networkProtocol' => fn(ParseNode $n) => $o->setNetworkProtocol($n->getEnumValue(NetworkingProtocol::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -288,6 +289,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'receivedBytes' => fn(ParseNode $n) => $o->setReceivedBytes($n->getIntegerValue()),
             'remoteNetworkId' => fn(ParseNode $n) => $o->setRemoteNetworkId($n->getStringValue()),
             'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
+            'responseCode' => fn(ParseNode $n) => $o->setResponseCode($n->getIntegerValue()),
             'sentBytes' => fn(ParseNode $n) => $o->setSentBytes($n->getIntegerValue()),
             'sessionId' => fn(ParseNode $n) => $o->setSessionId($n->getStringValue()),
             'sourceIp' => fn(ParseNode $n) => $o->setSourceIp($n->getStringValue()),
@@ -345,6 +347,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'headers'");
+    }
+
+    /**
+     * Gets the httpMethod property value. The httpMethod property
+     * @return HttpMethod|null
+    */
+    public function getHttpMethod(): ?HttpMethod {
+        $val = $this->getBackingStore()->get('httpMethod');
+        if (is_null($val) || $val instanceof HttpMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'httpMethod'");
     }
 
     /**
@@ -477,6 +491,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceTenantId'");
+    }
+
+    /**
+     * Gets the responseCode property value. The responseCode property
+     * @return int|null
+    */
+    public function getResponseCode(): ?int {
+        $val = $this->getBackingStore()->get('responseCode');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'responseCode'");
     }
 
     /**
@@ -661,6 +687,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('filteringProfileId', $this->getFilteringProfileId());
         $writer->writeStringValue('filteringProfileName', $this->getFilteringProfileName());
         $writer->writeObjectValue('headers', $this->getHeaders());
+        $writer->writeEnumValue('httpMethod', $this->getHttpMethod());
         $writer->writeStringValue('initiatingProcessName', $this->getInitiatingProcessName());
         $writer->writeEnumValue('networkProtocol', $this->getNetworkProtocol());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -672,6 +699,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeIntegerValue('receivedBytes', $this->getReceivedBytes());
         $writer->writeStringValue('remoteNetworkId', $this->getRemoteNetworkId());
         $writer->writeStringValue('resourceTenantId', $this->getResourceTenantId());
+        $writer->writeIntegerValue('responseCode', $this->getResponseCode());
         $writer->writeIntegerValue('sentBytes', $this->getSentBytes());
         $writer->writeStringValue('sessionId', $this->getSessionId());
         $writer->writeStringValue('sourceIp', $this->getSourceIp());
@@ -857,6 +885,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Sets the httpMethod property value. The httpMethod property
+     * @param HttpMethod|null $value Value to set for the httpMethod property.
+    */
+    public function setHttpMethod(?HttpMethod $value): void {
+        $this->getBackingStore()->set('httpMethod', $value);
+    }
+
+    /**
      * Sets the initiatingProcessName property value. The initiatingProcessName property
      * @param string|null $value Value to set for the initiatingProcessName property.
     */
@@ -942,6 +978,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setResourceTenantId(?string $value): void {
         $this->getBackingStore()->set('resourceTenantId', $value);
+    }
+
+    /**
+     * Sets the responseCode property value. The responseCode property
+     * @param int|null $value Value to set for the responseCode property.
+    */
+    public function setResponseCode(?int $value): void {
+        $this->getBackingStore()->set('responseCode', $value);
     }
 
     /**

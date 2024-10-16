@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\AlertConfigura
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get alertConfigurations from reports
+ * Get a list of the Microsoft Entra health monitoring alertConfiguration objects and their properties.
 */
 class AlertConfigurationsRequestBuilderGetQueryParameters 
 {

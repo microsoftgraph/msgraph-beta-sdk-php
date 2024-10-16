@@ -67,11 +67,12 @@ class FileThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to fileThreats for security
+     * Create a new fileThreatSubmission object.
      * @param FileThreatSubmission $body The request body
      * @param FileThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileThreatSubmission|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-filethreatsubmission-post-filethreats?view=graph-rest-beta Find more info here
     */
     public function post(FileThreatSubmission $body, ?FileThreatsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -103,7 +104,7 @@ class FileThreatsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to fileThreats for security
+     * Create a new fileThreatSubmission object.
      * @param FileThreatSubmission $body The request body
      * @param FileThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

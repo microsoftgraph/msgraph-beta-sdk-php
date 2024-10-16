@@ -13,4 +13,6 @@ class DeviceManagementConfigurationPlatforms extends Enum {
     public const WINDOWS10 = 'windows10';
     public const LINUX = 'linux';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const ANDROID_ENTERPRISE = 'androidEnterprise';
+    public const AOSP = 'aosp';
 }

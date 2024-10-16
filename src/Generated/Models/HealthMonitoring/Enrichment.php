@@ -71,7 +71,7 @@ class Enrichment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the impacts property value. The impacts property
+     * Gets the impacts property value. A collection of resource impact summaries that gives a high level view of the kind of resources that were impacted and to what degree.
      * @return array<ResourceImpactSummary>|null
     */
     public function getImpacts(): ?array {
@@ -109,7 +109,7 @@ class Enrichment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the supportingData property value. The supportingData property
+     * Gets the supportingData property value. A collection of supportingData locations that can be queried for debugging the alert.
      * @return SupportingData|null
     */
     public function getSupportingData(): ?SupportingData {
@@ -149,7 +149,7 @@ class Enrichment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the impacts property value. The impacts property
+     * Sets the impacts property value. A collection of resource impact summaries that gives a high level view of the kind of resources that were impacted and to what degree.
      * @param array<ResourceImpactSummary>|null $value Value to set for the impacts property.
     */
     public function setImpacts(?array $value): void {
@@ -173,7 +173,7 @@ class Enrichment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the supportingData property value. The supportingData property
+     * Sets the supportingData property value. A collection of supportingData locations that can be queried for debugging the alert.
      * @param SupportingData|null $value Value to set for the supportingData property.
     */
     public function setSupportingData(?SupportingData $value): void {

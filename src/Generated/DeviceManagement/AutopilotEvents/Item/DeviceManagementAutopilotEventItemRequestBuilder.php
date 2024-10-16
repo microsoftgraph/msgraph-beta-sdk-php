@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\PolicyStatusDetails\PolicyStatusDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotEvent;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -17,13 +16,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to manage the policyStatusDetails property of the microsoft.graph.deviceManagementAutopilotEvent entity.
-    */
-    public function policyStatusDetails(): PolicyStatusDetailsRequestBuilder {
-        return new PolicyStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Instantiates a new DeviceManagementAutopilotEventItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

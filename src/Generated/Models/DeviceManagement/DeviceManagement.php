@@ -17,6 +17,8 @@ use Microsoft\Graph\Beta\Generated\Models\AuditEvent;
 use Microsoft\Graph\Beta\Generated\Models\CartToClassAssociation;
 use Microsoft\Graph\Beta\Generated\Models\CertificateConnectorDetails;
 use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingSettings;
+use Microsoft\Graph\Beta\Generated\Models\CloudCertificationAuthority;
+use Microsoft\Graph\Beta\Generated\Models\CloudCertificationAuthorityLeafCertificate;
 use Microsoft\Graph\Beta\Generated\Models\CloudPCConnectivityIssue;
 use Microsoft\Graph\Beta\Generated\Models\ComanagementEligibleDevice;
 use Microsoft\Graph\Beta\Generated\Models\ComplianceManagementPartner;
@@ -36,7 +38,6 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceComplianceScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationConflictSummary;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationDeviceStateSummary;
-use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationProfile;
 use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationUserStateSummary;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCustomAttributeShellScript;
 use Microsoft\Graph\Beta\Generated\Models\DeviceEnrollmentConfiguration;
@@ -446,6 +447,34 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the cloudCertificationAuthority property value. Collection of CloudCertificationAuthority records associated with account.
+     * @return array<CloudCertificationAuthority>|null
+    */
+    public function getCloudCertificationAuthority(): ?array {
+        $val = $this->getBackingStore()->get('cloudCertificationAuthority');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudCertificationAuthority::class);
+            /** @var array<CloudCertificationAuthority>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudCertificationAuthority'");
+    }
+
+    /**
+     * Gets the cloudCertificationAuthorityLeafCertificate property value. Collection of CloudCertificationAuthorityLeafCertificate records associated with account.
+     * @return array<CloudCertificationAuthorityLeafCertificate>|null
+    */
+    public function getCloudCertificationAuthorityLeafCertificate(): ?array {
+        $val = $this->getBackingStore()->get('cloudCertificationAuthorityLeafCertificate');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudCertificationAuthorityLeafCertificate::class);
+            /** @var array<CloudCertificationAuthorityLeafCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudCertificationAuthorityLeafCertificate'");
+    }
+
+    /**
      * Gets the cloudPCConnectivityIssues property value. The list of CloudPC Connectivity Issue.
      * @return array<CloudPCConnectivityIssue>|null
     */
@@ -814,20 +843,6 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceConfigurationProfiles property value. Profile Id of the object.
-     * @return array<DeviceConfigurationProfile>|null
-    */
-    public function getDeviceConfigurationProfiles(): ?array {
-        $val = $this->getBackingStore()->get('deviceConfigurationProfiles');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, DeviceConfigurationProfile::class);
-            /** @var array<DeviceConfigurationProfile>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceConfigurationProfiles'");
-    }
-
-    /**
      * Gets the deviceConfigurationRestrictedAppsViolations property value. Restricted apps violations for this account.
      * @return array<RestrictedAppsViolation>|null
     */
@@ -1096,6 +1111,8 @@ class DeviceManagement extends Entity implements Parsable
             'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfObjectValues([DeviceManagementSettingCategory::class, 'createFromDiscriminatorValue'])),
             'certificateConnectorDetails' => fn(ParseNode $n) => $o->setCertificateConnectorDetails($n->getCollectionOfObjectValues([CertificateConnectorDetails::class, 'createFromDiscriminatorValue'])),
             'chromeOSOnboardingSettings' => fn(ParseNode $n) => $o->setChromeOSOnboardingSettings($n->getCollectionOfObjectValues([ChromeOSOnboardingSettings::class, 'createFromDiscriminatorValue'])),
+            'cloudCertificationAuthority' => fn(ParseNode $n) => $o->setCloudCertificationAuthority($n->getCollectionOfObjectValues([CloudCertificationAuthority::class, 'createFromDiscriminatorValue'])),
+            'cloudCertificationAuthorityLeafCertificate' => fn(ParseNode $n) => $o->setCloudCertificationAuthorityLeafCertificate($n->getCollectionOfObjectValues([CloudCertificationAuthorityLeafCertificate::class, 'createFromDiscriminatorValue'])),
             'cloudPCConnectivityIssues' => fn(ParseNode $n) => $o->setCloudPCConnectivityIssues($n->getCollectionOfObjectValues([CloudPCConnectivityIssue::class, 'createFromDiscriminatorValue'])),
             'comanagedDevices' => fn(ParseNode $n) => $o->setComanagedDevices($n->getCollectionOfObjectValues([ManagedDevice::class, 'createFromDiscriminatorValue'])),
             'comanagementEligibleDevices' => fn(ParseNode $n) => $o->setComanagementEligibleDevices($n->getCollectionOfObjectValues([ComanagementEligibleDevice::class, 'createFromDiscriminatorValue'])),
@@ -1123,7 +1140,6 @@ class DeviceManagement extends Entity implements Parsable
             'deviceComplianceScripts' => fn(ParseNode $n) => $o->setDeviceComplianceScripts($n->getCollectionOfObjectValues([DeviceComplianceScript::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationConflictSummary' => fn(ParseNode $n) => $o->setDeviceConfigurationConflictSummary($n->getCollectionOfObjectValues([DeviceConfigurationConflictSummary::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationDeviceStateSummaries' => fn(ParseNode $n) => $o->setDeviceConfigurationDeviceStateSummaries($n->getObjectValue([DeviceConfigurationDeviceStateSummary::class, 'createFromDiscriminatorValue'])),
-            'deviceConfigurationProfiles' => fn(ParseNode $n) => $o->setDeviceConfigurationProfiles($n->getCollectionOfObjectValues([DeviceConfigurationProfile::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationRestrictedAppsViolations' => fn(ParseNode $n) => $o->setDeviceConfigurationRestrictedAppsViolations($n->getCollectionOfObjectValues([RestrictedAppsViolation::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurations' => fn(ParseNode $n) => $o->setDeviceConfigurations($n->getCollectionOfObjectValues([DeviceConfiguration::class, 'createFromDiscriminatorValue'])),
             'deviceConfigurationsAllManagedDeviceCertificateStates' => fn(ParseNode $n) => $o->setDeviceConfigurationsAllManagedDeviceCertificateStates($n->getCollectionOfObjectValues([ManagedAllDeviceCertificateState::class, 'createFromDiscriminatorValue'])),
@@ -3018,6 +3034,8 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('categories', $this->getCategories());
         $writer->writeCollectionOfObjectValues('certificateConnectorDetails', $this->getCertificateConnectorDetails());
         $writer->writeCollectionOfObjectValues('chromeOSOnboardingSettings', $this->getChromeOSOnboardingSettings());
+        $writer->writeCollectionOfObjectValues('cloudCertificationAuthority', $this->getCloudCertificationAuthority());
+        $writer->writeCollectionOfObjectValues('cloudCertificationAuthorityLeafCertificate', $this->getCloudCertificationAuthorityLeafCertificate());
         $writer->writeCollectionOfObjectValues('cloudPCConnectivityIssues', $this->getCloudPCConnectivityIssues());
         $writer->writeCollectionOfObjectValues('comanagedDevices', $this->getComanagedDevices());
         $writer->writeCollectionOfObjectValues('comanagementEligibleDevices', $this->getComanagementEligibleDevices());
@@ -3044,7 +3062,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceComplianceScripts', $this->getDeviceComplianceScripts());
         $writer->writeCollectionOfObjectValues('deviceConfigurationConflictSummary', $this->getDeviceConfigurationConflictSummary());
         $writer->writeObjectValue('deviceConfigurationDeviceStateSummaries', $this->getDeviceConfigurationDeviceStateSummaries());
-        $writer->writeCollectionOfObjectValues('deviceConfigurationProfiles', $this->getDeviceConfigurationProfiles());
         $writer->writeCollectionOfObjectValues('deviceConfigurationRestrictedAppsViolations', $this->getDeviceConfigurationRestrictedAppsViolations());
         $writer->writeCollectionOfObjectValues('deviceConfigurations', $this->getDeviceConfigurations());
         $writer->writeCollectionOfObjectValues('deviceConfigurationsAllManagedDeviceCertificateStates', $this->getDeviceConfigurationsAllManagedDeviceCertificateStates());
@@ -3334,6 +3351,22 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Sets the cloudCertificationAuthority property value. Collection of CloudCertificationAuthority records associated with account.
+     * @param array<CloudCertificationAuthority>|null $value Value to set for the cloudCertificationAuthority property.
+    */
+    public function setCloudCertificationAuthority(?array $value): void {
+        $this->getBackingStore()->set('cloudCertificationAuthority', $value);
+    }
+
+    /**
+     * Sets the cloudCertificationAuthorityLeafCertificate property value. Collection of CloudCertificationAuthorityLeafCertificate records associated with account.
+     * @param array<CloudCertificationAuthorityLeafCertificate>|null $value Value to set for the cloudCertificationAuthorityLeafCertificate property.
+    */
+    public function setCloudCertificationAuthorityLeafCertificate(?array $value): void {
+        $this->getBackingStore()->set('cloudCertificationAuthorityLeafCertificate', $value);
+    }
+
+    /**
      * Sets the cloudPCConnectivityIssues property value. The list of CloudPC Connectivity Issue.
      * @param array<CloudPCConnectivityIssue>|null $value Value to set for the cloudPCConnectivityIssues property.
     */
@@ -3547,14 +3580,6 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setDeviceConfigurationDeviceStateSummaries(?DeviceConfigurationDeviceStateSummary $value): void {
         $this->getBackingStore()->set('deviceConfigurationDeviceStateSummaries', $value);
-    }
-
-    /**
-     * Sets the deviceConfigurationProfiles property value. Profile Id of the object.
-     * @param array<DeviceConfigurationProfile>|null $value Value to set for the deviceConfigurationProfiles property.
-    */
-    public function setDeviceConfigurationProfiles(?array $value): void {
-        $this->getBackingStore()->set('deviceConfigurationProfiles', $value);
     }
 
     /**

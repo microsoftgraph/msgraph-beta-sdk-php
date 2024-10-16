@@ -82,7 +82,7 @@ class ResourceImpactSummary implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the impactedCount property value. The impactedCount property
+     * Gets the impactedCount property value. The number of resources impacted. The number could be an exhaustive count or a sampling count.
      * @return string|null
     */
     public function getImpactedCount(): ?string {
@@ -94,7 +94,7 @@ class ResourceImpactSummary implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the impactedCountLimitExceeded property value. The impactedCountLimitExceeded property
+     * Gets the impactedCountLimitExceeded property value. Indicates whether impactedCount is exhaustive or a sampling. When this value is true, the limit was exceeded and impactedCount represents a sampling; otherwise, impactedCount represents the true number of impacts.
      * @return bool|null
     */
     public function getImpactedCountLimitExceeded(): ?bool {
@@ -118,7 +118,7 @@ class ResourceImpactSummary implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. The type of resource that was impacted. Examples include user, group, application, servicePrincipal, device.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -158,7 +158,7 @@ class ResourceImpactSummary implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the impactedCount property value. The impactedCount property
+     * Sets the impactedCount property value. The number of resources impacted. The number could be an exhaustive count or a sampling count.
      * @param string|null $value Value to set for the impactedCount property.
     */
     public function setImpactedCount(?string $value): void {
@@ -166,7 +166,7 @@ class ResourceImpactSummary implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the impactedCountLimitExceeded property value. The impactedCountLimitExceeded property
+     * Sets the impactedCountLimitExceeded property value. Indicates whether impactedCount is exhaustive or a sampling. When this value is true, the limit was exceeded and impactedCount represents a sampling; otherwise, impactedCount represents the true number of impacts.
      * @param bool|null $value Value to set for the impactedCountLimitExceeded property.
     */
     public function setImpactedCountLimitExceeded(?bool $value): void {
@@ -182,7 +182,7 @@ class ResourceImpactSummary implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. The type of resource that was impacted. Examples include user, group, application, servicePrincipal, device.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {

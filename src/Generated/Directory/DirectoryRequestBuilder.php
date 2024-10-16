@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\InboundSh
 use Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\OnPremisesSynchronizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\OutboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\PendingExternalUserProfiles\PendingExternalUserProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\PublicKeyInfrastructureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
@@ -131,6 +132,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function pendingExternalUserProfiles(): PendingExternalUserProfilesRequestBuilder {
         return new PendingExternalUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the publicKeyInfrastructure property of the microsoft.graph.directory entity.
+    */
+    public function publicKeyInfrastructure(): PublicKeyInfrastructureRequestBuilder {
+        return new PublicKeyInfrastructureRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

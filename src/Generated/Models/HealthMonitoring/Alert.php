@@ -51,7 +51,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The time when Microsoft Entra Health monitoring generated the alert. Supports $orderby.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -63,7 +63,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the documentation property value. The documentation property
+     * Gets the documentation property value. A key-value pair that contains the name of and link to the documentation to aid in investigation of the alert.
      * @return Documentation|null
     */
     public function getDocumentation(): ?Documentation {
@@ -75,7 +75,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrichment property value. The enrichment property
+     * Gets the enrichment property value. Investigative information on the alert. This information typically includes counts of impacted objects, which include directory objects such as users, groups, and devices, and a pointer to supporting data.
      * @return Enrichment|null
     */
     public function getEnrichment(): ?Enrichment {
@@ -117,7 +117,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the signals property value. The signals property
+     * Gets the signals property value. The collection of signals that were used in the generation of the alert. These signals are sourced from serviceActivity APIs and are added to the alert as key-value pairs.
      * @return Signals|null
     */
     public function getSignals(): ?Signals {
@@ -173,7 +173,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The time when Microsoft Entra Health monitoring generated the alert. Supports $orderby.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -181,7 +181,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the documentation property value. The documentation property
+     * Sets the documentation property value. A key-value pair that contains the name of and link to the documentation to aid in investigation of the alert.
      * @param Documentation|null $value Value to set for the documentation property.
     */
     public function setDocumentation(?Documentation $value): void {
@@ -189,7 +189,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrichment property value. The enrichment property
+     * Sets the enrichment property value. Investigative information on the alert. This information typically includes counts of impacted objects, which include directory objects such as users, groups, and devices, and a pointer to supporting data.
      * @param Enrichment|null $value Value to set for the enrichment property.
     */
     public function setEnrichment(?Enrichment $value): void {
@@ -205,7 +205,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the signals property value. The signals property
+     * Sets the signals property value. The collection of signals that were used in the generation of the alert. These signals are sourced from serviceActivity APIs and are added to the alert as key-value pairs.
      * @param Signals|null $value Value to set for the signals property.
     */
     public function setSignals(?Signals $value): void {

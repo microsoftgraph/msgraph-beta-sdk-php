@@ -186,7 +186,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthMonitoring property value. The healthMonitoring property
+     * Gets the healthMonitoring property value. Reports for Microsoft Entra Health Monitoring.
      * @return HealthMonitoringRoot|null
     */
     public function getHealthMonitoring(): ?HealthMonitoringRoot {
@@ -304,7 +304,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the sla property value. Reports that relate to tenant-level Microsoft Entra SLA attainment.
+     * Gets the sla property value. Reports that relate to tenant-level Microsoft Entra Health SLA attainment.
      * @return ServiceLevelAgreementRoot|null
     */
     public function getSla(): ?ServiceLevelAgreementRoot {
@@ -443,7 +443,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthMonitoring property value. The healthMonitoring property
+     * Sets the healthMonitoring property value. Reports for Microsoft Entra Health Monitoring.
      * @param HealthMonitoringRoot|null $value Value to set for the healthMonitoring property.
     */
     public function setHealthMonitoring(?HealthMonitoringRoot $value): void {
@@ -515,7 +515,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the sla property value. Reports that relate to tenant-level Microsoft Entra SLA attainment.
+     * Sets the sla property value. Reports that relate to tenant-level Microsoft Entra Health SLA attainment.
      * @param ServiceLevelAgreementRoot|null $value Value to set for the sla property.
     */
     public function setSla(?ServiceLevelAgreementRoot $value): void {

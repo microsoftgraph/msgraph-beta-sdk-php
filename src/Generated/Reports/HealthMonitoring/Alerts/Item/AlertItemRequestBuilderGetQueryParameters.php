@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\Alerts\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get alerts from reports
+ * Read the properties and relationships of a Microsoft Entra health monitoring alert object. The returned alert object contains information about the state, type, date, and impact of each alert that fired within your tenant.
 */
 class AlertItemRequestBuilderGetQueryParameters 
 {
