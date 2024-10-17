@@ -34,6 +34,7 @@ class RecycleBin extends BaseItem implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([RecycleBinItem::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([RecycleBinSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -52,12 +53,25 @@ class RecycleBin extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the settings property value. Settings of the recycleBin.
+     * @return RecycleBinSettings|null
+    */
+    public function getSettings(): ?RecycleBinSettings {
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof RecycleBinSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
+        $writer->writeObjectValue('settings', $this->getSettings());
     }
 
     /**
@@ -66,6 +80,14 @@ class RecycleBin extends BaseItem implements Parsable
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
+    }
+
+    /**
+     * Sets the settings property value. Settings of the recycleBin.
+     * @param RecycleBinSettings|null $value Value to set for the settings property.
+    */
+    public function setSettings(?RecycleBinSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

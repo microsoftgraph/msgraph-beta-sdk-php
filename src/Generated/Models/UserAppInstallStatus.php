@@ -8,7 +8,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * Contains properties for the installation status for a user. This will be deprecated in May, 2023
+ * Contains properties for the installation status for a user. This will be deprecated starting May, 2023 (Intune Release 2305).
 */
 class UserAppInstallStatus extends Entity implements Parsable 
 {

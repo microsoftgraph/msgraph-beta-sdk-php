@@ -170,6 +170,7 @@ class Directory extends Entity implements Parsable
             'onPremisesSynchronization' => fn(ParseNode $n) => $o->setOnPremisesSynchronization($n->getCollectionOfObjectValues([OnPremisesDirectorySynchronization::class, 'createFromDiscriminatorValue'])),
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'pendingExternalUserProfiles' => fn(ParseNode $n) => $o->setPendingExternalUserProfiles($n->getCollectionOfObjectValues([PendingExternalUserProfile::class, 'createFromDiscriminatorValue'])),
+            'publicKeyInfrastructure' => fn(ParseNode $n) => $o->setPublicKeyInfrastructure($n->getObjectValue([PublicKeyInfrastructureRoot::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
@@ -247,6 +248,18 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the publicKeyInfrastructure property value. The publicKeyInfrastructure property
+     * @return PublicKeyInfrastructureRoot|null
+    */
+    public function getPublicKeyInfrastructure(): ?PublicKeyInfrastructureRoot {
+        $val = $this->getBackingStore()->get('publicKeyInfrastructure');
+        if (is_null($val) || $val instanceof PublicKeyInfrastructureRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publicKeyInfrastructure'");
+    }
+
+    /**
      * Gets the recommendations property value. List of recommended improvements to improve tenant posture.
      * @return array<Recommendation>|null
     */
@@ -308,6 +321,7 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('onPremisesSynchronization', $this->getOnPremisesSynchronization());
         $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->getOutboundSharedUserProfiles());
         $writer->writeCollectionOfObjectValues('pendingExternalUserProfiles', $this->getPendingExternalUserProfiles());
+        $writer->writeObjectValue('publicKeyInfrastructure', $this->getPublicKeyInfrastructure());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
         $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
@@ -423,6 +437,14 @@ class Directory extends Entity implements Parsable
     */
     public function setPendingExternalUserProfiles(?array $value): void {
         $this->getBackingStore()->set('pendingExternalUserProfiles', $value);
+    }
+
+    /**
+     * Sets the publicKeyInfrastructure property value. The publicKeyInfrastructure property
+     * @param PublicKeyInfrastructureRoot|null $value Value to set for the publicKeyInfrastructure property.
+    */
+    public function setPublicKeyInfrastructure(?PublicKeyInfrastructureRoot $value): void {
+        $this->getBackingStore()->set('publicKeyInfrastructure', $value);
     }
 
     /**

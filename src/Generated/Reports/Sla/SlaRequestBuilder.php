@@ -53,7 +53,7 @@ class SlaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reports that relate to tenant-level Microsoft Entra SLA attainment.
+     * Reports that relate to tenant-level Microsoft Entra Health SLA attainment.
      * @param SlaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServiceLevelAgreementRoot|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class SlaRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Reports that relate to tenant-level Microsoft Entra SLA attainment.
+     * Reports that relate to tenant-level Microsoft Entra Health SLA attainment.
      * @param SlaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

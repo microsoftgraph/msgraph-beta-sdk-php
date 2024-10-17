@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\Alerts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get alerts from reports
+ * Get the list of the Microsoft Entra health monitoring alert objects and their properties from the past 30 days.
 */
 class AlertsRequestBuilderGetQueryParameters 
 {

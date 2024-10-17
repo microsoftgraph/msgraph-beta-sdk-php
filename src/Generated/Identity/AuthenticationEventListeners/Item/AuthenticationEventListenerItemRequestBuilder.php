@@ -31,7 +31,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an authenticationEventListener object.
+     * Delete an authenticationEventListener object. The following derived types are currently supported.
      * @param AuthenticationEventListenerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -60,7 +60,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update.
+     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update. The following derived types are currently supported.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationEventListener|null>
@@ -76,7 +76,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an authenticationEventListener object.
+     * Delete an authenticationEventListener object. The following derived types are currently supported.
      * @param AuthenticationEventListenerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -115,7 +115,7 @@ class AuthenticationEventListenerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update.
+     * Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update. The following derived types are currently supported.
      * @param AuthenticationEventListener $body The request body
      * @param AuthenticationEventListenerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

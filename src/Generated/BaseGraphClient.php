@@ -35,7 +35,6 @@ use Microsoft\Graph\Beta\Generated\Contracts\ContractsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\DataClassificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataPolicyOperations\DataPolicyOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceLocalCredentials\DeviceLocalCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DevicesWithDeviceId\DevicesWithDeviceIdRequestBuilder;
@@ -358,13 +357,6 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function deviceAppManagement(): DeviceAppManagementRequestBuilder {
         return new DeviceAppManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the collection of deviceLocalCredentialInfo entities.
-    */
-    public function deviceLocalCredentials(): DeviceLocalCredentialsRequestBuilder {
-        return new DeviceLocalCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

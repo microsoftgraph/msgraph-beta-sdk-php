@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtection
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the driveProtectionUnit objects that are associated with a oneDriveForBusinessProtectionPolicy.
+ * The list of drive protection units in the tenant.
 */
 class DriveProtectionUnitsRequestBuilderGetQueryParameters 
 {

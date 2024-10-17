@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\GetBy
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getByUserRole
+ * Get a list of virtualEventTownhall objects where the signed-in user is either the organizer or a coorganizer.
 */
 class GetByUserRoleWithRoleRequestBuilderGetQueryParameters 
 {

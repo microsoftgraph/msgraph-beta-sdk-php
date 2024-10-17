@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\Sla;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Reports that relate to tenant-level Microsoft Entra SLA attainment.
+ * Reports that relate to tenant-level Microsoft Entra Health SLA attainment.
 */
 class SlaRequestBuilderGetQueryParameters 
 {

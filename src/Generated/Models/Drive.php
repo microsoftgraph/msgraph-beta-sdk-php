@@ -191,7 +191,7 @@ class Drive extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the system property value. If present, indicates that this is a system-managed drive. Read-only.
+     * Gets the system property value. If present, indicates that it's a system-managed drive. Read-only.
      * @return SystemFacet|null
     */
     public function getSystem(): ?SystemFacet {
@@ -311,7 +311,7 @@ class Drive extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the system property value. If present, indicates that this is a system-managed drive. Read-only.
+     * Sets the system property value. If present, indicates that it's a system-managed drive. Read-only.
      * @param SystemFacet|null $value Value to set for the system property.
     */
     public function setSystem(?SystemFacet $value): void {

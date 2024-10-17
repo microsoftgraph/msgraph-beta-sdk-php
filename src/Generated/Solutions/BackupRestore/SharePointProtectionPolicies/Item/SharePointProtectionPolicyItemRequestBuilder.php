@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SharePointProtectionPolicy;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteInclusionRules\SiteInclusionRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnits\SiteProtectionUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs\SiteProtectionUnitsBulkAdditionJobsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -30,6 +31,13 @@ class SharePointProtectionPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function siteProtectionUnits(): SiteProtectionUnitsRequestBuilder {
         return new SiteProtectionUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the siteProtectionUnitsBulkAdditionJobs property of the microsoft.graph.sharePointProtectionPolicy entity.
+    */
+    public function siteProtectionUnitsBulkAdditionJobs(): SiteProtectionUnitsBulkAdditionJobsRequestBuilder {
+        return new SiteProtectionUnitsBulkAdditionJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

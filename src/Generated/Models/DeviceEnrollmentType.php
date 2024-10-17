@@ -24,4 +24,6 @@ class DeviceEnrollmentType extends Enum {
     public const ANDROID_ENTERPRISE_CORPORATE_WORK_PROFILE = 'androidEnterpriseCorporateWorkProfile';
     public const ANDROID_A_O_S_P_USER_OWNED_DEVICE_ENROLLMENT = 'androidAOSPUserOwnedDeviceEnrollment';
     public const ANDROID_A_O_S_P_USERLESS_DEVICE_ENROLLMENT = 'androidAOSPUserlessDeviceEnrollment';
+    public const APPLE_ACCOUNT_DRIVEN_USER_ENROLLMENT = 'appleAccountDrivenUserEnrollment';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

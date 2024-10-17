@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get healthMonitoring from reports
+ * Reports for Microsoft Entra Health Monitoring.
 */
 class HealthMonitoringRequestBuilderGetQueryParameters 
 {
