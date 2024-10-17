@@ -79,7 +79,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. An optional description for the team. Maximum length: 1024 characters.
+     * Gets the description property value. An optional description for the team. Maximum length: 1,024 characters.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -459,7 +459,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. A hyperlink that goes to the team in the Microsoft Teams client. It is the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
+     * Gets the webUrl property value. A hyperlink that goes to the team in the Microsoft Teams client. It's the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -543,7 +543,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. An optional description for the team. Maximum length: 1024 characters.
+     * Sets the description property value. An optional description for the team. Maximum length: 1,024 characters.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -759,7 +759,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. A hyperlink that goes to the team in the Microsoft Teams client. It is the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
+     * Sets the webUrl property value. A hyperlink that goes to the team in the Microsoft Teams client. It's the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

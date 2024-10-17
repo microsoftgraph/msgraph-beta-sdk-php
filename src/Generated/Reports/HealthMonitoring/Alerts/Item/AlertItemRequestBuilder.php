@@ -45,10 +45,11 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alerts from reports
+     * Read the properties and relationships of a Microsoft Entra health monitoring alert object. The returned alert object contains information about the state, type, date, and impact of each alert that fired within your tenant.
      * @param AlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Alert|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/healthmonitoring-alert-get?view=graph-rest-beta Find more info here
     */
     public function get(?AlertItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property alerts in reports
+     * Update the properties of a Microsoft Entra health monitoring alert object. For example, change an alert's state from active to resolved.
      * @param Alert $body The request body
      * @param AlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Alert|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/healthmonitoring-alert-update?view=graph-rest-beta Find more info here
     */
     public function patch(Alert $body, ?AlertItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get alerts from reports
+     * Read the properties and relationships of a Microsoft Entra health monitoring alert object. The returned alert object contains information about the state, type, date, and impact of each alert that fired within your tenant.
      * @param AlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class AlertItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property alerts in reports
+     * Update the properties of a Microsoft Entra health monitoring alert object. For example, change an alert's state from active to resolved.
      * @param Alert $body The request body
      * @param AlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

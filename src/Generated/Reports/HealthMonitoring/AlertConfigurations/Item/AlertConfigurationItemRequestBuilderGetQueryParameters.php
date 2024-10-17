@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\AlertConfigura
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get alertConfigurations from reports
+ * Read the properties and relationships of a Microsoft Entra health monitoring alertConfiguration object. The returned alertConfiguration object contains the settings for the distribution groups where alert notifications are to be sent.
 */
 class AlertConfigurationItemRequestBuilderGetQueryParameters 
 {

@@ -143,6 +143,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
             'customExtensionCalloutInstances' => fn(ParseNode $n) => $o->setCustomExtensionCalloutInstances($n->getCollectionOfObjectValues([CustomExtensionCalloutInstance::class, 'createFromDiscriminatorValue'])),
             'customExtensionHandlerInstances' => fn(ParseNode $n) => $o->setCustomExtensionHandlerInstances($n->getCollectionOfObjectValues([CustomExtensionHandlerInstance::class, 'createFromDiscriminatorValue'])),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([RequestActivity::class, 'createFromDiscriminatorValue'])),
             'isValidationOnly' => fn(ParseNode $n) => $o->setIsValidationOnly($n->getBooleanValue()),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
             'requestor' => fn(ParseNode $n) => $o->setRequestor($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
@@ -152,6 +153,20 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
             'verifiedCredentialsData' => fn(ParseNode $n) => $o->setVerifiedCredentialsData($n->getCollectionOfObjectValues([VerifiedCredentialData::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the history property value. The history property
+     * @return array<RequestActivity>|null
+    */
+    public function getHistory(): ?array {
+        $val = $this->getBackingStore()->get('history');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RequestActivity::class);
+            /** @var array<RequestActivity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'history'");
     }
 
     /**
@@ -266,6 +281,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('customExtensionCalloutInstances', $this->getCustomExtensionCalloutInstances());
         $writer->writeCollectionOfObjectValues('customExtensionHandlerInstances', $this->getCustomExtensionHandlerInstances());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeCollectionOfObjectValues('history', $this->getHistory());
         $writer->writeBooleanValue('isValidationOnly', $this->getIsValidationOnly());
         $writer->writeStringValue('justification', $this->getJustification());
         $writer->writeObjectValue('requestor', $this->getRequestor());
@@ -338,6 +354,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
+    }
+
+    /**
+     * Sets the history property value. The history property
+     * @param array<RequestActivity>|null $value Value to set for the history property.
+    */
+    public function setHistory(?array $value): void {
+        $this->getBackingStore()->set('history', $value);
     }
 
     /**

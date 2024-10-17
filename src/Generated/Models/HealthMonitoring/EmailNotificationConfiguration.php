@@ -69,7 +69,7 @@ class EmailNotificationConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the groupId property value. The groupId property
+     * Gets the groupId property value. The identifier of the group to send an email to. All group types with configured email addresses are supported.
      * @return string|null
     */
     public function getGroupId(): ?string {
@@ -81,7 +81,7 @@ class EmailNotificationConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Indicates whether email notifications are enabled on the alert type.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -132,7 +132,7 @@ class EmailNotificationConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the groupId property value. The groupId property
+     * Sets the groupId property value. The identifier of the group to send an email to. All group types with configured email addresses are supported.
      * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {
@@ -140,7 +140,7 @@ class EmailNotificationConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Indicates whether email notifications are enabled on the alert type.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {

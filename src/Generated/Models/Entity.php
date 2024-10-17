@@ -262,8 +262,7 @@ use Microsoft\Graph\Beta\Generated\Models\Security\VulnerabilityComponent;
 use Microsoft\Graph\Beta\Generated\Models\Security\WhoisBaseRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\WhoisHistoryRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\WhoisRecord;
-use Microsoft\Graph\Beta\Generated\Models\TeamsUserConfiguration\TeamsAdminRoot;
-use Microsoft\Graph\Beta\Generated\Models\TeamsUserConfiguration\UserConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsAdminRoot;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Group;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Relation;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Set;
@@ -603,9 +602,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.canvasLayout': return new CanvasLayout();
                 case '#microsoft.graph.cartToClassAssociation': return new CartToClassAssociation();
                 case '#microsoft.graph.certificateAuthorityAsEntity': return new CertificateAuthorityAsEntity();
+                case '#microsoft.graph.certificateAuthorityDetail': return new CertificateAuthorityDetail();
                 case '#microsoft.graph.certificateAuthorityPath': return new CertificateAuthorityPath();
                 case '#microsoft.graph.certificateBasedApplicationConfiguration': return new CertificateBasedApplicationConfiguration();
                 case '#microsoft.graph.certificateBasedAuthConfiguration': return new CertificateBasedAuthConfiguration();
+                case '#microsoft.graph.certificateBasedAuthPki': return new CertificateBasedAuthPki();
                 case '#microsoft.graph.certificateConnectorDetails': return new CertificateConnectorDetails();
                 case '#microsoft.graph.changeTrackedEntity': return new ChangeTrackedEntity();
                 case '#microsoft.graph.channel': return new Channel();
@@ -619,6 +620,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.claimsMappingPolicy': return new ClaimsMappingPolicy();
                 case '#microsoft.graph.classificationJobResponse': return new ClassificationJobResponse();
                 case '#microsoft.graph.cloudAppSecurityProfile': return new CloudAppSecurityProfile();
+                case '#microsoft.graph.cloudCertificationAuthority': return new CloudCertificationAuthority();
+                case '#microsoft.graph.cloudCertificationAuthorityLeafCertificate': return new CloudCertificationAuthorityLeafCertificate();
                 case '#microsoft.graph.cloudClipboardItem': return new CloudClipboardItem();
                 case '#microsoft.graph.cloudClipboardRoot': return new CloudClipboardRoot();
                 case '#microsoft.graph.cloudPC': return new CloudPC();
@@ -760,7 +763,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.deviceConfigurationDeviceStatus': return new DeviceConfigurationDeviceStatus();
                 case '#microsoft.graph.deviceConfigurationGroupAssignment': return new DeviceConfigurationGroupAssignment();
                 case '#microsoft.graph.deviceConfigurationPolicySetItem': return new DeviceConfigurationPolicySetItem();
-                case '#microsoft.graph.deviceConfigurationProfile': return new DeviceConfigurationProfile();
                 case '#microsoft.graph.deviceConfigurationState': return new DeviceConfigurationState();
                 case '#microsoft.graph.deviceConfigurationUserOverview': return new DeviceConfigurationUserOverview();
                 case '#microsoft.graph.deviceConfigurationUserStateSummary': return new DeviceConfigurationUserStateSummary();
@@ -877,6 +879,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.driveItemVersion': return new DriveItemVersion();
                 case '#microsoft.graph.driveProtectionRule': return new DriveProtectionRule();
                 case '#microsoft.graph.driveProtectionUnit': return new DriveProtectionUnit();
+                case '#microsoft.graph.driveProtectionUnitsBulkAdditionJob': return new DriveProtectionUnitsBulkAdditionJob();
                 case '#microsoft.graph.driveRestoreArtifact': return new DriveRestoreArtifact();
                 case '#microsoft.graph.easEmailProfileConfigurationBase': return new EasEmailProfileConfigurationBase();
                 case '#microsoft.graph.eBookInstallSummary': return new EBookInstallSummary();
@@ -1259,6 +1262,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.mailAssessmentRequest': return new MailAssessmentRequest();
                 case '#microsoft.graph.mailboxProtectionRule': return new MailboxProtectionRule();
                 case '#microsoft.graph.mailboxProtectionUnit': return new MailboxProtectionUnit();
+                case '#microsoft.graph.mailboxProtectionUnitsBulkAdditionJob': return new MailboxProtectionUnitsBulkAdditionJob();
                 case '#microsoft.graph.mailboxRestoreArtifact': return new MailboxRestoreArtifact();
                 case '#microsoft.graph.mailFolder': return new MailFolder();
                 case '#microsoft.graph.mailSearchFolder': return new MailSearchFolder();
@@ -1649,8 +1653,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.protectionPolicyBase': return new ProtectionPolicyBase();
                 case '#microsoft.graph.protectionRuleBase': return new ProtectionRuleBase();
                 case '#microsoft.graph.protectionUnitBase': return new ProtectionUnitBase();
+                case '#microsoft.graph.protectionUnitsBulkJobBase': return new ProtectionUnitsBulkJobBase();
                 case '#microsoft.graph.providerTenantSetting': return new ProviderTenantSetting();
                 case '#microsoft.graph.provisioningObjectSummary': return new ProvisioningObjectSummary();
+                case '#microsoft.graph.publicKeyInfrastructureRoot': return new PublicKeyInfrastructureRoot();
                 case '#microsoft.graph.publishedResource': return new PublishedResource();
                 case '#microsoft.graph.purchaseInvoiceLine': return new PurchaseInvoiceLine();
                 case '#microsoft.graph.rbacApplication': return new RbacApplication();
@@ -1876,6 +1882,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sitePage': return new SitePage();
                 case '#microsoft.graph.siteProtectionRule': return new SiteProtectionRule();
                 case '#microsoft.graph.siteProtectionUnit': return new SiteProtectionUnit();
+                case '#microsoft.graph.siteProtectionUnitsBulkAdditionJob': return new SiteProtectionUnitsBulkAdditionJob();
                 case '#microsoft.graph.siteRestoreArtifact': return new SiteRestoreArtifact();
                 case '#microsoft.graph.skillProficiency': return new SkillProficiency();
                 case '#microsoft.graph.skypeForBusinessUserConversationMember': return new SkypeForBusinessUserConversationMember();
@@ -1921,6 +1928,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.taxGroup': return new TaxGroup();
                 case '#microsoft.graph.team': return new Team();
                 case '#microsoft.graph.teamInfo': return new TeamInfo();
+                case '#microsoft.graph.teamsAdministration.teamsAdminRoot': return new TeamsAdminRoot();
                 case '#microsoft.graph.teamsApp': return new TeamsApp();
                 case '#microsoft.graph.teamsAppDashboardCardDefinition': return new TeamsAppDashboardCardDefinition();
                 case '#microsoft.graph.teamsAppDefinition': return new TeamsAppDefinition();
@@ -1930,7 +1938,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.teamsAsyncOperation': return new TeamsAsyncOperation();
                 case '#microsoft.graph.teamsTab': return new TeamsTab();
                 case '#microsoft.graph.teamsTemplate': return new TeamsTemplate();
-                case '#microsoft.graph.teamsUserConfiguration.teamsAdminRoot': return new TeamsAdminRoot();
                 case '#microsoft.graph.teamTemplate': return new TeamTemplate();
                 case '#microsoft.graph.teamTemplateDefinition': return new TeamTemplateDefinition();
                 case '#microsoft.graph.teamwork': return new Teamwork();

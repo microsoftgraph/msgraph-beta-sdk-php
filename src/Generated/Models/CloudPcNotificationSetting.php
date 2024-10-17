@@ -80,7 +80,7 @@ class CloudPcNotificationSetting implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the restartPromptsDisabled property value. The restartPromptsDisabled property
+     * Gets the restartPromptsDisabled property value. If true, doesn't prompt the user to restart the Cloud PC. If false, prompts the user to restart Cloud PC. The default value is false.
      * @return bool|null
     */
     public function getRestartPromptsDisabled(): ?bool {
@@ -126,7 +126,7 @@ class CloudPcNotificationSetting implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the restartPromptsDisabled property value. The restartPromptsDisabled property
+     * Sets the restartPromptsDisabled property value. If true, doesn't prompt the user to restart the Cloud PC. If false, prompts the user to restart Cloud PC. The default value is false.
      * @param bool|null $value Value to set for the restartPromptsDisabled property.
     */
     public function setRestartPromptsDisabled(?bool $value): void {

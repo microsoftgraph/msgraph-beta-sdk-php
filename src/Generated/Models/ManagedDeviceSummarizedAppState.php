@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
 /**
- * Event representing a user's devices with failed or pending apps.
+ * The summarized information associated with managed device app installation status.
 */
 class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -79,7 +79,7 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, BackedMod
         return  [
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'summarizedAppState' => fn(ParseNode $n) => $o->setSummarizedAppState($n->getEnumValue(RunState::class)),
+            'summarizedAppState' => fn(ParseNode $n) => $o->setSummarizedAppState($n->getEnumValue(DeviceManagementScriptRunState::class)),
         ];
     }
 
@@ -96,12 +96,12 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the summarizedAppState property value. Indicates the type of execution status of the device management script.
-     * @return RunState|null
+     * Gets the summarizedAppState property value. Indicates the type of execution status of the device management script. This status provides insights into whether the script has been successfully executed, encountered errors, or is pending execution.
+     * @return DeviceManagementScriptRunState|null
     */
-    public function getSummarizedAppState(): ?RunState {
+    public function getSummarizedAppState(): ?DeviceManagementScriptRunState {
         $val = $this->getBackingStore()->get('summarizedAppState');
-        if (is_null($val) || $val instanceof RunState) {
+        if (is_null($val) || $val instanceof DeviceManagementScriptRunState) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'summarizedAppState'");
@@ -151,10 +151,10 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the summarizedAppState property value. Indicates the type of execution status of the device management script.
-     * @param RunState|null $value Value to set for the summarizedAppState property.
+     * Sets the summarizedAppState property value. Indicates the type of execution status of the device management script. This status provides insights into whether the script has been successfully executed, encountered errors, or is pending execution.
+     * @param DeviceManagementScriptRunState|null $value Value to set for the summarizedAppState property.
     */
-    public function setSummarizedAppState(?RunState $value): void {
+    public function setSummarizedAppState(?DeviceManagementScriptRunState $value): void {
         $this->getBackingStore()->set('summarizedAppState', $value);
     }
 

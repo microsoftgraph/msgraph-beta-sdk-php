@@ -70,7 +70,7 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new invitation or reset the redemption status for a guest user who already redeemed their invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation:
+     * Create a new invitation or reset the redemption status for a guest user who already redeemed their invitation. The invitation adds the external user to the organization as part of B2B collaboration. B2B collaboration is supported in both Microsoft Entra External ID in workforce and external tenants. The following options are available for creating an invitation:
      * @param Invitation $body The request body
      * @param InvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Invitation|null>
@@ -107,7 +107,7 @@ class InvitationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new invitation or reset the redemption status for a guest user who already redeemed their invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation:
+     * Create a new invitation or reset the redemption status for a guest user who already redeemed their invitation. The invitation adds the external user to the organization as part of B2B collaboration. B2B collaboration is supported in both Microsoft Entra External ID in workforce and external tenants. The following options are available for creating an invitation:
      * @param Invitation $body The request body
      * @param InvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -76,7 +76,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpd
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAssignedApplicationsReport\RetrieveAssignedApplicationsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveSecurityTaskAppsReport\RetrieveSecurityTaskAppsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveWin32CatalogAppsUpdateReport\RetrieveWin32CatalogAppsUpdateReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -595,10 +595,10 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to call the retrieveAssignedApplicationsReport method.
+     * Provides operations to call the retrieveSecurityTaskAppsReport method.
     */
-    public function retrieveAssignedApplicationsReport(): RetrieveAssignedApplicationsReportRequestBuilder {
-        return new RetrieveAssignedApplicationsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function retrieveSecurityTaskAppsReport(): RetrieveSecurityTaskAppsReportRequestBuilder {
+        return new RetrieveSecurityTaskAppsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

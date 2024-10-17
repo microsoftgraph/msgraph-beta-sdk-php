@@ -27,7 +27,7 @@ class HealthMonitoringRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertConfigurations property value. The alertConfigurations property
+     * Gets the alertConfigurations property value. The configuration of an alert type, which defines behavior that occurs when an alert is created.
      * @return array<AlertConfiguration>|null
     */
     public function getAlertConfigurations(): ?array {
@@ -41,7 +41,7 @@ class HealthMonitoringRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the alerts property value. The alerts property
+     * Gets the alerts property value. The collection of health monitoring system detected alerts for anomalous usage patterns found in a Microsoft Entra tenant.
      * @return array<Alert>|null
     */
     public function getAlerts(): ?array {
@@ -77,7 +77,7 @@ class HealthMonitoringRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertConfigurations property value. The alertConfigurations property
+     * Sets the alertConfigurations property value. The configuration of an alert type, which defines behavior that occurs when an alert is created.
      * @param array<AlertConfiguration>|null $value Value to set for the alertConfigurations property.
     */
     public function setAlertConfigurations(?array $value): void {
@@ -85,7 +85,7 @@ class HealthMonitoringRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the alerts property value. The alerts property
+     * Sets the alerts property value. The collection of health monitoring system detected alerts for anomalous usage patterns found in a Microsoft Entra tenant.
      * @param array<Alert>|null $value Value to set for the alerts property.
     */
     public function setAlerts(?array $value): void {

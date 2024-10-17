@@ -13,9 +13,11 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\BulkRestoreCloudPc\
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\BulkSetCloudPcReviewStatus\BulkSetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\DownloadPowerliftAppDiagnostic\DownloadPowerliftAppDiagnosticRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ManagedDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -59,6 +61,13 @@ class ManagedDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function downloadAppDiagnostics(): DownloadAppDiagnosticsRequestBuilder {
         return new DownloadAppDiagnosticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the downloadPowerliftAppDiagnostic method.
+    */
+    public function downloadPowerliftAppDiagnostic(): DownloadPowerliftAppDiagnosticRequestBuilder {
+        return new DownloadPowerliftAppDiagnosticRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -136,6 +145,15 @@ class ManagedDevicesRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [ManagedDevice::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the retrievePowerliftAppDiagnosticsDetails method.
+     * @param string $userPrincipalName Usage: userPrincipalName='{userPrincipalName}'
+     * @return RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder
+    */
+    public function retrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName(string $userPrincipalName): RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder {
+        return new RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter, $userPrincipalName);
     }
 
     /**

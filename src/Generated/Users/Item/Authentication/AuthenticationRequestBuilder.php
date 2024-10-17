@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicroso
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordMethods\PasswordMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods\PhoneMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PlatformCredentialMethods\PlatformCredentialMethodsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Requirements\RequirementsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SignInPreferences\SignInPreferencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SoftwareOathMethods\SoftwareOathMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\TemporaryAccessPassMethods\TemporaryAccessPassMethodsRequestBuilder;
@@ -90,6 +91,13 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
     */
     public function platformCredentialMethods(): PlatformCredentialMethodsRequestBuilder {
         return new PlatformCredentialMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The requirements property
+    */
+    public function requirements(): RequirementsRequestBuilder {
+        return new RequirementsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

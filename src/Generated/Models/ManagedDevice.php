@@ -377,7 +377,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceName property value. Name of the device. This property is read-only.
+     * Gets the deviceName property value. Name of the device. Supports $filter operator 'eq' and 'contains'. This property is read-only.
      * @return string|null
     */
     public function getDeviceName(): ?string {
@@ -1564,7 +1564,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceName property value. Name of the device. This property is read-only.
+     * Sets the deviceName property value. Name of the device. Supports $filter operator 'eq' and 'contains'. This property is read-only.
      * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
