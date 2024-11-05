@@ -421,6 +421,7 @@ class SignIn extends Entity implements Parsable
             'servicePrincipalCredentialThumbprint' => fn(ParseNode $n) => $o->setServicePrincipalCredentialThumbprint($n->getStringValue()),
             'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
             'servicePrincipalName' => fn(ParseNode $n) => $o->setServicePrincipalName($n->getStringValue()),
+            'sessionId' => fn(ParseNode $n) => $o->setSessionId($n->getStringValue()),
             'sessionLifetimePolicies' => fn(ParseNode $n) => $o->setSessionLifetimePolicies($n->getCollectionOfObjectValues([SessionLifetimePolicy::class, 'createFromDiscriminatorValue'])),
             'signInEventTypes' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -823,6 +824,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the sessionId property value. The sessionId property
+     * @return string|null
+    */
+    public function getSessionId(): ?string {
+        $val = $this->getBackingStore()->get('sessionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sessionId'");
+    }
+
+    /**
      * Gets the sessionLifetimePolicies property value. Any conditional access session management policies that were applied during the sign-in event.
      * @return array<SessionLifetimePolicy>|null
     */
@@ -1068,6 +1081,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('servicePrincipalCredentialThumbprint', $this->getServicePrincipalCredentialThumbprint());
         $writer->writeStringValue('servicePrincipalId', $this->getServicePrincipalId());
         $writer->writeStringValue('servicePrincipalName', $this->getServicePrincipalName());
+        $writer->writeStringValue('sessionId', $this->getSessionId());
         $writer->writeCollectionOfObjectValues('sessionLifetimePolicies', $this->getSessionLifetimePolicies());
         $writer->writeCollectionOfPrimitiveValues('signInEventTypes', $this->getSignInEventTypes());
         $writer->writeStringValue('signInIdentifier', $this->getSignInIdentifier());
@@ -1531,6 +1545,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setServicePrincipalName(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalName', $value);
+    }
+
+    /**
+     * Sets the sessionId property value. The sessionId property
+     * @param string|null $value Value to set for the sessionId property.
+    */
+    public function setSessionId(?string $value): void {
+        $this->getBackingStore()->set('sessionId', $value);
     }
 
     /**

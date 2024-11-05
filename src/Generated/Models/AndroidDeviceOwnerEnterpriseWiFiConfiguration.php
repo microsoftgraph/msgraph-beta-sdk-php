@@ -80,6 +80,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
             'innerAuthenticationProtocolForPeap' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForPeap($n->getEnumValue(NonEapAuthenticationMethodForPeap::class)),
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
             'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([AndroidDeviceOwnerTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
+            'rootCertificatesForServerValidation' => fn(ParseNode $n) => $o->setRootCertificatesForServerValidation($n->getCollectionOfObjectValues([AndroidDeviceOwnerTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
             'trustedServerCertificateNames' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -152,6 +153,20 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
     }
 
     /**
+     * Gets the rootCertificatesForServerValidation property value. Trusted Root Certificates for Server Validation when EAP Type is configured to EAP-TLS, EAP-TTLS or PEAP. This is the certificate presented by the Wi-Fi endpoint when the device attempts to connect to Wi-Fi endpoint. The device (or user) must accept this certificate to continue the connection attempt. This collection can contain a maximum of 500 elements.
+     * @return array<AndroidDeviceOwnerTrustedRootCertificate>|null
+    */
+    public function getRootCertificatesForServerValidation(): ?array {
+        $val = $this->getBackingStore()->get('rootCertificatesForServerValidation');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerTrustedRootCertificate::class);
+            /** @var array<AndroidDeviceOwnerTrustedRootCertificate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootCertificatesForServerValidation'");
+    }
+
+    /**
      * Gets the trustedServerCertificateNames property value. Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users' devices when they connect to this Wi-Fi network.
      * @return array<string>|null
     */
@@ -179,6 +194,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
         $writer->writeEnumValue('innerAuthenticationProtocolForPeap', $this->getInnerAuthenticationProtocolForPeap());
         $writer->writeStringValue('outerIdentityPrivacyTemporaryValue', $this->getOuterIdentityPrivacyTemporaryValue());
         $writer->writeObjectValue('rootCertificateForServerValidation', $this->getRootCertificateForServerValidation());
+        $writer->writeCollectionOfObjectValues('rootCertificatesForServerValidation', $this->getRootCertificatesForServerValidation());
         $writer->writeCollectionOfPrimitiveValues('trustedServerCertificateNames', $this->getTrustedServerCertificateNames());
     }
 
@@ -244,6 +260,14 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
     */
     public function setRootCertificateForServerValidation(?AndroidDeviceOwnerTrustedRootCertificate $value): void {
         $this->getBackingStore()->set('rootCertificateForServerValidation', $value);
+    }
+
+    /**
+     * Sets the rootCertificatesForServerValidation property value. Trusted Root Certificates for Server Validation when EAP Type is configured to EAP-TLS, EAP-TTLS or PEAP. This is the certificate presented by the Wi-Fi endpoint when the device attempts to connect to Wi-Fi endpoint. The device (or user) must accept this certificate to continue the connection attempt. This collection can contain a maximum of 500 elements.
+     * @param array<AndroidDeviceOwnerTrustedRootCertificate>|null $value Value to set for the rootCertificatesForServerValidation property.
+    */
+    public function setRootCertificatesForServerValidation(?array $value): void {
+        $this->getBackingStore()->set('rootCertificatesForServerValidation', $value);
     }
 
     /**

@@ -9,6 +9,9 @@ class DeviceManagementConfigurationTechnologies extends Enum {
     public const MDM = 'mdm';
     public const WINDOWS10_X_MANAGEMENT = 'windows10XManagement';
     public const CONFIG_MANAGER = 'configManager';
+    public const INTUNE_MANAGEMENT_EXTENSION = 'intuneManagementExtension';
+    public const THIRD_PARTY = 'thirdParty';
+    public const DOCUMENT_GATEWAY = 'documentGateway';
     public const APPLE_REMOTE_MANAGEMENT = 'appleRemoteManagement';
     public const MICROSOFT_SENSE = 'microsoftSense';
     public const EXCHANGE_ONLINE = 'exchangeOnline';
@@ -18,4 +21,5 @@ class DeviceManagementConfigurationTechnologies extends Enum {
     public const ENDPOINT_PRIVILEGE_MANAGEMENT = 'endpointPrivilegeManagement';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const WINDOWS_OS_RECOVERY = 'windowsOsRecovery';
+    public const ANDROID = 'android';
 }

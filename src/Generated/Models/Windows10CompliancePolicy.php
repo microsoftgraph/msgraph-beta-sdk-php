@@ -216,6 +216,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
             'tpmRequired' => fn(ParseNode $n) => $o->setTpmRequired($n->getBooleanValue()),
             'validOperatingSystemBuildRanges' => fn(ParseNode $n) => $o->setValidOperatingSystemBuildRanges($n->getCollectionOfObjectValues([OperatingSystemVersionRange::class, 'createFromDiscriminatorValue'])),
             'virtualizationBasedSecurityEnabled' => fn(ParseNode $n) => $o->setVirtualizationBasedSecurityEnabled($n->getBooleanValue()),
+            'wslDistributions' => fn(ParseNode $n) => $o->setWslDistributions($n->getCollectionOfObjectValues([WslDistributionConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -510,6 +511,20 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     }
 
     /**
+     * Gets the wslDistributions property value. The wslDistributions property
+     * @return array<WslDistributionConfiguration>|null
+    */
+    public function getWslDistributions(): ?array {
+        $val = $this->getBackingStore()->get('wslDistributions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WslDistributionConfiguration::class);
+            /** @var array<WslDistributionConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wslDistributions'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -551,6 +566,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
         $writer->writeBooleanValue('tpmRequired', $this->getTpmRequired());
         $writer->writeCollectionOfObjectValues('validOperatingSystemBuildRanges', $this->getValidOperatingSystemBuildRanges());
         $writer->writeBooleanValue('virtualizationBasedSecurityEnabled', $this->getVirtualizationBasedSecurityEnabled());
+        $writer->writeCollectionOfObjectValues('wslDistributions', $this->getWslDistributions());
     }
 
     /**
@@ -839,6 +855,14 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
     */
     public function setVirtualizationBasedSecurityEnabled(?bool $value): void {
         $this->getBackingStore()->set('virtualizationBasedSecurityEnabled', $value);
+    }
+
+    /**
+     * Sets the wslDistributions property value. The wslDistributions property
+     * @param array<WslDistributionConfiguration>|null $value Value to set for the wslDistributions property.
+    */
+    public function setWslDistributions(?array $value): void {
+        $this->getBackingStore()->set('wslDistributions', $value);
     }
 
 }

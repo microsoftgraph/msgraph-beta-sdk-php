@@ -110,10 +110,12 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
             'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'healthCheckPaused' => fn(ParseNode $n) => $o->setHealthCheckPaused($n->getBooleanValue()),
             'healthCheckStatus' => fn(ParseNode $n) => $o->setHealthCheckStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)),
             'healthCheckStatusDetail' => fn(ParseNode $n) => $o->setHealthCheckStatusDetail($n->getObjectValue([CloudPcOnPremisesConnectionStatusDetail::class, 'createFromDiscriminatorValue'])),
             'healthCheckStatusDetails' => fn(ParseNode $n) => $o->setHealthCheckStatusDetails($n->getObjectValue([CloudPcOnPremisesConnectionStatusDetails::class, 'createFromDiscriminatorValue'])),
             'inUse' => fn(ParseNode $n) => $o->setInUse($n->getBooleanValue()),
+            'inUseByCloudPc' => fn(ParseNode $n) => $o->setInUseByCloudPc($n->getBooleanValue()),
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
             'organizationalUnit' => fn(ParseNode $n) => $o->setOrganizationalUnit($n->getStringValue()),
             'resourceGroupId' => fn(ParseNode $n) => $o->setResourceGroupId($n->getStringValue()),
@@ -132,6 +134,18 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'virtualNetworkId' => fn(ParseNode $n) => $o->setVirtualNetworkId($n->getStringValue()),
             'virtualNetworkLocation' => fn(ParseNode $n) => $o->setVirtualNetworkLocation($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the healthCheckPaused property value. false if the regular health checks on the network/domain configuration are currently active. true if the checks are paused. If you perform a create or update operation on a onPremisesNetworkConnection resource, this value is set to false for 4 weeks. If you retry a health check on network/domain configuration, this value is set to false for two weeks. If the onPremisesNetworkConnection resource is attached in a provisioningPolicy or used by a Cloud PC in the past 4 weeks, healthCheckPaused is set to false. Read-only. Default is false.
+     * @return bool|null
+    */
+    public function getHealthCheckPaused(): ?bool {
+        $val = $this->getBackingStore()->get('healthCheckPaused');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthCheckPaused'");
     }
 
     /**
@@ -183,6 +197,18 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Gets the inUseByCloudPc property value. Indicates whether a Cloud PC is using this on-premises network connection. true if at least one Cloud PC is using it. Otherwise, false. Read-only. Default is false.
+     * @return bool|null
+    */
+    public function getInUseByCloudPc(): ?bool {
+        $val = $this->getBackingStore()->get('inUseByCloudPc');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inUseByCloudPc'");
+    }
+
+    /**
      * Gets the managedBy property value. The managedBy property
      * @return CloudPcManagementService|null
     */
@@ -195,7 +221,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the organizationalUnit property value. The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
+     * Gets the organizationalUnit property value. The organizational unit (OU) in which the computer account is created. If left null, the OU configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
      * @return string|null
     */
     public function getOrganizationalUnit(): ?string {
@@ -269,7 +295,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue. The type property is deprecated and stopped returning data on January 31, 2024. Goind forward, use the connectionType property.
+     * Gets the type property value. Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue. The type property is deprecated and stopped returning data on January 31, 2024. Going forward, use the connectionType property.
      * @return CloudPcOnPremisesConnectionType|null
     */
     public function getType(): ?CloudPcOnPremisesConnectionType {
@@ -316,10 +342,12 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeStringValue('alternateResourceUrl', $this->getAlternateResourceUrl());
         $writer->writeEnumValue('connectionType', $this->getConnectionType());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('healthCheckPaused', $this->getHealthCheckPaused());
         $writer->writeEnumValue('healthCheckStatus', $this->getHealthCheckStatus());
         $writer->writeObjectValue('healthCheckStatusDetail', $this->getHealthCheckStatusDetail());
         $writer->writeObjectValue('healthCheckStatusDetails', $this->getHealthCheckStatusDetails());
         $writer->writeBooleanValue('inUse', $this->getInUse());
+        $writer->writeBooleanValue('inUseByCloudPc', $this->getInUseByCloudPc());
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
         $writer->writeStringValue('organizationalUnit', $this->getOrganizationalUnit());
         $writer->writeStringValue('resourceGroupId', $this->getResourceGroupId());
@@ -381,6 +409,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Sets the healthCheckPaused property value. false if the regular health checks on the network/domain configuration are currently active. true if the checks are paused. If you perform a create or update operation on a onPremisesNetworkConnection resource, this value is set to false for 4 weeks. If you retry a health check on network/domain configuration, this value is set to false for two weeks. If the onPremisesNetworkConnection resource is attached in a provisioningPolicy or used by a Cloud PC in the past 4 weeks, healthCheckPaused is set to false. Read-only. Default is false.
+     * @param bool|null $value Value to set for the healthCheckPaused property.
+    */
+    public function setHealthCheckPaused(?bool $value): void {
+        $this->getBackingStore()->set('healthCheckPaused', $value);
+    }
+
+    /**
      * Sets the healthCheckStatus property value. The healthCheckStatus property
      * @param CloudPcOnPremisesConnectionStatus|null $value Value to set for the healthCheckStatus property.
     */
@@ -413,6 +449,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Sets the inUseByCloudPc property value. Indicates whether a Cloud PC is using this on-premises network connection. true if at least one Cloud PC is using it. Otherwise, false. Read-only. Default is false.
+     * @param bool|null $value Value to set for the inUseByCloudPc property.
+    */
+    public function setInUseByCloudPc(?bool $value): void {
+        $this->getBackingStore()->set('inUseByCloudPc', $value);
+    }
+
+    /**
      * Sets the managedBy property value. The managedBy property
      * @param CloudPcManagementService|null $value Value to set for the managedBy property.
     */
@@ -421,7 +465,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the organizationalUnit property value. The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
+     * Sets the organizationalUnit property value. The organizational unit (OU) in which the computer account is created. If left null, the OU configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
      * @param string|null $value Value to set for the organizationalUnit property.
     */
     public function setOrganizationalUnit(?string $value): void {
@@ -469,7 +513,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue. The type property is deprecated and stopped returning data on January 31, 2024. Goind forward, use the connectionType property.
+     * Sets the type property value. Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue. The type property is deprecated and stopped returning data on January 31, 2024. Going forward, use the connectionType property.
      * @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcOnPremisesConnectionType $value): void {

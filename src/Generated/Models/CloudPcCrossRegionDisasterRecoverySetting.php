@@ -80,6 +80,18 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
+     * Gets the disasterRecoveryType property value. The disasterRecoveryType property
+     * @return CloudPcDisasterRecoveryType|null
+    */
+    public function getDisasterRecoveryType(): ?CloudPcDisasterRecoveryType {
+        $val = $this->getBackingStore()->get('disasterRecoveryType');
+        if (is_null($val) || $val instanceof CloudPcDisasterRecoveryType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disasterRecoveryType'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -88,6 +100,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
         return  [
             'crossRegionDisasterRecoveryEnabled' => fn(ParseNode $n) => $o->setCrossRegionDisasterRecoveryEnabled($n->getBooleanValue()),
             'disasterRecoveryNetworkSetting' => fn(ParseNode $n) => $o->setDisasterRecoveryNetworkSetting($n->getObjectValue([CloudPcDisasterRecoveryNetworkSetting::class, 'createFromDiscriminatorValue'])),
+            'disasterRecoveryType' => fn(ParseNode $n) => $o->setDisasterRecoveryType($n->getEnumValue(CloudPcDisasterRecoveryType::class)),
             'maintainCrossRegionRestorePointEnabled' => fn(ParseNode $n) => $o->setMaintainCrossRegionRestorePointEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -124,6 +137,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('crossRegionDisasterRecoveryEnabled', $this->getCrossRegionDisasterRecoveryEnabled());
         $writer->writeObjectValue('disasterRecoveryNetworkSetting', $this->getDisasterRecoveryNetworkSetting());
+        $writer->writeEnumValue('disasterRecoveryType', $this->getDisasterRecoveryType());
         $writer->writeBooleanValue('maintainCrossRegionRestorePointEnabled', $this->getMaintainCrossRegionRestorePointEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -159,6 +173,14 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     */
     public function setDisasterRecoveryNetworkSetting(?CloudPcDisasterRecoveryNetworkSetting $value): void {
         $this->getBackingStore()->set('disasterRecoveryNetworkSetting', $value);
+    }
+
+    /**
+     * Sets the disasterRecoveryType property value. The disasterRecoveryType property
+     * @param CloudPcDisasterRecoveryType|null $value Value to set for the disasterRecoveryType property.
+    */
+    public function setDisasterRecoveryType(?CloudPcDisasterRecoveryType $value): void {
+        $this->getBackingStore()->set('disasterRecoveryType', $value);
     }
 
     /**

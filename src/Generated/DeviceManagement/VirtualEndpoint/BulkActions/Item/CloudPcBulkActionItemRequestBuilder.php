@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\BulkAc
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\BulkActions\Item\Retry\RetryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcBulkAction;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CloudPcBulkActionItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the retry method.
+    */
+    public function retry(): RetryRequestBuilder {
+        return new RetryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new CloudPcBulkActionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

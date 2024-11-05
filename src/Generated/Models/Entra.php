@@ -36,7 +36,7 @@ class Entra extends Entity implements Parsable
     }
 
     /**
-     * Gets the uxSetting property value. The uxSetting property
+     * Gets the uxSetting property value. Represents settings related to access to the Microsoft Entra admin center.
      * @return UxSetting|null
     */
     public function getUxSetting(): ?UxSetting {
@@ -57,7 +57,7 @@ class Entra extends Entity implements Parsable
     }
 
     /**
-     * Sets the uxSetting property value. The uxSetting property
+     * Sets the uxSetting property value. Represents settings related to access to the Microsoft Entra admin center.
      * @param UxSetting|null $value Value to set for the uxSetting property.
     */
     public function setUxSetting(?UxSetting $value): void {

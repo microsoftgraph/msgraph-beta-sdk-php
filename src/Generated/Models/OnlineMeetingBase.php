@@ -70,6 +70,18 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the allowedLobbyAdmitters property value. The allowedLobbyAdmitters property
+     * @return AllowedLobbyAdmitterRoles|null
+    */
+    public function getAllowedLobbyAdmitters(): ?AllowedLobbyAdmitterRoles {
+        $val = $this->getBackingStore()->get('allowedLobbyAdmitters');
+        if (is_null($val) || $val instanceof AllowedLobbyAdmitterRoles) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedLobbyAdmitters'");
+    }
+
+    /**
      * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue.
      * @return OnlineMeetingPresenters|null
     */
@@ -251,6 +263,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'allowAttendeeToEnableCamera' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableCamera($n->getBooleanValue()),
             'allowAttendeeToEnableMic' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableMic($n->getBooleanValue()),
             'allowBreakoutRooms' => fn(ParseNode $n) => $o->setAllowBreakoutRooms($n->getBooleanValue()),
+            'allowedLobbyAdmitters' => fn(ParseNode $n) => $o->setAllowedLobbyAdmitters($n->getEnumValue(AllowedLobbyAdmitterRoles::class)),
             'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
             'allowLiveShare' => fn(ParseNode $n) => $o->setAllowLiveShare($n->getEnumValue(MeetingLiveShareOptions::class)),
             'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)),
@@ -420,6 +433,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeBooleanValue('allowAttendeeToEnableCamera', $this->getAllowAttendeeToEnableCamera());
         $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->getAllowAttendeeToEnableMic());
         $writer->writeBooleanValue('allowBreakoutRooms', $this->getAllowBreakoutRooms());
+        $writer->writeEnumValue('allowedLobbyAdmitters', $this->getAllowedLobbyAdmitters());
         $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
         $writer->writeEnumValue('allowLiveShare', $this->getAllowLiveShare());
         $writer->writeEnumValue('allowMeetingChat', $this->getAllowMeetingChat());
@@ -469,6 +483,14 @@ class OnlineMeetingBase extends Entity implements Parsable
     */
     public function setAllowBreakoutRooms(?bool $value): void {
         $this->getBackingStore()->set('allowBreakoutRooms', $value);
+    }
+
+    /**
+     * Sets the allowedLobbyAdmitters property value. The allowedLobbyAdmitters property
+     * @param AllowedLobbyAdmitterRoles|null $value Value to set for the allowedLobbyAdmitters property.
+    */
+    public function setAllowedLobbyAdmitters(?AllowedLobbyAdmitterRoles $value): void {
+        $this->getBackingStore()->set('allowedLobbyAdmitters', $value);
     }
 
     /**

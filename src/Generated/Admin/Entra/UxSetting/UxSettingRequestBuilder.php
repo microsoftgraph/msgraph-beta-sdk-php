@@ -45,10 +45,11 @@ class UxSettingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get uxSetting from admin
+     * Get the properties and relationships of a uxSetting object.
      * @param UxSettingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UxSetting|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/uxsetting-get?view=graph-rest-beta Find more info here
     */
     public function get(?UxSettingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class UxSettingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property uxSetting in admin
+     * Update the properties of a uxSetting object.
      * @param UxSetting $body The request body
      * @param UxSettingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UxSetting|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/uxsetting-update?view=graph-rest-beta Find more info here
     */
     public function patch(UxSetting $body, ?UxSettingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class UxSettingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get uxSetting from admin
+     * Get the properties and relationships of a uxSetting object.
      * @param UxSettingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class UxSettingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property uxSetting in admin
+     * Update the properties of a uxSetting object.
      * @param UxSetting $body The request body
      * @param UxSettingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -43,7 +43,7 @@ class SensorItemRequestBuilder extends BaseRequestBuilder
      * @param SensorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/security-identitycontainer-delete-sensors?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/security-sensor-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?SensorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);

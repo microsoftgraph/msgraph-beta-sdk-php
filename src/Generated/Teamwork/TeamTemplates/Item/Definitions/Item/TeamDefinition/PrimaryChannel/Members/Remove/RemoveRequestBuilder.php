@@ -30,11 +30,12 @@ class RemoveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action remove
+     * Remove multiple members from a team in a single request. The response provides details about which memberships could and couldn't be removed.
      * @param RemovePostRequestBody $body The request body
      * @param RemoveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemovePostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/conversationmember-remove?view=graph-rest-beta Find more info here
     */
     public function post(RemovePostRequestBody $body, ?RemoveRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class RemoveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action remove
+     * Remove multiple members from a team in a single request. The response provides details about which memberships could and couldn't be removed.
      * @param RemovePostRequestBody $body The request body
      * @param RemoveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

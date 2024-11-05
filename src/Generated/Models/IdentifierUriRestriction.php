@@ -57,6 +57,18 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
+     * Gets the excludeActors property value. The excludeActors property
+     * @return AppManagementPolicyActorExemptions|null
+    */
+    public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
+        $val = $this->getBackingStore()->get('excludeActors');
+        if (is_null($val) || $val instanceof AppManagementPolicyActorExemptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeActors'");
+    }
+
+    /**
      * Gets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Entra ID; else, the restriction isn't enforced for those applications.
      * @return bool|null
     */
@@ -87,6 +99,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'excludeActors' => fn(ParseNode $n) => $o->setExcludeActors($n->getObjectValue([AppManagementPolicyActorExemptions::class, 'createFromDiscriminatorValue'])),
             'excludeAppsReceivingV2Tokens' => fn(ParseNode $n) => $o->setExcludeAppsReceivingV2Tokens($n->getBooleanValue()),
             'excludeSaml' => fn(ParseNode $n) => $o->setExcludeSaml($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -136,6 +149,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('excludeActors', $this->getExcludeActors());
         $writer->writeBooleanValue('excludeAppsReceivingV2Tokens', $this->getExcludeAppsReceivingV2Tokens());
         $writer->writeBooleanValue('excludeSaml', $this->getExcludeSaml());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -158,6 +172,14 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the excludeActors property value. The excludeActors property
+     * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
+    */
+    public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {
+        $this->getBackingStore()->set('excludeActors', $value);
     }
 
     /**

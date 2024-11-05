@@ -99,7 +99,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the wiFiSecurityType property value. Wi-Fi Security Types for Android.
+     * Gets the wiFiSecurityType property value. The possible security types for Android Wi-Fi profiles. Default value 'Open', indicates no authentication required for the network. The security protocols supported are WEP, WPA and WPA2. 'WpaEnterprise' and 'Wpa2Enterprise' options are available for Enterprise Wi-Fi profiles. 'Wep' and 'WpaPersonal' (supports WPA and WPA2) options are available for Basic Wi-Fi profiles.
      * @return AndroidWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AndroidWiFiSecurityType {
@@ -156,7 +156,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the wiFiSecurityType property value. Wi-Fi Security Types for Android.
+     * Sets the wiFiSecurityType property value. The possible security types for Android Wi-Fi profiles. Default value 'Open', indicates no authentication required for the network. The security protocols supported are WEP, WPA and WPA2. 'WpaEnterprise' and 'Wpa2Enterprise' options are available for Enterprise Wi-Fi profiles. 'Wep' and 'WpaPersonal' (supports WPA and WPA2) options are available for Basic Wi-Fi profiles.
      * @param AndroidWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
     public function setWiFiSecurityType(?AndroidWiFiSecurityType $value): void {

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Education\Classes\ClassesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Me\MeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Schools\SchoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\SynchronizationProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Users\UsersRequestBuilder;
@@ -33,6 +34,13 @@ class EducationRequestBuilder extends BaseRequestBuilder
     */
     public function me(): MeRequestBuilder {
         return new MeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the reports property of the microsoft.graph.educationRoot entity.
+    */
+    public function reports(): ReportsRequestBuilder {
+        return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

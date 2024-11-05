@@ -18,8 +18,10 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetR
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRemoteConnectionHistoricalReports\GetRemoteConnectionHistoricalReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetSharedUseLicenseUsageReport\GetSharedUseLicenseUsageReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetTotalAggregatedRemoteConnectionReports\GetTotalAggregatedRemoteConnectionReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveBulkActionStatusReport\RetrieveBulkActionStatusReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveConnectionQualityReports\RetrieveConnectionQualityReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCrossRegionDisasterRecoveryReport\RetrieveCrossRegionDisasterRecoveryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveFrontlineReports\RetrieveFrontlineReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -117,6 +119,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the retrieveBulkActionStatusReport method.
+    */
+    public function retrieveBulkActionStatusReport(): RetrieveBulkActionStatusReportRequestBuilder {
+        return new RetrieveBulkActionStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the retrieveConnectionQualityReports method.
     */
     public function retrieveConnectionQualityReports(): RetrieveConnectionQualityReportsRequestBuilder {
@@ -128,6 +137,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function retrieveCrossRegionDisasterRecoveryReport(): RetrieveCrossRegionDisasterRecoveryReportRequestBuilder {
         return new RetrieveCrossRegionDisasterRecoveryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveFrontlineReports method.
+    */
+    public function retrieveFrontlineReports(): RetrieveFrontlineReportsRequestBuilder {
+        return new RetrieveFrontlineReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

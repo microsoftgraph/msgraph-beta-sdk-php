@@ -66,8 +66,6 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
             'innerAuthenticationProtocolForEapTtls' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
             'innerAuthenticationProtocolForPeap' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForPeap($n->getEnumValue(NonEapAuthenticationMethodForPeap::class)),
             'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
-            'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
-            'proxySettings' => fn(ParseNode $n) => $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)),
             'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([AndroidWorkProfileTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
             'trustedServerCertificateNames' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -129,30 +127,6 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     }
 
     /**
-     * Gets the proxyAutomaticConfigurationUrl property value. URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
-     * @return string|null
-    */
-    public function getProxyAutomaticConfigurationUrl(): ?string {
-        $val = $this->getBackingStore()->get('proxyAutomaticConfigurationUrl');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxyAutomaticConfigurationUrl'");
-    }
-
-    /**
-     * Gets the proxySettings property value. Wi-Fi Proxy Settings.
-     * @return WiFiProxySetting|null
-    */
-    public function getProxySettings(): ?WiFiProxySetting {
-        $val = $this->getBackingStore()->get('proxySettings');
-        if (is_null($val) || $val instanceof WiFiProxySetting) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'proxySettings'");
-    }
-
-    /**
      * Gets the rootCertificateForServerValidation property value. Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS, EAP-TTLS or PEAP. This is the certificate presented by the Wi-Fi endpoint when the device attempts to connect to Wi-Fi endpoint. The device (or user) must accept this certificate to continue the connection attempt.
      * @return AndroidWorkProfileTrustedRootCertificate|null
     */
@@ -190,8 +164,6 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
         $writer->writeEnumValue('innerAuthenticationProtocolForEapTtls', $this->getInnerAuthenticationProtocolForEapTtls());
         $writer->writeEnumValue('innerAuthenticationProtocolForPeap', $this->getInnerAuthenticationProtocolForPeap());
         $writer->writeStringValue('outerIdentityPrivacyTemporaryValue', $this->getOuterIdentityPrivacyTemporaryValue());
-        $writer->writeStringValue('proxyAutomaticConfigurationUrl', $this->getProxyAutomaticConfigurationUrl());
-        $writer->writeEnumValue('proxySettings', $this->getProxySettings());
         $writer->writeObjectValue('rootCertificateForServerValidation', $this->getRootCertificateForServerValidation());
         $writer->writeCollectionOfPrimitiveValues('trustedServerCertificateNames', $this->getTrustedServerCertificateNames());
     }
@@ -242,22 +214,6 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     */
     public function setOuterIdentityPrivacyTemporaryValue(?string $value): void {
         $this->getBackingStore()->set('outerIdentityPrivacyTemporaryValue', $value);
-    }
-
-    /**
-     * Sets the proxyAutomaticConfigurationUrl property value. URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
-     * @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
-    */
-    public function setProxyAutomaticConfigurationUrl(?string $value): void {
-        $this->getBackingStore()->set('proxyAutomaticConfigurationUrl', $value);
-    }
-
-    /**
-     * Sets the proxySettings property value. Wi-Fi Proxy Settings.
-     * @param WiFiProxySetting|null $value Value to set for the proxySettings property.
-    */
-    public function setProxySettings(?WiFiProxySetting $value): void {
-        $this->getBackingStore()->set('proxySettings', $value);
     }
 
     /**

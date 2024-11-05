@@ -42,12 +42,65 @@ class MobileAppRelationship extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'sourceDisplayName' => fn(ParseNode $n) => $o->setSourceDisplayName($n->getStringValue()),
+            'sourceDisplayVersion' => fn(ParseNode $n) => $o->setSourceDisplayVersion($n->getStringValue()),
+            'sourceId' => fn(ParseNode $n) => $o->setSourceId($n->getStringValue()),
+            'sourcePublisherDisplayName' => fn(ParseNode $n) => $o->setSourcePublisherDisplayName($n->getStringValue()),
             'targetDisplayName' => fn(ParseNode $n) => $o->setTargetDisplayName($n->getStringValue()),
             'targetDisplayVersion' => fn(ParseNode $n) => $o->setTargetDisplayVersion($n->getStringValue()),
             'targetId' => fn(ParseNode $n) => $o->setTargetId($n->getStringValue()),
             'targetPublisher' => fn(ParseNode $n) => $o->setTargetPublisher($n->getStringValue()),
+            'targetPublisherDisplayName' => fn(ParseNode $n) => $o->setTargetPublisherDisplayName($n->getStringValue()),
             'targetType' => fn(ParseNode $n) => $o->setTargetType($n->getEnumValue(MobileAppRelationshipType::class)),
         ]);
+    }
+
+    /**
+     * Gets the sourceDisplayName property value. The display name of the app that is the source of the mobile app relationship entity. For example: Orca. Maximum length is 500 characters. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @return string|null
+    */
+    public function getSourceDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('sourceDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceDisplayName'");
+    }
+
+    /**
+     * Gets the sourceDisplayVersion property value. The display version of the app that is the source of the mobile app relationship entity. For example 1.0.12 or 1.2203.156 or 3. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @return string|null
+    */
+    public function getSourceDisplayVersion(): ?string {
+        $val = $this->getBackingStore()->get('sourceDisplayVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceDisplayVersion'");
+    }
+
+    /**
+     * Gets the sourceId property value. The unique app identifier of the source of the mobile app relationship entity. For example: 2dbc75b9-e993-4e4d-a071-91ac5a218672. If null during relationship creation, then it will be populated with parent Id. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @return string|null
+    */
+    public function getSourceId(): ?string {
+        $val = $this->getBackingStore()->get('sourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceId'");
+    }
+
+    /**
+     * Gets the sourcePublisherDisplayName property value. The publisher display name of the app that is the source of the mobile app relationship entity. For example: Fabrikam. Maximum length is 500 characters. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @return string|null
+    */
+    public function getSourcePublisherDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('sourcePublisherDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourcePublisherDisplayName'");
     }
 
     /**
@@ -99,6 +152,18 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
+     * Gets the targetPublisherDisplayName property value. The publisher display name of the app that is the target of the mobile app relationship entity. For example: Fabrikam. Maximum length is 500 characters. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @return string|null
+    */
+    public function getTargetPublisherDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('targetPublisherDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetPublisherDisplayName'");
+    }
+
+    /**
      * Gets the targetType property value. Indicates whether the target of a relationship is the parent or the child in the relationship.
      * @return MobileAppRelationshipType|null
     */
@@ -118,6 +183,38 @@ class MobileAppRelationship extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('targetId', $this->getTargetId());
         $writer->writeEnumValue('targetType', $this->getTargetType());
+    }
+
+    /**
+     * Sets the sourceDisplayName property value. The display name of the app that is the source of the mobile app relationship entity. For example: Orca. Maximum length is 500 characters. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @param string|null $value Value to set for the sourceDisplayName property.
+    */
+    public function setSourceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('sourceDisplayName', $value);
+    }
+
+    /**
+     * Sets the sourceDisplayVersion property value. The display version of the app that is the source of the mobile app relationship entity. For example 1.0.12 or 1.2203.156 or 3. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @param string|null $value Value to set for the sourceDisplayVersion property.
+    */
+    public function setSourceDisplayVersion(?string $value): void {
+        $this->getBackingStore()->set('sourceDisplayVersion', $value);
+    }
+
+    /**
+     * Sets the sourceId property value. The unique app identifier of the source of the mobile app relationship entity. For example: 2dbc75b9-e993-4e4d-a071-91ac5a218672. If null during relationship creation, then it will be populated with parent Id. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @param string|null $value Value to set for the sourceId property.
+    */
+    public function setSourceId(?string $value): void {
+        $this->getBackingStore()->set('sourceId', $value);
+    }
+
+    /**
+     * Sets the sourcePublisherDisplayName property value. The publisher display name of the app that is the source of the mobile app relationship entity. For example: Fabrikam. Maximum length is 500 characters. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @param string|null $value Value to set for the sourcePublisherDisplayName property.
+    */
+    public function setSourcePublisherDisplayName(?string $value): void {
+        $this->getBackingStore()->set('sourcePublisherDisplayName', $value);
     }
 
     /**
@@ -150,6 +247,14 @@ class MobileAppRelationship extends Entity implements Parsable
     */
     public function setTargetPublisher(?string $value): void {
         $this->getBackingStore()->set('targetPublisher', $value);
+    }
+
+    /**
+     * Sets the targetPublisherDisplayName property value. The publisher display name of the app that is the target of the mobile app relationship entity. For example: Fabrikam. Maximum length is 500 characters. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only.
+     * @param string|null $value Value to set for the targetPublisherDisplayName property.
+    */
+    public function setTargetPublisherDisplayName(?string $value): void {
+        $this->getBackingStore()->set('targetPublisherDisplayName', $value);
     }
 
     /**
