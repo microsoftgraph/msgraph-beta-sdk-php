@@ -80,7 +80,7 @@ class RecycleBinSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the retentionPeriodOverrideDays property value. Recycle bin retention period override in days for deleted content. The default value is 93; the value range is 93 to 180. The setting applies to newly deleted content only. Setting this property to null reverts to its default value. Read-write.
+     * Gets the retentionPeriodOverrideDays property value. Recycle bin retention period override in days for deleted content. The default value is 93; the value range is 7 to 180 inclusively. The setting applies to newly deleted content only. Setting this property to null reverts to its default value. Read-write.
      * @return int|null
     */
     public function getRetentionPeriodOverrideDays(): ?int {
@@ -126,7 +126,7 @@ class RecycleBinSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the retentionPeriodOverrideDays property value. Recycle bin retention period override in days for deleted content. The default value is 93; the value range is 93 to 180. The setting applies to newly deleted content only. Setting this property to null reverts to its default value. Read-write.
+     * Sets the retentionPeriodOverrideDays property value. Recycle bin retention period override in days for deleted content. The default value is 93; the value range is 7 to 180 inclusively. The setting applies to newly deleted content only. Setting this property to null reverts to its default value. Read-write.
      * @param int|null $value Value to set for the retentionPeriodOverrideDays property.
     */
     public function setRetentionPeriodOverrideDays(?int $value): void {

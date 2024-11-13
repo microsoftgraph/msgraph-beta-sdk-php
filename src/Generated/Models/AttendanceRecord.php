@@ -62,6 +62,7 @@ class AttendanceRecord extends Entity implements Parsable
             'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
             'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'registrantId' => fn(ParseNode $n) => $o->setRegistrantId($n->getStringValue()),
+            'registrationId' => fn(ParseNode $n) => $o->setRegistrationId($n->getStringValue()),
             'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
             'totalAttendanceInSeconds' => fn(ParseNode $n) => $o->setTotalAttendanceInSeconds($n->getIntegerValue()),
         ]);
@@ -89,6 +90,18 @@ class AttendanceRecord extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'registrantId'");
+    }
+
+    /**
+     * Gets the registrationId property value. Unique identifier of a virtualEventRegistration. Presents for all participant who has registered for the virtualEventWebinar.
+     * @return string|null
+    */
+    public function getRegistrationId(): ?string {
+        $val = $this->getBackingStore()->get('registrationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrationId'");
     }
 
     /**
@@ -125,6 +138,7 @@ class AttendanceRecord extends Entity implements Parsable
         $writer->writeStringValue('emailAddress', $this->getEmailAddress());
         $writer->writeObjectValue('identity', $this->getIdentity());
         $writer->writeStringValue('registrantId', $this->getRegistrantId());
+        $writer->writeStringValue('registrationId', $this->getRegistrationId());
         $writer->writeStringValue('role', $this->getRole());
         $writer->writeIntegerValue('totalAttendanceInSeconds', $this->getTotalAttendanceInSeconds());
     }
@@ -159,6 +173,14 @@ class AttendanceRecord extends Entity implements Parsable
     */
     public function setRegistrantId(?string $value): void {
         $this->getBackingStore()->set('registrantId', $value);
+    }
+
+    /**
+     * Sets the registrationId property value. Unique identifier of a virtualEventRegistration. Presents for all participant who has registered for the virtualEventWebinar.
+     * @param string|null $value Value to set for the registrationId property.
+    */
+    public function setRegistrationId(?string $value): void {
+        $this->getBackingStore()->set('registrationId', $value);
     }
 
     /**

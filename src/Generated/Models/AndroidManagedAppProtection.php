@@ -56,7 +56,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
+     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
@@ -128,7 +128,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
+     * Gets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanHigh(): ?ManagedAppRemediationAction {
@@ -140,7 +140,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
+     * Gets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanLow(): ?ManagedAppRemediationAction {
@@ -152,7 +152,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
+     * Gets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanMedium(): ?ManagedAppRemediationAction {
@@ -164,7 +164,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured. Possible values are: block, wipe, warn.
+     * Gets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfSamsungKnoxAttestationRequired(): ?ManagedAppRemediationAction {
@@ -240,7 +240,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
+     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @return string|null
     */
     public function getCustomBrowserDisplayName(): ?string {
@@ -252,7 +252,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
+     * Gets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @return string|null
     */
     public function getCustomBrowserPackageId(): ?string {
@@ -709,7 +709,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.
+     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
     */
     public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {
@@ -757,7 +757,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
+     * Sets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
     */
     public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?ManagedAppRemediationAction $value): void {
@@ -765,7 +765,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
+     * Sets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
     */
     public function setAppActionIfDevicePasscodeComplexityLessThanLow(?ManagedAppRemediationAction $value): void {
@@ -773,7 +773,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
+     * Sets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
     */
     public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?ManagedAppRemediationAction $value): void {
@@ -781,7 +781,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured. Possible values are: block, wipe, warn.
+     * Sets the appActionIfSamsungKnoxAttestationRequired property value. Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block & wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfSamsungKnoxAttestationRequired property.
     */
     public function setAppActionIfSamsungKnoxAttestationRequired(?ManagedAppRemediationAction $value): void {
@@ -829,7 +829,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
+     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @param string|null $value Value to set for the customBrowserDisplayName property.
     */
     public function setCustomBrowserDisplayName(?string $value): void {
@@ -837,7 +837,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
+     * Sets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @param string|null $value Value to set for the customBrowserPackageId property.
     */
     public function setCustomBrowserPackageId(?string $value): void {

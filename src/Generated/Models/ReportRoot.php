@@ -9,9 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * The resource that represents an instance of Enrollment Failure Reports.
-*/
 class ReportRoot extends Entity implements Parsable 
 {
     /**

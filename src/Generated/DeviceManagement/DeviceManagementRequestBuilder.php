@@ -116,6 +116,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistanceSettings\Rem
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\ResourceAccessProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceOperations\ResourceOperationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\RetrieveUserRoleDetailWithUserid\RetrieveUserRoleDetailWithUseridRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\ReusablePolicySettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\ReusableSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\RoleAssignmentsRequestBuilder;
@@ -1587,6 +1588,15 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the retrieveUserRoleDetail method.
+     * @param string $userid Usage: userid='{userid}'
+     * @return RetrieveUserRoleDetailWithUseridRequestBuilder
+    */
+    public function retrieveUserRoleDetailWithUserid(string $userid): RetrieveUserRoleDetailWithUseridRequestBuilder {
+        return new RetrieveUserRoleDetailWithUseridRequestBuilder($this->pathParameters, $this->requestAdapter, $userid);
     }
 
     /**

@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\CallRecords\Participant;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\ParticipantBase;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\Segment;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\Session;
+use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\UsageRight;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRule;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\DeviceManagement;
@@ -624,6 +625,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudCertificationAuthorityLeafCertificate': return new CloudCertificationAuthorityLeafCertificate();
                 case '#microsoft.graph.cloudClipboardItem': return new CloudClipboardItem();
                 case '#microsoft.graph.cloudClipboardRoot': return new CloudClipboardRoot();
+                case '#microsoft.graph.cloudLicensing.usageRight': return new UsageRight();
                 case '#microsoft.graph.cloudPC': return new CloudPC();
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPcBulkAction': return new CloudPcBulkAction();
@@ -631,6 +633,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudPcBulkDisasterRecoveryFailback': return new CloudPcBulkDisasterRecoveryFailback();
                 case '#microsoft.graph.cloudPcBulkDisasterRecoveryFailover': return new CloudPcBulkDisasterRecoveryFailover();
                 case '#microsoft.graph.cloudPcBulkModifyDiskEncryptionType': return new CloudPcBulkModifyDiskEncryptionType();
+                case '#microsoft.graph.cloudPcBulkMove': return new CloudPcBulkMove();
                 case '#microsoft.graph.cloudPcBulkPowerOff': return new CloudPcBulkPowerOff();
                 case '#microsoft.graph.cloudPcBulkPowerOn': return new CloudPcBulkPowerOn();
                 case '#microsoft.graph.cloudPcBulkReprovision': return new CloudPcBulkReprovision();
@@ -701,6 +704,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.customExtensionStageSetting': return new CustomExtensionStageSetting();
                 case '#microsoft.graph.customSecurityAttributeAudit': return new CustomSecurityAttributeAudit();
                 case '#microsoft.graph.customSecurityAttributeDefinition': return new CustomSecurityAttributeDefinition();
+                case '#microsoft.graph.customSecurityAttributeExemption': return new CustomSecurityAttributeExemption();
+                case '#microsoft.graph.customSecurityAttributeStringValueExemption': return new CustomSecurityAttributeStringValueExemption();
                 case '#microsoft.graph.dailyInactiveUsersByApplicationMetric': return new DailyInactiveUsersByApplicationMetric();
                 case '#microsoft.graph.dailyInactiveUsersMetric': return new DailyInactiveUsersMetric();
                 case '#microsoft.graph.dailyUserInsightMetricsRoot': return new DailyUserInsightMetricsRoot();
@@ -881,6 +886,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.driveProtectionUnit': return new DriveProtectionUnit();
                 case '#microsoft.graph.driveProtectionUnitsBulkAdditionJob': return new DriveProtectionUnitsBulkAdditionJob();
                 case '#microsoft.graph.driveRestoreArtifact': return new DriveRestoreArtifact();
+                case '#microsoft.graph.driveRestoreArtifactsBulkAdditionRequest': return new DriveRestoreArtifactsBulkAdditionRequest();
                 case '#microsoft.graph.easEmailProfileConfigurationBase': return new EasEmailProfileConfigurationBase();
                 case '#microsoft.graph.eBookInstallSummary': return new EBookInstallSummary();
                 case '#microsoft.graph.edge': return new Edge();
@@ -1264,6 +1270,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.mailboxProtectionUnit': return new MailboxProtectionUnit();
                 case '#microsoft.graph.mailboxProtectionUnitsBulkAdditionJob': return new MailboxProtectionUnitsBulkAdditionJob();
                 case '#microsoft.graph.mailboxRestoreArtifact': return new MailboxRestoreArtifact();
+                case '#microsoft.graph.mailboxRestoreArtifactsBulkAdditionRequest': return new MailboxRestoreArtifactsBulkAdditionRequest();
                 case '#microsoft.graph.mailFolder': return new MailFolder();
                 case '#microsoft.graph.mailSearchFolder': return new MailSearchFolder();
                 case '#microsoft.graph.malwareStateForWindowsDevice': return new MalwareStateForWindowsDevice();
@@ -1661,6 +1668,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.purchaseInvoiceLine': return new PurchaseInvoiceLine();
                 case '#microsoft.graph.rbacApplication': return new RbacApplication();
                 case '#microsoft.graph.rbacApplicationMultiple': return new RbacApplicationMultiple();
+                case '#microsoft.graph.readingAssignmentSubmission': return new ReadingAssignmentSubmission();
                 case '#microsoft.graph.recommendation': return new Recommendation();
                 case '#microsoft.graph.recommendationBase': return new RecommendationBase();
                 case '#microsoft.graph.recordOperation': return new RecordOperation();
@@ -1669,6 +1677,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.redundantAssignmentAlertConfiguration': return new RedundantAssignmentAlertConfiguration();
                 case '#microsoft.graph.redundantAssignmentAlertIncident': return new RedundantAssignmentAlertIncident();
                 case '#microsoft.graph.referenceAttachment': return new ReferenceAttachment();
+                case '#microsoft.graph.reflectCheckInResponse': return new ReflectCheckInResponse();
                 case '#microsoft.graph.regionalAndLanguageSettings': return new RegionalAndLanguageSettings();
                 case '#microsoft.graph.relyingPartyDetailedSummary': return new RelyingPartyDetailedSummary();
                 case '#microsoft.graph.remoteActionAudit': return new RemoteActionAudit();
@@ -1676,11 +1685,13 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.remoteAssistanceSettings': return new RemoteAssistanceSettings();
                 case '#microsoft.graph.remoteDesktopSecurityConfiguration': return new RemoteDesktopSecurityConfiguration();
                 case '#microsoft.graph.reportRoot': return new ReportRoot();
+                case '#microsoft.graph.reportsRoot': return new ReportsRoot();
                 case '#microsoft.graph.request': return new Request();
                 case '#microsoft.graph.resellerDelegatedAdminRelationship': return new ResellerDelegatedAdminRelationship();
                 case '#microsoft.graph.resourceOperation': return new ResourceOperation();
                 case '#microsoft.graph.resourceSpecificPermissionGrant': return new ResourceSpecificPermissionGrant();
                 case '#microsoft.graph.restoreArtifactBase': return new RestoreArtifactBase();
+                case '#microsoft.graph.restoreArtifactsBulkRequestBase': return new RestoreArtifactsBulkRequestBase();
                 case '#microsoft.graph.restorePoint': return new RestorePoint();
                 case '#microsoft.graph.restoreSessionBase': return new RestoreSessionBase();
                 case '#microsoft.graph.restrictedAppsViolation': return new RestrictedAppsViolation();
@@ -1884,6 +1895,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.siteProtectionUnit': return new SiteProtectionUnit();
                 case '#microsoft.graph.siteProtectionUnitsBulkAdditionJob': return new SiteProtectionUnitsBulkAdditionJob();
                 case '#microsoft.graph.siteRestoreArtifact': return new SiteRestoreArtifact();
+                case '#microsoft.graph.siteRestoreArtifactsBulkAdditionRequest': return new SiteRestoreArtifactsBulkAdditionRequest();
                 case '#microsoft.graph.skillProficiency': return new SkillProficiency();
                 case '#microsoft.graph.skypeForBusinessUserConversationMember': return new SkypeForBusinessUserConversationMember();
                 case '#microsoft.graph.skypeUserConversationMember': return new SkypeUserConversationMember();

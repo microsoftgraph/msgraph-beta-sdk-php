@@ -92,7 +92,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the entra property value. The entra property
+     * Gets the entra property value. A container for Microsoft Entra resources. Read-only.
      * @return Entra|null
     */
     public function getEntra(): ?Entra {
@@ -296,7 +296,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the entra property value. The entra property
+     * Sets the entra property value. A container for Microsoft Entra resources. Read-only.
      * @param Entra|null $value Value to set for the entra property.
     */
     public function setEntra(?Entra $value): void {

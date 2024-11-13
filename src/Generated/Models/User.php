@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\UserCloudLicensing;
 use Microsoft\Graph\Beta\Generated\Models\Security\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -331,6 +332,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudClipboard'");
+    }
+
+    /**
+     * Gets the cloudLicensing property value. The relationships of a user to cloud licensing resources.
+     * @return UserCloudLicensing|null
+    */
+    public function getCloudLicensing(): ?UserCloudLicensing {
+        $val = $this->getBackingStore()->get('cloudLicensing');
+        if (is_null($val) || $val instanceof UserCloudLicensing) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudLicensing'");
     }
 
     /**
@@ -790,6 +803,7 @@ class User extends DirectoryObject implements Parsable
             'chats' => fn(ParseNode $n) => $o->setChats($n->getCollectionOfObjectValues([Chat::class, 'createFromDiscriminatorValue'])),
             'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
             'cloudClipboard' => fn(ParseNode $n) => $o->setCloudClipboard($n->getObjectValue([CloudClipboardRoot::class, 'createFromDiscriminatorValue'])),
+            'cloudLicensing' => fn(ParseNode $n) => $o->setCloudLicensing($n->getObjectValue([UserCloudLicensing::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'cloudRealtimeCommunicationInfo' => fn(ParseNode $n) => $o->setCloudRealtimeCommunicationInfo($n->getObjectValue([CloudRealtimeCommunicationInfo::class, 'createFromDiscriminatorValue'])),
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
@@ -2302,6 +2316,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('chats', $this->getChats());
         $writer->writeStringValue('city', $this->getCity());
         $writer->writeObjectValue('cloudClipboard', $this->getCloudClipboard());
+        $writer->writeObjectValue('cloudLicensing', $this->getCloudLicensing());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('cloudRealtimeCommunicationInfo', $this->getCloudRealtimeCommunicationInfo());
         $writer->writeStringValue('companyName', $this->getCompanyName());
@@ -2619,6 +2634,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setCloudClipboard(?CloudClipboardRoot $value): void {
         $this->getBackingStore()->set('cloudClipboard', $value);
+    }
+
+    /**
+     * Sets the cloudLicensing property value. The relationships of a user to cloud licensing resources.
+     * @param UserCloudLicensing|null $value Value to set for the cloudLicensing property.
+    */
+    public function setCloudLicensing(?UserCloudLicensing $value): void {
+        $this->getBackingStore()->set('cloudLicensing', $value);
     }
 
     /**

@@ -80,6 +80,7 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
             'classes' => fn(ParseNode $n) => $o->setClasses($n->getCollectionOfObjectValues([EducationClass::class, 'createFromDiscriminatorValue'])),
             'me' => fn(ParseNode $n) => $o->setMe($n->getObjectValue([EducationUser::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([ReportsRoot::class, 'createFromDiscriminatorValue'])),
             'schools' => fn(ParseNode $n) => $o->setSchools($n->getCollectionOfObjectValues([EducationSchool::class, 'createFromDiscriminatorValue'])),
             'synchronizationProfiles' => fn(ParseNode $n) => $o->setSynchronizationProfiles($n->getCollectionOfObjectValues([EducationSynchronizationProfile::class, 'createFromDiscriminatorValue'])),
             'users' => fn(ParseNode $n) => $o->setUsers($n->getCollectionOfObjectValues([EducationUser::class, 'createFromDiscriminatorValue'])),
@@ -108,6 +109,18 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the reports property value. The reports property
+     * @return ReportsRoot|null
+    */
+    public function getReports(): ?ReportsRoot {
+        $val = $this->getBackingStore()->get('reports');
+        if (is_null($val) || $val instanceof ReportsRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reports'");
     }
 
     /**
@@ -160,6 +173,7 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('classes', $this->getClasses());
         $writer->writeObjectValue('me', $this->getMe());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeCollectionOfObjectValues('schools', $this->getSchools());
         $writer->writeCollectionOfObjectValues('synchronizationProfiles', $this->getSynchronizationProfiles());
         $writer->writeCollectionOfObjectValues('users', $this->getUsers());
@@ -204,6 +218,14 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the reports property value. The reports property
+     * @param ReportsRoot|null $value Value to set for the reports property.
+    */
+    public function setReports(?ReportsRoot $value): void {
+        $this->getBackingStore()->set('reports', $value);
     }
 
     /**

@@ -53,7 +53,7 @@ class EntraRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get entra from admin
+     * A container for Microsoft Entra resources. Read-only.
      * @param EntraRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Entra|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class EntraRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get entra from admin
+     * A container for Microsoft Entra resources. Read-only.
      * @param EntraRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

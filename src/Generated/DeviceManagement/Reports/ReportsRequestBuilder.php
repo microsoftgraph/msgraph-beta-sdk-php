@@ -76,6 +76,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpd
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveDeviceAppInstallationStatusReport\RetrieveDeviceAppInstallationStatusReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveSecurityTaskAppsReport\RetrieveSecurityTaskAppsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveWin32CatalogAppsUpdateReport\RetrieveWin32CatalogAppsUpdateReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
@@ -592,6 +593,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getZebraFotaDeploymentReport(): GetZebraFotaDeploymentReportRequestBuilder {
         return new GetZebraFotaDeploymentReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveDeviceAppInstallationStatusReport method.
+    */
+    public function retrieveDeviceAppInstallationStatusReport(): RetrieveDeviceAppInstallationStatusReportRequestBuilder {
+        return new RetrieveDeviceAppInstallationStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

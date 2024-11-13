@@ -123,6 +123,7 @@ use Microsoft\Graph\Beta\Generated\TermStore\TermStoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ThreatSubmission\ThreatSubmissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\TrustFrameworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\UsersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\UsersWithUserPrincipalName\UsersWithUserPrincipalNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Workplace\WorkplaceRequestBuilder;
 use Microsoft\Kiota\Abstractions\ApiClientBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -1029,6 +1030,15 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function servicePrincipalsWithAppId(string $appId): ServicePrincipalsWithAppIdRequestBuilder {
         return new ServicePrincipalsWithAppIdRequestBuilder($this->pathParameters, $this->requestAdapter, $appId);
+    }
+
+    /**
+     * Provides operations to manage the collection of user entities.
+     * @param string $userPrincipalName Alternate key of user
+     * @return UsersWithUserPrincipalNameRequestBuilder
+    */
+    public function usersWithUserPrincipalName(string $userPrincipalName): UsersWithUserPrincipalNameRequestBuilder {
+        return new UsersWithUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter, $userPrincipalName);
     }
 
 }
