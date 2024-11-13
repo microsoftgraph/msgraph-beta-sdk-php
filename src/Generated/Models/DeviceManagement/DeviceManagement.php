@@ -2481,7 +2481,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the userExperienceAnalyticsDeviceMetricHistory property value. User experience analytics device metric history
+     * Gets the userExperienceAnalyticsDeviceMetricHistory property value. User experience analytics device metric history. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
      * @return array<UserExperienceAnalyticsMetricHistory>|null
     */
     public function getUserExperienceAnalyticsDeviceMetricHistory(): ?array {
@@ -2687,7 +2687,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the userExperienceAnalyticsRemoteConnection property value. User experience analytics remote connection
+     * Gets the userExperienceAnalyticsRemoteConnection property value. User experience analytics remote connection. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
      * @return array<UserExperienceAnalyticsRemoteConnection>|null
     */
     public function getUserExperienceAnalyticsRemoteConnection(): ?array {
@@ -4431,7 +4431,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the userExperienceAnalyticsDeviceMetricHistory property value. User experience analytics device metric history
+     * Sets the userExperienceAnalyticsDeviceMetricHistory property value. User experience analytics device metric history. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
      * @param array<UserExperienceAnalyticsMetricHistory>|null $value Value to set for the userExperienceAnalyticsDeviceMetricHistory property.
     */
     public function setUserExperienceAnalyticsDeviceMetricHistory(?array $value): void {
@@ -4551,7 +4551,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the userExperienceAnalyticsRemoteConnection property value. User experience analytics remote connection
+     * Sets the userExperienceAnalyticsRemoteConnection property value. User experience analytics remote connection. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
      * @param array<UserExperienceAnalyticsRemoteConnection>|null $value Value to set for the userExperienceAnalyticsRemoteConnection property.
     */
     public function setUserExperienceAnalyticsRemoteConnection(?array $value): void {

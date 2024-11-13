@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\GroupCloudLicensing;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -158,6 +159,18 @@ class Group extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'classification'");
+    }
+
+    /**
+     * Gets the cloudLicensing property value. The relationships of a group to cloud licensing resources.
+     * @return GroupCloudLicensing|null
+    */
+    public function getCloudLicensing(): ?GroupCloudLicensing {
+        $val = $this->getBackingStore()->get('cloudLicensing');
+        if (is_null($val) || $val instanceof GroupCloudLicensing) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudLicensing'");
     }
 
     /**
@@ -331,6 +344,7 @@ class Group extends DirectoryObject implements Parsable
             'calendar' => fn(ParseNode $n) => $o->setCalendar($n->getObjectValue([Calendar::class, 'createFromDiscriminatorValue'])),
             'calendarView' => fn(ParseNode $n) => $o->setCalendarView($n->getCollectionOfObjectValues([Event::class, 'createFromDiscriminatorValue'])),
             'classification' => fn(ParseNode $n) => $o->setClassification($n->getStringValue()),
+            'cloudLicensing' => fn(ParseNode $n) => $o->setCloudLicensing($n->getObjectValue([GroupCloudLicensing::class, 'createFromDiscriminatorValue'])),
             'conversations' => fn(ParseNode $n) => $o->setConversations($n->getCollectionOfObjectValues([Conversation::class, 'createFromDiscriminatorValue'])),
             'createdByAppId' => fn(ParseNode $n) => $o->setCreatedByAppId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -1191,6 +1205,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeObjectValue('calendar', $this->getCalendar());
         $writer->writeCollectionOfObjectValues('calendarView', $this->getCalendarView());
         $writer->writeStringValue('classification', $this->getClassification());
+        $writer->writeObjectValue('cloudLicensing', $this->getCloudLicensing());
         $writer->writeCollectionOfObjectValues('conversations', $this->getConversations());
         $writer->writeStringValue('createdByAppId', $this->getCreatedByAppId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
@@ -1341,6 +1356,14 @@ class Group extends DirectoryObject implements Parsable
     */
     public function setClassification(?string $value): void {
         $this->getBackingStore()->set('classification', $value);
+    }
+
+    /**
+     * Sets the cloudLicensing property value. The relationships of a group to cloud licensing resources.
+     * @param GroupCloudLicensing|null $value Value to set for the cloudLicensing property.
+    */
+    public function setCloudLicensing(?GroupCloudLicensing $value): void {
+        $this->getBackingStore()->set('cloudLicensing', $value);
     }
 
     /**

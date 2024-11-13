@@ -25,4 +25,7 @@ class CloudPcReportName extends Enum {
     public const REGIONAL_CONNECTION_QUALITY_TREND_REPORT = 'regionalConnectionQualityTrendReport';
     public const REGIONAL_CONNECTION_QUALITY_INSIGHTS_REPORT = 'regionalConnectionQualityInsightsReport';
     public const REMOTE_CONNECTION_QUALITY_REPORT = 'remoteConnectionQualityReport';
+    public const FRONTLINE_LICENSE_HOURLY_USAGE_REPORT = 'frontlineLicenseHourlyUsageReport';
+    public const FRONTLINE_REALTIME_USER_CONNECTIONS_REPORT = 'frontlineRealtimeUserConnectionsReport';
+    public const BULK_ACTION_STATUS_REPORT = 'bulkActionStatusReport';
 }

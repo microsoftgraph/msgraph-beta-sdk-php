@@ -40,11 +40,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Recove
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Reenable\ReenableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoteLock\RemoteLockRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ReprovisionCloudPc\ReprovisionCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ResizeCloudPc\ResizeCloudPcRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RestoreCloudPc\RestoreCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Retire\RetireRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RevokeAppleVppLicenses\RevokeAppleVppLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RotateBitLockerKeys\RotateBitLockerKeysRequestBuilder;
@@ -328,13 +325,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to call the reprovisionCloudPc method.
-    */
-    public function reprovisionCloudPc(): ReprovisionCloudPcRequestBuilder {
-        return new ReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the requestRemoteAssistance method.
     */
     public function requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
@@ -346,20 +336,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function resetPasscode(): ResetPasscodeRequestBuilder {
         return new ResetPasscodeRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the resizeCloudPc method.
-    */
-    public function resizeCloudPc(): ResizeCloudPcRequestBuilder {
-        return new ResizeCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the restoreCloudPc method.
-    */
-    public function restoreCloudPc(): RestoreCloudPcRequestBuilder {
-        return new RestoreCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

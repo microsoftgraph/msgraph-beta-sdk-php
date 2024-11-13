@@ -30,7 +30,7 @@ class EnableEndpointPrivilegeManagementRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Triggers onboarding of tenant to Microsoft Managed Platform - Cloud (MMP-C).
+     * DEPRECATED - DO NOT USE. (Triggers onboarding of tenant to Microsoft Managed Platform - Cloud (MMP-C)).
      * @param EnableEndpointPrivilegeManagementRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -44,7 +44,7 @@ class EnableEndpointPrivilegeManagementRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Triggers onboarding of tenant to Microsoft Managed Platform - Cloud (MMP-C).
+     * DEPRECATED - DO NOT USE. (Triggers onboarding of tenant to Microsoft Managed Platform - Cloud (MMP-C)).
      * @param EnableEndpointPrivilegeManagementRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

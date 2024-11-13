@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Entra\UxSetting;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get uxSetting from admin
+ * Get the properties and relationships of a uxSetting object.
 */
 class UxSettingRequestBuilderGetQueryParameters 
 {

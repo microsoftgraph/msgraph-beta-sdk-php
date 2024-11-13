@@ -38,7 +38,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the description property value. The name of export provided by the user.
+     * Gets the description property value. The description of the export by the user.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -50,7 +50,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The description of the export by the user.
+     * Gets the displayName property value. The name of export provided by the user.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -180,7 +180,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the description property value. The name of export provided by the user.
+     * Sets the description property value. The description of the export by the user.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -188,7 +188,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The description of the export by the user.
+     * Sets the displayName property value. The name of export provided by the user.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

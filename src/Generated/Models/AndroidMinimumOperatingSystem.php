@@ -71,6 +71,7 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
             'v12_0' => fn(ParseNode $n) => $o->setV120($n->getBooleanValue()),
             'v13_0' => fn(ParseNode $n) => $o->setV130($n->getBooleanValue()),
             'v14_0' => fn(ParseNode $n) => $o->setV140($n->getBooleanValue()),
+            'v15_0' => fn(ParseNode $n) => $o->setV150($n->getBooleanValue()),
             'v4_0' => fn(ParseNode $n) => $o->setV40($n->getBooleanValue()),
             'v4_0_3' => fn(ParseNode $n) => $o->setV403($n->getBooleanValue()),
             'v4_1' => fn(ParseNode $n) => $o->setV41($n->getBooleanValue()),
@@ -158,6 +159,18 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'v14_0'");
+    }
+
+    /**
+     * Gets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV150(): ?bool {
+        $val = $this->getBackingStore()->get('v15_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v15_0'");
     }
 
     /**
@@ -339,6 +352,7 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
         $writer->writeBooleanValue('v12_0', $this->getV120());
         $writer->writeBooleanValue('v13_0', $this->getV130());
         $writer->writeBooleanValue('v14_0', $this->getV140());
+        $writer->writeBooleanValue('v15_0', $this->getV150());
         $writer->writeBooleanValue('v4_0', $this->getV40());
         $writer->writeBooleanValue('v4_0_3', $this->getV403());
         $writer->writeBooleanValue('v4_1', $this->getV41());
@@ -418,6 +432,14 @@ class AndroidMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
     */
     public function setV140(?bool $value): void {
         $this->getBackingStore()->set('v14_0', $value);
+    }
+
+    /**
+     * Sets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v15_0 property.
+    */
+    public function setV150(?bool $value): void {
+        $this->getBackingStore()->set('v15_0', $value);
     }
 
     /**

@@ -17,6 +17,7 @@ use Microsoft\Graph\Beta\Generated\Teams\Item\InstalledApps\InstalledAppsRequest
 use Microsoft\Graph\Beta\Generated\Teams\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Owners\OwnersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\Item\OwnersWithUserPrincipalName\OwnersWithUserPrincipalNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Photo\PhotoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\PrimaryChannelRequestBuilder;
@@ -217,6 +218,15 @@ class TeamItemRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the owners property of the microsoft.graph.team entity.
+     * @param string $userPrincipalName Alternate key of user
+     * @return OwnersWithUserPrincipalNameRequestBuilder
+    */
+    public function ownersWithUserPrincipalName(string $userPrincipalName): OwnersWithUserPrincipalNameRequestBuilder {
+        return new OwnersWithUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter, $userPrincipalName);
     }
 
     /**

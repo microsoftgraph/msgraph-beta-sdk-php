@@ -194,7 +194,7 @@ class PolicyRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceRegistrationPolicy property value. The deviceRegistrationPolicy property
+     * Gets the deviceRegistrationPolicy property value. Represents the policy scope that controls quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
      * @return DeviceRegistrationPolicy|null
     */
     public function getDeviceRegistrationPolicy(): ?DeviceRegistrationPolicy {
@@ -588,7 +588,7 @@ class PolicyRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceRegistrationPolicy property value. The deviceRegistrationPolicy property
+     * Sets the deviceRegistrationPolicy property value. Represents the policy scope that controls quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
      * @param DeviceRegistrationPolicy|null $value Value to set for the deviceRegistrationPolicy property.
     */
     public function setDeviceRegistrationPolicy(?DeviceRegistrationPolicy $value): void {

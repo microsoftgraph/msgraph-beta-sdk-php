@@ -56,7 +56,7 @@ class ProvisionedPlan implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the capabilityStatus property value. For example, 'Enabled'.
+     * Gets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value.
      * @return string|null
     */
     public function getCapabilityStatus(): ?string {
@@ -94,7 +94,7 @@ class ProvisionedPlan implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the provisioningStatus property value. For example, 'Success'.
+     * Gets the provisioningStatus property value. The possible values are:Success - Service is fully provisioned.Disabled - Service is disabled.Error - The service plan isn't provisioned and is in an error state.PendingInput - The service isn't provisioned and is awaiting service confirmation.PendingActivation - The service is provisioned but requires explicit activation by an administrator (for example, Intune_O365 service plan)PendingProvisioning - Microsoft has added a new service to the product SKU and it isn't activated in the tenant.
      * @return string|null
     */
     public function getProvisioningStatus(): ?string {
@@ -146,7 +146,7 @@ class ProvisionedPlan implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the capabilityStatus property value. For example, 'Enabled'.
+     * Sets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value.
      * @param string|null $value Value to set for the capabilityStatus property.
     */
     public function setCapabilityStatus(?string $value): void {
@@ -162,7 +162,7 @@ class ProvisionedPlan implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the provisioningStatus property value. For example, 'Success'.
+     * Sets the provisioningStatus property value. The possible values are:Success - Service is fully provisioned.Disabled - Service is disabled.Error - The service plan isn't provisioned and is in an error state.PendingInput - The service isn't provisioned and is awaiting service confirmation.PendingActivation - The service is provisioned but requires explicit activation by an administrator (for example, Intune_O365 service plan)PendingProvisioning - Microsoft has added a new service to the product SKU and it isn't activated in the tenant.
      * @param string|null $value Value to set for the provisioningStatus property.
     */
     public function setProvisioningStatus(?string $value): void {

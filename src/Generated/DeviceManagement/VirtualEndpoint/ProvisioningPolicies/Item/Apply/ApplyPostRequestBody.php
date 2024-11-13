@@ -64,6 +64,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
         $o = $this;
         return  [
             'policySettings' => fn(ParseNode $n) => $o->setPolicySettings($n->getEnumValue(CloudPcPolicySettingType::class)),
+            'reservePercentage' => fn(ParseNode $n) => $o->setReservePercentage($n->getIntegerValue()),
         ];
     }
 
@@ -80,11 +81,24 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the reservePercentage property value. The reservePercentage property
+     * @return int|null
+    */
+    public function getReservePercentage(): ?int {
+        $val = $this->getBackingStore()->get('reservePercentage');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reservePercentage'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('policySettings', $this->getPolicySettings());
+        $writer->writeIntegerValue('reservePercentage', $this->getReservePercentage());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -110,6 +124,14 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setPolicySettings(?CloudPcPolicySettingType $value): void {
         $this->getBackingStore()->set('policySettings', $value);
+    }
+
+    /**
+     * Sets the reservePercentage property value. The reservePercentage property
+     * @param int|null $value Value to set for the reservePercentage property.
+    */
+    public function setReservePercentage(?int $value): void {
+        $this->getBackingStore()->set('reservePercentage', $value);
     }
 
 }

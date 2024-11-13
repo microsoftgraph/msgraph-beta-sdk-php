@@ -109,7 +109,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Gets the managedDeviceCount property value. The number of vulnerable devices. Valid values 0 to 65536
+     * Gets the managedDeviceCount property value. The number of vulnerable devices.
      * @return int|null
     */
     public function getManagedDeviceCount(): ?int {
@@ -190,7 +190,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Sets the managedDeviceCount property value. The number of vulnerable devices. Valid values 0 to 65536
+     * Sets the managedDeviceCount property value. The number of vulnerable devices.
      * @param int|null $value Value to set for the managedDeviceCount property.
     */
     public function setManagedDeviceCount(?int $value): void {

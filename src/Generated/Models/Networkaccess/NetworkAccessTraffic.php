@@ -281,10 +281,12 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'initiatingProcessName' => fn(ParseNode $n) => $o->setInitiatingProcessName($n->getStringValue()),
             'networkProtocol' => fn(ParseNode $n) => $o->setNetworkProtocol($n->getEnumValue(NetworkingProtocol::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operationStatus' => fn(ParseNode $n) => $o->setOperationStatus($n->getEnumValue(NetworkTrafficOperationStatus::class)),
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
             'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
             'policyRuleId' => fn(ParseNode $n) => $o->setPolicyRuleId($n->getStringValue()),
             'policyRuleName' => fn(ParseNode $n) => $o->setPolicyRuleName($n->getStringValue()),
+            'popProcessingRegion' => fn(ParseNode $n) => $o->setPopProcessingRegion($n->getStringValue()),
             'privateAccessDetails' => fn(ParseNode $n) => $o->setPrivateAccessDetails($n->getObjectValue([PrivateAccessDetails::class, 'createFromDiscriminatorValue'])),
             'receivedBytes' => fn(ParseNode $n) => $o->setReceivedBytes($n->getIntegerValue()),
             'remoteNetworkId' => fn(ParseNode $n) => $o->setRemoteNetworkId($n->getStringValue()),
@@ -398,6 +400,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the operationStatus property value. The operationStatus property
+     * @return NetworkTrafficOperationStatus|null
+    */
+    public function getOperationStatus(): ?NetworkTrafficOperationStatus {
+        $val = $this->getBackingStore()->get('operationStatus');
+        if (is_null($val) || $val instanceof NetworkTrafficOperationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operationStatus'");
+    }
+
+    /**
      * Gets the policyId property value. Represents a unique identifier assigned to a policy. Supports $filter (eq) and $orderby.
      * @return string|null
     */
@@ -443,6 +457,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'policyRuleName'");
+    }
+
+    /**
+     * Gets the popProcessingRegion property value. The popProcessingRegion property
+     * @return string|null
+    */
+    public function getPopProcessingRegion(): ?string {
+        $val = $this->getBackingStore()->get('popProcessingRegion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'popProcessingRegion'");
     }
 
     /**
@@ -691,10 +717,12 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('initiatingProcessName', $this->getInitiatingProcessName());
         $writer->writeEnumValue('networkProtocol', $this->getNetworkProtocol());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('operationStatus', $this->getOperationStatus());
         $writer->writeStringValue('policyId', $this->getPolicyId());
         $writer->writeStringValue('policyName', $this->getPolicyName());
         $writer->writeStringValue('policyRuleId', $this->getPolicyRuleId());
         $writer->writeStringValue('policyRuleName', $this->getPolicyRuleName());
+        $writer->writeStringValue('popProcessingRegion', $this->getPopProcessingRegion());
         $writer->writeObjectValue('privateAccessDetails', $this->getPrivateAccessDetails());
         $writer->writeIntegerValue('receivedBytes', $this->getReceivedBytes());
         $writer->writeStringValue('remoteNetworkId', $this->getRemoteNetworkId());
@@ -917,6 +945,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Sets the operationStatus property value. The operationStatus property
+     * @param NetworkTrafficOperationStatus|null $value Value to set for the operationStatus property.
+    */
+    public function setOperationStatus(?NetworkTrafficOperationStatus $value): void {
+        $this->getBackingStore()->set('operationStatus', $value);
+    }
+
+    /**
      * Sets the policyId property value. Represents a unique identifier assigned to a policy. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the policyId property.
     */
@@ -946,6 +982,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setPolicyRuleName(?string $value): void {
         $this->getBackingStore()->set('policyRuleName', $value);
+    }
+
+    /**
+     * Sets the popProcessingRegion property value. The popProcessingRegion property
+     * @param string|null $value Value to set for the popProcessingRegion property.
+    */
+    public function setPopProcessingRegion(?string $value): void {
+        $this->getBackingStore()->set('popProcessingRegion', $value);
     }
 
     /**

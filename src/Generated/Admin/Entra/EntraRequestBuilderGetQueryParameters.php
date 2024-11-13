@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Entra;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get entra from admin
+ * A container for Microsoft Entra resources. Read-only.
 */
 class EntraRequestBuilderGetQueryParameters 
 {

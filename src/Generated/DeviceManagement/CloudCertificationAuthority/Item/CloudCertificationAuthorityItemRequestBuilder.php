@@ -13,6 +13,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\PostCloudCertificationAuthority\PostCloudCertificationAuthorityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeCloudCertificationAuthorityCertificate\RevokeCloudCertificationAuthorityCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeLeafCertificate\RevokeLeafCertificateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeLeafCertificateBySerialNumber\RevokeLeafCertificateBySerialNumberRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\SearchCloudCertificationAuthorityLeafCertificateBySerialNumber\SearchCloudCertificationAuthorityLeafCertificateBySerialNumberRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\UploadExternallySignedCertificationAuthorityCertificate\UploadExternallySignedCertificationAuthorityCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudCertificationAuthority;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -87,6 +89,20 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
     */
     public function revokeLeafCertificate(): RevokeLeafCertificateRequestBuilder {
         return new RevokeLeafCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the revokeLeafCertificateBySerialNumber method.
+    */
+    public function revokeLeafCertificateBySerialNumber(): RevokeLeafCertificateBySerialNumberRequestBuilder {
+        return new RevokeLeafCertificateBySerialNumberRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the searchCloudCertificationAuthorityLeafCertificateBySerialNumber method.
+    */
+    public function searchCloudCertificationAuthorityLeafCertificateBySerialNumber(): SearchCloudCertificationAuthorityLeafCertificateBySerialNumberRequestBuilder {
+        return new SearchCloudCertificationAuthorityLeafCertificateBySerialNumberRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
