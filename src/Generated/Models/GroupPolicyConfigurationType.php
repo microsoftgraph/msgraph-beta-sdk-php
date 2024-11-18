@@ -5,6 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class GroupPolicyConfigurationType extends Enum {
-    public const POLICY = 'policy';
-    public const PREFERENCE = 'preference';
+    public const POLICY = "policy";
+    public const PREFERENCE = "preference";
 }
