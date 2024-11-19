@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\Certi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get certificateAuthorities from directory
+ * Get a list of the certificateAuthorityDetail objects and their properties.
 */
 class CertificateAuthoritiesRequestBuilderGetQueryParameters 
 {

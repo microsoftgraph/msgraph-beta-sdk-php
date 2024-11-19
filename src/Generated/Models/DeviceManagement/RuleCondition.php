@@ -120,7 +120,7 @@ class RuleCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the relationshipType property value. The relationship type. Possible values are: and, or.
+     * Gets the relationshipType property value. The relationship type.  Possible values are: and, or.
      * @return RelationshipType|null
     */
     public function getRelationshipType(): ?RelationshipType {
@@ -206,7 +206,7 @@ class RuleCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the relationshipType property value. The relationship type. Possible values are: and, or.
+     * Sets the relationshipType property value. The relationship type.  Possible values are: and, or.
      * @param RelationshipType|null $value Value to set for the relationshipType property.
     */
     public function setRelationshipType(?RelationshipType $value): void {

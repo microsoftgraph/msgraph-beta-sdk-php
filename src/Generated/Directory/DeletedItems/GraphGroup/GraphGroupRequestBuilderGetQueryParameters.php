@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphGroup;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a list of recently deleted directory objects. Currently, deleted items functionality is only supported for the application, servicePrincipal, externalUserProfile, group, administrative unit, pendingExternalUserProfile, and user resources.
+ * Retrieve a list of recently deleted directory objects from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- [certificateAuthorityDetail](../resources/certificateauthoritydetail.md- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
 */
 class GraphGroupRequestBuilderGetQueryParameters 
 {

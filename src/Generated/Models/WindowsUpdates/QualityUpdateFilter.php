@@ -26,7 +26,7 @@ class QualityUpdateFilter extends WindowsUpdateFilter implements Parsable
     }
 
     /**
-     * Gets the cadence property value. The cadence property
+     * Gets the cadence property value. Specifies the cadence for publishing quality updates of the filter. The possible values are: monthly, outOfBand, unknownFutureValue.
      * @return QualityUpdateCadence|null
     */
     public function getCadence(): ?QualityUpdateCadence {
@@ -38,7 +38,7 @@ class QualityUpdateFilter extends WindowsUpdateFilter implements Parsable
     }
 
     /**
-     * Gets the classification property value. The classification property
+     * Gets the classification property value. Specifies the quality update classification of the filter. The possible values are: all, security, nonSecurity, unknownFutureValue.
      * @return QualityUpdateClassification|null
     */
     public function getClassification(): ?QualityUpdateClassification {
@@ -72,7 +72,7 @@ class QualityUpdateFilter extends WindowsUpdateFilter implements Parsable
     }
 
     /**
-     * Sets the cadence property value. The cadence property
+     * Sets the cadence property value. Specifies the cadence for publishing quality updates of the filter. The possible values are: monthly, outOfBand, unknownFutureValue.
      * @param QualityUpdateCadence|null $value Value to set for the cadence property.
     */
     public function setCadence(?QualityUpdateCadence $value): void {
@@ -80,7 +80,7 @@ class QualityUpdateFilter extends WindowsUpdateFilter implements Parsable
     }
 
     /**
-     * Sets the classification property value. The classification property
+     * Sets the classification property value. Specifies the quality update classification of the filter. The possible values are: all, security, nonSecurity, unknownFutureValue.
      * @param QualityUpdateClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?QualityUpdateClassification $value): void {

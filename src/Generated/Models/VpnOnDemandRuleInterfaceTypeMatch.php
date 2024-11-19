@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class VpnOnDemandRuleInterfaceTypeMatch extends Enum {
-    public const NOT_CONFIGURED = 'notConfigured';
-    public const ETHERNET = 'ethernet';
-    public const WI_FI = 'wiFi';
-    public const CELLULAR = 'cellular';
+    public const NOT_CONFIGURED = "notConfigured";
+    public const ETHERNET = "ethernet";
+    public const WI_FI = "wiFi";
+    public const CELLULAR = "cellular";
 }
