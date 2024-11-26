@@ -65,6 +65,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
             'inactiveUsers' => fn(ParseNode $n) => $o->setInactiveUsers($n->getCollectionOfObjectValues([MonthlyInactiveUsersMetric::class, 'createFromDiscriminatorValue'])),
             'inactiveUsersByApplication' => fn(ParseNode $n) => $o->setInactiveUsersByApplication($n->getCollectionOfObjectValues([MonthlyInactiveUsersByApplicationMetric::class, 'createFromDiscriminatorValue'])),
             'mfaCompletions' => fn(ParseNode $n) => $o->setMfaCompletions($n->getCollectionOfObjectValues([MfaCompletionMetric::class, 'createFromDiscriminatorValue'])),
+            'mfaRegisteredUsers' => fn(ParseNode $n) => $o->setMfaRegisteredUsers($n->getCollectionOfObjectValues([MfaUserCountMetric::class, 'createFromDiscriminatorValue'])),
             'requests' => fn(ParseNode $n) => $o->setRequests($n->getCollectionOfObjectValues([UserRequestsMetric::class, 'createFromDiscriminatorValue'])),
             'signUps' => fn(ParseNode $n) => $o->setSignUps($n->getCollectionOfObjectValues([UserSignUpMetric::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getCollectionOfObjectValues([InsightSummary::class, 'createFromDiscriminatorValue'])),
@@ -111,6 +112,20 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaCompletions'");
+    }
+
+    /**
+     * Gets the mfaRegisteredUsers property value. The mfaRegisteredUsers property
+     * @return array<MfaUserCountMetric>|null
+    */
+    public function getMfaRegisteredUsers(): ?array {
+        $val = $this->getBackingStore()->get('mfaRegisteredUsers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MfaUserCountMetric::class);
+            /** @var array<MfaUserCountMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaRegisteredUsers'");
     }
 
     /**
@@ -166,6 +181,7 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('inactiveUsers', $this->getInactiveUsers());
         $writer->writeCollectionOfObjectValues('inactiveUsersByApplication', $this->getInactiveUsersByApplication());
         $writer->writeCollectionOfObjectValues('mfaCompletions', $this->getMfaCompletions());
+        $writer->writeCollectionOfObjectValues('mfaRegisteredUsers', $this->getMfaRegisteredUsers());
         $writer->writeCollectionOfObjectValues('requests', $this->getRequests());
         $writer->writeCollectionOfObjectValues('signUps', $this->getSignUps());
         $writer->writeCollectionOfObjectValues('summary', $this->getSummary());
@@ -209,6 +225,14 @@ class MonthlyUserInsightMetricsRoot extends Entity implements Parsable
     */
     public function setMfaCompletions(?array $value): void {
         $this->getBackingStore()->set('mfaCompletions', $value);
+    }
+
+    /**
+     * Sets the mfaRegisteredUsers property value. The mfaRegisteredUsers property
+     * @param array<MfaUserCountMetric>|null $value Value to set for the mfaRegisteredUsers property.
+    */
+    public function setMfaRegisteredUsers(?array $value): void {
+        $this->getBackingStore()->set('mfaRegisteredUsers', $value);
     }
 
     /**

@@ -50,7 +50,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Gets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is idtoken the secret is not required because there is no code exchange. The idtoken is returned directly from the authorization response. This is write-only. A read operation returns .
+     * Gets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is idtoken, the secret isn't required because there's no code exchange. The idtoken is returned directly from the authorization response. This is write-only. A read operation returns .
      * @return string|null
     */
     public function getClientSecret(): ?string {
@@ -62,7 +62,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Gets the domainHint property value. The domain hint can be used to skip directly to the sign-in page of the specified identity provider, instead of having the user make a selection among the list of available identity providers.
+     * Gets the domainHint property value. The domain hint can be used to skip directly to the sign-in page of the specified identity provider instead of having the user make a selection among the list of available identity providers.
      * @return string|null
     */
     public function getDomainHint(): ?string {
@@ -128,7 +128,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Gets the scope property value. Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended, separated by a space. For more details about the scope limitations, see RFC6749 Section 3.3. Required.
+     * Gets the scope property value. Scope defines the information and permissions you're looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users aren't able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended, separated by a space. For more information about the scope limitations, see RFC6749 Section 3.3. Required.
      * @return string|null
     */
     public function getScope(): ?string {
@@ -172,7 +172,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Sets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is idtoken the secret is not required because there is no code exchange. The idtoken is returned directly from the authorization response. This is write-only. A read operation returns .
+     * Sets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. The clientSecret has a dependency on responseType. When responseType is code, a secret is required for the auth code exchange.When responseType is idtoken, the secret isn't required because there's no code exchange. The idtoken is returned directly from the authorization response. This is write-only. A read operation returns .
      * @param string|null $value Value to set for the clientSecret property.
     */
     public function setClientSecret(?string $value): void {
@@ -180,7 +180,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Sets the domainHint property value. The domain hint can be used to skip directly to the sign-in page of the specified identity provider, instead of having the user make a selection among the list of available identity providers.
+     * Sets the domainHint property value. The domain hint can be used to skip directly to the sign-in page of the specified identity provider instead of having the user make a selection among the list of available identity providers.
      * @param string|null $value Value to set for the domainHint property.
     */
     public function setDomainHint(?string $value): void {
@@ -212,7 +212,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Sets the scope property value. Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended, separated by a space. For more details about the scope limitations, see RFC6749 Section 3.3. Required.
+     * Sets the scope property value. Scope defines the information and permissions you're looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users aren't able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended, separated by a space. For more information about the scope limitations, see RFC6749 Section 3.3. Required.
      * @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value): void {

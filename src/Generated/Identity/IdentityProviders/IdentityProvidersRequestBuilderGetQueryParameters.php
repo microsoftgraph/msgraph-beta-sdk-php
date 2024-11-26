@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\IdentityProviders;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of identity provider resources that are configured for a tenant, and that are derived from identityProviderBase. For a Microsoft Entra tenant, the providers can be socialIdentityProviders or builtinIdentityProviders objects. For an Azure AD B2C, the providers can be socialIdentityProvider, openIdConnectIdentityProvider, or appleManagedIdentityProvider objects.
+ * Get a collection of identity provider resources that are configured for a tenant. Among the types of providers derived from identityProviderBase, in Microsoft Entra External ID, this operation can get a socialIdentityProvider, appleManagedIdentityProvider, builtinIdentityProvider, or an oidcIdentityProvider resource. In Azure AD B2C, this operation can get a socialIdentityProvider, appleManagedIdentityProvider, builtinIdentityProvider, or an openIdConnectIdentityProvider resource.
 */
 class IdentityProvidersRequestBuilderGetQueryParameters 
 {

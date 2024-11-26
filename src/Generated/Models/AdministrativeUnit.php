@@ -27,6 +27,20 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the deletedMembers property value. The deletedMembers property
+     * @return array<DirectoryObject>|null
+    */
+    public function getDeletedMembers(): ?array {
+        $val = $this->getBackingStore()->get('deletedMembers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedMembers'");
+    }
+
+    /**
      * Gets the description property value. The description property
      * @return string|null
     */
@@ -71,6 +85,7 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'deletedMembers' => fn(ParseNode $n) => $o->setDeletedMembers($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
@@ -178,6 +193,7 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('deletedMembers', $this->getDeletedMembers());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
@@ -188,6 +204,14 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
         $writer->writeStringValue('membershipType', $this->getMembershipType());
         $writer->writeCollectionOfObjectValues('scopedRoleMembers', $this->getScopedRoleMembers());
         $writer->writeStringValue('visibility', $this->getVisibility());
+    }
+
+    /**
+     * Sets the deletedMembers property value. The deletedMembers property
+     * @param array<DirectoryObject>|null $value Value to set for the deletedMembers property.
+    */
+    public function setDeletedMembers(?array $value): void {
+        $this->getBackingStore()->set('deletedMembers', $value);
     }
 
     /**

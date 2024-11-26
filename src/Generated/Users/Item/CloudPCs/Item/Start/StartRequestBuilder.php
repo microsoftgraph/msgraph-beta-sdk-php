@@ -30,7 +30,7 @@ class StartRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.
+     * Start a specific Cloud PC. Currently, only Windows 365 Frontline Cloud PCs are supported.
      * @param StartRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class StartRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Start a specific Cloud PC for a user. Currently, only Windows 365 Frontline Cloud PCs are supported.
+     * Start a specific Cloud PC. Currently, only Windows 365 Frontline Cloud PCs are supported.
      * @param StartRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

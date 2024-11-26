@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Authentications\Au
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\InactiveUsers\InactiveUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\InactiveUsersByApplication\InactiveUsersByApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\MfaCompletions\MfaCompletionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\MfaTelecomFraud\MfaTelecomFraudRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\SignUps\SignUpsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Summary\SummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\UserCount\UserCountRequestBuilder;
@@ -57,6 +58,13 @@ class DailyRequestBuilder extends BaseRequestBuilder
     */
     public function mfaCompletions(): MfaCompletionsRequestBuilder {
         return new MfaCompletionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the mfaTelecomFraud property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
+    */
+    public function mfaTelecomFraud(): MfaTelecomFraudRequestBuilder {
+        return new MfaTelecomFraudRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

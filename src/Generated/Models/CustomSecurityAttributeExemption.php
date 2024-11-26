@@ -43,7 +43,7 @@ class CustomSecurityAttributeExemption extends Entity implements Parsable
     }
 
     /**
-     * Gets the operator property value. The operator property
+     * Gets the operator property value. The possible values are: equals, unknownFutureValue. If equals, the customSecurityAttributeExemption value is compared to match the custom security attribute value for the exemption to be applied. The comparison is case sensitive.
      * @return CustomSecurityAttributeComparisonOperator|null
     */
     public function getOperator(): ?CustomSecurityAttributeComparisonOperator {
@@ -64,7 +64,7 @@ class CustomSecurityAttributeExemption extends Entity implements Parsable
     }
 
     /**
-     * Sets the operator property value. The operator property
+     * Sets the operator property value. The possible values are: equals, unknownFutureValue. If equals, the customSecurityAttributeExemption value is compared to match the custom security attribute value for the exemption to be applied. The comparison is case sensitive.
      * @param CustomSecurityAttributeComparisonOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?CustomSecurityAttributeComparisonOperator $value): void {

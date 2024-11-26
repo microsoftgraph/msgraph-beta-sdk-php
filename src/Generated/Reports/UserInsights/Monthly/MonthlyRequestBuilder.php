@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Authentications\
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsers\InactiveUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\InactiveUsersByApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaCompletions\MfaCompletionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers\MfaRegisteredUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Requests\RequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\SignUps\SignUpsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Summary\SummaryRequestBuilder;
@@ -57,6 +58,13 @@ class MonthlyRequestBuilder extends BaseRequestBuilder
     */
     public function mfaCompletions(): MfaCompletionsRequestBuilder {
         return new MfaCompletionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the mfaRegisteredUsers property of the microsoft.graph.monthlyUserInsightMetricsRoot entity.
+    */
+    public function mfaRegisteredUsers(): MfaRegisteredUsersRequestBuilder {
+        return new MfaRegisteredUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

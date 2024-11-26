@@ -33,6 +33,13 @@ class UploadSession implements AdditionalDataHolder, BackedModel, Parsable
      * @return UploadSession
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UploadSession {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.engagementUploadSession': return new EngagementUploadSession();
+            }
+        }
         return new UploadSession();
     }
 

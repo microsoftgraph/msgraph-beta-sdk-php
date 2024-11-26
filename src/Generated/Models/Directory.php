@@ -248,7 +248,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the publicKeyInfrastructure property value. The publicKeyInfrastructure property
+     * Gets the publicKeyInfrastructure property value. The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant.
      * @return PublicKeyInfrastructureRoot|null
     */
     public function getPublicKeyInfrastructure(): ?PublicKeyInfrastructureRoot {
@@ -440,7 +440,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the publicKeyInfrastructure property value. The publicKeyInfrastructure property
+     * Sets the publicKeyInfrastructure property value. The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant.
      * @param PublicKeyInfrastructureRoot|null $value Value to set for the publicKeyInfrastructure property.
     */
     public function setPublicKeyInfrastructure(?PublicKeyInfrastructureRoot $value): void {

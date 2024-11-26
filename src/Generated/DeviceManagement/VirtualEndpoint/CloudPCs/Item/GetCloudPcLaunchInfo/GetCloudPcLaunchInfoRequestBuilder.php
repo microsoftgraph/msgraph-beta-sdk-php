@@ -31,7 +31,7 @@ class GetCloudPcLaunchInfoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the cloudPCLaunchInfo for the signed-in user.
+     * Get the cloudPCLaunchInfo for a specific cloudPC.
      * @param GetCloudPcLaunchInfoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcLaunchInfo|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class GetCloudPcLaunchInfoRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the cloudPCLaunchInfo for the signed-in user.
+     * Get the cloudPCLaunchInfo for a specific cloudPC.
      * @param GetCloudPcLaunchInfoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

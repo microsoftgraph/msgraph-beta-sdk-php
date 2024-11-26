@@ -5,6 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class ManagedDeviceManagementFeatures extends Enum {
-    public const NONE = 'none';
-    public const MICROSOFT_MANAGED_DESKTOP = 'microsoftManagedDesktop';
+    public const NONE = "none";
+    public const MICROSOFT_MANAGED_DESKTOP = "microsoftManagedDesktop";
 }

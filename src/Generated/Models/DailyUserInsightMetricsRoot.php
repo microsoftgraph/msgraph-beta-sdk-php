@@ -65,6 +65,7 @@ class DailyUserInsightMetricsRoot extends Entity implements Parsable
             'inactiveUsers' => fn(ParseNode $n) => $o->setInactiveUsers($n->getCollectionOfObjectValues([DailyInactiveUsersMetric::class, 'createFromDiscriminatorValue'])),
             'inactiveUsersByApplication' => fn(ParseNode $n) => $o->setInactiveUsersByApplication($n->getCollectionOfObjectValues([DailyInactiveUsersByApplicationMetric::class, 'createFromDiscriminatorValue'])),
             'mfaCompletions' => fn(ParseNode $n) => $o->setMfaCompletions($n->getCollectionOfObjectValues([MfaCompletionMetric::class, 'createFromDiscriminatorValue'])),
+            'mfaTelecomFraud' => fn(ParseNode $n) => $o->setMfaTelecomFraud($n->getCollectionOfObjectValues([MfaTelecomFraudMetric::class, 'createFromDiscriminatorValue'])),
             'signUps' => fn(ParseNode $n) => $o->setSignUps($n->getCollectionOfObjectValues([UserSignUpMetric::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getCollectionOfObjectValues([InsightSummary::class, 'createFromDiscriminatorValue'])),
             'userCount' => fn(ParseNode $n) => $o->setUserCount($n->getCollectionOfObjectValues([UserCountMetric::class, 'createFromDiscriminatorValue'])),
@@ -111,6 +112,20 @@ class DailyUserInsightMetricsRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaCompletions'");
+    }
+
+    /**
+     * Gets the mfaTelecomFraud property value. The mfaTelecomFraud property
+     * @return array<MfaTelecomFraudMetric>|null
+    */
+    public function getMfaTelecomFraud(): ?array {
+        $val = $this->getBackingStore()->get('mfaTelecomFraud');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MfaTelecomFraudMetric::class);
+            /** @var array<MfaTelecomFraudMetric>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfaTelecomFraud'");
     }
 
     /**
@@ -166,6 +181,7 @@ class DailyUserInsightMetricsRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('inactiveUsers', $this->getInactiveUsers());
         $writer->writeCollectionOfObjectValues('inactiveUsersByApplication', $this->getInactiveUsersByApplication());
         $writer->writeCollectionOfObjectValues('mfaCompletions', $this->getMfaCompletions());
+        $writer->writeCollectionOfObjectValues('mfaTelecomFraud', $this->getMfaTelecomFraud());
         $writer->writeCollectionOfObjectValues('signUps', $this->getSignUps());
         $writer->writeCollectionOfObjectValues('summary', $this->getSummary());
         $writer->writeCollectionOfObjectValues('userCount', $this->getUserCount());
@@ -209,6 +225,14 @@ class DailyUserInsightMetricsRoot extends Entity implements Parsable
     */
     public function setMfaCompletions(?array $value): void {
         $this->getBackingStore()->set('mfaCompletions', $value);
+    }
+
+    /**
+     * Sets the mfaTelecomFraud property value. The mfaTelecomFraud property
+     * @param array<MfaTelecomFraudMetric>|null $value Value to set for the mfaTelecomFraud property.
+    */
+    public function setMfaTelecomFraud(?array $value): void {
+        $this->getBackingStore()->set('mfaTelecomFraud', $value);
     }
 
     /**

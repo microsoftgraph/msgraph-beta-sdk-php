@@ -688,6 +688,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.conversation': return new Conversation();
                 case '#microsoft.graph.conversationMember': return new ConversationMember();
                 case '#microsoft.graph.conversationThread': return new ConversationThread();
+                case '#microsoft.graph.copilotAdmin': return new CopilotAdmin();
+                case '#microsoft.graph.copilotAdminLimitedMode': return new CopilotAdminLimitedMode();
+                case '#microsoft.graph.copilotAdminSetting': return new CopilotAdminSetting();
                 case '#microsoft.graph.corsConfiguration_v2': return new CorsConfiguration_v2();
                 case '#microsoft.graph.countryNamedLocation': return new CountryNamedLocation();
                 case '#microsoft.graph.credentialUsageSummary': return new CredentialUsageSummary();
@@ -1365,6 +1368,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.messageTrace': return new MessageTrace();
                 case '#microsoft.graph.mfaCompletionMetric': return new MfaCompletionMetric();
                 case '#microsoft.graph.mfaFailure': return new MfaFailure();
+                case '#microsoft.graph.mfaTelecomFraudMetric': return new MfaTelecomFraudMetric();
+                case '#microsoft.graph.mfaUserCountMetric': return new MfaUserCountMetric();
                 case '#microsoft.graph.microsoftAccountUserConversationMember': return new MicrosoftAccountUserConversationMember();
                 case '#microsoft.graph.microsoftApplicationDataAccessSettings': return new MicrosoftApplicationDataAccessSettings();
                 case '#microsoft.graph.microsoftAuthenticatorAuthenticationMethod': return new MicrosoftAuthenticatorAuthenticationMethod();

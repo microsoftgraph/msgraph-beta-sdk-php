@@ -36,6 +36,18 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the accessTier property value. The accessTier property
+     * @return CloudPcBlobAccessTier|null
+    */
+    public function getAccessTier(): ?CloudPcBlobAccessTier {
+        $val = $this->getBackingStore()->get('accessTier');
+        if (is_null($val) || $val instanceof CloudPcBlobAccessTier) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'accessTier'");
+    }
+
+    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
@@ -99,6 +111,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'accessTier' => fn(ParseNode $n) => $o->setAccessTier($n->getEnumValue(CloudPcBlobAccessTier::class)),
             'azureStorageAccountId' => fn(ParseNode $n) => $o->setAzureStorageAccountId($n->getStringValue()),
             'azureStorageAccountName' => fn(ParseNode $n) => $o->setAzureStorageAccountName($n->getStringValue()),
             'azureStorageContainerName' => fn(ParseNode $n) => $o->setAzureStorageContainerName($n->getStringValue()),
@@ -201,6 +214,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('accessTier', $this->getAccessTier());
         $writer->writeStringValue('azureStorageAccountId', $this->getAzureStorageAccountId());
         $writer->writeStringValue('azureStorageAccountName', $this->getAzureStorageAccountName());
         $writer->writeStringValue('azureStorageContainerName', $this->getAzureStorageContainerName());
@@ -212,6 +226,14 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('subscriptionName', $this->getSubscriptionName());
         $writer->writeEnumValue('userAccessLevel', $this->getUserAccessLevel());
         $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the accessTier property value. The accessTier property
+     * @param CloudPcBlobAccessTier|null $value Value to set for the accessTier property.
+    */
+    public function setAccessTier(?CloudPcBlobAccessTier $value): void {
+        $this->getBackingStore()->set('accessTier', $value);
     }
 
     /**
