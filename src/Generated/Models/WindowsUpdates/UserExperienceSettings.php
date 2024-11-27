@@ -82,7 +82,7 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isHotpatchEnabled property value. The isHotpatchEnabled property
+     * Gets the isHotpatchEnabled property value. Specifies whether the update is offered as a hotpatch. It can only be set to true on automatic policies that target monthly security updates.
      * @return bool|null
     */
     public function getIsHotpatchEnabled(): ?bool {
@@ -154,7 +154,7 @@ class UserExperienceSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isHotpatchEnabled property value. The isHotpatchEnabled property
+     * Sets the isHotpatchEnabled property value. Specifies whether the update is offered as a hotpatch. It can only be set to true on automatic policies that target monthly security updates.
      * @param bool|null $value Value to set for the isHotpatchEnabled property.
     */
     public function setIsHotpatchEnabled(?bool $value): void {

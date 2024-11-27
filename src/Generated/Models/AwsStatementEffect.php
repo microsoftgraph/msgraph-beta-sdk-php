@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class AwsStatementEffect extends Enum {
-    public const ALLOW = 'allow';
-    public const DENY = 'deny';
-    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const ALLOW = "allow";
+    public const DENY = "deny";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\DeletedMembers\DeletedMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
@@ -36,6 +37,13 @@ class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder
     */
     public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the deletedMembers property of the microsoft.graph.administrativeUnit entity.
+    */
+    public function deletedMembers(): DeletedMembersRequestBuilder {
+        return new DeletedMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

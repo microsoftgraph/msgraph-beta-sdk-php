@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\DeletedMembers\DeletedMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\ScopedRoleMembers\ScopedRoleMembersRequestBuilder;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the deletedMembers property of the microsoft.graph.administrativeUnit entity.
+    */
+    public function deletedMembers(): DeletedMembersRequestBuilder {
+        return new DeletedMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity.
     */

@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class TeamTemplateAudience extends Enum {
-    public const ORGANIZATION = 'organization';
-    public const USER = 'user';
-    public const PUBLIC = 'public';
-    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const ORGANIZATION = "organization";
+    public const USER = "user";
+    public const PUBLIC = "public";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

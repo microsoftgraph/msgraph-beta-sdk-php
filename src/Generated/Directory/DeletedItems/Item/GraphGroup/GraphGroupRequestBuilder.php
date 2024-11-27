@@ -31,7 +31,7 @@ class GraphGroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of recently deleted directory objects. Currently, deleted items functionality is only supported for the application, servicePrincipal, externalUserProfile, group, administrative unit, pendingExternalUserProfile, and user resources.
+     * Retrieve a list of recently deleted directory objects from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- [certificateAuthorityDetail](../resources/certificateauthoritydetail.md- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
      * @param GraphGroupRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class GraphGroupRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of recently deleted directory objects. Currently, deleted items functionality is only supported for the application, servicePrincipal, externalUserProfile, group, administrative unit, pendingExternalUserProfile, and user resources.
+     * Retrieve a list of recently deleted directory objects from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- [certificateAuthorityDetail](../resources/certificateauthoritydetail.md- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
      * @param GraphGroupRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

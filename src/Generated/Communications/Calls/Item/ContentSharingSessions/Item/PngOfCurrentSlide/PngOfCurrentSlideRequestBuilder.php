@@ -1,0 +1,145 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharingSessions\Item\PngOfCurrentSlide;
+
+use Exception;
+use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
+use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
+use Psr\Http\Message\StreamInterface;
+
+/**
+ * Provides operations to manage the media for the cloudCommunications entity.
+*/
+class PngOfCurrentSlideRequestBuilder extends BaseRequestBuilder 
+{
+    /**
+     * Instantiates a new PngOfCurrentSlideRequestBuilder and sets the default values.
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
+     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions/{contentSharingSession%2Did}/pngOfCurrentSlide');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
+    }
+
+    /**
+     * Delete pngOfCurrentSlide for the navigation property contentSharingSessions in communications
+     * @param PngOfCurrentSlideRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<void|null>
+     * @throws Exception
+    */
+    public function delete(?PngOfCurrentSlideRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
+     * Get pngOfCurrentSlide for the navigation property contentSharingSessions from communications
+     * @param PngOfCurrentSlideRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<StreamInterface|null>
+     * @throws Exception
+    */
+    public function get(?PngOfCurrentSlideRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        /** @var Promise<StreamInterface|null> $result */
+        $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $errorMappings);
+        return $result;
+    }
+
+    /**
+     * Update pngOfCurrentSlide for the navigation property contentSharingSessions in communications
+     * @param StreamInterface $body Binary request body
+     * @param PngOfCurrentSlideRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<StreamInterface|null>
+     * @throws Exception
+    */
+    public function put(StreamInterface $body, ?PngOfCurrentSlideRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        /** @var Promise<StreamInterface|null> $result */
+        $result = $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $errorMappings);
+        return $result;
+    }
+
+    /**
+     * Delete pngOfCurrentSlide for the navigation property contentSharingSessions in communications
+     * @param PngOfCurrentSlideRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toDeleteRequestInformation(?PngOfCurrentSlideRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::DELETE;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Get pngOfCurrentSlide for the navigation property contentSharingSessions from communications
+     * @param PngOfCurrentSlideRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toGetRequestInformation(?PngOfCurrentSlideRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::GET;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Update pngOfCurrentSlide for the navigation property contentSharingSessions in communications
+     * @param StreamInterface $body Binary request body
+     * @param PngOfCurrentSlideRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPutRequestInformation(StreamInterface $body, ?PngOfCurrentSlideRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::PUT;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setStreamContent($body, "application/octet-stream");
+        return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return PngOfCurrentSlideRequestBuilder
+    */
+    public function withUrl(string $rawUrl): PngOfCurrentSlideRequestBuilder {
+        return new PngOfCurrentSlideRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
+}

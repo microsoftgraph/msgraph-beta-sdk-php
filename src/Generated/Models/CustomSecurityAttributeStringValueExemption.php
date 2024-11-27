@@ -37,7 +37,7 @@ class CustomSecurityAttributeStringValueExemption extends CustomSecurityAttribut
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. Value representing custom security attribute value to compare against while evaluating the exemption.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -58,7 +58,7 @@ class CustomSecurityAttributeStringValueExemption extends CustomSecurityAttribut
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. Value representing custom security attribute value to compare against while evaluating the exemption.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

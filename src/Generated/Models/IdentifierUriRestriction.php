@@ -57,7 +57,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the excludeActors property value. The excludeActors property
+     * Gets the excludeActors property value. Collection of custom security attribute exemptions. If an actor user or service principal has the custom security attribute, they're exempted from the restriction.
      * @return AppManagementPolicyActorExemptions|null
     */
     public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
@@ -69,7 +69,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Entra ID; else, the restriction isn't enforced for those applications.
+     * Gets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Microsoft Entra ID; else, the restriction isn't enforced for those applications.
      * @return bool|null
     */
     public function getExcludeAppsReceivingV2Tokens(): ?bool {
@@ -175,7 +175,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the excludeActors property value. The excludeActors property
+     * Sets the excludeActors property value. Collection of custom security attribute exemptions. If an actor user or service principal has the custom security attribute, they're exempted from the restriction.
      * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
     */
     public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {
@@ -183,7 +183,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Entra ID; else, the restriction isn't enforced for those applications.
+     * Sets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Microsoft Entra ID; else, the restriction isn't enforced for those applications.
      * @param bool|null $value Value to set for the excludeAppsReceivingV2Tokens property.
     */
     public function setExcludeAppsReceivingV2Tokens(?bool $value): void {

@@ -824,7 +824,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the sessionId property value. The sessionId property
+     * Gets the sessionId property value. Identifier of the session that was generated during the sign-in.
      * @return string|null
     */
     public function getSessionId(): ?string {
@@ -1548,7 +1548,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the sessionId property value. The sessionId property
+     * Sets the sessionId property value. Identifier of the session that was generated during the sign-in.
      * @param string|null $value Value to set for the sessionId property.
     */
     public function setSessionId(?string $value): void {

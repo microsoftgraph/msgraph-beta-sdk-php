@@ -60,7 +60,7 @@ class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a user's email address associated with an email Authentication Method object.
+     * Update a user's email address associated with an email Authentication Method object. Self-service operations aren't supported.
      * @param EmailAuthenticationMethod $body The request body
      * @param EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailAuthenticationMethod|null>
@@ -115,7 +115,7 @@ class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update a user's email address associated with an email Authentication Method object.
+     * Update a user's email address associated with an email Authentication Method object. Self-service operations aren't supported.
      * @param EmailAuthenticationMethod $body The request body
      * @param EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

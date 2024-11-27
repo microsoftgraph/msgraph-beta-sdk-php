@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Represents a container that exposes navigation properties for employee experience user resources.
+*/
 class EmployeeExperienceUser extends Entity implements Parsable 
 {
     /**

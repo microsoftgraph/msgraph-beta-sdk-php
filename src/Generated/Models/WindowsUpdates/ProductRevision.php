@@ -59,12 +59,25 @@ class ProductRevision extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'catalogEntry' => fn(ParseNode $n) => $o->setCatalogEntry($n->getObjectValue([CatalogEntry::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isHotpatchUpdate' => fn(ParseNode $n) => $o->setIsHotpatchUpdate($n->getBooleanValue()),
             'knowledgeBaseArticle' => fn(ParseNode $n) => $o->setKnowledgeBaseArticle($n->getObjectValue([KnowledgeBaseArticle::class, 'createFromDiscriminatorValue'])),
             'osBuild' => fn(ParseNode $n) => $o->setOsBuild($n->getObjectValue([BuildVersionDetails::class, 'createFromDiscriminatorValue'])),
             'product' => fn(ParseNode $n) => $o->setProduct($n->getStringValue()),
             'releaseDateTime' => fn(ParseNode $n) => $o->setReleaseDateTime($n->getDateTimeValue()),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the isHotpatchUpdate property value. True indicates that the content is hotpatchable; otherwise, false. For more information, see Deploy a hotpatch quality update using Windows Autopatch. Read-only.
+     * @return bool|null
+    */
+    public function getIsHotpatchUpdate(): ?bool {
+        $val = $this->getBackingStore()->get('isHotpatchUpdate');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHotpatchUpdate'");
     }
 
     /**
@@ -135,6 +148,7 @@ class ProductRevision extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('catalogEntry', $this->getCatalogEntry());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isHotpatchUpdate', $this->getIsHotpatchUpdate());
         $writer->writeObjectValue('knowledgeBaseArticle', $this->getKnowledgeBaseArticle());
         $writer->writeObjectValue('osBuild', $this->getOsBuild());
         $writer->writeStringValue('product', $this->getProduct());
@@ -156,6 +170,14 @@ class ProductRevision extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the isHotpatchUpdate property value. True indicates that the content is hotpatchable; otherwise, false. For more information, see Deploy a hotpatch quality update using Windows Autopatch. Read-only.
+     * @param bool|null $value Value to set for the isHotpatchUpdate property.
+    */
+    public function setIsHotpatchUpdate(?bool $value): void {
+        $this->getBackingStore()->set('isHotpatchUpdate', $value);
     }
 
     /**

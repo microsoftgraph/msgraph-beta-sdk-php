@@ -31,13 +31,14 @@ class CreateSnapshotRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a snapshot for a specific Cloud PC device.
+     * @param CreateSnapshotPostRequestBody $body The request body
      * @param CreateSnapshotRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpc-createsnapshot?view=graph-rest-beta Find more info here
     */
-    public function post(?CreateSnapshotRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPostRequestInformation($requestConfiguration);
+    public function post(CreateSnapshotPostRequestBody $body, ?CreateSnapshotRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
@@ -46,10 +47,11 @@ class CreateSnapshotRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a snapshot for a specific Cloud PC device.
+     * @param CreateSnapshotPostRequestBody $body The request body
      * @param CreateSnapshotRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?CreateSnapshotRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CreateSnapshotPostRequestBody $body, ?CreateSnapshotRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -59,6 +61,7 @@ class CreateSnapshotRequestBuilder extends BaseRequestBuilder
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

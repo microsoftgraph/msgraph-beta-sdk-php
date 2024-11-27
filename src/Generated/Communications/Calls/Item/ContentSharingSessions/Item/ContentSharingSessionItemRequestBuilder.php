@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharin
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharingSessions\Item\PngOfCurrentSlide\PngOfCurrentSlideRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ContentSharingSession;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ContentSharingSessionItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the media for the cloudCommunications entity.
+    */
+    public function pngOfCurrentSlide(): PngOfCurrentSlideRequestBuilder {
+        return new PngOfCurrentSlideRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new ContentSharingSessionItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

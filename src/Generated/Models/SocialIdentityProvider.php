@@ -63,7 +63,7 @@ class SocialIdentityProvider extends IdentityProviderBase implements Parsable
     }
 
     /**
-     * Gets the identityProviderType property value. For a B2B scenario, possible values: Google, Facebook. For a B2C scenario, possible values: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat. Required.
+     * Gets the identityProviderType property value. For external and workforce tenants, possible values: Facebook, Google  For Azure AD B2C tenants, possible values: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat.
      * @return string|null
     */
     public function getIdentityProviderType(): ?string {
@@ -102,7 +102,7 @@ class SocialIdentityProvider extends IdentityProviderBase implements Parsable
     }
 
     /**
-     * Sets the identityProviderType property value. For a B2B scenario, possible values: Google, Facebook. For a B2C scenario, possible values: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat. Required.
+     * Sets the identityProviderType property value. For external and workforce tenants, possible values: Facebook, Google  For Azure AD B2C tenants, possible values: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat.
      * @param string|null $value Value to set for the identityProviderType property.
     */
     public function setIdentityProviderType(?string $value): void {
