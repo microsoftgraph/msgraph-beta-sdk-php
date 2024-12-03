@@ -36,10 +36,11 @@ class GetMessageVolumeMetricsForEmailDeliveryWithInclusiveIntervalStartDateTimeW
     }
 
     /**
-     * Invoke function getMessageVolumeMetricsForEmailDelivery
+     * Get the number of messages successfully delivered by Exchange. Success is based on message delivery within 15 minutes of its receipt by Exchange Online.
      * @param GetMessageVolumeMetricsForEmailDeliveryWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetMessageVolumeMetricsForEmailDeliveryWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getmessagevolumemetricsforemaildelivery?view=graph-rest-beta Find more info here
     */
     public function get(?GetMessageVolumeMetricsForEmailDeliveryWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetMessageVolumeMetricsForEmailDeliveryWithInclusiveIntervalStartDateTimeW
     }
 
     /**
-     * Invoke function getMessageVolumeMetricsForEmailDelivery
+     * Get the number of messages successfully delivered by Exchange. Success is based on message delivery within 15 minutes of its receipt by Exchange Online.
      * @param GetMessageVolumeMetricsForEmailDeliveryWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

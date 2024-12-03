@@ -36,10 +36,11 @@ class GetAudioStreamsOverUdpMetricsForTeamsWithInclusiveIntervalStartDateTimeWit
     }
 
     /**
-     * Invoke function getAudioStreamsOverUdpMetricsForTeams
+     * Get metrics based on the percentage of audio streams that were established over User Datagram Protocol.
      * @param GetAudioStreamsOverUdpMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAudioStreamsOverUdpMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getaudiostreamsoverudpmetricsforteams?view=graph-rest-beta Find more info here
     */
     public function get(?GetAudioStreamsOverUdpMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetAudioStreamsOverUdpMetricsForTeamsWithInclusiveIntervalStartDateTimeWit
     }
 
     /**
-     * Invoke function getAudioStreamsOverUdpMetricsForTeams
+     * Get metrics based on the percentage of audio streams that were established over User Datagram Protocol.
      * @param GetAudioStreamsOverUdpMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an appRoleAssignment that a group has been granted.
+     * Delete an appRoleAssignment that a group has been granted.
      * @param AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -75,7 +75,7 @@ class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an appRoleAssignment that a group has been granted.
+     * Delete an appRoleAssignment that a group has been granted.
      * @param AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

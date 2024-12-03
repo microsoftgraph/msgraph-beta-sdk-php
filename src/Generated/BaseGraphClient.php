@@ -20,6 +20,7 @@ use Microsoft\Graph\Beta\Generated\AppRoleAssignments\AppRoleAssignmentsRequestB
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\ApprovalWorkflowProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\AuditLogsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuthenticationMethodConfigurations\AuthenticationMethodConfigurationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AuthenticationMethodDevices\AuthenticationMethodDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuthenticationMethodsPolicy\AuthenticationMethodsPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\BookingBusinessesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingCurrencies\BookingCurrenciesRequestBuilder;
@@ -253,6 +254,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
         return new AuthenticationMethodConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the collection of authenticationMethodDevice entities.
+    */
+    public function authenticationMethodDevices(): AuthenticationMethodDevicesRequestBuilder {
+        return new AuthenticationMethodDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

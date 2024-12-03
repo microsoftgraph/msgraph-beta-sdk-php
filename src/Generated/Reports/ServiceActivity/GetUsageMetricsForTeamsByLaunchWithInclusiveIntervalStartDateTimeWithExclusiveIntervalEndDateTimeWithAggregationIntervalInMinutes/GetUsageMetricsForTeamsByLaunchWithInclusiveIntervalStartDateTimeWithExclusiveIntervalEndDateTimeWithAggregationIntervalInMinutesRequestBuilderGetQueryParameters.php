@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetUsageMetrics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getUsageMetricsForTeamsByLaunch
+ * Get usage metrics based on the number of times users opened the Teams app without error.
 */
 class GetUsageMetricsForTeamsByLaunchWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

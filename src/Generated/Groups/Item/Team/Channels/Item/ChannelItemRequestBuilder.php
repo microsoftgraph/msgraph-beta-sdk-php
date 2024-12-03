@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Archive\Archiv
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\CompleteMigration\CompleteMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\FilesFolder\FilesFolderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\GetAllMembers\GetAllMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\ProvisionEmail\ProvisionEmailRequestBuilder;
@@ -53,6 +54,13 @@ class ChannelItemRequestBuilder extends BaseRequestBuilder
     */
     public function filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the getAllMembers property of the microsoft.graph.channel entity.
+    */
+    public function getAllMembers(): GetAllMembersRequestBuilder {
+        return new GetAllMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

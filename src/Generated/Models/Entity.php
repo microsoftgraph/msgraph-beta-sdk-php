@@ -510,6 +510,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.authenticationListener': return new AuthenticationListener();
                 case '#microsoft.graph.authenticationMethod': return new AuthenticationMethod();
                 case '#microsoft.graph.authenticationMethodConfiguration': return new AuthenticationMethodConfiguration();
+                case '#microsoft.graph.authenticationMethodDevice': return new AuthenticationMethodDevice();
                 case '#microsoft.graph.authenticationMethodModeDetail': return new AuthenticationMethodModeDetail();
                 case '#microsoft.graph.authenticationMethodsPolicy': return new AuthenticationMethodsPolicy();
                 case '#microsoft.graph.authenticationMethodsRoot': return new AuthenticationMethodsRoot();
@@ -1079,7 +1080,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.hardwareConfigurationDeviceState': return new HardwareConfigurationDeviceState();
                 case '#microsoft.graph.hardwareConfigurationRunSummary': return new HardwareConfigurationRunSummary();
                 case '#microsoft.graph.hardwareConfigurationUserState': return new HardwareConfigurationUserState();
+                case '#microsoft.graph.hardwareOathAuthenticationMethod': return new HardwareOathAuthenticationMethod();
                 case '#microsoft.graph.hardwareOathAuthenticationMethodConfiguration': return new HardwareOathAuthenticationMethodConfiguration();
+                case '#microsoft.graph.hardwareOathTokenAuthenticationMethodDevice': return new HardwareOathTokenAuthenticationMethodDevice();
                 case '#microsoft.graph.hardwarePasswordDetail': return new HardwarePasswordDetail();
                 case '#microsoft.graph.hardwarePasswordInfo': return new HardwarePasswordInfo();
                 case '#microsoft.graph.healthMonitoring.alert': return new \Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\Alert();
@@ -1914,7 +1917,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.staleSignInAlertIncident': return new StaleSignInAlertIncident();
                 case '#microsoft.graph.standardWebPart': return new StandardWebPart();
                 case '#microsoft.graph.startHoldMusicOperation': return new StartHoldMusicOperation();
+                case '#microsoft.graph.startRecordingOperation': return new StartRecordingOperation();
+                case '#microsoft.graph.startTranscriptionOperation': return new StartTranscriptionOperation();
                 case '#microsoft.graph.stopHoldMusicOperation': return new StopHoldMusicOperation();
+                case '#microsoft.graph.stopRecordingOperation': return new StopRecordingOperation();
+                case '#microsoft.graph.stopTranscriptionOperation': return new StopTranscriptionOperation();
                 case '#microsoft.graph.storageQuotaBreakdown': return new StorageQuotaBreakdown();
                 case '#microsoft.graph.storageSettings': return new StorageSettings();
                 case '#microsoft.graph.strongAuthenticationDetail': return new StrongAuthenticationDetail();

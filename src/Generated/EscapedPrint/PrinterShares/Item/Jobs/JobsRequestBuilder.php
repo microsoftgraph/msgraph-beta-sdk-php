@@ -52,7 +52,7 @@ class JobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get jobs from print
+     * The list of jobs that are queued for printing by the printer/printerShare.
      * @param JobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintJobCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class JobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get jobs from print
+     * The list of jobs that are queued for printing by the printer/printerShare.
      * @param JobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -62,6 +62,7 @@ class Authentication extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'emailMethods' => fn(ParseNode $n) => $o->setEmailMethods($n->getCollectionOfObjectValues([EmailAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'fido2Methods' => fn(ParseNode $n) => $o->setFido2Methods($n->getCollectionOfObjectValues([Fido2AuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            'hardwareOathMethods' => fn(ParseNode $n) => $o->setHardwareOathMethods($n->getCollectionOfObjectValues([HardwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'methods' => fn(ParseNode $n) => $o->setMethods($n->getCollectionOfObjectValues([AuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'microsoftAuthenticatorMethods' => fn(ParseNode $n) => $o->setMicrosoftAuthenticatorMethods($n->getCollectionOfObjectValues([MicrosoftAuthenticatorAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([LongRunningOperation::class, 'createFromDiscriminatorValue'])),
@@ -75,6 +76,20 @@ class Authentication extends Entity implements Parsable
             'temporaryAccessPassMethods' => fn(ParseNode $n) => $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues([TemporaryAccessPassAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'windowsHelloForBusinessMethods' => fn(ParseNode $n) => $o->setWindowsHelloForBusinessMethods($n->getCollectionOfObjectValues([WindowsHelloForBusinessAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the hardwareOathMethods property value. The hardwareOathMethods property
+     * @return array<HardwareOathAuthenticationMethod>|null
+    */
+    public function getHardwareOathMethods(): ?array {
+        $val = $this->getBackingStore()->get('hardwareOathMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, HardwareOathAuthenticationMethod::class);
+            /** @var array<HardwareOathAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hardwareOathMethods'");
     }
 
     /**
@@ -249,6 +264,7 @@ class Authentication extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('emailMethods', $this->getEmailMethods());
         $writer->writeCollectionOfObjectValues('fido2Methods', $this->getFido2Methods());
+        $writer->writeCollectionOfObjectValues('hardwareOathMethods', $this->getHardwareOathMethods());
         $writer->writeCollectionOfObjectValues('methods', $this->getMethods());
         $writer->writeCollectionOfObjectValues('microsoftAuthenticatorMethods', $this->getMicrosoftAuthenticatorMethods());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
@@ -277,6 +293,14 @@ class Authentication extends Entity implements Parsable
     */
     public function setFido2Methods(?array $value): void {
         $this->getBackingStore()->set('fido2Methods', $value);
+    }
+
+    /**
+     * Sets the hardwareOathMethods property value. The hardwareOathMethods property
+     * @param array<HardwareOathAuthenticationMethod>|null $value Value to set for the hardwareOathMethods property.
+    */
+    public function setHardwareOathMethods(?array $value): void {
+        $this->getBackingStore()->set('hardwareOathMethods', $value);
     }
 
     /**

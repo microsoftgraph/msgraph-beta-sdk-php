@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetConnectivity
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getConnectivityMetricsForExchange
+ * Get estimated connectivity metrics based on the percentage of successful synthetic connections between organization devices and Exchange Online that might include issues outside the control of Microsoft.
 */
 class GetConnectivityMetricsForExchangeWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

@@ -54,6 +54,18 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the authenticationMethodDevices property value. The authenticationMethodDevices property
+     * @return AuthenticationMethodDevice|null
+    */
+    public function getAuthenticationMethodDevices(): ?AuthenticationMethodDevice {
+        $val = $this->getBackingStore()->get('authenticationMethodDevices');
+        if (is_null($val) || $val instanceof AuthenticationMethodDevice) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'authenticationMethodDevices'");
+    }
+
+    /**
      * Gets the certificateAuthorities property value. The certificateAuthorities property
      * @return CertificateAuthorityPath|null
     */
@@ -158,6 +170,7 @@ class Directory extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'administrativeUnits' => fn(ParseNode $n) => $o->setAdministrativeUnits($n->getCollectionOfObjectValues([AdministrativeUnit::class, 'createFromDiscriminatorValue'])),
             'attributeSets' => fn(ParseNode $n) => $o->setAttributeSets($n->getCollectionOfObjectValues([AttributeSet::class, 'createFromDiscriminatorValue'])),
+            'authenticationMethodDevices' => fn(ParseNode $n) => $o->setAuthenticationMethodDevices($n->getObjectValue([AuthenticationMethodDevice::class, 'createFromDiscriminatorValue'])),
             'certificateAuthorities' => fn(ParseNode $n) => $o->setCertificateAuthorities($n->getObjectValue([CertificateAuthorityPath::class, 'createFromDiscriminatorValue'])),
             'customSecurityAttributeDefinitions' => fn(ParseNode $n) => $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues([CustomSecurityAttributeDefinition::class, 'createFromDiscriminatorValue'])),
             'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
@@ -309,6 +322,7 @@ class Directory extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('administrativeUnits', $this->getAdministrativeUnits());
         $writer->writeCollectionOfObjectValues('attributeSets', $this->getAttributeSets());
+        $writer->writeObjectValue('authenticationMethodDevices', $this->getAuthenticationMethodDevices());
         $writer->writeObjectValue('certificateAuthorities', $this->getCertificateAuthorities());
         $writer->writeCollectionOfObjectValues('customSecurityAttributeDefinitions', $this->getCustomSecurityAttributeDefinitions());
         $writer->writeCollectionOfObjectValues('deletedItems', $this->getDeletedItems());
@@ -341,6 +355,14 @@ class Directory extends Entity implements Parsable
     */
     public function setAttributeSets(?array $value): void {
         $this->getBackingStore()->set('attributeSets', $value);
+    }
+
+    /**
+     * Sets the authenticationMethodDevices property value. The authenticationMethodDevices property
+     * @param AuthenticationMethodDevice|null $value Value to set for the authenticationMethodDevices property.
+    */
+    public function setAuthenticationMethodDevices(?AuthenticationMethodDevice $value): void {
+        $this->getBackingStore()->set('authenticationMethodDevices', $value);
     }
 
     /**

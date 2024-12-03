@@ -28,7 +28,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Gets the allowAllUsers property value. If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.
+     * Gets the allowAllUsers property value. If true, all users and groups can access this printer share. This property supersedes the lists of allowed users and groups defined by the allowedUsers and allowedGroups navigation properties.
      * @return bool|null
     */
     public function getAllowAllUsers(): ?bool {
@@ -108,7 +108,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Gets the viewPoint property value. Additional data for a printer share as viewed by the signed-in user.
+     * Gets the viewPoint property value. More data for a printer share as viewed by the signed-in user.
      * @return PrinterShareViewpoint|null
     */
     public function getViewPoint(): ?PrinterShareViewpoint {
@@ -134,7 +134,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Sets the allowAllUsers property value. If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.
+     * Sets the allowAllUsers property value. If true, all users and groups can access this printer share. This property supersedes the lists of allowed users and groups defined by the allowedUsers and allowedGroups navigation properties.
      * @param bool|null $value Value to set for the allowAllUsers property.
     */
     public function setAllowAllUsers(?bool $value): void {
@@ -174,7 +174,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Sets the viewPoint property value. Additional data for a printer share as viewed by the signed-in user.
+     * Sets the viewPoint property value. More data for a printer share as viewed by the signed-in user.
      * @param PrinterShareViewpoint|null $value Value to set for the viewPoint property.
     */
     public function setViewPoint(?PrinterShareViewpoint $value): void {

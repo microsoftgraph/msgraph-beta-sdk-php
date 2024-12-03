@@ -36,10 +36,11 @@ class GetAudioStreamQoEMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExcl
     }
 
     /**
-     * Invoke function getAudioStreamQoEMetricsForTeams
+     * Get metrics based on the percentage of audio streams for which quality of experience (QoE) telemetry was received by the Teams service.
      * @param GetAudioStreamQoEMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAudioStreamQoEMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getaudiostreamqoemetricsforteams?view=graph-rest-beta Find more info here
     */
     public function get(?GetAudioStreamQoEMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetAudioStreamQoEMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExcl
     }
 
     /**
-     * Invoke function getAudioStreamQoEMetricsForTeams
+     * Get metrics based on the percentage of audio streams for which quality of experience (QoE) telemetry was received by the Teams service.
      * @param GetAudioStreamQoEMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

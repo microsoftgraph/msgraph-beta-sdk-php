@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetMessageVolum
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getMessageVolumeMetricsForTeamsChat
+ * Get the number of chat messages successfully sent and delivered in Teams.
 */
 class GetMessageVolumeMetricsForTeamsChatWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

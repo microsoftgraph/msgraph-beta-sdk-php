@@ -36,10 +36,11 @@ class GetActiveUserMetricsForOutlookMacByReadEmailWithInclusiveIntervalStartDate
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOutlookMacByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using Outlook for Mac.
      * @param GetActiveUserMetricsForOutlookMacByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForOutlookMacByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforoutlookmacbyreademail?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForOutlookMacByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForOutlookMacByReadEmailWithInclusiveIntervalStartDate
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOutlookMacByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using Outlook for Mac.
      * @param GetActiveUserMetricsForOutlookMacByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

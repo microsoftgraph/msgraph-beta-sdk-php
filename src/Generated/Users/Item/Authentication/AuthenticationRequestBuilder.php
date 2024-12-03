@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\Authentication;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\EmailMethods\EmailMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Fido2Methods\Fido2MethodsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathMethods\HardwareOathMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\MethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\MicrosoftAuthenticatorMethods\MicrosoftAuthenticatorMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Operations\OperationsRequestBuilder;
@@ -42,6 +43,13 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
     */
     public function fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the hardwareOathMethods property of the microsoft.graph.authentication entity.
+    */
+    public function hardwareOathMethods(): HardwareOathMethodsRequestBuilder {
+        return new HardwareOathMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

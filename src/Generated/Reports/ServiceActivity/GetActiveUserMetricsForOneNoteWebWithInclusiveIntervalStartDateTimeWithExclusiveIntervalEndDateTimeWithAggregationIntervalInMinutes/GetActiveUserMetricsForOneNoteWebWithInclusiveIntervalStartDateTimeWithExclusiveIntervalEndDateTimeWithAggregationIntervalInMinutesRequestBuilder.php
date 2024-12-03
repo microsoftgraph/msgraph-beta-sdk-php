@@ -36,10 +36,11 @@ class GetActiveUserMetricsForOneNoteWebWithInclusiveIntervalStartDateTimeWithExc
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOneNoteWeb
+     * Get all the active usage based on the number of active users who open or save OneNote for the web.
      * @param GetActiveUserMetricsForOneNoteWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForOneNoteWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforonenoteweb?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForOneNoteWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForOneNoteWebWithInclusiveIntervalStartDateTimeWithExc
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOneNoteWeb
+     * Get all the active usage based on the number of active users who open or save OneNote for the web.
      * @param GetActiveUserMetricsForOneNoteWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

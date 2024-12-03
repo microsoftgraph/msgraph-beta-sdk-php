@@ -36,10 +36,11 @@ class GetActiveUserMetricsForOutlookWebByReadEmailWithInclusiveIntervalStartDate
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOutlookWebByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using Outlook for the web.
      * @param GetActiveUserMetricsForOutlookWebByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForOutlookWebByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforoutlookwebbyreademail?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForOutlookWebByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForOutlookWebByReadEmailWithInclusiveIntervalStartDate
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOutlookWebByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using Outlook for the web.
      * @param GetActiveUserMetricsForOutlookWebByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -36,10 +36,11 @@ class GetActiveUserMetricsForPowerPointWebWithInclusiveIntervalStartDateTimeWith
     }
 
     /**
-     * Invoke function getActiveUserMetricsForPowerPointWeb
+     * Get all the active usage based on the number of active users who open or save PowerPoint for the web.
      * @param GetActiveUserMetricsForPowerPointWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForPowerPointWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforpowerpointweb?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForPowerPointWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForPowerPointWebWithInclusiveIntervalStartDateTimeWith
     }
 
     /**
-     * Invoke function getActiveUserMetricsForPowerPointWeb
+     * Get all the active usage based on the number of active users who open or save PowerPoint for the web.
      * @param GetActiveUserMetricsForPowerPointWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
