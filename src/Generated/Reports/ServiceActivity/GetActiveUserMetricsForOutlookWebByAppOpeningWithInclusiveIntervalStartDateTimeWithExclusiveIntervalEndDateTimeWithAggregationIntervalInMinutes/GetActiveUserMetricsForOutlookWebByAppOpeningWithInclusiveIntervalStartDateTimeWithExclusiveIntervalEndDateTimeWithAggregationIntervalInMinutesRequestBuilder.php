@@ -36,10 +36,11 @@ class GetActiveUserMetricsForOutlookWebByAppOpeningWithInclusiveIntervalStartDat
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOutlookWebByAppOpening
+     * Get all the active usage based on the number of active users that signed in and started Outlook for the web.
      * @param GetActiveUserMetricsForOutlookWebByAppOpeningWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForOutlookWebByAppOpeningWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforoutlookwebbyappopening?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForOutlookWebByAppOpeningWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForOutlookWebByAppOpeningWithInclusiveIntervalStartDat
     }
 
     /**
-     * Invoke function getActiveUserMetricsForOutlookWebByAppOpening
+     * Get all the active usage based on the number of active users that signed in and started Outlook for the web.
      * @param GetActiveUserMetricsForOutlookWebByAppOpeningWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

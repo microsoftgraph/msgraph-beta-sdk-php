@@ -36,10 +36,11 @@ class GetUsageMetricsForTeamsByLaunchWithInclusiveIntervalStartDateTimeWithExclu
     }
 
     /**
-     * Invoke function getUsageMetricsForTeamsByLaunch
+     * Get usage metrics based on the number of times users opened the Teams app without error.
      * @param GetUsageMetricsForTeamsByLaunchWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetUsageMetricsForTeamsByLaunchWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getusagemetricsforteamsbylaunch?view=graph-rest-beta Find more info here
     */
     public function get(?GetUsageMetricsForTeamsByLaunchWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetUsageMetricsForTeamsByLaunchWithInclusiveIntervalStartDateTimeWithExclu
     }
 
     /**
-     * Invoke function getUsageMetricsForTeamsByLaunch
+     * Get usage metrics based on the number of times users opened the Teams app without error.
      * @param GetUsageMetricsForTeamsByLaunchWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

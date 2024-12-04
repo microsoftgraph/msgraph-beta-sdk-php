@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetActiveUserMe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getActiveUserMetricsForDesktopMailByReadEmail
+ * Get all the active usage based on the number of users who successfully read emails using desktop mail apps.
 */
 class GetActiveUserMetricsForDesktopMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

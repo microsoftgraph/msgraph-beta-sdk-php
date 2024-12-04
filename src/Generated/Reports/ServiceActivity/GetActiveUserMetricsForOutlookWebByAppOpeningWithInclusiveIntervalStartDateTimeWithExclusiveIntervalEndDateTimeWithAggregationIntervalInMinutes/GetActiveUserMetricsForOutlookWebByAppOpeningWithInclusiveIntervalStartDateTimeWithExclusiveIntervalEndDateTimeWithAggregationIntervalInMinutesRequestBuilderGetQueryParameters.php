@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetActiveUserMe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getActiveUserMetricsForOutlookWebByAppOpening
+ * Get all the active usage based on the number of active users that signed in and started Outlook for the web.
 */
 class GetActiveUserMetricsForOutlookWebByAppOpeningWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

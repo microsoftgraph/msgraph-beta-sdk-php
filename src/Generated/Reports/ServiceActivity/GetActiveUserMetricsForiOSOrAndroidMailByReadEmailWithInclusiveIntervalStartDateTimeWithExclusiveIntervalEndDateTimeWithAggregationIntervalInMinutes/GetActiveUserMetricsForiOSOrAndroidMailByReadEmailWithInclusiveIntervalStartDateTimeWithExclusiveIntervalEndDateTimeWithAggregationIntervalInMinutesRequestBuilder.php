@@ -36,10 +36,11 @@ class GetActiveUserMetricsForiOSOrAndroidMailByReadEmailWithInclusiveIntervalSta
     }
 
     /**
-     * Invoke function getActiveUserMetricsForiOSOrAndroidMailByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using iOS or Android mail apps.
      * @param GetActiveUserMetricsForiOSOrAndroidMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForiOSOrAndroidMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforiosorandroidmailbyreademail?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForiOSOrAndroidMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForiOSOrAndroidMailByReadEmailWithInclusiveIntervalSta
     }
 
     /**
-     * Invoke function getActiveUserMetricsForiOSOrAndroidMailByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using iOS or Android mail apps.
      * @param GetActiveUserMetricsForiOSOrAndroidMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

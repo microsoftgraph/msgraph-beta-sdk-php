@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\AdministrativeUnitsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AttributeSets\AttributeSetsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AuthenticationMethodDevices\AuthenticationMethodDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateAuthoritiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\CustomSecurityAttributeDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\DeletedItemsRequestBuilder;
@@ -48,6 +49,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function attributeSets(): AttributeSetsRequestBuilder {
         return new AttributeSetsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the authenticationMethodDevices property of the microsoft.graph.directory entity.
+    */
+    public function authenticationMethodDevices(): AuthenticationMethodDevicesRequestBuilder {
+        return new AuthenticationMethodDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

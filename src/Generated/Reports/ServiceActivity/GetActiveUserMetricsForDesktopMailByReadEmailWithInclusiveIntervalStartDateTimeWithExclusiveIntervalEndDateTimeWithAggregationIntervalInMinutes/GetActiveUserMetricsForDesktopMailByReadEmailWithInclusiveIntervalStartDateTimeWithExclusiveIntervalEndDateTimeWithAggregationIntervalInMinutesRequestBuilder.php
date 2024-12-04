@@ -36,10 +36,11 @@ class GetActiveUserMetricsForDesktopMailByReadEmailWithInclusiveIntervalStartDat
     }
 
     /**
-     * Invoke function getActiveUserMetricsForDesktopMailByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using desktop mail apps.
      * @param GetActiveUserMetricsForDesktopMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForDesktopMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsfordesktopmailbyreademail?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForDesktopMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForDesktopMailByReadEmailWithInclusiveIntervalStartDat
     }
 
     /**
-     * Invoke function getActiveUserMetricsForDesktopMailByReadEmail
+     * Get all the active usage based on the number of users who successfully read emails using desktop mail apps.
      * @param GetActiveUserMetricsForDesktopMailByReadEmailWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetActiveUserMe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getActiveUserMetricsForOneNoteWeb
+ * Get all the active usage based on the number of active users who open or save OneNote for the web.
 */
 class GetActiveUserMetricsForOneNoteWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

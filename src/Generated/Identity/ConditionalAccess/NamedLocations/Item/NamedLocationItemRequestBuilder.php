@@ -46,11 +46,11 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Read the properties and relationships of a compliantNetworkNamedLocation object.
      * @param NamedLocationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NamedLocation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/compliantnetworknamedlocation-get?view=graph-rest-beta Find more info here
     */
     public function get(?NamedLocationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -95,7 +95,7 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Read the properties and relationships of a compliantNetworkNamedLocation object.
      * @param NamedLocationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -86,6 +86,7 @@ class Channel extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'filesFolder' => fn(ParseNode $n) => $o->setFilesFolder($n->getObjectValue([DriveItem::class, 'createFromDiscriminatorValue'])),
+            'getAllMembers' => fn(ParseNode $n) => $o->setGetAllMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'isFavoriteByDefault' => fn(ParseNode $n) => $o->setIsFavoriteByDefault($n->getBooleanValue()),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
@@ -110,6 +111,20 @@ class Channel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'filesFolder'");
+    }
+
+    /**
+     * Gets the getAllMembers property value. The getAllMembers property
+     * @return array<ConversationMember>|null
+    */
+    public function getGetAllMembers(): ?array {
+        $val = $this->getBackingStore()->get('getAllMembers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConversationMember::class);
+            /** @var array<ConversationMember>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'getAllMembers'");
     }
 
     /**
@@ -263,6 +278,7 @@ class Channel extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeObjectValue('filesFolder', $this->getFilesFolder());
+        $writer->writeCollectionOfObjectValues('getAllMembers', $this->getGetAllMembers());
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeBooleanValue('isFavoriteByDefault', $this->getIsFavoriteByDefault());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
@@ -314,6 +330,14 @@ class Channel extends Entity implements Parsable
     */
     public function setFilesFolder(?DriveItem $value): void {
         $this->getBackingStore()->set('filesFolder', $value);
+    }
+
+    /**
+     * Sets the getAllMembers property value. The getAllMembers property
+     * @param array<ConversationMember>|null $value Value to set for the getAllMembers property.
+    */
+    public function setGetAllMembers(?array $value): void {
+        $this->getBackingStore()->set('getAllMembers', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetUsageMetrics
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getUsageMetricsForTeamsByMeetingsJoined
+ * Get usage metrics based on the number of times users joined Teams meetings without errors.
 */
 class GetUsageMetricsForTeamsByMeetingsJoinedWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

@@ -36,10 +36,11 @@ class GetActiveUserMetricsForExcelWebWithInclusiveIntervalStartDateTimeWithExclu
     }
 
     /**
-     * Invoke function getActiveUserMetricsForExcelWeb
+     * Get all the active usage based on the number of active users who open or save Excel for the web.
      * @param GetActiveUserMetricsForExcelWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForExcelWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforexcelweb?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForExcelWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class GetActiveUserMetricsForExcelWebWithInclusiveIntervalStartDateTimeWithExclu
     }
 
     /**
-     * Invoke function getActiveUserMetricsForExcelWeb
+     * Get all the active usage based on the number of active users who open or save Excel for the web.
      * @param GetActiveUserMetricsForExcelWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

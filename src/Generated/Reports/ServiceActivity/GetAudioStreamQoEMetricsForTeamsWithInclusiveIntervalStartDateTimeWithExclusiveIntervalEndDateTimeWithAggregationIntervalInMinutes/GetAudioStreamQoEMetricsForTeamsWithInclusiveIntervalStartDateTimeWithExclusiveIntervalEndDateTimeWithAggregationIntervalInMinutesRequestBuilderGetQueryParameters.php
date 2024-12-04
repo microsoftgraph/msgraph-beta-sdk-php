@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetAudioStreamQ
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getAudioStreamQoEMetricsForTeams
+ * Get metrics based on the percentage of audio streams for which quality of experience (QoE) telemetry was received by the Teams service.
 */
 class GetAudioStreamQoEMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

@@ -31,11 +31,12 @@ class GetCloudPcPerformanceReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getCloudPcPerformanceReport
+     * Get a report related to the performance of Cloud PCs.
      * @param GetCloudPcPerformanceReportPostRequestBody $body The request body
      * @param GetCloudPcPerformanceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getcloudpcperformancereport?view=graph-rest-beta Find more info here
     */
     public function post(GetCloudPcPerformanceReportPostRequestBody $body, ?GetCloudPcPerformanceReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -48,7 +49,7 @@ class GetCloudPcPerformanceReportRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action getCloudPcPerformanceReport
+     * Get a report related to the performance of Cloud PCs.
      * @param GetCloudPcPerformanceReportPostRequestBody $body The request body
      * @param GetCloudPcPerformanceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

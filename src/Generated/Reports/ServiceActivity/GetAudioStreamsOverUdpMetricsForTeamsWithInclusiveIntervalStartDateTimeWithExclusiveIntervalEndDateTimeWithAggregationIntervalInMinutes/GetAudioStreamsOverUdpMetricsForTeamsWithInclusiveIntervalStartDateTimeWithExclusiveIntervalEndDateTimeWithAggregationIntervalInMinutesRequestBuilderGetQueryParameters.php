@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\ServiceActivity\GetAudioStreams
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getAudioStreamsOverUdpMetricsForTeams
+ * Get metrics based on the percentage of audio streams that were established over User Datagram Protocol.
 */
 class GetAudioStreamsOverUdpMetricsForTeamsWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetQueryParameters 
 {

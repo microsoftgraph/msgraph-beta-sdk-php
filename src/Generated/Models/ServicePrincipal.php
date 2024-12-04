@@ -80,7 +80,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the appDisplayName property value. The display name exposed by the associated application.
+     * Gets the appDisplayName property value. The display name exposed by the associated application. Maximum length is 256 characters.
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
@@ -995,7 +995,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the appDisplayName property value. The display name exposed by the associated application.
+     * Sets the appDisplayName property value. The display name exposed by the associated application. Maximum length is 256 characters.
      * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
