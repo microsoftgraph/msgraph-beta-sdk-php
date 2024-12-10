@@ -126,7 +126,7 @@ class RestoreSessionBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the restoreJobType property value. The restoreJobType property
+     * Gets the restoreJobType property value. Indicates whether the restore session was created normally or by a bulk job.
      * @return RestoreJobType|null
     */
     public function getRestoreJobType(): ?RestoreJobType {
@@ -138,7 +138,7 @@ class RestoreSessionBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the restoreSessionArtifactCount property value. The restoreSessionArtifactCount property
+     * Gets the restoreSessionArtifactCount property value. The number of metadata artifacts that belong to this restore session.
      * @return RestoreSessionArtifactCount|null
     */
     public function getRestoreSessionArtifactCount(): ?RestoreSessionArtifactCount {
@@ -227,7 +227,7 @@ class RestoreSessionBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the restoreJobType property value. The restoreJobType property
+     * Sets the restoreJobType property value. Indicates whether the restore session was created normally or by a bulk job.
      * @param RestoreJobType|null $value Value to set for the restoreJobType property.
     */
     public function setRestoreJobType(?RestoreJobType $value): void {
@@ -235,7 +235,7 @@ class RestoreSessionBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the restoreSessionArtifactCount property value. The restoreSessionArtifactCount property
+     * Sets the restoreSessionArtifactCount property value. The number of metadata artifacts that belong to this restore session.
      * @param RestoreSessionArtifactCount|null $value Value to set for the restoreSessionArtifactCount property.
     */
     public function setRestoreSessionArtifactCount(?RestoreSessionArtifactCount $value): void {

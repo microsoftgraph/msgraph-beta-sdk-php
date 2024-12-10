@@ -42,7 +42,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Gets the notebooks property value. The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
+     * Gets the notebooks property value. The collection of OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @return array<Notebook>|null
     */
     public function getNotebooks(): ?array {
@@ -70,7 +70,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Gets the pages property value. The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Gets the pages property value. The pages in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @return array<OnenotePage>|null
     */
     public function getPages(): ?array {
@@ -98,7 +98,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Gets the sectionGroups property value. The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Gets the sectionGroups property value. The section groups in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @return array<SectionGroup>|null
     */
     public function getSectionGroups(): ?array {
@@ -112,7 +112,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Gets the sections property value. The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Gets the sections property value. The sections in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @return array<OnenoteSection>|null
     */
     public function getSections(): ?array {
@@ -140,7 +140,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Sets the notebooks property value. The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
+     * Sets the notebooks property value. The collection of OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param array<Notebook>|null $value Value to set for the notebooks property.
     */
     public function setNotebooks(?array $value): void {
@@ -156,7 +156,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Sets the pages property value. The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Sets the pages property value. The pages in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param array<OnenotePage>|null $value Value to set for the pages property.
     */
     public function setPages(?array $value): void {
@@ -172,7 +172,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Sets the sectionGroups property value. The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Sets the sectionGroups property value. The section groups in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param array<SectionGroup>|null $value Value to set for the sectionGroups property.
     */
     public function setSectionGroups(?array $value): void {
@@ -180,7 +180,7 @@ class Onenote extends Entity implements Parsable
     }
 
     /**
-     * Sets the sections property value. The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Sets the sections property value. The sections in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param array<OnenoteSection>|null $value Value to set for the sections property.
     */
     public function setSections(?array $value): void {

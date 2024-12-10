@@ -37,7 +37,7 @@ class OnInteractiveAuthFlowStartListener extends AuthenticationEventListener imp
     }
 
     /**
-     * Gets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener. This lets us define potential handler configurations per-event.
+     * Gets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener. You can use this handler to define potential handler configurations for specific events.
      * @return OnInteractiveAuthFlowStartHandler|null
     */
     public function getHandler(): ?OnInteractiveAuthFlowStartHandler {
@@ -58,7 +58,7 @@ class OnInteractiveAuthFlowStartListener extends AuthenticationEventListener imp
     }
 
     /**
-     * Sets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener. This lets us define potential handler configurations per-event.
+     * Sets the handler property value. Required. Configuration for what to invoke if the event resolves to this listener. You can use this handler to define potential handler configurations for specific events.
      * @param OnInteractiveAuthFlowStartHandler|null $value Value to set for the handler property.
     */
     public function setHandler(?OnInteractiveAuthFlowStartHandler $value): void {

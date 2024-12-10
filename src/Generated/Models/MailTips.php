@@ -49,7 +49,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the automaticReplies property value. Mail tips for automatic reply if it has been set up by the recipient.
+     * Gets the automaticReplies property value. Mailtips for an automatic reply if set up by the recipient.
      * @return AutomaticRepliesMailTips|null
     */
     public function getAutomaticReplies(): ?AutomaticRepliesMailTips {
@@ -81,7 +81,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deliveryRestricted property value. Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.
+     * Gets the deliveryRestricted property value. Whether the recipient's mailbox is restricted. For example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.
      * @return bool|null
     */
     public function getDeliveryRestricted(): ?bool {
@@ -152,7 +152,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isModerated property value. Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.
+     * Gets the isModerated property value. Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator is set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.
      * @return bool|null
     */
     public function getIsModerated(): ?bool {
@@ -176,7 +176,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the maxMessageSize property value. The maximum message size that has been configured for the recipient's organization or mailbox.
+     * Gets the maxMessageSize property value. The maximum message size configured for the recipient's organization or mailbox.
      * @return int|null
     */
     public function getMaxMessageSize(): ?int {
@@ -200,7 +200,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the recipientScope property value. The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.
+     * Gets the recipientScope property value. The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone, and content.
      * @return RecipientScopeType|null
     */
     public function getRecipientScope(): ?RecipientScopeType {
@@ -267,7 +267,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the automaticReplies property value. Mail tips for automatic reply if it has been set up by the recipient.
+     * Sets the automaticReplies property value. Mailtips for an automatic reply if set up by the recipient.
      * @param AutomaticRepliesMailTips|null $value Value to set for the automaticReplies property.
     */
     public function setAutomaticReplies(?AutomaticRepliesMailTips $value): void {
@@ -291,7 +291,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deliveryRestricted property value. Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.
+     * Sets the deliveryRestricted property value. Whether the recipient's mailbox is restricted. For example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.
      * @param bool|null $value Value to set for the deliveryRestricted property.
     */
     public function setDeliveryRestricted(?bool $value): void {
@@ -323,7 +323,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isModerated property value. Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.
+     * Sets the isModerated property value. Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator is set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.
      * @param bool|null $value Value to set for the isModerated property.
     */
     public function setIsModerated(?bool $value): void {
@@ -339,7 +339,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the maxMessageSize property value. The maximum message size that has been configured for the recipient's organization or mailbox.
+     * Sets the maxMessageSize property value. The maximum message size configured for the recipient's organization or mailbox.
      * @param int|null $value Value to set for the maxMessageSize property.
     */
     public function setMaxMessageSize(?int $value): void {
@@ -355,7 +355,7 @@ class MailTips implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the recipientScope property value. The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.
+     * Sets the recipientScope property value. The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone, and content.
      * @param RecipientScopeType|null $value Value to set for the recipientScope property.
     */
     public function setRecipientScope(?RecipientScopeType $value): void {

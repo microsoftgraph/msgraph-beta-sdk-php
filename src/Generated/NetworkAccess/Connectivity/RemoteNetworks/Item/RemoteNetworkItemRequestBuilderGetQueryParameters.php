@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetwor
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
+ * The locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
 */
 class RemoteNetworkItemRequestBuilderGetQueryParameters 
 {

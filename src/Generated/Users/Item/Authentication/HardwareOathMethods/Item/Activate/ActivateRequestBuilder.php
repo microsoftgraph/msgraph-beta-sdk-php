@@ -30,11 +30,12 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action activate
+     * Activate a hardware OATH token that is already assigned to a user. A user can self-activate their token or an admin can activate for a user.
      * @param ActivatePostRequestBody $body The request body
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/hardwareoathauthenticationmethod-activate?view=graph-rest-beta Find more info here
     */
     public function post(ActivatePostRequestBody $body, ?ActivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action activate
+     * Activate a hardware OATH token that is already assigned to a user. A user can self-activate their token or an admin can activate for a user.
      * @param ActivatePostRequestBody $body The request body
      * @param ActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

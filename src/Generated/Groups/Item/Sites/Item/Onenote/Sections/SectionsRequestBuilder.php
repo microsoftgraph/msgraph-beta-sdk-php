@@ -52,7 +52,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * The sections in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param SectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnenoteSectionCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * The sections in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param SectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

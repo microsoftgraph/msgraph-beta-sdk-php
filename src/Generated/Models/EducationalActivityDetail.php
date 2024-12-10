@@ -109,7 +109,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the displayName property value. Long-form name of the program that the user has provided.
+     * Gets the displayName property value. Long-form name of the program that the user provided.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -176,7 +176,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the grade property value. The final grade, class, GPA or score.
+     * Gets the grade property value. The final grade, class, GPA, or score.
      * @return string|null
     */
     public function getGrade(): ?string {
@@ -188,7 +188,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the notes property value. Additional notes the user has provided.
+     * Gets the notes property value. More notes the user provided.
      * @return string|null
     */
     public function getNotes(): ?string {
@@ -290,7 +290,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the displayName property value. Long-form name of the program that the user has provided.
+     * Sets the displayName property value. Long-form name of the program that the user provided.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -306,7 +306,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the grade property value. The final grade, class, GPA or score.
+     * Sets the grade property value. The final grade, class, GPA, or score.
      * @param string|null $value Value to set for the grade property.
     */
     public function setGrade(?string $value): void {
@@ -314,7 +314,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the notes property value. Additional notes the user has provided.
+     * Sets the notes property value. More notes the user provided.
      * @param string|null $value Value to set for the notes property.
     */
     public function setNotes(?string $value): void {

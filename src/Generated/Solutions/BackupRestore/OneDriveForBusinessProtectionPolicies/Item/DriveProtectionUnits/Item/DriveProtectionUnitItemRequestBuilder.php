@@ -31,7 +31,7 @@ class DriveProtectionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Contains the protection units associated with a  OneDrive for Business protection policy.
+     * Contains the protection units associated with a  OneDrive for Work or School protection policy.
      * @param DriveProtectionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveProtectionUnit|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class DriveProtectionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Contains the protection units associated with a  OneDrive for Business protection policy.
+     * Contains the protection units associated with a  OneDrive for Work or School protection policy.
      * @param DriveProtectionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

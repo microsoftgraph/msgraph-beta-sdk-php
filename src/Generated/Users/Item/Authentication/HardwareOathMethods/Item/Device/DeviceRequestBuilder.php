@@ -61,7 +61,7 @@ class DeviceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get device from users
+     * Exposes the hardware OATH method in the directory.
      * @param DeviceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class DeviceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get device from users
+     * Exposes the hardware OATH method in the directory.
      * @param DeviceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

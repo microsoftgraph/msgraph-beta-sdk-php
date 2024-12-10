@@ -64,7 +64,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Profile last modified time.
+     * Gets the lastModifiedDateTime property value. The date and time when the profile was last modified.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -76,7 +76,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. Profile name.
+     * Gets the name property value. The name of the profile.
      * @return string|null
     */
     public function getName(): ?string {
@@ -88,7 +88,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Gets the policies property value. Traffic forwarding policies associated with this profile.
+     * Gets the policies property value. The traffic forwarding policies associated with this profile.
      * @return array<PolicyLink>|null
     */
     public function getPolicies(): ?array {
@@ -148,7 +148,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Profile last modified time.
+     * Sets the lastModifiedDateTime property value. The date and time when the profile was last modified.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -156,7 +156,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. Profile name.
+     * Sets the name property value. The name of the profile.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -164,7 +164,7 @@ class Profile extends Entity implements Parsable
     }
 
     /**
-     * Sets the policies property value. Traffic forwarding policies associated with this profile.
+     * Sets the policies property value. The traffic forwarding policies associated with this profile.
      * @param array<PolicyLink>|null $value Value to set for the policies property.
     */
     public function setPolicies(?array $value): void {

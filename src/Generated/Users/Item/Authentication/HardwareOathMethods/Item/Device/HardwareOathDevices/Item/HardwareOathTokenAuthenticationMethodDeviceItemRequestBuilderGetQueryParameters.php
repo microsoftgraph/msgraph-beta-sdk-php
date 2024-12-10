@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathM
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get hardwareOathDevices from users
+ * Exposes the hardware OATH method in the directory.
 */
 class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetQueryParameters 
 {

@@ -27,7 +27,7 @@ class OneDriveForBusinessRestoreSession extends RestoreSessionBase implements Pa
     }
 
     /**
-     * Gets the driveRestoreArtifacts property value. A collection of restore points and destination details that can be used to restore a OneDrive for Business drive.
+     * Gets the driveRestoreArtifacts property value. A collection of restore points and destination details that can be used to restore a OneDrive for Work or School drive.
      * @return array<DriveRestoreArtifact>|null
     */
     public function getDriveRestoreArtifacts(): ?array {
@@ -77,7 +77,7 @@ class OneDriveForBusinessRestoreSession extends RestoreSessionBase implements Pa
     }
 
     /**
-     * Sets the driveRestoreArtifacts property value. A collection of restore points and destination details that can be used to restore a OneDrive for Business drive.
+     * Sets the driveRestoreArtifacts property value. A collection of restore points and destination details that can be used to restore a OneDrive for Work or School drive.
      * @param array<DriveRestoreArtifact>|null $value Value to set for the driveRestoreArtifacts property.
     */
     public function setDriveRestoreArtifacts(?array $value): void {

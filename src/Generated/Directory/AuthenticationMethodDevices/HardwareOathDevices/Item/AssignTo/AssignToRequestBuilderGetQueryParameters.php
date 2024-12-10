@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\AuthenticationMethodDevices\H
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get assignTo from directory
+ * Assign the hardware OATH token to a user.
 */
 class AssignToRequestBuilderGetQueryParameters 
 {
