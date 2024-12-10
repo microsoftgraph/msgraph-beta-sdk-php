@@ -33,7 +33,7 @@ class AuthenticationMethodDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Optional name given to the hardware OATH device.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -57,7 +57,7 @@ class AuthenticationMethodDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the hardwareOathDevices property value. The hardwareOathDevices property
+     * Gets the hardwareOathDevices property value. Exposes the hardware OATH method in the directory.
      * @return array<HardwareOathTokenAuthenticationMethodDevice>|null
     */
     public function getHardwareOathDevices(): ?array {
@@ -81,7 +81,7 @@ class AuthenticationMethodDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Optional name given to the hardware OATH device.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -89,7 +89,7 @@ class AuthenticationMethodDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the hardwareOathDevices property value. The hardwareOathDevices property
+     * Sets the hardwareOathDevices property value. Exposes the hardware OATH method in the directory.
      * @param array<HardwareOathTokenAuthenticationMethodDevice>|null $value Value to set for the hardwareOathDevices property.
     */
     public function setHardwareOathDevices(?array $value): void {

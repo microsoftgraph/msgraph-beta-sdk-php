@@ -61,7 +61,7 @@ class NotebooksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
+     * The collection of OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param NotebooksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NotebookCollectionResponse|null>
      * @throws Exception
@@ -99,7 +99,7 @@ class NotebooksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
+     * The collection of OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param NotebooksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

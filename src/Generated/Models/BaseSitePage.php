@@ -49,7 +49,7 @@ class BaseSitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
+     * Gets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue, newsLink. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: newsLink.
      * @return PageLayoutType|null
     */
     public function getPageLayout(): ?PageLayoutType {
@@ -96,7 +96,7 @@ class BaseSitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
+     * Sets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue, newsLink. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: newsLink.
      * @param PageLayoutType|null $value Value to set for the pageLayout property.
     */
     public function setPageLayout(?PageLayoutType $value): void {

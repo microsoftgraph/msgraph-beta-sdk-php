@@ -56,7 +56,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the crossRegionDisasterRecoveryEnabled property value. True if an end user is allowed to set up cross-region disaster recovery for Cloud PC; otherwise, false. The default value is false.
+     * Gets the crossRegionDisasterRecoveryEnabled property value. True if an end user is allowed to set up cross-region disaster recovery for Cloud PC; otherwise, false. The default value is false. This property is deprecated and will no longer be supported effective February 11, 2025. For scenarios where crossRegionDisasterRecoveryEnabled is true, set disasterRecoveryType to crossRegion. For scenarios where crossRegionDisasterRecoveryEnabled is false,  set disasterRecoveryType to notconfigured.
      * @return bool|null
     */
     public function getCrossRegionDisasterRecoveryEnabled(): ?bool {
@@ -80,7 +80,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the disasterRecoveryType property value. The disasterRecoveryType property
+     * Gets the disasterRecoveryType property value. Indicates the type of disaster recovery to perform when a disaster occurs on the user's Cloud PC. The possible values are: notConfigured, crossRegion, premium, unknownFutureValue. The default value is notConfigured.
      * @return CloudPcDisasterRecoveryType|null
     */
     public function getDisasterRecoveryType(): ?CloudPcDisasterRecoveryType {
@@ -160,7 +160,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the crossRegionDisasterRecoveryEnabled property value. True if an end user is allowed to set up cross-region disaster recovery for Cloud PC; otherwise, false. The default value is false.
+     * Sets the crossRegionDisasterRecoveryEnabled property value. True if an end user is allowed to set up cross-region disaster recovery for Cloud PC; otherwise, false. The default value is false. This property is deprecated and will no longer be supported effective February 11, 2025. For scenarios where crossRegionDisasterRecoveryEnabled is true, set disasterRecoveryType to crossRegion. For scenarios where crossRegionDisasterRecoveryEnabled is false,  set disasterRecoveryType to notconfigured.
      * @param bool|null $value Value to set for the crossRegionDisasterRecoveryEnabled property.
     */
     public function setCrossRegionDisasterRecoveryEnabled(?bool $value): void {
@@ -176,7 +176,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the disasterRecoveryType property value. The disasterRecoveryType property
+     * Sets the disasterRecoveryType property value. Indicates the type of disaster recovery to perform when a disaster occurs on the user's Cloud PC. The possible values are: notConfigured, crossRegion, premium, unknownFutureValue. The default value is notConfigured.
      * @param CloudPcDisasterRecoveryType|null $value Value to set for the disasterRecoveryType property.
     */
     public function setDisasterRecoveryType(?CloudPcDisasterRecoveryType $value): void {

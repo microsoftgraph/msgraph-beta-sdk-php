@@ -52,7 +52,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * The pages in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnenotePageCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * The pages in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

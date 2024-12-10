@@ -52,7 +52,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Traffic forwarding policies associated with this profile.
+     * The traffic forwarding policies associated with this profile.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLinkCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Traffic forwarding policies associated with this profile.
+     * The traffic forwarding policies associated with this profile.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

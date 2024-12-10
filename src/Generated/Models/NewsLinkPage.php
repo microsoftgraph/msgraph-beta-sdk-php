@@ -25,7 +25,7 @@ class NewsLinkPage extends BaseSitePage implements Parsable
     }
 
     /**
-     * Gets the bannerImageWebUrl property value. The bannerImageWebUrl property
+     * Gets the bannerImageWebUrl property value. A link to the banner image for the newsLinkPage.
      * @return string|null
     */
     public function getBannerImageWebUrl(): ?string {
@@ -50,7 +50,7 @@ class NewsLinkPage extends BaseSitePage implements Parsable
     }
 
     /**
-     * Gets the newsSharepointIds property value. The newsSharepointIds property
+     * Gets the newsSharepointIds property value. The SharePoint IDs of the referenced news article if it's recognized as a SharePoint resource. Read-only.
      * @return SharepointIds|null
     */
     public function getNewsSharepointIds(): ?SharepointIds {
@@ -62,7 +62,7 @@ class NewsLinkPage extends BaseSitePage implements Parsable
     }
 
     /**
-     * Gets the newsWebUrl property value. The newsWebUrl property
+     * Gets the newsWebUrl property value. The URL of the news article referenced by the newsLinkPage. It can be an external link.
      * @return string|null
     */
     public function getNewsWebUrl(): ?string {
@@ -85,7 +85,7 @@ class NewsLinkPage extends BaseSitePage implements Parsable
     }
 
     /**
-     * Sets the bannerImageWebUrl property value. The bannerImageWebUrl property
+     * Sets the bannerImageWebUrl property value. A link to the banner image for the newsLinkPage.
      * @param string|null $value Value to set for the bannerImageWebUrl property.
     */
     public function setBannerImageWebUrl(?string $value): void {
@@ -93,7 +93,7 @@ class NewsLinkPage extends BaseSitePage implements Parsable
     }
 
     /**
-     * Sets the newsSharepointIds property value. The newsSharepointIds property
+     * Sets the newsSharepointIds property value. The SharePoint IDs of the referenced news article if it's recognized as a SharePoint resource. Read-only.
      * @param SharepointIds|null $value Value to set for the newsSharepointIds property.
     */
     public function setNewsSharepointIds(?SharepointIds $value): void {
@@ -101,7 +101,7 @@ class NewsLinkPage extends BaseSitePage implements Parsable
     }
 
     /**
-     * Sets the newsWebUrl property value. The newsWebUrl property
+     * Sets the newsWebUrl property value. The URL of the news article referenced by the newsLinkPage. It can be an external link.
      * @param string|null $value Value to set for the newsWebUrl property.
     */
     public function setNewsWebUrl(?string $value): void {

@@ -30,11 +30,12 @@ class AssignAndActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action assignAndActivate
+     * Assign and activate a hardware token at the same time. This operation requires the device ID to activate it.
      * @param AssignAndActivatePostRequestBody $body The request body
      * @param AssignAndActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/hardwareoathauthenticationmethod-assignandactivate?view=graph-rest-beta Find more info here
     */
     public function post(AssignAndActivatePostRequestBody $body, ?AssignAndActivateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class AssignAndActivateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action assignAndActivate
+     * Assign and activate a hardware token at the same time. This operation requires the device ID to activate it.
      * @param AssignAndActivatePostRequestBody $body The request body
      * @param AssignAndActivateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -30,11 +30,12 @@ class SetReviewStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setReviewStatus
+     * Set the review status of a specific Cloud PC device using the Cloud PC ID. Use this API to set the review status of a Cloud PC to in review if you consider a Cloud PC suspicious. After the review is completed, use this API again to set the Cloud PC back to a normal state.
      * @param SetReviewStatusPostRequestBody $body The request body
      * @param SetReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-setreviewstatus?view=graph-rest-beta Find more info here
     */
     public function post(SetReviewStatusPostRequestBody $body, ?SetReviewStatusRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class SetReviewStatusRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setReviewStatus
+     * Set the review status of a specific Cloud PC device using the Cloud PC ID. Use this API to set the review status of a Cloud PC to in review if you consider a Cloud PC suspicious. After the review is completed, use this API again to set the Cloud PC back to a normal state.
      * @param SetReviewStatusPostRequestBody $body The request body
      * @param SetReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

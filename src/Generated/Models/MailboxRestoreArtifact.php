@@ -45,7 +45,7 @@ class MailboxRestoreArtifact extends RestoreArtifactBase implements Parsable
     }
 
     /**
-     * Gets the restoredFolderId property value. The new restored folder identifier for the user.
+     * Gets the restoredFolderId property value. The newly restored folder identifier for the user.
      * @return string|null
     */
     public function getRestoredFolderId(): ?string {
@@ -69,7 +69,7 @@ class MailboxRestoreArtifact extends RestoreArtifactBase implements Parsable
     }
 
     /**
-     * Gets the restoredItemCount property value. The restoredItemCount property
+     * Gets the restoredItemCount property value. The number of items that are being restored in the folder.
      * @return int|null
     */
     public function getRestoredItemCount(): ?int {
@@ -91,7 +91,7 @@ class MailboxRestoreArtifact extends RestoreArtifactBase implements Parsable
     }
 
     /**
-     * Sets the restoredFolderId property value. The new restored folder identifier for the user.
+     * Sets the restoredFolderId property value. The newly restored folder identifier for the user.
      * @param string|null $value Value to set for the restoredFolderId property.
     */
     public function setRestoredFolderId(?string $value): void {
@@ -107,7 +107,7 @@ class MailboxRestoreArtifact extends RestoreArtifactBase implements Parsable
     }
 
     /**
-     * Sets the restoredItemCount property value. The restoredItemCount property
+     * Sets the restoredItemCount property value. The number of items that are being restored in the folder.
      * @param int|null $value Value to set for the restoredItemCount property.
     */
     public function setRestoredItemCount(?int $value): void {

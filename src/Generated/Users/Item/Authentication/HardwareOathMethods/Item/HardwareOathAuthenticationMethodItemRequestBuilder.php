@@ -69,7 +69,7 @@ class HardwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get hardwareOathMethods from users
+     * The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.
      * @param HardwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathAuthenticationMethod|null>
      * @throws Exception
@@ -101,7 +101,7 @@ class HardwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Get hardwareOathMethods from users
+     * The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.
      * @param HardwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

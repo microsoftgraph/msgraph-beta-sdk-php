@@ -53,7 +53,7 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authenticationMethodDevices from directory
+     * Exposes the hardware OATH method in the directory.
      * @param AuthenticationMethodDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationMethodDevice|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get authenticationMethodDevices from directory
+     * Exposes the hardware OATH method in the directory.
      * @param AuthenticationMethodDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

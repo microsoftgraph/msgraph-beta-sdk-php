@@ -69,7 +69,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
+     * The locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @param RemoteNetworkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetwork|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class RemoteNetworkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
+     * The locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
      * @param RemoteNetworkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -30,11 +30,12 @@ class AssignAndActivateBySerialNumberRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action assignAndActivateBySerialNumber
+     * Assign and activate a hardware token at the same time by hardware token serial number.
      * @param AssignAndActivateBySerialNumberPostRequestBody $body The request body
      * @param AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/hardwareoathauthenticationmethod-assignandactivatebyserialnumber?view=graph-rest-beta Find more info here
     */
     public function post(AssignAndActivateBySerialNumberPostRequestBody $body, ?AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class AssignAndActivateBySerialNumberRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action assignAndActivateBySerialNumber
+     * Assign and activate a hardware token at the same time by hardware token serial number.
      * @param AssignAndActivateBySerialNumberPostRequestBody $body The request body
      * @param AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

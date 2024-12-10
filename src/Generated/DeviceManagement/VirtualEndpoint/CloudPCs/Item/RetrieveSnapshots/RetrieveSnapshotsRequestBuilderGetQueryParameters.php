@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function retrieveSnapshots
+ * List all cloudPcSnapshot resources for a Cloud PC.
 */
 class RetrieveSnapshotsRequestBuilderGetQueryParameters 
 {

@@ -52,10 +52,11 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get hardwareOathDevices from directory
+     * List all hardware OATH tokens in the directory.
      * @param HardwareOathDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDeviceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationmethoddevice-list-hardwareoathdevices?view=graph-rest-beta Find more info here
     */
     public function get(?HardwareOathDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to hardwareOathDevices for directory
+     * Create a new hardwareOathTokenAuthenticationMethodDevice object. Supports bulk creation.
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationmethoddevice-update?view=graph-rest-beta Find more info here
     */
     public function post(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get hardwareOathDevices from directory
+     * List all hardware OATH tokens in the directory.
      * @param HardwareOathDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to hardwareOathDevices for directory
+     * Create a new hardwareOathTokenAuthenticationMethodDevice object. Supports bulk creation.
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

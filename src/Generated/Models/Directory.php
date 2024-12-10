@@ -54,7 +54,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationMethodDevices property value. The authenticationMethodDevices property
+     * Gets the authenticationMethodDevices property value. Exposes the hardware OATH method in the directory.
      * @return AuthenticationMethodDevice|null
     */
     public function getAuthenticationMethodDevices(): ?AuthenticationMethodDevice {
@@ -358,7 +358,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationMethodDevices property value. The authenticationMethodDevices property
+     * Sets the authenticationMethodDevices property value. Exposes the hardware OATH method in the directory.
      * @param AuthenticationMethodDevice|null $value Value to set for the authenticationMethodDevices property.
     */
     public function setAuthenticationMethodDevices(?AuthenticationMethodDevice $value): void {

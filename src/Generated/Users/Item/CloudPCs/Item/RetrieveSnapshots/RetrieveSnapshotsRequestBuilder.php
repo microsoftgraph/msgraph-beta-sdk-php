@@ -30,10 +30,11 @@ class RetrieveSnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrieveSnapshots
+     * List all cloudPcSnapshot resources for a Cloud PC.
      * @param RetrieveSnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveSnapshotsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-retrievesnapshots?view=graph-rest-beta Find more info here
     */
     public function get(?RetrieveSnapshotsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class RetrieveSnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrieveSnapshots
+     * List all cloudPcSnapshot resources for a Cloud PC.
      * @param RetrieveSnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

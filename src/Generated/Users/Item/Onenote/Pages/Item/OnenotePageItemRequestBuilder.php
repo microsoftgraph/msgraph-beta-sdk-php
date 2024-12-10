@@ -93,7 +93,7 @@ class OnenotePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * The pages in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param OnenotePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnenotePage|null>
      * @throws Exception
@@ -140,7 +140,7 @@ class OnenotePageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * The pages in all OneNote notebooks that the user or group owns. Read-only. Nullable.
      * @param OnenotePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
