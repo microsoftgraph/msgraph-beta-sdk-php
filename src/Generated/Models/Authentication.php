@@ -79,7 +79,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the hardwareOathMethods property value. The hardwareOathMethods property
+     * Gets the hardwareOathMethods property value. The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.
      * @return array<HardwareOathAuthenticationMethod>|null
     */
     public function getHardwareOathMethods(): ?array {
@@ -296,7 +296,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the hardwareOathMethods property value. The hardwareOathMethods property
+     * Sets the hardwareOathMethods property value. The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.
      * @param array<HardwareOathAuthenticationMethod>|null $value Value to set for the hardwareOathMethods property.
     */
     public function setHardwareOathMethods(?array $value): void {

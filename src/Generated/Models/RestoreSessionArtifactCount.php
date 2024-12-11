@@ -56,7 +56,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the completed property value. The completed property
+     * Gets the completed property value. The number of artifacts whose restoration completed.
      * @return int|null
     */
     public function getCompleted(): ?int {
@@ -68,7 +68,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the failed property value. The failed property
+     * Gets the failed property value. The number of artifacts whose restoration failed.
      * @return int|null
     */
     public function getFailed(): ?int {
@@ -95,7 +95,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the inProgress property value. The inProgress property
+     * Gets the inProgress property value. The number of artifacts whose restoration is in progress.
      * @return int|null
     */
     public function getInProgress(): ?int {
@@ -119,7 +119,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the total property value. The total property
+     * Gets the total property value. The number of artifacts present in the restore session.
      * @return int|null
     */
     public function getTotal(): ?int {
@@ -160,7 +160,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the completed property value. The completed property
+     * Sets the completed property value. The number of artifacts whose restoration completed.
      * @param int|null $value Value to set for the completed property.
     */
     public function setCompleted(?int $value): void {
@@ -168,7 +168,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the failed property value. The failed property
+     * Sets the failed property value. The number of artifacts whose restoration failed.
      * @param int|null $value Value to set for the failed property.
     */
     public function setFailed(?int $value): void {
@@ -176,7 +176,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the inProgress property value. The inProgress property
+     * Sets the inProgress property value. The number of artifacts whose restoration is in progress.
      * @param int|null $value Value to set for the inProgress property.
     */
     public function setInProgress(?int $value): void {
@@ -192,7 +192,7 @@ class RestoreSessionArtifactCount implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the total property value. The total property
+     * Sets the total property value. The number of artifacts present in the restore session.
      * @param int|null $value Value to set for the total property.
     */
     public function setTotal(?int $value): void {

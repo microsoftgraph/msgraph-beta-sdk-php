@@ -26,7 +26,7 @@ class HardwareOathAuthenticationMethod extends AuthenticationMethod implements P
     }
 
     /**
-     * Gets the device property value. The device property
+     * Gets the device property value. Exposes the hardware OATH method in the directory.
      * @return HardwareOathTokenAuthenticationMethodDevice|null
     */
     public function getDevice(): ?HardwareOathTokenAuthenticationMethodDevice {
@@ -58,7 +58,7 @@ class HardwareOathAuthenticationMethod extends AuthenticationMethod implements P
     }
 
     /**
-     * Sets the device property value. The device property
+     * Sets the device property value. Exposes the hardware OATH method in the directory.
      * @param HardwareOathTokenAuthenticationMethodDevice|null $value Value to set for the device property.
     */
     public function setDevice(?HardwareOathTokenAuthenticationMethodDevice $value): void {

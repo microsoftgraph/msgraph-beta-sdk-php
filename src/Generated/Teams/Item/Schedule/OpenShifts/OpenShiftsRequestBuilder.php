@@ -67,7 +67,7 @@ class OpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of an openshift object.
+     * Create an instance of an openShift object.
      * @param OpenShift $body The request body
      * @param OpenShiftsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OpenShift|null>
@@ -104,7 +104,7 @@ class OpenShiftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an instance of an openshift object.
+     * Create an instance of an openShift object.
      * @param OpenShift $body The request body
      * @param OpenShiftsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

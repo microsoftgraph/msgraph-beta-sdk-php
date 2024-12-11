@@ -51,7 +51,7 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the authorizationSystems property value. Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
+     * Gets the authorizationSystems property value. Represents an onboarded Amazon Web Services (AWS) account, Azure subscription, or Google Cloud Platform (GCP) project that Microsoft Entra Permissions Management collects and analyzes permissions and actions on.
      * @return array<AuthorizationSystem>|null
     */
     public function getAuthorizationSystems(): ?array {
@@ -145,7 +145,7 @@ class External implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the authorizationSystems property value. Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
+     * Sets the authorizationSystems property value. Represents an onboarded Amazon Web Services (AWS) account, Azure subscription, or Google Cloud Platform (GCP) project that Microsoft Entra Permissions Management collects and analyzes permissions and actions on.
      * @param array<AuthorizationSystem>|null $value Value to set for the authorizationSystems property.
     */
     public function setAuthorizationSystems(?array $value): void {

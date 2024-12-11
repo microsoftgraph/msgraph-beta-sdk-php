@@ -39,10 +39,11 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Delete navigation property hardwareOathDevices for directory
+     * Delete a Hardware OATH token. Token needs to be unassigned.
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authenticationmethoddevice-delete-hardwareoathdevices?view=graph-rest-beta Find more info here
     */
     public function delete(?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Get hardwareOathDevices from directory
+     * Read the properties and relationships of a hardwareOathTokenAuthenticationMethodDevice object.
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/hardwareoathtokenauthenticationmethoddevice-get?view=graph-rest-beta Find more info here
     */
     public function get(?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Update the navigation property hardwareOathDevices in directory
+     * Update the properties of a hardwareOathTokenAuthenticationMethodDevice object. The token needs to unassigned.
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/hardwareoathtokenauthenticationmethoddevice-update?view=graph-rest-beta Find more info here
     */
     public function patch(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Delete navigation property hardwareOathDevices for directory
+     * Delete a Hardware OATH token. Token needs to be unassigned.
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Get hardwareOathDevices from directory
+     * Read the properties and relationships of a hardwareOathTokenAuthenticationMethodDevice object.
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Update the navigation property hardwareOathDevices in directory
+     * Update the properties of a hardwareOathTokenAuthenticationMethodDevice object. The token needs to unassigned.
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

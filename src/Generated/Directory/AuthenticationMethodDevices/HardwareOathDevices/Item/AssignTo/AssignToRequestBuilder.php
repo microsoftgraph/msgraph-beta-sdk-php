@@ -47,7 +47,7 @@ class AssignToRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignTo from directory
+     * Assign the hardware OATH token to a user.
      * @param AssignToRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<User|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class AssignToRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignTo from directory
+     * Assign the hardware OATH token to a user.
      * @param AssignToRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

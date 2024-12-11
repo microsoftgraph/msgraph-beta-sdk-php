@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Pages\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+ * The pages in all OneNote notebooks that the user or group owns. Read-only. Nullable.
 */
 class OnenotePageItemRequestBuilderGetQueryParameters 
 {

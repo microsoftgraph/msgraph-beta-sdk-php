@@ -27,7 +27,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Gets the driveInclusionRules property value. Contains the details of the Onedrive for Business protection rule.
+     * Gets the driveInclusionRules property value. Contains the details of the OneDrive for Work or School protection rule.
      * @return array<DriveProtectionRule>|null
     */
     public function getDriveInclusionRules(): ?array {
@@ -41,7 +41,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Gets the driveProtectionUnits property value. Contains the protection units associated with a  OneDrive for Business protection policy.
+     * Gets the driveProtectionUnits property value. Contains the protection units associated with a  OneDrive for Work or School protection policy.
      * @return array<DriveProtectionUnit>|null
     */
     public function getDriveProtectionUnits(): ?array {
@@ -93,7 +93,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Sets the driveInclusionRules property value. Contains the details of the Onedrive for Business protection rule.
+     * Sets the driveInclusionRules property value. Contains the details of the OneDrive for Work or School protection rule.
      * @param array<DriveProtectionRule>|null $value Value to set for the driveInclusionRules property.
     */
     public function setDriveInclusionRules(?array $value): void {
@@ -101,7 +101,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Sets the driveProtectionUnits property value. Contains the protection units associated with a  OneDrive for Business protection policy.
+     * Sets the driveProtectionUnits property value. Contains the protection units associated with a  OneDrive for Work or School protection policy.
      * @param array<DriveProtectionUnit>|null $value Value to set for the driveProtectionUnits property.
     */
     public function setDriveProtectionUnits(?array $value): void {

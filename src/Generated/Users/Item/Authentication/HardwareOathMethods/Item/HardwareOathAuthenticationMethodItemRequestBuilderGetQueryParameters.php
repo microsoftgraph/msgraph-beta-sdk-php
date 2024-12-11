@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathM
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get hardwareOathMethods from users
+ * The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.
 */
 class HardwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

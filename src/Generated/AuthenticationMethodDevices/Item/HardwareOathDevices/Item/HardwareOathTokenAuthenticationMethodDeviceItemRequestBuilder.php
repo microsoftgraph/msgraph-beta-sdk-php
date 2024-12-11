@@ -53,7 +53,7 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Get hardwareOathDevices from authenticationMethodDevices
+     * Exposes the hardware OATH method in the directory.
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     }
 
     /**
-     * Get hardwareOathDevices from authenticationMethodDevices
+     * Exposes the hardware OATH method in the directory.
      * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

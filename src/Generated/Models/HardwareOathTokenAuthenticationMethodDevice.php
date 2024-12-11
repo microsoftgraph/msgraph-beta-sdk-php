@@ -26,7 +26,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. User the token is assigned to. Nullable. Supports $filter (eq).
      * @return Identity|null
     */
     public function getAssignedTo(): ?Identity {
@@ -38,7 +38,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the assignTo property value. The assignTo property
+     * Gets the assignTo property value. Assign the hardware OATH token to a user.
      * @return User|null
     */
     public function getAssignTo(): ?User {
@@ -69,7 +69,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the hashFunction property value. The hashFunction property
+     * Gets the hashFunction property value. Hash function of the hardrware token. The possible values are: hmacsha1 or hmacsha256. Default value is: hmacsha1. Supports $filter (eq).
      * @return HardwareOathTokenHashFunction|null
     */
     public function getHashFunction(): ?HardwareOathTokenHashFunction {
@@ -81,7 +81,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the manufacturer property value. The manufacturer property
+     * Gets the manufacturer property value. Manufacturer name of the hardware token. Supports $filter (eq).
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -93,7 +93,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the model property value. The model property
+     * Gets the model property value. Model name of the hardware token. Supports $filter (eq).
      * @return string|null
     */
     public function getModel(): ?string {
@@ -105,7 +105,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the secretKey property value. The secretKey property
+     * Gets the secretKey property value. Secret key of the specific hardware token, provided by the vendor.
      * @return string|null
     */
     public function getSecretKey(): ?string {
@@ -117,7 +117,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the serialNumber property value. The serialNumber property
+     * Gets the serialNumber property value. Serial number of the specific hardware token, often found on the back of the device. Supports $select and $filter (eq).
      * @return string|null
     */
     public function getSerialNumber(): ?string {
@@ -129,7 +129,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Status of the hardware OATH token.The possible values are: available, assigned, activated, failedActivation. Supports $filter(eq).
      * @return HardwareOathTokenStatus|null
     */
     public function getStatus(): ?HardwareOathTokenStatus {
@@ -141,7 +141,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the timeIntervalInSeconds property value. The timeIntervalInSeconds property
+     * Gets the timeIntervalInSeconds property value. Refresh interval of the 6-digit verification code, in seconds. The possible values are: 30 or 60. Supports $filter (eq).
      * @return int|null
     */
     public function getTimeIntervalInSeconds(): ?int {
@@ -170,7 +170,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. User the token is assigned to. Nullable. Supports $filter (eq).
      * @param Identity|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?Identity $value): void {
@@ -178,7 +178,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the assignTo property value. The assignTo property
+     * Sets the assignTo property value. Assign the hardware OATH token to a user.
      * @param User|null $value Value to set for the assignTo property.
     */
     public function setAssignTo(?User $value): void {
@@ -186,7 +186,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the hashFunction property value. The hashFunction property
+     * Sets the hashFunction property value. Hash function of the hardrware token. The possible values are: hmacsha1 or hmacsha256. Default value is: hmacsha1. Supports $filter (eq).
      * @param HardwareOathTokenHashFunction|null $value Value to set for the hashFunction property.
     */
     public function setHashFunction(?HardwareOathTokenHashFunction $value): void {
@@ -194,7 +194,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the manufacturer property value. The manufacturer property
+     * Sets the manufacturer property value. Manufacturer name of the hardware token. Supports $filter (eq).
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -202,7 +202,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the model property value. The model property
+     * Sets the model property value. Model name of the hardware token. Supports $filter (eq).
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -210,7 +210,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the secretKey property value. The secretKey property
+     * Sets the secretKey property value. Secret key of the specific hardware token, provided by the vendor.
      * @param string|null $value Value to set for the secretKey property.
     */
     public function setSecretKey(?string $value): void {
@@ -218,7 +218,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the serialNumber property value. The serialNumber property
+     * Sets the serialNumber property value. Serial number of the specific hardware token, often found on the back of the device. Supports $select and $filter (eq).
      * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
@@ -226,7 +226,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Status of the hardware OATH token.The possible values are: available, assigned, activated, failedActivation. Supports $filter(eq).
      * @param HardwareOathTokenStatus|null $value Value to set for the status property.
     */
     public function setStatus(?HardwareOathTokenStatus $value): void {
@@ -234,7 +234,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the timeIntervalInSeconds property value. The timeIntervalInSeconds property
+     * Sets the timeIntervalInSeconds property value. Refresh interval of the 6-digit verification code, in seconds. The possible values are: 30 or 60. Supports $filter (eq).
      * @param int|null $value Value to set for the timeIntervalInSeconds property.
     */
     public function setTimeIntervalInSeconds(?int $value): void {
