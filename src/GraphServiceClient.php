@@ -9,6 +9,7 @@
 namespace Microsoft\Graph\Beta;
 
 use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
+use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAccessTokenProvider;
 use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
 use Microsoft\Graph\Core\NationalCloud;
 use Microsoft\Kiota\Abstractions\Authentication\AuthenticationProvider;
@@ -44,9 +45,13 @@ class GraphServiceClient extends Generated\BaseGraphClient
             parent::__construct($requestAdapter);
             return;
         }
-        parent::__construct(new GraphRequestAdapter(
-            new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes, $nationalCloud)
-        ));
+        $defaultRequestAdapter = new GraphRequestAdapter(
+            GraphPhpLeagueAuthenticationProvider::createWithAccessTokenProvider(
+                new GraphPhpLeagueAccessTokenProvider($tokenRequestContext, $scopes, $nationalCloud)
+            )
+        );
+        $defaultRequestAdapter->setBaseUrl("$nationalCloud/beta");
+        parent::__construct($defaultRequestAdapter);
     }
 
     /**

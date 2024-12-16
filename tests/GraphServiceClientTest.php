@@ -121,4 +121,10 @@ class GraphServiceClientTest extends TestCase
         // cache is populated
         $this->assertInstanceOf(AccessToken::class, $customCache->getTokenWithContext($tokenRequestContext));
     }
+
+    public function testNationalCloudUsed(): void
+    {
+        $client = new GraphServiceClient(new ClientCredentialContext('tenant', 'client', 'secret'), [], NationalCloud::US_GOV);
+        $this->assertEquals(NationalCloud::US_GOV.'/beta', $client->getRequestAdapter()->getBaseUrl());
+    }
 }
