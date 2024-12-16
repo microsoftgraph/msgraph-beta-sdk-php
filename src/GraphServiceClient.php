@@ -44,9 +44,11 @@ class GraphServiceClient extends Generated\BaseGraphClient
             parent::__construct($requestAdapter);
             return;
         }
-        parent::__construct(new GraphRequestAdapter(
+        $defaultRequestAdapter = new GraphRequestAdapter(
             new GraphPhpLeagueAuthenticationProvider($tokenRequestContext, $scopes, $nationalCloud)
-        ));
+        );
+        $defaultRequestAdapter->setBaseUrl("$nationalCloud/beta");
+        parent::__construct($defaultRequestAdapter);
     }
 
     /**
