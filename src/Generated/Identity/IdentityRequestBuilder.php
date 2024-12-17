@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\ConditionalAccessR
 use Microsoft\Graph\Beta\Generated\Identity\ContinuousAccessEvaluationPolicy\ContinuousAccessEvaluationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\CustomAuthenticationExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\IdentityProviders\IdentityProvidersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ProductChanges\ProductChangesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\UserFlowAttributesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlows\UserFlowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityContainer;
@@ -88,6 +89,13 @@ class IdentityRequestBuilder extends BaseRequestBuilder
     */
     public function identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the productChanges property of the microsoft.graph.identityContainer entity.
+    */
+    public function productChanges(): ProductChangesRequestBuilder {
+        return new ProductChangesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -38,6 +38,7 @@ class DirectoryObject extends Entity implements Parsable
                 case '#microsoft.graph.contract': return new Contract();
                 case '#microsoft.graph.crossTenantAccessPolicy': return new CrossTenantAccessPolicy();
                 case '#microsoft.graph.device': return new Device();
+                case '#microsoft.graph.deviceTemplate': return new DeviceTemplate();
                 case '#microsoft.graph.directoryObjectPartnerReference': return new DirectoryObjectPartnerReference();
                 case '#microsoft.graph.directoryRole': return new DirectoryRole();
                 case '#microsoft.graph.directoryRoleTemplate': return new DirectoryRoleTemplate();
@@ -52,6 +53,7 @@ class DirectoryObject extends Entity implements Parsable
                 case '#microsoft.graph.homeRealmDiscoveryPolicy': return new HomeRealmDiscoveryPolicy();
                 case '#microsoft.graph.identitySecurityDefaultsEnforcementPolicy': return new IdentitySecurityDefaultsEnforcementPolicy();
                 case '#microsoft.graph.multiTenantOrganizationMember': return new MultiTenantOrganizationMember();
+                case '#microsoft.graph.mutualTlsOauthConfiguration': return new MutualTlsOauthConfiguration();
                 case '#microsoft.graph.organization': return new Organization();
                 case '#microsoft.graph.orgContact': return new OrgContact();
                 case '#microsoft.graph.pendingExternalUserProfile': return new PendingExternalUserProfile();
@@ -67,6 +69,7 @@ class DirectoryObject extends Entity implements Parsable
                 case '#microsoft.graph.tokenIssuancePolicy': return new TokenIssuancePolicy();
                 case '#microsoft.graph.tokenLifetimePolicy': return new TokenLifetimePolicy();
                 case '#microsoft.graph.trustedCertificateAuthorityAsEntityBase': return new TrustedCertificateAuthorityAsEntityBase();
+                case '#microsoft.graph.trustedCertificateAuthorityBase': return new TrustedCertificateAuthorityBase();
                 case '#microsoft.graph.user': return new User();
             }
         }

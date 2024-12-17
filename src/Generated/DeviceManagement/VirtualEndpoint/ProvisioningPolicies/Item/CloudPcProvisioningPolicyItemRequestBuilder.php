@@ -7,6 +7,9 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Apply\ApplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\RetrievePolicyApplyActionResult\RetrievePolicyApplyActionResultRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\RetrievePolicyApplySchedule\RetrievePolicyApplyScheduleRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\SchedulePolicyApplyTask\SchedulePolicyApplyTaskRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicy;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -38,6 +41,27 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrievePolicyApplyActionResult method.
+    */
+    public function retrievePolicyApplyActionResult(): RetrievePolicyApplyActionResultRequestBuilder {
+        return new RetrievePolicyApplyActionResultRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrievePolicyApplySchedule method.
+    */
+    public function retrievePolicyApplySchedule(): RetrievePolicyApplyScheduleRequestBuilder {
+        return new RetrievePolicyApplyScheduleRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the schedulePolicyApplyTask method.
+    */
+    public function schedulePolicyApplyTask(): SchedulePolicyApplyTaskRequestBuilder {
+        return new SchedulePolicyApplyTaskRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

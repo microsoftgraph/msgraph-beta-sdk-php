@@ -53,7 +53,7 @@ class DriveRestoreArtifactItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of restore points and destination details that can be used to restore a OneDrive for Work or School drive.
+     * A collection of restore points and destination details that can be used to restore a OneDrive for work or school drive.
      * @param DriveRestoreArtifactItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveRestoreArtifact|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class DriveRestoreArtifactItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of restore points and destination details that can be used to restore a OneDrive for Work or School drive.
+     * A collection of restore points and destination details that can be used to restore a OneDrive for work or school drive.
      * @param DriveRestoreArtifactItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

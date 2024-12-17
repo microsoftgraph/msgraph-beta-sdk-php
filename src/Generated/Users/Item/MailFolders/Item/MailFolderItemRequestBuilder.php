@@ -11,7 +11,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Copy\CopyRequestB
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\MessageRules\MessageRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Move\MoveRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\PermanentDelete\PermanentDeleteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\UpdateAllMessagesReadState\UpdateAllMessagesReadStateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\UserConfigurations\UserConfigurationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -59,10 +61,24 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the operations property of the microsoft.graph.mailFolder entity.
+    */
+    public function operations(): OperationsRequestBuilder {
+        return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the permanentDelete method.
     */
     public function permanentDelete(): PermanentDeleteRequestBuilder {
         return new PermanentDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the updateAllMessagesReadState method.
+    */
+    public function updateAllMessagesReadState(): UpdateAllMessagesReadStateRequestBuilder {
+        return new UpdateAllMessagesReadStateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

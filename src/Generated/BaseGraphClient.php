@@ -25,6 +25,7 @@ use Microsoft\Graph\Beta\Generated\AuthenticationMethodsPolicy\AuthenticationMet
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\BookingBusinessesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingCurrencies\BookingCurrenciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BusinessFlowTemplates\BusinessFlowTemplatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\CertificateAuthorities\CertificateAuthoritiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\ChatsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Commands\CommandsRequestBuilder;
@@ -119,6 +120,7 @@ use Microsoft\Graph\Beta\Generated\Teams\TeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamsTemplates\TeamsTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\TeamTemplateDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamworkRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\TenantRelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\TermStoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ThreatSubmission\ThreatSubmissionRequestBuilder;
@@ -289,6 +291,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function businessFlowTemplates(): BusinessFlowTemplatesRequestBuilder {
         return new BusinessFlowTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the certificateAuthorityPath singleton.
+    */
+    public function certificateAuthorities(): CertificateAuthoritiesRequestBuilder {
+        return new CertificateAuthoritiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -912,6 +921,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the template singleton.
+    */
+    public function templates(): TemplatesRequestBuilder {
+        return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -47,7 +47,22 @@ class CertificateAuthorityPath extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'certificateBasedApplicationConfigurations' => fn(ParseNode $n) => $o->setCertificateBasedApplicationConfigurations($n->getCollectionOfObjectValues([CertificateBasedApplicationConfiguration::class, 'createFromDiscriminatorValue'])),
+            'mutualTlsOauthConfigurations' => fn(ParseNode $n) => $o->setMutualTlsOauthConfigurations($n->getCollectionOfObjectValues([MutualTlsOauthConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the mutualTlsOauthConfigurations property value. The mutualTlsOauthConfigurations property
+     * @return array<MutualTlsOauthConfiguration>|null
+    */
+    public function getMutualTlsOauthConfigurations(): ?array {
+        $val = $this->getBackingStore()->get('mutualTlsOauthConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MutualTlsOauthConfiguration::class);
+            /** @var array<MutualTlsOauthConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mutualTlsOauthConfigurations'");
     }
 
     /**
@@ -57,6 +72,7 @@ class CertificateAuthorityPath extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('certificateBasedApplicationConfigurations', $this->getCertificateBasedApplicationConfigurations());
+        $writer->writeCollectionOfObjectValues('mutualTlsOauthConfigurations', $this->getMutualTlsOauthConfigurations());
     }
 
     /**
@@ -65,6 +81,14 @@ class CertificateAuthorityPath extends Entity implements Parsable
     */
     public function setCertificateBasedApplicationConfigurations(?array $value): void {
         $this->getBackingStore()->set('certificateBasedApplicationConfigurations', $value);
+    }
+
+    /**
+     * Sets the mutualTlsOauthConfigurations property value. The mutualTlsOauthConfigurations property
+     * @param array<MutualTlsOauthConfiguration>|null $value Value to set for the mutualTlsOauthConfigurations property.
+    */
+    public function setMutualTlsOauthConfigurations(?array $value): void {
+        $this->getBackingStore()->set('mutualTlsOauthConfigurations', $value);
     }
 
 }

@@ -25,6 +25,7 @@ use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomai
 use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithCommerceSubscriptionId\SubscriptionsWithCommerceSubscriptionIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithOcpSubscriptionId\SubscriptionsWithOcpSubscriptionIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Directory;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -168,6 +169,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.directory entity.
+    */
+    public function templates(): TemplatesRequestBuilder {
+        return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

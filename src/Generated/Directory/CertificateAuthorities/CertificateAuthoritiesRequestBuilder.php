@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateBasedApplicationConfigurations\CertificateBasedApplicationConfigurationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\MutualTlsOauthConfigurations\MutualTlsOauthConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CertificateAuthorityPath;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -22,6 +23,13 @@ class CertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     */
     public function certificateBasedApplicationConfigurations(): CertificateBasedApplicationConfigurationsRequestBuilder {
         return new CertificateBasedApplicationConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the mutualTlsOauthConfigurations property of the microsoft.graph.certificateAuthorityPath entity.
+    */
+    public function mutualTlsOauthConfigurations(): MutualTlsOauthConfigurationsRequestBuilder {
+        return new MutualTlsOauthConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

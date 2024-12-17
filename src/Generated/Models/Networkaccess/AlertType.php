@@ -14,4 +14,6 @@ class AlertType extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const WEB_CONTENT_BLOCKED = "webContentBlocked";
     public const MALWARE = "malware";
+    public const PATIENT_ZERO = "patientZero";
+    public const DLP = "dlp";
 }

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Devices\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\Commands\CommandsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Devices\Item\DeviceTemplate\DeviceTemplateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
@@ -47,6 +48,13 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function commands(): CommandsRequestBuilder {
         return new CommandsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the deviceTemplate property of the microsoft.graph.device entity.
+    */
+    public function deviceTemplate(): DeviceTemplateRequestBuilder {
+        return new DeviceTemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

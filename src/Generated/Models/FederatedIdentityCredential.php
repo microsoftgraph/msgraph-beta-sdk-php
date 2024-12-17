@@ -40,6 +40,18 @@ class FederatedIdentityCredential extends Entity implements Parsable
     }
 
     /**
+     * Gets the claimsMatchingExpression property value. Enables the use of claims matching expressions against specified claims. For the list of supported expression syntax and claims, visit the Flexible FIC reference.
+     * @return FederatedIdentityExpression|null
+    */
+    public function getClaimsMatchingExpression(): ?FederatedIdentityExpression {
+        $val = $this->getBackingStore()->get('claimsMatchingExpression');
+        if (is_null($val) || $val instanceof FederatedIdentityExpression) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'claimsMatchingExpression'");
+    }
+
+    /**
      * Gets the description property value. The un-validated, user-provided description of the federated identity credential. It has a limit of 600 characters. Optional.
      * @return string|null
     */
@@ -66,6 +78,7 @@ class FederatedIdentityCredential extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setAudiences($val);
             },
+            'claimsMatchingExpression' => fn(ParseNode $n) => $o->setClaimsMatchingExpression($n->getObjectValue([FederatedIdentityExpression::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'issuer' => fn(ParseNode $n) => $o->setIssuer($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
@@ -116,6 +129,7 @@ class FederatedIdentityCredential extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('audiences', $this->getAudiences());
+        $writer->writeObjectValue('claimsMatchingExpression', $this->getClaimsMatchingExpression());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('issuer', $this->getIssuer());
         $writer->writeStringValue('name', $this->getName());
@@ -128,6 +142,14 @@ class FederatedIdentityCredential extends Entity implements Parsable
     */
     public function setAudiences(?array $value): void {
         $this->getBackingStore()->set('audiences', $value);
+    }
+
+    /**
+     * Sets the claimsMatchingExpression property value. Enables the use of claims matching expressions against specified claims. For the list of supported expression syntax and claims, visit the Flexible FIC reference.
+     * @param FederatedIdentityExpression|null $value Value to set for the claimsMatchingExpression property.
+    */
+    public function setClaimsMatchingExpression(?FederatedIdentityExpression $value): void {
+        $this->getBackingStore()->set('claimsMatchingExpression', $value);
     }
 
     /**

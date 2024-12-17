@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointResto
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get siteRestoreArtifactsBulkAdditionRequests from solutions
+ * Get a siteRestoreArtifactsBulkAdditionRequest object by its id, associated with a sharePointRestoreSession.
 */
 class SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters 
 {

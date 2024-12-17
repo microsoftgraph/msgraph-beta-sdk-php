@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Device;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\Commands\CommandsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\DeviceTemplate\DeviceTemplateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\MemberOf\MemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\RegisteredOwnersRequestBuilder;
@@ -28,6 +29,13 @@ class DeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function commands(): CommandsRequestBuilder {
         return new CommandsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the deviceTemplate property of the microsoft.graph.device entity.
+    */
+    public function deviceTemplate(): DeviceTemplateRequestBuilder {
+        return new DeviceTemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

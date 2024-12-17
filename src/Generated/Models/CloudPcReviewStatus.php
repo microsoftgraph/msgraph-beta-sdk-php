@@ -36,7 +36,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the accessTier property value. The accessTier property
+     * Gets the accessTier property value. The blob access tier of the Azure Storage account in which the Cloud PC snapshot is saved with. Possible values are hot, cool, cold, and archive, default value is hot.
      * @return CloudPcBlobAccessTier|null
     */
     public function getAccessTier(): ?CloudPcBlobAccessTier {
@@ -229,7 +229,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the accessTier property value. The accessTier property
+     * Sets the accessTier property value. The blob access tier of the Azure Storage account in which the Cloud PC snapshot is saved with. Possible values are hot, cool, cold, and archive, default value is hot.
      * @param CloudPcBlobAccessTier|null $value Value to set for the accessTier property.
     */
     public function setAccessTier(?CloudPcBlobAccessTier $value): void {

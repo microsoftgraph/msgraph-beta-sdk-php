@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * IP range base class for representing IPV4, IPV6 address ranges
+*/
 class IpRange implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**

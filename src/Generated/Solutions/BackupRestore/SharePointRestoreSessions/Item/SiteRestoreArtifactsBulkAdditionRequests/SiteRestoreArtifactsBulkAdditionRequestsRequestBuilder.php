@@ -52,10 +52,11 @@ class SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get siteRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a list of the siteRestoreArtifactsBulkAdditionRequest objects associated with a sharePointRestoreSession. The siteWebUrls property is deliberately omitted from the response body in order to limit the response size.
      * @param SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteRestoreArtifactsBulkAdditionRequestCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/sharepointrestoresession-list-siterestoreartifactsbulkadditionrequests?view=graph-rest-beta Find more info here
     */
     public function get(?SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder extends BaseRequest
     }
 
     /**
-     * Create new navigation property to siteRestoreArtifactsBulkAdditionRequests for solutions
+     * Create a new siteRestoreArtifactsBulkAdditionRequest object associated with a sharePointRestoreSession. The initial status upon creation of the restore session is active. When all the sites are added to the corresponding SharePoint restore session and the restore session is activated, the status becomes completed. If any failures are encountered during resource resolution, the status of the restore session becomes completedWithErrors.
      * @param SiteRestoreArtifactsBulkAdditionRequest $body The request body
      * @param SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteRestoreArtifactsBulkAdditionRequest|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/sharepointrestoresession-post-siterestoreartifactsbulkadditionrequests?view=graph-rest-beta Find more info here
     */
     public function post(SiteRestoreArtifactsBulkAdditionRequest $body, ?SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get siteRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a list of the siteRestoreArtifactsBulkAdditionRequest objects associated with a sharePointRestoreSession. The siteWebUrls property is deliberately omitted from the response body in order to limit the response size.
      * @param SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder extends BaseRequest
     }
 
     /**
-     * Create new navigation property to siteRestoreArtifactsBulkAdditionRequests for solutions
+     * Create a new siteRestoreArtifactsBulkAdditionRequest object associated with a sharePointRestoreSession. The initial status upon creation of the restore session is active. When all the sites are added to the corresponding SharePoint restore session and the restore session is activated, the status becomes completed. If any failures are encountered during resource resolution, the status of the restore session becomes completedWithErrors.
      * @param SiteRestoreArtifactsBulkAdditionRequest $body The request body
      * @param SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
