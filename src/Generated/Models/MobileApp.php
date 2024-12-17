@@ -104,7 +104,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The date and time the app was created.
+     * Gets the createdDateTime property value. The date and time the app was created. This property is read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -116,7 +116,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the dependentAppCount property value. The total number of dependencies the child app has.
+     * Gets the dependentAppCount property value. The total number of dependencies the child app has. This property is read-only.
      * @return int|null
     */
     public function getDependentAppCount(): ?int {
@@ -215,7 +215,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the isAssigned property value. The value indicating whether the app is assigned to at least one group.
+     * Gets the isAssigned property value. The value indicating whether the app is assigned to at least one group. This property is read-only.
      * @return bool|null
     */
     public function getIsAssigned(): ?bool {
@@ -251,7 +251,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The date and time the app was last modified.
+     * Gets the lastModifiedDateTime property value. The date and time the app was last modified. This property is read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -323,7 +323,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the relationships property value. List of relationships for this mobile app.
+     * Gets the relationships property value. The set of direct relationships for this app.
      * @return array<MobileAppRelationship>|null
     */
     public function getRelationships(): ?array {
@@ -375,7 +375,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the uploadState property value. The upload state.
+     * Gets the uploadState property value. The upload state. Possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.
      * @return int|null
     */
     public function getUploadState(): ?int {
@@ -426,7 +426,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The date and time the app was created.
+     * Sets the createdDateTime property value. The date and time the app was created. This property is read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -434,7 +434,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the dependentAppCount property value. The total number of dependencies the child app has.
+     * Sets the dependentAppCount property value. The total number of dependencies the child app has. This property is read-only.
      * @param int|null $value Value to set for the dependentAppCount property.
     */
     public function setDependentAppCount(?int $value): void {
@@ -474,7 +474,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the isAssigned property value. The value indicating whether the app is assigned to at least one group.
+     * Sets the isAssigned property value. The value indicating whether the app is assigned to at least one group. This property is read-only.
      * @param bool|null $value Value to set for the isAssigned property.
     */
     public function setIsAssigned(?bool $value): void {
@@ -498,7 +498,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The date and time the app was last modified.
+     * Sets the lastModifiedDateTime property value. The date and time the app was last modified. This property is read-only.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -546,7 +546,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the relationships property value. List of relationships for this mobile app.
+     * Sets the relationships property value. The set of direct relationships for this app.
      * @param array<MobileAppRelationship>|null $value Value to set for the relationships property.
     */
     public function setRelationships(?array $value): void {
@@ -578,7 +578,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the uploadState property value. The upload state.
+     * Sets the uploadState property value. The upload state. Possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.
      * @param int|null $value Value to set for the uploadState property.
     */
     public function setUploadState(?int $value): void {

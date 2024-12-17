@@ -84,6 +84,7 @@ class MailFolder extends Entity implements Parsable
             'messageRules' => fn(ParseNode $n) => $o->setMessageRules($n->getCollectionOfObjectValues([MessageRule::class, 'createFromDiscriminatorValue'])),
             'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([Message::class, 'createFromDiscriminatorValue'])),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([MailFolderOperation::class, 'createFromDiscriminatorValue'])),
             'parentFolderId' => fn(ParseNode $n) => $o->setParentFolderId($n->getStringValue()),
             'singleValueExtendedProperties' => fn(ParseNode $n) => $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues([SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'totalItemCount' => fn(ParseNode $n) => $o->setTotalItemCount($n->getIntegerValue()),
@@ -145,6 +146,20 @@ class MailFolder extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'multiValueExtendedProperties'");
+    }
+
+    /**
+     * Gets the operations property value. The operations property
+     * @return array<MailFolderOperation>|null
+    */
+    public function getOperations(): ?array {
+        $val = $this->getBackingStore()->get('operations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MailFolderOperation::class);
+            /** @var array<MailFolderOperation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
     }
 
     /**
@@ -236,6 +251,7 @@ class MailFolder extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('messageRules', $this->getMessageRules());
         $writer->writeCollectionOfObjectValues('messages', $this->getMessages());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeStringValue('parentFolderId', $this->getParentFolderId());
         $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
         $writer->writeIntegerValue('totalItemCount', $this->getTotalItemCount());
@@ -298,6 +314,14 @@ class MailFolder extends Entity implements Parsable
     */
     public function setMultiValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('multiValueExtendedProperties', $value);
+    }
+
+    /**
+     * Sets the operations property value. The operations property
+     * @param array<MailFolderOperation>|null $value Value to set for the operations property.
+    */
+    public function setOperations(?array $value): void {
+        $this->getBackingStore()->set('operations', $value);
     }
 
     /**

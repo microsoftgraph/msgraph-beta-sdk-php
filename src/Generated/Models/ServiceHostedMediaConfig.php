@@ -33,8 +33,21 @@ class ServiceHostedMediaConfig extends MediaConfig implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'liveCaptionOptions' => fn(ParseNode $n) => $o->setLiveCaptionOptions($n->getObjectValue([LiveCaptionOptions::class, 'createFromDiscriminatorValue'])),
             'preFetchMedia' => fn(ParseNode $n) => $o->setPreFetchMedia($n->getCollectionOfObjectValues([MediaInfo::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the liveCaptionOptions property value. The liveCaptionOptions property
+     * @return LiveCaptionOptions|null
+    */
+    public function getLiveCaptionOptions(): ?LiveCaptionOptions {
+        $val = $this->getBackingStore()->get('liveCaptionOptions');
+        if (is_null($val) || $val instanceof LiveCaptionOptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'liveCaptionOptions'");
     }
 
     /**
@@ -57,7 +70,16 @@ class ServiceHostedMediaConfig extends MediaConfig implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('liveCaptionOptions', $this->getLiveCaptionOptions());
         $writer->writeCollectionOfObjectValues('preFetchMedia', $this->getPreFetchMedia());
+    }
+
+    /**
+     * Sets the liveCaptionOptions property value. The liveCaptionOptions property
+     * @param LiveCaptionOptions|null $value Value to set for the liveCaptionOptions property.
+    */
+    public function setLiveCaptionOptions(?LiveCaptionOptions $value): void {
+        $this->getBackingStore()->set('liveCaptionOptions', $value);
     }
 
     /**

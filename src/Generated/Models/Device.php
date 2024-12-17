@@ -40,6 +40,20 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the alternativeNames property value. The alternativeNames property
+     * @return array<string>|null
+    */
+    public function getAlternativeNames(): ?array {
+        $val = $this->getBackingStore()->get('alternativeNames');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'alternativeNames'");
+    }
+
+    /**
      * Gets the alternativeSecurityIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le).
      * @return array<AlternativeSecurityId>|null
     */
@@ -140,6 +154,20 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the deviceTemplate property value. The deviceTemplate property
+     * @return array<DeviceTemplate>|null
+    */
+    public function getDeviceTemplate(): ?array {
+        $val = $this->getBackingStore()->get('deviceTemplate');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceTemplate::class);
+            /** @var array<DeviceTemplate>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceTemplate'");
+    }
+
+    /**
      * Gets the deviceVersion property value. For internal use only.
      * @return int|null
     */
@@ -233,6 +261,14 @@ class Device extends DirectoryObject implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'accountEnabled' => fn(ParseNode $n) => $o->setAccountEnabled($n->getBooleanValue()),
+            'alternativeNames' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAlternativeNames($val);
+            },
             'alternativeSecurityIds' => fn(ParseNode $n) => $o->setAlternativeSecurityIds($n->getCollectionOfObjectValues([AlternativeSecurityId::class, 'createFromDiscriminatorValue'])),
             'approximateLastSignInDateTime' => fn(ParseNode $n) => $o->setApproximateLastSignInDateTime($n->getDateTimeValue()),
             'commands' => fn(ParseNode $n) => $o->setCommands($n->getCollectionOfObjectValues([Command::class, 'createFromDiscriminatorValue'])),
@@ -241,6 +277,7 @@ class Device extends DirectoryObject implements Parsable
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceMetadata' => fn(ParseNode $n) => $o->setDeviceMetadata($n->getStringValue()),
             'deviceOwnership' => fn(ParseNode $n) => $o->setDeviceOwnership($n->getStringValue()),
+            'deviceTemplate' => fn(ParseNode $n) => $o->setDeviceTemplate($n->getCollectionOfObjectValues([DeviceTemplate::class, 'createFromDiscriminatorValue'])),
             'deviceVersion' => fn(ParseNode $n) => $o->setDeviceVersion($n->getIntegerValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'domainName' => fn(ParseNode $n) => $o->setDomainName($n->getStringValue()),
@@ -659,6 +696,7 @@ class Device extends DirectoryObject implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('accountEnabled', $this->getAccountEnabled());
+        $writer->writeCollectionOfPrimitiveValues('alternativeNames', $this->getAlternativeNames());
         $writer->writeCollectionOfObjectValues('alternativeSecurityIds', $this->getAlternativeSecurityIds());
         $writer->writeDateTimeValue('approximateLastSignInDateTime', $this->getApproximateLastSignInDateTime());
         $writer->writeCollectionOfObjectValues('commands', $this->getCommands());
@@ -667,6 +705,7 @@ class Device extends DirectoryObject implements Parsable
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceMetadata', $this->getDeviceMetadata());
         $writer->writeStringValue('deviceOwnership', $this->getDeviceOwnership());
+        $writer->writeCollectionOfObjectValues('deviceTemplate', $this->getDeviceTemplate());
         $writer->writeIntegerValue('deviceVersion', $this->getDeviceVersion());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('domainName', $this->getDomainName());
@@ -710,6 +749,14 @@ class Device extends DirectoryObject implements Parsable
     */
     public function setAccountEnabled(?bool $value): void {
         $this->getBackingStore()->set('accountEnabled', $value);
+    }
+
+    /**
+     * Sets the alternativeNames property value. The alternativeNames property
+     * @param array<string>|null $value Value to set for the alternativeNames property.
+    */
+    public function setAlternativeNames(?array $value): void {
+        $this->getBackingStore()->set('alternativeNames', $value);
     }
 
     /**
@@ -774,6 +821,14 @@ class Device extends DirectoryObject implements Parsable
     */
     public function setDeviceOwnership(?string $value): void {
         $this->getBackingStore()->set('deviceOwnership', $value);
+    }
+
+    /**
+     * Sets the deviceTemplate property value. The deviceTemplate property
+     * @param array<DeviceTemplate>|null $value Value to set for the deviceTemplate property.
+    */
+    public function setDeviceTemplate(?array $value): void {
+        $this->getBackingStore()->set('deviceTemplate', $value);
     }
 
     /**

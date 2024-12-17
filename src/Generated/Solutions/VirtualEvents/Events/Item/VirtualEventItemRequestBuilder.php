@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Presenter
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\SessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\SetExternalEventInformation\SetExternalEventInformationRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -47,6 +48,13 @@ class VirtualEventItemRequestBuilder extends BaseRequestBuilder
     */
     public function sessions(): SessionsRequestBuilder {
         return new SessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setExternalEventInformation method.
+    */
+    public function setExternalEventInformation(): SetExternalEventInformationRequestBuilder {
+        return new SetExternalEventInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

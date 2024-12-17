@@ -181,6 +181,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
             'customAuthenticationExtensions' => fn(ParseNode $n) => $o->setCustomAuthenticationExtensions($n->getCollectionOfObjectValues([CustomAuthenticationExtension::class, 'createFromDiscriminatorValue'])),
             'identityProviders' => fn(ParseNode $n) => $o->setIdentityProviders($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'productChanges' => fn(ParseNode $n) => $o->setProductChanges($n->getCollectionOfObjectValues([ChangeItemBase::class, 'createFromDiscriminatorValue'])),
             'userFlowAttributes' => fn(ParseNode $n) => $o->setUserFlowAttributes($n->getCollectionOfObjectValues([IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'])),
             'userFlows' => fn(ParseNode $n) => $o->setUserFlows($n->getCollectionOfObjectValues([IdentityUserFlow::class, 'createFromDiscriminatorValue'])),
         ];
@@ -210,6 +211,20 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the productChanges property value. Represents entry point for Microsoft Entra product changes and planned new features.
+     * @return array<ChangeItemBase>|null
+    */
+    public function getProductChanges(): ?array {
+        $val = $this->getBackingStore()->get('productChanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ChangeItemBase::class);
+            /** @var array<ChangeItemBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productChanges'");
     }
 
     /**
@@ -255,6 +270,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('customAuthenticationExtensions', $this->getCustomAuthenticationExtensions());
         $writer->writeCollectionOfObjectValues('identityProviders', $this->getIdentityProviders());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('productChanges', $this->getProductChanges());
         $writer->writeCollectionOfObjectValues('userFlowAttributes', $this->getUserFlowAttributes());
         $writer->writeCollectionOfObjectValues('userFlows', $this->getUserFlows());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -354,6 +370,14 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the productChanges property value. Represents entry point for Microsoft Entra product changes and planned new features.
+     * @param array<ChangeItemBase>|null $value Value to set for the productChanges property.
+    */
+    public function setProductChanges(?array $value): void {
+        $this->getBackingStore()->set('productChanges', $value);
     }
 
     /**

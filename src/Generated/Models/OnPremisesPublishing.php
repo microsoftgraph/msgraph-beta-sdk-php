@@ -147,6 +147,9 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             'verifiedCustomDomainCertificatesMetadata' => fn(ParseNode $n) => $o->setVerifiedCustomDomainCertificatesMetadata($n->getObjectValue([VerifiedCustomDomainCertificatesMetadata::class, 'createFromDiscriminatorValue'])),
             'verifiedCustomDomainKeyCredential' => fn(ParseNode $n) => $o->setVerifiedCustomDomainKeyCredential($n->getObjectValue([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'verifiedCustomDomainPasswordCredential' => fn(ParseNode $n) => $o->setVerifiedCustomDomainPasswordCredential($n->getObjectValue([PasswordCredential::class, 'createFromDiscriminatorValue'])),
+            'wafAllowedHeaders' => fn(ParseNode $n) => $o->setWafAllowedHeaders($n->getObjectValue([WafAllowedHeadersDictionary::class, 'createFromDiscriminatorValue'])),
+            'wafIpRanges' => fn(ParseNode $n) => $o->setWafIpRanges($n->getCollectionOfObjectValues([IpRange::class, 'createFromDiscriminatorValue'])),
+            'wafProvider' => fn(ParseNode $n) => $o->setWafProvider($n->getStringValue()),
         ];
     }
 
@@ -381,6 +384,44 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the wafAllowedHeaders property value. The wafAllowedHeaders property
+     * @return WafAllowedHeadersDictionary|null
+    */
+    public function getWafAllowedHeaders(): ?WafAllowedHeadersDictionary {
+        $val = $this->getBackingStore()->get('wafAllowedHeaders');
+        if (is_null($val) || $val instanceof WafAllowedHeadersDictionary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wafAllowedHeaders'");
+    }
+
+    /**
+     * Gets the wafIpRanges property value. The wafIpRanges property
+     * @return array<IpRange>|null
+    */
+    public function getWafIpRanges(): ?array {
+        $val = $this->getBackingStore()->get('wafIpRanges');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IpRange::class);
+            /** @var array<IpRange>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wafIpRanges'");
+    }
+
+    /**
+     * Gets the wafProvider property value. The wafProvider property
+     * @return string|null
+    */
+    public function getWafProvider(): ?string {
+        $val = $this->getBackingStore()->get('wafProvider');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wafProvider'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -409,6 +450,9 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeObjectValue('verifiedCustomDomainCertificatesMetadata', $this->getVerifiedCustomDomainCertificatesMetadata());
         $writer->writeObjectValue('verifiedCustomDomainKeyCredential', $this->getVerifiedCustomDomainKeyCredential());
         $writer->writeObjectValue('verifiedCustomDomainPasswordCredential', $this->getVerifiedCustomDomainPasswordCredential());
+        $writer->writeObjectValue('wafAllowedHeaders', $this->getWafAllowedHeaders());
+        $writer->writeCollectionOfObjectValues('wafIpRanges', $this->getWafIpRanges());
+        $writer->writeStringValue('wafProvider', $this->getWafProvider());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -618,6 +662,30 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setVerifiedCustomDomainPasswordCredential(?PasswordCredential $value): void {
         $this->getBackingStore()->set('verifiedCustomDomainPasswordCredential', $value);
+    }
+
+    /**
+     * Sets the wafAllowedHeaders property value. The wafAllowedHeaders property
+     * @param WafAllowedHeadersDictionary|null $value Value to set for the wafAllowedHeaders property.
+    */
+    public function setWafAllowedHeaders(?WafAllowedHeadersDictionary $value): void {
+        $this->getBackingStore()->set('wafAllowedHeaders', $value);
+    }
+
+    /**
+     * Sets the wafIpRanges property value. The wafIpRanges property
+     * @param array<IpRange>|null $value Value to set for the wafIpRanges property.
+    */
+    public function setWafIpRanges(?array $value): void {
+        $this->getBackingStore()->set('wafIpRanges', $value);
+    }
+
+    /**
+     * Sets the wafProvider property value. The wafProvider property
+     * @param string|null $value Value to set for the wafProvider property.
+    */
+    public function setWafProvider(?string $value): void {
+        $this->getBackingStore()->set('wafProvider', $value);
     }
 
 }

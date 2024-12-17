@@ -187,6 +187,7 @@ class Directory extends Entity implements Parsable
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
+            'templates' => fn(ParseNode $n) => $o->setTemplates($n->getObjectValue([Template::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -315,6 +316,18 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the templates property value. The templates property
+     * @return Template|null
+    */
+    public function getTemplates(): ?Template {
+        $val = $this->getBackingStore()->get('templates');
+        if (is_null($val) || $val instanceof Template) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'templates'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -339,6 +352,7 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
         $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
+        $writer->writeObjectValue('templates', $this->getTemplates());
     }
 
     /**
@@ -491,6 +505,14 @@ class Directory extends Entity implements Parsable
     */
     public function setSubscriptions(?array $value): void {
         $this->getBackingStore()->set('subscriptions', $value);
+    }
+
+    /**
+     * Sets the templates property value. The templates property
+     * @param Template|null $value Value to set for the templates property.
+    */
+    public function setTemplates(?Template $value): void {
+        $this->getBackingStore()->set('templates', $value);
     }
 
 }

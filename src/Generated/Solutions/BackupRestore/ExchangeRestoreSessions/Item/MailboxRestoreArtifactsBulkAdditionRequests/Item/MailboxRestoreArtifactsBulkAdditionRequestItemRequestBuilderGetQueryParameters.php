@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestore
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mailboxRestoreArtifactsBulkAdditionRequests from solutions
+ * Get a mailboxRestoreArtifactsBulkAdditionRequest object by its id, associated with an exchangeRestoreSession.
 */
 class MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters 
 {

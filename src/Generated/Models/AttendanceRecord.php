@@ -52,6 +52,18 @@ class AttendanceRecord extends Entity implements Parsable
     }
 
     /**
+     * Gets the externalRegistrationInformation property value. The externalRegistrationInformation property
+     * @return VirtualEventExternalRegistrationInformation|null
+    */
+    public function getExternalRegistrationInformation(): ?VirtualEventExternalRegistrationInformation {
+        $val = $this->getBackingStore()->get('externalRegistrationInformation');
+        if (is_null($val) || $val instanceof VirtualEventExternalRegistrationInformation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalRegistrationInformation'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -60,6 +72,7 @@ class AttendanceRecord extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'attendanceIntervals' => fn(ParseNode $n) => $o->setAttendanceIntervals($n->getCollectionOfObjectValues([AttendanceInterval::class, 'createFromDiscriminatorValue'])),
             'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
+            'externalRegistrationInformation' => fn(ParseNode $n) => $o->setExternalRegistrationInformation($n->getObjectValue([VirtualEventExternalRegistrationInformation::class, 'createFromDiscriminatorValue'])),
             'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'registrantId' => fn(ParseNode $n) => $o->setRegistrantId($n->getStringValue()),
             'registrationId' => fn(ParseNode $n) => $o->setRegistrationId($n->getStringValue()),
@@ -136,6 +149,7 @@ class AttendanceRecord extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('attendanceIntervals', $this->getAttendanceIntervals());
         $writer->writeStringValue('emailAddress', $this->getEmailAddress());
+        $writer->writeObjectValue('externalRegistrationInformation', $this->getExternalRegistrationInformation());
         $writer->writeObjectValue('identity', $this->getIdentity());
         $writer->writeStringValue('registrantId', $this->getRegistrantId());
         $writer->writeStringValue('registrationId', $this->getRegistrationId());
@@ -157,6 +171,14 @@ class AttendanceRecord extends Entity implements Parsable
     */
     public function setEmailAddress(?string $value): void {
         $this->getBackingStore()->set('emailAddress', $value);
+    }
+
+    /**
+     * Sets the externalRegistrationInformation property value. The externalRegistrationInformation property
+     * @param VirtualEventExternalRegistrationInformation|null $value Value to set for the externalRegistrationInformation property.
+    */
+    public function setExternalRegistrationInformation(?VirtualEventExternalRegistrationInformation $value): void {
+        $this->getBackingStore()->set('externalRegistrationInformation', $value);
     }
 
     /**

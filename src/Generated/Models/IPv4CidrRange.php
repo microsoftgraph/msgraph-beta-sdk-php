@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * IP range base class for representing IPV4, IPV6 address ranges
+*/
 class IPv4CidrRange extends IpRange implements Parsable 
 {
     /**
