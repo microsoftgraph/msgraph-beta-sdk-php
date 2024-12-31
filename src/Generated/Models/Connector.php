@@ -91,7 +91,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version of the connector.
+     * Gets the version property value. The version of the connector. Read-only.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -148,7 +148,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version of the connector.
+     * Sets the version property value. The version of the connector. Read-only.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

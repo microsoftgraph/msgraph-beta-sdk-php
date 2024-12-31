@@ -52,7 +52,7 @@ class AttendanceRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalRegistrationInformation property value. The externalRegistrationInformation property
+     * Gets the externalRegistrationInformation property value. The external information for a virtual event registration.
      * @return VirtualEventExternalRegistrationInformation|null
     */
     public function getExternalRegistrationInformation(): ?VirtualEventExternalRegistrationInformation {
@@ -174,7 +174,7 @@ class AttendanceRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalRegistrationInformation property value. The externalRegistrationInformation property
+     * Sets the externalRegistrationInformation property value. The external information for a virtual event registration.
      * @param VirtualEventExternalRegistrationInformation|null $value Value to set for the externalRegistrationInformation property.
     */
     public function setExternalRegistrationInformation(?VirtualEventExternalRegistrationInformation $value): void {

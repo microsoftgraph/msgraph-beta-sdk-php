@@ -80,7 +80,7 @@ class Package implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the type property value. An string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
+     * Gets the type property value. Indicates the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
      * @return string|null
     */
     public function getType(): ?string {
@@ -126,7 +126,7 @@ class Package implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the type property value. An string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
+     * Sets the type property value. Indicates the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

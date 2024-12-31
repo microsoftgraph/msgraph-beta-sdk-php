@@ -27,6 +27,20 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Gets the allMembers property value. A collection of membership records associated with the channel. It includes both direct and indirect members of shared channels.
+     * @return array<ConversationMember>|null
+    */
+    public function getAllMembers(): ?array {
+        $val = $this->getBackingStore()->get('allMembers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConversationMember::class);
+            /** @var array<ConversationMember>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allMembers'");
+    }
+
+    /**
      * Gets the createdDateTime property value. Read only. Timestamp at which the channel was created.
      * @return DateTime|null
     */
@@ -81,14 +95,15 @@ class Channel extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allMembers' => fn(ParseNode $n) => $o->setAllMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'filesFolder' => fn(ParseNode $n) => $o->setFilesFolder($n->getObjectValue([DriveItem::class, 'createFromDiscriminatorValue'])),
-            'getAllMembers' => fn(ParseNode $n) => $o->setGetAllMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'isFavoriteByDefault' => fn(ParseNode $n) => $o->setIsFavoriteByDefault($n->getBooleanValue()),
+            'layoutType' => fn(ParseNode $n) => $o->setLayoutType($n->getEnumValue(ChannelLayoutType::class)),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(ChannelMembershipType::class)),
             'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([ChatMessage::class, 'createFromDiscriminatorValue'])),
@@ -114,20 +129,6 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the getAllMembers property value. The getAllMembers property
-     * @return array<ConversationMember>|null
-    */
-    public function getGetAllMembers(): ?array {
-        $val = $this->getBackingStore()->get('getAllMembers');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConversationMember::class);
-            /** @var array<ConversationMember>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'getAllMembers'");
-    }
-
-    /**
      * Gets the isArchived property value. Indicates whether the channel is archived. Read-only.
      * @return bool|null
     */
@@ -149,6 +150,18 @@ class Channel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isFavoriteByDefault'");
+    }
+
+    /**
+     * Gets the layoutType property value. The layoutType property
+     * @return ChannelLayoutType|null
+    */
+    public function getLayoutType(): ?ChannelLayoutType {
+        $val = $this->getBackingStore()->get('layoutType');
+        if (is_null($val) || $val instanceof ChannelLayoutType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'layoutType'");
     }
 
     /**
@@ -273,14 +286,15 @@ class Channel extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('allMembers', $this->getAllMembers());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('email', $this->getEmail());
         $writer->writeObjectValue('filesFolder', $this->getFilesFolder());
-        $writer->writeCollectionOfObjectValues('getAllMembers', $this->getGetAllMembers());
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeBooleanValue('isFavoriteByDefault', $this->getIsFavoriteByDefault());
+        $writer->writeEnumValue('layoutType', $this->getLayoutType());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
         $writer->writeEnumValue('membershipType', $this->getMembershipType());
         $writer->writeCollectionOfObjectValues('messages', $this->getMessages());
@@ -290,6 +304,14 @@ class Channel extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('tabs', $this->getTabs());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
+    }
+
+    /**
+     * Sets the allMembers property value. A collection of membership records associated with the channel. It includes both direct and indirect members of shared channels.
+     * @param array<ConversationMember>|null $value Value to set for the allMembers property.
+    */
+    public function setAllMembers(?array $value): void {
+        $this->getBackingStore()->set('allMembers', $value);
     }
 
     /**
@@ -333,14 +355,6 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the getAllMembers property value. The getAllMembers property
-     * @param array<ConversationMember>|null $value Value to set for the getAllMembers property.
-    */
-    public function setGetAllMembers(?array $value): void {
-        $this->getBackingStore()->set('getAllMembers', $value);
-    }
-
-    /**
      * Sets the isArchived property value. Indicates whether the channel is archived. Read-only.
      * @param bool|null $value Value to set for the isArchived property.
     */
@@ -354,6 +368,14 @@ class Channel extends Entity implements Parsable
     */
     public function setIsFavoriteByDefault(?bool $value): void {
         $this->getBackingStore()->set('isFavoriteByDefault', $value);
+    }
+
+    /**
+     * Sets the layoutType property value. The layoutType property
+     * @param ChannelLayoutType|null $value Value to set for the layoutType property.
+    */
+    public function setLayoutType(?ChannelLayoutType $value): void {
+        $this->getBackingStore()->set('layoutType', $value);
     }
 
     /**

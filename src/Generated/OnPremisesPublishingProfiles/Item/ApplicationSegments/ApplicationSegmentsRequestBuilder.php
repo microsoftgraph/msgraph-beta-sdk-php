@@ -51,7 +51,7 @@ class ApplicationSegmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get applicationSegments from onPremisesPublishingProfiles
+     * Represents the segment configurations that are allowed for an on-premises non-web application published through Microsoft Entra application proxy.
      * @param ApplicationSegmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IpApplicationSegmentCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class ApplicationSegmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get applicationSegments from onPremisesPublishingProfiles
+     * Represents the segment configurations that are allowed for an on-premises non-web application published through Microsoft Entra application proxy.
      * @param ApplicationSegmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

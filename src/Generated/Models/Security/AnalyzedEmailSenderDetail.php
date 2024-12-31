@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\Security;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -56,15 +57,69 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the displayName property value. The displayName property
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
+     * Gets the domainCreationDateTime property value. The domainCreationDateTime property
+     * @return DateTime|null
+    */
+    public function getDomainCreationDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('domainCreationDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainCreationDateTime'");
+    }
+
+    /**
+     * Gets the domainName property value. The domainName property
+     * @return string|null
+    */
+    public function getDomainName(): ?string {
+        $val = $this->getBackingStore()->get('domainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainName'");
+    }
+
+    /**
+     * Gets the domainOwner property value. The domainOwner property
+     * @return string|null
+    */
+    public function getDomainOwner(): ?string {
+        $val = $this->getBackingStore()->get('domainOwner');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainOwner'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'domainCreationDateTime' => fn(ParseNode $n) => $o->setDomainCreationDateTime($n->getDateTimeValue()),
+            'domainName' => fn(ParseNode $n) => $o->setDomainName($n->getStringValue()),
+            'domainOwner' => fn(ParseNode $n) => $o->setDomainOwner($n->getStringValue()),
             'fromAddress' => fn(ParseNode $n) => $o->setFromAddress($n->getStringValue()),
             'ipv4' => fn(ParseNode $n) => $o->setIpv4($n->getStringValue()),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getStringValue()),
             'mailFromAddress' => fn(ParseNode $n) => $o->setMailFromAddress($n->getStringValue()),
+            'mailFromDomainName' => fn(ParseNode $n) => $o->setMailFromDomainName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -94,6 +149,18 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the location property value. The location property
+     * @return string|null
+    */
+    public function getLocation(): ?string {
+        $val = $this->getBackingStore()->get('location');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'location'");
+    }
+
+    /**
      * Gets the mailFromAddress property value. The sender email address in the From header, which is visible to email recipients on their email clients. Also known as P2 sender.
      * @return string|null
     */
@@ -103,6 +170,18 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mailFromAddress'");
+    }
+
+    /**
+     * Gets the mailFromDomainName property value. The mailFromDomainName property
+     * @return string|null
+    */
+    public function getMailFromDomainName(): ?string {
+        $val = $this->getBackingStore()->get('mailFromDomainName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailFromDomainName'");
     }
 
     /**
@@ -122,9 +201,15 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('domainCreationDateTime', $this->getDomainCreationDateTime());
+        $writer->writeStringValue('domainName', $this->getDomainName());
+        $writer->writeStringValue('domainOwner', $this->getDomainOwner());
         $writer->writeStringValue('fromAddress', $this->getFromAddress());
         $writer->writeStringValue('ipv4', $this->getIpv4());
+        $writer->writeStringValue('location', $this->getLocation());
         $writer->writeStringValue('mailFromAddress', $this->getMailFromAddress());
+        $writer->writeStringValue('mailFromDomainName', $this->getMailFromDomainName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -146,6 +231,38 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Sets the displayName property value. The displayName property
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the domainCreationDateTime property value. The domainCreationDateTime property
+     * @param DateTime|null $value Value to set for the domainCreationDateTime property.
+    */
+    public function setDomainCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('domainCreationDateTime', $value);
+    }
+
+    /**
+     * Sets the domainName property value. The domainName property
+     * @param string|null $value Value to set for the domainName property.
+    */
+    public function setDomainName(?string $value): void {
+        $this->getBackingStore()->set('domainName', $value);
+    }
+
+    /**
+     * Sets the domainOwner property value. The domainOwner property
+     * @param string|null $value Value to set for the domainOwner property.
+    */
+    public function setDomainOwner(?string $value): void {
+        $this->getBackingStore()->set('domainOwner', $value);
+    }
+
+    /**
      * Sets the fromAddress property value. The sender email address in the mail From header, also known as the envelope sender or the P1 sender.
      * @param string|null $value Value to set for the fromAddress property.
     */
@@ -162,11 +279,27 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Sets the location property value. The location property
+     * @param string|null $value Value to set for the location property.
+    */
+    public function setLocation(?string $value): void {
+        $this->getBackingStore()->set('location', $value);
+    }
+
+    /**
      * Sets the mailFromAddress property value. The sender email address in the From header, which is visible to email recipients on their email clients. Also known as P2 sender.
      * @param string|null $value Value to set for the mailFromAddress property.
     */
     public function setMailFromAddress(?string $value): void {
         $this->getBackingStore()->set('mailFromAddress', $value);
+    }
+
+    /**
+     * Sets the mailFromDomainName property value. The mailFromDomainName property
+     * @param string|null $value Value to set for the mailFromDomainName property.
+    */
+    public function setMailFromDomainName(?string $value): void {
+        $this->getBackingStore()->set('mailFromDomainName', $value);
     }
 
     /**

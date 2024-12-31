@@ -56,7 +56,7 @@ class ListInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contentTypesEnabled property value. If true, indicates that content types are enabled for this list.
+     * Gets the contentTypesEnabled property value. If true, it indicates that content types are enabled for this list.
      * @return bool|null
     */
     public function getContentTypesEnabled(): ?bool {
@@ -82,7 +82,7 @@ class ListInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the hidden property value. If true, indicates that the list isn't normally visible in the SharePoint user experience.
+     * Gets the hidden property value. If true, it indicates that the list isn't normally visible in the SharePoint user experience.
      * @return bool|null
     */
     public function getHidden(): ?bool {
@@ -106,7 +106,7 @@ class ListInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the template property value. An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+     * Gets the template property value. Represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
      * @return string|null
     */
     public function getTemplate(): ?string {
@@ -146,7 +146,7 @@ class ListInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contentTypesEnabled property value. If true, indicates that content types are enabled for this list.
+     * Sets the contentTypesEnabled property value. If true, it indicates that content types are enabled for this list.
      * @param bool|null $value Value to set for the contentTypesEnabled property.
     */
     public function setContentTypesEnabled(?bool $value): void {
@@ -154,7 +154,7 @@ class ListInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the hidden property value. If true, indicates that the list isn't normally visible in the SharePoint user experience.
+     * Sets the hidden property value. If true, it indicates that the list isn't normally visible in the SharePoint user experience.
      * @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value): void {
@@ -170,7 +170,7 @@ class ListInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the template property value. An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+     * Sets the template property value. Represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
      * @param string|null $value Value to set for the template property.
     */
     public function setTemplate(?string $value): void {

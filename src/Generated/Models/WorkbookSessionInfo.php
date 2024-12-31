@@ -93,7 +93,7 @@ class WorkbookSessionInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the persistChanges property value. true for persistent session. false for non-persistent session (view mode)
+     * Gets the persistChanges property value. Set to true for persistent session. Set to false for non-persistent session (view mode).
      * @return bool|null
     */
     public function getPersistChanges(): ?bool {
@@ -148,7 +148,7 @@ class WorkbookSessionInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the persistChanges property value. true for persistent session. false for non-persistent session (view mode)
+     * Sets the persistChanges property value. Set to true for persistent session. Set to false for non-persistent session (view mode).
      * @param bool|null $value Value to set for the persistChanges property.
     */
     public function setPersistChanges(?bool $value): void {

@@ -54,7 +54,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the applicationSegments property value. The applicationSegments property
+     * Gets the applicationSegments property value. Represents the segment configurations that are allowed for an on-premises non-web application published through Microsoft Entra application proxy.
      * @return array<IpApplicationSegment>|null
     */
     public function getApplicationSegments(): ?array {
@@ -127,7 +127,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDefaultAccessEnabled property value. The isDefaultAccessEnabled property
+     * Gets the isDefaultAccessEnabled property value. Specifies whether default access for app proxy is enabled or disabled.
      * @return bool|null
     */
     public function getIsDefaultAccessEnabled(): ?bool {
@@ -198,7 +198,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the applicationSegments property value. The applicationSegments property
+     * Sets the applicationSegments property value. Represents the segment configurations that are allowed for an on-premises non-web application published through Microsoft Entra application proxy.
      * @param array<IpApplicationSegment>|null $value Value to set for the applicationSegments property.
     */
     public function setApplicationSegments(?array $value): void {
@@ -230,7 +230,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDefaultAccessEnabled property value. The isDefaultAccessEnabled property
+     * Sets the isDefaultAccessEnabled property value. Specifies whether default access for app proxy is enabled or disabled.
      * @param bool|null $value Value to set for the isDefaultAccessEnabled property.
     */
     public function setIsDefaultAccessEnabled(?bool $value): void {

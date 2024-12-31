@@ -24,6 +24,7 @@ class CloudPcOnPremisesConnectionHealthCheckErrorType extends Enum {
     public const ENDPOINT_CONNECTIVITY_CHECK_INTUNE_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckIntuneUrlNotAllowListed";
     public const ENDPOINT_CONNECTIVITY_CHECK_AZURE_A_D_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckAzureADUrlNotAllowListed";
     public const ENDPOINT_CONNECTIVITY_CHECK_LOCALE_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckLocaleUrlNotAllowListed";
+    public const ENDPOINT_CONNECTIVITY_CHECK_V_M_AGENT_END_POINT_COMMUNICATION_ERROR = "endpointConnectivityCheckVMAgentEndPointCommunicationError";
     public const ENDPOINT_CONNECTIVITY_CHECK_UNKNOWN_ERROR = "endpointConnectivityCheckUnknownError";
     public const AZURE_AD_DEVICE_SYNC_CHECK_DEVICE_NOT_FOUND = "azureAdDeviceSyncCheckDeviceNotFound";
     public const AZURE_AD_DEVICE_SYNC_CHECK_LONG_SYNC_CIRCLE = "azureAdDeviceSyncCheckLongSyncCircle";

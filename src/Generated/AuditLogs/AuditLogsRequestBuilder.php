@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequ
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AuditLogs\SignUps\SignUpsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuditLogRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -54,6 +55,13 @@ class AuditLogsRequestBuilder extends BaseRequestBuilder
     */
     public function signIns(): SignInsRequestBuilder {
         return new SignInsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the signUps property of the microsoft.graph.auditLogRoot entity.
+    */
+    public function signUps(): SignUpsRequestBuilder {
+        return new SignUpsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

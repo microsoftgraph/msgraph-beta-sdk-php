@@ -81,7 +81,7 @@ class DateTimeColumn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the format property value. Indicates whether the value should be presented as a date only or a date and time. Must be one of dateOnly or dateTime
+     * Gets the format property value. Indicates whether the value should be presented as a date only or a date and time. It must be either dateOnly or dateTime.
      * @return string|null
     */
     public function getFormat(): ?string {
@@ -140,7 +140,7 @@ class DateTimeColumn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the format property value. Indicates whether the value should be presented as a date only or a date and time. Must be one of dateOnly or dateTime
+     * Sets the format property value. Indicates whether the value should be presented as a date only or a date and time. It must be either dateOnly or dateTime.
      * @param string|null $value Value to set for the format property.
     */
     public function setFormat(?string $value): void {

@@ -8,8 +8,6 @@ class CloudPcReportName extends Enum {
     public const REMOTE_CONNECTION_HISTORICAL_REPORTS = "remoteConnectionHistoricalReports";
     public const DAILY_AGGREGATED_REMOTE_CONNECTION_REPORTS = "dailyAggregatedRemoteConnectionReports";
     public const TOTAL_AGGREGATED_REMOTE_CONNECTION_REPORTS = "totalAggregatedRemoteConnectionReports";
-    public const SHARED_USE_LICENSE_USAGE_REPORT = "sharedUseLicenseUsageReport";
-    public const SHARED_USE_LICENSE_USAGE_REAL_TIME_REPORT = "sharedUseLicenseUsageRealTimeReport";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const NO_LICENSE_AVAILABLE_CONNECTIVITY_FAILURE_REPORT = "noLicenseAvailableConnectivityFailureReport";
     public const FRONTLINE_LICENSE_USAGE_REPORT = "frontlineLicenseUsageReport";
@@ -28,4 +26,8 @@ class CloudPcReportName extends Enum {
     public const FRONTLINE_LICENSE_HOURLY_USAGE_REPORT = "frontlineLicenseHourlyUsageReport";
     public const FRONTLINE_REALTIME_USER_CONNECTIONS_REPORT = "frontlineRealtimeUserConnectionsReport";
     public const BULK_ACTION_STATUS_REPORT = "bulkActionStatusReport";
+    public const TROUBLESHOOT_DETAILS_REPORT = "troubleshootDetailsReport";
+    public const TROUBLESHOOT_TREND_COUNT_REPORT = "troubleshootTrendCountReport";
+    public const TROUBLESHOOT_REGIONAL_REPORT = "troubleshootRegionalReport";
+    public const TROUBLESHOOT_ISSUE_COUNT_REPORT = "troubleshootIssueCountReport";
 }

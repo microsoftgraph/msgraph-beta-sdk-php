@@ -70,7 +70,7 @@ class ResourceReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the id property value. The item's unique identifier.
+     * Gets the id property value. The id property
      * @return string|null
     */
     public function getId(): ?string {
@@ -94,7 +94,7 @@ class ResourceReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the type property value. A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
+     * Gets the type property value. The type property
      * @return string|null
     */
     public function getType(): ?string {
@@ -106,7 +106,7 @@ class ResourceReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the webUrl property value. A URL leading to the referenced item.
+     * Gets the webUrl property value. The webUrl property
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -146,7 +146,7 @@ class ResourceReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the id property value. The item's unique identifier.
+     * Sets the id property value. The id property
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
@@ -162,7 +162,7 @@ class ResourceReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the type property value. A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
+     * Sets the type property value. The type property
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
@@ -170,7 +170,7 @@ class ResourceReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the webUrl property value. A URL leading to the referenced item.
+     * Sets the webUrl property value. The webUrl property
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

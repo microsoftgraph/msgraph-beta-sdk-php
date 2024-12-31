@@ -89,6 +89,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
             'detectionMethod' => fn(ParseNode $n) => $o->setDetectionMethod($n->getStringValue()),
             'detonationDetails' => fn(ParseNode $n) => $o->setDetonationDetails($n->getObjectValue([DetonationDetails::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'tenantAllowBlockListDetailInfo' => fn(ParseNode $n) => $o->setTenantAllowBlockListDetailInfo($n->getStringValue()),
             'threatType' => fn(ParseNode $n) => $o->setThreatType($n->getEnumValue(ThreatType::class)),
             'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ];
@@ -104,6 +105,18 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
+     * @return string|null
+    */
+    public function getTenantAllowBlockListDetailInfo(): ?string {
+        $val = $this->getBackingStore()->get('tenantAllowBlockListDetailInfo');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantAllowBlockListDetailInfo'");
     }
 
     /**
@@ -138,6 +151,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('detectionMethod', $this->getDetectionMethod());
         $writer->writeObjectValue('detonationDetails', $this->getDetonationDetails());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('tenantAllowBlockListDetailInfo', $this->getTenantAllowBlockListDetailInfo());
         $writer->writeEnumValue('threatType', $this->getThreatType());
         $writer->writeStringValue('url', $this->getUrl());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -181,6 +195,14 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
+     * @param string|null $value Value to set for the tenantAllowBlockListDetailInfo property.
+    */
+    public function setTenantAllowBlockListDetailInfo(?string $value): void {
+        $this->getBackingStore()->set('tenantAllowBlockListDetailInfo', $value);
     }
 
     /**

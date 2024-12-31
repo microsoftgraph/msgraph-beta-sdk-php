@@ -16,9 +16,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetR
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRealTimeRemoteConnectionLatencyWithCloudPcId\GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRealTimeRemoteConnectionStatusWithCloudPcId\GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRemoteConnectionHistoricalReports\GetRemoteConnectionHistoricalReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetSharedUseLicenseUsageReport\GetSharedUseLicenseUsageReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetTotalAggregatedRemoteConnectionReports\GetTotalAggregatedRemoteConnectionReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveBulkActionStatusReport\RetrieveBulkActionStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCloudPcTroubleshootReports\RetrieveCloudPcTroubleshootReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveConnectionQualityReports\RetrieveConnectionQualityReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCrossRegionDisasterRecoveryReport\RetrieveCrossRegionDisasterRecoveryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveFrontlineReports\RetrieveFrontlineReportsRequestBuilder;
@@ -105,13 +105,6 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to call the getSharedUseLicenseUsageReport method.
-    */
-    public function getSharedUseLicenseUsageReport(): GetSharedUseLicenseUsageReportRequestBuilder {
-        return new GetSharedUseLicenseUsageReportRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the getTotalAggregatedRemoteConnectionReports method.
     */
     public function getTotalAggregatedRemoteConnectionReports(): GetTotalAggregatedRemoteConnectionReportsRequestBuilder {
@@ -123,6 +116,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function retrieveBulkActionStatusReport(): RetrieveBulkActionStatusReportRequestBuilder {
         return new RetrieveBulkActionStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveCloudPcTroubleshootReports method.
+    */
+    public function retrieveCloudPcTroubleshootReports(): RetrieveCloudPcTroubleshootReportsRequestBuilder {
+        return new RetrieveCloudPcTroubleshootReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

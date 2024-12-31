@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Appli
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get applicationSegments from onPremisesPublishingProfiles
+ * Represents the segment configurations that are allowed for an on-premises non-web application published through Microsoft Entra application proxy.
 */
 class IpApplicationSegmentItemRequestBuilderGetQueryParameters 
 {

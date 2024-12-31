@@ -132,7 +132,7 @@ class TextColumn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the textType property value. The type of text being stored. Must be one of plain or richText
+     * Gets the textType property value. The type of text being stored. Must be one of plain or richText.
      * @return string|null
     */
     public function getTextType(): ?string {
@@ -214,7 +214,7 @@ class TextColumn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the textType property value. The type of text being stored. Must be one of plain or richText
+     * Sets the textType property value. The type of text being stored. Must be one of plain or richText.
      * @param string|null $value Value to set for the textType property.
     */
     public function setTextType(?string $value): void {

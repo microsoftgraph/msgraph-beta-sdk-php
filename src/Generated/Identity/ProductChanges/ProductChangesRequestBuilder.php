@@ -52,7 +52,7 @@ class ProductChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the changeItemBase objects and their properties.
+     * Get a list of the changeItemBase objects and their properties. The API returns both Microsoft Entra change announcements and releases.
      * @param ProductChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChangeItemBaseCollectionResponse|null>
      * @throws Exception
@@ -82,7 +82,7 @@ class ProductChangesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the changeItemBase objects and their properties.
+     * Get a list of the changeItemBase objects and their properties. The API returns both Microsoft Entra change announcements and releases.
      * @param ProductChangesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

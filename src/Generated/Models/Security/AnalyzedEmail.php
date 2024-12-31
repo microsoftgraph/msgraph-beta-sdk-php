@@ -56,18 +56,6 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the attachmentsCount property value. The number of attachments in the email.
-     * @return int|null
-    */
-    public function getAttachmentsCount(): ?int {
-        $val = $this->getBackingStore()->get('attachmentsCount');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'attachmentsCount'");
-    }
-
-    /**
      * Gets the authenticationDetails property value. The authentication details associated with the email.
      * @return AnalyzedEmailAuthenticationDetail|null
     */
@@ -89,6 +77,18 @@ class AnalyzedEmail extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'bulkComplaintLevel'");
+    }
+
+    /**
+     * Gets the clientType property value. The clientType property
+     * @return string|null
+    */
+    public function getClientType(): ?string {
+        $val = $this->getBackingStore()->get('clientType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientType'");
     }
 
     /**
@@ -144,6 +144,20 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
+     * Gets the dlpRules property value. The dlpRules property
+     * @return array<AnalyzedEmailDlpRuleInfo>|null
+    */
+    public function getDlpRules(): ?array {
+        $val = $this->getBackingStore()->get('dlpRules');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AnalyzedEmailDlpRuleInfo::class);
+            /** @var array<AnalyzedEmailDlpRuleInfo>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dlpRules'");
+    }
+
+    /**
      * Gets the emailClusterId property value. The identifier for the group of similar emails clustered based on heuristic analysis of their content.
      * @return string|null
     */
@@ -185,9 +199,9 @@ class AnalyzedEmail extends Entity implements Parsable
                 $this->setAlertIds($val);
             },
             'attachments' => fn(ParseNode $n) => $o->setAttachments($n->getCollectionOfObjectValues([AnalyzedEmailAttachment::class, 'createFromDiscriminatorValue'])),
-            'attachmentsCount' => fn(ParseNode $n) => $o->setAttachmentsCount($n->getIntegerValue()),
             'authenticationDetails' => fn(ParseNode $n) => $o->setAuthenticationDetails($n->getObjectValue([AnalyzedEmailAuthenticationDetail::class, 'createFromDiscriminatorValue'])),
             'bulkComplaintLevel' => fn(ParseNode $n) => $o->setBulkComplaintLevel($n->getStringValue()),
+            'clientType' => fn(ParseNode $n) => $o->setClientType($n->getStringValue()),
             'contexts' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -206,8 +220,11 @@ class AnalyzedEmail extends Entity implements Parsable
             },
             'directionality' => fn(ParseNode $n) => $o->setDirectionality($n->getEnumValue(AntispamDirectionality::class)),
             'distributionList' => fn(ParseNode $n) => $o->setDistributionList($n->getStringValue()),
+            'dlpRules' => fn(ParseNode $n) => $o->setDlpRules($n->getCollectionOfObjectValues([AnalyzedEmailDlpRuleInfo::class, 'createFromDiscriminatorValue'])),
             'emailClusterId' => fn(ParseNode $n) => $o->setEmailClusterId($n->getStringValue()),
             'exchangeTransportRules' => fn(ParseNode $n) => $o->setExchangeTransportRules($n->getCollectionOfObjectValues([AnalyzedEmailExchangeTransportRuleInfo::class, 'createFromDiscriminatorValue'])),
+            'forwardingDetail' => fn(ParseNode $n) => $o->setForwardingDetail($n->getStringValue()),
+            'inboundConnectorFormattedName' => fn(ParseNode $n) => $o->setInboundConnectorFormattedName($n->getStringValue()),
             'internetMessageId' => fn(ParseNode $n) => $o->setInternetMessageId($n->getStringValue()),
             'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
             'latestDelivery' => fn(ParseNode $n) => $o->setLatestDelivery($n->getObjectValue([AnalyzedEmailDeliveryDetail::class, 'createFromDiscriminatorValue'])),
@@ -225,16 +242,44 @@ class AnalyzedEmail extends Entity implements Parsable
             'phishConfidenceLevel' => fn(ParseNode $n) => $o->setPhishConfidenceLevel($n->getStringValue()),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getStringValue()),
             'policyAction' => fn(ParseNode $n) => $o->setPolicyAction($n->getStringValue()),
+            'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getStringValue()),
+            'primaryOverrideSource' => fn(ParseNode $n) => $o->setPrimaryOverrideSource($n->getStringValue()),
+            'recipientDetail' => fn(ParseNode $n) => $o->setRecipientDetail($n->getObjectValue([AnalyzedEmailRecipientDetail::class, 'createFromDiscriminatorValue'])),
             'recipientEmailAddress' => fn(ParseNode $n) => $o->setRecipientEmailAddress($n->getStringValue()),
             'returnPath' => fn(ParseNode $n) => $o->setReturnPath($n->getStringValue()),
             'senderDetail' => fn(ParseNode $n) => $o->setSenderDetail($n->getObjectValue([AnalyzedEmailSenderDetail::class, 'createFromDiscriminatorValue'])),
             'sizeInBytes' => fn(ParseNode $n) => $o->setSizeInBytes($n->getIntegerValue()),
             'spamConfidenceLevel' => fn(ParseNode $n) => $o->setSpamConfidenceLevel($n->getStringValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
+            'threatDetectionDetails' => fn(ParseNode $n) => $o->setThreatDetectionDetails($n->getCollectionOfObjectValues([ThreatDetectionDetail::class, 'createFromDiscriminatorValue'])),
             'threatTypes' => fn(ParseNode $n) => $o->setThreatTypes($n->getCollectionOfEnumValues(ThreatType::class)),
+            'timelineEvents' => fn(ParseNode $n) => $o->setTimelineEvents($n->getCollectionOfObjectValues([TimelineEvent::class, 'createFromDiscriminatorValue'])),
             'urls' => fn(ParseNode $n) => $o->setUrls($n->getCollectionOfObjectValues([AnalyzedEmailUrl::class, 'createFromDiscriminatorValue'])),
-            'urlsCount' => fn(ParseNode $n) => $o->setUrlsCount($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the forwardingDetail property value. The forwardingDetail property
+     * @return string|null
+    */
+    public function getForwardingDetail(): ?string {
+        $val = $this->getBackingStore()->get('forwardingDetail');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingDetail'");
+    }
+
+    /**
+     * Gets the inboundConnectorFormattedName property value. The inboundConnectorFormattedName property
+     * @return string|null
+    */
+    public function getInboundConnectorFormattedName(): ?string {
+        $val = $this->getBackingStore()->get('inboundConnectorFormattedName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inboundConnectorFormattedName'");
     }
 
     /**
@@ -360,6 +405,42 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
+     * Gets the policyType property value. The policyType property
+     * @return string|null
+    */
+    public function getPolicyType(): ?string {
+        $val = $this->getBackingStore()->get('policyType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyType'");
+    }
+
+    /**
+     * Gets the primaryOverrideSource property value. The primaryOverrideSource property
+     * @return string|null
+    */
+    public function getPrimaryOverrideSource(): ?string {
+        $val = $this->getBackingStore()->get('primaryOverrideSource');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'primaryOverrideSource'");
+    }
+
+    /**
+     * Gets the recipientDetail property value. The recipientDetail property
+     * @return AnalyzedEmailRecipientDetail|null
+    */
+    public function getRecipientDetail(): ?AnalyzedEmailRecipientDetail {
+        $val = $this->getBackingStore()->get('recipientDetail');
+        if (is_null($val) || $val instanceof AnalyzedEmailRecipientDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipientDetail'");
+    }
+
+    /**
      * Gets the recipientEmailAddress property value. Contains the email address of the recipient.
      * @return string|null
     */
@@ -432,6 +513,20 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
+     * Gets the threatDetectionDetails property value. The threatDetectionDetails property
+     * @return array<ThreatDetectionDetail>|null
+    */
+    public function getThreatDetectionDetails(): ?array {
+        $val = $this->getBackingStore()->get('threatDetectionDetails');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ThreatDetectionDetail::class);
+            /** @var array<ThreatDetectionDetail>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatDetectionDetails'");
+    }
+
+    /**
      * Gets the threatTypes property value. Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.
      * @return array<ThreatType>|null
     */
@@ -443,6 +538,20 @@ class AnalyzedEmail extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'threatTypes'");
+    }
+
+    /**
+     * Gets the timelineEvents property value. The timelineEvents property
+     * @return array<TimelineEvent>|null
+    */
+    public function getTimelineEvents(): ?array {
+        $val = $this->getBackingStore()->get('timelineEvents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TimelineEvent::class);
+            /** @var array<TimelineEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'timelineEvents'");
     }
 
     /**
@@ -460,18 +569,6 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the urlsCount property value. The number of URLs in the email.
-     * @return int|null
-    */
-    public function getUrlsCount(): ?int {
-        $val = $this->getBackingStore()->get('urlsCount');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'urlsCount'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -479,15 +576,18 @@ class AnalyzedEmail extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('alertIds', $this->getAlertIds());
         $writer->writeCollectionOfObjectValues('attachments', $this->getAttachments());
-        $writer->writeIntegerValue('attachmentsCount', $this->getAttachmentsCount());
         $writer->writeObjectValue('authenticationDetails', $this->getAuthenticationDetails());
         $writer->writeStringValue('bulkComplaintLevel', $this->getBulkComplaintLevel());
+        $writer->writeStringValue('clientType', $this->getClientType());
         $writer->writeCollectionOfPrimitiveValues('contexts', $this->getContexts());
         $writer->writeCollectionOfPrimitiveValues('detectionMethods', $this->getDetectionMethods());
         $writer->writeEnumValue('directionality', $this->getDirectionality());
         $writer->writeStringValue('distributionList', $this->getDistributionList());
+        $writer->writeCollectionOfObjectValues('dlpRules', $this->getDlpRules());
         $writer->writeStringValue('emailClusterId', $this->getEmailClusterId());
         $writer->writeCollectionOfObjectValues('exchangeTransportRules', $this->getExchangeTransportRules());
+        $writer->writeStringValue('forwardingDetail', $this->getForwardingDetail());
+        $writer->writeStringValue('inboundConnectorFormattedName', $this->getInboundConnectorFormattedName());
         $writer->writeStringValue('internetMessageId', $this->getInternetMessageId());
         $writer->writeStringValue('language', $this->getLanguage());
         $writer->writeObjectValue('latestDelivery', $this->getLatestDelivery());
@@ -498,15 +598,19 @@ class AnalyzedEmail extends Entity implements Parsable
         $writer->writeStringValue('phishConfidenceLevel', $this->getPhishConfidenceLevel());
         $writer->writeStringValue('policy', $this->getPolicy());
         $writer->writeStringValue('policyAction', $this->getPolicyAction());
+        $writer->writeStringValue('policyType', $this->getPolicyType());
+        $writer->writeStringValue('primaryOverrideSource', $this->getPrimaryOverrideSource());
+        $writer->writeObjectValue('recipientDetail', $this->getRecipientDetail());
         $writer->writeStringValue('recipientEmailAddress', $this->getRecipientEmailAddress());
         $writer->writeStringValue('returnPath', $this->getReturnPath());
         $writer->writeObjectValue('senderDetail', $this->getSenderDetail());
         $writer->writeIntegerValue('sizeInBytes', $this->getSizeInBytes());
         $writer->writeStringValue('spamConfidenceLevel', $this->getSpamConfidenceLevel());
         $writer->writeStringValue('subject', $this->getSubject());
+        $writer->writeCollectionOfObjectValues('threatDetectionDetails', $this->getThreatDetectionDetails());
         $writer->writeCollectionOfEnumValues('threatTypes', $this->getThreatTypes());
+        $writer->writeCollectionOfObjectValues('timelineEvents', $this->getTimelineEvents());
         $writer->writeCollectionOfObjectValues('urls', $this->getUrls());
-        $writer->writeIntegerValue('urlsCount', $this->getUrlsCount());
     }
 
     /**
@@ -526,14 +630,6 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the attachmentsCount property value. The number of attachments in the email.
-     * @param int|null $value Value to set for the attachmentsCount property.
-    */
-    public function setAttachmentsCount(?int $value): void {
-        $this->getBackingStore()->set('attachmentsCount', $value);
-    }
-
-    /**
      * Sets the authenticationDetails property value. The authentication details associated with the email.
      * @param AnalyzedEmailAuthenticationDetail|null $value Value to set for the authenticationDetails property.
     */
@@ -547,6 +643,14 @@ class AnalyzedEmail extends Entity implements Parsable
     */
     public function setBulkComplaintLevel(?string $value): void {
         $this->getBackingStore()->set('bulkComplaintLevel', $value);
+    }
+
+    /**
+     * Sets the clientType property value. The clientType property
+     * @param string|null $value Value to set for the clientType property.
+    */
+    public function setClientType(?string $value): void {
+        $this->getBackingStore()->set('clientType', $value);
     }
 
     /**
@@ -582,6 +686,14 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
+     * Sets the dlpRules property value. The dlpRules property
+     * @param array<AnalyzedEmailDlpRuleInfo>|null $value Value to set for the dlpRules property.
+    */
+    public function setDlpRules(?array $value): void {
+        $this->getBackingStore()->set('dlpRules', $value);
+    }
+
+    /**
      * Sets the emailClusterId property value. The identifier for the group of similar emails clustered based on heuristic analysis of their content.
      * @param string|null $value Value to set for the emailClusterId property.
     */
@@ -595,6 +707,22 @@ class AnalyzedEmail extends Entity implements Parsable
     */
     public function setExchangeTransportRules(?array $value): void {
         $this->getBackingStore()->set('exchangeTransportRules', $value);
+    }
+
+    /**
+     * Sets the forwardingDetail property value. The forwardingDetail property
+     * @param string|null $value Value to set for the forwardingDetail property.
+    */
+    public function setForwardingDetail(?string $value): void {
+        $this->getBackingStore()->set('forwardingDetail', $value);
+    }
+
+    /**
+     * Sets the inboundConnectorFormattedName property value. The inboundConnectorFormattedName property
+     * @param string|null $value Value to set for the inboundConnectorFormattedName property.
+    */
+    public function setInboundConnectorFormattedName(?string $value): void {
+        $this->getBackingStore()->set('inboundConnectorFormattedName', $value);
     }
 
     /**
@@ -678,6 +806,30 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
+     * Sets the policyType property value. The policyType property
+     * @param string|null $value Value to set for the policyType property.
+    */
+    public function setPolicyType(?string $value): void {
+        $this->getBackingStore()->set('policyType', $value);
+    }
+
+    /**
+     * Sets the primaryOverrideSource property value. The primaryOverrideSource property
+     * @param string|null $value Value to set for the primaryOverrideSource property.
+    */
+    public function setPrimaryOverrideSource(?string $value): void {
+        $this->getBackingStore()->set('primaryOverrideSource', $value);
+    }
+
+    /**
+     * Sets the recipientDetail property value. The recipientDetail property
+     * @param AnalyzedEmailRecipientDetail|null $value Value to set for the recipientDetail property.
+    */
+    public function setRecipientDetail(?AnalyzedEmailRecipientDetail $value): void {
+        $this->getBackingStore()->set('recipientDetail', $value);
+    }
+
+    /**
      * Sets the recipientEmailAddress property value. Contains the email address of the recipient.
      * @param string|null $value Value to set for the recipientEmailAddress property.
     */
@@ -726,6 +878,14 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
+     * Sets the threatDetectionDetails property value. The threatDetectionDetails property
+     * @param array<ThreatDetectionDetail>|null $value Value to set for the threatDetectionDetails property.
+    */
+    public function setThreatDetectionDetails(?array $value): void {
+        $this->getBackingStore()->set('threatDetectionDetails', $value);
+    }
+
+    /**
      * Sets the threatTypes property value. Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.
      * @param array<ThreatType>|null $value Value to set for the threatTypes property.
     */
@@ -734,19 +894,19 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
+     * Sets the timelineEvents property value. The timelineEvents property
+     * @param array<TimelineEvent>|null $value Value to set for the timelineEvents property.
+    */
+    public function setTimelineEvents(?array $value): void {
+        $this->getBackingStore()->set('timelineEvents', $value);
+    }
+
+    /**
      * Sets the urls property value. A collection of the URLs in the email.
      * @param array<AnalyzedEmailUrl>|null $value Value to set for the urls property.
     */
     public function setUrls(?array $value): void {
         $this->getBackingStore()->set('urls', $value);
-    }
-
-    /**
-     * Sets the urlsCount property value. The number of URLs in the email.
-     * @param int|null $value Value to set for the urlsCount property.
-    */
-    public function setUrlsCount(?int $value): void {
-        $this->getBackingStore()->set('urlsCount', $value);
     }
 
 }
