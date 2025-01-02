@@ -49,7 +49,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that points to the traffic manager.
+     * Gets the alternateUrl property value. If you're configuring a traffic manager in front of multiple app proxy applications, this user-friendly URL points to the traffic manager.
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
@@ -73,7 +73,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the applicationType property value. Indicates if this application is an Application Proxy configured application. This is pre-set by the system. Read-only.
+     * Gets the applicationType property value. System-defined value that indicates whether this application is an application proxy configured application. The possible values are quickaccessapp and nonwebapp. Read-only.
      * @return string|null
     */
     public function getApplicationType(): ?string {
@@ -105,7 +105,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the externalUrl property value. The published external url for the application. For example, https://intranet-contoso.msappproxy.net/.
+     * Gets the externalUrl property value. The published external URL for the application. For example, https://intranet-contoso.msappproxy.net/.
      * @return string|null
     */
     public function getExternalUrl(): ?string {
@@ -166,7 +166,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isAccessibleViaZTNAClient property value. The isAccessibleViaZTNAClient property
+     * Gets the isAccessibleViaZTNAClient property value. Indicates whether the application is accessible via a Global Secure Access client on a managed device.
      * @return bool|null
     */
     public function getIsAccessibleViaZTNAClient(): ?bool {
@@ -190,7 +190,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isDnsResolutionEnabled property value. The isDnsResolutionEnabled property
+     * Gets the isDnsResolutionEnabled property value. Indicates Microsoft Entra Private Access should handle DNS resolution. false by default.
      * @return bool|null
     */
     public function getIsDnsResolutionEnabled(): ?bool {
@@ -336,7 +336,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the useAlternateUrlForTranslationAndRedirect property value. The useAlternateUrlForTranslationAndRedirect property
+     * Gets the useAlternateUrlForTranslationAndRedirect property value. Indicates whether the application should use alternateUrl instead of externalUrl.
      * @return bool|null
     */
     public function getUseAlternateUrlForTranslationAndRedirect(): ?bool {
@@ -465,7 +465,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that points to the traffic manager.
+     * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple app proxy applications, this user-friendly URL points to the traffic manager.
      * @param string|null $value Value to set for the alternateUrl property.
     */
     public function setAlternateUrl(?string $value): void {
@@ -481,7 +481,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the applicationType property value. Indicates if this application is an Application Proxy configured application. This is pre-set by the system. Read-only.
+     * Sets the applicationType property value. System-defined value that indicates whether this application is an application proxy configured application. The possible values are quickaccessapp and nonwebapp. Read-only.
      * @param string|null $value Value to set for the applicationType property.
     */
     public function setApplicationType(?string $value): void {
@@ -505,7 +505,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the externalUrl property value. The published external url for the application. For example, https://intranet-contoso.msappproxy.net/.
+     * Sets the externalUrl property value. The published external URL for the application. For example, https://intranet-contoso.msappproxy.net/.
      * @param string|null $value Value to set for the externalUrl property.
     */
     public function setExternalUrl(?string $value): void {
@@ -521,7 +521,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isAccessibleViaZTNAClient property value. The isAccessibleViaZTNAClient property
+     * Sets the isAccessibleViaZTNAClient property value. Indicates whether the application is accessible via a Global Secure Access client on a managed device.
      * @param bool|null $value Value to set for the isAccessibleViaZTNAClient property.
     */
     public function setIsAccessibleViaZTNAClient(?bool $value): void {
@@ -537,7 +537,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isDnsResolutionEnabled property value. The isDnsResolutionEnabled property
+     * Sets the isDnsResolutionEnabled property value. Indicates Microsoft Entra Private Access should handle DNS resolution. false by default.
      * @param bool|null $value Value to set for the isDnsResolutionEnabled property.
     */
     public function setIsDnsResolutionEnabled(?bool $value): void {
@@ -633,7 +633,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the useAlternateUrlForTranslationAndRedirect property value. The useAlternateUrlForTranslationAndRedirect property
+     * Sets the useAlternateUrlForTranslationAndRedirect property value. Indicates whether the application should use alternateUrl instead of externalUrl.
      * @param bool|null $value Value to set for the useAlternateUrlForTranslationAndRedirect property.
     */
     public function setUseAlternateUrlForTranslationAndRedirect(?bool $value): void {

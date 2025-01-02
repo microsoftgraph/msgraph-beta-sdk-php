@@ -75,13 +75,28 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
         $o = $this;
         return  [
             'detonationDetails' => fn(ParseNode $n) => $o->setDetonationDetails($n->getObjectValue([DetonationDetails::class, 'createFromDiscriminatorValue'])),
+            'fileExtension' => fn(ParseNode $n) => $o->setFileExtension($n->getStringValue()),
             'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
+            'fileSize' => fn(ParseNode $n) => $o->setFileSize($n->getIntegerValue()),
             'fileType' => fn(ParseNode $n) => $o->setFileType($n->getStringValue()),
+            'malwareFamily' => fn(ParseNode $n) => $o->setMalwareFamily($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sha256' => fn(ParseNode $n) => $o->setSha256($n->getStringValue()),
-            'threatName' => fn(ParseNode $n) => $o->setThreatName($n->getStringValue()),
+            'tenantAllowBlockListDetailInfo' => fn(ParseNode $n) => $o->setTenantAllowBlockListDetailInfo($n->getStringValue()),
             'threatType' => fn(ParseNode $n) => $o->setThreatType($n->getEnumValue(ThreatType::class)),
         ];
+    }
+
+    /**
+     * Gets the fileExtension property value. The fileExtension property
+     * @return string|null
+    */
+    public function getFileExtension(): ?string {
+        $val = $this->getBackingStore()->get('fileExtension');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileExtension'");
     }
 
     /**
@@ -97,6 +112,18 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
+     * Gets the fileSize property value. The fileSize property
+     * @return int|null
+    */
+    public function getFileSize(): ?int {
+        $val = $this->getBackingStore()->get('fileSize');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fileSize'");
+    }
+
+    /**
      * Gets the fileType property value. The type of the attachment in the email.
      * @return string|null
     */
@@ -106,6 +133,18 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'fileType'");
+    }
+
+    /**
+     * Gets the malwareFamily property value. The malwareFamily property
+     * @return string|null
+    */
+    public function getMalwareFamily(): ?string {
+        $val = $this->getBackingStore()->get('malwareFamily');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'malwareFamily'");
     }
 
     /**
@@ -133,15 +172,15 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the threatName property value. The threat name associated with the threat type.
+     * Gets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
      * @return string|null
     */
-    public function getThreatName(): ?string {
-        $val = $this->getBackingStore()->get('threatName');
+    public function getTenantAllowBlockListDetailInfo(): ?string {
+        $val = $this->getBackingStore()->get('tenantAllowBlockListDetailInfo');
         if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatName'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantAllowBlockListDetailInfo'");
     }
 
     /**
@@ -162,11 +201,14 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('detonationDetails', $this->getDetonationDetails());
+        $writer->writeStringValue('fileExtension', $this->getFileExtension());
         $writer->writeStringValue('fileName', $this->getFileName());
+        $writer->writeIntegerValue('fileSize', $this->getFileSize());
         $writer->writeStringValue('fileType', $this->getFileType());
+        $writer->writeStringValue('malwareFamily', $this->getMalwareFamily());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('sha256', $this->getSha256());
-        $writer->writeStringValue('threatName', $this->getThreatName());
+        $writer->writeStringValue('tenantAllowBlockListDetailInfo', $this->getTenantAllowBlockListDetailInfo());
         $writer->writeEnumValue('threatType', $this->getThreatType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -196,6 +238,14 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
+     * Sets the fileExtension property value. The fileExtension property
+     * @param string|null $value Value to set for the fileExtension property.
+    */
+    public function setFileExtension(?string $value): void {
+        $this->getBackingStore()->set('fileExtension', $value);
+    }
+
+    /**
      * Sets the fileName property value. The name of the attachment in the email.
      * @param string|null $value Value to set for the fileName property.
     */
@@ -204,11 +254,27 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
+     * Sets the fileSize property value. The fileSize property
+     * @param int|null $value Value to set for the fileSize property.
+    */
+    public function setFileSize(?int $value): void {
+        $this->getBackingStore()->set('fileSize', $value);
+    }
+
+    /**
      * Sets the fileType property value. The type of the attachment in the email.
      * @param string|null $value Value to set for the fileType property.
     */
     public function setFileType(?string $value): void {
         $this->getBackingStore()->set('fileType', $value);
+    }
+
+    /**
+     * Sets the malwareFamily property value. The malwareFamily property
+     * @param string|null $value Value to set for the malwareFamily property.
+    */
+    public function setMalwareFamily(?string $value): void {
+        $this->getBackingStore()->set('malwareFamily', $value);
     }
 
     /**
@@ -228,11 +294,11 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the threatName property value. The threat name associated with the threat type.
-     * @param string|null $value Value to set for the threatName property.
+     * Sets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
+     * @param string|null $value Value to set for the tenantAllowBlockListDetailInfo property.
     */
-    public function setThreatName(?string $value): void {
-        $this->getBackingStore()->set('threatName', $value);
+    public function setTenantAllowBlockListDetailInfo(?string $value): void {
+        $this->getBackingStore()->set('tenantAllowBlockListDetailInfo', $value);
     }
 
     /**

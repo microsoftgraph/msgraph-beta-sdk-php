@@ -45,7 +45,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of direct relationships for this app.
+     * List of relationships for this mobile app.
      * @param MobileAppRelationshipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppRelationship|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of direct relationships for this app.
+     * List of relationships for this mobile app.
      * @param MobileAppRelationshipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

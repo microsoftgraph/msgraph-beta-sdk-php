@@ -4,11 +4,11 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\AllMembers\AllMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\CompleteMigration\CompleteMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\FilesFolder\FilesFolderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\GetAllMembers\GetAllMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\ProvisionEmail\ProvisionEmailRequestBuilder;
@@ -28,6 +28,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class PrimaryChannelRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the allMembers property of the microsoft.graph.channel entity.
+    */
+    public function allMembers(): AllMembersRequestBuilder {
+        return new AllMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the archive method.
     */
@@ -54,13 +61,6 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     */
     public function filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the getAllMembers property of the microsoft.graph.channel entity.
-    */
-    public function getAllMembers(): GetAllMembersRequestBuilder {
-        return new GetAllMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

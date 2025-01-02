@@ -10,4 +10,5 @@ class AggregationType extends Enum {
     public const AFFECTED_CLOUD_PC_COUNT = "affectedCloudPcCount";
     public const AFFECTED_CLOUD_PC_PERCENTAGE = "affectedCloudPcPercentage";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const DURATION_IN_MINUTES = "durationInMinutes";
 }

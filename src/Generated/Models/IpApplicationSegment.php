@@ -27,7 +27,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the application property value. The application property
+     * Gets the application property value. The on-premises nonweb application published through Microsoft Entra application proxy. Expanded by default and supports $expand.
      * @return Application|null
     */
     public function getApplication(): ?Application {
@@ -39,7 +39,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the destinationHost property value. The destinationHost property
+     * Gets the destinationHost property value. Either the IP address, IP range, or FQDN of the applicationSegment, with or without wildcards.
      * @return string|null
     */
     public function getDestinationHost(): ?string {
@@ -51,7 +51,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the destinationType property value. The destinationType property
+     * Gets the destinationType property value. The possible values are: ipAddress, ipRange, ipRangeCidr, fqdn, dnsSuffix, unknownFutureValue.
      * @return PrivateNetworkDestinationType|null
     */
     public function getDestinationType(): ?PrivateNetworkDestinationType {
@@ -86,7 +86,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the port property value. The port property
+     * Gets the port property value. Port supported for the application segment. DO NOT USE.
      * @return int|null
     */
     public function getPort(): ?int {
@@ -98,7 +98,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the ports property value. The ports property
+     * Gets the ports property value. List of ports supported for the application segment.
      * @return array<string>|null
     */
     public function getPorts(): ?array {
@@ -112,7 +112,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the protocol property value. The protocol property
+     * Gets the protocol property value. Indicates the protocol of the network traffic acquired for the application segment. The possible values are: tcp, udp, unknownFutureValue.
      * @return PrivateNetworkProtocol|null
     */
     public function getProtocol(): ?PrivateNetworkProtocol {
@@ -138,7 +138,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the application property value. The application property
+     * Sets the application property value. The on-premises nonweb application published through Microsoft Entra application proxy. Expanded by default and supports $expand.
      * @param Application|null $value Value to set for the application property.
     */
     public function setApplication(?Application $value): void {
@@ -146,7 +146,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the destinationHost property value. The destinationHost property
+     * Sets the destinationHost property value. Either the IP address, IP range, or FQDN of the applicationSegment, with or without wildcards.
      * @param string|null $value Value to set for the destinationHost property.
     */
     public function setDestinationHost(?string $value): void {
@@ -154,7 +154,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the destinationType property value. The destinationType property
+     * Sets the destinationType property value. The possible values are: ipAddress, ipRange, ipRangeCidr, fqdn, dnsSuffix, unknownFutureValue.
      * @param PrivateNetworkDestinationType|null $value Value to set for the destinationType property.
     */
     public function setDestinationType(?PrivateNetworkDestinationType $value): void {
@@ -162,7 +162,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the port property value. The port property
+     * Sets the port property value. Port supported for the application segment. DO NOT USE.
      * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
@@ -170,7 +170,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the ports property value. The ports property
+     * Sets the ports property value. List of ports supported for the application segment.
      * @param array<string>|null $value Value to set for the ports property.
     */
     public function setPorts(?array $value): void {
@@ -178,7 +178,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the protocol property value. The protocol property
+     * Sets the protocol property value. Indicates the protocol of the network traffic acquired for the application segment. The possible values are: tcp, udp, unknownFutureValue.
      * @param PrivateNetworkProtocol|null $value Value to set for the protocol property.
     */
     public function setProtocol(?PrivateNetworkProtocol $value): void {

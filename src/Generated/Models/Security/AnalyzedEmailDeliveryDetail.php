@@ -75,9 +75,23 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
         $o = $this;
         return  [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(DeliveryAction::class)),
+            'latestThreats' => fn(ParseNode $n) => $o->setLatestThreats($n->getStringValue()),
             'location' => fn(ParseNode $n) => $o->setLocation($n->getEnumValue(DeliveryLocation::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'originalThreats' => fn(ParseNode $n) => $o->setOriginalThreats($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the latestThreats property value. The latestThreats property
+     * @return string|null
+    */
+    public function getLatestThreats(): ?string {
+        $val = $this->getBackingStore()->get('latestThreats');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'latestThreats'");
     }
 
     /**
@@ -105,13 +119,27 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
+     * Gets the originalThreats property value. The originalThreats property
+     * @return string|null
+    */
+    public function getOriginalThreats(): ?string {
+        $val = $this->getBackingStore()->get('originalThreats');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originalThreats'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('action', $this->getAction());
+        $writer->writeStringValue('latestThreats', $this->getLatestThreats());
         $writer->writeEnumValue('location', $this->getLocation());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('originalThreats', $this->getOriginalThreats());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -140,6 +168,14 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
+     * Sets the latestThreats property value. The latestThreats property
+     * @param string|null $value Value to set for the latestThreats property.
+    */
+    public function setLatestThreats(?string $value): void {
+        $this->getBackingStore()->set('latestThreats', $value);
+    }
+
+    /**
      * Sets the location property value. The delivery location of the email. The possible values are: unknown, inboxfolder, junkFolder, deletedFolder, quarantine, onpremexternal, failed, dropped, others, unknownFutureValue.
      * @param DeliveryLocation|null $value Value to set for the location property.
     */
@@ -153,6 +189,14 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the originalThreats property value. The originalThreats property
+     * @param string|null $value Value to set for the originalThreats property.
+    */
+    public function setOriginalThreats(?string $value): void {
+        $this->getBackingStore()->set('originalThreats', $value);
     }
 
 }

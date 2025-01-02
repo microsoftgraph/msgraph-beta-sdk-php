@@ -76,15 +76,15 @@ class CertificateAuthorityDetail extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deltacertificateRevocationListUrl property value. The URL to check to find out whether the certificate is revoked.
+     * Gets the deltaCertificateRevocationListUrl property value. The deltaCertificateRevocationListUrl property
      * @return string|null
     */
-    public function getDeltacertificateRevocationListUrl(): ?string {
-        $val = $this->getBackingStore()->get('deltacertificateRevocationListUrl');
+    public function getDeltaCertificateRevocationListUrl(): ?string {
+        $val = $this->getBackingStore()->get('deltaCertificateRevocationListUrl');
         if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'deltacertificateRevocationListUrl'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deltaCertificateRevocationListUrl'");
     }
 
     /**
@@ -122,7 +122,7 @@ class CertificateAuthorityDetail extends DirectoryObject implements Parsable
             'certificateAuthorityType' => fn(ParseNode $n) => $o->setCertificateAuthorityType($n->getEnumValue(CertificateAuthorityType::class)),
             'certificateRevocationListUrl' => fn(ParseNode $n) => $o->setCertificateRevocationListUrl($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'deltacertificateRevocationListUrl' => fn(ParseNode $n) => $o->setDeltacertificateRevocationListUrl($n->getStringValue()),
+            'deltaCertificateRevocationListUrl' => fn(ParseNode $n) => $o->setDeltaCertificateRevocationListUrl($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'isIssuerHintEnabled' => fn(ParseNode $n) => $o->setIsIssuerHintEnabled($n->getBooleanValue()),
@@ -190,7 +190,7 @@ class CertificateAuthorityDetail extends DirectoryObject implements Parsable
         $writer->writeEnumValue('certificateAuthorityType', $this->getCertificateAuthorityType());
         $writer->writeStringValue('certificateRevocationListUrl', $this->getCertificateRevocationListUrl());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeStringValue('deltacertificateRevocationListUrl', $this->getDeltacertificateRevocationListUrl());
+        $writer->writeStringValue('deltaCertificateRevocationListUrl', $this->getDeltaCertificateRevocationListUrl());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeBooleanValue('isIssuerHintEnabled', $this->getIsIssuerHintEnabled());
@@ -232,11 +232,11 @@ class CertificateAuthorityDetail extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deltacertificateRevocationListUrl property value. The URL to check to find out whether the certificate is revoked.
-     * @param string|null $value Value to set for the deltacertificateRevocationListUrl property.
+     * Sets the deltaCertificateRevocationListUrl property value. The deltaCertificateRevocationListUrl property
+     * @param string|null $value Value to set for the deltaCertificateRevocationListUrl property.
     */
-    public function setDeltacertificateRevocationListUrl(?string $value): void {
-        $this->getBackingStore()->set('deltacertificateRevocationListUrl', $value);
+    public function setDeltaCertificateRevocationListUrl(?string $value): void {
+        $this->getBackingStore()->set('deltaCertificateRevocationListUrl', $value);
     }
 
     /**

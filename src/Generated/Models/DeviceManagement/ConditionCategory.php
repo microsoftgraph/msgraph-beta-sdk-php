@@ -14,4 +14,6 @@ class ConditionCategory extends Enum {
     public const CLOUD_PC_HOST_HEALTH_CHECK_FAILURES = "cloudPcHostHealthCheckFailures";
     public const CLOUD_PC_ZONE_OUTAGE = "cloudPcZoneOutage";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const FRONTLINE_BUFFER_USAGE_DURATION = "frontlineBufferUsageDuration";
+    public const FRONTLINE_BUFFER_USAGE_THRESHOLD = "frontlineBufferUsageThreshold";
 }

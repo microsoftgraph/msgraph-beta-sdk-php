@@ -1495,6 +1495,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onAuthenticationMethodLoadStartListener': return new OnAuthenticationMethodLoadStartListener();
                 case '#microsoft.graph.oneDriveForBusinessProtectionPolicy': return new OneDriveForBusinessProtectionPolicy();
                 case '#microsoft.graph.oneDriveForBusinessRestoreSession': return new OneDriveForBusinessRestoreSession();
+                case '#microsoft.graph.onEmailOtpSendListener': return new OnEmailOtpSendListener();
                 case '#microsoft.graph.onenote': return new Onenote();
                 case '#microsoft.graph.onenoteEntityBaseModel': return new OnenoteEntityBaseModel();
                 case '#microsoft.graph.onenoteEntityHierarchyModel': return new OnenoteEntityHierarchyModel();
@@ -1506,6 +1507,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onInteractiveAuthFlowStartListener': return new OnInteractiveAuthFlowStartListener();
                 case '#microsoft.graph.onlineMeeting': return new OnlineMeeting();
                 case '#microsoft.graph.onlineMeetingBase': return new OnlineMeetingBase();
+                case '#microsoft.graph.onOtpSendCustomExtension': return new OnOtpSendCustomExtension();
                 case '#microsoft.graph.onPremisesAgent': return new OnPremisesAgent();
                 case '#microsoft.graph.onPremisesAgentGroup': return new OnPremisesAgentGroup();
                 case '#microsoft.graph.onPremisesConditionalAccessSettings': return new OnPremisesConditionalAccessSettings();
@@ -1528,7 +1530,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.organizationalBranding': return new OrganizationalBranding();
                 case '#microsoft.graph.organizationalBrandingLocalization': return new OrganizationalBrandingLocalization();
                 case '#microsoft.graph.organizationalBrandingProperties': return new OrganizationalBrandingProperties();
-                case '#microsoft.graph.organizationalBrandingTheme': return new OrganizationalBrandingTheme();
                 case '#microsoft.graph.organizationSettings': return new OrganizationSettings();
                 case '#microsoft.graph.orgContact': return new OrgContact();
                 case '#microsoft.graph.outlookCategory': return new OutlookCategory();
@@ -1880,6 +1881,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.securityToolAwsRoleAdministratorFinding': return new SecurityToolAwsRoleAdministratorFinding();
                 case '#microsoft.graph.securityToolAwsServerlessFunctionAdministratorFinding': return new SecurityToolAwsServerlessFunctionAdministratorFinding();
                 case '#microsoft.graph.securityToolAwsUserAdministratorFinding': return new SecurityToolAwsUserAdministratorFinding();
+                case '#microsoft.graph.selfServiceSignUp': return new SelfServiceSignUp();
                 case '#microsoft.graph.sendDtmfTonesOperation': return new SendDtmfTonesOperation();
                 case '#microsoft.graph.sensitiveType': return new SensitiveType();
                 case '#microsoft.graph.sensitivityLabel': return new SensitivityLabel();

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ProductChanges;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the changeItemBase objects and their properties.
+ * Get a list of the changeItemBase objects and their properties. The API returns both Microsoft Entra change announcements and releases.
 */
 class ProductChangesRequestBuilderGetQueryParameters 
 {

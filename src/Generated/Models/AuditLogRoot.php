@@ -111,6 +111,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'provisioning' => fn(ParseNode $n) => $o->setProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
             'signIns' => fn(ParseNode $n) => $o->setSignIns($n->getCollectionOfObjectValues([SignIn::class, 'createFromDiscriminatorValue'])),
+            'signUps' => fn(ParseNode $n) => $o->setSignUps($n->getCollectionOfObjectValues([SelfServiceSignUp::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -155,6 +156,20 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the signUps property value. The signUps property
+     * @return array<SelfServiceSignUp>|null
+    */
+    public function getSignUps(): ?array {
+        $val = $this->getBackingStore()->get('signUps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SelfServiceSignUp::class);
+            /** @var array<SelfServiceSignUp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signUps'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -165,6 +180,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('provisioning', $this->getProvisioning());
         $writer->writeCollectionOfObjectValues('signIns', $this->getSignIns());
+        $writer->writeCollectionOfObjectValues('signUps', $this->getSignUps());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -230,6 +246,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setSignIns(?array $value): void {
         $this->getBackingStore()->set('signIns', $value);
+    }
+
+    /**
+     * Sets the signUps property value. The signUps property
+     * @param array<SelfServiceSignUp>|null $value Value to set for the signUps property.
+    */
+    public function setSignUps(?array $value): void {
+        $this->getBackingStore()->set('signUps', $value);
     }
 
 }

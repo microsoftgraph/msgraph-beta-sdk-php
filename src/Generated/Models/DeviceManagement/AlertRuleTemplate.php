@@ -12,4 +12,5 @@ class AlertRuleTemplate extends Enum {
     public const CLOUD_PC_IN_GRACE_PERIOD_SCENARIO = "cloudPcInGracePeriodScenario";
     public const CLOUD_PC_FRONTLINE_INSUFFICIENT_LICENSES_SCENARIO = "cloudPcFrontlineInsufficientLicensesScenario";
     public const CLOUD_PC_INACCESSIBLE_SCENARIO = "cloudPcInaccessibleScenario";
+    public const CLOUD_PC_FRONTLINE_CONCURRENCY_SCENARIO = "cloudPcFrontlineConcurrencyScenario";
 }

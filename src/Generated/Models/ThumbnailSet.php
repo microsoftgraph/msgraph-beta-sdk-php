@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The ThumbnailSet resource is a keyed collection of thumbnail resources.
+*/
 class ThumbnailSet extends Entity implements Parsable 
 {
     /**

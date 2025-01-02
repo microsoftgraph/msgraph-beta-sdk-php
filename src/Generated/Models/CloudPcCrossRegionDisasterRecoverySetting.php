@@ -103,6 +103,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
             'disasterRecoveryType' => fn(ParseNode $n) => $o->setDisasterRecoveryType($n->getEnumValue(CloudPcDisasterRecoveryType::class)),
             'maintainCrossRegionRestorePointEnabled' => fn(ParseNode $n) => $o->setMaintainCrossRegionRestorePointEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userInitiatedDisasterRecoveryAllowed' => fn(ParseNode $n) => $o->setUserInitiatedDisasterRecoveryAllowed($n->getBooleanValue()),
         ];
     }
 
@@ -131,6 +132,18 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     }
 
     /**
+     * Gets the userInitiatedDisasterRecoveryAllowed property value. Indicates whether the client allows the end user to initiate a disaster recovery activation. True indicates that the client includes the option for the end user to activate Backup Cloud PC. When false, the end user doesn't have the option to activate disaster recovery. The default value is false. Currently, only premium disaster recovery is supported.
+     * @return bool|null
+    */
+    public function getUserInitiatedDisasterRecoveryAllowed(): ?bool {
+        $val = $this->getBackingStore()->get('userInitiatedDisasterRecoveryAllowed');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userInitiatedDisasterRecoveryAllowed'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -140,6 +153,7 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
         $writer->writeEnumValue('disasterRecoveryType', $this->getDisasterRecoveryType());
         $writer->writeBooleanValue('maintainCrossRegionRestorePointEnabled', $this->getMaintainCrossRegionRestorePointEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('userInitiatedDisasterRecoveryAllowed', $this->getUserInitiatedDisasterRecoveryAllowed());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -197,6 +211,14 @@ class CloudPcCrossRegionDisasterRecoverySetting implements AdditionalDataHolder,
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the userInitiatedDisasterRecoveryAllowed property value. Indicates whether the client allows the end user to initiate a disaster recovery activation. True indicates that the client includes the option for the end user to activate Backup Cloud PC. When false, the end user doesn't have the option to activate disaster recovery. The default value is false. Currently, only premium disaster recovery is supported.
+     * @param bool|null $value Value to set for the userInitiatedDisasterRecoveryAllowed property.
+    */
+    public function setUserInitiatedDisasterRecoveryAllowed(?bool $value): void {
+        $this->getBackingStore()->set('userInitiatedDisasterRecoveryAllowed', $value);
     }
 
 }

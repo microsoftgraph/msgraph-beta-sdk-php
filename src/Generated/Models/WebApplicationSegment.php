@@ -27,7 +27,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy application segments, this property contains the user-friendly URL that will point to the traffic manager.
+     * Gets the alternateUrl property value. If you're configuring a traffic manager in front of multiple app proxy application segments, this property contains the user-friendly URL that points to the traffic manager.
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
@@ -103,7 +103,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy application segments, this property contains the user-friendly URL that will point to the traffic manager.
+     * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple app proxy application segments, this property contains the user-friendly URL that points to the traffic manager.
      * @param string|null $value Value to set for the alternateUrl property.
     */
     public function setAlternateUrl(?string $value): void {

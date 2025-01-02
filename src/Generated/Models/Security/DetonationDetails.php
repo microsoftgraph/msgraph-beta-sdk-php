@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -69,6 +70,32 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the compromiseIndicators property value. The compromiseIndicators property
+     * @return array<CompromiseIndicator>|null
+    */
+    public function getCompromiseIndicators(): ?array {
+        $val = $this->getBackingStore()->get('compromiseIndicators');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CompromiseIndicator::class);
+            /** @var array<CompromiseIndicator>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'compromiseIndicators'");
+    }
+
+    /**
+     * Gets the detonationBehaviourDetails property value. The detonationBehaviourDetails property
+     * @return DetonationBehaviourDetails|null
+    */
+    public function getDetonationBehaviourDetails(): ?DetonationBehaviourDetails {
+        $val = $this->getBackingStore()->get('detonationBehaviourDetails');
+        if (is_null($val) || $val instanceof DetonationBehaviourDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detonationBehaviourDetails'");
+    }
+
+    /**
      * Gets the detonationChain property value. The chain of detonation.
      * @return DetonationChain|null
     */
@@ -90,6 +117,18 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'detonationObservables'");
+    }
+
+    /**
+     * Gets the detonationScreenshotUri property value. The detonationScreenshotUri property
+     * @return string|null
+    */
+    public function getDetonationScreenshotUri(): ?string {
+        $val = $this->getBackingStore()->get('detonationScreenshotUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detonationScreenshotUri'");
     }
 
     /**
@@ -124,8 +163,11 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'analysisDateTime' => fn(ParseNode $n) => $o->setAnalysisDateTime($n->getDateTimeValue()),
+            'compromiseIndicators' => fn(ParseNode $n) => $o->setCompromiseIndicators($n->getCollectionOfObjectValues([CompromiseIndicator::class, 'createFromDiscriminatorValue'])),
+            'detonationBehaviourDetails' => fn(ParseNode $n) => $o->setDetonationBehaviourDetails($n->getObjectValue([DetonationBehaviourDetails::class, 'createFromDiscriminatorValue'])),
             'detonationChain' => fn(ParseNode $n) => $o->setDetonationChain($n->getObjectValue([DetonationChain::class, 'createFromDiscriminatorValue'])),
             'detonationObservables' => fn(ParseNode $n) => $o->setDetonationObservables($n->getObjectValue([DetonationObservables::class, 'createFromDiscriminatorValue'])),
+            'detonationScreenshotUri' => fn(ParseNode $n) => $o->setDetonationScreenshotUri($n->getStringValue()),
             'detonationVerdict' => fn(ParseNode $n) => $o->setDetonationVerdict($n->getStringValue()),
             'detonationVerdictReason' => fn(ParseNode $n) => $o->setDetonationVerdictReason($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -150,8 +192,11 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('analysisDateTime', $this->getAnalysisDateTime());
+        $writer->writeCollectionOfObjectValues('compromiseIndicators', $this->getCompromiseIndicators());
+        $writer->writeObjectValue('detonationBehaviourDetails', $this->getDetonationBehaviourDetails());
         $writer->writeObjectValue('detonationChain', $this->getDetonationChain());
         $writer->writeObjectValue('detonationObservables', $this->getDetonationObservables());
+        $writer->writeStringValue('detonationScreenshotUri', $this->getDetonationScreenshotUri());
         $writer->writeStringValue('detonationVerdict', $this->getDetonationVerdict());
         $writer->writeStringValue('detonationVerdictReason', $this->getDetonationVerdictReason());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -183,6 +228,22 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the compromiseIndicators property value. The compromiseIndicators property
+     * @param array<CompromiseIndicator>|null $value Value to set for the compromiseIndicators property.
+    */
+    public function setCompromiseIndicators(?array $value): void {
+        $this->getBackingStore()->set('compromiseIndicators', $value);
+    }
+
+    /**
+     * Sets the detonationBehaviourDetails property value. The detonationBehaviourDetails property
+     * @param DetonationBehaviourDetails|null $value Value to set for the detonationBehaviourDetails property.
+    */
+    public function setDetonationBehaviourDetails(?DetonationBehaviourDetails $value): void {
+        $this->getBackingStore()->set('detonationBehaviourDetails', $value);
+    }
+
+    /**
      * Sets the detonationChain property value. The chain of detonation.
      * @param DetonationChain|null $value Value to set for the detonationChain property.
     */
@@ -196,6 +257,14 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setDetonationObservables(?DetonationObservables $value): void {
         $this->getBackingStore()->set('detonationObservables', $value);
+    }
+
+    /**
+     * Sets the detonationScreenshotUri property value. The detonationScreenshotUri property
+     * @param string|null $value Value to set for the detonationScreenshotUri property.
+    */
+    public function setDetonationScreenshotUri(?string $value): void {
+        $this->getBackingStore()->set('detonationScreenshotUri', $value);
     }
 
     /**

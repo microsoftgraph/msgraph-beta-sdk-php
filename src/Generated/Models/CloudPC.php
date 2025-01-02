@@ -150,6 +150,7 @@ class CloudPC extends Entity implements Parsable
             'disasterRecoveryCapability' => fn(ParseNode $n) => $o->setDisasterRecoveryCapability($n->getObjectValue([CloudPcDisasterRecoveryCapability::class, 'createFromDiscriminatorValue'])),
             'diskEncryptionState' => fn(ParseNode $n) => $o->setDiskEncryptionState($n->getEnumValue(CloudPcDiskEncryptionState::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'frontlineCloudPcAvailability' => fn(ParseNode $n) => $o->setFrontlineCloudPcAvailability($n->getEnumValue(FrontlineCloudPcAvailability::class)),
             'gracePeriodEndDateTime' => fn(ParseNode $n) => $o->setGracePeriodEndDateTime($n->getDateTimeValue()),
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
             'lastLoginResult' => fn(ParseNode $n) => $o->setLastLoginResult($n->getObjectValue([CloudPcLoginResult::class, 'createFromDiscriminatorValue'])),
@@ -181,6 +182,18 @@ class CloudPC extends Entity implements Parsable
             'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the frontlineCloudPcAvailability property value. The frontlineCloudPcAvailability property
+     * @return FrontlineCloudPcAvailability|null
+    */
+    public function getFrontlineCloudPcAvailability(): ?FrontlineCloudPcAvailability {
+        $val = $this->getBackingStore()->get('frontlineCloudPcAvailability');
+        if (is_null($val) || $val instanceof FrontlineCloudPcAvailability) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frontlineCloudPcAvailability'");
     }
 
     /**
@@ -478,6 +491,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeObjectValue('disasterRecoveryCapability', $this->getDisasterRecoveryCapability());
         $writer->writeEnumValue('diskEncryptionState', $this->getDiskEncryptionState());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('frontlineCloudPcAvailability', $this->getFrontlineCloudPcAvailability());
         $writer->writeDateTimeValue('gracePeriodEndDateTime', $this->getGracePeriodEndDateTime());
         $writer->writeStringValue('imageDisplayName', $this->getImageDisplayName());
         $writer->writeObjectValue('lastLoginResult', $this->getLastLoginResult());
@@ -573,6 +587,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the frontlineCloudPcAvailability property value. The frontlineCloudPcAvailability property
+     * @param FrontlineCloudPcAvailability|null $value Value to set for the frontlineCloudPcAvailability property.
+    */
+    public function setFrontlineCloudPcAvailability(?FrontlineCloudPcAvailability $value): void {
+        $this->getBackingStore()->set('frontlineCloudPcAvailability', $value);
     }
 
     /**
