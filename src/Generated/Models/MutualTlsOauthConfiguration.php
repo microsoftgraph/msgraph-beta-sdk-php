@@ -26,7 +26,7 @@ class MutualTlsOauthConfiguration extends TrustedCertificateAuthorityBase implem
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Friendly name. Supports $filter (eq, in).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -72,7 +72,7 @@ class MutualTlsOauthConfiguration extends TrustedCertificateAuthorityBase implem
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Friendly name. Supports $filter (eq, in).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

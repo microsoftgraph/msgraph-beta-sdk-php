@@ -66,7 +66,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateAuthorities property value. The certificateAuthorities property
+     * Gets the certificateAuthorities property value. Container for certificate authorities-related configurations for applications in the tenant.
      * @return CertificateAuthorityPath|null
     */
     public function getCertificateAuthorities(): ?CertificateAuthorityPath {
@@ -316,7 +316,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the templates property value. The templates property
+     * Gets the templates property value. A container for templates, such as device templates used for onboarding devices in Microsoft Entra ID.
      * @return Template|null
     */
     public function getTemplates(): ?Template {
@@ -380,7 +380,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateAuthorities property value. The certificateAuthorities property
+     * Sets the certificateAuthorities property value. Container for certificate authorities-related configurations for applications in the tenant.
      * @param CertificateAuthorityPath|null $value Value to set for the certificateAuthorities property.
     */
     public function setCertificateAuthorities(?CertificateAuthorityPath $value): void {
@@ -508,7 +508,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the templates property value. The templates property
+     * Sets the templates property value. A container for templates, such as device templates used for onboarding devices in Microsoft Entra ID.
      * @param Template|null $value Value to set for the templates property.
     */
     public function setTemplates(?Template $value): void {

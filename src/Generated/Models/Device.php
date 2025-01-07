@@ -40,7 +40,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the alternativeNames property value. The alternativeNames property
+     * Gets the alternativeNames property value. List of alternative names for the device.
      * @return array<string>|null
     */
     public function getAlternativeNames(): ?array {
@@ -118,7 +118,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deviceId property value. Unique Identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Also Supports $filter (eq, ne, not, startsWith).
+     * Gets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. This ID is an alternate key that can be used to reference the device object. Also supports $filter (eq, ne, not, startsWith).
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -142,7 +142,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deviceOwnership property value. Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.
+     * Gets the deviceOwnership property value. Ownership of the device. Intune sets this property. Possible values are: unknown, company, personal.
      * @return string|null
     */
     public function getDeviceOwnership(): ?string {
@@ -154,7 +154,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deviceTemplate property value. The deviceTemplate property
+     * Gets the deviceTemplate property value. Device template used to instantiate this device. Nullable. Read-only.
      * @return array<DeviceTemplate>|null
     */
     public function getDeviceTemplate(): ?array {
@@ -192,7 +192,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the domainName property value. The on-premises domain name of Microsoft Entra hybrid joined devices. This property is set by Intune.
+     * Gets the domainName property value. The on-premises domain name of Microsoft Entra hybrid joined devices. Intune sets this property.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -204,7 +204,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the enrollmentProfileName property value. Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.
+     * Gets the enrollmentProfileName property value. Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. Intune sets this property.
      * @return string|null
     */
     public function getEnrollmentProfileName(): ?string {
@@ -216,7 +216,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the enrollmentType property value. Enrollment type of the device. This property is set by Intune. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
+     * Gets the enrollmentType property value. Enrollment type of the device. Intune sets this property. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
      * @return string|null
     */
     public function getEnrollmentType(): ?string {
@@ -412,7 +412,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the managementType property value. Management channel of the device.  This property is set by Intune. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Gets the managementType property value. Management channel of the device. Intune sets this property. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
      * @return string|null
     */
     public function getManagementType(): ?string {
@@ -752,7 +752,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the alternativeNames property value. The alternativeNames property
+     * Sets the alternativeNames property value. List of alternative names for the device.
      * @param array<string>|null $value Value to set for the alternativeNames property.
     */
     public function setAlternativeNames(?array $value): void {
@@ -800,7 +800,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deviceId property value. Unique Identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Also Supports $filter (eq, ne, not, startsWith).
+     * Sets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. This ID is an alternate key that can be used to reference the device object. Also supports $filter (eq, ne, not, startsWith).
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -816,7 +816,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deviceOwnership property value. Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.
+     * Sets the deviceOwnership property value. Ownership of the device. Intune sets this property. Possible values are: unknown, company, personal.
      * @param string|null $value Value to set for the deviceOwnership property.
     */
     public function setDeviceOwnership(?string $value): void {
@@ -824,7 +824,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deviceTemplate property value. The deviceTemplate property
+     * Sets the deviceTemplate property value. Device template used to instantiate this device. Nullable. Read-only.
      * @param array<DeviceTemplate>|null $value Value to set for the deviceTemplate property.
     */
     public function setDeviceTemplate(?array $value): void {
@@ -848,7 +848,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the domainName property value. The on-premises domain name of Microsoft Entra hybrid joined devices. This property is set by Intune.
+     * Sets the domainName property value. The on-premises domain name of Microsoft Entra hybrid joined devices. Intune sets this property.
      * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
@@ -856,7 +856,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the enrollmentProfileName property value. Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.
+     * Sets the enrollmentProfileName property value. Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. Intune sets this property.
      * @param string|null $value Value to set for the enrollmentProfileName property.
     */
     public function setEnrollmentProfileName(?string $value): void {
@@ -864,7 +864,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the enrollmentType property value. Enrollment type of the device. This property is set by Intune. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
+     * Sets the enrollmentType property value. Enrollment type of the device. Intune sets this property. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
      * @param string|null $value Value to set for the enrollmentType property.
     */
     public function setEnrollmentType(?string $value): void {
@@ -936,7 +936,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the managementType property value. Management channel of the device.  This property is set by Intune. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Sets the managementType property value. Management channel of the device. Intune sets this property. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
      * @param string|null $value Value to set for the managementType property.
     */
     public function setManagementType(?string $value): void {

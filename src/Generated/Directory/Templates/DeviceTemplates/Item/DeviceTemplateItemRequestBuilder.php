@@ -56,10 +56,11 @@ class DeviceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deviceTemplates for directory
+     * Delete a registered deviceTemplate. You must first delete all devices linked to the template before deleting the template itself. Only registered owners of the template can perform this operation.
      * @param DeviceTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/devicetemplate-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?DeviceTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -79,10 +80,11 @@ class DeviceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplates from directory
+     * Get the properties and relationships of a deviceTemplate object.
      * @param DeviceTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceTemplate|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/devicetemplate-get?view=graph-rest-beta Find more info here
     */
     public function get(?DeviceTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -108,7 +110,7 @@ class DeviceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deviceTemplates for directory
+     * Delete a registered deviceTemplate. You must first delete all devices linked to the template before deleting the template itself. Only registered owners of the template can perform this operation.
      * @param DeviceTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -126,7 +128,7 @@ class DeviceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplates from directory
+     * Get the properties and relationships of a deviceTemplate object.
      * @param DeviceTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

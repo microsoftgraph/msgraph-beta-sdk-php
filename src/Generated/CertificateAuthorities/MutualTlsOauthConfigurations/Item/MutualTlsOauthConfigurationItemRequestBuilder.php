@@ -31,10 +31,11 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mutualTlsOauthConfigurations for certificateAuthorities
+     * Delete the specified mutualTlsOauthConfiguration resource. You must first delete the deviceTemplate object that references the ID.
      * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mutualtlsoauthconfiguration-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mutualTlsOauthConfigurations from certificateAuthorities
+     * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
      * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfiguration|null>
      * @throws Exception
@@ -74,7 +75,7 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property mutualTlsOauthConfigurations for certificateAuthorities
+     * Delete the specified mutualTlsOauthConfiguration resource. You must first delete the deviceTemplate object that references the ID.
      * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +93,7 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mutualTlsOauthConfigurations from certificateAuthorities
+     * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
      * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

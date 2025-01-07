@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get deviceTemplates from directory
+ * Get the properties and relationships of a deviceTemplate object.
 */
 class DeviceTemplateItemRequestBuilderGetQueryParameters 
 {

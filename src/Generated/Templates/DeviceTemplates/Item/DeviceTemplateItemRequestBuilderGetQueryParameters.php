@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Templates\DeviceTemplates\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get deviceTemplates from templates
+ * Defines the templates that are common to a set of device objects, such as IoT devices.
 */
 class DeviceTemplateItemRequestBuilderGetQueryParameters 
 {

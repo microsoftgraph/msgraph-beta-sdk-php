@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get owners from directory
+ * Get a list of owners for a deviceTemplate object. Owners can be represented as service principals, users, or applications.
 */
 class OwnersRequestBuilderGetQueryParameters 
 {

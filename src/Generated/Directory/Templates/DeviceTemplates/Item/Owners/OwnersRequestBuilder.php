@@ -51,10 +51,11 @@ class OwnersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get owners from directory
+     * Get a list of owners for a deviceTemplate object. Owners can be represented as service principals, users, or applications.
      * @param OwnersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/devicetemplate-list-owners?view=graph-rest-beta Find more info here
     */
     public function get(?OwnersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class OwnersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get owners from directory
+     * Get a list of owners for a deviceTemplate object. Owners can be represented as service principals, users, or applications.
      * @param OwnersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

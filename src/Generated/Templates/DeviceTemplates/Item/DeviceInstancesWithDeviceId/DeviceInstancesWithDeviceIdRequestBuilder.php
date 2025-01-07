@@ -34,7 +34,7 @@ class DeviceInstancesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceInstances from templates
+     * Collection of device objects created based on this template.
      * @param DeviceInstancesWithDeviceIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Device|null>
      * @throws Exception
@@ -48,7 +48,7 @@ class DeviceInstancesWithDeviceIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceInstances from templates
+     * Collection of device objects created based on this template.
      * @param DeviceInstancesWithDeviceIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
