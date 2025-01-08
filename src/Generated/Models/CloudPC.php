@@ -185,7 +185,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the frontlineCloudPcAvailability property value. The frontlineCloudPcAvailability property
+     * Gets the frontlineCloudPcAvailability property value. The current availability of a frontline assigned Cloud PC. Possible values: notApplicable, available,notAvailable and unknownFutureValue. Default value is notApplicable. Read Only.
      * @return FrontlineCloudPcAvailability|null
     */
     public function getFrontlineCloudPcAvailability(): ?FrontlineCloudPcAvailability {
@@ -590,7 +590,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the frontlineCloudPcAvailability property value. The frontlineCloudPcAvailability property
+     * Sets the frontlineCloudPcAvailability property value. The current availability of a frontline assigned Cloud PC. Possible values: notApplicable, available,notAvailable and unknownFutureValue. Default value is notApplicable. Read Only.
      * @param FrontlineCloudPcAvailability|null $value Value to set for the frontlineCloudPcAvailability property.
     */
     public function setFrontlineCloudPcAvailability(?FrontlineCloudPcAvailability $value): void {

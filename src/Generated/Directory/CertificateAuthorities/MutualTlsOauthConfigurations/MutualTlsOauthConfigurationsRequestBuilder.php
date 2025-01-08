@@ -52,10 +52,11 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mutualTlsOauthConfigurations from directory
+     * Get a list of the available mutualTlsOauthConfiguration resources.
      * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfigurationCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificateauthoritypath-list-mutualtlsoauthconfigurations?view=graph-rest-beta Find more info here
     */
     public function get(?MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to mutualTlsOauthConfigurations for directory
+     * Create a mutualTlsOauthConfiguration resource that contains a specified certificate authority object.
      * @param MutualTlsOauthConfiguration $body The request body
      * @param MutualTlsOauthConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfiguration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificateauthoritypath-post-mutualtlsoauthconfigurations?view=graph-rest-beta Find more info here
     */
     public function post(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mutualTlsOauthConfigurations from directory
+     * Get a list of the available mutualTlsOauthConfiguration resources.
      * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to mutualTlsOauthConfigurations for directory
+     * Create a mutualTlsOauthConfiguration resource that contains a specified certificate authority object.
      * @param MutualTlsOauthConfiguration $body The request body
      * @param MutualTlsOauthConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

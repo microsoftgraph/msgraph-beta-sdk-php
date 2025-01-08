@@ -61,7 +61,7 @@ class CertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get certificateAuthorities from directory
+     * Container for certificate authorities-related configurations for applications in the tenant.
      * @param CertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityPath|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class CertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get certificateAuthorities from directory
+     * Container for certificate authorities-related configurations for applications in the tenant.
      * @param CertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

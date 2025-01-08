@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\CertificateAuthorities\MutualTlsOauthCo
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mutualTlsOauthConfigurations from certificateAuthorities
+ * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
 */
 class MutualTlsOauthConfigurationsRequestBuilderGetQueryParameters 
 {

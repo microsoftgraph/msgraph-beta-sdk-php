@@ -52,7 +52,7 @@ class CertificateAuthorityPath extends Entity implements Parsable
     }
 
     /**
-     * Gets the mutualTlsOauthConfigurations property value. The mutualTlsOauthConfigurations property
+     * Gets the mutualTlsOauthConfigurations property value. Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
      * @return array<MutualTlsOauthConfiguration>|null
     */
     public function getMutualTlsOauthConfigurations(): ?array {
@@ -84,7 +84,7 @@ class CertificateAuthorityPath extends Entity implements Parsable
     }
 
     /**
-     * Sets the mutualTlsOauthConfigurations property value. The mutualTlsOauthConfigurations property
+     * Sets the mutualTlsOauthConfigurations property value. Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
      * @param array<MutualTlsOauthConfiguration>|null $value Value to set for the mutualTlsOauthConfigurations property.
     */
     public function setMutualTlsOauthConfigurations(?array $value): void {

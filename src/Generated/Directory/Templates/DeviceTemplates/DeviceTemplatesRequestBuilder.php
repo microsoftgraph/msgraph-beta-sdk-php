@@ -52,10 +52,11 @@ class DeviceTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplates from directory
+     * Get a list of deviceTemplate objects registered in the directory.
      * @param DeviceTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceTemplateCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/template-list-devicetemplates?view=graph-rest-beta Find more info here
     */
     public function get(?DeviceTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class DeviceTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to deviceTemplates for directory
+     * Create a new deviceTemplate used to identify attributes and manage a group of devices with similar characteristics.
      * @param DeviceTemplate $body The request body
      * @param DeviceTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceTemplate|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/template-post-devicetemplates?view=graph-rest-beta Find more info here
     */
     public function post(DeviceTemplate $body, ?DeviceTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class DeviceTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplates from directory
+     * Get a list of deviceTemplate objects registered in the directory.
      * @param DeviceTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class DeviceTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to deviceTemplates for directory
+     * Create a new deviceTemplate used to identify attributes and manage a group of devices with similar characteristics.
      * @param DeviceTemplate $body The request body
      * @param DeviceTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\DeviceTemplate\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get deviceTemplate from devices
+ * Device template used to instantiate this device. Nullable. Read-only.
 */
 class DeviceTemplateItemRequestBuilderGetQueryParameters 
 {

@@ -37,7 +37,7 @@ class CopilotAdminLimitedMode extends Entity implements Parsable
     }
 
     /**
-     * Gets the groupId property value. The ID of a Microsoft Entra group to which the value of the isEnabledForGroup property is applied value. The default value is null. This parameter is optional. If isEnabledForGroup is set to true, the groupId value must be provided in order for Copilot limited mode in Teams Meetings to be enabled for the members of the group.
+     * Gets the groupId property value. The ID of a Microsoft Entra group to which the value of the isEnabledForGroup property is applied value. The default value is null. This parameter is optional. If isEnabledForGroup is set to true, the groupId value must be provided in order for Copilot limited mode in Teams meetings to be enabled for the members of the group.
      * @return string|null
     */
     public function getGroupId(): ?string {
@@ -71,7 +71,7 @@ class CopilotAdminLimitedMode extends Entity implements Parsable
     }
 
     /**
-     * Sets the groupId property value. The ID of a Microsoft Entra group to which the value of the isEnabledForGroup property is applied value. The default value is null. This parameter is optional. If isEnabledForGroup is set to true, the groupId value must be provided in order for Copilot limited mode in Teams Meetings to be enabled for the members of the group.
+     * Sets the groupId property value. The ID of a Microsoft Entra group to which the value of the isEnabledForGroup property is applied value. The default value is null. This parameter is optional. If isEnabledForGroup is set to true, the groupId value must be provided in order for Copilot limited mode in Teams meetings to be enabled for the members of the group.
      * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Templates;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get templates from directory
+ * A container for templates, such as device templates used for onboarding devices in Microsoft Entra ID.
 */
 class TemplatesRequestBuilderGetQueryParameters 
 {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\Mutual
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mutualTlsOauthConfigurations from directory
+ * Get the properties and relationships of the specified mutualTlsOauthConfiguration resource.
 */
 class MutualTlsOauthConfigurationItemRequestBuilderGetQueryParameters 
 {

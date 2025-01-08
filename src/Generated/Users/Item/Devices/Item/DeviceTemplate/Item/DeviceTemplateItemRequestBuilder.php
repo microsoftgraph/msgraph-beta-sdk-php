@@ -31,7 +31,7 @@ class DeviceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplate from users
+     * Device template used to instantiate this device. Nullable. Read-only.
      * @param DeviceTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceTemplate|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class DeviceTemplateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplate from users
+     * Device template used to instantiate this device. Nullable. Read-only.
      * @param DeviceTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

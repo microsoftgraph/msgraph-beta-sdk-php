@@ -27,7 +27,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deviceAuthority property value. The deviceAuthority property
+     * Gets the deviceAuthority property value. A tenant-defined name for the party that's responsible for provisioning and managing devices on the Microsoft Entra tenant. For example, Tailwind Traders (the manufacturer) makes security cameras that are installed in customer buildings and managed by Lakeshore Retail (the device authority). This value is provided to the customer by the device authority (manufacturer or reseller).
      * @return string|null
     */
     public function getDeviceAuthority(): ?string {
@@ -39,7 +39,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deviceInstances property value. The deviceInstances property
+     * Gets the deviceInstances property value. Collection of device objects created based on this template.
      * @return array<Device>|null
     */
     public function getDeviceInstances(): ?array {
@@ -71,7 +71,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the manufacturer property value. The manufacturer property
+     * Gets the manufacturer property value. Manufacturer name.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -83,7 +83,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the model property value. The model property
+     * Gets the model property value. Model name.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -95,7 +95,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mutualTlsOauthConfigurationId property value. The mutualTlsOauthConfigurationId property
+     * Gets the mutualTlsOauthConfigurationId property value. Object ID of the mutualTlsOauthConfiguration. This value isn't required if self-signed certificates are used. This value is provided to the customer by the device authority (manufacturer or reseller).
      * @return string|null
     */
     public function getMutualTlsOauthConfigurationId(): ?string {
@@ -107,7 +107,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mutualTlsOauthConfigurationTenantId property value. The mutualTlsOauthConfigurationTenantId property
+     * Gets the mutualTlsOauthConfigurationTenantId property value. ID (tenant ID for device authority) of the tenant that contains the mutualTlsOauthConfiguration. This value isn't required if self-signed certificates are used. This value is provided to the customer by the device authority (manufacturer or reseller).
      * @return string|null
     */
     public function getMutualTlsOauthConfigurationTenantId(): ?string {
@@ -119,7 +119,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the operatingSystem property value. The operatingSystem property
+     * Gets the operatingSystem property value. Operating system type. Supports $filter (eq, in).
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
@@ -131,7 +131,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the owners property value. The owners property
+     * Gets the owners property value. Collection of directory objects that can manage the device template and the related deviceInstances. Owners can be represented as service principals, users, or applications. An owner has full privileges over the device template and doesn't require other administrator roles to create, update, or delete devices from this template, as well as to add or remove template owners.  Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getOwners(): ?array {
@@ -161,7 +161,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deviceAuthority property value. The deviceAuthority property
+     * Sets the deviceAuthority property value. A tenant-defined name for the party that's responsible for provisioning and managing devices on the Microsoft Entra tenant. For example, Tailwind Traders (the manufacturer) makes security cameras that are installed in customer buildings and managed by Lakeshore Retail (the device authority). This value is provided to the customer by the device authority (manufacturer or reseller).
      * @param string|null $value Value to set for the deviceAuthority property.
     */
     public function setDeviceAuthority(?string $value): void {
@@ -169,7 +169,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deviceInstances property value. The deviceInstances property
+     * Sets the deviceInstances property value. Collection of device objects created based on this template.
      * @param array<Device>|null $value Value to set for the deviceInstances property.
     */
     public function setDeviceInstances(?array $value): void {
@@ -177,7 +177,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the manufacturer property value. The manufacturer property
+     * Sets the manufacturer property value. Manufacturer name.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -185,7 +185,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the model property value. The model property
+     * Sets the model property value. Model name.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -193,7 +193,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mutualTlsOauthConfigurationId property value. The mutualTlsOauthConfigurationId property
+     * Sets the mutualTlsOauthConfigurationId property value. Object ID of the mutualTlsOauthConfiguration. This value isn't required if self-signed certificates are used. This value is provided to the customer by the device authority (manufacturer or reseller).
      * @param string|null $value Value to set for the mutualTlsOauthConfigurationId property.
     */
     public function setMutualTlsOauthConfigurationId(?string $value): void {
@@ -201,7 +201,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mutualTlsOauthConfigurationTenantId property value. The mutualTlsOauthConfigurationTenantId property
+     * Sets the mutualTlsOauthConfigurationTenantId property value. ID (tenant ID for device authority) of the tenant that contains the mutualTlsOauthConfiguration. This value isn't required if self-signed certificates are used. This value is provided to the customer by the device authority (manufacturer or reseller).
      * @param string|null $value Value to set for the mutualTlsOauthConfigurationTenantId property.
     */
     public function setMutualTlsOauthConfigurationTenantId(?string $value): void {
@@ -209,7 +209,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the operatingSystem property value. The operatingSystem property
+     * Sets the operatingSystem property value. Operating system type. Supports $filter (eq, in).
      * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
@@ -217,7 +217,7 @@ class DeviceTemplate extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the owners property value. The owners property
+     * Sets the owners property value. Collection of directory objects that can manage the device template and the related deviceInstances. Owners can be represented as service principals, users, or applications. An owner has full privileges over the device template and doesn't require other administrator roles to create, update, or delete devices from this template, as well as to add or remove template owners.  Supports $expand.
      * @param array<DirectoryObject>|null $value Value to set for the owners property.
     */
     public function setOwners(?array $value): void {

@@ -34,7 +34,7 @@ class TrustedCertificateAuthorityBase extends DirectoryObject implements Parsabl
     }
 
     /**
-     * Gets the certificateAuthorities property value. The certificateAuthorities property
+     * Gets the certificateAuthorities property value. Multi-value property that represents a list of trusted certificate authorities.
      * @return array<CertificateAuthority>|null
     */
     public function getCertificateAuthorities(): ?array {
@@ -68,7 +68,7 @@ class TrustedCertificateAuthorityBase extends DirectoryObject implements Parsabl
     }
 
     /**
-     * Sets the certificateAuthorities property value. The certificateAuthorities property
+     * Sets the certificateAuthorities property value. Multi-value property that represents a list of trusted certificate authorities.
      * @param array<CertificateAuthority>|null $value Value to set for the certificateAuthorities property.
     */
     public function setCertificateAuthorities(?array $value): void {

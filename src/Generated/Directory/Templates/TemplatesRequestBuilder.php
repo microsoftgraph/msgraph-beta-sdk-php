@@ -53,7 +53,7 @@ class TemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get templates from directory
+     * A container for templates, such as device templates used for onboarding devices in Microsoft Entra ID.
      * @param TemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Template|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class TemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get templates from directory
+     * A container for templates, such as device templates used for onboarding devices in Microsoft Entra ID.
      * @param TemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

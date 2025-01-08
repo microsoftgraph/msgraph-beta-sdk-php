@@ -52,7 +52,7 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mutualTlsOauthConfigurations from certificateAuthorities
+     * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
      * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfigurationCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mutualTlsOauthConfigurations from certificateAuthorities
+     * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
      * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

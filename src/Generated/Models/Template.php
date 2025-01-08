@@ -26,7 +26,7 @@ class Template extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceTemplates property value. The deviceTemplates property
+     * Gets the deviceTemplates property value. Defines the templates that are common to a set of device objects, such as IoT devices.
      * @return array<DeviceTemplate>|null
     */
     public function getDeviceTemplates(): ?array {
@@ -60,7 +60,7 @@ class Template extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceTemplates property value. The deviceTemplates property
+     * Sets the deviceTemplates property value. Defines the templates that are common to a set of device objects, such as IoT devices.
      * @param array<DeviceTemplate>|null $value Value to set for the deviceTemplates property.
     */
     public function setDeviceTemplates(?array $value): void {

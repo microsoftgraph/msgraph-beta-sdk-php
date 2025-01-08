@@ -52,7 +52,7 @@ class DeviceTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplates from templates
+     * Defines the templates that are common to a set of device objects, such as IoT devices.
      * @param DeviceTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceTemplateCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class DeviceTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deviceTemplates from templates
+     * Defines the templates that are common to a set of device objects, such as IoT devices.
      * @param DeviceTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
