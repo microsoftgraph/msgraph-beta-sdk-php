@@ -34,7 +34,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the callEventType property value. The callEventType property
+     * Gets the callEventType property value. The event type of the call. Possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: rosterUpdated.
      * @return CallEventType|null
     */
     public function getCallEventType(): ?CallEventType {
@@ -46,7 +46,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventDateTime property value. The eventDateTime property
+     * Gets the eventDateTime property value. The time when event occurred.
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -71,7 +71,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the participants property value. The participants property
+     * Gets the participants property value. Participants collection for the call event.
      * @return array<Participant>|null
     */
     public function getParticipants(): ?array {
@@ -96,7 +96,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the callEventType property value. The callEventType property
+     * Sets the callEventType property value. The event type of the call. Possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: rosterUpdated.
      * @param CallEventType|null $value Value to set for the callEventType property.
     */
     public function setCallEventType(?CallEventType $value): void {
@@ -104,7 +104,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventDateTime property value. The eventDateTime property
+     * Sets the eventDateTime property value. The time when event occurred.
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -112,7 +112,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the participants property value. The participants property
+     * Sets the participants property value. Participants collection for the call event.
      * @param array<Participant>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value): void {

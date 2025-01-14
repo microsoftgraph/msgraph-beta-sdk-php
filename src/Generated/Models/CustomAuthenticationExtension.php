@@ -36,7 +36,7 @@ class CustomAuthenticationExtension extends CustomCalloutExtension implements Pa
     }
 
     /**
-     * Gets the behaviorOnError property value. The behaviorOnError property
+     * Gets the behaviorOnError property value. The behaviour on error for the custom authentication extension.
      * @return CustomExtensionBehaviorOnError|null
     */
     public function getBehaviorOnError(): ?CustomExtensionBehaviorOnError {
@@ -68,7 +68,7 @@ class CustomAuthenticationExtension extends CustomCalloutExtension implements Pa
     }
 
     /**
-     * Sets the behaviorOnError property value. The behaviorOnError property
+     * Sets the behaviorOnError property value. The behaviour on error for the custom authentication extension.
      * @param CustomExtensionBehaviorOnError|null $value Value to set for the behaviorOnError property.
     */
     public function setBehaviorOnError(?CustomExtensionBehaviorOnError $value): void {

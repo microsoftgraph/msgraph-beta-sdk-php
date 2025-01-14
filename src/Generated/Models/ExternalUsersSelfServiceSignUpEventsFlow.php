@@ -54,7 +54,7 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
     }
 
     /**
-     * Gets the onAttributeCollectionStart property value. The configuration for what to invoke when attribution collection has started.
+     * Gets the onAttributeCollectionStart property value. The configuration for what to invoke when attribution collection starts.
      * @return OnAttributeCollectionStartHandler|null
     */
     public function getOnAttributeCollectionStart(): ?OnAttributeCollectionStartHandler {
@@ -66,7 +66,7 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
     }
 
     /**
-     * Gets the onAttributeCollectionSubmit property value. The configuration for what to invoke when attributes have been submitted at the end of attribution collection.
+     * Gets the onAttributeCollectionSubmit property value. The configuration for what to invoke when attributes are submitted at the end of attribution collection.
      * @return OnAttributeCollectionSubmitHandler|null
     */
     public function getOnAttributeCollectionSubmit(): ?OnAttributeCollectionSubmitHandler {
@@ -136,7 +136,7 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
     }
 
     /**
-     * Sets the onAttributeCollectionStart property value. The configuration for what to invoke when attribution collection has started.
+     * Sets the onAttributeCollectionStart property value. The configuration for what to invoke when attribution collection starts.
      * @param OnAttributeCollectionStartHandler|null $value Value to set for the onAttributeCollectionStart property.
     */
     public function setOnAttributeCollectionStart(?OnAttributeCollectionStartHandler $value): void {
@@ -144,7 +144,7 @@ class ExternalUsersSelfServiceSignUpEventsFlow extends AuthenticationEventsFlow 
     }
 
     /**
-     * Sets the onAttributeCollectionSubmit property value. The configuration for what to invoke when attributes have been submitted at the end of attribution collection.
+     * Sets the onAttributeCollectionSubmit property value. The configuration for what to invoke when attributes are submitted at the end of attribution collection.
      * @param OnAttributeCollectionSubmitHandler|null $value Value to set for the onAttributeCollectionSubmit property.
     */
     public function setOnAttributeCollectionSubmit(?OnAttributeCollectionSubmitHandler $value): void {

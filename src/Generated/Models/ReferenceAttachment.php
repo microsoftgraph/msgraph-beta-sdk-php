@@ -42,7 +42,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Gets the isFolder property value. Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.
+     * Gets the isFolder property value. Specifies whether the attachment is a link to a folder. You must set this property to true if sourceUrl is a link to a folder. Optional.
      * @return bool|null
     */
     public function getIsFolder(): ?bool {
@@ -90,7 +90,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Gets the sourceUrl property value. URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
+     * Gets the sourceUrl property value. URL to get the attachment content. If this value is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
      * @return string|null
     */
     public function getSourceUrl(): ?string {
@@ -128,7 +128,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Sets the isFolder property value. Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.
+     * Sets the isFolder property value. Specifies whether the attachment is a link to a folder. You must set this property to true if sourceUrl is a link to a folder. Optional.
      * @param bool|null $value Value to set for the isFolder property.
     */
     public function setIsFolder(?bool $value): void {
@@ -160,7 +160,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Sets the sourceUrl property value. URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
+     * Sets the sourceUrl property value. URL to get the attachment content. If this value is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
      * @param string|null $value Value to set for the sourceUrl property.
     */
     public function setSourceUrl(?string $value): void {
