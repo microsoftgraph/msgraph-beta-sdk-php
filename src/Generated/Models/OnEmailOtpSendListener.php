@@ -37,7 +37,7 @@ class OnEmailOtpSendListener extends AuthenticationEventListener implements Pars
     }
 
     /**
-     * Gets the handler property value. The handler property
+     * Gets the handler property value. Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages.
      * @return OnOtpSendHandler|null
     */
     public function getHandler(): ?OnOtpSendHandler {
@@ -58,7 +58,7 @@ class OnEmailOtpSendListener extends AuthenticationEventListener implements Pars
     }
 
     /**
-     * Sets the handler property value. The handler property
+     * Sets the handler property value. Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages.
      * @param OnOtpSendHandler|null $value Value to set for the handler property.
     */
     public function setHandler(?OnOtpSendHandler $value): void {

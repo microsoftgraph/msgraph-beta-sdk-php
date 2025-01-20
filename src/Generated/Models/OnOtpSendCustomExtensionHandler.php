@@ -26,7 +26,7 @@ class OnOtpSendCustomExtensionHandler extends OnOtpSendHandler implements Parsab
     }
 
     /**
-     * Gets the configuration property value. The configuration property
+     * Gets the configuration property value. Configuration regarding properties of the custom extension that are can be overwritten for the onEmailOtpSendListener event listener.
      * @return CustomExtensionOverwriteConfiguration|null
     */
     public function getConfiguration(): ?CustomExtensionOverwriteConfiguration {
@@ -72,7 +72,7 @@ class OnOtpSendCustomExtensionHandler extends OnOtpSendHandler implements Parsab
     }
 
     /**
-     * Sets the configuration property value. The configuration property
+     * Sets the configuration property value. Configuration regarding properties of the custom extension that are can be overwritten for the onEmailOtpSendListener event listener.
      * @param CustomExtensionOverwriteConfiguration|null $value Value to set for the configuration property.
     */
     public function setConfiguration(?CustomExtensionOverwriteConfiguration $value): void {

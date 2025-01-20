@@ -99,7 +99,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the disasterRecoveryCapability property value. The disaster recovery status of the Cloud PC, including the primary region, secondary region, and capability type. The default value is null that indicates that the disaster recovery setting is disabled. To receive a response with the disasterRecoveryCapability property, $select and $filter it by disasterRecoveryCapability/{subProperty} in the request URL. For more information, see Example 4: List Cloud PCs filtered by disaster recovery capability type. Read-only.
+     * Gets the disasterRecoveryCapability property value. The disaster recovery status of the Cloud PC, including the primary region, secondary region, and capability type. The default value is null that indicates that the disaster recovery setting is disabled. To receive a response with the disasterRecoveryCapability property, $select and $filter it by disasterRecoveryCapability/{subProperty} in the request URL. For more information, see Example 3: List Cloud PCs filtered by disaster recovery capability type. Read-only.
      * @return CloudPcDisasterRecoveryCapability|null
     */
     public function getDisasterRecoveryCapability(): ?CloudPcDisasterRecoveryCapability {
@@ -566,7 +566,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the disasterRecoveryCapability property value. The disaster recovery status of the Cloud PC, including the primary region, secondary region, and capability type. The default value is null that indicates that the disaster recovery setting is disabled. To receive a response with the disasterRecoveryCapability property, $select and $filter it by disasterRecoveryCapability/{subProperty} in the request URL. For more information, see Example 4: List Cloud PCs filtered by disaster recovery capability type. Read-only.
+     * Sets the disasterRecoveryCapability property value. The disaster recovery status of the Cloud PC, including the primary region, secondary region, and capability type. The default value is null that indicates that the disaster recovery setting is disabled. To receive a response with the disasterRecoveryCapability property, $select and $filter it by disasterRecoveryCapability/{subProperty} in the request URL. For more information, see Example 3: List Cloud PCs filtered by disaster recovery capability type. Read-only.
      * @param CloudPcDisasterRecoveryCapability|null $value Value to set for the disasterRecoveryCapability property.
     */
     public function setDisasterRecoveryCapability(?CloudPcDisasterRecoveryCapability $value): void {
