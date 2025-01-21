@@ -20,6 +20,10 @@ use Microsoft\Graph\Beta\Generated\App\Calls\Item\RecordResponse\RecordResponseR
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Redirect\RedirectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Reject\RejectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\SendDtmfTones\SendDtmfTonesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\Calls\Item\StartRecording\StartRecordingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\Calls\Item\StartTranscription\StartTranscriptionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\Calls\Item\StopRecording\StopRecordingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\Calls\Item\StopTranscription\StopTranscriptionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\SubscribeToTone\SubscribeToToneRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Transfer\TransferRequestBuilder;
 use Microsoft\Graph\Beta\Generated\App\Calls\Item\Unmute\UnmuteRequestBuilder;
@@ -146,6 +150,34 @@ class CallItemRequestBuilder extends BaseRequestBuilder
     */
     public function sendDtmfTones(): SendDtmfTonesRequestBuilder {
         return new SendDtmfTonesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the startRecording method.
+    */
+    public function startRecording(): StartRecordingRequestBuilder {
+        return new StartRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the startTranscription method.
+    */
+    public function startTranscription(): StartTranscriptionRequestBuilder {
+        return new StartTranscriptionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the stopRecording method.
+    */
+    public function stopRecording(): StopRecordingRequestBuilder {
+        return new StopRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the stopTranscription method.
+    */
+    public function stopTranscription(): StopTranscriptionRequestBuilder {
+        return new StopTranscriptionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -173,7 +173,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationProtocol property value. Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, nativeAuth. Use none for all authentications that don't have a specific value in that list. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: authenticationTransfer, nativeAuth.
+     * Gets the authenticationProtocol property value. Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, nativeAuth. Use none for all authentications that don't have a specific value in that list. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: authenticationTransfer, nativeAuth.
      * @return ProtocolType|null
     */
     public function getAuthenticationProtocol(): ?ProtocolType {
@@ -309,7 +309,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the crossTenantAccessType property value. Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.
+     * Gets the crossTenantAccessType property value. Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.
      * @return SignInAccessType|null
     */
     public function getCrossTenantAccessType(): ?SignInAccessType {
@@ -496,7 +496,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken, refreshToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken, refreshToken.
+     * Gets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken, refreshToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken, refreshToken.
      * @return IncomingTokenType|null
     */
     public function getIncomingTokenType(): ?IncomingTokenType {
@@ -714,7 +714,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.  You must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.The value none means that Microsoft Entra risk detection hasn't flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
+     * Gets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.  Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.The value none means that Microsoft Entra risk detection hasn't flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
      * @return RiskDetail|null
     */
     public function getRiskDetail(): ?RiskDetail {
@@ -924,7 +924,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the tokenIssuerType property value. The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
+     * Gets the tokenIssuerType property value. The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
      * @return TokenIssuerType|null
     */
     public function getTokenIssuerType(): ?TokenIssuerType {
@@ -1188,7 +1188,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationProtocol property value. Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, nativeAuth. Use none for all authentications that don't have a specific value in that list. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: authenticationTransfer, nativeAuth.
+     * Sets the authenticationProtocol property value. Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, nativeAuth. Use none for all authentications that don't have a specific value in that list. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: authenticationTransfer, nativeAuth.
      * @param ProtocolType|null $value Value to set for the authenticationProtocol property.
     */
     public function setAuthenticationProtocol(?ProtocolType $value): void {
@@ -1276,7 +1276,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the crossTenantAccessType property value. Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.
+     * Sets the crossTenantAccessType property value. Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.
      * @param SignInAccessType|null $value Value to set for the crossTenantAccessType property.
     */
     public function setCrossTenantAccessType(?SignInAccessType $value): void {
@@ -1332,7 +1332,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken, refreshToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken, refreshToken.
+     * Sets the incomingTokenType property value. Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken, refreshToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken, refreshToken.
      * @param IncomingTokenType|null $value Value to set for the incomingTokenType property.
     */
     public function setIncomingTokenType(?IncomingTokenType $value): void {
@@ -1476,7 +1476,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.  You must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.The value none means that Microsoft Entra risk detection hasn't flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
+     * Sets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.  Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.The value none means that Microsoft Entra risk detection hasn't flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
      * @param RiskDetail|null $value Value to set for the riskDetail property.
     */
     public function setRiskDetail(?RiskDetail $value): void {
@@ -1612,7 +1612,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the tokenIssuerType property value. The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
+     * Sets the tokenIssuerType property value. The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
      * @param TokenIssuerType|null $value Value to set for the tokenIssuerType property.
     */
     public function setTokenIssuerType(?TokenIssuerType $value): void {

@@ -56,7 +56,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Gets the description property value. Detailed information about the message type.
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -82,7 +82,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Gets the fileName property value. Source file that contains the error.
+     * Gets the fileName property value. The fileName property
      * @return string|null
     */
     public function getFileName(): ?string {
@@ -106,7 +106,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Gets the type property value. Type of the message. Possible values are: error, warning, information.
+     * Gets the type property value. The type property
      * @return string|null
     */
     public function getType(): ?string {
@@ -146,7 +146,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Sets the description property value. Detailed information about the message type.
+     * Sets the description property value. The description property
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -154,7 +154,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Sets the fileName property value. Source file that contains the error.
+     * Sets the fileName property value. The fileName property
      * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
@@ -170,7 +170,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     }
 
     /**
-     * Sets the type property value. Type of the message. Possible values are: error, warning, information.
+     * Sets the type property value. The type property
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

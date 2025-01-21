@@ -30,11 +30,10 @@ class UploadUrlRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a shared access signature (SAS) for uploading source files to Azure blob storage for a specific school data synchronization profile in the tenant. The SAS token has a validity of one hour. The upload URL is provided only for the CSV data provider.
+     * Invoke function uploadUrl
      * @param UploadUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UploadUrlGetResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationsynchronizationprofile-uploadurl?view=graph-rest-beta Find more info here
     */
     public function get(?UploadUrlRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +44,7 @@ class UploadUrlRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a shared access signature (SAS) for uploading source files to Azure blob storage for a specific school data synchronization profile in the tenant. The SAS token has a validity of one hour. The upload URL is provided only for the CSV data provider.
+     * Invoke function uploadUrl
      * @param UploadUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

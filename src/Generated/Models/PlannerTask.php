@@ -450,7 +450,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
+     * Gets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
      * @return PlannerTaskCompletionRequirements|null
     */
     public function getSpecifiedCompletionRequirements(): ?PlannerTaskCompletionRequirements {
@@ -776,7 +776,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
+     * Sets the specifiedCompletionRequirements property value. Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.
      * @param PlannerTaskCompletionRequirements|null $value Value to set for the specifiedCompletionRequirements property.
     */
     public function setSpecifiedCompletionRequirements(?PlannerTaskCompletionRequirements $value): void {

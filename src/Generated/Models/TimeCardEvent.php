@@ -49,7 +49,7 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the atApprovedLocation property value. Indicates whether the entry was recorded at the approved location.
+     * Gets the atApprovedLocation property value. Indicates whether this action happens at an approved location. This property will be removed by November 20, 2027. Use isAtApprovedLocation instead. atApprovedLocation and isAtApprovedLocation always have the same value, so setting one automatically sets the value for the other. If both are included in the request with different values, the value for isAtApprovedLocation takes precedence.
      * @return bool|null
     */
     public function getAtApprovedLocation(): ?bool {
@@ -139,7 +139,7 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the atApprovedLocation property value. Indicates whether the entry was recorded at the approved location.
+     * Sets the atApprovedLocation property value. Indicates whether this action happens at an approved location. This property will be removed by November 20, 2027. Use isAtApprovedLocation instead. atApprovedLocation and isAtApprovedLocation always have the same value, so setting one automatically sets the value for the other. If both are included in the request with different values, the value for isAtApprovedLocation takes precedence.
      * @param bool|null $value Value to set for the atApprovedLocation property.
     */
     public function setAtApprovedLocation(?bool $value): void {

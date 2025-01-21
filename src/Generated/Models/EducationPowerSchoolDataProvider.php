@@ -27,7 +27,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Gets the allowTeachersInMultipleSchools property value. Indicates whether the source has multiple identifiers for a single student or teacher.
+     * Gets the allowTeachersInMultipleSchools property value. The allowTeachersInMultipleSchools property
      * @return bool|null
     */
     public function getAllowTeachersInMultipleSchools(): ?bool {
@@ -39,7 +39,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Gets the clientId property value. The client ID used to connect to PowerSchool.
+     * Gets the clientId property value. The clientId property
      * @return string|null
     */
     public function getClientId(): ?string {
@@ -51,7 +51,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Gets the clientSecret property value. The client secret to authenticate the connection to the PowerSchool instance.
+     * Gets the clientSecret property value. The clientSecret property
      * @return string|null
     */
     public function getClientSecret(): ?string {
@@ -63,7 +63,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Gets the connectionUrl property value. The connection URL to the PowerSchool instance.
+     * Gets the connectionUrl property value. The connectionUrl property
      * @return string|null
     */
     public function getConnectionUrl(): ?string {
@@ -75,7 +75,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Gets the customizations property value. Optional customization to be applied to the synchronization profile.
+     * Gets the customizations property value. The customizations property
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
@@ -111,7 +111,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Gets the schoolsIds property value. The list of schools to sync.
+     * Gets the schoolsIds property value. The schoolsIds property
      * @return array<string>|null
     */
     public function getSchoolsIds(): ?array {
@@ -125,7 +125,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Gets the schoolYear property value. The school year to sync.
+     * Gets the schoolYear property value. The schoolYear property
      * @return string|null
     */
     public function getSchoolYear(): ?string {
@@ -152,7 +152,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Sets the allowTeachersInMultipleSchools property value. Indicates whether the source has multiple identifiers for a single student or teacher.
+     * Sets the allowTeachersInMultipleSchools property value. The allowTeachersInMultipleSchools property
      * @param bool|null $value Value to set for the allowTeachersInMultipleSchools property.
     */
     public function setAllowTeachersInMultipleSchools(?bool $value): void {
@@ -160,7 +160,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Sets the clientId property value. The client ID used to connect to PowerSchool.
+     * Sets the clientId property value. The clientId property
      * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
@@ -168,7 +168,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Sets the clientSecret property value. The client secret to authenticate the connection to the PowerSchool instance.
+     * Sets the clientSecret property value. The clientSecret property
      * @param string|null $value Value to set for the clientSecret property.
     */
     public function setClientSecret(?string $value): void {
@@ -176,7 +176,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Sets the connectionUrl property value. The connection URL to the PowerSchool instance.
+     * Sets the connectionUrl property value. The connectionUrl property
      * @param string|null $value Value to set for the connectionUrl property.
     */
     public function setConnectionUrl(?string $value): void {
@@ -184,7 +184,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Sets the customizations property value. Optional customization to be applied to the synchronization profile.
+     * Sets the customizations property value. The customizations property
      * @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
@@ -192,7 +192,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Sets the schoolsIds property value. The list of schools to sync.
+     * Sets the schoolsIds property value. The schoolsIds property
      * @param array<string>|null $value Value to set for the schoolsIds property.
     */
     public function setSchoolsIds(?array $value): void {
@@ -200,7 +200,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     }
 
     /**
-     * Sets the schoolYear property value. The school year to sync.
+     * Sets the schoolYear property value. The schoolYear property
      * @param string|null $value Value to set for the schoolYear property.
     */
     public function setSchoolYear(?string $value): void {

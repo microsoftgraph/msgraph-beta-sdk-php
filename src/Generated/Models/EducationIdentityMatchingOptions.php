@@ -95,7 +95,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the sourcePropertyName property value. The name of the source property, which should be a field name in the source data. This property is case-sensitive.
+     * Gets the sourcePropertyName property value. The sourcePropertyName property
      * @return string|null
     */
     public function getSourcePropertyName(): ?string {
@@ -107,7 +107,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the targetDomain property value. The domain to suffix with the source property to match on the target. If provided as null, the source property will be used to match with the target property.
+     * Gets the targetDomain property value. The targetDomain property
      * @return string|null
     */
     public function getTargetDomain(): ?string {
@@ -119,7 +119,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the targetPropertyName property value. The name of the target property, which should be a valid property in Microsoft Entra ID. This property is case-sensitive.
+     * Gets the targetPropertyName property value. The targetPropertyName property
      * @return string|null
     */
     public function getTargetPropertyName(): ?string {
@@ -176,7 +176,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the sourcePropertyName property value. The name of the source property, which should be a field name in the source data. This property is case-sensitive.
+     * Sets the sourcePropertyName property value. The sourcePropertyName property
      * @param string|null $value Value to set for the sourcePropertyName property.
     */
     public function setSourcePropertyName(?string $value): void {
@@ -184,7 +184,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the targetDomain property value. The domain to suffix with the source property to match on the target. If provided as null, the source property will be used to match with the target property.
+     * Sets the targetDomain property value. The targetDomain property
      * @param string|null $value Value to set for the targetDomain property.
     */
     public function setTargetDomain(?string $value): void {
@@ -192,7 +192,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the targetPropertyName property value. The name of the target property, which should be a valid property in Microsoft Entra ID. This property is case-sensitive.
+     * Sets the targetPropertyName property value. The targetPropertyName property
      * @param string|null $value Value to set for the targetPropertyName property.
     */
     public function setTargetPropertyName(?string $value): void {

@@ -50,7 +50,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the allowDisplayNameUpdate property value. Indicates whether the display name of the resource can be overwritten by the sync.
+     * Gets the allowDisplayNameUpdate property value. The allowDisplayNameUpdate property
      * @return bool|null
     */
     public function getAllowDisplayNameUpdate(): ?bool {
@@ -92,7 +92,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the isSyncDeferred property value. Indicates whether synchronization of the parent entity is deferred to a later date.
+     * Gets the isSyncDeferred property value. The isSyncDeferred property
      * @return bool|null
     */
     public function getIsSyncDeferred(): ?bool {
@@ -116,7 +116,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the optionalPropertiesToSync property value. The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
+     * Gets the optionalPropertiesToSync property value. The optionalPropertiesToSync property
      * @return array<string>|null
     */
     public function getOptionalPropertiesToSync(): ?array {
@@ -130,7 +130,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the synchronizationStartDate property value. The date that the synchronization should start. This value should be set to a future date. If set to null, the resource will be synchronized when the profile setup completes. Only applies to Student Enrollments
+     * Gets the synchronizationStartDate property value. The synchronizationStartDate property
      * @return DateTime|null
     */
     public function getSynchronizationStartDate(): ?DateTime {
@@ -163,7 +163,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the allowDisplayNameUpdate property value. Indicates whether the display name of the resource can be overwritten by the sync.
+     * Sets the allowDisplayNameUpdate property value. The allowDisplayNameUpdate property
      * @param bool|null $value Value to set for the allowDisplayNameUpdate property.
     */
     public function setAllowDisplayNameUpdate(?bool $value): void {
@@ -179,7 +179,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the isSyncDeferred property value. Indicates whether synchronization of the parent entity is deferred to a later date.
+     * Sets the isSyncDeferred property value. The isSyncDeferred property
      * @param bool|null $value Value to set for the isSyncDeferred property.
     */
     public function setIsSyncDeferred(?bool $value): void {
@@ -195,7 +195,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the optionalPropertiesToSync property value. The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
+     * Sets the optionalPropertiesToSync property value. The optionalPropertiesToSync property
      * @param array<string>|null $value Value to set for the optionalPropertiesToSync property.
     */
     public function setOptionalPropertiesToSync(?array $value): void {
@@ -203,7 +203,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the synchronizationStartDate property value. The date that the synchronization should start. This value should be set to a future date. If set to null, the resource will be synchronized when the profile setup completes. Only applies to Student Enrollments
+     * Sets the synchronizationStartDate property value. The synchronizationStartDate property
      * @param DateTime|null $value Value to set for the synchronizationStartDate property.
     */
     public function setSynchronizationStartDate(?DateTime $value): void {

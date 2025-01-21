@@ -49,7 +49,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the appliesTo property value. The user role type to assign to license. Possible values are: student, teacher, faculty.
+     * Gets the appliesTo property value. The appliesTo property
      * @return EducationUserRole|null
     */
     public function getAppliesTo(): ?EducationUserRole {
@@ -101,7 +101,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the skuIds property value. Represents the SKU identifiers of the licenses to assign.
+     * Gets the skuIds property value. The skuIds property
      * @return array<string>|null
     */
     public function getSkuIds(): ?array {
@@ -134,7 +134,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the appliesTo property value. The user role type to assign to license. Possible values are: student, teacher, faculty.
+     * Sets the appliesTo property value. The appliesTo property
      * @param EducationUserRole|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?EducationUserRole $value): void {
@@ -158,7 +158,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the skuIds property value. Represents the SKU identifiers of the licenses to assign.
+     * Sets the skuIds property value. The skuIds property
      * @param array<string>|null $value Value to set for the skuIds property.
     */
     public function setSkuIds(?array $value): void {

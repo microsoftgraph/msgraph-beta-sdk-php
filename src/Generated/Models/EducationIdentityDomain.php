@@ -81,7 +81,7 @@ class EducationIdentityDomain implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the name property value. Represents the domain for the user account.
+     * Gets the name property value. The name property
      * @return string|null
     */
     public function getName(): ?string {
@@ -140,7 +140,7 @@ class EducationIdentityDomain implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the name property value. Represents the domain for the user account.
+     * Sets the name property value. The name property
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

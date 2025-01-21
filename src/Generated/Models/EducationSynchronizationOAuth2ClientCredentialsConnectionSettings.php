@@ -38,7 +38,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     }
 
     /**
-     * Gets the scope property value. The scope of the access request (see RFC6749).
+     * Gets the scope property value. The scope property
      * @return string|null
     */
     public function getScope(): ?string {
@@ -50,7 +50,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     }
 
     /**
-     * Gets the tokenUrl property value. The URL to get access tokens for the data provider.
+     * Gets the tokenUrl property value. The tokenUrl property
      * @return string|null
     */
     public function getTokenUrl(): ?string {
@@ -72,7 +72,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     }
 
     /**
-     * Sets the scope property value. The scope of the access request (see RFC6749).
+     * Sets the scope property value. The scope property
      * @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value): void {
@@ -80,7 +80,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     }
 
     /**
-     * Sets the tokenUrl property value. The URL to get access tokens for the data provider.
+     * Sets the tokenUrl property value. The tokenUrl property
      * @param string|null $value Value to set for the tokenUrl property.
     */
     public function setTokenUrl(?string $value): void {

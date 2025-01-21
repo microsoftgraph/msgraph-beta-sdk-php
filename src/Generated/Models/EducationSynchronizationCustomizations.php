@@ -42,7 +42,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Gets the school property value. Customizations for School entities.
+     * Gets the school property value. The school property
      * @return EducationSynchronizationCustomization|null
     */
     public function getSchool(): ?EducationSynchronizationCustomization {
@@ -54,7 +54,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Gets the section property value. Customizations for Section entities.
+     * Gets the section property value. The section property
      * @return EducationSynchronizationCustomization|null
     */
     public function getSection(): ?EducationSynchronizationCustomization {
@@ -66,7 +66,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Gets the student property value. Customizations for Student entities.
+     * Gets the student property value. The student property
      * @return EducationSynchronizationCustomization|null
     */
     public function getStudent(): ?EducationSynchronizationCustomization {
@@ -78,7 +78,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Gets the studentEnrollment property value. Customizations for Student Enrollments.
+     * Gets the studentEnrollment property value. The studentEnrollment property
      * @return EducationSynchronizationCustomization|null
     */
     public function getStudentEnrollment(): ?EducationSynchronizationCustomization {
@@ -90,7 +90,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Gets the teacher property value. Customizations for Teacher entities.
+     * Gets the teacher property value. The teacher property
      * @return EducationSynchronizationCustomization|null
     */
     public function getTeacher(): ?EducationSynchronizationCustomization {
@@ -102,7 +102,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Gets the teacherRoster property value. Customizations for Teacher Rosters.
+     * Gets the teacherRoster property value. The teacherRoster property
      * @return EducationSynchronizationCustomization|null
     */
     public function getTeacherRoster(): ?EducationSynchronizationCustomization {
@@ -128,7 +128,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Sets the school property value. Customizations for School entities.
+     * Sets the school property value. The school property
      * @param EducationSynchronizationCustomization|null $value Value to set for the school property.
     */
     public function setSchool(?EducationSynchronizationCustomization $value): void {
@@ -136,7 +136,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Sets the section property value. Customizations for Section entities.
+     * Sets the section property value. The section property
      * @param EducationSynchronizationCustomization|null $value Value to set for the section property.
     */
     public function setSection(?EducationSynchronizationCustomization $value): void {
@@ -144,7 +144,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Sets the student property value. Customizations for Student entities.
+     * Sets the student property value. The student property
      * @param EducationSynchronizationCustomization|null $value Value to set for the student property.
     */
     public function setStudent(?EducationSynchronizationCustomization $value): void {
@@ -152,7 +152,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Sets the studentEnrollment property value. Customizations for Student Enrollments.
+     * Sets the studentEnrollment property value. The studentEnrollment property
      * @param EducationSynchronizationCustomization|null $value Value to set for the studentEnrollment property.
     */
     public function setStudentEnrollment(?EducationSynchronizationCustomization $value): void {
@@ -160,7 +160,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Sets the teacher property value. Customizations for Teacher entities.
+     * Sets the teacher property value. The teacher property
      * @param EducationSynchronizationCustomization|null $value Value to set for the teacher property.
     */
     public function setTeacher(?EducationSynchronizationCustomization $value): void {
@@ -168,7 +168,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     }
 
     /**
-     * Sets the teacherRoster property value. Customizations for Teacher Rosters.
+     * Sets the teacherRoster property value. The teacherRoster property
      * @param EducationSynchronizationCustomization|null $value Value to set for the teacherRoster property.
     */
     public function setTeacherRoster(?EducationSynchronizationCustomization $value): void {

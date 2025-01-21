@@ -32,7 +32,20 @@ class TeamsAdminRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([TeamsPolicyAssignment::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the policy property value. The policy property
+     * @return TeamsPolicyAssignment|null
+    */
+    public function getPolicy(): ?TeamsPolicyAssignment {
+        $val = $this->getBackingStore()->get('policy');
+        if (is_null($val) || $val instanceof TeamsPolicyAssignment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policy'");
     }
 
     /**
@@ -41,6 +54,15 @@ class TeamsAdminRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('policy', $this->getPolicy());
+    }
+
+    /**
+     * Sets the policy property value. The policy property
+     * @param TeamsPolicyAssignment|null $value Value to set for the policy property.
+    */
+    public function setPolicy(?TeamsPolicyAssignment $value): void {
+        $this->getBackingStore()->set('policy', $value);
     }
 
 }

@@ -68,7 +68,7 @@ class ContinuousAccessEvaluationSessionControl implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the mode property value. Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue, strictLocation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: strictLocation.
+     * Gets the mode property value. Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue, strictLocation. Use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: strictLocation.
      * @return ContinuousAccessEvaluationMode|null
     */
     public function getMode(): ?ContinuousAccessEvaluationMode {
@@ -118,7 +118,7 @@ class ContinuousAccessEvaluationSessionControl implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the mode property value. Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue, strictLocation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: strictLocation.
+     * Sets the mode property value. Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue, strictLocation. Use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: strictLocation.
      * @param ContinuousAccessEvaluationMode|null $value Value to set for the mode property.
     */
     public function setMode(?ContinuousAccessEvaluationMode $value): void {

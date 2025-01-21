@@ -38,7 +38,7 @@ class EducationIdentityMatchingConfiguration extends EducationIdentitySynchroniz
     }
 
     /**
-     * Gets the matchingOptions property value. Mapping between the user account and the options to use to uniquely identify the user to update.
+     * Gets the matchingOptions property value. The matchingOptions property
      * @return array<EducationIdentityMatchingOptions>|null
     */
     public function getMatchingOptions(): ?array {
@@ -61,7 +61,7 @@ class EducationIdentityMatchingConfiguration extends EducationIdentitySynchroniz
     }
 
     /**
-     * Sets the matchingOptions property value. Mapping between the user account and the options to use to uniquely identify the user to update.
+     * Sets the matchingOptions property value. The matchingOptions property
      * @param array<EducationIdentityMatchingOptions>|null $value Value to set for the matchingOptions property.
     */
     public function setMatchingOptions(?array $value): void {
