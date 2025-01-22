@@ -45,7 +45,7 @@ class EducationSynchronizationErrorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All errors associated with this synchronization profile.
+     * Get errors from education
      * @param EducationSynchronizationErrorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSynchronizationError|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class EducationSynchronizationErrorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * All errors associated with this synchronization profile.
+     * Get errors from education
      * @param EducationSynchronizationErrorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

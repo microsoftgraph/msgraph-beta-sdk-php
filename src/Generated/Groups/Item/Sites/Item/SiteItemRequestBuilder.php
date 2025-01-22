@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\ColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentModels\ContentModelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\ContentTypesRequestBuilder;
@@ -28,6 +29,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Permissions\Permission
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\RecycleBinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\SitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\TermStore\TermStoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Site;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -45,6 +47,13 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the archive method.
+    */
+    public function archive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -185,6 +194,13 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     */
     public function termStore(): TermStoreRequestBuilder {
         return new TermStoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unarchive method.
+    */
+    public function unarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

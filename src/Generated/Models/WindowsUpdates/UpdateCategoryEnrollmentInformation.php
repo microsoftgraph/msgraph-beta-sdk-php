@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\WindowsUpdates;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -10,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdatableAssetEnrollment implements AdditionalDataHolder, BackedModel, Parsable 
+class UpdateCategoryEnrollmentInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +19,7 @@ class UpdatableAssetEnrollment implements AdditionalDataHolder, BackedModel, Par
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new UpdatableAssetEnrollment and sets the default values.
+     * Instantiates a new UpdateCategoryEnrollmentInformation and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,17 +29,10 @@ class UpdatableAssetEnrollment implements AdditionalDataHolder, BackedModel, Par
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return UpdatableAssetEnrollment
+     * @return UpdateCategoryEnrollmentInformation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UpdatableAssetEnrollment {
-        $mappingValueNode = $parseNode->getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.windowsUpdates.updateManagementEnrollment': return new UpdateManagementEnrollment();
-            }
-        }
-        return new UpdatableAssetEnrollment();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UpdateCategoryEnrollmentInformation {
+        return new UpdateCategoryEnrollmentInformation();
     }
 
     /**
@@ -63,14 +57,40 @@ class UpdatableAssetEnrollment implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
+     * Gets the enrollmentState property value. The enrollmentState property
+     * @return EnrollmentState|null
+    */
+    public function getEnrollmentState(): ?EnrollmentState {
+        $val = $this->getBackingStore()->get('enrollmentState');
+        if (is_null($val) || $val instanceof EnrollmentState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollmentState'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'enrollmentState' => fn(ParseNode $n) => $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -90,6 +110,8 @@ class UpdatableAssetEnrollment implements AdditionalDataHolder, BackedModel, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('enrollmentState', $this->getEnrollmentState());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -108,6 +130,22 @@ class UpdatableAssetEnrollment implements AdditionalDataHolder, BackedModel, Par
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the enrollmentState property value. The enrollmentState property
+     * @param EnrollmentState|null $value Value to set for the enrollmentState property.
+    */
+    public function setEnrollmentState(?EnrollmentState $value): void {
+        $this->getBackingStore()->set('enrollmentState', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**

@@ -26,7 +26,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the activitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts should include the activities.
+     * Gets the activitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts should include the activities. This property will be removed by November 20, 2027. Use isActivitiesIncludedWhenCopyingShiftsEnabled instead. activitiesIncludedWhenCopyingShiftsEnabled and isActivitiesIncludedWhenCopyingShiftsEnabled always have the same value, so setting one automatically sets the value for the other. If both are included in the request with different values, the value for isActivitiesIncludedWhenCopyingShiftsEnabled takes precedence.
      * @return bool|null
     */
     public function getActivitiesIncludedWhenCopyingShiftsEnabled(): ?bool {
@@ -453,7 +453,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the activitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts should include the activities.
+     * Sets the activitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts should include the activities. This property will be removed by November 20, 2027. Use isActivitiesIncludedWhenCopyingShiftsEnabled instead. activitiesIncludedWhenCopyingShiftsEnabled and isActivitiesIncludedWhenCopyingShiftsEnabled always have the same value, so setting one automatically sets the value for the other. If both are included in the request with different values, the value for isActivitiesIncludedWhenCopyingShiftsEnabled takes precedence.
      * @param bool|null $value Value to set for the activitiesIncludedWhenCopyingShiftsEnabled property.
     */
     public function setActivitiesIncludedWhenCopyingShiftsEnabled(?bool $value): void {

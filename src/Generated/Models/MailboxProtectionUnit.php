@@ -71,7 +71,20 @@ class MailboxProtectionUnit extends ProtectionUnitBase implements Parsable
             'directoryObjectId' => fn(ParseNode $n) => $o->setDirectoryObjectId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'mailboxType' => fn(ParseNode $n) => $o->setMailboxType($n->getEnumValue(MailboxType::class)),
         ]);
+    }
+
+    /**
+     * Gets the mailboxType property value. The type of mailbox which is assigned to the user with id: directoryObjectId.The possible values are: unknown, user, shared, unknownFutureValue.
+     * @return MailboxType|null
+    */
+    public function getMailboxType(): ?MailboxType {
+        $val = $this->getBackingStore()->get('mailboxType');
+        if (is_null($val) || $val instanceof MailboxType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxType'");
     }
 
     /**
@@ -81,6 +94,7 @@ class MailboxProtectionUnit extends ProtectionUnitBase implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('directoryObjectId', $this->getDirectoryObjectId());
+        $writer->writeEnumValue('mailboxType', $this->getMailboxType());
     }
 
     /**
@@ -105,6 +119,14 @@ class MailboxProtectionUnit extends ProtectionUnitBase implements Parsable
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
+    }
+
+    /**
+     * Sets the mailboxType property value. The type of mailbox which is assigned to the user with id: directoryObjectId.The possible values are: unknown, user, shared, unknownFutureValue.
+     * @param MailboxType|null $value Value to set for the mailboxType property.
+    */
+    public function setMailboxType(?MailboxType $value): void {
+        $this->getBackingStore()->set('mailboxType', $value);
     }
 
 }

@@ -26,7 +26,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the errorCount property value. Number of errors during synchronization.
+     * Gets the errorCount property value. The errorCount property
      * @return int|null
     */
     public function getErrorCount(): ?int {
@@ -53,7 +53,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastActivityDateTime property value. Date and time when most recent changes were observed in the profile.
+     * Gets the lastActivityDateTime property value. The lastActivityDateTime property
      * @return DateTime|null
     */
     public function getLastActivityDateTime(): ?DateTime {
@@ -65,7 +65,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastSynchronizationDateTime property value. Date and time of the most recent successful synchronization.
+     * Gets the lastSynchronizationDateTime property value. The lastSynchronizationDateTime property
      * @return DateTime|null
     */
     public function getLastSynchronizationDateTime(): ?DateTime {
@@ -77,7 +77,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.
+     * Gets the status property value. The status property
      * @return EducationSynchronizationStatus|null
     */
     public function getStatus(): ?EducationSynchronizationStatus {
@@ -89,7 +89,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusMessage property value. Status message for the synchronization stage of the current profile.
+     * Gets the statusMessage property value. The statusMessage property
      * @return string|null
     */
     public function getStatusMessage(): ?string {
@@ -114,7 +114,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the errorCount property value. Number of errors during synchronization.
+     * Sets the errorCount property value. The errorCount property
      * @param int|null $value Value to set for the errorCount property.
     */
     public function setErrorCount(?int $value): void {
@@ -122,7 +122,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastActivityDateTime property value. Date and time when most recent changes were observed in the profile.
+     * Sets the lastActivityDateTime property value. The lastActivityDateTime property
      * @param DateTime|null $value Value to set for the lastActivityDateTime property.
     */
     public function setLastActivityDateTime(?DateTime $value): void {
@@ -130,7 +130,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastSynchronizationDateTime property value. Date and time of the most recent successful synchronization.
+     * Sets the lastSynchronizationDateTime property value. The lastSynchronizationDateTime property
      * @param DateTime|null $value Value to set for the lastSynchronizationDateTime property.
     */
     public function setLastSynchronizationDateTime(?DateTime $value): void {
@@ -138,7 +138,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.
+     * Sets the status property value. The status property
      * @param EducationSynchronizationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationSynchronizationStatus $value): void {
@@ -146,7 +146,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the statusMessage property value. Status message for the synchronization stage of the current profile.
+     * Sets the statusMessage property value. The statusMessage property
      * @param string|null $value Value to set for the statusMessage property.
     */
     public function setStatusMessage(?string $value): void {

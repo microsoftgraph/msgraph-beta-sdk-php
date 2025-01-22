@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPat
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Columns\ColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\ContentModels\ContentModelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\ContentTypes\ContentTypesRequestBuilder;
@@ -27,6 +28,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Perm
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\RecycleBin\RecycleBinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Sites\SitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\TermStore\TermStoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Site;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -44,6 +46,13 @@ class GetByPathWithPathRequestBuilder extends BaseRequestBuilder
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the archive method.
+    */
+    public function archive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -184,6 +193,13 @@ class GetByPathWithPathRequestBuilder extends BaseRequestBuilder
     */
     public function termStore(): TermStoreRequestBuilder {
         return new TermStoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unarchive method.
+    */
+    public function unarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

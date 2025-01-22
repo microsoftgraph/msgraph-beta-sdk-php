@@ -30,11 +30,10 @@ class ResumeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Resume the sync of a specific school data synchronization profile in the tenant.
+     * Invoke action resume
      * @param ResumeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationsynchronizationprofile-resume?view=graph-rest-beta Find more info here
     */
     public function post(?ResumeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -45,7 +44,7 @@ class ResumeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Resume the sync of a specific school data synchronization profile in the tenant.
+     * Invoke action resume
      * @param ResumeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

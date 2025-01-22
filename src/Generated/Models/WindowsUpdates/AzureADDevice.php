@@ -27,17 +27,15 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     }
 
     /**
-     * Gets the enrollments property value. Specifies areas in which the device is enrolled. Read-only. Returned by default.
-     * @return array<UpdatableAssetEnrollment>|null
+     * Gets the enrollment property value. The enrollment property
+     * @return UpdateManagementEnrollment|null
     */
-    public function getEnrollments(): ?array {
-        $val = $this->getBackingStore()->get('enrollments');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UpdatableAssetEnrollment::class);
-            /** @var array<UpdatableAssetEnrollment>|null $val */
+    public function getEnrollment(): ?UpdateManagementEnrollment {
+        $val = $this->getBackingStore()->get('enrollment');
+        if (is_null($val) || $val instanceof UpdateManagementEnrollment) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollments'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrollment'");
     }
 
     /**
@@ -61,7 +59,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enrollments' => fn(ParseNode $n) => $o->setEnrollments($n->getCollectionOfObjectValues([UpdatableAssetEnrollment::class, 'createFromDiscriminatorValue'])),
+            'enrollment' => fn(ParseNode $n) => $o->setEnrollment($n->getObjectValue([UpdateManagementEnrollment::class, 'createFromDiscriminatorValue'])),
             'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfObjectValues([UpdatableAssetError::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -72,16 +70,16 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('enrollments', $this->getEnrollments());
+        $writer->writeObjectValue('enrollment', $this->getEnrollment());
         $writer->writeCollectionOfObjectValues('errors', $this->getErrors());
     }
 
     /**
-     * Sets the enrollments property value. Specifies areas in which the device is enrolled. Read-only. Returned by default.
-     * @param array<UpdatableAssetEnrollment>|null $value Value to set for the enrollments property.
+     * Sets the enrollment property value. The enrollment property
+     * @param UpdateManagementEnrollment|null $value Value to set for the enrollment property.
     */
-    public function setEnrollments(?array $value): void {
-        $this->getBackingStore()->set('enrollments', $value);
+    public function setEnrollment(?UpdateManagementEnrollment $value): void {
+        $this->getBackingStore()->set('enrollment', $value);
     }
 
     /**

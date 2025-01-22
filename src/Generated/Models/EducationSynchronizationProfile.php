@@ -39,7 +39,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Name of the configuration profile for syncing identities.
+     * Gets the displayName property value. The displayName property
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -51,7 +51,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the errors property value. All errors associated with this synchronization profile.
+     * Gets the errors property value. The errors property
      * @return array<EducationSynchronizationError>|null
     */
     public function getErrors(): ?array {
@@ -65,7 +65,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDate property value. The date the profile should be considered expired and cease syncing. Provide the date in YYYY-MM-DD format, following ISO 8601. Maximum value is 18 months from profile creation.  (optional)
+     * Gets the expirationDate property value. The expirationDate property
      * @return Date|null
     */
     public function getExpirationDate(): ?Date {
@@ -96,7 +96,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the handleSpecialCharacterConstraint property value. Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
+     * Gets the handleSpecialCharacterConstraint property value. The handleSpecialCharacterConstraint property
      * @return bool|null
     */
     public function getHandleSpecialCharacterConstraint(): ?bool {
@@ -120,7 +120,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the licensesToAssign property value. License setup configuration.
+     * Gets the licensesToAssign property value. The licensesToAssign property
      * @return array<EducationSynchronizationLicenseAssignment>|null
     */
     public function getLicensesToAssign(): ?array {
@@ -134,7 +134,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the profileStatus property value. The synchronization status.
+     * Gets the profileStatus property value. The profileStatus property
      * @return EducationSynchronizationProfileStatus|null
     */
     public function getProfileStatus(): ?EducationSynchronizationProfileStatus {
@@ -146,7 +146,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
+     * Gets the state property value. The state property
      * @return EducationSynchronizationProfileState|null
     */
     public function getState(): ?EducationSynchronizationProfileState {
@@ -183,7 +183,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Name of the configuration profile for syncing identities.
+     * Sets the displayName property value. The displayName property
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -191,7 +191,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the errors property value. All errors associated with this synchronization profile.
+     * Sets the errors property value. The errors property
      * @param array<EducationSynchronizationError>|null $value Value to set for the errors property.
     */
     public function setErrors(?array $value): void {
@@ -199,7 +199,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDate property value. The date the profile should be considered expired and cease syncing. Provide the date in YYYY-MM-DD format, following ISO 8601. Maximum value is 18 months from profile creation.  (optional)
+     * Sets the expirationDate property value. The expirationDate property
      * @param Date|null $value Value to set for the expirationDate property.
     */
     public function setExpirationDate(?Date $value): void {
@@ -207,7 +207,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the handleSpecialCharacterConstraint property value. Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
+     * Sets the handleSpecialCharacterConstraint property value. The handleSpecialCharacterConstraint property
      * @param bool|null $value Value to set for the handleSpecialCharacterConstraint property.
     */
     public function setHandleSpecialCharacterConstraint(?bool $value): void {
@@ -223,7 +223,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the licensesToAssign property value. License setup configuration.
+     * Sets the licensesToAssign property value. The licensesToAssign property
      * @param array<EducationSynchronizationLicenseAssignment>|null $value Value to set for the licensesToAssign property.
     */
     public function setLicensesToAssign(?array $value): void {
@@ -231,7 +231,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the profileStatus property value. The synchronization status.
+     * Sets the profileStatus property value. The profileStatus property
      * @param EducationSynchronizationProfileStatus|null $value Value to set for the profileStatus property.
     */
     public function setProfileStatus(?EducationSynchronizationProfileStatus $value): void {
@@ -239,7 +239,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
+     * Sets the state property value. The state property
      * @param EducationSynchronizationProfileState|null $value Value to set for the state property.
     */
     public function setState(?EducationSynchronizationProfileState $value): void {

@@ -64,7 +64,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     }
 
     /**
-     * Gets the clientId property value. Client ID used to connect to the provider.
+     * Gets the clientId property value. The clientId property
      * @return string|null
     */
     public function getClientId(): ?string {
@@ -76,7 +76,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     }
 
     /**
-     * Gets the clientSecret property value. Client secret to authenticate the connection to the provider.
+     * Gets the clientSecret property value. The clientSecret property
      * @return string|null
     */
     public function getClientSecret(): ?string {
@@ -140,7 +140,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     }
 
     /**
-     * Sets the clientId property value. Client ID used to connect to the provider.
+     * Sets the clientId property value. The clientId property
      * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
@@ -148,7 +148,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     }
 
     /**
-     * Sets the clientSecret property value. Client secret to authenticate the connection to the provider.
+     * Sets the clientSecret property value. The clientSecret property
      * @param string|null $value Value to set for the clientSecret property.
     */
     public function setClientSecret(?string $value): void {

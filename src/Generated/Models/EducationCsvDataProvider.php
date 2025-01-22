@@ -26,7 +26,7 @@ class EducationCsvDataProvider extends EducationSynchronizationDataProvider impl
     }
 
     /**
-     * Gets the customizations property value. Optional customizations to be applied to the synchronization profile.
+     * Gets the customizations property value. The customizations property
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
@@ -58,7 +58,7 @@ class EducationCsvDataProvider extends EducationSynchronizationDataProvider impl
     }
 
     /**
-     * Sets the customizations property value. Optional customizations to be applied to the synchronization profile.
+     * Sets the customizations property value. The customizations property
      * @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {

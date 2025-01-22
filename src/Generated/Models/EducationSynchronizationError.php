@@ -26,7 +26,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Gets the entryType property value. Represents the sync entity (school, section, student, teacher).
+     * Gets the entryType property value. The entryType property
      * @return string|null
     */
     public function getEntryType(): ?string {
@@ -38,7 +38,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Gets the errorCode property value. Represents the error code for this error.
+     * Gets the errorCode property value. The errorCode property
      * @return string|null
     */
     public function getErrorCode(): ?string {
@@ -50,7 +50,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Gets the errorMessage property value. Contains a description of the error.
+     * Gets the errorMessage property value. The errorMessage property
      * @return string|null
     */
     public function getErrorMessage(): ?string {
@@ -78,7 +78,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Gets the joiningValue property value. The unique identifier for the entry.
+     * Gets the joiningValue property value. The joiningValue property
      * @return string|null
     */
     public function getJoiningValue(): ?string {
@@ -90,7 +90,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Gets the recordedDateTime property value. The time of occurrence of this error.
+     * Gets the recordedDateTime property value. The recordedDateTime property
      * @return DateTime|null
     */
     public function getRecordedDateTime(): ?DateTime {
@@ -102,7 +102,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Gets the reportableIdentifier property value. The identifier of this error entry.
+     * Gets the reportableIdentifier property value. The reportableIdentifier property
      * @return string|null
     */
     public function getReportableIdentifier(): ?string {
@@ -128,7 +128,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Sets the entryType property value. Represents the sync entity (school, section, student, teacher).
+     * Sets the entryType property value. The entryType property
      * @param string|null $value Value to set for the entryType property.
     */
     public function setEntryType(?string $value): void {
@@ -136,7 +136,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Sets the errorCode property value. Represents the error code for this error.
+     * Sets the errorCode property value. The errorCode property
      * @param string|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?string $value): void {
@@ -144,7 +144,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Sets the errorMessage property value. Contains a description of the error.
+     * Sets the errorMessage property value. The errorMessage property
      * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
@@ -152,7 +152,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Sets the joiningValue property value. The unique identifier for the entry.
+     * Sets the joiningValue property value. The joiningValue property
      * @param string|null $value Value to set for the joiningValue property.
     */
     public function setJoiningValue(?string $value): void {
@@ -160,7 +160,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Sets the recordedDateTime property value. The time of occurrence of this error.
+     * Sets the recordedDateTime property value. The recordedDateTime property
      * @param DateTime|null $value Value to set for the recordedDateTime property.
     */
     public function setRecordedDateTime(?DateTime $value): void {
@@ -168,7 +168,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     }
 
     /**
-     * Sets the reportableIdentifier property value. The identifier of this error entry.
+     * Sets the reportableIdentifier property value. The reportableIdentifier property
      * @param string|null $value Value to set for the reportableIdentifier property.
     */
     public function setReportableIdentifier(?string $value): void {
