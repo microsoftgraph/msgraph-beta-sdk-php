@@ -73,6 +73,7 @@ class Schedule extends Entity implements Parsable
             'activitiesIncludedWhenCopyingShiftsEnabled' => fn(ParseNode $n) => $o->setActivitiesIncludedWhenCopyingShiftsEnabled($n->getBooleanValue()),
             'dayNotes' => fn(ParseNode $n) => $o->setDayNotes($n->getCollectionOfObjectValues([DayNote::class, 'createFromDiscriminatorValue'])),
             'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'isActivitiesIncludedWhenCopyingShiftsEnabled' => fn(ParseNode $n) => $o->setIsActivitiesIncludedWhenCopyingShiftsEnabled($n->getBooleanValue()),
             'isCrossLocationShiftRequestApprovalRequired' => fn(ParseNode $n) => $o->setIsCrossLocationShiftRequestApprovalRequired($n->getBooleanValue()),
             'isCrossLocationShiftsEnabled' => fn(ParseNode $n) => $o->setIsCrossLocationShiftsEnabled($n->getBooleanValue()),
             'offerShiftRequests' => fn(ParseNode $n) => $o->setOfferShiftRequests($n->getCollectionOfObjectValues([OfferShiftRequest::class, 'createFromDiscriminatorValue'])),
@@ -105,6 +106,18 @@ class Schedule extends Entity implements Parsable
                 $this->setWorkforceIntegrationIds($val);
             },
         ]);
+    }
+
+    /**
+     * Gets the isActivitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts include activities from the original shift.
+     * @return bool|null
+    */
+    public function getIsActivitiesIncludedWhenCopyingShiftsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isActivitiesIncludedWhenCopyingShiftsEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isActivitiesIncludedWhenCopyingShiftsEnabled'");
     }
 
     /**
@@ -428,6 +441,7 @@ class Schedule extends Entity implements Parsable
         $writer->writeBooleanValue('activitiesIncludedWhenCopyingShiftsEnabled', $this->getActivitiesIncludedWhenCopyingShiftsEnabled());
         $writer->writeCollectionOfObjectValues('dayNotes', $this->getDayNotes());
         $writer->writeBooleanValue('enabled', $this->getEnabled());
+        $writer->writeBooleanValue('isActivitiesIncludedWhenCopyingShiftsEnabled', $this->getIsActivitiesIncludedWhenCopyingShiftsEnabled());
         $writer->writeBooleanValue('isCrossLocationShiftRequestApprovalRequired', $this->getIsCrossLocationShiftRequestApprovalRequired());
         $writer->writeBooleanValue('isCrossLocationShiftsEnabled', $this->getIsCrossLocationShiftsEnabled());
         $writer->writeCollectionOfObjectValues('offerShiftRequests', $this->getOfferShiftRequests());
@@ -474,6 +488,14 @@ class Schedule extends Entity implements Parsable
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
+    }
+
+    /**
+     * Sets the isActivitiesIncludedWhenCopyingShiftsEnabled property value. Indicates whether copied shifts include activities from the original shift.
+     * @param bool|null $value Value to set for the isActivitiesIncludedWhenCopyingShiftsEnabled property.
+    */
+    public function setIsActivitiesIncludedWhenCopyingShiftsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isActivitiesIncludedWhenCopyingShiftsEnabled', $value);
     }
 
     /**

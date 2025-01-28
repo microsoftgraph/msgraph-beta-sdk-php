@@ -186,7 +186,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * Singleton entity that acts as a container for all device management functionality.
+ * Singleton that acts as container for a collection of Resource Access entities.
 */
 class DeviceManagement extends Entity implements Parsable 
 {

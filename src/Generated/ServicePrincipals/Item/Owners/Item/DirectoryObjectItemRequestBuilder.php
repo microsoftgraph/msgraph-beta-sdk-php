@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item;
 
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphUser\GraphUserRequestBuilder;
@@ -14,6 +15,13 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 */
 class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Casts the previous resource to endpoint.
     */

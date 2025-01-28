@@ -753,6 +753,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.depIOSEnrollmentProfile': return new DepIOSEnrollmentProfile();
                 case '#microsoft.graph.depMacOSEnrollmentProfile': return new DepMacOSEnrollmentProfile();
                 case '#microsoft.graph.depOnboardingSetting': return new DepOnboardingSetting();
+                case '#microsoft.graph.depTvOSEnrollmentProfile': return new DepTvOSEnrollmentProfile();
+                case '#microsoft.graph.depVisionOSEnrollmentProfile': return new DepVisionOSEnrollmentProfile();
                 case '#microsoft.graph.detectedApp': return new DetectedApp();
                 case '#microsoft.graph.device': return new Device();
                 case '#microsoft.graph.deviceAndAppManagementAssignmentFilter': return new DeviceAndAppManagementAssignmentFilter();

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Windows update catalog item entity
@@ -29,12 +30,12 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
-     * Gets the classification property value. Windows quality update classification
-     * @return WindowsQualityUpdateClassification|null
+     * Gets the classification property value. Windows quality update category
+     * @return WindowsQualityUpdateCategory|null
     */
-    public function getClassification(): ?WindowsQualityUpdateClassification {
+    public function getClassification(): ?WindowsQualityUpdateCategory {
         $val = $this->getBackingStore()->get('classification');
-        if (is_null($val) || $val instanceof WindowsQualityUpdateClassification) {
+        if (is_null($val) || $val instanceof WindowsQualityUpdateCategory) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'classification'");
@@ -47,9 +48,11 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(WindowsQualityUpdateClassification::class)),
+            'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(WindowsQualityUpdateCategory::class)),
             'isExpeditable' => fn(ParseNode $n) => $o->setIsExpeditable($n->getBooleanValue()),
             'kbArticleId' => fn(ParseNode $n) => $o->setKbArticleId($n->getStringValue()),
+            'productRevisions' => fn(ParseNode $n) => $o->setProductRevisions($n->getCollectionOfObjectValues([WindowsQualityUpdateCatalogProductRevision::class, 'createFromDiscriminatorValue'])),
+            'qualityUpdateCadence' => fn(ParseNode $n) => $o->setQualityUpdateCadence($n->getEnumValue(WindowsQualityUpdateCadence::class)),
         ]);
     }
 
@@ -78,6 +81,32 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
+     * Gets the productRevisions property value. The operating system product revisions that are released as part of this quality update. Read-only.
+     * @return array<WindowsQualityUpdateCatalogProductRevision>|null
+    */
+    public function getProductRevisions(): ?array {
+        $val = $this->getBackingStore()->get('productRevisions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsQualityUpdateCatalogProductRevision::class);
+            /** @var array<WindowsQualityUpdateCatalogProductRevision>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productRevisions'");
+    }
+
+    /**
+     * Gets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand. This property cannot be modified and is automatically populated when the catalog is created.
+     * @return WindowsQualityUpdateCadence|null
+    */
+    public function getQualityUpdateCadence(): ?WindowsQualityUpdateCadence {
+        $val = $this->getBackingStore()->get('qualityUpdateCadence');
+        if (is_null($val) || $val instanceof WindowsQualityUpdateCadence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qualityUpdateCadence'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -86,13 +115,15 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
         $writer->writeEnumValue('classification', $this->getClassification());
         $writer->writeBooleanValue('isExpeditable', $this->getIsExpeditable());
         $writer->writeStringValue('kbArticleId', $this->getKbArticleId());
+        $writer->writeCollectionOfObjectValues('productRevisions', $this->getProductRevisions());
+        $writer->writeEnumValue('qualityUpdateCadence', $this->getQualityUpdateCadence());
     }
 
     /**
-     * Sets the classification property value. Windows quality update classification
-     * @param WindowsQualityUpdateClassification|null $value Value to set for the classification property.
+     * Sets the classification property value. Windows quality update category
+     * @param WindowsQualityUpdateCategory|null $value Value to set for the classification property.
     */
-    public function setClassification(?WindowsQualityUpdateClassification $value): void {
+    public function setClassification(?WindowsQualityUpdateCategory $value): void {
         $this->getBackingStore()->set('classification', $value);
     }
 
@@ -110,6 +141,22 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public function setKbArticleId(?string $value): void {
         $this->getBackingStore()->set('kbArticleId', $value);
+    }
+
+    /**
+     * Sets the productRevisions property value. The operating system product revisions that are released as part of this quality update. Read-only.
+     * @param array<WindowsQualityUpdateCatalogProductRevision>|null $value Value to set for the productRevisions property.
+    */
+    public function setProductRevisions(?array $value): void {
+        $this->getBackingStore()->set('productRevisions', $value);
+    }
+
+    /**
+     * Sets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand. This property cannot be modified and is automatically populated when the catalog is created.
+     * @param WindowsQualityUpdateCadence|null $value Value to set for the qualityUpdateCadence property.
+    */
+    public function setQualityUpdateCadence(?WindowsQualityUpdateCadence $value): void {
+        $this->getBackingStore()->set('qualityUpdateCadence', $value);
     }
 
 }

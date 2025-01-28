@@ -93,7 +93,7 @@ class ChatMessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the messages in the channel. A navigation property. Nullable.
+     * A collection of all the messages in the channel. Nullable.
      * @param ChatMessageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChatMessage|null>
      * @throws Exception
@@ -140,7 +140,7 @@ class ChatMessageItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of all the messages in the channel. A navigation property. Nullable.
+     * A collection of all the messages in the channel. Nullable.
      * @param ChatMessageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -98,6 +98,7 @@ class IosVppApp extends MobileApp implements Parsable
             'usedLicenseCount' => fn(ParseNode $n) => $o->setUsedLicenseCount($n->getIntegerValue()),
             'vppTokenAccountType' => fn(ParseNode $n) => $o->setVppTokenAccountType($n->getEnumValue(VppTokenAccountType::class)),
             'vppTokenAppleId' => fn(ParseNode $n) => $o->setVppTokenAppleId($n->getStringValue()),
+            'vppTokenDisplayName' => fn(ParseNode $n) => $o->setVppTokenDisplayName($n->getStringValue()),
             'vppTokenId' => fn(ParseNode $n) => $o->setVppTokenId($n->getStringValue()),
             'vppTokenOrganizationName' => fn(ParseNode $n) => $o->setVppTokenOrganizationName($n->getStringValue()),
         ]);
@@ -190,6 +191,18 @@ class IosVppApp extends MobileApp implements Parsable
     }
 
     /**
+     * Gets the vppTokenDisplayName property value. Display name of the VPP token associated with this app.
+     * @return string|null
+    */
+    public function getVppTokenDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('vppTokenDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vppTokenDisplayName'");
+    }
+
+    /**
      * Gets the vppTokenId property value. Identifier of the VPP token associated with this app.
      * @return string|null
     */
@@ -230,6 +243,7 @@ class IosVppApp extends MobileApp implements Parsable
         $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());
         $writer->writeEnumValue('vppTokenAccountType', $this->getVppTokenAccountType());
         $writer->writeStringValue('vppTokenAppleId', $this->getVppTokenAppleId());
+        $writer->writeStringValue('vppTokenDisplayName', $this->getVppTokenDisplayName());
         $writer->writeStringValue('vppTokenId', $this->getVppTokenId());
         $writer->writeStringValue('vppTokenOrganizationName', $this->getVppTokenOrganizationName());
     }
@@ -320,6 +334,14 @@ class IosVppApp extends MobileApp implements Parsable
     */
     public function setVppTokenAppleId(?string $value): void {
         $this->getBackingStore()->set('vppTokenAppleId', $value);
+    }
+
+    /**
+     * Sets the vppTokenDisplayName property value. Display name of the VPP token associated with this app.
+     * @param string|null $value Value to set for the vppTokenDisplayName property.
+    */
+    public function setVppTokenDisplayName(?string $value): void {
+        $this->getBackingStore()->set('vppTokenDisplayName', $value);
     }
 
     /**

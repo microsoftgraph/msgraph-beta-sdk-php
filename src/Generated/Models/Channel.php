@@ -191,7 +191,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the messages property value. A collection of all the messages in the channel. A navigation property. Nullable.
+     * Gets the messages property value. A collection of all the messages in the channel. Nullable.
      * @return array<ChatMessage>|null
     */
     public function getMessages(): ?array {
@@ -243,7 +243,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the tabs property value. A collection of all the tabs in the channel. A navigation property.
+     * Gets the tabs property value. A collection of all the tabs in the channel.
      * @return array<TeamsTab>|null
     */
     public function getTabs(): ?array {
@@ -395,7 +395,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the messages property value. A collection of all the messages in the channel. A navigation property. Nullable.
+     * Sets the messages property value. A collection of all the messages in the channel. Nullable.
      * @param array<ChatMessage>|null $value Value to set for the messages property.
     */
     public function setMessages(?array $value): void {
@@ -427,7 +427,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the tabs property value. A collection of all the tabs in the channel. A navigation property.
+     * Sets the tabs property value. A collection of all the tabs in the channel.
      * @param array<TeamsTab>|null $value Value to set for the tabs property.
     */
     public function setTabs(?array $value): void {

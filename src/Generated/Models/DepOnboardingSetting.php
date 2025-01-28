@@ -78,6 +78,30 @@ class DepOnboardingSetting extends Entity implements Parsable
     }
 
     /**
+     * Gets the defaultTvOSEnrollmentProfile property value. Default TvOS Enrollment Profile
+     * @return DepTvOSEnrollmentProfile|null
+    */
+    public function getDefaultTvOSEnrollmentProfile(): ?DepTvOSEnrollmentProfile {
+        $val = $this->getBackingStore()->get('defaultTvOSEnrollmentProfile');
+        if (is_null($val) || $val instanceof DepTvOSEnrollmentProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultTvOSEnrollmentProfile'");
+    }
+
+    /**
+     * Gets the defaultVisionOSEnrollmentProfile property value. Default VisionOS Enrollment Profile
+     * @return DepVisionOSEnrollmentProfile|null
+    */
+    public function getDefaultVisionOSEnrollmentProfile(): ?DepVisionOSEnrollmentProfile {
+        $val = $this->getBackingStore()->get('defaultVisionOSEnrollmentProfile');
+        if (is_null($val) || $val instanceof DepVisionOSEnrollmentProfile) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultVisionOSEnrollmentProfile'");
+    }
+
+    /**
      * Gets the enrollmentProfiles property value. The enrollment profiles.
      * @return array<EnrollmentProfile>|null
     */
@@ -102,6 +126,8 @@ class DepOnboardingSetting extends Entity implements Parsable
             'dataSharingConsentGranted' => fn(ParseNode $n) => $o->setDataSharingConsentGranted($n->getBooleanValue()),
             'defaultIosEnrollmentProfile' => fn(ParseNode $n) => $o->setDefaultIosEnrollmentProfile($n->getObjectValue([DepIOSEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
             'defaultMacOsEnrollmentProfile' => fn(ParseNode $n) => $o->setDefaultMacOsEnrollmentProfile($n->getObjectValue([DepMacOSEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
+            'defaultTvOSEnrollmentProfile' => fn(ParseNode $n) => $o->setDefaultTvOSEnrollmentProfile($n->getObjectValue([DepTvOSEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
+            'defaultVisionOSEnrollmentProfile' => fn(ParseNode $n) => $o->setDefaultVisionOSEnrollmentProfile($n->getObjectValue([DepVisionOSEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
             'enrollmentProfiles' => fn(ParseNode $n) => $o->setEnrollmentProfiles($n->getCollectionOfObjectValues([EnrollmentProfile::class, 'createFromDiscriminatorValue'])),
             'importedAppleDeviceIdentities' => fn(ParseNode $n) => $o->setImportedAppleDeviceIdentities($n->getCollectionOfObjectValues([ImportedAppleDeviceIdentity::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -270,6 +296,8 @@ class DepOnboardingSetting extends Entity implements Parsable
         $writer->writeBooleanValue('dataSharingConsentGranted', $this->getDataSharingConsentGranted());
         $writer->writeObjectValue('defaultIosEnrollmentProfile', $this->getDefaultIosEnrollmentProfile());
         $writer->writeObjectValue('defaultMacOsEnrollmentProfile', $this->getDefaultMacOsEnrollmentProfile());
+        $writer->writeObjectValue('defaultTvOSEnrollmentProfile', $this->getDefaultTvOSEnrollmentProfile());
+        $writer->writeObjectValue('defaultVisionOSEnrollmentProfile', $this->getDefaultVisionOSEnrollmentProfile());
         $writer->writeCollectionOfObjectValues('enrollmentProfiles', $this->getEnrollmentProfiles());
         $writer->writeCollectionOfObjectValues('importedAppleDeviceIdentities', $this->getImportedAppleDeviceIdentities());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
@@ -314,6 +342,22 @@ class DepOnboardingSetting extends Entity implements Parsable
     */
     public function setDefaultMacOsEnrollmentProfile(?DepMacOSEnrollmentProfile $value): void {
         $this->getBackingStore()->set('defaultMacOsEnrollmentProfile', $value);
+    }
+
+    /**
+     * Sets the defaultTvOSEnrollmentProfile property value. Default TvOS Enrollment Profile
+     * @param DepTvOSEnrollmentProfile|null $value Value to set for the defaultTvOSEnrollmentProfile property.
+    */
+    public function setDefaultTvOSEnrollmentProfile(?DepTvOSEnrollmentProfile $value): void {
+        $this->getBackingStore()->set('defaultTvOSEnrollmentProfile', $value);
+    }
+
+    /**
+     * Sets the defaultVisionOSEnrollmentProfile property value. Default VisionOS Enrollment Profile
+     * @param DepVisionOSEnrollmentProfile|null $value Value to set for the defaultVisionOSEnrollmentProfile property.
+    */
+    public function setDefaultVisionOSEnrollmentProfile(?DepVisionOSEnrollmentProfile $value): void {
+        $this->getBackingStore()->set('defaultVisionOSEnrollmentProfile', $value);
     }
 
     /**

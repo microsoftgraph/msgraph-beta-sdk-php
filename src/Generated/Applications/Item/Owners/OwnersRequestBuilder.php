@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Owners;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\GraphUser\GraphUserRequestBuilder;
@@ -27,6 +28,13 @@ class OwnersRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

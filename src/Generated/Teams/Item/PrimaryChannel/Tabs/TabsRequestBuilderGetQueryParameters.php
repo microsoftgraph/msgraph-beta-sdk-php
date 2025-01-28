@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Tabs;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of all the tabs in the channel. A navigation property.
+ * A collection of all the tabs in the channel.
 */
 class TabsRequestBuilderGetQueryParameters 
 {

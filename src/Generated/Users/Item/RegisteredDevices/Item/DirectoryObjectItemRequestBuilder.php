@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\Item\GraphDevice\GraphDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\Item\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Casts the previous resource to device.
     */

@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * Device Enrollment Configuration that restricts the types of devices a user can enroll
+ * Default Device Enrollment Platform Restrictions Configuration that restricts the types of devices a user can enroll
 */
 class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
@@ -64,6 +64,8 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
             'iosRestriction' => fn(ParseNode $n) => $o->setIosRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
             'macOSRestriction' => fn(ParseNode $n) => $o->setMacOSRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
             'macRestriction' => fn(ParseNode $n) => $o->setMacRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
+            'tvosRestriction' => fn(ParseNode $n) => $o->setTvosRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
+            'visionOSRestriction' => fn(ParseNode $n) => $o->setVisionOSRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
             'windowsHomeSkuRestriction' => fn(ParseNode $n) => $o->setWindowsHomeSkuRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
             'windowsMobileRestriction' => fn(ParseNode $n) => $o->setWindowsMobileRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
             'windowsRestriction' => fn(ParseNode $n) => $o->setWindowsRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
@@ -104,6 +106,30 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'macRestriction'");
+    }
+
+    /**
+     * Gets the tvosRestriction property value. Indicates restrictions for TvOS platform.
+     * @return DeviceEnrollmentPlatformRestriction|null
+    */
+    public function getTvosRestriction(): ?DeviceEnrollmentPlatformRestriction {
+        $val = $this->getBackingStore()->get('tvosRestriction');
+        if (is_null($val) || $val instanceof DeviceEnrollmentPlatformRestriction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tvosRestriction'");
+    }
+
+    /**
+     * Gets the visionOSRestriction property value. Indicates restrictions for VisionOS platform.
+     * @return DeviceEnrollmentPlatformRestriction|null
+    */
+    public function getVisionOSRestriction(): ?DeviceEnrollmentPlatformRestriction {
+        $val = $this->getBackingStore()->get('visionOSRestriction');
+        if (is_null($val) || $val instanceof DeviceEnrollmentPlatformRestriction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'visionOSRestriction'");
     }
 
     /**
@@ -153,6 +179,8 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
         $writer->writeObjectValue('iosRestriction', $this->getIosRestriction());
         $writer->writeObjectValue('macOSRestriction', $this->getMacOSRestriction());
         $writer->writeObjectValue('macRestriction', $this->getMacRestriction());
+        $writer->writeObjectValue('tvosRestriction', $this->getTvosRestriction());
+        $writer->writeObjectValue('visionOSRestriction', $this->getVisionOSRestriction());
         $writer->writeObjectValue('windowsHomeSkuRestriction', $this->getWindowsHomeSkuRestriction());
         $writer->writeObjectValue('windowsMobileRestriction', $this->getWindowsMobileRestriction());
         $writer->writeObjectValue('windowsRestriction', $this->getWindowsRestriction());
@@ -196,6 +224,22 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     */
     public function setMacRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('macRestriction', $value);
+    }
+
+    /**
+     * Sets the tvosRestriction property value. Indicates restrictions for TvOS platform.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the tvosRestriction property.
+    */
+    public function setTvosRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
+        $this->getBackingStore()->set('tvosRestriction', $value);
+    }
+
+    /**
+     * Sets the visionOSRestriction property value. Indicates restrictions for VisionOS platform.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the visionOSRestriction property.
+    */
+    public function setVisionOSRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
+        $this->getBackingStore()->set('visionOSRestriction', $value);
     }
 
     /**

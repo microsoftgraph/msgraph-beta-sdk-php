@@ -79,6 +79,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the appOwnerTenantId property value. The appOwnerTenantId property
+     * @return string|null
+    */
+    public function getAppOwnerTenantId(): ?string {
+        $val = $this->getBackingStore()->get('appOwnerTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appOwnerTenantId'");
+    }
+
+    /**
      * Gets the appTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.
      * @return TokenProtectionStatus|null
     */
@@ -355,6 +367,7 @@ class SignIn extends Entity implements Parsable
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'appliedConditionalAccessPolicies' => fn(ParseNode $n) => $o->setAppliedConditionalAccessPolicies($n->getCollectionOfObjectValues([AppliedConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'appliedEventListeners' => fn(ParseNode $n) => $o->setAppliedEventListeners($n->getCollectionOfObjectValues([AppliedAuthenticationEventListener::class, 'createFromDiscriminatorValue'])),
+            'appOwnerTenantId' => fn(ParseNode $n) => $o->setAppOwnerTenantId($n->getStringValue()),
             'appTokenProtectionStatus' => fn(ParseNode $n) => $o->setAppTokenProtectionStatus($n->getEnumValue(TokenProtectionStatus::class)),
             'authenticationAppDeviceDetails' => fn(ParseNode $n) => $o->setAuthenticationAppDeviceDetails($n->getObjectValue([AuthenticationAppDeviceDetails::class, 'createFromDiscriminatorValue'])),
             'authenticationAppPolicyEvaluationDetails' => fn(ParseNode $n) => $o->setAuthenticationAppPolicyEvaluationDetails($n->getCollectionOfObjectValues([AuthenticationAppPolicyDetails::class, 'createFromDiscriminatorValue'])),
@@ -403,6 +416,7 @@ class SignIn extends Entity implements Parsable
             'processingTimeInMilliseconds' => fn(ParseNode $n) => $o->setProcessingTimeInMilliseconds($n->getIntegerValue()),
             'resourceDisplayName' => fn(ParseNode $n) => $o->setResourceDisplayName($n->getStringValue()),
             'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'resourceOwnerTenantId' => fn(ParseNode $n) => $o->setResourceOwnerTenantId($n->getStringValue()),
             'resourceServicePrincipalId' => fn(ParseNode $n) => $o->setResourceServicePrincipalId($n->getStringValue()),
             'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
             'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
@@ -690,6 +704,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the resourceOwnerTenantId property value. The resourceOwnerTenantId property
+     * @return string|null
+    */
+    public function getResourceOwnerTenantId(): ?string {
+        $val = $this->getBackingStore()->get('resourceOwnerTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceOwnerTenantId'");
+    }
+
+    /**
      * Gets the resourceServicePrincipalId property value. The identifier of the service principal representing the target resource in the sign-in event.
      * @return string|null
     */
@@ -850,7 +876,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the signInEventTypes property value. Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign-ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne).
+     * Gets the signInEventTypes property value. Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign-ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne). NOTE: Only interactive sign-ins are returned unless you set an explicit filter. For example, the filter for getting non-interactive sign-ins is https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=signInEventTypes/any(t: t eq 'nonInteractiveUser').
      * @return array<string>|null
     */
     public function getSignInEventTypes(): ?array {
@@ -1029,6 +1055,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeCollectionOfObjectValues('appliedConditionalAccessPolicies', $this->getAppliedConditionalAccessPolicies());
         $writer->writeCollectionOfObjectValues('appliedEventListeners', $this->getAppliedEventListeners());
+        $writer->writeStringValue('appOwnerTenantId', $this->getAppOwnerTenantId());
         $writer->writeEnumValue('appTokenProtectionStatus', $this->getAppTokenProtectionStatus());
         $writer->writeObjectValue('authenticationAppDeviceDetails', $this->getAuthenticationAppDeviceDetails());
         $writer->writeCollectionOfObjectValues('authenticationAppPolicyEvaluationDetails', $this->getAuthenticationAppPolicyEvaluationDetails());
@@ -1070,6 +1097,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeIntegerValue('processingTimeInMilliseconds', $this->getProcessingTimeInMilliseconds());
         $writer->writeStringValue('resourceDisplayName', $this->getResourceDisplayName());
         $writer->writeStringValue('resourceId', $this->getResourceId());
+        $writer->writeStringValue('resourceOwnerTenantId', $this->getResourceOwnerTenantId());
         $writer->writeStringValue('resourceServicePrincipalId', $this->getResourceServicePrincipalId());
         $writer->writeStringValue('resourceTenantId', $this->getResourceTenantId());
         $writer->writeEnumValue('riskDetail', $this->getRiskDetail());
@@ -1129,6 +1157,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setAppliedEventListeners(?array $value): void {
         $this->getBackingStore()->set('appliedEventListeners', $value);
+    }
+
+    /**
+     * Sets the appOwnerTenantId property value. The appOwnerTenantId property
+     * @param string|null $value Value to set for the appOwnerTenantId property.
+    */
+    public function setAppOwnerTenantId(?string $value): void {
+        $this->getBackingStore()->set('appOwnerTenantId', $value);
     }
 
     /**
@@ -1460,6 +1496,14 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Sets the resourceOwnerTenantId property value. The resourceOwnerTenantId property
+     * @param string|null $value Value to set for the resourceOwnerTenantId property.
+    */
+    public function setResourceOwnerTenantId(?string $value): void {
+        $this->getBackingStore()->set('resourceOwnerTenantId', $value);
+    }
+
+    /**
      * Sets the resourceServicePrincipalId property value. The identifier of the service principal representing the target resource in the sign-in event.
      * @param string|null $value Value to set for the resourceServicePrincipalId property.
     */
@@ -1564,7 +1608,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the signInEventTypes property value. Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign-ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne).
+     * Sets the signInEventTypes property value. Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign-ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne). NOTE: Only interactive sign-ins are returned unless you set an explicit filter. For example, the filter for getting non-interactive sign-ins is https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=signInEventTypes/any(t: t eq 'nonInteractiveUser').
      * @param array<string>|null $value Value to set for the signInEventTypes property.
     */
     public function setSignInEventTypes(?array $value): void {
