@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\GraphDevice\GraphDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\DirectoryObjectItemRequestBuilder;
@@ -25,6 +26,13 @@ class OwnedDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -162,6 +162,7 @@ class CloudPC extends Entity implements Parsable
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
             'partnerAgentInstallResults' => fn(ParseNode $n) => $o->setPartnerAgentInstallResults($n->getCollectionOfObjectValues([CloudPcPartnerAgentInstallResult::class, 'createFromDiscriminatorValue'])),
             'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPcPowerState::class)),
+            'productType' => fn(ParseNode $n) => $o->setProductType($n->getEnumValue(CloudPcProductType::class)),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
@@ -328,6 +329,18 @@ class CloudPC extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'powerState'");
+    }
+
+    /**
+     * Gets the productType property value. The product type of the Cloud PC. The possible values are: enterprise, frontline, devBox, powerAutomate, business, unknownFutureValue. For the available service plans and pricing for enterprise, frontline, and business, see Windows 365 for business. For pricing information for devBox, see Microsoft Dev Box pricing. For the available plans and pricing for powerAutomate, see Power Automate pricing. The default value is enterprise. Supports $filter and $select. For more information, see Example 4: List Cloud PCs filtered by product type. Read-only.
+     * @return CloudPcProductType|null
+    */
+    public function getProductType(): ?CloudPcProductType {
+        $val = $this->getBackingStore()->get('productType');
+        if (is_null($val) || $val instanceof CloudPcProductType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productType'");
     }
 
     /**
@@ -503,6 +516,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeEnumValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('partnerAgentInstallResults', $this->getPartnerAgentInstallResults());
         $writer->writeEnumValue('powerState', $this->getPowerState());
+        $writer->writeEnumValue('productType', $this->getProductType());
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('provisioningPolicyName', $this->getProvisioningPolicyName());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
@@ -683,6 +697,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setPowerState(?CloudPcPowerState $value): void {
         $this->getBackingStore()->set('powerState', $value);
+    }
+
+    /**
+     * Sets the productType property value. The product type of the Cloud PC. The possible values are: enterprise, frontline, devBox, powerAutomate, business, unknownFutureValue. For the available service plans and pricing for enterprise, frontline, and business, see Windows 365 for business. For pricing information for devBox, see Microsoft Dev Box pricing. For the available plans and pricing for powerAutomate, see Power Automate pricing. The default value is enterprise. Supports $filter and $select. For more information, see Example 4: List Cloud PCs filtered by product type. Read-only.
+     * @param CloudPcProductType|null $value Value to set for the productType property.
+    */
+    public function setProductType(?CloudPcProductType $value): void {
+        $this->getBackingStore()->set('productType', $value);
     }
 
     /**

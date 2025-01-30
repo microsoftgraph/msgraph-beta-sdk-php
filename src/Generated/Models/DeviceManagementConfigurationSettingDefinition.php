@@ -144,6 +144,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
             'occurrence' => fn(ParseNode $n) => $o->setOccurrence($n->getObjectValue([DeviceManagementConfigurationSettingOccurrence::class, 'createFromDiscriminatorValue'])),
             'offsetUri' => fn(ParseNode $n) => $o->setOffsetUri($n->getStringValue()),
             'referredSettingInformationList' => fn(ParseNode $n) => $o->setReferredSettingInformationList($n->getCollectionOfObjectValues([DeviceManagementConfigurationReferredSettingInformation::class, 'createFromDiscriminatorValue'])),
+            'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(DeviceManagementConfigurationSettingRiskLevel::class)),
             'rootDefinitionId' => fn(ParseNode $n) => $o->setRootDefinitionId($n->getStringValue()),
             'settingUsage' => fn(ParseNode $n) => $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)),
             'uxBehavior' => fn(ParseNode $n) => $o->setUxBehavior($n->getEnumValue(DeviceManagementConfigurationControlType::class)),
@@ -243,6 +244,18 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
+     * Gets the riskLevel property value. Setting RiskLevel
+     * @return DeviceManagementConfigurationSettingRiskLevel|null
+    */
+    public function getRiskLevel(): ?DeviceManagementConfigurationSettingRiskLevel {
+        $val = $this->getBackingStore()->get('riskLevel');
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationSettingRiskLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskLevel'");
+    }
+
+    /**
      * Gets the rootDefinitionId property value. Root setting definition id if the setting is a child setting.
      * @return string|null
     */
@@ -321,6 +334,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
         $writer->writeObjectValue('occurrence', $this->getOccurrence());
         $writer->writeStringValue('offsetUri', $this->getOffsetUri());
         $writer->writeCollectionOfObjectValues('referredSettingInformationList', $this->getReferredSettingInformationList());
+        $writer->writeEnumValue('riskLevel', $this->getRiskLevel());
         $writer->writeStringValue('rootDefinitionId', $this->getRootDefinitionId());
         $writer->writeEnumValue('settingUsage', $this->getSettingUsage());
         $writer->writeEnumValue('uxBehavior', $this->getUxBehavior());
@@ -430,6 +444,14 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     */
     public function setReferredSettingInformationList(?array $value): void {
         $this->getBackingStore()->set('referredSettingInformationList', $value);
+    }
+
+    /**
+     * Sets the riskLevel property value. Setting RiskLevel
+     * @param DeviceManagementConfigurationSettingRiskLevel|null $value Value to set for the riskLevel property.
+    */
+    public function setRiskLevel(?DeviceManagementConfigurationSettingRiskLevel $value): void {
+        $this->getBackingStore()->set('riskLevel', $value);
     }
 
     /**

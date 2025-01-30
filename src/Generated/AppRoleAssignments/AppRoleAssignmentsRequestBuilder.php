@@ -5,7 +5,11 @@ namespace Microsoft\Graph\Beta\Generated\AppRoleAssignments;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AppRoleAssignment;
 use Microsoft\Graph\Beta\Generated\Models\AppRoleAssignmentCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -24,6 +28,34 @@ class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getByIds method.
+    */
+    public function getByIds(): GetByIdsRequestBuilder {
+        return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getUserOwnedObjects method.
+    */
+    public function getUserOwnedObjects(): GetUserOwnedObjectsRequestBuilder {
+        return new GetUserOwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the validateProperties method.
+    */
+    public function validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

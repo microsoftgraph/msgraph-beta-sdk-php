@@ -75,10 +75,23 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
         $o = $this;
         return  [
             'capabilityType' => fn(ParseNode $n) => $o->setCapabilityType($n->getEnumValue(CloudPcDisasterRecoveryCapabilityType::class)),
+            'licenseType' => fn(ParseNode $n) => $o->setLicenseType($n->getEnumValue(CloudPcDisasterRecoveryLicenseType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'primaryRegion' => fn(ParseNode $n) => $o->setPrimaryRegion($n->getStringValue()),
             'secondaryRegion' => fn(ParseNode $n) => $o->setSecondaryRegion($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the licenseType property value. The licenseType property
+     * @return CloudPcDisasterRecoveryLicenseType|null
+    */
+    public function getLicenseType(): ?CloudPcDisasterRecoveryLicenseType {
+        $val = $this->getBackingStore()->get('licenseType');
+        if (is_null($val) || $val instanceof CloudPcDisasterRecoveryLicenseType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseType'");
     }
 
     /**
@@ -123,6 +136,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('capabilityType', $this->getCapabilityType());
+        $writer->writeEnumValue('licenseType', $this->getLicenseType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('primaryRegion', $this->getPrimaryRegion());
         $writer->writeStringValue('secondaryRegion', $this->getSecondaryRegion());
@@ -151,6 +165,14 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     */
     public function setCapabilityType(?CloudPcDisasterRecoveryCapabilityType $value): void {
         $this->getBackingStore()->set('capabilityType', $value);
+    }
+
+    /**
+     * Sets the licenseType property value. The licenseType property
+     * @param CloudPcDisasterRecoveryLicenseType|null $value Value to set for the licenseType property.
+    */
+    public function setLicenseType(?CloudPcDisasterRecoveryLicenseType $value): void {
+        $this->getBackingStore()->set('licenseType', $value);
     }
 
     /**

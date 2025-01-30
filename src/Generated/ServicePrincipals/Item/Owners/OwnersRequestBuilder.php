@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\GraphUser\GraphUserRequestBuilder;
@@ -27,6 +28,13 @@ class OwnersRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

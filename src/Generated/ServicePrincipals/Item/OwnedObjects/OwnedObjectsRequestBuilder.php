@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\GraphGroup\GraphGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
@@ -34,6 +35,13 @@ class OwnedObjectsRequestBuilder extends BaseRequestBuilder
     */
     public function graphApplication(): GraphApplicationRequestBuilder {
         return new GraphApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphGroup\GraphGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
@@ -25,6 +26,13 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     */
     public function graphApplication(): GraphApplicationRequestBuilder {
         return new GraphApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

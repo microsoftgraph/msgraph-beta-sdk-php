@@ -68,6 +68,18 @@ class CrossTenantIdentitySyncPolicyPartner implements AdditionalDataHolder, Back
     }
 
     /**
+     * Gets the externalCloudAuthorizedApplicationId property value. The externalCloudAuthorizedApplicationId property
+     * @return string|null
+    */
+    public function getExternalCloudAuthorizedApplicationId(): ?string {
+        $val = $this->getBackingStore()->get('externalCloudAuthorizedApplicationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalCloudAuthorizedApplicationId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -75,6 +87,7 @@ class CrossTenantIdentitySyncPolicyPartner implements AdditionalDataHolder, Back
         $o = $this;
         return  [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'externalCloudAuthorizedApplicationId' => fn(ParseNode $n) => $o->setExternalCloudAuthorizedApplicationId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'userSyncInbound' => fn(ParseNode $n) => $o->setUserSyncInbound($n->getObjectValue([CrossTenantUserSyncInbound::class, 'createFromDiscriminatorValue'])),
@@ -123,6 +136,7 @@ class CrossTenantIdentitySyncPolicyPartner implements AdditionalDataHolder, Back
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('externalCloudAuthorizedApplicationId', $this->getExternalCloudAuthorizedApplicationId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('userSyncInbound', $this->getUserSyncInbound());
@@ -151,6 +165,14 @@ class CrossTenantIdentitySyncPolicyPartner implements AdditionalDataHolder, Back
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the externalCloudAuthorizedApplicationId property value. The externalCloudAuthorizedApplicationId property
+     * @param string|null $value Value to set for the externalCloudAuthorizedApplicationId property.
+    */
+    public function setExternalCloudAuthorizedApplicationId(?string $value): void {
+        $this->getBackingStore()->set('externalCloudAuthorizedApplicationId', $value);
     }
 
     /**

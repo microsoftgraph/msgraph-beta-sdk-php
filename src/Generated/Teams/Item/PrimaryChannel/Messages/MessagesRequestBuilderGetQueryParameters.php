@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of all the messages in the channel. A navigation property. Nullable.
+ * A collection of all the messages in the channel. Nullable.
 */
 class MessagesRequestBuilderGetQueryParameters 
 {

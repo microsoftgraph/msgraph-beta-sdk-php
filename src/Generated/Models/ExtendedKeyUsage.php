@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
 /**
- * Complex type that represents the extended key usage of a certificate. This is shared complex type.
+ * The Custom Extended Key Usage definition
 */
 class ExtendedKeyUsage implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -72,7 +72,7 @@ class ExtendedKeyUsage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. The extended key usage (EKU) name that provides a user-friendly way to identify an EKU.
+     * Gets the name property value. Extended Key Usage Name
      * @return string|null
     */
     public function getName(): ?string {
@@ -84,7 +84,7 @@ class ExtendedKeyUsage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the objectIdentifier property value. The object identifier (OID) of an extended key usage of a certificate. For example, '1.3.6.1.5.5.7.3.2' for client authentication.
+     * Gets the objectIdentifier property value. Extended Key Usage Object Identifier
      * @return string|null
     */
     public function getObjectIdentifier(): ?string {
@@ -135,7 +135,7 @@ class ExtendedKeyUsage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the name property value. The extended key usage (EKU) name that provides a user-friendly way to identify an EKU.
+     * Sets the name property value. Extended Key Usage Name
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -143,7 +143,7 @@ class ExtendedKeyUsage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the objectIdentifier property value. The object identifier (OID) of an extended key usage of a certificate. For example, '1.3.6.1.5.5.7.3.2' for client authentication.
+     * Sets the objectIdentifier property value. Extended Key Usage Object Identifier
      * @param string|null $value Value to set for the objectIdentifier property.
     */
     public function setObjectIdentifier(?string $value): void {

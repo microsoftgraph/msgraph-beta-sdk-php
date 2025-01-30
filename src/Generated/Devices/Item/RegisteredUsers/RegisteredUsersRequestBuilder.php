@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\GraphUser\GraphUserRequestBuilder;
@@ -27,6 +28,13 @@ class RegisteredUsersRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to appRoleAssignment.
+    */
+    public function graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

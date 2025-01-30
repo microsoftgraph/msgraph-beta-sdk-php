@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DefaultIosEnrollmentProfile\DefaultIosEnrollmentProfileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DefaultMacOsEnrollmentProfile\DefaultMacOsEnrollmentProfileRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DefaultTvOSEnrollmentProfile\DefaultTvOSEnrollmentProfileRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DefaultVisionOSEnrollmentProfile\DefaultVisionOSEnrollmentProfileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\EnrollmentProfiles\EnrollmentProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\GenerateEncryptionPublicKey\GenerateEncryptionPublicKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\GetEncryptionPublicKey\GetEncryptionPublicKeyRequestBuilder;
@@ -38,6 +40,20 @@ class DepOnboardingSettingItemRequestBuilder extends BaseRequestBuilder
     */
     public function defaultMacOsEnrollmentProfile(): DefaultMacOsEnrollmentProfileRequestBuilder {
         return new DefaultMacOsEnrollmentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the defaultTvOSEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.
+    */
+    public function defaultTvOSEnrollmentProfile(): DefaultTvOSEnrollmentProfileRequestBuilder {
+        return new DefaultTvOSEnrollmentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the defaultVisionOSEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.
+    */
+    public function defaultVisionOSEnrollmentProfile(): DefaultVisionOSEnrollmentProfileRequestBuilder {
+        return new DefaultVisionOSEnrollmentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

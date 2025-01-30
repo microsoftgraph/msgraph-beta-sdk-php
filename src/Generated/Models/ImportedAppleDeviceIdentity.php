@@ -141,7 +141,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the platform property value. The platform property
+     * Gets the platform property value. Supported platform types for policies.
      * @return Platform|null
     */
     public function getPlatform(): ?Platform {
@@ -264,7 +264,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the platform property value. The platform property
+     * Sets the platform property value. Supported platform types for policies.
      * @param Platform|null $value Value to set for the platform property.
     */
     public function setPlatform(?Platform $value): void {

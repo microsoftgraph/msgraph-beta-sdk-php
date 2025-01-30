@@ -76,8 +76,21 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
         $o = $this;
         return  [
             'atApprovedLocation' => fn(ParseNode $n) => $o->setAtApprovedLocation($n->getBooleanValue()),
+            'isAtApprovedLocation' => fn(ParseNode $n) => $o->setIsAtApprovedLocation($n->getBooleanValue()),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the isAtApprovedLocation property value. The isAtApprovedLocation property
+     * @return bool|null
+    */
+    public function getIsAtApprovedLocation(): ?bool {
+        $val = $this->getBackingStore()->get('isAtApprovedLocation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAtApprovedLocation'");
     }
 
     /**
@@ -98,6 +111,7 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('atApprovedLocation', $this->getAtApprovedLocation());
+        $writer->writeBooleanValue('isAtApprovedLocation', $this->getIsAtApprovedLocation());
         $writer->writeObjectValue('notes', $this->getNotes());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -124,6 +138,14 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the isAtApprovedLocation property value. The isAtApprovedLocation property
+     * @param bool|null $value Value to set for the isAtApprovedLocation property.
+    */
+    public function setIsAtApprovedLocation(?bool $value): void {
+        $this->getBackingStore()->set('isAtApprovedLocation', $value);
     }
 
     /**

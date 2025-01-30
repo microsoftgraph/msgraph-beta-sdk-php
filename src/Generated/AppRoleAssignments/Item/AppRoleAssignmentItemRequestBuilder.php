@@ -4,6 +4,11 @@ namespace Microsoft\Graph\Beta\Generated\AppRoleAssignments\Item;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AppRoleAssignments\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AppRoleAssignment;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +21,41 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the checkMemberGroups method.
+    */
+    public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberObjects method.
+    */
+    public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberGroups method.
+    */
+    public function getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberObjects method.
+    */
+    public function getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the restore method.
+    */
+    public function restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new AppRoleAssignmentItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

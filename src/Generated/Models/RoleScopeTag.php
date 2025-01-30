@@ -77,6 +77,14 @@ class RoleScopeTag extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isBuiltIn' => fn(ParseNode $n) => $o->setIsBuiltIn($n->getBooleanValue()),
+            'permissions' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setPermissions($val);
+            },
         ]);
     }
 
@@ -90,6 +98,20 @@ class RoleScopeTag extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isBuiltIn'");
+    }
+
+    /**
+     * Gets the permissions property value. Permissions associated with the Role Scope Tag. This property is read-only.
+     * @return array<string>|null
+    */
+    public function getPermissions(): ?array {
+        $val = $this->getBackingStore()->get('permissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissions'");
     }
 
     /**
@@ -133,6 +155,14 @@ class RoleScopeTag extends Entity implements Parsable
     */
     public function setIsBuiltIn(?bool $value): void {
         $this->getBackingStore()->set('isBuiltIn', $value);
+    }
+
+    /**
+     * Sets the permissions property value. Permissions associated with the Role Scope Tag. This property is read-only.
+     * @param array<string>|null $value Value to set for the permissions property.
+    */
+    public function setPermissions(?array $value): void {
+        $this->getBackingStore()->set('permissions', $value);
     }
 
 }

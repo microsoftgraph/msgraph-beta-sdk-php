@@ -89,9 +89,22 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'atApprovedLocation' => fn(ParseNode $n) => $o->setAtApprovedLocation($n->getBooleanValue()),
             'dateTime' => fn(ParseNode $n) => $o->setDateTime($n->getDateTimeValue()),
+            'isAtApprovedLocation' => fn(ParseNode $n) => $o->setIsAtApprovedLocation($n->getBooleanValue()),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the isAtApprovedLocation property value. Indicates whether this action happens at an approved location.
+     * @return bool|null
+    */
+    public function getIsAtApprovedLocation(): ?bool {
+        $val = $this->getBackingStore()->get('isAtApprovedLocation');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAtApprovedLocation'");
     }
 
     /**
@@ -125,6 +138,7 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('atApprovedLocation', $this->getAtApprovedLocation());
         $writer->writeDateTimeValue('dateTime', $this->getDateTime());
+        $writer->writeBooleanValue('isAtApprovedLocation', $this->getIsAtApprovedLocation());
         $writer->writeObjectValue('notes', $this->getNotes());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -160,6 +174,14 @@ class TimeCardEvent implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dateTime', $value);
+    }
+
+    /**
+     * Sets the isAtApprovedLocation property value. Indicates whether this action happens at an approved location.
+     * @param bool|null $value Value to set for the isAtApprovedLocation property.
+    */
+    public function setIsAtApprovedLocation(?bool $value): void {
+        $this->getBackingStore()->set('isAtApprovedLocation', $value);
     }
 
     /**
