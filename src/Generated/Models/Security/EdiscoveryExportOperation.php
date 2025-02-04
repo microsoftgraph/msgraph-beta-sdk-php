@@ -26,7 +26,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the azureBlobContainer property value. The name of the Azure storage location where the export is stored. This only applies to exports stored in your own Azure storage location. The azureBlobContainer property is deprecated and will stop returning data on April 30th, 2023.
+     * Gets the azureBlobContainer property value. The name of the Azure storage location where the export is stored. This name only applies to exports stored in your own Azure storage location. The azureBlobContainer property is deprecated and stopped returning data on April 30, 2023.
      * @return string|null
     */
     public function getAzureBlobContainer(): ?string {
@@ -38,7 +38,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the azureBlobToken property value. The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location. The azureBlobToken property is deprecated and will stop returning data on April 30, 2023.
+     * Gets the azureBlobToken property value. The SAS token for the Azure storage location. This token only applies to exports stored in your own Azure storage location. The azureBlobToken property is deprecated and stopped returning data on April 30, 2023.
      * @return string|null
     */
     public function getAzureBlobToken(): ?string {
@@ -76,7 +76,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30, 2023. Going forward, the summary and load file are always included.
+     * Gets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. The fileInfo member is deprecated and stopped returning data on April 30, 2023. Going forward, the summary and load files are always included. Possible values are: originalFiles, text, pdfReplacement, tags, unknownFutureValue, splitSource, includeFolderAndPath, friendlyName, condensePaths, optimizedPartitionSize. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: splitSource, includeFolderAndPath, friendlyName, condensePaths, optimizedPartitionSize.
      * @return ExportOptions|null
     */
     public function getExportOptions(): ?ExportOptions {
@@ -88,7 +88,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the exportStructure property value. The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.
+     * Gets the exportStructure property value. The options that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst, unknownFutureValue, msg. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: msg.
      * @return ExportFileStructure|null
     */
     public function getExportStructure(): ?ExportFileStructure {
@@ -120,7 +120,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the outputFolderId property value. The output folder ID. The outputFolderId property is deprecated and will stop returning data on April 30, 2023.
+     * Gets the outputFolderId property value. The output folder ID. The outputFolderId property is deprecated and stopped returning data on April 30, 2023.
      * @return string|null
     */
     public function getOutputFolderId(): ?string {
@@ -186,7 +186,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the azureBlobContainer property value. The name of the Azure storage location where the export is stored. This only applies to exports stored in your own Azure storage location. The azureBlobContainer property is deprecated and will stop returning data on April 30th, 2023.
+     * Sets the azureBlobContainer property value. The name of the Azure storage location where the export is stored. This name only applies to exports stored in your own Azure storage location. The azureBlobContainer property is deprecated and stopped returning data on April 30, 2023.
      * @param string|null $value Value to set for the azureBlobContainer property.
     */
     public function setAzureBlobContainer(?string $value): void {
@@ -194,7 +194,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the azureBlobToken property value. The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location. The azureBlobToken property is deprecated and will stop returning data on April 30, 2023.
+     * Sets the azureBlobToken property value. The SAS token for the Azure storage location. This token only applies to exports stored in your own Azure storage location. The azureBlobToken property is deprecated and stopped returning data on April 30, 2023.
      * @param string|null $value Value to set for the azureBlobToken property.
     */
     public function setAzureBlobToken(?string $value): void {
@@ -218,7 +218,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30, 2023. Going forward, the summary and load file are always included.
+     * Sets the exportOptions property value. The options provided for the export. For more information, see reviewSet: export. The fileInfo member is deprecated and stopped returning data on April 30, 2023. Going forward, the summary and load files are always included. Possible values are: originalFiles, text, pdfReplacement, tags, unknownFutureValue, splitSource, includeFolderAndPath, friendlyName, condensePaths, optimizedPartitionSize. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: splitSource, includeFolderAndPath, friendlyName, condensePaths, optimizedPartitionSize.
      * @param ExportOptions|null $value Value to set for the exportOptions property.
     */
     public function setExportOptions(?ExportOptions $value): void {
@@ -226,7 +226,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the exportStructure property value. The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.
+     * Sets the exportStructure property value. The options that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst, unknownFutureValue, msg. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: msg.
      * @param ExportFileStructure|null $value Value to set for the exportStructure property.
     */
     public function setExportStructure(?ExportFileStructure $value): void {
@@ -234,7 +234,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the outputFolderId property value. The output folder ID. The outputFolderId property is deprecated and will stop returning data on April 30, 2023.
+     * Sets the outputFolderId property value. The output folder ID. The outputFolderId property is deprecated and stopped returning data on April 30, 2023.
      * @param string|null $value Value to set for the outputFolderId property.
     */
     public function setOutputFolderId(?string $value): void {

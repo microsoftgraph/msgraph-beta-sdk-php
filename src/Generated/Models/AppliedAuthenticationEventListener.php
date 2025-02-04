@@ -56,7 +56,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
+     * Gets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue, attributeCollectionStart, attributeCollectionSubmit, emailOtpSend. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: attributeCollectionStart, attributeCollectionSubmit, emailOtpSend.
      * @return AuthenticationEventType|null
     */
     public function getEventType(): ?AuthenticationEventType {
@@ -146,7 +146,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
+     * Sets the eventType property value. The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue, attributeCollectionStart, attributeCollectionSubmit, emailOtpSend. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: attributeCollectionStart, attributeCollectionSubmit, emailOtpSend.
      * @param AuthenticationEventType|null $value Value to set for the eventType property.
     */
     public function setEventType(?AuthenticationEventType $value): void {

@@ -8,7 +8,6 @@ use Microsoft\Graph\Beta\Generated\Education\Classes\ClassesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Me\MeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Schools\SchoolsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\SynchronizationProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Users\UsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EducationRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -48,13 +47,6 @@ class EducationRequestBuilder extends BaseRequestBuilder
     */
     public function schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
-    */
-    public function synchronizationProfiles(): SynchronizationProfilesRequestBuilder {
-        return new SynchronizationProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
