@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolici
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+ * The list of scheduled action for this rule
 */
 class DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters 
 {

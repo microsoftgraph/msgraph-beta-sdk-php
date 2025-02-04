@@ -67,12 +67,12 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new hardwareOathTokenAuthenticationMethodDevice object. Supports bulk creation.
+     * Create a new hardwareOathTokenAuthenticationMethodDevice object. You can optionally create and assign to a user in the same request; Or assign to a user via the assign API.
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/authenticationmethoddevice-update?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/authenticationmethoddevice-post-hardwareoathdevices?view=graph-rest-beta Find more info here
     */
     public function post(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -104,7 +104,7 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new hardwareOathTokenAuthenticationMethodDevice object. Supports bulk creation.
+     * Create a new hardwareOathTokenAuthenticationMethodDevice object. You can optionally create and assign to a user in the same request; Or assign to a user via the assign API.
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

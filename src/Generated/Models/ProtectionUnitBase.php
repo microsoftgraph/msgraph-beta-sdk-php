@@ -83,6 +83,7 @@ class ProtectionUnitBase extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
+            'protectionSources' => fn(ParseNode $n) => $o->setProtectionSources($n->getEnumValue(ProtectionSource::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ProtectionUnitStatus::class)),
         ]);
     }
@@ -124,6 +125,18 @@ class ProtectionUnitBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the protectionSources property value. The protectionSources property
+     * @return ProtectionSource|null
+    */
+    public function getProtectionSources(): ?ProtectionSource {
+        $val = $this->getBackingStore()->get('protectionSources');
+        if (is_null($val) || $val instanceof ProtectionSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protectionSources'");
+    }
+
+    /**
      * Gets the status property value. The status of the protection unit. The possible values are: protectRequested, protected, unprotectRequested, unprotected, removeRequested, unknownFutureValue.
      * @return ProtectionUnitStatus|null
     */
@@ -147,6 +160,7 @@ class ProtectionUnitBase extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('policyId', $this->getPolicyId());
+        $writer->writeEnumValue('protectionSources', $this->getProtectionSources());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 
@@ -196,6 +210,14 @@ class ProtectionUnitBase extends Entity implements Parsable
     */
     public function setPolicyId(?string $value): void {
         $this->getBackingStore()->set('policyId', $value);
+    }
+
+    /**
+     * Sets the protectionSources property value. The protectionSources property
+     * @param ProtectionSource|null $value Value to set for the protectionSources property.
+    */
+    public function setProtectionSources(?ProtectionSource $value): void {
+        $this->getBackingStore()->set('protectionSources', $value);
     }
 
     /**

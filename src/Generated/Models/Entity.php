@@ -957,9 +957,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.educationSchool': return new EducationSchool();
                 case '#microsoft.graph.educationSubmission': return new EducationSubmission();
                 case '#microsoft.graph.educationSubmissionResource': return new EducationSubmissionResource();
-                case '#microsoft.graph.educationSynchronizationError': return new EducationSynchronizationError();
-                case '#microsoft.graph.educationSynchronizationProfile': return new EducationSynchronizationProfile();
-                case '#microsoft.graph.educationSynchronizationProfileStatus': return new EducationSynchronizationProfileStatus();
                 case '#microsoft.graph.educationUser': return new EducationUser();
                 case '#microsoft.graph.emailActivityStatistics': return new EmailActivityStatistics();
                 case '#microsoft.graph.emailAuthenticationMethod': return new EmailAuthenticationMethod();
@@ -998,8 +995,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.exactMatchSession': return new ExactMatchSession();
                 case '#microsoft.graph.exactMatchSessionBase': return new ExactMatchSessionBase();
                 case '#microsoft.graph.exactMatchUploadAgent': return new ExactMatchUploadAgent();
+                case '#microsoft.graph.exchangeAdmin': return new ExchangeAdmin();
                 case '#microsoft.graph.exchangeProtectionPolicy': return new ExchangeProtectionPolicy();
                 case '#microsoft.graph.exchangeRestoreSession': return new ExchangeRestoreSession();
+                case '#microsoft.graph.exchangeSettings': return new ExchangeSettings();
                 case '#microsoft.graph.extension': return new Extension();
                 case '#microsoft.graph.extensionProperty': return new ExtensionProperty();
                 case '#microsoft.graph.external': return new External();
@@ -1290,6 +1289,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.macOSWiFiConfiguration': return new MacOSWiFiConfiguration();
                 case '#microsoft.graph.macOSWiredNetworkConfiguration': return new MacOSWiredNetworkConfiguration();
                 case '#microsoft.graph.mailAssessmentRequest': return new MailAssessmentRequest();
+                case '#microsoft.graph.mailbox': return new Mailbox();
+                case '#microsoft.graph.mailboxFolder': return new MailboxFolder();
+                case '#microsoft.graph.mailboxItem': return new MailboxItem();
                 case '#microsoft.graph.mailboxProtectionRule': return new MailboxProtectionRule();
                 case '#microsoft.graph.mailboxProtectionUnit': return new MailboxProtectionUnit();
                 case '#microsoft.graph.mailboxProtectionUnitsBulkAdditionJob': return new MailboxProtectionUnitsBulkAdditionJob();

@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Admin\AppsAndServices\AppsAndServicesRequestB
 use Microsoft\Graph\Beta\Generated\Admin\Dynamics\DynamicsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Edge\EdgeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Entra\EntraRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Exchange\ExchangeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Forms\FormsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Microsoft365Apps\Microsoft365AppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\PeopleRequestBuilder;
@@ -54,6 +55,13 @@ class AdminRequestBuilder extends BaseRequestBuilder
     */
     public function entra(): EntraRequestBuilder {
         return new EntraRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the exchange property of the microsoft.graph.admin entity.
+    */
+    public function exchange(): ExchangeRequestBuilder {
+        return new ExchangeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

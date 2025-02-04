@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioni
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
+ * The associated group assignments for IosLobAppProvisioningConfiguration.
 */
 class AssignmentsRequestBuilderGetQueryParameters 
 {

@@ -104,6 +104,18 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the exchange property value. A container for the Exchange admin functionality. Read-only.
+     * @return ExchangeAdmin|null
+    */
+    public function getExchange(): ?ExchangeAdmin {
+        $val = $this->getBackingStore()->get('exchange');
+        if (is_null($val) || $val instanceof ExchangeAdmin) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'exchange'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -114,6 +126,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
             'dynamics' => fn(ParseNode $n) => $o->setDynamics($n->getObjectValue([AdminDynamics::class, 'createFromDiscriminatorValue'])),
             'edge' => fn(ParseNode $n) => $o->setEdge($n->getObjectValue([Edge::class, 'createFromDiscriminatorValue'])),
             'entra' => fn(ParseNode $n) => $o->setEntra($n->getObjectValue([Entra::class, 'createFromDiscriminatorValue'])),
+            'exchange' => fn(ParseNode $n) => $o->setExchange($n->getObjectValue([ExchangeAdmin::class, 'createFromDiscriminatorValue'])),
             'forms' => fn(ParseNode $n) => $o->setForms($n->getObjectValue([AdminForms::class, 'createFromDiscriminatorValue'])),
             'microsoft365Apps' => fn(ParseNode $n) => $o->setMicrosoft365Apps($n->getObjectValue([AdminMicrosoft365Apps::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -243,6 +256,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('dynamics', $this->getDynamics());
         $writer->writeObjectValue('edge', $this->getEdge());
         $writer->writeObjectValue('entra', $this->getEntra());
+        $writer->writeObjectValue('exchange', $this->getExchange());
         $writer->writeObjectValue('forms', $this->getForms());
         $writer->writeObjectValue('microsoft365Apps', $this->getMicrosoft365Apps());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -301,6 +315,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setEntra(?Entra $value): void {
         $this->getBackingStore()->set('entra', $value);
+    }
+
+    /**
+     * Sets the exchange property value. A container for the Exchange admin functionality. Read-only.
+     * @param ExchangeAdmin|null $value Value to set for the exchange property.
+    */
+    public function setExchange(?ExchangeAdmin $value): void {
+        $this->getBackingStore()->set('exchange', $value);
     }
 
     /**

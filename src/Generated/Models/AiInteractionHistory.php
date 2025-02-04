@@ -37,7 +37,7 @@ class AiInteractionHistory extends Entity implements Parsable
     }
 
     /**
-     * Gets the interactions property value. The list of AI interactions.
+     * Gets the interactions property value. The interactions property
      * @return array<AiInteraction>|null
     */
     public function getInteractions(): ?array {
@@ -60,7 +60,7 @@ class AiInteractionHistory extends Entity implements Parsable
     }
 
     /**
-     * Sets the interactions property value. The list of AI interactions.
+     * Sets the interactions property value. The interactions property
      * @param array<AiInteraction>|null $value Value to set for the interactions property.
     */
     public function setInteractions(?array $value): void {

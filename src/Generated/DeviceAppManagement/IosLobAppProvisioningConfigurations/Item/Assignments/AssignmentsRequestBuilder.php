@@ -52,7 +52,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
+     * The associated group assignments for IosLobAppProvisioningConfiguration.
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfigurationAssignmentCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
+     * The associated group assignments for IosLobAppProvisioningConfiguration.
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

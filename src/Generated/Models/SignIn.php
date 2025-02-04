@@ -79,7 +79,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the appOwnerTenantId property value. The appOwnerTenantId property
+     * Gets the appOwnerTenantId property value. The identifier of the tenant that owns the client application.  Supports $filter (eq).
      * @return string|null
     */
     public function getAppOwnerTenantId(): ?string {
@@ -704,7 +704,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceOwnerTenantId property value. The resourceOwnerTenantId property
+     * Gets the resourceOwnerTenantId property value. The identifier of the owner of the resource.  Supports $filter (eq).
      * @return string|null
     */
     public function getResourceOwnerTenantId(): ?string {
@@ -1160,7 +1160,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the appOwnerTenantId property value. The appOwnerTenantId property
+     * Sets the appOwnerTenantId property value. The identifier of the tenant that owns the client application.  Supports $filter (eq).
      * @param string|null $value Value to set for the appOwnerTenantId property.
     */
     public function setAppOwnerTenantId(?string $value): void {
@@ -1496,7 +1496,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceOwnerTenantId property value. The resourceOwnerTenantId property
+     * Sets the resourceOwnerTenantId property value. The identifier of the owner of the resource.  Supports $filter (eq).
      * @param string|null $value Value to set for the resourceOwnerTenantId property.
     */
     public function setResourceOwnerTenantId(?string $value): void {

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserSettings;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ContactMergeSuggestions\ContactMergeSuggestionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Exchange\ExchangeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\RegionalAndLanguageSettings\RegionalAndLanguageSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ShiftPreferences\ShiftPreferencesRequestBuilder;
@@ -27,6 +28,13 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function contactMergeSuggestions(): ContactMergeSuggestionsRequestBuilder {
         return new ContactMergeSuggestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the exchange property of the microsoft.graph.userSettings entity.
+    */
+    public function exchange(): ExchangeRequestBuilder {
+        return new ExchangeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
