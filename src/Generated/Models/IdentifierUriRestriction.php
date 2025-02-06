@@ -102,10 +102,23 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
             'excludeActors' => fn(ParseNode $n) => $o->setExcludeActors($n->getObjectValue([AppManagementPolicyActorExemptions::class, 'createFromDiscriminatorValue'])),
             'excludeAppsReceivingV2Tokens' => fn(ParseNode $n) => $o->setExcludeAppsReceivingV2Tokens($n->getBooleanValue()),
             'excludeSaml' => fn(ParseNode $n) => $o->setExcludeSaml($n->getBooleanValue()),
+            'isStateSetByMicrosoft' => fn(ParseNode $n) => $o->setIsStateSetByMicrosoft($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restrictForAppsCreatedAfterDateTime' => fn(ParseNode $n) => $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AppManagementRestrictionState::class)),
         ];
+    }
+
+    /**
+     * Gets the isStateSetByMicrosoft property value. If true, Microsoft sets the identifierUriRestriction state. If false, the tenant modifies the identifierUriRestriction state. Read-only.
+     * @return bool|null
+    */
+    public function getIsStateSetByMicrosoft(): ?bool {
+        $val = $this->getBackingStore()->get('isStateSetByMicrosoft');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isStateSetByMicrosoft'");
     }
 
     /**
@@ -196,6 +209,14 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     */
     public function setExcludeSaml(?bool $value): void {
         $this->getBackingStore()->set('excludeSaml', $value);
+    }
+
+    /**
+     * Sets the isStateSetByMicrosoft property value. If true, Microsoft sets the identifierUriRestriction state. If false, the tenant modifies the identifierUriRestriction state. Read-only.
+     * @param bool|null $value Value to set for the isStateSetByMicrosoft property.
+    */
+    public function setIsStateSetByMicrosoft(?bool $value): void {
+        $this->getBackingStore()->set('isStateSetByMicrosoft', $value);
     }
 
     /**

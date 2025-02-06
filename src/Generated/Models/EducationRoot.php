@@ -82,7 +82,6 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([ReportsRoot::class, 'createFromDiscriminatorValue'])),
             'schools' => fn(ParseNode $n) => $o->setSchools($n->getCollectionOfObjectValues([EducationSchool::class, 'createFromDiscriminatorValue'])),
-            'synchronizationProfiles' => fn(ParseNode $n) => $o->setSynchronizationProfiles($n->getCollectionOfObjectValues([EducationSynchronizationProfile::class, 'createFromDiscriminatorValue'])),
             'users' => fn(ParseNode $n) => $o->setUsers($n->getCollectionOfObjectValues([EducationUser::class, 'createFromDiscriminatorValue'])),
         ];
     }
@@ -138,20 +137,6 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the synchronizationProfiles property value. The synchronizationProfiles property
-     * @return array<EducationSynchronizationProfile>|null
-    */
-    public function getSynchronizationProfiles(): ?array {
-        $val = $this->getBackingStore()->get('synchronizationProfiles');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, EducationSynchronizationProfile::class);
-            /** @var array<EducationSynchronizationProfile>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'synchronizationProfiles'");
-    }
-
-    /**
      * Gets the users property value. The users property
      * @return array<EducationUser>|null
     */
@@ -175,7 +160,6 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeCollectionOfObjectValues('schools', $this->getSchools());
-        $writer->writeCollectionOfObjectValues('synchronizationProfiles', $this->getSynchronizationProfiles());
         $writer->writeCollectionOfObjectValues('users', $this->getUsers());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -234,14 +218,6 @@ class EducationRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setSchools(?array $value): void {
         $this->getBackingStore()->set('schools', $value);
-    }
-
-    /**
-     * Sets the synchronizationProfiles property value. The synchronizationProfiles property
-     * @param array<EducationSynchronizationProfile>|null $value Value to set for the synchronizationProfiles property.
-    */
-    public function setSynchronizationProfiles(?array $value): void {
-        $this->getBackingStore()->set('synchronizationProfiles', $value);
     }
 
     /**
