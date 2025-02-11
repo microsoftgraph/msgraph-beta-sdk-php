@@ -26,7 +26,7 @@ class AiInteractionMentionedIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the conversation property value. The conversation property
+     * Gets the conversation property value. The conversation details.
      * @return TeamworkConversationIdentity|null
     */
     public function getConversation(): ?TeamworkConversationIdentity {
@@ -72,7 +72,7 @@ class AiInteractionMentionedIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the conversation property value. The conversation property
+     * Sets the conversation property value. The conversation details.
      * @param TeamworkConversationIdentity|null $value Value to set for the conversation property.
     */
     public function setConversation(?TeamworkConversationIdentity $value): void {

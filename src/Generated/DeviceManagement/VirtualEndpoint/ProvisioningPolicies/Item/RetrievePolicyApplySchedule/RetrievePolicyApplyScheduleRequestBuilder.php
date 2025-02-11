@@ -31,10 +31,11 @@ class RetrievePolicyApplyScheduleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrievePolicyApplySchedule
+     * Get the scheduled apply rule set on the policy. Frontline shared only. Administrators only.
      * @param RetrievePolicyApplyScheduleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPolicyScheduledApplyActionDetail|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-retrievepolicyapplyschedule?view=graph-rest-beta Find more info here
     */
     public function get(?RetrievePolicyApplyScheduleRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class RetrievePolicyApplyScheduleRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrievePolicyApplySchedule
+     * Get the scheduled apply rule set on the policy. Frontline shared only. Administrators only.
      * @param RetrievePolicyApplyScheduleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
