@@ -2,27 +2,17 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
-use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Store\BackedModel;
-use Microsoft\Kiota\Abstractions\Store\BackingStore;
-use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CloudPcPolicyScheduledApplyActionDetail implements AdditionalDataHolder, BackedModel, Parsable 
+class CloudPcPolicyScheduledApplyActionDetail extends Entity implements Parsable 
 {
-    /**
-     * @var BackingStore $backingStore Stores model information.
-    */
-    private BackingStore $backingStore;
-    
     /**
      * Instantiates a new CloudPcPolicyScheduledApplyActionDetail and sets the default values.
     */
     public function __construct() {
-        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
-        $this->setAdditionalData([]);
+        parent::__construct();
     }
 
     /**
@@ -35,28 +25,7 @@ class CloudPcPolicyScheduledApplyActionDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>|null
-    */
-    public function getAdditionalData(): ?array {
-        $val = $this->getBackingStore()->get('additionalData');
-        if (is_null($val) || is_array($val)) {
-            /** @var array<string, mixed>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
-    }
-
-    /**
-     * Gets the BackingStore property value. Stores model information.
-     * @return BackingStore
-    */
-    public function getBackingStore(): BackingStore {
-        return $this->backingStore;
-    }
-
-    /**
-     * Gets the cronScheduleExpression property value. The cronScheduleExpression property
+     * Gets the cronScheduleExpression property value. An expression that specifies the cron schedule. (For example, '0 0 0 20  ' means schedules a job to run at midnight on the 20th of every month) Administrators can set a cron expression to define the scheduling rules for automatic regular application. When auto-provision is disabled, cronScheduleExpression is set to null, stopping the automatic task scheduling. Read-Only.
      * @return string|null
     */
     public function getCronScheduleExpression(): ?string {
@@ -73,27 +42,14 @@ class CloudPcPolicyScheduledApplyActionDetail implements AdditionalDataHolder, B
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return  [
+        return array_merge(parent::getFieldDeserializers(), [
             'cronScheduleExpression' => fn(ParseNode $n) => $o->setCronScheduleExpression($n->getStringValue()),
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reservePercentage' => fn(ParseNode $n) => $o->setReservePercentage($n->getIntegerValue()),
-        ];
+        ]);
     }
 
     /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        $val = $this->getBackingStore()->get('odataType');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
-    }
-
-    /**
-     * Gets the reservePercentage property value. The reservePercentage property
+     * Gets the reservePercentage property value. The percentage of Cloud PCs to keep available. Administrators can set this property to a value from 0 to 99. Cloud PCs are reprovisioned only when there are no active and connected Cloud PC users. Frontline shared only.
      * @return int|null
     */
     public function getReservePercentage(): ?int {
@@ -109,30 +65,13 @@ class CloudPcPolicyScheduledApplyActionDetail implements AdditionalDataHolder, B
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
         $writer->writeStringValue('cronScheduleExpression', $this->getCronScheduleExpression());
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('reservePercentage', $this->getReservePercentage());
-        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
-     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
-    */
-    public function setAdditionalData(?array $value): void {
-        $this->getBackingStore()->set('additionalData', $value);
-    }
-
-    /**
-     * Sets the BackingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
-    */
-    public function setBackingStore(BackingStore $value): void {
-        $this->backingStore = $value;
-    }
-
-    /**
-     * Sets the cronScheduleExpression property value. The cronScheduleExpression property
+     * Sets the cronScheduleExpression property value. An expression that specifies the cron schedule. (For example, '0 0 0 20  ' means schedules a job to run at midnight on the 20th of every month) Administrators can set a cron expression to define the scheduling rules for automatic regular application. When auto-provision is disabled, cronScheduleExpression is set to null, stopping the automatic task scheduling. Read-Only.
      * @param string|null $value Value to set for the cronScheduleExpression property.
     */
     public function setCronScheduleExpression(?string $value): void {
@@ -140,15 +79,7 @@ class CloudPcPolicyScheduledApplyActionDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the @odata.type property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
-    }
-
-    /**
-     * Sets the reservePercentage property value. The reservePercentage property
+     * Sets the reservePercentage property value. The percentage of Cloud PCs to keep available. Administrators can set this property to a value from 0 to 99. Cloud PCs are reprovisioned only when there are no active and connected Cloud PC users. Frontline shared only.
      * @param int|null $value Value to set for the reservePercentage property.
     */
     public function setReservePercentage(?int $value): void {
