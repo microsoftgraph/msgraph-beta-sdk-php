@@ -16,7 +16,6 @@ use Microsoft\Graph\Beta\Generated\Applications\ApplicationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApplicationsWithAppId\ApplicationsWithAppIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApplicationsWithUniqueName\ApplicationsWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApplicationTemplates\ApplicationTemplatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\ApprovalWorkflowProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\AuditLogsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuthenticationMethodConfigurations\AuthenticationMethodConfigurationsRequestBuilder;
@@ -228,13 +227,6 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function applicationTemplates(): ApplicationTemplatesRequestBuilder {
         return new ApplicationTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the collection of appRoleAssignment entities.
-    */
-    public function appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
-        return new AppRoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

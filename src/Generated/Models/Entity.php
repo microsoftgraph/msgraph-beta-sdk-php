@@ -1994,6 +1994,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.teamsAppInstallation': return new TeamsAppInstallation();
                 case '#microsoft.graph.teamsAppSettings': return new TeamsAppSettings();
                 case '#microsoft.graph.teamsAsyncOperation': return new TeamsAsyncOperation();
+                case '#microsoft.graph.teamsChannelPlanner': return new TeamsChannelPlanner();
                 case '#microsoft.graph.teamsTab': return new TeamsTab();
                 case '#microsoft.graph.teamsTemplate': return new TeamsTemplate();
                 case '#microsoft.graph.teamTemplate': return new TeamTemplate();

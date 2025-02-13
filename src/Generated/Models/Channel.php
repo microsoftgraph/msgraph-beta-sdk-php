@@ -108,6 +108,7 @@ class Channel extends Entity implements Parsable
             'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(ChannelMembershipType::class)),
             'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([ChatMessage::class, 'createFromDiscriminatorValue'])),
             'moderationSettings' => fn(ParseNode $n) => $o->setModerationSettings($n->getObjectValue([ChannelModerationSettings::class, 'createFromDiscriminatorValue'])),
+            'planner' => fn(ParseNode $n) => $o->setPlanner($n->getObjectValue([TeamsChannelPlanner::class, 'createFromDiscriminatorValue'])),
             'sharedWithTeams' => fn(ParseNode $n) => $o->setSharedWithTeams($n->getCollectionOfObjectValues([SharedWithChannelTeamInfo::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([ChannelSummary::class, 'createFromDiscriminatorValue'])),
             'tabs' => fn(ParseNode $n) => $o->setTabs($n->getCollectionOfObjectValues([TeamsTab::class, 'createFromDiscriminatorValue'])),
@@ -217,6 +218,18 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Gets the planner property value. Selective Planner services available to this channel. Currently, only shared channels are supported. Read-only. Nullable.
+     * @return TeamsChannelPlanner|null
+    */
+    public function getPlanner(): ?TeamsChannelPlanner {
+        $val = $this->getBackingStore()->get('planner');
+        if (is_null($val) || $val instanceof TeamsChannelPlanner) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'planner'");
+    }
+
+    /**
      * Gets the sharedWithTeams property value. A collection of teams with which a channel is shared.
      * @return array<SharedWithChannelTeamInfo>|null
     */
@@ -299,6 +312,7 @@ class Channel extends Entity implements Parsable
         $writer->writeEnumValue('membershipType', $this->getMembershipType());
         $writer->writeCollectionOfObjectValues('messages', $this->getMessages());
         $writer->writeObjectValue('moderationSettings', $this->getModerationSettings());
+        $writer->writeObjectValue('planner', $this->getPlanner());
         $writer->writeCollectionOfObjectValues('sharedWithTeams', $this->getSharedWithTeams());
         $writer->writeObjectValue('summary', $this->getSummary());
         $writer->writeCollectionOfObjectValues('tabs', $this->getTabs());
@@ -408,6 +422,14 @@ class Channel extends Entity implements Parsable
     */
     public function setModerationSettings(?ChannelModerationSettings $value): void {
         $this->getBackingStore()->set('moderationSettings', $value);
+    }
+
+    /**
+     * Sets the planner property value. Selective Planner services available to this channel. Currently, only shared channels are supported. Read-only. Nullable.
+     * @param TeamsChannelPlanner|null $value Value to set for the planner property.
+    */
+    public function setPlanner(?TeamsChannelPlanner $value): void {
+        $this->getBackingStore()->set('planner', $value);
     }
 
     /**
