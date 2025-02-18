@@ -37,6 +37,18 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the customAppSettings property value. The customAppSettings property
+     * @return CustomAppSettings|null
+    */
+    public function getCustomAppSettings(): ?CustomAppSettings {
+        $val = $this->getBackingStore()->get('customAppSettings');
+        if (is_null($val) || $val instanceof CustomAppSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customAppSettings'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -44,6 +56,7 @@ class TeamsAppSettings extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowUserRequestsForAppAccess' => fn(ParseNode $n) => $o->setAllowUserRequestsForAppAccess($n->getBooleanValue()),
+            'customAppSettings' => fn(ParseNode $n) => $o->setCustomAppSettings($n->getObjectValue([CustomAppSettings::class, 'createFromDiscriminatorValue'])),
             'isChatResourceSpecificConsentEnabled' => fn(ParseNode $n) => $o->setIsChatResourceSpecificConsentEnabled($n->getBooleanValue()),
             'isUserPersonalScopeResourceSpecificConsentEnabled' => fn(ParseNode $n) => $o->setIsUserPersonalScopeResourceSpecificConsentEnabled($n->getBooleanValue()),
         ]);
@@ -80,6 +93,7 @@ class TeamsAppSettings extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('allowUserRequestsForAppAccess', $this->getAllowUserRequestsForAppAccess());
+        $writer->writeObjectValue('customAppSettings', $this->getCustomAppSettings());
         $writer->writeBooleanValue('isChatResourceSpecificConsentEnabled', $this->getIsChatResourceSpecificConsentEnabled());
         $writer->writeBooleanValue('isUserPersonalScopeResourceSpecificConsentEnabled', $this->getIsUserPersonalScopeResourceSpecificConsentEnabled());
     }
@@ -90,6 +104,14 @@ class TeamsAppSettings extends Entity implements Parsable
     */
     public function setAllowUserRequestsForAppAccess(?bool $value): void {
         $this->getBackingStore()->set('allowUserRequestsForAppAccess', $value);
+    }
+
+    /**
+     * Sets the customAppSettings property value. The customAppSettings property
+     * @param CustomAppSettings|null $value Value to set for the customAppSettings property.
+    */
+    public function setCustomAppSettings(?CustomAppSettings $value): void {
+        $this->getBackingStore()->set('customAppSettings', $value);
     }
 
     /**

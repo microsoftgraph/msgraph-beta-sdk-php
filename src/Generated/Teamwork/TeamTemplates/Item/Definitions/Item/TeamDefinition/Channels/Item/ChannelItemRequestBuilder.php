@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\FilesFolder\FilesFolderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\Messages\MessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\Planner\PlannerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\ProvisionEmail\ProvisionEmailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\RemoveEmail\RemoveEmailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\SharedWithTeams\SharedWithTeamsRequestBuilder;
@@ -75,6 +76,13 @@ class ChannelItemRequestBuilder extends BaseRequestBuilder
     */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the planner property of the microsoft.graph.channel entity.
+    */
+    public function planner(): PlannerRequestBuilder {
+        return new PlannerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

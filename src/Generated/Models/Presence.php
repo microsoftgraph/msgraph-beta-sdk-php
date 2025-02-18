@@ -58,6 +58,7 @@ class Presence extends Entity implements Parsable
             'activity' => fn(ParseNode $n) => $o->setActivity($n->getStringValue()),
             'availability' => fn(ParseNode $n) => $o->setAvailability($n->getStringValue()),
             'outOfOfficeSettings' => fn(ParseNode $n) => $o->setOutOfOfficeSettings($n->getObjectValue([OutOfOfficeSettings::class, 'createFromDiscriminatorValue'])),
+            'sequenceNumber' => fn(ParseNode $n) => $o->setSequenceNumber($n->getStringValue()),
             'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getObjectValue([PresenceStatusMessage::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -72,6 +73,18 @@ class Presence extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'outOfOfficeSettings'");
+    }
+
+    /**
+     * Gets the sequenceNumber property value. The sequenceNumber property
+     * @return string|null
+    */
+    public function getSequenceNumber(): ?string {
+        $val = $this->getBackingStore()->get('sequenceNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequenceNumber'");
     }
 
     /**
@@ -120,6 +133,14 @@ class Presence extends Entity implements Parsable
     */
     public function setOutOfOfficeSettings(?OutOfOfficeSettings $value): void {
         $this->getBackingStore()->set('outOfOfficeSettings', $value);
+    }
+
+    /**
+     * Sets the sequenceNumber property value. The sequenceNumber property
+     * @param string|null $value Value to set for the sequenceNumber property.
+    */
+    public function setSequenceNumber(?string $value): void {
+        $this->getBackingStore()->set('sequenceNumber', $value);
     }
 
     /**

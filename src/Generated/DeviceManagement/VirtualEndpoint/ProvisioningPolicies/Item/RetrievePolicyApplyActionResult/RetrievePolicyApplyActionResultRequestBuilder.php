@@ -31,10 +31,11 @@ class RetrievePolicyApplyActionResultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrievePolicyApplyActionResult
+     * Get the result of the latest apply operation of a provision policy. Frontline shared only. Administrators only.
      * @param RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPolicyApplyActionResult|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-retrievepolicyapplyactionresult?view=graph-rest-beta Find more info here
     */
     public function get(?RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class RetrievePolicyApplyActionResultRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function retrievePolicyApplyActionResult
+     * Get the result of the latest apply operation of a provision policy. Frontline shared only. Administrators only.
      * @param RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

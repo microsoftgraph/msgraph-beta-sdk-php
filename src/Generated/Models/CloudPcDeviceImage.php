@@ -40,7 +40,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the errorCode property value. The error code of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Read-only.
+     * Gets the errorCode property value. The error code of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation, sourceImageWithDataDiskNotSupported, sourceImageWithDiskEncryptionSetNotSupported. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation, sourceImageWithDataDiskNotSupported, sourceImageWithDiskEncryptionSetNotSupported. Read-only.
      * @return CloudPcDeviceImageErrorCode|null
     */
     public function getErrorCode(): ?CloudPcDeviceImageErrorCode {
@@ -180,7 +180,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the image on the Cloud PC. Possible values are: pending, ready, failed, unknownFutureValue. Read-only.
+     * Gets the status property value. The status of the image on the Cloud PC. Possible values are: pending, ready, warning, failed, unknownFutureValue. Read-only.
      * @return CloudPcDeviceImageStatus|null
     */
     public function getStatus(): ?CloudPcDeviceImageStatus {
@@ -245,7 +245,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the errorCode property value. The error code of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Read-only.
+     * Sets the errorCode property value. The error code of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation, sourceImageWithDataDiskNotSupported, sourceImageWithDiskEncryptionSetNotSupported. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation, sourceImageWithDataDiskNotSupported, sourceImageWithDiskEncryptionSetNotSupported. Read-only.
      * @param CloudPcDeviceImageErrorCode|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?CloudPcDeviceImageErrorCode $value): void {
@@ -317,7 +317,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the image on the Cloud PC. Possible values are: pending, ready, failed, unknownFutureValue. Read-only.
+     * Sets the status property value. The status of the image on the Cloud PC. Possible values are: pending, ready, warning, failed, unknownFutureValue. Read-only.
      * @param CloudPcDeviceImageStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcDeviceImageStatus $value): void {
