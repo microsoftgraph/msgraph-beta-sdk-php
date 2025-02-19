@@ -68,7 +68,7 @@ class AllMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of conversationMember objects from a team channel. It supports all types of channels. In the case of shared channels, it includes all cross-tenant and cross-team members in a channel.
+     * Get a list of all members in a channel. It supports all types of channels. In the case of shared channels, it includes all cross-tenant and cross-team members in a channel.
      * @param AllMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConversationMemberCollectionResponse|null>
      * @throws Exception
@@ -98,7 +98,7 @@ class AllMembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of conversationMember objects from a team channel. It supports all types of channels. In the case of shared channels, it includes all cross-tenant and cross-team members in a channel.
+     * Get a list of all members in a channel. It supports all types of channels. In the case of shared channels, it includes all cross-tenant and cross-team members in a channel.
      * @param AllMembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

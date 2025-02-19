@@ -31,6 +31,7 @@ class AuthenticationEventListener extends Entity implements Parsable
                 case '#microsoft.graph.onAuthenticationMethodLoadStartListener': return new OnAuthenticationMethodLoadStartListener();
                 case '#microsoft.graph.onEmailOtpSendListener': return new OnEmailOtpSendListener();
                 case '#microsoft.graph.onInteractiveAuthFlowStartListener': return new OnInteractiveAuthFlowStartListener();
+                case '#microsoft.graph.onPhoneMethodLoadStartListener': return new OnPhoneMethodLoadStartListener();
                 case '#microsoft.graph.onTokenIssuanceStartListener': return new OnTokenIssuanceStartListener();
                 case '#microsoft.graph.onUserCreateStartListener': return new OnUserCreateStartListener();
             }

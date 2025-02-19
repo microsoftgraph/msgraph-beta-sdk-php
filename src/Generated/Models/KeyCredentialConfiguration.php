@@ -132,7 +132,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the restrictionType property value. The type of restriction being applied. Possible values are asymmetricKeyLifetime, and unknownFutureValue. Each value of restrictionType can be used only once per policy.
+     * Gets the restrictionType property value. A unique identifier key for keyCredentialConfiguration. This value also represents the type of restriction being applied. Possible values are asymmetricKeyLifetime, and unknownFutureValue. Each value of restrictionType can be used only once per policy.
      * @return AppKeyCredentialRestrictionType|null
     */
     public function getRestrictionType(): ?AppKeyCredentialRestrictionType {
@@ -218,7 +218,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the restrictionType property value. The type of restriction being applied. Possible values are asymmetricKeyLifetime, and unknownFutureValue. Each value of restrictionType can be used only once per policy.
+     * Sets the restrictionType property value. A unique identifier key for keyCredentialConfiguration. This value also represents the type of restriction being applied. Possible values are asymmetricKeyLifetime, and unknownFutureValue. Each value of restrictionType can be used only once per policy.
      * @param AppKeyCredentialRestrictionType|null $value Value to set for the restrictionType property.
     */
     public function setRestrictionType(?AppKeyCredentialRestrictionType $value): void {
