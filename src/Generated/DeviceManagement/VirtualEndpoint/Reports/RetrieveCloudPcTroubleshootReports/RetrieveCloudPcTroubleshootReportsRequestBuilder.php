@@ -31,11 +31,12 @@ class RetrieveCloudPcTroubleshootReportsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action retrieveCloudPcTroubleshootReports
+     * Get troubleshooting reports for Cloud PCs. You can get a regional troubleshooting report, a report with troubleshooting details, a report with troubleshooting trends, or a report on the number of troubleshooting issues.
      * @param RetrieveCloudPcTroubleshootReportsPostRequestBody $body The request body
      * @param RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievecloudpctroubleshootreports?view=graph-rest-beta Find more info here
     */
     public function post(RetrieveCloudPcTroubleshootReportsPostRequestBody $body, ?RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -48,7 +49,7 @@ class RetrieveCloudPcTroubleshootReportsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action retrieveCloudPcTroubleshootReports
+     * Get troubleshooting reports for Cloud PCs. You can get a regional troubleshooting report, a report with troubleshooting details, a report with troubleshooting trends, or a report on the number of troubleshooting issues.
      * @param RetrieveCloudPcTroubleshootReportsPostRequestBody $body The request body
      * @param RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

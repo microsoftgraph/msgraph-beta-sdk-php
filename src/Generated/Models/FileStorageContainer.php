@@ -27,6 +27,18 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
+     * Gets the archivalDetails property value. The archivalDetails property
+     * @return SiteArchivalDetails|null
+    */
+    public function getArchivalDetails(): ?SiteArchivalDetails {
+        $val = $this->getBackingStore()->get('archivalDetails');
+        if (is_null($val) || $val instanceof SiteArchivalDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'archivalDetails'");
+    }
+
+    /**
      * Gets the assignedSensitivityLabel property value. Sensitivity label assigned to the fileStorageContainer. Read-write.
      * @return AssignedLabel|null
     */
@@ -143,6 +155,7 @@ class FileStorageContainer extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'archivalDetails' => fn(ParseNode $n) => $o->setArchivalDetails($n->getObjectValue([SiteArchivalDetails::class, 'createFromDiscriminatorValue'])),
             'assignedSensitivityLabel' => fn(ParseNode $n) => $o->setAssignedSensitivityLabel($n->getObjectValue([AssignedLabel::class, 'createFromDiscriminatorValue'])),
             'columns' => fn(ParseNode $n) => $o->setColumns($n->getCollectionOfObjectValues([ColumnDefinition::class, 'createFromDiscriminatorValue'])),
             'containerTypeId' => fn(ParseNode $n) => $o->setContainerTypeId($n->getStringValue()),
@@ -308,6 +321,7 @@ class FileStorageContainer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('archivalDetails', $this->getArchivalDetails());
         $writer->writeObjectValue('assignedSensitivityLabel', $this->getAssignedSensitivityLabel());
         $writer->writeCollectionOfObjectValues('columns', $this->getColumns());
         $writer->writeStringValue('containerTypeId', $this->getContainerTypeId());
@@ -328,6 +342,14 @@ class FileStorageContainer extends Entity implements Parsable
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeIntegerValue('storageUsedInBytes', $this->getStorageUsedInBytes());
         $writer->writeObjectValue('viewpoint', $this->getViewpoint());
+    }
+
+    /**
+     * Sets the archivalDetails property value. The archivalDetails property
+     * @param SiteArchivalDetails|null $value Value to set for the archivalDetails property.
+    */
+    public function setArchivalDetails(?SiteArchivalDetails $value): void {
+        $this->getBackingStore()->set('archivalDetails', $value);
     }
 
     /**

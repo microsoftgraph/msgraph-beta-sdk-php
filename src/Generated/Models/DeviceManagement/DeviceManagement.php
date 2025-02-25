@@ -185,9 +185,6 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-/**
- * Singleton that acts as container for a collection of Resource Access entities.
-*/
 class DeviceManagement extends Entity implements Parsable 
 {
     /**
@@ -1859,7 +1856,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the reports property value. Reports singleton
+     * Gets the reports property value. The reports property
      * @return DeviceManagementReports|null
     */
     public function getReports(): ?DeviceManagementReports {
@@ -4063,7 +4060,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the reports property value. Reports singleton
+     * Sets the reports property value. The reports property
      * @param DeviceManagementReports|null $value Value to set for the reports property.
     */
     public function setReports(?DeviceManagementReports $value): void {

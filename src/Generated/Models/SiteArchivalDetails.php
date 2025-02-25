@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -48,6 +49,30 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the archivedBy property value. The archivedBy property
+     * @return IdentitySet|null
+    */
+    public function getArchivedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('archivedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'archivedBy'");
+    }
+
+    /**
+     * Gets the archivedDateTime property value. The archivedDateTime property
+     * @return DateTime|null
+    */
+    public function getArchivedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('archivedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'archivedDateTime'");
+    }
+
+    /**
      * Gets the archiveStatus property value. Represents the current archive status of the site collection. Returned only on $select.
      * @return SiteArchiveStatus|null
     */
@@ -74,6 +99,8 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'archivedBy' => fn(ParseNode $n) => $o->setArchivedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'archivedDateTime' => fn(ParseNode $n) => $o->setArchivedDateTime($n->getDateTimeValue()),
             'archiveStatus' => fn(ParseNode $n) => $o->setArchiveStatus($n->getEnumValue(SiteArchiveStatus::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -96,6 +123,8 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('archivedBy', $this->getArchivedBy());
+        $writer->writeDateTimeValue('archivedDateTime', $this->getArchivedDateTime());
         $writer->writeEnumValue('archiveStatus', $this->getArchiveStatus());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -107,6 +136,22 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the archivedBy property value. The archivedBy property
+     * @param IdentitySet|null $value Value to set for the archivedBy property.
+    */
+    public function setArchivedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('archivedBy', $value);
+    }
+
+    /**
+     * Sets the archivedDateTime property value. The archivedDateTime property
+     * @param DateTime|null $value Value to set for the archivedDateTime property.
+    */
+    public function setArchivedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('archivedDateTime', $value);
     }
 
     /**

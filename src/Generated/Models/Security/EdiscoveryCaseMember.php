@@ -26,7 +26,7 @@ class EdiscoveryCaseMember extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the eDiscovery case member. Allowed only for case members of type roleGroup.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -51,7 +51,7 @@ class EdiscoveryCaseMember extends Entity implements Parsable
     }
 
     /**
-     * Gets the recipientType property value. The recipientType property
+     * Gets the recipientType property value. Specifies the recipient type of the eDiscovery case member. The possible values are: user, roleGroup, unknownFutureValue.
      * @return RecipientType|null
     */
     public function getRecipientType(): ?RecipientType {
@@ -63,7 +63,7 @@ class EdiscoveryCaseMember extends Entity implements Parsable
     }
 
     /**
-     * Gets the smtpAddress property value. The smtpAddress property
+     * Gets the smtpAddress property value. The smtp address of the eDiscovery case member. Allowed only for case members of type user.
      * @return string|null
     */
     public function getSmtpAddress(): ?string {
@@ -86,7 +86,7 @@ class EdiscoveryCaseMember extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the eDiscovery case member. Allowed only for case members of type roleGroup.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -94,7 +94,7 @@ class EdiscoveryCaseMember extends Entity implements Parsable
     }
 
     /**
-     * Sets the recipientType property value. The recipientType property
+     * Sets the recipientType property value. Specifies the recipient type of the eDiscovery case member. The possible values are: user, roleGroup, unknownFutureValue.
      * @param RecipientType|null $value Value to set for the recipientType property.
     */
     public function setRecipientType(?RecipientType $value): void {
@@ -102,7 +102,7 @@ class EdiscoveryCaseMember extends Entity implements Parsable
     }
 
     /**
-     * Sets the smtpAddress property value. The smtpAddress property
+     * Sets the smtpAddress property value. The smtp address of the eDiscovery case member. Allowed only for case members of type user.
      * @param string|null $value Value to set for the smtpAddress property.
     */
     public function setSmtpAddress(?string $value): void {

@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * A class containing the properties used for iOS lob app provisioning configuration PolicySetItem.
+ * A class containing the properties used for iOS LOB app provisioning configuration PolicySetItem.
 */
 class IosLobAppProvisioningConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {

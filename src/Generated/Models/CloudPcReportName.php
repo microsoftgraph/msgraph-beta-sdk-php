@@ -30,4 +30,6 @@ class CloudPcReportName extends Enum {
     public const TROUBLESHOOT_TREND_COUNT_REPORT = "troubleshootTrendCountReport";
     public const TROUBLESHOOT_REGIONAL_REPORT = "troubleshootRegionalReport";
     public const TROUBLESHOOT_ISSUE_COUNT_REPORT = "troubleshootIssueCountReport";
+    public const CLOUD_PC_INSIGHT_REPORT = "cloudPcInsightReport";
+    public const REGIONAL_INACCESSIBLE_CLOUD_PC_TREND_REPORT = "regionalInaccessibleCloudPcTrendReport";
 }

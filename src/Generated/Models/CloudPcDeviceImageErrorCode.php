@@ -15,4 +15,6 @@ class CloudPcDeviceImageErrorCode extends Enum {
     public const PAID_SOURCE_IMAGE_NOT_SUPPORT = "paidSourceImageNotSupport";
     public const SOURCE_IMAGE_NOT_SUPPORT_CUSTOMIZE_V_M_NAME = "sourceImageNotSupportCustomizeVMName";
     public const SOURCE_IMAGE_SIZE_EXCEEDS_LIMITATION = "sourceImageSizeExceedsLimitation";
+    public const SOURCE_IMAGE_WITH_DATA_DISK_NOT_SUPPORTED = "sourceImageWithDataDiskNotSupported";
+    public const SOURCE_IMAGE_WITH_DISK_ENCRYPTION_SET_NOT_SUPPORTED = "sourceImageWithDiskEncryptionSetNotSupported";
 }
