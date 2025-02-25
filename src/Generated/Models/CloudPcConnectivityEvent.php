@@ -36,6 +36,18 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
+     * Gets the activityId property value. The unique identifier (GUID) that represents the activity associated with this event. When the event type is userConnection, this value is the activity identifier for this event. For any other event types, this value is 00000000-0000-0000-0000-000000000000.
+     * @return string|null
+    */
+    public function getActivityId(): ?string {
+        $val = $this->getBackingStore()->get('activityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityId'");
+    }
+
+    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
@@ -111,6 +123,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'activityId' => fn(ParseNode $n) => $o->setActivityId($n->getStringValue()),
             'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
             'eventName' => fn(ParseNode $n) => $o->setEventName($n->getStringValue()),
             'eventResult' => fn(ParseNode $n) => $o->setEventResult($n->getEnumValue(CloudPcConnectivityEventResult::class)),
@@ -149,6 +162,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('activityId', $this->getActivityId());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeStringValue('eventName', $this->getEventName());
         $writer->writeEnumValue('eventResult', $this->getEventResult());
@@ -156,6 +170,14 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
         $writer->writeStringValue('message', $this->getMessage());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the activityId property value. The unique identifier (GUID) that represents the activity associated with this event. When the event type is userConnection, this value is the activity identifier for this event. For any other event types, this value is 00000000-0000-0000-0000-000000000000.
+     * @param string|null $value Value to set for the activityId property.
+    */
+    public function setActivityId(?string $value): void {
+        $this->getBackingStore()->set('activityId', $value);
     }
 
     /**

@@ -272,13 +272,13 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Gets the conditionalAccessAudiences property value. A list that indicates the audience that Conditional Access evaluated during a sign-in event.  Supports $filter (eq).
-     * @return array<ConditionalAccessAudience>|null
+     * @return array<string>|null
     */
     public function getConditionalAccessAudiences(): ?array {
         $val = $this->getBackingStore()->get('conditionalAccessAudiences');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConditionalAccessAudience::class);
-            /** @var array<ConditionalAccessAudience>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessAudiences'");
@@ -389,7 +389,14 @@ class SignIn extends Entity implements Parsable
             'azureResourceId' => fn(ParseNode $n) => $o->setAzureResourceId($n->getStringValue()),
             'clientAppUsed' => fn(ParseNode $n) => $o->setClientAppUsed($n->getStringValue()),
             'clientCredentialType' => fn(ParseNode $n) => $o->setClientCredentialType($n->getEnumValue(ClientCredentialType::class)),
-            'conditionalAccessAudiences' => fn(ParseNode $n) => $o->setConditionalAccessAudiences($n->getCollectionOfObjectValues([ConditionalAccessAudience::class, 'createFromDiscriminatorValue'])),
+            'conditionalAccessAudiences' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setConditionalAccessAudiences($val);
+            },
             'conditionalAccessStatus' => fn(ParseNode $n) => $o->setConditionalAccessStatus($n->getEnumValue(ConditionalAccessStatus::class)),
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -1070,7 +1077,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('azureResourceId', $this->getAzureResourceId());
         $writer->writeStringValue('clientAppUsed', $this->getClientAppUsed());
         $writer->writeEnumValue('clientCredentialType', $this->getClientCredentialType());
-        $writer->writeCollectionOfObjectValues('conditionalAccessAudiences', $this->getConditionalAccessAudiences());
+        $writer->writeCollectionOfPrimitiveValues('conditionalAccessAudiences', $this->getConditionalAccessAudiences());
         $writer->writeEnumValue('conditionalAccessStatus', $this->getConditionalAccessStatus());
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
@@ -1281,7 +1288,7 @@ class SignIn extends Entity implements Parsable
 
     /**
      * Sets the conditionalAccessAudiences property value. A list that indicates the audience that Conditional Access evaluated during a sign-in event.  Supports $filter (eq).
-     * @param array<ConditionalAccessAudience>|null $value Value to set for the conditionalAccessAudiences property.
+     * @param array<string>|null $value Value to set for the conditionalAccessAudiences property.
     */
     public function setConditionalAccessAudiences(?array $value): void {
         $this->getBackingStore()->set('conditionalAccessAudiences', $value);

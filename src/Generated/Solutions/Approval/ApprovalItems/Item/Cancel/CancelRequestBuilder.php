@@ -30,7 +30,7 @@ class CancelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel the approval item. The owner of the approval can trigger this endpoint.
+     * Cancel the approval item. The owner of the approval is the only user who can trigger this endpoint.
      * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class CancelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel the approval item. The owner of the approval can trigger this endpoint.
+     * Cancel the approval item. The owner of the approval is the only user who can trigger this endpoint.
      * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
