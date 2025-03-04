@@ -1438,6 +1438,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.muteParticipantsOperation': return new MuteParticipantsOperation();
                 case '#microsoft.graph.mutualTlsOauthConfiguration': return new MutualTlsOauthConfiguration();
                 case '#microsoft.graph.namedLocation': return new NamedLocation();
+                case '#microsoft.graph.namePronunciationSettings': return new NamePronunciationSettings();
                 case '#microsoft.graph.ndesConnector': return new NdesConnector();
                 case '#microsoft.graph.networkaccess.alert': return new \Microsoft\Graph\Beta\Generated\Models\Networkaccess\Alert();
                 case '#microsoft.graph.networkaccess.branchSite': return new BranchSite();

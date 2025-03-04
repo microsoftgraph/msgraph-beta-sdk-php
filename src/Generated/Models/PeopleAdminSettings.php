@@ -33,6 +33,7 @@ class PeopleAdminSettings extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
+            'namePronunciation' => fn(ParseNode $n) => $o->setNamePronunciation($n->getObjectValue([NamePronunciationSettings::class, 'createFromDiscriminatorValue'])),
             'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
             'pronouns' => fn(ParseNode $n) => $o->setPronouns($n->getObjectValue([PronounsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -48,6 +49,18 @@ class PeopleAdminSettings extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'itemInsights'");
+    }
+
+    /**
+     * Gets the namePronunciation property value. Administrator settings that manage the support of name pronunciation in an organization.
+     * @return NamePronunciationSettings|null
+    */
+    public function getNamePronunciation(): ?NamePronunciationSettings {
+        $val = $this->getBackingStore()->get('namePronunciation');
+        if (is_null($val) || $val instanceof NamePronunciationSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'namePronunciation'");
     }
 
     /**
@@ -83,6 +96,7 @@ class PeopleAdminSettings extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('itemInsights', $this->getItemInsights());
+        $writer->writeObjectValue('namePronunciation', $this->getNamePronunciation());
         $writer->writeCollectionOfObjectValues('profileCardProperties', $this->getProfileCardProperties());
         $writer->writeObjectValue('pronouns', $this->getPronouns());
     }
@@ -93,6 +107,14 @@ class PeopleAdminSettings extends Entity implements Parsable
     */
     public function setItemInsights(?InsightsSettings $value): void {
         $this->getBackingStore()->set('itemInsights', $value);
+    }
+
+    /**
+     * Sets the namePronunciation property value. Administrator settings that manage the support of name pronunciation in an organization.
+     * @param NamePronunciationSettings|null $value Value to set for the namePronunciation property.
+    */
+    public function setNamePronunciation(?NamePronunciationSettings $value): void {
+        $this->getBackingStore()->set('namePronunciation', $value);
     }
 
     /**

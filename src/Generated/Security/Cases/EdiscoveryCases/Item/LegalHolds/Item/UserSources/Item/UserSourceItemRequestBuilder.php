@@ -31,10 +31,11 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property userSources for security
+     * Delete a userSource object associated with an ediscoveryHoldPolicy.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoveryholdpolicy-delete-usersources?view=graph-rest-beta Find more info here
     */
     public function delete(?UserSourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -74,7 +75,7 @@ class UserSourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property userSources for security
+     * Delete a userSource object associated with an ediscoveryHoldPolicy.
      * @param UserSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

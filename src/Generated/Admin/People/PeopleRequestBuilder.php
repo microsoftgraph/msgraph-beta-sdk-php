@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\People;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\People\ItemInsights\ItemInsightsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\People\NamePronunciation\NamePronunciationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\Pronouns\PronounsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -24,6 +25,13 @@ class PeopleRequestBuilder extends BaseRequestBuilder
     */
     public function itemInsights(): ItemInsightsRequestBuilder {
         return new ItemInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the namePronunciation property of the microsoft.graph.peopleAdminSettings entity.
+    */
+    public function namePronunciation(): NamePronunciationRequestBuilder {
+        return new NamePronunciationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
