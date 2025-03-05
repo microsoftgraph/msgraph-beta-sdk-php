@@ -49,6 +49,7 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
             'presenters' => fn(ParseNode $n) => $o->setPresenters($n->getCollectionOfObjectValues([VirtualEventPresenter::class, 'createFromDiscriminatorValue'])),
             'registrations' => fn(ParseNode $n) => $o->setRegistrations($n->getCollectionOfObjectValues([VirtualEventRegistration::class, 'createFromDiscriminatorValue'])),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
+            'videoOnDemandWebUrl' => fn(ParseNode $n) => $o->setVideoOnDemandWebUrl($n->getStringValue()),
         ]);
     }
 
@@ -93,6 +94,18 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     }
 
     /**
+     * Gets the videoOnDemandWebUrl property value. The videoOnDemandWebUrl property
+     * @return string|null
+    */
+    public function getVideoOnDemandWebUrl(): ?string {
+        $val = $this->getBackingStore()->get('videoOnDemandWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'videoOnDemandWebUrl'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -102,6 +115,7 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
         $writer->writeCollectionOfObjectValues('presenters', $this->getPresenters());
         $writer->writeCollectionOfObjectValues('registrations', $this->getRegistrations());
         $writer->writeObjectValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('videoOnDemandWebUrl', $this->getVideoOnDemandWebUrl());
     }
 
     /**
@@ -134,6 +148,14 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     */
     public function setStartDateTime(?DateTimeTimeZone $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
+    }
+
+    /**
+     * Sets the videoOnDemandWebUrl property value. The videoOnDemandWebUrl property
+     * @param string|null $value Value to set for the videoOnDemandWebUrl property.
+    */
+    public function setVideoOnDemandWebUrl(?string $value): void {
+        $this->getBackingStore()->set('videoOnDemandWebUrl', $value);
     }
 
 }

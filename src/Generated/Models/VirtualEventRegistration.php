@@ -76,6 +76,7 @@ class VirtualEventRegistration extends Entity implements Parsable
             'lastName' => fn(ParseNode $n) => $o->setLastName($n->getStringValue()),
             'preferredLanguage' => fn(ParseNode $n) => $o->setPreferredLanguage($n->getStringValue()),
             'preferredTimezone' => fn(ParseNode $n) => $o->setPreferredTimezone($n->getStringValue()),
+            'registrantVideoOnDemandWebUrl' => fn(ParseNode $n) => $o->setRegistrantVideoOnDemandWebUrl($n->getStringValue()),
             'registrationDateTime' => fn(ParseNode $n) => $o->setRegistrationDateTime($n->getDateTimeValue()),
             'registrationQuestionAnswers' => fn(ParseNode $n) => $o->setRegistrationQuestionAnswers($n->getCollectionOfObjectValues([VirtualEventRegistrationQuestionAnswer::class, 'createFromDiscriminatorValue'])),
             'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
@@ -130,6 +131,18 @@ class VirtualEventRegistration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'preferredTimezone'");
+    }
+
+    /**
+     * Gets the registrantVideoOnDemandWebUrl property value. The registrantVideoOnDemandWebUrl property
+     * @return string|null
+    */
+    public function getRegistrantVideoOnDemandWebUrl(): ?string {
+        $val = $this->getBackingStore()->get('registrantVideoOnDemandWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrantVideoOnDemandWebUrl'");
     }
 
     /**
@@ -209,6 +222,7 @@ class VirtualEventRegistration extends Entity implements Parsable
         $writer->writeStringValue('lastName', $this->getLastName());
         $writer->writeStringValue('preferredLanguage', $this->getPreferredLanguage());
         $writer->writeStringValue('preferredTimezone', $this->getPreferredTimezone());
+        $writer->writeStringValue('registrantVideoOnDemandWebUrl', $this->getRegistrantVideoOnDemandWebUrl());
         $writer->writeDateTimeValue('registrationDateTime', $this->getRegistrationDateTime());
         $writer->writeCollectionOfObjectValues('registrationQuestionAnswers', $this->getRegistrationQuestionAnswers());
         $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
@@ -270,6 +284,14 @@ class VirtualEventRegistration extends Entity implements Parsable
     */
     public function setPreferredTimezone(?string $value): void {
         $this->getBackingStore()->set('preferredTimezone', $value);
+    }
+
+    /**
+     * Sets the registrantVideoOnDemandWebUrl property value. The registrantVideoOnDemandWebUrl property
+     * @param string|null $value Value to set for the registrantVideoOnDemandWebUrl property.
+    */
+    public function setRegistrantVideoOnDemandWebUrl(?string $value): void {
+        $this->getBackingStore()->set('registrantVideoOnDemandWebUrl', $value);
     }
 
     /**

@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentId;
+namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId;
 
 use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\UsageProfilingPoint;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\User;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
+class UserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdGetResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdGetResponse and sets the default values.
+     * Instantiates a new UserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdGetResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -21,10 +21,10 @@ class UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredAp
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdGetResponse
+     * @return UserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdGetResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdGetResponse {
-        return new UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdGetResponse();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdGetResponse {
+        return new UserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdGetResponse();
     }
 
     /**
@@ -34,19 +34,19 @@ class UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredAp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([UsageProfilingPoint::class, 'createFromDiscriminatorValue'])),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the value property value. The value property
-     * @return array<UsageProfilingPoint>|null
+     * @return array<User>|null
     */
     public function getValue(): ?array {
         $val = $this->getBackingStore()->get('value');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UsageProfilingPoint::class);
-            /** @var array<UsageProfilingPoint>|null $val */
+            TypeUtils::validateCollectionValues($val, User::class);
+            /** @var array<User>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'value'");
@@ -63,7 +63,7 @@ class UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredAp
 
     /**
      * Sets the value property value. The value property
-     * @param array<UsageProfilingPoint>|null $value Value to set for the value property.
+     * @param array<User>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

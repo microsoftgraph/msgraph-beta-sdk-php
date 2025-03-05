@@ -1,14 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentId;
+namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function userReport
+ * Invoke function usageProfiling
 */
-class MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilderGetQueryParameters 
+class MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilderGetQueryParameters 
 {
+    /**
+     * @var string|null $applicationId Usage: applicationId='@applicationId'
+    */
+    public ?string $applicationId = null;
+    
     /**
      * @QueryParameter("%24count")
      * @var bool|null $count Include count of items
@@ -45,7 +50,8 @@ class MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimedisco
     public ?int $top = null;
     
     /**
-     * Instantiates a new MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilderGetQueryParameters and sets the default values.
+     * @param string|null $applicationId Usage: applicationId='@applicationId'
      * @param bool|null $count Include count of items
      * @param string|null $discoveredApplicationSegmentId Usage: discoveredApplicationSegmentId='@discoveredApplicationSegmentId'
      * @param string|null $filter Filter items by property values
@@ -53,7 +59,8 @@ class MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimedisco
      * @param int|null $skip Skip the first n items
      * @param int|null $top Show only the first n items
     */
-    public function __construct(?bool $count = null, ?string $discoveredApplicationSegmentId = null, ?string $filter = null, ?string $search = null, ?int $skip = null, ?int $top = null) {
+    public function __construct(?string $applicationId = null, ?bool $count = null, ?string $discoveredApplicationSegmentId = null, ?string $filter = null, ?string $search = null, ?int $skip = null, ?int $top = null) {
+        $this->applicationId = $applicationId;
         $this->count = $count;
         $this->discoveredApplicationSegmentId = $discoveredApplicationSegmentId;
         $this->filter = $filter;

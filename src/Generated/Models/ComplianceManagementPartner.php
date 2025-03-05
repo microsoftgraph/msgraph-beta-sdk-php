@@ -80,6 +80,8 @@ class ComplianceManagementPartner extends Entity implements Parsable
             'iosEnrollmentAssignments' => fn(ParseNode $n) => $o->setIosEnrollmentAssignments($n->getCollectionOfObjectValues([ComplianceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'])),
             'iosOnboarded' => fn(ParseNode $n) => $o->setIosOnboarded($n->getBooleanValue()),
             'lastHeartbeatDateTime' => fn(ParseNode $n) => $o->setLastHeartbeatDateTime($n->getDateTimeValue()),
+            'linuxEnrollmentAssignments' => fn(ParseNode $n) => $o->setLinuxEnrollmentAssignments($n->getCollectionOfObjectValues([ComplianceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'])),
+            'linuxOnboarded' => fn(ParseNode $n) => $o->setLinuxOnboarded($n->getBooleanValue()),
             'macOsEnrollmentAssignments' => fn(ParseNode $n) => $o->setMacOsEnrollmentAssignments($n->getCollectionOfObjectValues([ComplianceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'])),
             'macOsOnboarded' => fn(ParseNode $n) => $o->setMacOsOnboarded($n->getBooleanValue()),
             'partnerState' => fn(ParseNode $n) => $o->setPartnerState($n->getEnumValue(DeviceManagementPartnerTenantState::class)),
@@ -122,6 +124,32 @@ class ComplianceManagementPartner extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastHeartbeatDateTime'");
+    }
+
+    /**
+     * Gets the linuxEnrollmentAssignments property value. User groups which enroll Linux devices through partner.
+     * @return array<ComplianceManagementPartnerAssignment>|null
+    */
+    public function getLinuxEnrollmentAssignments(): ?array {
+        $val = $this->getBackingStore()->get('linuxEnrollmentAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ComplianceManagementPartnerAssignment::class);
+            /** @var array<ComplianceManagementPartnerAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'linuxEnrollmentAssignments'");
+    }
+
+    /**
+     * Gets the linuxOnboarded property value. Partner onboarded for Linux devices.
+     * @return bool|null
+    */
+    public function getLinuxOnboarded(): ?bool {
+        $val = $this->getBackingStore()->get('linuxOnboarded');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'linuxOnboarded'");
     }
 
     /**
@@ -174,6 +202,8 @@ class ComplianceManagementPartner extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('iosEnrollmentAssignments', $this->getIosEnrollmentAssignments());
         $writer->writeBooleanValue('iosOnboarded', $this->getIosOnboarded());
         $writer->writeDateTimeValue('lastHeartbeatDateTime', $this->getLastHeartbeatDateTime());
+        $writer->writeCollectionOfObjectValues('linuxEnrollmentAssignments', $this->getLinuxEnrollmentAssignments());
+        $writer->writeBooleanValue('linuxOnboarded', $this->getLinuxOnboarded());
         $writer->writeCollectionOfObjectValues('macOsEnrollmentAssignments', $this->getMacOsEnrollmentAssignments());
         $writer->writeBooleanValue('macOsOnboarded', $this->getMacOsOnboarded());
         $writer->writeEnumValue('partnerState', $this->getPartnerState());
@@ -225,6 +255,22 @@ class ComplianceManagementPartner extends Entity implements Parsable
     */
     public function setLastHeartbeatDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastHeartbeatDateTime', $value);
+    }
+
+    /**
+     * Sets the linuxEnrollmentAssignments property value. User groups which enroll Linux devices through partner.
+     * @param array<ComplianceManagementPartnerAssignment>|null $value Value to set for the linuxEnrollmentAssignments property.
+    */
+    public function setLinuxEnrollmentAssignments(?array $value): void {
+        $this->getBackingStore()->set('linuxEnrollmentAssignments', $value);
+    }
+
+    /**
+     * Sets the linuxOnboarded property value. Partner onboarded for Linux devices.
+     * @param bool|null $value Value to set for the linuxOnboarded property.
+    */
+    public function setLinuxOnboarded(?bool $value): void {
+        $this->getBackingStore()->set('linuxOnboarded', $value);
     }
 
     /**
