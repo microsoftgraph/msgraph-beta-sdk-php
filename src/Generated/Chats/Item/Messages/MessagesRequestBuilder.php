@@ -6,7 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Chats\Item\Messages\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\Messages\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Chats\Item\Messages\ForwardToChat\ForwardToChatRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\Messages\Item\ChatMessageItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Chats\Item\Messages\ReplyWithQuote\ReplyWithQuoteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ChatMessage;
 use Microsoft\Graph\Beta\Generated\Models\ChatMessageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -32,6 +34,20 @@ class MessagesRequestBuilder extends BaseRequestBuilder
     */
     public function delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the forwardToChat method.
+    */
+    public function forwardToChat(): ForwardToChatRequestBuilder {
+        return new ForwardToChatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the replyWithQuote method.
+    */
+    public function replyWithQuote(): ReplyWithQuoteRequestBuilder {
+        return new ReplyWithQuoteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -75,12 +91,12 @@ class MessagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send a new chatMessage in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before creating a chat message.
+     * Send a new chatMessage in the specified channel or a chat.
      * @param ChatMessage $body The request body
      * @param MessagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChatMessage|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/chat-post-messages?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-beta Find more info here
     */
     public function post(ChatMessage $body, ?MessagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -112,7 +128,7 @@ class MessagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Send a new chatMessage in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before creating a chat message.
+     * Send a new chatMessage in the specified channel or a chat.
      * @param ChatMessage $body The request body
      * @param MessagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
