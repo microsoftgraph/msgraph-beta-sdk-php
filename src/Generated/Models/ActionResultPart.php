@@ -36,6 +36,7 @@ class ActionResultPart implements AdditionalDataHolder, BackedModel, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.aadUserConversationMemberResult': return new AadUserConversationMemberResult();
+                case '#microsoft.graph.forwardToChatResult': return new ForwardToChatResult();
             }
         }
         return new ActionResultPart();

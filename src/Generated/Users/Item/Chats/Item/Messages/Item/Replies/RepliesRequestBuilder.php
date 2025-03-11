@@ -9,7 +9,9 @@ use Microsoft\Graph\Beta\Generated\Models\ChatMessageCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\Replies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\Replies\Delta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\Replies\ForwardToChat\ForwardToChatRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\Replies\Item\ChatMessageItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\Replies\ReplyWithQuote\ReplyWithQuoteRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -32,6 +34,20 @@ class RepliesRequestBuilder extends BaseRequestBuilder
     */
     public function delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the forwardToChat method.
+    */
+    public function forwardToChat(): ForwardToChatRequestBuilder {
+        return new ForwardToChatRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the replyWithQuote method.
+    */
+    public function replyWithQuote(): ReplyWithQuoteRequestBuilder {
+        return new ReplyWithQuoteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

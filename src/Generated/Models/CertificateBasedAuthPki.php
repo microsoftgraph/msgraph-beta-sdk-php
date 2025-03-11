@@ -42,7 +42,7 @@ class CertificateBasedAuthPki extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name of the object.
+     * Gets the displayName property value. The name of the object. Maximum length is 256 characters.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -126,7 +126,7 @@ class CertificateBasedAuthPki extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the object.
+     * Sets the displayName property value. The name of the object. Maximum length is 256 characters.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

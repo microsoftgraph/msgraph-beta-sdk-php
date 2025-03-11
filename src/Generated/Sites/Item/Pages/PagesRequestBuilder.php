@@ -75,12 +75,12 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new newsLinkPage in the site pages list of a site.
+     * Create a new sitePage in the site pages list in a site.
      * @param BaseSitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BaseSitePage|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/newslinkpage-create?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/sitepage-create?view=graph-rest-beta Find more info here
     */
     public function post(BaseSitePage $body, ?PagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -112,7 +112,7 @@ class PagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new newsLinkPage in the site pages list of a site.
+     * Create a new sitePage in the site pages list in a site.
      * @param BaseSitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
