@@ -149,7 +149,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the size property value. The size of the file prior to encryption. To be deprecated, please use sizeInBytes property instead.
+     * Gets the size property value. Indicates the original size of the file, in bytes.
      * @return int|null
     */
     public function getSize(): ?int {
@@ -161,7 +161,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeEncrypted property value. The size of the file after encryption. To be deprecated, please use sizeEncryptedInBytes property instead.
+     * Gets the sizeEncrypted property value. Indicates the size of the file after encryption, in bytes.
      * @return int|null
     */
     public function getSizeEncrypted(): ?int {
@@ -173,7 +173,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. Valid values 0 to 9.22337203685478E+18
+     * Gets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. To be deprecated in February 2025, please use SizeEncrypted property instead. Valid values 0 to 9.22337203685478E+18
      * @return int|null
     */
     public function getSizeEncryptedInBytes(): ?int {
@@ -185,7 +185,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeInBytes property value. Indicates the original size of the file, in bytes. Valid values 0 to 9.22337203685478E+18
+     * Gets the sizeInBytes property value. Indicates the original size of the file, in bytes. To be deprecated in February 2025, please use Size property instead. Valid values 0 to 9.22337203685478E+18
      * @return int|null
     */
     public function getSizeInBytes(): ?int {
@@ -290,7 +290,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the size property value. The size of the file prior to encryption. To be deprecated, please use sizeInBytes property instead.
+     * Sets the size property value. Indicates the original size of the file, in bytes.
      * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {
@@ -298,7 +298,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeEncrypted property value. The size of the file after encryption. To be deprecated, please use sizeEncryptedInBytes property instead.
+     * Sets the sizeEncrypted property value. Indicates the size of the file after encryption, in bytes.
      * @param int|null $value Value to set for the sizeEncrypted property.
     */
     public function setSizeEncrypted(?int $value): void {
@@ -306,7 +306,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. Valid values 0 to 9.22337203685478E+18
+     * Sets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. To be deprecated in February 2025, please use SizeEncrypted property instead. Valid values 0 to 9.22337203685478E+18
      * @param int|null $value Value to set for the sizeEncryptedInBytes property.
     */
     public function setSizeEncryptedInBytes(?int $value): void {
@@ -314,7 +314,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeInBytes property value. Indicates the original size of the file, in bytes. Valid values 0 to 9.22337203685478E+18
+     * Sets the sizeInBytes property value. Indicates the original size of the file, in bytes. To be deprecated in February 2025, please use Size property instead. Valid values 0 to 9.22337203685478E+18
      * @param int|null $value Value to set for the sizeInBytes property.
     */
     public function setSizeInBytes(?int $value): void {

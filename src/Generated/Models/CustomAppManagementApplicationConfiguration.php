@@ -48,6 +48,18 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     }
 
     /**
+     * Gets the audiences property value. Property to restrict creation or update of apps based on their target signInAudience types.
+     * @return AudiencesConfiguration|null
+    */
+    public function getAudiences(): ?AudiencesConfiguration {
+        $val = $this->getBackingStore()->get('audiences');
+        if (is_null($val) || $val instanceof AudiencesConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'audiences'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -62,13 +74,14 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'audiences' => fn(ParseNode $n) => $o->setAudiences($n->getObjectValue([AudiencesConfiguration::class, 'createFromDiscriminatorValue'])),
             'identifierUris' => fn(ParseNode $n) => $o->setIdentifierUris($n->getObjectValue([IdentifierUriConfiguration::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the identifierUris property value. Configuration for identifierUris restrictions
+     * Gets the identifierUris property value. Configuration for identifierUris restrictions.
      * @return IdentifierUriConfiguration|null
     */
     public function getIdentifierUris(): ?IdentifierUriConfiguration {
@@ -96,6 +109,7 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('audiences', $this->getAudiences());
         $writer->writeObjectValue('identifierUris', $this->getIdentifierUris());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -110,6 +124,14 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     }
 
     /**
+     * Sets the audiences property value. Property to restrict creation or update of apps based on their target signInAudience types.
+     * @param AudiencesConfiguration|null $value Value to set for the audiences property.
+    */
+    public function setAudiences(?AudiencesConfiguration $value): void {
+        $this->getBackingStore()->set('audiences', $value);
+    }
+
+    /**
      * Sets the BackingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -118,7 +140,7 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     }
 
     /**
-     * Sets the identifierUris property value. Configuration for identifierUris restrictions
+     * Sets the identifierUris property value. Configuration for identifierUris restrictions.
      * @param IdentifierUriConfiguration|null $value Value to set for the identifierUris property.
     */
     public function setIdentifierUris(?IdentifierUriConfiguration $value): void {

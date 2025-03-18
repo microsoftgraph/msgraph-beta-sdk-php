@@ -30,11 +30,12 @@ class ForwardToChatRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action forwardToChat
+     * Forward a chat message, a channel message, or a channel message reply to a chat.
      * @param ForwardToChatPostRequestBody $body The request body
      * @param ForwardToChatRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardToChatPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/chatmessage-forwardtochat?view=graph-rest-beta Find more info here
     */
     public function post(ForwardToChatPostRequestBody $body, ?ForwardToChatRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ForwardToChatRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action forwardToChat
+     * Forward a chat message, a channel message, or a channel message reply to a chat.
      * @param ForwardToChatPostRequestBody $body The request body
      * @param ForwardToChatRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

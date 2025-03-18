@@ -26,7 +26,7 @@ class CustomAppManagementConfiguration extends AppManagementConfiguration implem
     }
 
     /**
-     * Gets the applicationRestrictions property value. Restrictions applicable only to application objects that the policy applies to.
+     * Gets the applicationRestrictions property value. Restrictions that are applicable only to application objects to which the policy is attached.
      * @return CustomAppManagementApplicationConfiguration|null
     */
     public function getApplicationRestrictions(): ?CustomAppManagementApplicationConfiguration {
@@ -58,7 +58,7 @@ class CustomAppManagementConfiguration extends AppManagementConfiguration implem
     }
 
     /**
-     * Sets the applicationRestrictions property value. Restrictions applicable only to application objects that the policy applies to.
+     * Sets the applicationRestrictions property value. Restrictions that are applicable only to application objects to which the policy is attached.
      * @param CustomAppManagementApplicationConfiguration|null $value Value to set for the applicationRestrictions property.
     */
     public function setApplicationRestrictions(?CustomAppManagementApplicationConfiguration $value): void {
