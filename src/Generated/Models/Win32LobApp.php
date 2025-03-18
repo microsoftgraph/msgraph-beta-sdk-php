@@ -37,7 +37,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the allowAvailableUninstall property value. When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
+     * Gets the allowAvailableUninstall property value. Indicates whether the uninstall is supported from the company portal for the Win32 app with an available assignment. When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
      * @return bool|null
     */
     public function getAllowAvailableUninstall(): ?bool {
@@ -61,7 +61,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the detectionRules property value. The detection rules to detect Win32 Line of Business (LoB) app.
+     * Gets the detectionRules property value. Indicates the detection rules to detect Win32 Line of Business (LoB) app. Possible values are Win32LobAppPowerShellScriptDetection, Win32LobAppRegistryDetection, Win32LobAppFileSystemDetection, Win32LobAppProductCodeDetection.
      * @return array<Win32LobAppDetection>|null
     */
     public function getDetectionRules(): ?array {
@@ -75,7 +75,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the displayVersion property value. The version displayed in the UX for this app.
+     * Gets the displayVersion property value. Indicates the version displayed in the UX for this app. Used to set the version of the app. Example: 1.0.3.215.
      * @return string|null
     */
     public function getDisplayVersion(): ?string {
@@ -115,7 +115,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the installCommandLine property value. The command line to install this app
+     * Gets the installCommandLine property value. Indicates the command line to install this app. Used to install the Win32 app. Example: msiexec /i 'Orca.Msi' /qn.
      * @return string|null
     */
     public function getInstallCommandLine(): ?string {
@@ -127,7 +127,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the installExperience property value. The install experience for this app.
+     * Gets the installExperience property value. Indicates the install experience for this app.
      * @return Win32LobAppInstallExperience|null
     */
     public function getInstallExperience(): ?Win32LobAppInstallExperience {
@@ -139,7 +139,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the minimumCpuSpeedInMHz property value. The value for the minimum CPU speed which is required to install this app.
+     * Gets the minimumCpuSpeedInMHz property value. Indicates the value for the minimum CPU speed which is required to install this app. Allowed range from 0 to clock speed from WMI helper.
      * @return int|null
     */
     public function getMinimumCpuSpeedInMHz(): ?int {
@@ -151,7 +151,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the minimumFreeDiskSpaceInMB property value. The value for the minimum free disk space which is required to install this app.
+     * Gets the minimumFreeDiskSpaceInMB property value. Indicates the value for the minimum free disk space which is required to install this app. Allowed range from 0 to driver's maximum available free space.
      * @return int|null
     */
     public function getMinimumFreeDiskSpaceInMB(): ?int {
@@ -163,7 +163,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the minimumMemoryInMB property value. The value for the minimum physical memory which is required to install this app.
+     * Gets the minimumMemoryInMB property value. Indicates the value for the minimum physical memory which is required to install this app. Allowed range from 0 to total physical memory from WMI helper.
      * @return int|null
     */
     public function getMinimumMemoryInMB(): ?int {
@@ -175,7 +175,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the minimumNumberOfProcessors property value. The value for the minimum number of processors which is required to install this app.
+     * Gets the minimumNumberOfProcessors property value. Indicates the value for the minimum number of processors which is required to install this app. Minimum value is 0.
      * @return int|null
     */
     public function getMinimumNumberOfProcessors(): ?int {
@@ -187,7 +187,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * Gets the minimumSupportedOperatingSystem property value. Indicates the value for the minimum applicable operating system.
      * @return WindowsMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?WindowsMinimumOperatingSystem {
@@ -199,7 +199,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the minimumSupportedWindowsRelease property value. The value for the minimum supported windows release.
+     * Gets the minimumSupportedWindowsRelease property value. Indicates the value for the minimum supported windows release. Example: Windows11_23H2.
      * @return string|null
     */
     public function getMinimumSupportedWindowsRelease(): ?string {
@@ -211,7 +211,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the msiInformation property value. The MSI details if this Win32 app is an MSI app.
+     * Gets the msiInformation property value. Indicates the MSI details if this Win32 app is an MSI app.
      * @return Win32LobAppMsiInformation|null
     */
     public function getMsiInformation(): ?Win32LobAppMsiInformation {
@@ -223,7 +223,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the requirementRules property value. The requirement rules to detect Win32 Line of Business (LoB) app.
+     * Gets the requirementRules property value. Indicates the requirement rules to detect Win32 Line of Business (LoB) app. Possible values are: Win32LobAppFileSystemRequirement, Win32LobAppPowerShellScriptRequirement, Win32LobAppRegistryRequirement.
      * @return array<Win32LobAppRequirement>|null
     */
     public function getRequirementRules(): ?array {
@@ -237,7 +237,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the returnCodes property value. The return codes for post installation behavior.
+     * Gets the returnCodes property value. Indicates the return codes for post installation behavior.
      * @return array<Win32LobAppReturnCode>|null
     */
     public function getReturnCodes(): ?array {
@@ -251,7 +251,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the rules property value. The detection and requirement rules for this app.
+     * Gets the rules property value. Indicates the detection and requirement rules for this app. Possible values are: Win32LobAppFileSystemRule, Win32LobAppPowerShellScriptRule, Win32LobAppProductCodeRule, Win32LobAppRegistryRule.
      * @return array<Win32LobAppRule>|null
     */
     public function getRules(): ?array {
@@ -265,7 +265,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the setupFilePath property value. The relative path of the setup file in the encrypted Win32LobApp package.
+     * Gets the setupFilePath property value. Indicates the relative path of the setup file in the encrypted Win32LobApp package. Example: Intel-SA-00075 Detection and Mitigation Tool.msi.
      * @return string|null
     */
     public function getSetupFilePath(): ?string {
@@ -277,7 +277,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the uninstallCommandLine property value. The command line to uninstall this app
+     * Gets the uninstallCommandLine property value. Indicates the command line to uninstall this app. Used to uninstall the app. Example: msiexec /x '{85F4CBCB-9BBC-4B50-A7D8-E1106771498D}' /qn.
      * @return string|null
     */
     public function getUninstallCommandLine(): ?string {
@@ -315,7 +315,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the allowAvailableUninstall property value. When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
+     * Sets the allowAvailableUninstall property value. Indicates whether the uninstall is supported from the company portal for the Win32 app with an available assignment. When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
      * @param bool|null $value Value to set for the allowAvailableUninstall property.
     */
     public function setAllowAvailableUninstall(?bool $value): void {
@@ -331,7 +331,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the detectionRules property value. The detection rules to detect Win32 Line of Business (LoB) app.
+     * Sets the detectionRules property value. Indicates the detection rules to detect Win32 Line of Business (LoB) app. Possible values are Win32LobAppPowerShellScriptDetection, Win32LobAppRegistryDetection, Win32LobAppFileSystemDetection, Win32LobAppProductCodeDetection.
      * @param array<Win32LobAppDetection>|null $value Value to set for the detectionRules property.
     */
     public function setDetectionRules(?array $value): void {
@@ -339,7 +339,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the displayVersion property value. The version displayed in the UX for this app.
+     * Sets the displayVersion property value. Indicates the version displayed in the UX for this app. Used to set the version of the app. Example: 1.0.3.215.
      * @param string|null $value Value to set for the displayVersion property.
     */
     public function setDisplayVersion(?string $value): void {
@@ -347,7 +347,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the installCommandLine property value. The command line to install this app
+     * Sets the installCommandLine property value. Indicates the command line to install this app. Used to install the Win32 app. Example: msiexec /i 'Orca.Msi' /qn.
      * @param string|null $value Value to set for the installCommandLine property.
     */
     public function setInstallCommandLine(?string $value): void {
@@ -355,7 +355,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the installExperience property value. The install experience for this app.
+     * Sets the installExperience property value. Indicates the install experience for this app.
      * @param Win32LobAppInstallExperience|null $value Value to set for the installExperience property.
     */
     public function setInstallExperience(?Win32LobAppInstallExperience $value): void {
@@ -363,7 +363,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the minimumCpuSpeedInMHz property value. The value for the minimum CPU speed which is required to install this app.
+     * Sets the minimumCpuSpeedInMHz property value. Indicates the value for the minimum CPU speed which is required to install this app. Allowed range from 0 to clock speed from WMI helper.
      * @param int|null $value Value to set for the minimumCpuSpeedInMHz property.
     */
     public function setMinimumCpuSpeedInMHz(?int $value): void {
@@ -371,7 +371,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the minimumFreeDiskSpaceInMB property value. The value for the minimum free disk space which is required to install this app.
+     * Sets the minimumFreeDiskSpaceInMB property value. Indicates the value for the minimum free disk space which is required to install this app. Allowed range from 0 to driver's maximum available free space.
      * @param int|null $value Value to set for the minimumFreeDiskSpaceInMB property.
     */
     public function setMinimumFreeDiskSpaceInMB(?int $value): void {
@@ -379,7 +379,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the minimumMemoryInMB property value. The value for the minimum physical memory which is required to install this app.
+     * Sets the minimumMemoryInMB property value. Indicates the value for the minimum physical memory which is required to install this app. Allowed range from 0 to total physical memory from WMI helper.
      * @param int|null $value Value to set for the minimumMemoryInMB property.
     */
     public function setMinimumMemoryInMB(?int $value): void {
@@ -387,7 +387,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the minimumNumberOfProcessors property value. The value for the minimum number of processors which is required to install this app.
+     * Sets the minimumNumberOfProcessors property value. Indicates the value for the minimum number of processors which is required to install this app. Minimum value is 0.
      * @param int|null $value Value to set for the minimumNumberOfProcessors property.
     */
     public function setMinimumNumberOfProcessors(?int $value): void {
@@ -395,7 +395,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * Sets the minimumSupportedOperatingSystem property value. Indicates the value for the minimum applicable operating system.
      * @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
@@ -403,7 +403,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the minimumSupportedWindowsRelease property value. The value for the minimum supported windows release.
+     * Sets the minimumSupportedWindowsRelease property value. Indicates the value for the minimum supported windows release. Example: Windows11_23H2.
      * @param string|null $value Value to set for the minimumSupportedWindowsRelease property.
     */
     public function setMinimumSupportedWindowsRelease(?string $value): void {
@@ -411,7 +411,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the msiInformation property value. The MSI details if this Win32 app is an MSI app.
+     * Sets the msiInformation property value. Indicates the MSI details if this Win32 app is an MSI app.
      * @param Win32LobAppMsiInformation|null $value Value to set for the msiInformation property.
     */
     public function setMsiInformation(?Win32LobAppMsiInformation $value): void {
@@ -419,7 +419,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the requirementRules property value. The requirement rules to detect Win32 Line of Business (LoB) app.
+     * Sets the requirementRules property value. Indicates the requirement rules to detect Win32 Line of Business (LoB) app. Possible values are: Win32LobAppFileSystemRequirement, Win32LobAppPowerShellScriptRequirement, Win32LobAppRegistryRequirement.
      * @param array<Win32LobAppRequirement>|null $value Value to set for the requirementRules property.
     */
     public function setRequirementRules(?array $value): void {
@@ -427,7 +427,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the returnCodes property value. The return codes for post installation behavior.
+     * Sets the returnCodes property value. Indicates the return codes for post installation behavior.
      * @param array<Win32LobAppReturnCode>|null $value Value to set for the returnCodes property.
     */
     public function setReturnCodes(?array $value): void {
@@ -435,7 +435,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the rules property value. The detection and requirement rules for this app.
+     * Sets the rules property value. Indicates the detection and requirement rules for this app. Possible values are: Win32LobAppFileSystemRule, Win32LobAppPowerShellScriptRule, Win32LobAppProductCodeRule, Win32LobAppRegistryRule.
      * @param array<Win32LobAppRule>|null $value Value to set for the rules property.
     */
     public function setRules(?array $value): void {
@@ -443,7 +443,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the setupFilePath property value. The relative path of the setup file in the encrypted Win32LobApp package.
+     * Sets the setupFilePath property value. Indicates the relative path of the setup file in the encrypted Win32LobApp package. Example: Intel-SA-00075 Detection and Mitigation Tool.msi.
      * @param string|null $value Value to set for the setupFilePath property.
     */
     public function setSetupFilePath(?string $value): void {
@@ -451,7 +451,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the uninstallCommandLine property value. The command line to uninstall this app
+     * Sets the uninstallCommandLine property value. Indicates the command line to uninstall this app. Used to uninstall the app. Example: msiexec /x '{85F4CBCB-9BBC-4B50-A7D8-E1106771498D}' /qn.
      * @param string|null $value Value to set for the uninstallCommandLine property.
     */
     public function setUninstallCommandLine(?string $value): void {

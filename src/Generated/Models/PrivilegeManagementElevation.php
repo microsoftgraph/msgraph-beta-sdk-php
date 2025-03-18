@@ -29,7 +29,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificatePayload property value. The certificate payload of the application. This is computed by hashing the certificate information on the client. Example: `32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a50`
+     * Gets the certificatePayload property value. The certificate payload of the application. This is computed by hashing the certificate information on the client. Example: 32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a50
      * @return string|null
     */
     public function getCertificatePayload(): ?string {
@@ -41,7 +41,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the companyName property value. The company name of the application. This value is set by the creator of the application. Example: `Microsoft Corporation`
+     * Gets the companyName property value. The company name of the application. This value is set by the creator of the application. Example: Microsoft Corporation
      * @return string|null
     */
     public function getCompanyName(): ?string {
@@ -53,7 +53,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceId property value. The Intune deviceId. Unique identifier for the managed device. Example: `92ce5047-9553-4731-817f-9b401a999a1b`
+     * Gets the deviceId property value. The Intune deviceId. Unique identifier for the managed device. Example: 92ce5047-9553-4731-817f-9b401a999a1b
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -65,7 +65,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceName property value. The name associated with the device in the intune database. Example: `JOHNDOE-LAPTOP`.
+     * Gets the deviceName property value. The name associated with the device in the intune database. Example: JOHNDOE-LAPTOP.
      * @return string|null
     */
     public function getDeviceName(): ?string {
@@ -89,7 +89,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventDateTime property value. The date and time when the application was elevated. Example:`2014-01-01T00:00:00Z`
+     * Gets the eventDateTime property value. The date and time when the application was elevated. Example:2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -133,7 +133,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the fileDescription property value. The file description of the application. This value is set by the creator of the application. Example: `Editor of multiple coding languages.`
+     * Gets the fileDescription property value. The file description of the application. This value is set by the creator of the application. Example: Editor of multiple coding languages.
      * @return string|null
     */
     public function getFileDescription(): ?string {
@@ -145,7 +145,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the filePath property value. The full file path of the application including the filename and file extension. Example: `C:/Program Files/vscode.exe`
+     * Gets the filePath property value. The full file path of the application including the filename and file extension. Example: C:/Program Files/vscode.exe
      * @return string|null
     */
     public function getFilePath(): ?string {
@@ -157,7 +157,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the fileVersion property value. The version of the application. This value is set by the creator of the application. Example: `6.2211.1035.1000`
+     * Gets the fileVersion property value. The version of the application. This value is set by the creator of the application. Example: 6.2211.1035.1000
      * @return string|null
     */
     public function getFileVersion(): ?string {
@@ -169,7 +169,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the hash property value. The sha256 hash of the application. Example: `32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a57`
+     * Gets the hash property value. The sha256 hash of the application. Example: 32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a57
      * @return string|null
     */
     public function getHash(): ?string {
@@ -181,7 +181,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the internalName property value. The internal name of the application. This value is set by the creator of the application. Example: `VS code`
+     * Gets the internalName property value. The internal name of the application. This value is set by the creator of the application. Example: VS code
      * @return string|null
     */
     public function getInternalName(): ?string {
@@ -193,7 +193,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the justification property value. The justification to elevate the application. This is an input by the user when the privilegeManagementElevationType is of type userConfirmedElevation or support approved elevation. This will be null in all other scenarios. The length is capped at 256 char, enforced on the client side. Example: `To install debug tool.`.
+     * Gets the justification property value. The justification to elevate the application. This is an input by the user when the privilegeManagementElevationType is of type userConfirmedElevation or support approved elevation. This will be null in all other scenarios. The length is capped at 256 char, enforced on the client side. Example: To install debug tool..
      * @return string|null
     */
     public function getJustification(): ?string {
@@ -253,7 +253,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the productName property value. The product name of the application. This value is set by the creator of the application. Example: `Visual Studio`
+     * Gets the productName property value. The product name of the application. This value is set by the creator of the application. Example: Visual Studio
      * @return string|null
     */
     public function getProductName(): ?string {
@@ -265,7 +265,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the result property value. The result of the elevation action with 0 being success, and everything else being exit code if the elevation was unsuccessful. The value will always be 0 on all unmanaged elevation. Example: `0`. Valid values 0 to 2147483647
+     * Gets the result property value. The result of the elevation action with 0 being success, and everything else being exit code if the elevation was unsuccessful. The value will always be 0 on all unmanaged elevation. Example: 0. Valid values 0 to 2147483647
      * @return int|null
     */
     public function getResult(): ?int {
@@ -301,7 +301,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Gets the upn property value. The User Principal Name of the user who performed the elevation. Example: `john@domain.com`
+     * Gets the upn property value. The User Principal Name of the user who performed the elevation. Example: john@domain.com
      * @return string|null
     */
     public function getUpn(): ?string {
@@ -355,7 +355,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificatePayload property value. The certificate payload of the application. This is computed by hashing the certificate information on the client. Example: `32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a50`
+     * Sets the certificatePayload property value. The certificate payload of the application. This is computed by hashing the certificate information on the client. Example: 32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a50
      * @param string|null $value Value to set for the certificatePayload property.
     */
     public function setCertificatePayload(?string $value): void {
@@ -363,7 +363,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the companyName property value. The company name of the application. This value is set by the creator of the application. Example: `Microsoft Corporation`
+     * Sets the companyName property value. The company name of the application. This value is set by the creator of the application. Example: Microsoft Corporation
      * @param string|null $value Value to set for the companyName property.
     */
     public function setCompanyName(?string $value): void {
@@ -371,7 +371,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceId property value. The Intune deviceId. Unique identifier for the managed device. Example: `92ce5047-9553-4731-817f-9b401a999a1b`
+     * Sets the deviceId property value. The Intune deviceId. Unique identifier for the managed device. Example: 92ce5047-9553-4731-817f-9b401a999a1b
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -379,7 +379,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceName property value. The name associated with the device in the intune database. Example: `JOHNDOE-LAPTOP`.
+     * Sets the deviceName property value. The name associated with the device in the intune database. Example: JOHNDOE-LAPTOP.
      * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
@@ -395,7 +395,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventDateTime property value. The date and time when the application was elevated. Example:`2014-01-01T00:00:00Z`
+     * Sets the eventDateTime property value. The date and time when the application was elevated. Example:2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -403,7 +403,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the fileDescription property value. The file description of the application. This value is set by the creator of the application. Example: `Editor of multiple coding languages.`
+     * Sets the fileDescription property value. The file description of the application. This value is set by the creator of the application. Example: Editor of multiple coding languages.
      * @param string|null $value Value to set for the fileDescription property.
     */
     public function setFileDescription(?string $value): void {
@@ -411,7 +411,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the filePath property value. The full file path of the application including the filename and file extension. Example: `C:/Program Files/vscode.exe`
+     * Sets the filePath property value. The full file path of the application including the filename and file extension. Example: C:/Program Files/vscode.exe
      * @param string|null $value Value to set for the filePath property.
     */
     public function setFilePath(?string $value): void {
@@ -419,7 +419,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the fileVersion property value. The version of the application. This value is set by the creator of the application. Example: `6.2211.1035.1000`
+     * Sets the fileVersion property value. The version of the application. This value is set by the creator of the application. Example: 6.2211.1035.1000
      * @param string|null $value Value to set for the fileVersion property.
     */
     public function setFileVersion(?string $value): void {
@@ -427,7 +427,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the hash property value. The sha256 hash of the application. Example: `32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a57`
+     * Sets the hash property value. The sha256 hash of the application. Example: 32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a57
      * @param string|null $value Value to set for the hash property.
     */
     public function setHash(?string $value): void {
@@ -435,7 +435,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the internalName property value. The internal name of the application. This value is set by the creator of the application. Example: `VS code`
+     * Sets the internalName property value. The internal name of the application. This value is set by the creator of the application. Example: VS code
      * @param string|null $value Value to set for the internalName property.
     */
     public function setInternalName(?string $value): void {
@@ -443,7 +443,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the justification property value. The justification to elevate the application. This is an input by the user when the privilegeManagementElevationType is of type userConfirmedElevation or support approved elevation. This will be null in all other scenarios. The length is capped at 256 char, enforced on the client side. Example: `To install debug tool.`.
+     * Sets the justification property value. The justification to elevate the application. This is an input by the user when the privilegeManagementElevationType is of type userConfirmedElevation or support approved elevation. This will be null in all other scenarios. The length is capped at 256 char, enforced on the client side. Example: To install debug tool..
      * @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value): void {
@@ -483,7 +483,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the productName property value. The product name of the application. This value is set by the creator of the application. Example: `Visual Studio`
+     * Sets the productName property value. The product name of the application. This value is set by the creator of the application. Example: Visual Studio
      * @param string|null $value Value to set for the productName property.
     */
     public function setProductName(?string $value): void {
@@ -491,7 +491,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the result property value. The result of the elevation action with 0 being success, and everything else being exit code if the elevation was unsuccessful. The value will always be 0 on all unmanaged elevation. Example: `0`. Valid values 0 to 2147483647
+     * Sets the result property value. The result of the elevation action with 0 being success, and everything else being exit code if the elevation was unsuccessful. The value will always be 0 on all unmanaged elevation. Example: 0. Valid values 0 to 2147483647
      * @param int|null $value Value to set for the result property.
     */
     public function setResult(?int $value): void {
@@ -515,7 +515,7 @@ class PrivilegeManagementElevation extends Entity implements Parsable
     }
 
     /**
-     * Sets the upn property value. The User Principal Name of the user who performed the elevation. Example: `john@domain.com`
+     * Sets the upn property value. The User Principal Name of the user who performed the elevation. Example: john@domain.com
      * @param string|null $value Value to set for the upn property.
     */
     public function setUpn(?string $value): void {

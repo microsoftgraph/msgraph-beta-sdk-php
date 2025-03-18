@@ -29,7 +29,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the androidForWorkRestriction property value. Android for work restrictions based on platform, platform operating system version, and device ownership
+     * Gets the androidForWorkRestriction property value. Indicates restrictions for Android For Work platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getAndroidForWorkRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -41,7 +41,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the androidRestriction property value. Android restrictions based on platform, platform operating system version, and device ownership
+     * Gets the androidRestriction property value. Indicates restrictions for Android platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getAndroidRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -73,7 +73,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the iosRestriction property value. Ios restrictions based on platform, platform operating system version, and device ownership
+     * Gets the iosRestriction property value. Indicates restrictions for IOS platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getIosRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -85,7 +85,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the macOSRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
+     * Gets the macOSRestriction property value. Indicates restrictions for MacOS platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getMacOSRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -97,7 +97,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the macRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
+     * Gets the macRestriction property value. Indicates restrictions for Mac platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getMacRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -133,7 +133,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the windowsHomeSkuRestriction property value. Windows Home Sku restrictions based on platform, platform operating system version, and device ownership
+     * Gets the windowsHomeSkuRestriction property value. Indicates restrictions for Windows HomeSku platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getWindowsHomeSkuRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -145,7 +145,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the windowsMobileRestriction property value. Windows mobile restrictions based on platform, platform operating system version, and device ownership
+     * Gets the windowsMobileRestriction property value. Indicates restrictions for Windows Mobile platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getWindowsMobileRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -157,7 +157,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Gets the windowsRestriction property value. Windows restrictions based on platform, platform operating system version, and device ownership
+     * Gets the windowsRestriction property value. Indicates restrictions for Windows platform.
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getWindowsRestriction(): ?DeviceEnrollmentPlatformRestriction {
@@ -187,7 +187,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the androidForWorkRestriction property value. Android for work restrictions based on platform, platform operating system version, and device ownership
+     * Sets the androidForWorkRestriction property value. Indicates restrictions for Android For Work platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the androidForWorkRestriction property.
     */
     public function setAndroidForWorkRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
@@ -195,7 +195,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the androidRestriction property value. Android restrictions based on platform, platform operating system version, and device ownership
+     * Sets the androidRestriction property value. Indicates restrictions for Android platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the androidRestriction property.
     */
     public function setAndroidRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
@@ -203,7 +203,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the iosRestriction property value. Ios restrictions based on platform, platform operating system version, and device ownership
+     * Sets the iosRestriction property value. Indicates restrictions for IOS platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the iosRestriction property.
     */
     public function setIosRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
@@ -211,7 +211,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the macOSRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
+     * Sets the macOSRestriction property value. Indicates restrictions for MacOS platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the macOSRestriction property.
     */
     public function setMacOSRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
@@ -219,7 +219,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the macRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
+     * Sets the macRestriction property value. Indicates restrictions for Mac platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the macRestriction property.
     */
     public function setMacRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
@@ -243,7 +243,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the windowsHomeSkuRestriction property value. Windows Home Sku restrictions based on platform, platform operating system version, and device ownership
+     * Sets the windowsHomeSkuRestriction property value. Indicates restrictions for Windows HomeSku platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsHomeSkuRestriction property.
     */
     public function setWindowsHomeSkuRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
@@ -251,7 +251,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the windowsMobileRestriction property value. Windows mobile restrictions based on platform, platform operating system version, and device ownership
+     * Sets the windowsMobileRestriction property value. Indicates restrictions for Windows Mobile platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsMobileRestriction property.
     */
     public function setWindowsMobileRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
@@ -259,7 +259,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
     }
 
     /**
-     * Sets the windowsRestriction property value. Windows restrictions based on platform, platform operating system version, and device ownership
+     * Sets the windowsRestriction property value. Indicates restrictions for Windows platform.
      * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsRestriction property.
     */
     public function setWindowsRestriction(?DeviceEnrollmentPlatformRestriction $value): void {

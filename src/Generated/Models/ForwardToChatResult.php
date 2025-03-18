@@ -38,7 +38,7 @@ class ForwardToChatResult extends ActionResultPart implements Parsable
     }
 
     /**
-     * Gets the forwardedMessageId property value. The forwardedMessageId property
+     * Gets the forwardedMessageId property value. The chatMessage ID generated after a message is successfully forwarded to the target chat ID.
      * @return string|null
     */
     public function getForwardedMessageId(): ?string {
@@ -50,7 +50,7 @@ class ForwardToChatResult extends ActionResultPart implements Parsable
     }
 
     /**
-     * Gets the targetChatId property value. The targetChatId property
+     * Gets the targetChatId property value. The target chat ID where the message was forwarded.
      * @return string|null
     */
     public function getTargetChatId(): ?string {
@@ -72,7 +72,7 @@ class ForwardToChatResult extends ActionResultPart implements Parsable
     }
 
     /**
-     * Sets the forwardedMessageId property value. The forwardedMessageId property
+     * Sets the forwardedMessageId property value. The chatMessage ID generated after a message is successfully forwarded to the target chat ID.
      * @param string|null $value Value to set for the forwardedMessageId property.
     */
     public function setForwardedMessageId(?string $value): void {
@@ -80,7 +80,7 @@ class ForwardToChatResult extends ActionResultPart implements Parsable
     }
 
     /**
-     * Sets the targetChatId property value. The targetChatId property
+     * Sets the targetChatId property value. The target chat ID where the message was forwarded.
      * @param string|null $value Value to set for the targetChatId property.
     */
     public function setTargetChatId(?string $value): void {

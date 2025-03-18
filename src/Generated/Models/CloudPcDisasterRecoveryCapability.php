@@ -83,7 +83,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the licenseType property value. The licenseType property
+     * Gets the licenseType property value. The disaster recovery license type that provides the capability.
      * @return CloudPcDisasterRecoveryLicenseType|null
     */
     public function getLicenseType(): ?CloudPcDisasterRecoveryLicenseType {
@@ -168,7 +168,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the licenseType property value. The licenseType property
+     * Sets the licenseType property value. The disaster recovery license type that provides the capability.
      * @param CloudPcDisasterRecoveryLicenseType|null $value Value to set for the licenseType property.
     */
     public function setLicenseType(?CloudPcDisasterRecoveryLicenseType $value): void {

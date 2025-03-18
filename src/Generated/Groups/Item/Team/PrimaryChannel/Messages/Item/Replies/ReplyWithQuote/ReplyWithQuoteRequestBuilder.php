@@ -31,11 +31,12 @@ class ReplyWithQuoteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action replyWithQuote
+     * Reply with quote to a single chat message or multiple chat messages in a chat.
      * @param ReplyWithQuotePostRequestBody $body The request body
      * @param ReplyWithQuoteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChatMessage|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/chatmessage-replywithquote?view=graph-rest-beta Find more info here
     */
     public function post(ReplyWithQuotePostRequestBody $body, ?ReplyWithQuoteRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class ReplyWithQuoteRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action replyWithQuote
+     * Reply with quote to a single chat message or multiple chat messages in a chat.
      * @param ReplyWithQuotePostRequestBody $body The request body
      * @param ReplyWithQuoteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

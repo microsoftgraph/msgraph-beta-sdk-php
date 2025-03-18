@@ -57,7 +57,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
-     * Gets the isExpeditable property value. Flag indicating if update qualifies for expedite
+     * Gets the isExpeditable property value. When TRUE, indicates that the quality updates qualify for expedition. When FALSE, indicates the quality updates do not quality for expedition. Default value is FALSE. Read-only
      * @return bool|null
     */
     public function getIsExpeditable(): ?bool {
@@ -69,7 +69,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
-     * Gets the kbArticleId property value. Knowledge base article id
+     * Gets the kbArticleId property value. Identifies the knowledge base article associated with the Windows quality update catalog item. Read-only
      * @return string|null
     */
     public function getKbArticleId(): ?string {
@@ -128,7 +128,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
-     * Sets the isExpeditable property value. Flag indicating if update qualifies for expedite
+     * Sets the isExpeditable property value. When TRUE, indicates that the quality updates qualify for expedition. When FALSE, indicates the quality updates do not quality for expedition. Default value is FALSE. Read-only
      * @param bool|null $value Value to set for the isExpeditable property.
     */
     public function setIsExpeditable(?bool $value): void {
@@ -136,7 +136,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
-     * Sets the kbArticleId property value. Knowledge base article id
+     * Sets the kbArticleId property value. Identifies the knowledge base article associated with the Windows quality update catalog item. Read-only
      * @param string|null $value Value to set for the kbArticleId property.
     */
     public function setKbArticleId(?string $value): void {
