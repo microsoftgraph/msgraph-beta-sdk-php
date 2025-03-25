@@ -21,6 +21,6 @@ final class GraphConstants
     const API_VERSION = "beta";
 
     // x-release-please-start-version
-    const SDK_VERSION = "2.33.0";
+    const SDK_VERSION = "2.34.0";
     // x-release-please-end
 }
