@@ -22,7 +22,7 @@ class GraphRequestAdapter extends BaseGraphRequestAdapter
      * @param AuthenticationProvider $authenticationProvider
      * @param Client|null $httpClient
      */
-    public function __construct(AuthenticationProvider $authenticationProvider, Client $httpClient = null)
+    public function __construct(AuthenticationProvider $authenticationProvider, ?Client $httpClient = null)
     {
         parent::__construct($this->getTelemetryConfig(), $authenticationProvider, null, null, $httpClient);
     }
