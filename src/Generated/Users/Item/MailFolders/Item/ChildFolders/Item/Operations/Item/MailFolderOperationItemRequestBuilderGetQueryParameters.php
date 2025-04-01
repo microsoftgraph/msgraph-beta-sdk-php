@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolder
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get operations from users
+ * The collection of long-running operations in the mailFolder.
 */
 class MailFolderOperationItemRequestBuilderGetQueryParameters 
 {

@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateUploadSession\Cr
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\DeltaWithToken\DeltaWithTokenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\DiscardCheckout\DiscardCheckoutRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ExtractSensitivityLabels\ExtractSensitivityLabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Follow\FollowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
@@ -145,6 +146,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function discardCheckout(): DiscardCheckoutRequestBuilder {
         return new DiscardCheckoutRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.driveItem entity.
+    */
+    public function extensions(): ExtensionsRequestBuilder {
+        return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

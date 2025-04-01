@@ -30,11 +30,12 @@ class UpdateAllMessagesReadStateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action updateAllMessagesReadState
+     * Update the read state of all messages in a mailFolder object.
      * @param UpdateAllMessagesReadStatePostRequestBody $body The request body
      * @param UpdateAllMessagesReadStateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mailfolder-updateallmessagesreadstate?view=graph-rest-beta Find more info here
     */
     public function post(UpdateAllMessagesReadStatePostRequestBody $body, ?UpdateAllMessagesReadStateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class UpdateAllMessagesReadStateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action updateAllMessagesReadState
+     * Update the read state of all messages in a mailFolder object.
      * @param UpdateAllMessagesReadStatePostRequestBody $body The request body
      * @param UpdateAllMessagesReadStateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

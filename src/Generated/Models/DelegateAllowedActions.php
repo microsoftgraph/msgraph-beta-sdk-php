@@ -72,7 +72,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the joinActiveCalls property value. The joinActiveCalls property
+     * Gets the joinActiveCalls property value. Indicates whether the delegator or delegate allows participation in active calls.
      * @return bool|null
     */
     public function getJoinActiveCalls(): ?bool {
@@ -84,7 +84,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the makeCalls property value. The makeCalls property
+     * Gets the makeCalls property value. Indicates whether the delegator or delegate allows calls to be made on their behalf.
      * @return bool|null
     */
     public function getMakeCalls(): ?bool {
@@ -96,7 +96,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the manageCallAndDelegateSettings property value. The manageCallAndDelegateSettings property
+     * Gets the manageCallAndDelegateSettings property value. Indicates whether the delegator or delegate allows the management of call and delegation settings.
      * @return bool|null
     */
     public function getManageCallAndDelegateSettings(): ?bool {
@@ -120,7 +120,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the pickUpHeldCalls property value. The pickUpHeldCalls property
+     * Gets the pickUpHeldCalls property value. Indicates whether the delegator or delegate allows held calls to be picked up.
      * @return bool|null
     */
     public function getPickUpHeldCalls(): ?bool {
@@ -132,7 +132,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the receiveCalls property value. The receiveCalls property
+     * Gets the receiveCalls property value. Indicates whether the delegator or delegate allows calls to be received on their behalf.
      * @return bool|null
     */
     public function getReceiveCalls(): ?bool {
@@ -174,7 +174,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the joinActiveCalls property value. The joinActiveCalls property
+     * Sets the joinActiveCalls property value. Indicates whether the delegator or delegate allows participation in active calls.
      * @param bool|null $value Value to set for the joinActiveCalls property.
     */
     public function setJoinActiveCalls(?bool $value): void {
@@ -182,7 +182,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the makeCalls property value. The makeCalls property
+     * Sets the makeCalls property value. Indicates whether the delegator or delegate allows calls to be made on their behalf.
      * @param bool|null $value Value to set for the makeCalls property.
     */
     public function setMakeCalls(?bool $value): void {
@@ -190,7 +190,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the manageCallAndDelegateSettings property value. The manageCallAndDelegateSettings property
+     * Sets the manageCallAndDelegateSettings property value. Indicates whether the delegator or delegate allows the management of call and delegation settings.
      * @param bool|null $value Value to set for the manageCallAndDelegateSettings property.
     */
     public function setManageCallAndDelegateSettings(?bool $value): void {
@@ -206,7 +206,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the pickUpHeldCalls property value. The pickUpHeldCalls property
+     * Sets the pickUpHeldCalls property value. Indicates whether the delegator or delegate allows held calls to be picked up.
      * @param bool|null $value Value to set for the pickUpHeldCalls property.
     */
     public function setPickUpHeldCalls(?bool $value): void {
@@ -214,7 +214,7 @@ class DelegateAllowedActions implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the receiveCalls property value. The receiveCalls property
+     * Sets the receiveCalls property value. Indicates whether the delegator or delegate allows calls to be received on their behalf.
      * @param bool|null $value Value to set for the receiveCalls property.
     */
     public function setReceiveCalls(?bool $value): void {

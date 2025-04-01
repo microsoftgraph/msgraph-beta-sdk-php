@@ -149,7 +149,7 @@ class MailFolder extends Entity implements Parsable
     }
 
     /**
-     * Gets the operations property value. The operations property
+     * Gets the operations property value. The collection of long-running operations in the mailFolder.
      * @return array<MailFolderOperation>|null
     */
     public function getOperations(): ?array {
@@ -317,7 +317,7 @@ class MailFolder extends Entity implements Parsable
     }
 
     /**
-     * Sets the operations property value. The operations property
+     * Sets the operations property value. The collection of long-running operations in the mailFolder.
      * @param array<MailFolderOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {

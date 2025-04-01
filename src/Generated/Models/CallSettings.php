@@ -26,7 +26,7 @@ class CallSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the delegates property value. The delegates property
+     * Gets the delegates property value. Represents the delegate settings.
      * @return array<DelegationSettings>|null
     */
     public function getDelegates(): ?array {
@@ -40,7 +40,7 @@ class CallSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the delegators property value. The delegators property
+     * Gets the delegators property value. Represents the delegator settings.
      * @return array<DelegationSettings>|null
     */
     public function getDelegators(): ?array {
@@ -76,7 +76,7 @@ class CallSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the delegates property value. The delegates property
+     * Sets the delegates property value. Represents the delegate settings.
      * @param array<DelegationSettings>|null $value Value to set for the delegates property.
     */
     public function setDelegates(?array $value): void {
@@ -84,7 +84,7 @@ class CallSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the delegators property value. The delegators property
+     * Sets the delegators property value. Represents the delegator settings.
      * @param array<DelegationSettings>|null $value Value to set for the delegators property.
     */
     public function setDelegators(?array $value): void {

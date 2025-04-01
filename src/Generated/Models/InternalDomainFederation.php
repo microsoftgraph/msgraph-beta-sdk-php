@@ -26,7 +26,7 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     }
 
     /**
-     * Gets the activeSignInUri property value. URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Microsoft Entra ID. Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.
+     * Gets the activeSignInUri property value. URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Microsoft Entra ID. Corresponds to the ActiveLogOnUri property of the Set-EntraDomainFederationSettings PowerShell cmdlet.
      * @return string|null
     */
     public function getActiveSignInUri(): ?string {
@@ -35,6 +35,18 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'activeSignInUri'");
+    }
+
+    /**
+     * Gets the defaultInteractiveAuthenticationMethod property value. The defaultInteractiveAuthenticationMethod property
+     * @return string|null
+    */
+    public function getDefaultInteractiveAuthenticationMethod(): ?string {
+        $val = $this->getBackingStore()->get('defaultInteractiveAuthenticationMethod');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultInteractiveAuthenticationMethod'");
     }
 
     /**
@@ -57,9 +69,12 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'activeSignInUri' => fn(ParseNode $n) => $o->setActiveSignInUri($n->getStringValue()),
+            'defaultInteractiveAuthenticationMethod' => fn(ParseNode $n) => $o->setDefaultInteractiveAuthenticationMethod($n->getStringValue()),
             'federatedIdpMfaBehavior' => fn(ParseNode $n) => $o->setFederatedIdpMfaBehavior($n->getEnumValue(FederatedIdpMfaBehavior::class)),
             'isSignedAuthenticationRequestRequired' => fn(ParseNode $n) => $o->setIsSignedAuthenticationRequestRequired($n->getBooleanValue()),
             'nextSigningCertificate' => fn(ParseNode $n) => $o->setNextSigningCertificate($n->getStringValue()),
+            'openIdConnectDiscoveryEndpoint' => fn(ParseNode $n) => $o->setOpenIdConnectDiscoveryEndpoint($n->getStringValue()),
+            'passwordChangeUri' => fn(ParseNode $n) => $o->setPasswordChangeUri($n->getStringValue()),
             'passwordResetUri' => fn(ParseNode $n) => $o->setPasswordResetUri($n->getStringValue()),
             'promptLoginBehavior' => fn(ParseNode $n) => $o->setPromptLoginBehavior($n->getEnumValue(PromptLoginBehavior::class)),
             'signingCertificateUpdateStatus' => fn(ParseNode $n) => $o->setSigningCertificateUpdateStatus($n->getObjectValue([SigningCertificateUpdateStatus::class, 'createFromDiscriminatorValue'])),
@@ -89,6 +104,30 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'nextSigningCertificate'");
+    }
+
+    /**
+     * Gets the openIdConnectDiscoveryEndpoint property value. The openIdConnectDiscoveryEndpoint property
+     * @return string|null
+    */
+    public function getOpenIdConnectDiscoveryEndpoint(): ?string {
+        $val = $this->getBackingStore()->get('openIdConnectDiscoveryEndpoint');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'openIdConnectDiscoveryEndpoint'");
+    }
+
+    /**
+     * Gets the passwordChangeUri property value. The passwordChangeUri property
+     * @return string|null
+    */
+    public function getPasswordChangeUri(): ?string {
+        $val = $this->getBackingStore()->get('passwordChangeUri');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passwordChangeUri'");
     }
 
     /**
@@ -128,7 +167,7 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     }
 
     /**
-     * Gets the signOutUri property value. URI that clients are redirected to when they sign out of Microsoft Entra services. Corresponds to the LogOffUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.
+     * Gets the signOutUri property value. URI that clients are redirected to when they sign out of Microsoft Entra services. Corresponds to the LogOffUri property of the Set-EntraDomainFederationSettings PowerShell cmdlet.
      * @return string|null
     */
     public function getSignOutUri(): ?string {
@@ -146,9 +185,12 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('activeSignInUri', $this->getActiveSignInUri());
+        $writer->writeStringValue('defaultInteractiveAuthenticationMethod', $this->getDefaultInteractiveAuthenticationMethod());
         $writer->writeEnumValue('federatedIdpMfaBehavior', $this->getFederatedIdpMfaBehavior());
         $writer->writeBooleanValue('isSignedAuthenticationRequestRequired', $this->getIsSignedAuthenticationRequestRequired());
         $writer->writeStringValue('nextSigningCertificate', $this->getNextSigningCertificate());
+        $writer->writeStringValue('openIdConnectDiscoveryEndpoint', $this->getOpenIdConnectDiscoveryEndpoint());
+        $writer->writeStringValue('passwordChangeUri', $this->getPasswordChangeUri());
         $writer->writeStringValue('passwordResetUri', $this->getPasswordResetUri());
         $writer->writeEnumValue('promptLoginBehavior', $this->getPromptLoginBehavior());
         $writer->writeObjectValue('signingCertificateUpdateStatus', $this->getSigningCertificateUpdateStatus());
@@ -156,11 +198,19 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     }
 
     /**
-     * Sets the activeSignInUri property value. URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Microsoft Entra ID. Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.
+     * Sets the activeSignInUri property value. URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Microsoft Entra ID. Corresponds to the ActiveLogOnUri property of the Set-EntraDomainFederationSettings PowerShell cmdlet.
      * @param string|null $value Value to set for the activeSignInUri property.
     */
     public function setActiveSignInUri(?string $value): void {
         $this->getBackingStore()->set('activeSignInUri', $value);
+    }
+
+    /**
+     * Sets the defaultInteractiveAuthenticationMethod property value. The defaultInteractiveAuthenticationMethod property
+     * @param string|null $value Value to set for the defaultInteractiveAuthenticationMethod property.
+    */
+    public function setDefaultInteractiveAuthenticationMethod(?string $value): void {
+        $this->getBackingStore()->set('defaultInteractiveAuthenticationMethod', $value);
     }
 
     /**
@@ -188,6 +238,22 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     }
 
     /**
+     * Sets the openIdConnectDiscoveryEndpoint property value. The openIdConnectDiscoveryEndpoint property
+     * @param string|null $value Value to set for the openIdConnectDiscoveryEndpoint property.
+    */
+    public function setOpenIdConnectDiscoveryEndpoint(?string $value): void {
+        $this->getBackingStore()->set('openIdConnectDiscoveryEndpoint', $value);
+    }
+
+    /**
+     * Sets the passwordChangeUri property value. The passwordChangeUri property
+     * @param string|null $value Value to set for the passwordChangeUri property.
+    */
+    public function setPasswordChangeUri(?string $value): void {
+        $this->getBackingStore()->set('passwordChangeUri', $value);
+    }
+
+    /**
      * Sets the passwordResetUri property value. URI that clients are redirected to for resetting their password.
      * @param string|null $value Value to set for the passwordResetUri property.
     */
@@ -212,7 +278,7 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     }
 
     /**
-     * Sets the signOutUri property value. URI that clients are redirected to when they sign out of Microsoft Entra services. Corresponds to the LogOffUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.
+     * Sets the signOutUri property value. URI that clients are redirected to when they sign out of Microsoft Entra services. Corresponds to the LogOffUri property of the Set-EntraDomainFederationSettings PowerShell cmdlet.
      * @param string|null $value Value to set for the signOutUri property.
     */
     public function setSignOutUri(?string $value): void {
