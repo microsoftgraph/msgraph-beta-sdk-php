@@ -1538,6 +1538,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.organizationalBranding': return new OrganizationalBranding();
                 case '#microsoft.graph.organizationalBrandingLocalization': return new OrganizationalBrandingLocalization();
                 case '#microsoft.graph.organizationalBrandingProperties': return new OrganizationalBrandingProperties();
+                case '#microsoft.graph.organizationalUnit': return new OrganizationalUnit();
                 case '#microsoft.graph.organizationSettings': return new OrganizationSettings();
                 case '#microsoft.graph.orgContact': return new OrgContact();
                 case '#microsoft.graph.outlookCategory': return new OutlookCategory();
@@ -1654,6 +1655,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.printUsage': return new PrintUsage();
                 case '#microsoft.graph.printUsageByPrinter': return new PrintUsageByPrinter();
                 case '#microsoft.graph.printUsageByUser': return new PrintUsageByUser();
+                case '#microsoft.graph.privateLinkNamedLocation': return new PrivateLinkNamedLocation();
                 case '#microsoft.graph.privilegedAccess': return new PrivilegedAccess();
                 case '#microsoft.graph.privilegedAccessGroup': return new PrivilegedAccessGroup();
                 case '#microsoft.graph.privilegedAccessGroupAssignmentSchedule': return new PrivilegedAccessGroupAssignmentSchedule();
@@ -1912,6 +1914,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.servicePrincipalRiskDetection': return new ServicePrincipalRiskDetection();
                 case '#microsoft.graph.servicePrincipalSignInActivity': return new ServicePrincipalSignInActivity();
                 case '#microsoft.graph.serviceStorageQuotaBreakdown': return new ServiceStorageQuotaBreakdown();
+                case '#microsoft.graph.serviceTagNamedLocation': return new ServiceTagNamedLocation();
                 case '#microsoft.graph.serviceUpdateMessage': return new ServiceUpdateMessage();
                 case '#microsoft.graph.settingStateDeviceSummary': return new SettingStateDeviceSummary();
                 case '#microsoft.graph.sharedDriveItem': return new SharedDriveItem();

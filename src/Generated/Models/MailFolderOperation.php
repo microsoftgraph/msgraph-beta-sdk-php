@@ -44,7 +44,7 @@ class MailFolderOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceLocation property value. The resourceLocation property
+     * Gets the resourceLocation property value. The location of the long-running operation.
      * @return string|null
     */
     public function getResourceLocation(): ?string {
@@ -56,7 +56,7 @@ class MailFolderOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The status of the long-running operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @return MailFolderOperationStatus|null
     */
     public function getStatus(): ?MailFolderOperationStatus {
@@ -78,7 +78,7 @@ class MailFolderOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceLocation property value. The resourceLocation property
+     * Sets the resourceLocation property value. The location of the long-running operation.
      * @param string|null $value Value to set for the resourceLocation property.
     */
     public function setResourceLocation(?string $value): void {
@@ -86,7 +86,7 @@ class MailFolderOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. The status of the long-running operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @param MailFolderOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?MailFolderOperationStatus $value): void {

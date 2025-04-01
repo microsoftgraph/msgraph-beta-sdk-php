@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class DiscoveredCloudAppInfo extends Entity implements Parsable 
 {
@@ -75,12 +76,14 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
     }
 
     /**
-     * Gets the dataTypes property value. The dataTypes property
-     * @return AppInfoUploadedDataTypes|null
+     * Gets the dataTypes property value. Indicates the data types that an end user can upload to the app. The possible values are: documents, mediaFiles, codingFiles, creditCards, databaseFiles, none, unknown, unknownFutureValue.
+     * @return array<AppInfoUploadedDataTypes>|null
     */
-    public function getDataTypes(): ?AppInfoUploadedDataTypes {
+    public function getDataTypes(): ?array {
         $val = $this->getBackingStore()->get('dataTypes');
-        if (is_null($val) || $val instanceof AppInfoUploadedDataTypes) {
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppInfoUploadedDataTypes::class);
+            /** @var array<AppInfoUploadedDataTypes>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'dataTypes'");
@@ -133,7 +136,7 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
             'dataAtRestEncryptionMethod' => fn(ParseNode $n) => $o->setDataAtRestEncryptionMethod($n->getEnumValue(AppInfoDataAtRestEncryptionMethod::class)),
             'dataCenter' => fn(ParseNode $n) => $o->setDataCenter($n->getStringValue()),
             'dataRetentionPolicy' => fn(ParseNode $n) => $o->setDataRetentionPolicy($n->getEnumValue(AppInfoDataRetentionPolicy::class)),
-            'dataTypes' => fn(ParseNode $n) => $o->setDataTypes($n->getEnumValue(AppInfoUploadedDataTypes::class)),
+            'dataTypes' => fn(ParseNode $n) => $o->setDataTypes($n->getCollectionOfEnumValues(AppInfoUploadedDataTypes::class)),
             'domainRegistrationDateTime' => fn(ParseNode $n) => $o->setDomainRegistrationDateTime($n->getDateTimeValue()),
             'encryptionProtocol' => fn(ParseNode $n) => $o->setEncryptionProtocol($n->getEnumValue(AppInfoEncryptionProtocol::class)),
             'fedRampLevel' => fn(ParseNode $n) => $o->setFedRampLevel($n->getEnumValue(AppInfoFedRampLevel::class)),
@@ -209,7 +212,14 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
             'isUserRolesSupport' => fn(ParseNode $n) => $o->setIsUserRolesSupport($n->getEnumValue(CloudAppInfoState::class)),
             'isValidCertificateName' => fn(ParseNode $n) => $o->setIsValidCertificateName($n->getEnumValue(CloudAppInfoState::class)),
             'latestBreachDateTime' => fn(ParseNode $n) => $o->setLatestBreachDateTime($n->getDateTimeValue()),
-            'logonUrls' => fn(ParseNode $n) => $o->setLogonUrls($n->getStringValue()),
+            'logonUrls' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLogonUrls($val);
+            },
             'pciDssVersion' => fn(ParseNode $n) => $o->setPciDssVersion($n->getEnumValue(AppInfoPciDssVersion::class)),
             'vendor' => fn(ParseNode $n) => $o->setVendor($n->getStringValue()),
         ]);
@@ -1081,11 +1091,13 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
 
     /**
      * Gets the logonUrls property value. Indicates the URL that users can use to sign into the app.
-     * @return string|null
+     * @return array<string>|null
     */
-    public function getLogonUrls(): ?string {
+    public function getLogonUrls(): ?array {
         $val = $this->getBackingStore()->get('logonUrls');
-        if (is_null($val) || is_string($val)) {
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'logonUrls'");
@@ -1125,7 +1137,7 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
         $writer->writeEnumValue('dataAtRestEncryptionMethod', $this->getDataAtRestEncryptionMethod());
         $writer->writeStringValue('dataCenter', $this->getDataCenter());
         $writer->writeEnumValue('dataRetentionPolicy', $this->getDataRetentionPolicy());
-        $writer->writeEnumValue('dataTypes', $this->getDataTypes());
+        $writer->writeCollectionOfEnumValues('dataTypes', $this->getDataTypes());
         $writer->writeDateTimeValue('domainRegistrationDateTime', $this->getDomainRegistrationDateTime());
         $writer->writeEnumValue('encryptionProtocol', $this->getEncryptionProtocol());
         $writer->writeEnumValue('fedRampLevel', $this->getFedRampLevel());
@@ -1201,7 +1213,7 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
         $writer->writeEnumValue('isUserRolesSupport', $this->getIsUserRolesSupport());
         $writer->writeEnumValue('isValidCertificateName', $this->getIsValidCertificateName());
         $writer->writeDateTimeValue('latestBreachDateTime', $this->getLatestBreachDateTime());
-        $writer->writeStringValue('logonUrls', $this->getLogonUrls());
+        $writer->writeCollectionOfPrimitiveValues('logonUrls', $this->getLogonUrls());
         $writer->writeEnumValue('pciDssVersion', $this->getPciDssVersion());
         $writer->writeStringValue('vendor', $this->getVendor());
     }
@@ -1239,10 +1251,10 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
     }
 
     /**
-     * Sets the dataTypes property value. The dataTypes property
-     * @param AppInfoUploadedDataTypes|null $value Value to set for the dataTypes property.
+     * Sets the dataTypes property value. Indicates the data types that an end user can upload to the app. The possible values are: documents, mediaFiles, codingFiles, creditCards, databaseFiles, none, unknown, unknownFutureValue.
+     * @param array<AppInfoUploadedDataTypes>|null $value Value to set for the dataTypes property.
     */
-    public function setDataTypes(?AppInfoUploadedDataTypes $value): void {
+    public function setDataTypes(?array $value): void {
         $this->getBackingStore()->set('dataTypes', $value);
     }
 
@@ -1848,9 +1860,9 @@ class DiscoveredCloudAppInfo extends Entity implements Parsable
 
     /**
      * Sets the logonUrls property value. Indicates the URL that users can use to sign into the app.
-     * @param string|null $value Value to set for the logonUrls property.
+     * @param array<string>|null $value Value to set for the logonUrls property.
     */
-    public function setLogonUrls(?string $value): void {
+    public function setLogonUrls(?array $value): void {
         $this->getBackingStore()->set('logonUrls', $value);
     }
 

@@ -51,7 +51,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get operations from users
+     * The collection of long-running operations in the mailFolder.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailFolderOperationCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class OperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get operations from users
+     * The collection of long-running operations in the mailFolder.
      * @param OperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

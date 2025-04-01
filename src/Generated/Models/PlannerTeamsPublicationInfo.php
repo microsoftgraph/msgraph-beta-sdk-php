@@ -36,6 +36,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'publicationId' => fn(ParseNode $n) => $o->setPublicationId($n->getStringValue()),
+            'publicationName' => fn(ParseNode $n) => $o->setPublicationName($n->getStringValue()),
             'publishedToPlanId' => fn(ParseNode $n) => $o->setPublishedToPlanId($n->getStringValue()),
             'publishingTeamId' => fn(ParseNode $n) => $o->setPublishingTeamId($n->getStringValue()),
             'publishingTeamName' => fn(ParseNode $n) => $o->setPublishingTeamName($n->getStringValue()),
@@ -76,6 +77,18 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'publicationId'");
+    }
+
+    /**
+     * Gets the publicationName property value. The name of the published task list. Read-only.
+     * @return string|null
+    */
+    public function getPublicationName(): ?string {
+        $val = $this->getBackingStore()->get('publicationName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'publicationName'");
     }
 
     /**
@@ -123,6 +136,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('publicationId', $this->getPublicationId());
+        $writer->writeStringValue('publicationName', $this->getPublicationName());
         $writer->writeStringValue('publishedToPlanId', $this->getPublishedToPlanId());
         $writer->writeStringValue('publishingTeamId', $this->getPublishingTeamId());
         $writer->writeStringValue('publishingTeamName', $this->getPublishingTeamName());
@@ -150,6 +164,14 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
     */
     public function setPublicationId(?string $value): void {
         $this->getBackingStore()->set('publicationId', $value);
+    }
+
+    /**
+     * Sets the publicationName property value. The name of the published task list. Read-only.
+     * @param string|null $value Value to set for the publicationName property.
+    */
+    public function setPublicationName(?string $value): void {
+        $this->getBackingStore()->set('publicationName', $value);
     }
 
     /**

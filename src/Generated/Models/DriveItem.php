@@ -140,6 +140,20 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the extensions property value. The extensions property
+     * @return array<Extension>|null
+    */
+    public function getExtensions(): ?array {
+        $val = $this->getBackingStore()->get('extensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Extension::class);
+            /** @var array<Extension>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensions'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -155,6 +169,7 @@ class DriveItem extends BaseItem implements Parsable
             'contentStream' => fn(ParseNode $n) => $o->setContentStream($n->getBinaryContent()),
             'cTag' => fn(ParseNode $n) => $o->setCTag($n->getStringValue()),
             'deleted' => fn(ParseNode $n) => $o->setDeleted($n->getObjectValue([Deleted::class, 'createFromDiscriminatorValue'])),
+            'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
             'file' => fn(ParseNode $n) => $o->setFile($n->getObjectValue([File::class, 'createFromDiscriminatorValue'])),
             'fileSystemInfo' => fn(ParseNode $n) => $o->setFileSystemInfo($n->getObjectValue([FileSystemInfo::class, 'createFromDiscriminatorValue'])),
             'folder' => fn(ParseNode $n) => $o->setFolder($n->getObjectValue([Folder::class, 'createFromDiscriminatorValue'])),
@@ -558,6 +573,7 @@ class DriveItem extends BaseItem implements Parsable
         $writer->writeBinaryContent('contentStream', $this->getContentStream());
         $writer->writeStringValue('cTag', $this->getCTag());
         $writer->writeObjectValue('deleted', $this->getDeleted());
+        $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
         $writer->writeObjectValue('file', $this->getFile());
         $writer->writeObjectValue('fileSystemInfo', $this->getFileSystemInfo());
         $writer->writeObjectValue('folder', $this->getFolder());
@@ -659,6 +675,14 @@ class DriveItem extends BaseItem implements Parsable
     */
     public function setDeleted(?Deleted $value): void {
         $this->getBackingStore()->set('deleted', $value);
+    }
+
+    /**
+     * Sets the extensions property value. The extensions property
+     * @param array<Extension>|null $value Value to set for the extensions property.
+    */
+    public function setExtensions(?array $value): void {
+        $this->getBackingStore()->set('extensions', $value);
     }
 
     /**

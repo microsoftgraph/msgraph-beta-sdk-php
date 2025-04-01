@@ -26,7 +26,7 @@ class DelegationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedActions property value. The allowedActions property
+     * Gets the allowedActions property value. The allowed actions for the delegator or delegate.
      * @return DelegateAllowedActions|null
     */
     public function getAllowedActions(): ?DelegateAllowedActions {
@@ -38,7 +38,7 @@ class DelegationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time when the delegator or delegate entry was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -63,7 +63,7 @@ class DelegationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isActive property value. The isActive property
+     * Gets the isActive property value. Indicates whether the delegator or delegate relationship is currently active.
      * @return bool|null
     */
     public function getIsActive(): ?bool {
@@ -86,7 +86,7 @@ class DelegationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedActions property value. The allowedActions property
+     * Sets the allowedActions property value. The allowed actions for the delegator or delegate.
      * @param DelegateAllowedActions|null $value Value to set for the allowedActions property.
     */
     public function setAllowedActions(?DelegateAllowedActions $value): void {
@@ -94,7 +94,7 @@ class DelegationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time when the delegator or delegate entry was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -102,7 +102,7 @@ class DelegationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isActive property value. The isActive property
+     * Sets the isActive property value. Indicates whether the delegator or delegate relationship is currently active.
      * @param bool|null $value Value to set for the isActive property.
     */
     public function setIsActive(?bool $value): void {

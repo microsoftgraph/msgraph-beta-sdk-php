@@ -70,7 +70,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowCopyingAndSharingMeetingContent property value. The allowCopyingAndSharingMeetingContent property
+     * Gets the allowCopyingAndSharingMeetingContent property value. Indicates whether copying and sharing meeting content is enabled for the meeting.
      * @return bool|null
     */
     public function getAllowCopyingAndSharingMeetingContent(): ?bool {
@@ -500,7 +500,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowCopyingAndSharingMeetingContent property value. The allowCopyingAndSharingMeetingContent property
+     * Sets the allowCopyingAndSharingMeetingContent property value. Indicates whether copying and sharing meeting content is enabled for the meeting.
      * @param bool|null $value Value to set for the allowCopyingAndSharingMeetingContent property.
     */
     public function setAllowCopyingAndSharingMeetingContent(?bool $value): void {
