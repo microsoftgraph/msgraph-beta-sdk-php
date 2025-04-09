@@ -140,7 +140,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the extensions property value. The extensions property
+     * Gets the extensions property value. The collection of open extensions defined for this item. Nullable.
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
@@ -678,7 +678,7 @@ class DriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the extensions property value. The extensions property
+     * Sets the extensions property value. The collection of open extensions defined for this item. Nullable.
      * @param array<Extension>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value): void {

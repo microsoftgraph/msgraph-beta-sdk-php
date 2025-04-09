@@ -226,7 +226,7 @@ class AccessPackageAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetId property value. The ID of the subject with the assignment. Read-only.
+     * Gets the targetId property value. This property should not be used as a dependency, as it may change without notice. Instead, expand the target relationship and use the objectId property. Read-only.
      * @return string|null
     */
     public function getTargetId(): ?string {
@@ -373,7 +373,7 @@ class AccessPackageAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetId property value. The ID of the subject with the assignment. Read-only.
+     * Sets the targetId property value. This property should not be used as a dependency, as it may change without notice. Instead, expand the target relationship and use the objectId property. Read-only.
      * @param string|null $value Value to set for the targetId property.
     */
     public function setTargetId(?string $value): void {

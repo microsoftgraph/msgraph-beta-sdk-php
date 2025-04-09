@@ -173,6 +173,7 @@ class FileStorageContainer extends Entity implements Parsable
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
             'recycleBin' => fn(ParseNode $n) => $o->setRecycleBin($n->getObjectValue([RecycleBin::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([FileStorageContainerSettings::class, 'createFromDiscriminatorValue'])),
+            'sharePointGroups' => fn(ParseNode $n) => $o->setSharePointGroups($n->getCollectionOfObjectValues([SharePointGroup::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(FileStorageContainerStatus::class)),
             'storageUsedInBytes' => fn(ParseNode $n) => $o->setStorageUsedInBytes($n->getIntegerValue()),
             'viewpoint' => fn(ParseNode $n) => $o->setViewpoint($n->getObjectValue([FileStorageContainerViewpoint::class, 'createFromDiscriminatorValue'])),
@@ -280,6 +281,20 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
+     * Gets the sharePointGroups property value. The collection of sharePointGroup objects local to the container. Read-write.
+     * @return array<SharePointGroup>|null
+    */
+    public function getSharePointGroups(): ?array {
+        $val = $this->getBackingStore()->get('sharePointGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SharePointGroup::class);
+            /** @var array<SharePointGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointGroups'");
+    }
+
+    /**
      * Gets the status property value. Status of the fileStorageContainer. Containers are created as inactive and require activation. Inactive containers are subjected to automatic deletion in 24 hours. The possible values are: inactive, active. Read-only.
      * @return FileStorageContainerStatus|null
     */
@@ -339,6 +354,7 @@ class FileStorageContainer extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
         $writer->writeObjectValue('recycleBin', $this->getRecycleBin());
         $writer->writeObjectValue('settings', $this->getSettings());
+        $writer->writeCollectionOfObjectValues('sharePointGroups', $this->getSharePointGroups());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeIntegerValue('storageUsedInBytes', $this->getStorageUsedInBytes());
         $writer->writeObjectValue('viewpoint', $this->getViewpoint());
@@ -486,6 +502,14 @@ class FileStorageContainer extends Entity implements Parsable
     */
     public function setSettings(?FileStorageContainerSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
+    }
+
+    /**
+     * Sets the sharePointGroups property value. The collection of sharePointGroup objects local to the container. Read-write.
+     * @param array<SharePointGroup>|null $value Value to set for the sharePointGroups property.
+    */
+    public function setSharePointGroups(?array $value): void {
+        $this->getBackingStore()->set('sharePointGroups', $value);
     }
 
     /**

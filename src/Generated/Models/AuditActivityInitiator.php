@@ -75,9 +75,22 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
         $o = $this;
         return  [
             'app' => fn(ParseNode $n) => $o->setApp($n->getObjectValue([AppIdentity::class, 'createFromDiscriminatorValue'])),
+            'linkableIdentifiers' => fn(ParseNode $n) => $o->setLinkableIdentifiers($n->getObjectValue([LinkableIdentifiers::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'user' => fn(ParseNode $n) => $o->setUser($n->getObjectValue([AuditUserIdentity::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the linkableIdentifiers property value. A set of linkable claims to link together all the authentication artifacts issued from a single interactive root authentication.
+     * @return LinkableIdentifiers|null
+    */
+    public function getLinkableIdentifiers(): ?LinkableIdentifiers {
+        $val = $this->getBackingStore()->get('linkableIdentifiers');
+        if (is_null($val) || $val instanceof LinkableIdentifiers) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'linkableIdentifiers'");
     }
 
     /**
@@ -110,6 +123,7 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('app', $this->getApp());
+        $writer->writeObjectValue('linkableIdentifiers', $this->getLinkableIdentifiers());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('user', $this->getUser());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -137,6 +151,14 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the linkableIdentifiers property value. A set of linkable claims to link together all the authentication artifacts issued from a single interactive root authentication.
+     * @param LinkableIdentifiers|null $value Value to set for the linkableIdentifiers property.
+    */
+    public function setLinkableIdentifiers(?LinkableIdentifiers $value): void {
+        $this->getBackingStore()->set('linkableIdentifiers', $value);
     }
 
     /**
