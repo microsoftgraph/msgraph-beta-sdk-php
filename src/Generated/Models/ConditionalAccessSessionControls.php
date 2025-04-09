@@ -114,11 +114,24 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
             'cloudAppSecurity' => fn(ParseNode $n) => $o->setCloudAppSecurity($n->getObjectValue([CloudAppSecuritySessionControl::class, 'createFromDiscriminatorValue'])),
             'continuousAccessEvaluation' => fn(ParseNode $n) => $o->setContinuousAccessEvaluation($n->getObjectValue([ContinuousAccessEvaluationSessionControl::class, 'createFromDiscriminatorValue'])),
             'disableResilienceDefaults' => fn(ParseNode $n) => $o->setDisableResilienceDefaults($n->getBooleanValue()),
+            'globalSecureAccessFilteringProfile' => fn(ParseNode $n) => $o->setGlobalSecureAccessFilteringProfile($n->getObjectValue([GlobalSecureAccessFilteringProfileSessionControl::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'persistentBrowser' => fn(ParseNode $n) => $o->setPersistentBrowser($n->getObjectValue([PersistentBrowserSessionControl::class, 'createFromDiscriminatorValue'])),
             'secureSignInSession' => fn(ParseNode $n) => $o->setSecureSignInSession($n->getObjectValue([SecureSignInSessionControl::class, 'createFromDiscriminatorValue'])),
             'signInFrequency' => fn(ParseNode $n) => $o->setSignInFrequency($n->getObjectValue([SignInFrequencySessionControl::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the globalSecureAccessFilteringProfile property value. Session control to link to Global Secure Access security profiles or filtering profiles.
+     * @return GlobalSecureAccessFilteringProfileSessionControl|null
+    */
+    public function getGlobalSecureAccessFilteringProfile(): ?GlobalSecureAccessFilteringProfileSessionControl {
+        $val = $this->getBackingStore()->get('globalSecureAccessFilteringProfile');
+        if (is_null($val) || $val instanceof GlobalSecureAccessFilteringProfileSessionControl) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'globalSecureAccessFilteringProfile'");
     }
 
     /**
@@ -178,6 +191,7 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
         $writer->writeObjectValue('cloudAppSecurity', $this->getCloudAppSecurity());
         $writer->writeObjectValue('continuousAccessEvaluation', $this->getContinuousAccessEvaluation());
         $writer->writeBooleanValue('disableResilienceDefaults', $this->getDisableResilienceDefaults());
+        $writer->writeObjectValue('globalSecureAccessFilteringProfile', $this->getGlobalSecureAccessFilteringProfile());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('persistentBrowser', $this->getPersistentBrowser());
         $writer->writeObjectValue('secureSignInSession', $this->getSecureSignInSession());
@@ -231,6 +245,14 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, BackedMo
     */
     public function setDisableResilienceDefaults(?bool $value): void {
         $this->getBackingStore()->set('disableResilienceDefaults', $value);
+    }
+
+    /**
+     * Sets the globalSecureAccessFilteringProfile property value. Session control to link to Global Secure Access security profiles or filtering profiles.
+     * @param GlobalSecureAccessFilteringProfileSessionControl|null $value Value to set for the globalSecureAccessFilteringProfile property.
+    */
+    public function setGlobalSecureAccessFilteringProfile(?GlobalSecureAccessFilteringProfileSessionControl $value): void {
+        $this->getBackingStore()->set('globalSecureAccessFilteringProfile', $value);
     }
 
     /**

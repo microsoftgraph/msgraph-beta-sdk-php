@@ -60,7 +60,7 @@ class ExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an open extension (openTypeExtension object) on a supported resource type.- If a property in the request body matches the name of an existing property in the extension, the data in the extension is updated.- Otherwise, that property and its data are added to the extension.  The data in an extension can be primitive types or arrays of primitive types. The operation behaves differently for resources that are directory objects vs other resources. See the table in the Permissions section for the list of resources that support open extensions.
+     * Update an open extension (openTypeExtension object) on a supported resource type.- If a property in the request body matches the name of an existing property in the extension, the data in the extension is updated.- Otherwise, that property and its data are added to the extension.  The data in an extension can be primitive types or arrays of primitive types. The operation behaves differently for resources that are directory objects vs other resources. For the list of resources that support open extensions, see the table in the Permissions section.
      * @param Extension $body The request body
      * @param ExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Extension|null>
@@ -89,7 +89,6 @@ class ExtensionItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
@@ -115,7 +114,7 @@ class ExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an open extension (openTypeExtension object) on a supported resource type.- If a property in the request body matches the name of an existing property in the extension, the data in the extension is updated.- Otherwise, that property and its data are added to the extension.  The data in an extension can be primitive types or arrays of primitive types. The operation behaves differently for resources that are directory objects vs other resources. See the table in the Permissions section for the list of resources that support open extensions.
+     * Update an open extension (openTypeExtension object) on a supported resource type.- If a property in the request body matches the name of an existing property in the extension, the data in the extension is updated.- Otherwise, that property and its data are added to the extension.  The data in an extension can be primitive types or arrays of primitive types. The operation behaves differently for resources that are directory objects vs other resources. For the list of resources that support open extensions, see the table in the Permissions section.
      * @param Extension $body The request body
      * @param ExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

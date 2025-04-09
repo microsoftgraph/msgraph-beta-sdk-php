@@ -78,6 +78,18 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceNameTemplate property value. Indicates the device name template used for the enrolled Android devices. The maximum length allowed for this property is 63 characters. The template expression contains normal text and tokens, including the serial number of the device, user name, device type, upn prefix, or a randomly generated number. Supported Tokens for device name templates are: (for device naming template expression): {{SERIAL}}, {{SERIALLAST4DIGITS}}, {{ENROLLMENTDATETIME}}, {{USERNAME}}, {{DEVICETYPE}}, {{UPNPREFIX}}, {{rand:x}}. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @return string|null
+    */
+    public function getDeviceNameTemplate(): ?string {
+        $val = $this->getBackingStore()->get('deviceNameTemplate');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceNameTemplate'");
+    }
+
+    /**
      * Gets the displayName property value. Display name for the enrollment profile.
      * @return string|null
     */
@@ -148,6 +160,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
             'configureWifi' => fn(ParseNode $n) => $o->setConfigureWifi($n->getBooleanValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceNameTemplate' => fn(ParseNode $n) => $o->setDeviceNameTemplate($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enrolledDeviceCount' => fn(ParseNode $n) => $o->setEnrolledDeviceCount($n->getIntegerValue()),
             'enrollmentMode' => fn(ParseNode $n) => $o->setEnrollmentMode($n->getEnumValue(AndroidDeviceOwnerEnrollmentMode::class)),
@@ -331,6 +344,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
         $writer->writeBooleanValue('configureWifi', $this->getConfigureWifi());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('deviceNameTemplate', $this->getDeviceNameTemplate());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('enrolledDeviceCount', $this->getEnrolledDeviceCount());
         $writer->writeEnumValue('enrollmentMode', $this->getEnrollmentMode());
@@ -380,6 +394,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the deviceNameTemplate property value. Indicates the device name template used for the enrolled Android devices. The maximum length allowed for this property is 63 characters. The template expression contains normal text and tokens, including the serial number of the device, user name, device type, upn prefix, or a randomly generated number. Supported Tokens for device name templates are: (for device naming template expression): {{SERIAL}}, {{SERIALLAST4DIGITS}}, {{ENROLLMENTDATETIME}}, {{USERNAME}}, {{DEVICETYPE}}, {{UPNPREFIX}}, {{rand:x}}. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
+     * @param string|null $value Value to set for the deviceNameTemplate property.
+    */
+    public function setDeviceNameTemplate(?string $value): void {
+        $this->getBackingStore()->set('deviceNameTemplate', $value);
     }
 
     /**

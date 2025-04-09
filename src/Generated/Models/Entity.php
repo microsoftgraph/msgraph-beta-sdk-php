@@ -706,6 +706,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.copilotAdmin': return new CopilotAdmin();
                 case '#microsoft.graph.copilotAdminLimitedMode': return new CopilotAdminLimitedMode();
                 case '#microsoft.graph.copilotAdminSetting': return new CopilotAdminSetting();
+                case '#microsoft.graph.copilotPeopleAdminSetting': return new CopilotPeopleAdminSetting();
+                case '#microsoft.graph.copilotSetting': return new CopilotSetting();
                 case '#microsoft.graph.corsConfiguration_v2': return new CorsConfiguration_v2();
                 case '#microsoft.graph.countryNamedLocation': return new CountryNamedLocation();
                 case '#microsoft.graph.credentialUsageSummary': return new CredentialUsageSummary();
@@ -1924,6 +1926,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sharedPCConfiguration': return new SharedPCConfiguration();
                 case '#microsoft.graph.sharedWithChannelTeamInfo': return new SharedWithChannelTeamInfo();
                 case '#microsoft.graph.sharepoint': return new Sharepoint();
+                case '#microsoft.graph.sharePointGroup': return new SharePointGroup();
+                case '#microsoft.graph.sharePointGroupMember': return new SharePointGroupMember();
                 case '#microsoft.graph.sharePointProtectionPolicy': return new SharePointProtectionPolicy();
                 case '#microsoft.graph.sharePointRestoreSession': return new SharePointRestoreSession();
                 case '#microsoft.graph.sharepointSettings': return new SharepointSettings();

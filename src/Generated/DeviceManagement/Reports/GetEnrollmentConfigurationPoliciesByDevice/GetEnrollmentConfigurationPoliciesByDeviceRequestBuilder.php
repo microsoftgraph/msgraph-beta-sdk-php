@@ -62,7 +62,7 @@ class GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder extends BaseReque
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/octet-stream, application/json");
+        $requestInfo->tryAddHeader('Accept', "application/octet-stream");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

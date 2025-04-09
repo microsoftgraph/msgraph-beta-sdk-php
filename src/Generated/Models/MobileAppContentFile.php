@@ -82,8 +82,6 @@ class MobileAppContentFile extends Entity implements Parsable
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
             'sizeEncrypted' => fn(ParseNode $n) => $o->setSizeEncrypted($n->getIntegerValue()),
-            'sizeEncryptedInBytes' => fn(ParseNode $n) => $o->setSizeEncryptedInBytes($n->getIntegerValue()),
-            'sizeInBytes' => fn(ParseNode $n) => $o->setSizeInBytes($n->getIntegerValue()),
             'uploadState' => fn(ParseNode $n) => $o->setUploadState($n->getEnumValue(MobileAppContentFileUploadState::class)),
         ]);
     }
@@ -173,30 +171,6 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. To be deprecated in February 2025, please use SizeEncrypted property instead. Valid values 0 to 9.22337203685478E+18
-     * @return int|null
-    */
-    public function getSizeEncryptedInBytes(): ?int {
-        $val = $this->getBackingStore()->get('sizeEncryptedInBytes');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeEncryptedInBytes'");
-    }
-
-    /**
-     * Gets the sizeInBytes property value. Indicates the original size of the file, in bytes. To be deprecated in February 2025, please use Size property instead. Valid values 0 to 9.22337203685478E+18
-     * @return int|null
-    */
-    public function getSizeInBytes(): ?int {
-        $val = $this->getBackingStore()->get('sizeInBytes');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeInBytes'");
-    }
-
-    /**
      * Gets the uploadState property value. Contains properties for upload request states.
      * @return MobileAppContentFileUploadState|null
     */
@@ -220,8 +194,6 @@ class MobileAppContentFile extends Entity implements Parsable
         $writer->writeStringValue('name', $this->getName());
         $writer->writeIntegerValue('size', $this->getSize());
         $writer->writeIntegerValue('sizeEncrypted', $this->getSizeEncrypted());
-        $writer->writeIntegerValue('sizeEncryptedInBytes', $this->getSizeEncryptedInBytes());
-        $writer->writeIntegerValue('sizeInBytes', $this->getSizeInBytes());
         $writer->writeEnumValue('uploadState', $this->getUploadState());
     }
 
@@ -303,22 +275,6 @@ class MobileAppContentFile extends Entity implements Parsable
     */
     public function setSizeEncrypted(?int $value): void {
         $this->getBackingStore()->set('sizeEncrypted', $value);
-    }
-
-    /**
-     * Sets the sizeEncryptedInBytes property value. Indicates the size of the file after encryption, in bytes. To be deprecated in February 2025, please use SizeEncrypted property instead. Valid values 0 to 9.22337203685478E+18
-     * @param int|null $value Value to set for the sizeEncryptedInBytes property.
-    */
-    public function setSizeEncryptedInBytes(?int $value): void {
-        $this->getBackingStore()->set('sizeEncryptedInBytes', $value);
-    }
-
-    /**
-     * Sets the sizeInBytes property value. Indicates the original size of the file, in bytes. To be deprecated in February 2025, please use Size property instead. Valid values 0 to 9.22337203685478E+18
-     * @param int|null $value Value to set for the sizeInBytes property.
-    */
-    public function setSizeInBytes(?int $value): void {
-        $this->getBackingStore()->set('sizeInBytes', $value);
     }
 
     /**

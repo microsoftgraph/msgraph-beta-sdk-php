@@ -53,7 +53,7 @@ class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends BaseReque
     }
 
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * The list of scheduled action for this rule
      * @param DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceComplianceScheduledActionForRule|null>
      * @throws Exception
@@ -95,12 +95,11 @@ class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends BaseReque
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * The list of scheduled action for this rule
      * @param DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

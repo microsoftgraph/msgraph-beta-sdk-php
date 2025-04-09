@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Extensions;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get extensions from drives
+ * The collection of open extensions defined for this item. Nullable.
 */
 class ExtensionsRequestBuilderGetQueryParameters 
 {
