@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Pe
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\RecycleBin\RecycleBinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\SharePointGroups\SharePointGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Unlock\UnlockRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -79,6 +80,13 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sharePointGroups property of the microsoft.graph.fileStorageContainer entity.
+    */
+    public function sharePointGroups(): SharePointGroupsRequestBuilder {
+        return new SharePointGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -159,7 +167,6 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

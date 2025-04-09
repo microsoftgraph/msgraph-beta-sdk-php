@@ -45,7 +45,7 @@ class ExtensionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get extensions from drives
+     * The collection of open extensions defined for this item. Nullable.
      * @param ExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Extension|null>
      * @throws Exception
@@ -87,12 +87,11 @@ class ExtensionItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 
     /**
-     * Get extensions from drives
+     * The collection of open extensions defined for this item. Nullable.
      * @param ExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

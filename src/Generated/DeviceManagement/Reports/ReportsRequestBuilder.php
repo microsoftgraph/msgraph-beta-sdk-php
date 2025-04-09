@@ -33,7 +33,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationSett
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationSettingsReport\GetConfigurationSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceConfigurationPolicySettingsSummaryReport\GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceConfigurationPolicyStatusSummary\GetDeviceConfigurationPolicyStatusSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceInstallStatusReport\GetDeviceInstallStatusReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentPerSettingContributingProfiles\GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentSettingsReport\GetDeviceManagementIntentSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceNonComplianceReport\GetDeviceNonComplianceReportRequestBuilder;
@@ -294,13 +293,6 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getDeviceConfigurationPolicyStatusSummary(): GetDeviceConfigurationPolicyStatusSummaryRequestBuilder {
         return new GetDeviceConfigurationPolicyStatusSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getDeviceInstallStatusReport method.
-    */
-    public function getDeviceInstallStatusReport(): GetDeviceInstallStatusReportRequestBuilder {
-        return new GetDeviceInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -703,7 +695,6 @@ class ReportsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

@@ -10,4 +10,7 @@ class ManagedAppDataStorageLocation extends Enum {
     public const BOX = "box";
     public const LOCAL_STORAGE = "localStorage";
     public const PHOTO_LIBRARY = "photoLibrary";
+    public const I_MANAGE = "iManage";
+    public const EGNYTE = "egnyte";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }
