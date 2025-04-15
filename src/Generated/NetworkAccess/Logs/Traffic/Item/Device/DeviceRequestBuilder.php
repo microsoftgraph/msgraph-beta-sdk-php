@@ -31,7 +31,7 @@ class DeviceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get device from networkAccess
+     * Represents the device associated with the network traffic, providing details about the hardware or virtual machine involved in the transaction.
      * @param DeviceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Device|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class DeviceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get device from networkAccess
+     * Represents the device associated with the network traffic, providing details about the hardware or virtual machine involved in the transaction.
      * @param DeviceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

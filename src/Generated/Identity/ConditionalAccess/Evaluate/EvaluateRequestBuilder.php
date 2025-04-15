@@ -30,11 +30,12 @@ class EvaluateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action evaluate
+     * Evaluates the applicability of Conditional Access Policies in your tenant based on the provided sign-in properties.
      * @param EvaluatePostRequestBody $body The request body
      * @param EvaluateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluatePostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/conditionalaccessroot-evaluate?view=graph-rest-beta Find more info here
     */
     public function post(EvaluatePostRequestBody $body, ?EvaluateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class EvaluateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action evaluate
+     * Evaluates the applicability of Conditional Access Policies in your tenant based on the provided sign-in properties.
      * @param EvaluatePostRequestBody $body The request body
      * @param EvaluateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

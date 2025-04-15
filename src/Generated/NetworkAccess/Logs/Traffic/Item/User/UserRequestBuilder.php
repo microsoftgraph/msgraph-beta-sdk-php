@@ -47,7 +47,7 @@ class UserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get user from networkAccess
+     * Represents the user associated with the network traffic, providing details about the individual or account initiating the transaction.
      * @param UserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<User|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class UserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get user from networkAccess
+     * Represents the user associated with the network traffic, providing details about the individual or account initiating the transaction.
      * @param UserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

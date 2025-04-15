@@ -180,7 +180,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the impactType property value. Indicates the scope of impact of a recommendation. Tenant level indicates that the recommendation impacts the whole tenant. Other possible values include users, applications.
+     * Gets the impactType property value. Indicates the scope of impact of a recommendation. tenantLevel indicates that the recommendation impacts the whole tenant. Other possible values include users, apps.
      * @return string|null
     */
     public function getImpactType(): ?string {
@@ -438,7 +438,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the impactType property value. Indicates the scope of impact of a recommendation. Tenant level indicates that the recommendation impacts the whole tenant. Other possible values include users, applications.
+     * Sets the impactType property value. Indicates the scope of impact of a recommendation. tenantLevel indicates that the recommendation impacts the whole tenant. Other possible values include users, apps.
      * @param string|null $value Value to set for the impactType property.
     */
     public function setImpactType(?string $value): void {

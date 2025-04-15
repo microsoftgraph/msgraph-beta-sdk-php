@@ -80,7 +80,7 @@ class AuthenticationFlow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the transferMethod property value. The transferMethod property
+     * Gets the transferMethod property value. Represents the transfer methods in scope for the policy. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
      * @return ConditionalAccessTransferMethods|null
     */
     public function getTransferMethod(): ?ConditionalAccessTransferMethods {
@@ -126,7 +126,7 @@ class AuthenticationFlow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the transferMethod property value. The transferMethod property
+     * Sets the transferMethod property value. Represents the transfer methods in scope for the policy. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
      * @param ConditionalAccessTransferMethods|null $value Value to set for the transferMethod property.
     */
     public function setTransferMethod(?ConditionalAccessTransferMethods $value): void {

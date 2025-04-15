@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item\Device;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get device from networkAccess
+ * Represents the device associated with the network traffic, providing details about the hardware or virtual machine involved in the transaction.
 */
 class DeviceRequestBuilderGetQueryParameters 
 {

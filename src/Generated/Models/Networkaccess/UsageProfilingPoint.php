@@ -73,7 +73,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the internetAccessTrafficCount property value. The internetAccessTrafficCount property
+     * Gets the internetAccessTrafficCount property value. The count of traffic requests directed to general internet destinations.
      * @return int|null
     */
     public function getInternetAccessTrafficCount(): ?int {
@@ -85,7 +85,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the microsoft365AccessTrafficCount property value. The microsoft365AccessTrafficCount property
+     * Gets the microsoft365AccessTrafficCount property value. The count of traffic requests directed to Microsoft 365 services.
      * @return int|null
     */
     public function getMicrosoft365AccessTrafficCount(): ?int {
@@ -109,7 +109,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the privateAccessTrafficCount property value. The privateAccessTrafficCount property
+     * Gets the privateAccessTrafficCount property value. The count of traffic requests directed to internal private network destinations.
      * @return int|null
     */
     public function getPrivateAccessTrafficCount(): ?int {
@@ -121,7 +121,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the timeStampDateTime property value. The timeStampDateTime property
+     * Gets the timeStampDateTime property value. The date and time of this data point.
      * @return DateTime|null
     */
     public function getTimeStampDateTime(): ?DateTime {
@@ -133,7 +133,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalTrafficCount property value. The totalTrafficCount property
+     * Gets the totalTrafficCount property value. The total count of all traffic requests across all access types.
      * @return int|null
     */
     public function getTotalTrafficCount(): ?int {
@@ -175,7 +175,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the internetAccessTrafficCount property value. The internetAccessTrafficCount property
+     * Sets the internetAccessTrafficCount property value. The count of traffic requests directed to general internet destinations.
      * @param int|null $value Value to set for the internetAccessTrafficCount property.
     */
     public function setInternetAccessTrafficCount(?int $value): void {
@@ -183,7 +183,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the microsoft365AccessTrafficCount property value. The microsoft365AccessTrafficCount property
+     * Sets the microsoft365AccessTrafficCount property value. The count of traffic requests directed to Microsoft 365 services.
      * @param int|null $value Value to set for the microsoft365AccessTrafficCount property.
     */
     public function setMicrosoft365AccessTrafficCount(?int $value): void {
@@ -199,7 +199,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the privateAccessTrafficCount property value. The privateAccessTrafficCount property
+     * Sets the privateAccessTrafficCount property value. The count of traffic requests directed to internal private network destinations.
      * @param int|null $value Value to set for the privateAccessTrafficCount property.
     */
     public function setPrivateAccessTrafficCount(?int $value): void {
@@ -207,7 +207,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the timeStampDateTime property value. The timeStampDateTime property
+     * Sets the timeStampDateTime property value. The date and time of this data point.
      * @param DateTime|null $value Value to set for the timeStampDateTime property.
     */
     public function setTimeStampDateTime(?DateTime $value): void {
@@ -215,7 +215,7 @@ class UsageProfilingPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the totalTrafficCount property value. The totalTrafficCount property
+     * Sets the totalTrafficCount property value. The total count of all traffic requests across all access types.
      * @param int|null $value Value to set for the totalTrafficCount property.
     */
     public function setTotalTrafficCount(?int $value): void {

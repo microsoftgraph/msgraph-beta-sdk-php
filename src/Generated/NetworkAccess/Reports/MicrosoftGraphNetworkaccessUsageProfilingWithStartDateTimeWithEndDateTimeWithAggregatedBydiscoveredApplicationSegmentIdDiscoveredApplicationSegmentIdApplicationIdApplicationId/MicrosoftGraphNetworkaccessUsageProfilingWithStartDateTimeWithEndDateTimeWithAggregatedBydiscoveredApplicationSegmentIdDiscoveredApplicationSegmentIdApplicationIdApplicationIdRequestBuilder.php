@@ -38,10 +38,11 @@ class MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeW
     }
 
     /**
-     * Invoke function usageProfiling
+     * Returns an object containing count tables for the traffic types in Global Secure Access, aggregated by the time period specified.
      * @param MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-reports-usageprofiling?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -52,7 +53,7 @@ class MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeW
     }
 
     /**
-     * Invoke function usageProfiling
+     * Returns an object containing count tables for the traffic types in Global Secure Access, aggregated by the time period specified.
      * @param MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

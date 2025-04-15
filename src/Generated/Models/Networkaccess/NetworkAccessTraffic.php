@@ -39,7 +39,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the action property value. Indicates what action to take based on filtering policies. The possible values are: block, allow.
+     * Gets the action property value. Indicates the action taken based on filtering policies. The possible values are: block, allow, unknownFutureValue, bypass, alert. Use the Prefer: include-unknown-enum-members request header to get the following values from this {evolvable enum}(/graph/best-practices-concept#handling-future-members-in-evolvable-enumerations): bypass , alert.
      * @return FilteringPolicyAction|null
     */
     public function getAction(): ?FilteringPolicyAction {
@@ -64,7 +64,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the agentVersion property value. Represents the version of the Global Secure Access client agent software. Supports $filter (eq) and $orderby.
+     * Gets the agentVersion property value. Represents the version of the Global Secure Access (GSA) client agent software. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getAgentVersion(): ?string {
@@ -76,7 +76,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the applicationSnapshot property value. The applicationSnapshot property
+     * Gets the applicationSnapshot property value. Destination Application ID accessed in Azure AD during the transaction. Supports $filter (eq) and $orderby.
      * @return ApplicationSnapshot|null
     */
     public function getApplicationSnapshot(): ?ApplicationSnapshot {
@@ -120,7 +120,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Informational error message. For example: 'Threat intelligence detected a transaction and triggered an alert.' or 'The Global Secure Access (GSA) policy blocked the destination and triggered an alert.' Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -168,7 +168,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the destinationUrl property value. The destinationUrl property
+     * Gets the destinationUrl property value. Represents the URL of the destination in a network communication. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getDestinationUrl(): ?string {
@@ -180,7 +180,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the destinationWebCategory property value. The destinationWebCategory property
+     * Gets the destinationWebCategory property value. The destination FQDN's Web Category (e.g., Gambling). Supports $filter (eq) and $orderby.
      * @return WebCategory|null
     */
     public function getDestinationWebCategory(): ?WebCategory {
@@ -192,7 +192,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the device property value. The device property
+     * Gets the device property value. Represents the device associated with the network traffic, providing details about the hardware or virtual machine involved in the transaction.
      * @return Device|null
     */
     public function getDevice(): ?Device {
@@ -316,7 +316,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the filteringProfileId property value. The filteringProfileId property
+     * Gets the filteringProfileId property value. The ID of the Filtering Profile associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getFilteringProfileId(): ?string {
@@ -328,7 +328,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the filteringProfileName property value. The filteringProfileName property
+     * Gets the filteringProfileName property value. The name of the Filtering Profile associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getFilteringProfileName(): ?string {
@@ -352,7 +352,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the httpMethod property value. The httpMethod property
+     * Gets the httpMethod property value. The HTTP method inspected in the intercepted HTTP traffic. Supports $filter (eq) and $orderby.
      * @return HttpMethod|null
     */
     public function getHttpMethod(): ?HttpMethod {
@@ -364,7 +364,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the initiatingProcessName property value. The initiatingProcessName property
+     * Gets the initiatingProcessName property value. The process initiating the traffic transaction. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getInitiatingProcessName(): ?string {
@@ -376,7 +376,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the networkProtocol property value. Represents the networking protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
+     * Gets the networkProtocol property value. Represents the networking protocol used for communication. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return NetworkingProtocol|null
     */
     public function getNetworkProtocol(): ?NetworkingProtocol {
@@ -400,7 +400,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the operationStatus property value. The operationStatus property
+     * Gets the operationStatus property value. Indication if traffic was successfully processed. The possible values are: success, failure, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return NetworkTrafficOperationStatus|null
     */
     public function getOperationStatus(): ?NetworkTrafficOperationStatus {
@@ -424,7 +424,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the policyName property value. The policyName property
+     * Gets the policyName property value. The name of the filtering policy associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getPolicyName(): ?string {
@@ -448,7 +448,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the policyRuleName property value. The policyRuleName property
+     * Gets the policyRuleName property value. The name of the rule associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getPolicyRuleName(): ?string {
@@ -460,7 +460,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the popProcessingRegion property value. The popProcessingRegion property
+     * Gets the popProcessingRegion property value. The Point-of-Presence processing region of the traffic. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getPopProcessingRegion(): ?string {
@@ -472,7 +472,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the privateAccessDetails property value. The privateAccessDetails property
+     * Gets the privateAccessDetails property value. Details about private access traffic. Supports $filter (eq) and $orderby.
      * @return PrivateAccessDetails|null
     */
     public function getPrivateAccessDetails(): ?PrivateAccessDetails {
@@ -496,7 +496,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the remoteNetworkId property value. The remoteNetworkId property
+     * Gets the remoteNetworkId property value. The ID from which traffic was sent or received, providing visibility into the origin of the traffic. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getRemoteNetworkId(): ?string {
@@ -508,7 +508,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the resourceTenantId property value. The resourceTenantId property
+     * Gets the resourceTenantId property value. Tenant ID that owns the resource. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getResourceTenantId(): ?string {
@@ -520,7 +520,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the responseCode property value. The responseCode property
+     * Gets the responseCode property value. The HTTP response code inspected in the intercepted HTTP traffic. Supports $filter (eq) and $orderby.
      * @return int|null
     */
     public function getResponseCode(): ?int {
@@ -592,7 +592,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the threatType property value. The threatType property
+     * Gets the threatType property value. The type of threat detected in the traffic. Supports $filter (eq) and $orderby.
      * @return string|null
     */
     public function getThreatType(): ?string {
@@ -628,7 +628,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the transportProtocol property value. Represents the transport protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
+     * Gets the transportProtocol property value. Represents the transport protocol used for communication. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @return NetworkingProtocol|null
     */
     public function getTransportProtocol(): ?NetworkingProtocol {
@@ -640,7 +640,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the user property value. The user property
+     * Gets the user property value. Represents the user associated with the network traffic, providing details about the individual or account initiating the transaction.
      * @return User|null
     */
     public function getUser(): ?User {
@@ -676,7 +676,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the vendorNames property value. The vendorNames property
+     * Gets the vendorNames property value. The name of the vendors who detected the threat. Supports $filter (eq) and $orderby.
      * @return array<string>|null
     */
     public function getVendorNames(): ?array {
@@ -745,7 +745,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the action property value. Indicates what action to take based on filtering policies. The possible values are: block, allow.
+     * Sets the action property value. Indicates the action taken based on filtering policies. The possible values are: block, allow, unknownFutureValue, bypass, alert. Use the Prefer: include-unknown-enum-members request header to get the following values from this {evolvable enum}(/graph/best-practices-concept#handling-future-members-in-evolvable-enumerations): bypass , alert.
      * @param FilteringPolicyAction|null $value Value to set for the action property.
     */
     public function setAction(?FilteringPolicyAction $value): void {
@@ -761,7 +761,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the agentVersion property value. Represents the version of the Global Secure Access client agent software. Supports $filter (eq) and $orderby.
+     * Sets the agentVersion property value. Represents the version of the Global Secure Access (GSA) client agent software. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the agentVersion property.
     */
     public function setAgentVersion(?string $value): void {
@@ -769,7 +769,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the applicationSnapshot property value. The applicationSnapshot property
+     * Sets the applicationSnapshot property value. Destination Application ID accessed in Azure AD during the transaction. Supports $filter (eq) and $orderby.
      * @param ApplicationSnapshot|null $value Value to set for the applicationSnapshot property.
     */
     public function setApplicationSnapshot(?ApplicationSnapshot $value): void {
@@ -801,7 +801,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Informational error message. For example: 'Threat intelligence detected a transaction and triggered an alert.' or 'The Global Secure Access (GSA) policy blocked the destination and triggered an alert.' Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -833,7 +833,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the destinationUrl property value. The destinationUrl property
+     * Sets the destinationUrl property value. Represents the URL of the destination in a network communication. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the destinationUrl property.
     */
     public function setDestinationUrl(?string $value): void {
@@ -841,7 +841,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the destinationWebCategory property value. The destinationWebCategory property
+     * Sets the destinationWebCategory property value. The destination FQDN's Web Category (e.g., Gambling). Supports $filter (eq) and $orderby.
      * @param WebCategory|null $value Value to set for the destinationWebCategory property.
     */
     public function setDestinationWebCategory(?WebCategory $value): void {
@@ -849,7 +849,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the device property value. The device property
+     * Sets the device property value. Represents the device associated with the network traffic, providing details about the hardware or virtual machine involved in the transaction.
      * @param Device|null $value Value to set for the device property.
     */
     public function setDevice(?Device $value): void {
@@ -889,7 +889,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the filteringProfileId property value. The filteringProfileId property
+     * Sets the filteringProfileId property value. The ID of the Filtering Profile associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the filteringProfileId property.
     */
     public function setFilteringProfileId(?string $value): void {
@@ -897,7 +897,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the filteringProfileName property value. The filteringProfileName property
+     * Sets the filteringProfileName property value. The name of the Filtering Profile associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the filteringProfileName property.
     */
     public function setFilteringProfileName(?string $value): void {
@@ -913,7 +913,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the httpMethod property value. The httpMethod property
+     * Sets the httpMethod property value. The HTTP method inspected in the intercepted HTTP traffic. Supports $filter (eq) and $orderby.
      * @param HttpMethod|null $value Value to set for the httpMethod property.
     */
     public function setHttpMethod(?HttpMethod $value): void {
@@ -921,7 +921,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the initiatingProcessName property value. The initiatingProcessName property
+     * Sets the initiatingProcessName property value. The process initiating the traffic transaction. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the initiatingProcessName property.
     */
     public function setInitiatingProcessName(?string $value): void {
@@ -929,7 +929,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the networkProtocol property value. Represents the networking protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
+     * Sets the networkProtocol property value. Represents the networking protocol used for communication. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @param NetworkingProtocol|null $value Value to set for the networkProtocol property.
     */
     public function setNetworkProtocol(?NetworkingProtocol $value): void {
@@ -945,7 +945,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the operationStatus property value. The operationStatus property
+     * Sets the operationStatus property value. Indication if traffic was successfully processed. The possible values are: success, failure, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @param NetworkTrafficOperationStatus|null $value Value to set for the operationStatus property.
     */
     public function setOperationStatus(?NetworkTrafficOperationStatus $value): void {
@@ -961,7 +961,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the policyName property value. The policyName property
+     * Sets the policyName property value. The name of the filtering policy associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
@@ -977,7 +977,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the policyRuleName property value. The policyRuleName property
+     * Sets the policyRuleName property value. The name of the rule associated with the action performed on traffic. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the policyRuleName property.
     */
     public function setPolicyRuleName(?string $value): void {
@@ -985,7 +985,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the popProcessingRegion property value. The popProcessingRegion property
+     * Sets the popProcessingRegion property value. The Point-of-Presence processing region of the traffic. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the popProcessingRegion property.
     */
     public function setPopProcessingRegion(?string $value): void {
@@ -993,7 +993,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the privateAccessDetails property value. The privateAccessDetails property
+     * Sets the privateAccessDetails property value. Details about private access traffic. Supports $filter (eq) and $orderby.
      * @param PrivateAccessDetails|null $value Value to set for the privateAccessDetails property.
     */
     public function setPrivateAccessDetails(?PrivateAccessDetails $value): void {
@@ -1009,7 +1009,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the remoteNetworkId property value. The remoteNetworkId property
+     * Sets the remoteNetworkId property value. The ID from which traffic was sent or received, providing visibility into the origin of the traffic. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the remoteNetworkId property.
     */
     public function setRemoteNetworkId(?string $value): void {
@@ -1017,7 +1017,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the resourceTenantId property value. The resourceTenantId property
+     * Sets the resourceTenantId property value. Tenant ID that owns the resource. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the resourceTenantId property.
     */
     public function setResourceTenantId(?string $value): void {
@@ -1025,7 +1025,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the responseCode property value. The responseCode property
+     * Sets the responseCode property value. The HTTP response code inspected in the intercepted HTTP traffic. Supports $filter (eq) and $orderby.
      * @param int|null $value Value to set for the responseCode property.
     */
     public function setResponseCode(?int $value): void {
@@ -1073,7 +1073,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the threatType property value. The threatType property
+     * Sets the threatType property value. The type of threat detected in the traffic. Supports $filter (eq) and $orderby.
      * @param string|null $value Value to set for the threatType property.
     */
     public function setThreatType(?string $value): void {
@@ -1097,7 +1097,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the transportProtocol property value. Represents the transport protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
+     * Sets the transportProtocol property value. Represents the transport protocol used for communication. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.
      * @param NetworkingProtocol|null $value Value to set for the transportProtocol property.
     */
     public function setTransportProtocol(?NetworkingProtocol $value): void {
@@ -1105,7 +1105,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the user property value. The user property
+     * Sets the user property value. Represents the user associated with the network traffic, providing details about the individual or account initiating the transaction.
      * @param User|null $value Value to set for the user property.
     */
     public function setUser(?User $value): void {
@@ -1129,7 +1129,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the vendorNames property value. The vendorNames property
+     * Sets the vendorNames property value. The name of the vendors who detected the threat. Supports $filter (eq) and $orderby.
      * @param array<string>|null $value Value to set for the vendorNames property.
     */
     public function setVendorNames(?array $value): void {
