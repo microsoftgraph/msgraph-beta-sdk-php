@@ -57,7 +57,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. Time the token will expire.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the issuedAtDateTime property value. The issuedAtDateTime property
+     * Gets the issuedAtDateTime property value. Time the token was issued at.
      * @return DateTime|null
     */
     public function getIssuedAtDateTime(): ?DateTime {
@@ -108,7 +108,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the uniqueTokenIdentifier property value. The uniqueTokenIdentifier property
+     * Gets the uniqueTokenIdentifier property value. Unique token identifier.
      * @return string|null
     */
     public function getUniqueTokenIdentifier(): ?string {
@@ -120,7 +120,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the validFromDateTime property value. The validFromDateTime property
+     * Gets the validFromDateTime property value. Time the token is valid from.
      * @return DateTime|null
     */
     public function getValidFromDateTime(): ?DateTime {
@@ -161,7 +161,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. Time the token will expire.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -169,7 +169,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the issuedAtDateTime property value. The issuedAtDateTime property
+     * Sets the issuedAtDateTime property value. Time the token was issued at.
      * @param DateTime|null $value Value to set for the issuedAtDateTime property.
     */
     public function setIssuedAtDateTime(?DateTime $value): void {
@@ -185,7 +185,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the uniqueTokenIdentifier property value. The uniqueTokenIdentifier property
+     * Sets the uniqueTokenIdentifier property value. Unique token identifier.
      * @param string|null $value Value to set for the uniqueTokenIdentifier property.
     */
     public function setUniqueTokenIdentifier(?string $value): void {
@@ -193,7 +193,7 @@ class ThirdPartyTokenDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the validFromDateTime property value. The validFromDateTime property
+     * Sets the validFromDateTime property value. Time the token is valid from.
      * @param DateTime|null $value Value to set for the validFromDateTime property.
     */
     public function setValidFromDateTime(?DateTime $value): void {

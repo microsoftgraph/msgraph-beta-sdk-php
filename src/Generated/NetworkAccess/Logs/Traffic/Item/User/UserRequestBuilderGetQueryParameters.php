@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item\User;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get user from networkAccess
+ * Represents the user associated with the network traffic, providing details about the individual or account initiating the transaction.
 */
 class UserRequestBuilderGetQueryParameters 
 {

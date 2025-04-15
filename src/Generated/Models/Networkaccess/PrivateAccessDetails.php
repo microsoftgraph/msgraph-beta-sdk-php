@@ -35,7 +35,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the accessType property value. The accessType property
+     * Gets the accessType property value. Type of accessed application. Access type options: QuickAccess, PrivateAccess.
      * @return AccessType|null
     */
     public function getAccessType(): ?AccessType {
@@ -60,7 +60,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the appSegmentId property value. The appSegmentId property
+     * Gets the appSegmentId property value. The unique identifier for Application segment ID from Azure AD.
      * @return string|null
     */
     public function getAppSegmentId(): ?string {
@@ -80,7 +80,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the connectionStatus property value. The connectionStatus property
+     * Gets the connectionStatus property value. Status of a connection. Status options: Open, Active, Closed.
      * @return ConnectionStatus|null
     */
     public function getConnectionStatus(): ?ConnectionStatus {
@@ -92,7 +92,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the connectorId property value. The connectorId property
+     * Gets the connectorId property value. Private access connector ID.
      * @return string|null
     */
     public function getConnectorId(): ?string {
@@ -104,7 +104,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the connectorIp property value. The connectorIp property
+     * Gets the connectorIp property value. Private access connector IP address.
      * @return string|null
     */
     public function getConnectorIp(): ?string {
@@ -116,7 +116,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the connectorName property value. The connectorName property
+     * Gets the connectorName property value. Private access connector name.
      * @return string|null
     */
     public function getConnectorName(): ?string {
@@ -159,7 +159,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the processingRegion property value. The processingRegion property
+     * Gets the processingRegion property value. Region where the request was processed by the backend service.
      * @return string|null
     */
     public function getProcessingRegion(): ?string {
@@ -171,7 +171,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the thirdPartyTokenDetails property value. The thirdPartyTokenDetails property
+     * Gets the thirdPartyTokenDetails property value. Details about third-party tokens used in the transaction.
      * @return ThirdPartyTokenDetails|null
     */
     public function getThirdPartyTokenDetails(): ?ThirdPartyTokenDetails {
@@ -200,7 +200,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the accessType property value. The accessType property
+     * Sets the accessType property value. Type of accessed application. Access type options: QuickAccess, PrivateAccess.
      * @param AccessType|null $value Value to set for the accessType property.
     */
     public function setAccessType(?AccessType $value): void {
@@ -216,7 +216,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the appSegmentId property value. The appSegmentId property
+     * Sets the appSegmentId property value. The unique identifier for Application segment ID from Azure AD.
      * @param string|null $value Value to set for the appSegmentId property.
     */
     public function setAppSegmentId(?string $value): void {
@@ -232,7 +232,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the connectionStatus property value. The connectionStatus property
+     * Sets the connectionStatus property value. Status of a connection. Status options: Open, Active, Closed.
      * @param ConnectionStatus|null $value Value to set for the connectionStatus property.
     */
     public function setConnectionStatus(?ConnectionStatus $value): void {
@@ -240,7 +240,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the connectorId property value. The connectorId property
+     * Sets the connectorId property value. Private access connector ID.
      * @param string|null $value Value to set for the connectorId property.
     */
     public function setConnectorId(?string $value): void {
@@ -248,7 +248,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the connectorIp property value. The connectorIp property
+     * Sets the connectorIp property value. Private access connector IP address.
      * @param string|null $value Value to set for the connectorIp property.
     */
     public function setConnectorIp(?string $value): void {
@@ -256,7 +256,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the connectorName property value. The connectorName property
+     * Sets the connectorName property value. Private access connector name.
      * @param string|null $value Value to set for the connectorName property.
     */
     public function setConnectorName(?string $value): void {
@@ -272,7 +272,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the processingRegion property value. The processingRegion property
+     * Sets the processingRegion property value. Region where the request was processed by the backend service.
      * @param string|null $value Value to set for the processingRegion property.
     */
     public function setProcessingRegion(?string $value): void {
@@ -280,7 +280,7 @@ class PrivateAccessDetails implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the thirdPartyTokenDetails property value. The thirdPartyTokenDetails property
+     * Sets the thirdPartyTokenDetails property value. Details about third-party tokens used in the transaction.
      * @param ThirdPartyTokenDetails|null $value Value to set for the thirdPartyTokenDetails property.
     */
     public function setThirdPartyTokenDetails(?ThirdPartyTokenDetails $value): void {

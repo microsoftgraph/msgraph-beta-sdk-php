@@ -36,7 +36,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the accessType property value. The accessType property
+     * Gets the accessType property value. The type of access used to connect to this application segment. The possible values are: quickAccess, privateAccess, unknownFutureValue, appAccess. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: appAccess.
      * @return AccessType|null
     */
     public function getAccessType(): ?AccessType {
@@ -69,7 +69,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the deviceCount property value. The deviceCount property
+     * Gets the deviceCount property value. The number of unique devices that have accessed this application segment.
      * @return int|null
     */
     public function getDeviceCount(): ?int {
@@ -81,7 +81,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the discoveredApplicationSegmentId property value. The discoveredApplicationSegmentId property
+     * Gets the discoveredApplicationSegmentId property value. The unique identifier for this discovered application segment.
      * @return string|null
     */
     public function getDiscoveredApplicationSegmentId(): ?string {
@@ -117,7 +117,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the firstAccessDateTime property value. The firstAccessDateTime property
+     * Gets the firstAccessDateTime property value. The date and time when this application segment was first accessed.
      * @return DateTime|null
     */
     public function getFirstAccessDateTime(): ?DateTime {
@@ -129,7 +129,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the fqdn property value. The fqdn property
+     * Gets the fqdn property value. The fully qualified domain name associated with this application segment.
      * @return string|null
     */
     public function getFqdn(): ?string {
@@ -141,7 +141,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the ip property value. The ip property
+     * Gets the ip property value. The IP address associated with this application segment.
      * @return string|null
     */
     public function getIp(): ?string {
@@ -153,7 +153,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Gets the lastAccessDateTime property value. The date and time when this application segment was last accessed.
      * @return DateTime|null
     */
     public function getLastAccessDateTime(): ?DateTime {
@@ -177,7 +177,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the port property value. The port property
+     * Gets the port property value. The port number used to access this application segment.
      * @return int|null
     */
     public function getPort(): ?int {
@@ -189,7 +189,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the totalBytesReceived property value. The totalBytesReceived property
+     * Gets the totalBytesReceived property value. The total number of bytes received from this application segment.
      * @return int|null
     */
     public function getTotalBytesReceived(): ?int {
@@ -201,7 +201,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the totalBytesSent property value. The totalBytesSent property
+     * Gets the totalBytesSent property value. The total number of bytes sent to this application segment.
      * @return int|null
     */
     public function getTotalBytesSent(): ?int {
@@ -213,7 +213,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the transactionCount property value. The transactionCount property
+     * Gets the transactionCount property value. The number of transactions recorded for this application segment.
      * @return int|null
     */
     public function getTransactionCount(): ?int {
@@ -237,7 +237,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the userCount property value. The userCount property
+     * Gets the userCount property value. The number of unique users who have accessed this application segment.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -271,7 +271,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the accessType property value. The accessType property
+     * Sets the accessType property value. The type of access used to connect to this application segment. The possible values are: quickAccess, privateAccess, unknownFutureValue, appAccess. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: appAccess.
      * @param AccessType|null $value Value to set for the accessType property.
     */
     public function setAccessType(?AccessType $value): void {
@@ -295,7 +295,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the deviceCount property value. The deviceCount property
+     * Sets the deviceCount property value. The number of unique devices that have accessed this application segment.
      * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
@@ -303,7 +303,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the discoveredApplicationSegmentId property value. The discoveredApplicationSegmentId property
+     * Sets the discoveredApplicationSegmentId property value. The unique identifier for this discovered application segment.
      * @param string|null $value Value to set for the discoveredApplicationSegmentId property.
     */
     public function setDiscoveredApplicationSegmentId(?string $value): void {
@@ -311,7 +311,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the firstAccessDateTime property value. The firstAccessDateTime property
+     * Sets the firstAccessDateTime property value. The date and time when this application segment was first accessed.
      * @param DateTime|null $value Value to set for the firstAccessDateTime property.
     */
     public function setFirstAccessDateTime(?DateTime $value): void {
@@ -319,7 +319,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the fqdn property value. The fqdn property
+     * Sets the fqdn property value. The fully qualified domain name associated with this application segment.
      * @param string|null $value Value to set for the fqdn property.
     */
     public function setFqdn(?string $value): void {
@@ -327,7 +327,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the ip property value. The ip property
+     * Sets the ip property value. The IP address associated with this application segment.
      * @param string|null $value Value to set for the ip property.
     */
     public function setIp(?string $value): void {
@@ -335,7 +335,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the lastAccessDateTime property value. The lastAccessDateTime property
+     * Sets the lastAccessDateTime property value. The date and time when this application segment was last accessed.
      * @param DateTime|null $value Value to set for the lastAccessDateTime property.
     */
     public function setLastAccessDateTime(?DateTime $value): void {
@@ -351,7 +351,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the port property value. The port property
+     * Sets the port property value. The port number used to access this application segment.
      * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
@@ -359,7 +359,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the totalBytesReceived property value. The totalBytesReceived property
+     * Sets the totalBytesReceived property value. The total number of bytes received from this application segment.
      * @param int|null $value Value to set for the totalBytesReceived property.
     */
     public function setTotalBytesReceived(?int $value): void {
@@ -367,7 +367,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the totalBytesSent property value. The totalBytesSent property
+     * Sets the totalBytesSent property value. The total number of bytes sent to this application segment.
      * @param int|null $value Value to set for the totalBytesSent property.
     */
     public function setTotalBytesSent(?int $value): void {
@@ -375,7 +375,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the transactionCount property value. The transactionCount property
+     * Sets the transactionCount property value. The number of transactions recorded for this application segment.
      * @param int|null $value Value to set for the transactionCount property.
     */
     public function setTransactionCount(?int $value): void {
@@ -391,7 +391,7 @@ class DiscoveredApplicationSegmentReport implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the userCount property value. The userCount property
+     * Sets the userCount property value. The number of unique users who have accessed this application segment.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {

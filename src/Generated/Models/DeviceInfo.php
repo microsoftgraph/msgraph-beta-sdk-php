@@ -57,7 +57,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -69,7 +69,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name for the device.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -81,7 +81,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the enrollmentProfileName property value. The enrollmentProfileName property
+     * Gets the enrollmentProfileName property value. Enrollment profile applied to the device.
      * @return string|null
     */
     public function getEnrollmentProfileName(): ?string {
@@ -93,7 +93,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute1 property value. The extensionAttribute1 property
+     * Gets the extensionAttribute1 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute1(): ?string {
@@ -105,7 +105,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute10 property value. The extensionAttribute10 property
+     * Gets the extensionAttribute10 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute10(): ?string {
@@ -117,7 +117,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute11 property value. The extensionAttribute11 property
+     * Gets the extensionAttribute11 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute11(): ?string {
@@ -129,7 +129,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute12 property value. The extensionAttribute12 property
+     * Gets the extensionAttribute12 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute12(): ?string {
@@ -141,7 +141,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute13 property value. The extensionAttribute13 property
+     * Gets the extensionAttribute13 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute13(): ?string {
@@ -153,7 +153,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute14 property value. The extensionAttribute14 property
+     * Gets the extensionAttribute14 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute14(): ?string {
@@ -165,7 +165,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute15 property value. The extensionAttribute15 property
+     * Gets the extensionAttribute15 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute15(): ?string {
@@ -177,7 +177,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute2 property value. The extensionAttribute2 property
+     * Gets the extensionAttribute2 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute2(): ?string {
@@ -189,7 +189,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute3 property value. The extensionAttribute3 property
+     * Gets the extensionAttribute3 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute3(): ?string {
@@ -201,7 +201,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute4 property value. The extensionAttribute4 property
+     * Gets the extensionAttribute4 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute4(): ?string {
@@ -213,7 +213,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute5 property value. The extensionAttribute5 property
+     * Gets the extensionAttribute5 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute5(): ?string {
@@ -225,7 +225,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute6 property value. The extensionAttribute6 property
+     * Gets the extensionAttribute6 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute6(): ?string {
@@ -237,7 +237,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute7 property value. The extensionAttribute7 property
+     * Gets the extensionAttribute7 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute7(): ?string {
@@ -249,7 +249,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute8 property value. The extensionAttribute8 property
+     * Gets the extensionAttribute8 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute8(): ?string {
@@ -261,7 +261,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the extensionAttribute9 property value. The extensionAttribute9 property
+     * Gets the extensionAttribute9 property value. Extension attribute.
      * @return string|null
     */
     public function getExtensionAttribute9(): ?string {
@@ -327,7 +327,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isCompliant property value. The isCompliant property
+     * Gets the isCompliant property value. Indicates the device compliance status with Mobile Management Device (MDM) policies.
      * @return bool|null
     */
     public function getIsCompliant(): ?bool {
@@ -339,7 +339,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the manufacturer property value. The manufacturer property
+     * Gets the manufacturer property value. Manufacturer of the device.
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -351,7 +351,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mdmAppId property value. The mdmAppId property
+     * Gets the mdmAppId property value. Application identifier used to register device into MDM.
      * @return string|null
     */
     public function getMdmAppId(): ?string {
@@ -363,7 +363,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the model property value. The model property
+     * Gets the model property value. Model of the device.
      * @return string|null
     */
     public function getModel(): ?string {
@@ -387,7 +387,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the operatingSystem property value. The operatingSystem property
+     * Gets the operatingSystem property value. The type of operating system on the device.
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
@@ -399,7 +399,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the operatingSystemVersion property value. The operatingSystemVersion property
+     * Gets the operatingSystemVersion property value. The version of the operating system on the device.
      * @return string|null
     */
     public function getOperatingSystemVersion(): ?string {
@@ -411,7 +411,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ownership property value. The ownership property
+     * Gets the ownership property value. Ownership of the device. This property is set by Intune.
      * @return string|null
     */
     public function getOwnership(): ?string {
@@ -423,7 +423,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the physicalIds property value. The physicalIds property
+     * Gets the physicalIds property value. A collection of physical identifiers for the device.
      * @return array<string>|null
     */
     public function getPhysicalIds(): ?array {
@@ -437,7 +437,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the profileType property value. The profileType property
+     * Gets the profileType property value. The profile type of the device.
      * @return string|null
     */
     public function getProfileType(): ?string {
@@ -449,7 +449,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the systemLabels property value. The systemLabels property
+     * Gets the systemLabels property value. List of labels applied to the device by the system.
      * @return array<string>|null
     */
     public function getSystemLabels(): ?array {
@@ -463,7 +463,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the trustType property value. The trustType property
+     * Gets the trustType property value. Type of trust for the joined device.
      * @return string|null
     */
     public function getTrustType(): ?string {
@@ -529,7 +529,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -537,7 +537,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name for the device.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -545,7 +545,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the enrollmentProfileName property value. The enrollmentProfileName property
+     * Sets the enrollmentProfileName property value. Enrollment profile applied to the device.
      * @param string|null $value Value to set for the enrollmentProfileName property.
     */
     public function setEnrollmentProfileName(?string $value): void {
@@ -553,7 +553,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute1 property value. The extensionAttribute1 property
+     * Sets the extensionAttribute1 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute1 property.
     */
     public function setExtensionAttribute1(?string $value): void {
@@ -561,7 +561,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute10 property value. The extensionAttribute10 property
+     * Sets the extensionAttribute10 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute10 property.
     */
     public function setExtensionAttribute10(?string $value): void {
@@ -569,7 +569,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute11 property value. The extensionAttribute11 property
+     * Sets the extensionAttribute11 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute11 property.
     */
     public function setExtensionAttribute11(?string $value): void {
@@ -577,7 +577,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute12 property value. The extensionAttribute12 property
+     * Sets the extensionAttribute12 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute12 property.
     */
     public function setExtensionAttribute12(?string $value): void {
@@ -585,7 +585,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute13 property value. The extensionAttribute13 property
+     * Sets the extensionAttribute13 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute13 property.
     */
     public function setExtensionAttribute13(?string $value): void {
@@ -593,7 +593,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute14 property value. The extensionAttribute14 property
+     * Sets the extensionAttribute14 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute14 property.
     */
     public function setExtensionAttribute14(?string $value): void {
@@ -601,7 +601,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute15 property value. The extensionAttribute15 property
+     * Sets the extensionAttribute15 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute15 property.
     */
     public function setExtensionAttribute15(?string $value): void {
@@ -609,7 +609,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute2 property value. The extensionAttribute2 property
+     * Sets the extensionAttribute2 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute2 property.
     */
     public function setExtensionAttribute2(?string $value): void {
@@ -617,7 +617,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute3 property value. The extensionAttribute3 property
+     * Sets the extensionAttribute3 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute3 property.
     */
     public function setExtensionAttribute3(?string $value): void {
@@ -625,7 +625,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute4 property value. The extensionAttribute4 property
+     * Sets the extensionAttribute4 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute4 property.
     */
     public function setExtensionAttribute4(?string $value): void {
@@ -633,7 +633,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute5 property value. The extensionAttribute5 property
+     * Sets the extensionAttribute5 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute5 property.
     */
     public function setExtensionAttribute5(?string $value): void {
@@ -641,7 +641,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute6 property value. The extensionAttribute6 property
+     * Sets the extensionAttribute6 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute6 property.
     */
     public function setExtensionAttribute6(?string $value): void {
@@ -649,7 +649,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute7 property value. The extensionAttribute7 property
+     * Sets the extensionAttribute7 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute7 property.
     */
     public function setExtensionAttribute7(?string $value): void {
@@ -657,7 +657,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute8 property value. The extensionAttribute8 property
+     * Sets the extensionAttribute8 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute8 property.
     */
     public function setExtensionAttribute8(?string $value): void {
@@ -665,7 +665,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the extensionAttribute9 property value. The extensionAttribute9 property
+     * Sets the extensionAttribute9 property value. Extension attribute.
      * @param string|null $value Value to set for the extensionAttribute9 property.
     */
     public function setExtensionAttribute9(?string $value): void {
@@ -673,7 +673,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isCompliant property value. The isCompliant property
+     * Sets the isCompliant property value. Indicates the device compliance status with Mobile Management Device (MDM) policies.
      * @param bool|null $value Value to set for the isCompliant property.
     */
     public function setIsCompliant(?bool $value): void {
@@ -681,7 +681,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the manufacturer property value. The manufacturer property
+     * Sets the manufacturer property value. Manufacturer of the device.
      * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
@@ -689,7 +689,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mdmAppId property value. The mdmAppId property
+     * Sets the mdmAppId property value. Application identifier used to register device into MDM.
      * @param string|null $value Value to set for the mdmAppId property.
     */
     public function setMdmAppId(?string $value): void {
@@ -697,7 +697,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the model property value. The model property
+     * Sets the model property value. Model of the device.
      * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
@@ -713,7 +713,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the operatingSystem property value. The operatingSystem property
+     * Sets the operatingSystem property value. The type of operating system on the device.
      * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
@@ -721,7 +721,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the operatingSystemVersion property value. The operatingSystemVersion property
+     * Sets the operatingSystemVersion property value. The version of the operating system on the device.
      * @param string|null $value Value to set for the operatingSystemVersion property.
     */
     public function setOperatingSystemVersion(?string $value): void {
@@ -729,7 +729,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ownership property value. The ownership property
+     * Sets the ownership property value. Ownership of the device. This property is set by Intune.
      * @param string|null $value Value to set for the ownership property.
     */
     public function setOwnership(?string $value): void {
@@ -737,7 +737,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the physicalIds property value. The physicalIds property
+     * Sets the physicalIds property value. A collection of physical identifiers for the device.
      * @param array<string>|null $value Value to set for the physicalIds property.
     */
     public function setPhysicalIds(?array $value): void {
@@ -745,7 +745,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the profileType property value. The profileType property
+     * Sets the profileType property value. The profile type of the device.
      * @param string|null $value Value to set for the profileType property.
     */
     public function setProfileType(?string $value): void {
@@ -753,7 +753,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the systemLabels property value. The systemLabels property
+     * Sets the systemLabels property value. List of labels applied to the device by the system.
      * @param array<string>|null $value Value to set for the systemLabels property.
     */
     public function setSystemLabels(?array $value): void {
@@ -761,7 +761,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the trustType property value. The trustType property
+     * Sets the trustType property value. Type of trust for the joined device.
      * @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value): void {

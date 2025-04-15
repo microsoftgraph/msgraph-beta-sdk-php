@@ -48,7 +48,7 @@ class ApplicationSnapshot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. The unique identifier of the application accessed during the transaction.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -110,7 +110,7 @@ class ApplicationSnapshot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. The unique identifier of the application accessed during the transaction.
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {

@@ -52,10 +52,11 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of remote network health events.
+     * Get a list of the remoteNetworkHealthEvent objects and their properties.
      * @param RemoteNetworksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetworkHealthEventCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-logs-list-remotenetworks?view=graph-rest-beta Find more info here
     */
     public function get(?RemoteNetworksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class RemoteNetworksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A collection of remote network health events.
+     * Get a list of the remoteNetworkHealthEvent objects and their properties.
      * @param RemoteNetworksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

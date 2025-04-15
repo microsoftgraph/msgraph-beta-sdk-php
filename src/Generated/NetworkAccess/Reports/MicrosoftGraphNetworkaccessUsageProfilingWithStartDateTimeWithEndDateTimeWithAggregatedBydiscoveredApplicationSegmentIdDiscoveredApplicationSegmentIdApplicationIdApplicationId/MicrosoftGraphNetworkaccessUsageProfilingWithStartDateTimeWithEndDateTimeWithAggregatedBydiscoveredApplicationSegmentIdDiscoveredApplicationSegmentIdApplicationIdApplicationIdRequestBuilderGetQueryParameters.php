@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function usageProfiling
+ * Returns an object containing count tables for the traffic types in Global Secure Access, aggregated by the time period specified.
 */
 class MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilderGetQueryParameters 
 {
