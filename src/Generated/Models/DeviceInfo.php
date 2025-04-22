@@ -327,7 +327,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isCompliant property value. Indicates the device compliance status with Mobile Management Device (MDM) policies.
+     * Gets the isCompliant property value. Indicates the device compliance status with Mobile Management Device (MDM) policies. Default is false.
      * @return bool|null
     */
     public function getIsCompliant(): ?bool {
@@ -673,7 +673,7 @@ class DeviceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isCompliant property value. Indicates the device compliance status with Mobile Management Device (MDM) policies.
+     * Sets the isCompliant property value. Indicates the device compliance status with Mobile Management Device (MDM) policies. Default is false.
      * @param bool|null $value Value to set for the isCompliant property.
     */
     public function setIsCompliant(?bool $value): void {

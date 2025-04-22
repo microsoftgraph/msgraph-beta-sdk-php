@@ -26,6 +26,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberGroups\CheckMemberGroup
 use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudClipboard\CloudClipboardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\CloudPCsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Communications\CommunicationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\ContactFoldersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Contacts\ContactsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ConvertExternalToInternalMemberUser\ConvertExternalToInternalMemberUserRequestBuilder;
@@ -263,6 +264,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function cloudPCs(): CloudPCsRequestBuilder {
         return new CloudPCsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the communications property of the microsoft.graph.user entity.
+    */
+    public function communications(): CommunicationsRequestBuilder {
+        return new CommunicationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

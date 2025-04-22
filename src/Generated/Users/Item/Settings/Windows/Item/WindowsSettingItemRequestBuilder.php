@@ -39,10 +39,11 @@ class WindowsSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property windows for users
+     * Delete all windowsSetting objects of a user.
      * @param WindowsSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/windowssetting-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?WindowsSettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -82,7 +83,7 @@ class WindowsSettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property windows for users
+     * Delete all windowsSetting objects of a user.
      * @param WindowsSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

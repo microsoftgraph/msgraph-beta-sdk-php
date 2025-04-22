@@ -86,6 +86,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setScopeIds($val);
             },
+            'sizeInGB' => fn(ParseNode $n) => $o->setSizeInGB($n->getIntegerValue()),
             'sourceImageResourceId' => fn(ParseNode $n) => $o->setSourceImageResourceId($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcDeviceImageStatus::class)),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImageStatusDetails::class)),
@@ -168,6 +169,18 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
+     * Gets the sizeInGB property value. The sizeInGB property
+     * @return int|null
+    */
+    public function getSizeInGB(): ?int {
+        $val = $this->getBackingStore()->get('sizeInGB');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeInGB'");
+    }
+
+    /**
      * Gets the sourceImageResourceId property value. The unique identifier (ID) of the source image resource on Azure. The required ID format is: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'. Read-only.
      * @return string|null
     */
@@ -230,6 +243,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
         $writer->writeEnumValue('osStatus', $this->getOsStatus());
         $writer->writeStringValue('osVersionNumber', $this->getOsVersionNumber());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
+        $writer->writeIntegerValue('sizeInGB', $this->getSizeInGB());
         $writer->writeStringValue('sourceImageResourceId', $this->getSourceImageResourceId());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeEnumValue('statusDetails', $this->getStatusDetails());
@@ -306,6 +320,14 @@ class CloudPcDeviceImage extends Entity implements Parsable
     */
     public function setScopeIds(?array $value): void {
         $this->getBackingStore()->set('scopeIds', $value);
+    }
+
+    /**
+     * Sets the sizeInGB property value. The sizeInGB property
+     * @param int|null $value Value to set for the sizeInGB property.
+    */
+    public function setSizeInGB(?int $value): void {
+        $this->getBackingStore()->set('sizeInGB', $value);
     }
 
     /**

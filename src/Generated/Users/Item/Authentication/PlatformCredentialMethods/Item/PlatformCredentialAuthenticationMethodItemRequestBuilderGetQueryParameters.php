@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PlatformCrede
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get platformCredentialMethods from users
+ * Represents a platform credential instance registered to a user on Mac OS.
 */
 class PlatformCredentialAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

@@ -131,7 +131,7 @@ class Permission extends Entity implements Parsable
     }
 
     /**
-     * Gets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if it's inherited from an ancestor. Read-only.
+     * Gets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if inherited from an ancestor. Read-only.
      * @return ItemReference|null
     */
     public function getInheritedFrom(): ?ItemReference {
@@ -260,7 +260,7 @@ class Permission extends Entity implements Parsable
     }
 
     /**
-     * Sets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if it's inherited from an ancestor. Read-only.
+     * Sets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if inherited from an ancestor. Read-only.
      * @param ItemReference|null $value Value to set for the inheritedFrom property.
     */
     public function setInheritedFrom(?ItemReference $value): void {

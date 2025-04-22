@@ -370,6 +370,18 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the communications property value. The user's communications settings on Teams.
+     * @return UserCloudCommunication|null
+    */
+    public function getCommunications(): ?UserCloudCommunication {
+        $val = $this->getBackingStore()->get('communications');
+        if (is_null($val) || $val instanceof UserCloudCommunication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'communications'");
+    }
+
+    /**
      * Gets the companyName property value. The name of the company the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @return string|null
     */
@@ -803,6 +815,7 @@ class User extends DirectoryObject implements Parsable
             'cloudLicensing' => fn(ParseNode $n) => $o->setCloudLicensing($n->getObjectValue([UserCloudLicensing::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'cloudRealtimeCommunicationInfo' => fn(ParseNode $n) => $o->setCloudRealtimeCommunicationInfo($n->getObjectValue([CloudRealtimeCommunicationInfo::class, 'createFromDiscriminatorValue'])),
+            'communications' => fn(ParseNode $n) => $o->setCommunications($n->getObjectValue([UserCloudCommunication::class, 'createFromDiscriminatorValue'])),
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
             'consentProvidedForMinor' => fn(ParseNode $n) => $o->setConsentProvidedForMinor($n->getStringValue()),
             'contactFolders' => fn(ParseNode $n) => $o->setContactFolders($n->getCollectionOfObjectValues([ContactFolder::class, 'createFromDiscriminatorValue'])),
@@ -2316,6 +2329,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('cloudLicensing', $this->getCloudLicensing());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('cloudRealtimeCommunicationInfo', $this->getCloudRealtimeCommunicationInfo());
+        $writer->writeObjectValue('communications', $this->getCommunications());
         $writer->writeStringValue('companyName', $this->getCompanyName());
         $writer->writeStringValue('consentProvidedForMinor', $this->getConsentProvidedForMinor());
         $writer->writeCollectionOfObjectValues('contactFolders', $this->getContactFolders());
@@ -2655,6 +2669,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setCloudRealtimeCommunicationInfo(?CloudRealtimeCommunicationInfo $value): void {
         $this->getBackingStore()->set('cloudRealtimeCommunicationInfo', $value);
+    }
+
+    /**
+     * Sets the communications property value. The user's communications settings on Teams.
+     * @param UserCloudCommunication|null $value Value to set for the communications property.
+    */
+    public function setCommunications(?UserCloudCommunication $value): void {
+        $this->getBackingStore()->set('communications', $value);
     }
 
     /**

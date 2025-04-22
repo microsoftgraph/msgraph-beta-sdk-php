@@ -70,6 +70,7 @@ class Authentication extends Entity implements Parsable
             'passwordMethods' => fn(ParseNode $n) => $o->setPasswordMethods($n->getCollectionOfObjectValues([PasswordAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'phoneMethods' => fn(ParseNode $n) => $o->setPhoneMethods($n->getCollectionOfObjectValues([PhoneAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'platformCredentialMethods' => fn(ParseNode $n) => $o->setPlatformCredentialMethods($n->getCollectionOfObjectValues([PlatformCredentialAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            'qrCodePinMethod' => fn(ParseNode $n) => $o->setQrCodePinMethod($n->getObjectValue([QrCodePinAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'requirements' => fn(ParseNode $n) => $o->setRequirements($n->getObjectValue([StrongAuthenticationRequirements::class, 'createFromDiscriminatorValue'])),
             'signInPreferences' => fn(ParseNode $n) => $o->setSignInPreferences($n->getObjectValue([SignInPreferences::class, 'createFromDiscriminatorValue'])),
             'softwareOathMethods' => fn(ParseNode $n) => $o->setSoftwareOathMethods($n->getCollectionOfObjectValues([SoftwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -177,7 +178,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the platformCredentialMethods property value. The platformCredentialMethods property
+     * Gets the platformCredentialMethods property value. Represents a platform credential instance registered to a user on Mac OS.
      * @return array<PlatformCredentialAuthenticationMethod>|null
     */
     public function getPlatformCredentialMethods(): ?array {
@@ -188,6 +189,18 @@ class Authentication extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'platformCredentialMethods'");
+    }
+
+    /**
+     * Gets the qrCodePinMethod property value. The qrCodePinMethod property
+     * @return QrCodePinAuthenticationMethod|null
+    */
+    public function getQrCodePinMethod(): ?QrCodePinAuthenticationMethod {
+        $val = $this->getBackingStore()->get('qrCodePinMethod');
+        if (is_null($val) || $val instanceof QrCodePinAuthenticationMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qrCodePinMethod'");
     }
 
     /**
@@ -272,6 +285,7 @@ class Authentication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('passwordMethods', $this->getPasswordMethods());
         $writer->writeCollectionOfObjectValues('phoneMethods', $this->getPhoneMethods());
         $writer->writeCollectionOfObjectValues('platformCredentialMethods', $this->getPlatformCredentialMethods());
+        $writer->writeObjectValue('qrCodePinMethod', $this->getQrCodePinMethod());
         $writer->writeObjectValue('requirements', $this->getRequirements());
         $writer->writeObjectValue('signInPreferences', $this->getSignInPreferences());
         $writer->writeCollectionOfObjectValues('softwareOathMethods', $this->getSoftwareOathMethods());
@@ -352,11 +366,19 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the platformCredentialMethods property value. The platformCredentialMethods property
+     * Sets the platformCredentialMethods property value. Represents a platform credential instance registered to a user on Mac OS.
      * @param array<PlatformCredentialAuthenticationMethod>|null $value Value to set for the platformCredentialMethods property.
     */
     public function setPlatformCredentialMethods(?array $value): void {
         $this->getBackingStore()->set('platformCredentialMethods', $value);
+    }
+
+    /**
+     * Sets the qrCodePinMethod property value. The qrCodePinMethod property
+     * @param QrCodePinAuthenticationMethod|null $value Value to set for the qrCodePinMethod property.
+    */
+    public function setQrCodePinMethod(?QrCodePinAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('qrCodePinMethod', $value);
     }
 
     /**

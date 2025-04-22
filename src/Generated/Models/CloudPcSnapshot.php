@@ -71,10 +71,23 @@ class CloudPcSnapshot extends Entity implements Parsable
             'cloudPcId' => fn(ParseNode $n) => $o->setCloudPcId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'healthCheckStatus' => fn(ParseNode $n) => $o->setHealthCheckStatus($n->getEnumValue(CloudPcSnapshotHealthCheckStatus::class)),
             'lastRestoredDateTime' => fn(ParseNode $n) => $o->setLastRestoredDateTime($n->getDateTimeValue()),
             'snapshotType' => fn(ParseNode $n) => $o->setSnapshotType($n->getEnumValue(CloudPcSnapshotType::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcSnapshotStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the healthCheckStatus property value. The healthCheckStatus property
+     * @return CloudPcSnapshotHealthCheckStatus|null
+    */
+    public function getHealthCheckStatus(): ?CloudPcSnapshotHealthCheckStatus {
+        $val = $this->getBackingStore()->get('healthCheckStatus');
+        if (is_null($val) || $val instanceof CloudPcSnapshotHealthCheckStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthCheckStatus'");
     }
 
     /**
@@ -122,6 +135,7 @@ class CloudPcSnapshot extends Entity implements Parsable
         $writer->writeStringValue('cloudPcId', $this->getCloudPcId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeEnumValue('healthCheckStatus', $this->getHealthCheckStatus());
         $writer->writeDateTimeValue('lastRestoredDateTime', $this->getLastRestoredDateTime());
         $writer->writeEnumValue('snapshotType', $this->getSnapshotType());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -149,6 +163,14 @@ class CloudPcSnapshot extends Entity implements Parsable
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
+    }
+
+    /**
+     * Sets the healthCheckStatus property value. The healthCheckStatus property
+     * @param CloudPcSnapshotHealthCheckStatus|null $value Value to set for the healthCheckStatus property.
+    */
+    public function setHealthCheckStatus(?CloudPcSnapshotHealthCheckStatus $value): void {
+        $this->getBackingStore()->set('healthCheckStatus', $value);
     }
 
     /**

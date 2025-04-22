@@ -645,12 +645,14 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPcBulkAction': return new CloudPcBulkAction();
                 case '#microsoft.graph.cloudPcBulkCreateSnapshot': return new CloudPcBulkCreateSnapshot();
+                case '#microsoft.graph.cloudPcBulkDisasterRecovery': return new CloudPcBulkDisasterRecovery();
                 case '#microsoft.graph.cloudPcBulkDisasterRecoveryFailback': return new CloudPcBulkDisasterRecoveryFailback();
                 case '#microsoft.graph.cloudPcBulkDisasterRecoveryFailover': return new CloudPcBulkDisasterRecoveryFailover();
                 case '#microsoft.graph.cloudPcBulkModifyDiskEncryptionType': return new CloudPcBulkModifyDiskEncryptionType();
                 case '#microsoft.graph.cloudPcBulkMove': return new CloudPcBulkMove();
                 case '#microsoft.graph.cloudPcBulkPowerOff': return new CloudPcBulkPowerOff();
                 case '#microsoft.graph.cloudPcBulkPowerOn': return new CloudPcBulkPowerOn();
+                case '#microsoft.graph.cloudPcBulkReinstallAgent': return new CloudPcBulkReinstallAgent();
                 case '#microsoft.graph.cloudPcBulkReprovision': return new CloudPcBulkReprovision();
                 case '#microsoft.graph.cloudPcBulkResize': return new CloudPcBulkResize();
                 case '#microsoft.graph.cloudPcBulkRestart': return new CloudPcBulkRestart();
@@ -686,7 +688,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.conditionalAccessPolicy': return new ConditionalAccessPolicy();
                 case '#microsoft.graph.conditionalAccessRoot': return new ConditionalAccessRoot();
                 case '#microsoft.graph.conditionalAccessTemplate': return new ConditionalAccessTemplate();
-                case '#microsoft.graph.conditionalAccessWhatIfPolicy': return new ConditionalAccessWhatIfPolicy();
                 case '#microsoft.graph.configManagerCollection': return new ConfigManagerCollection();
                 case '#microsoft.graph.connectedOrganization': return new ConnectedOrganization();
                 case '#microsoft.graph.connectionOperation': return new ConnectionOperation();
@@ -1704,6 +1705,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.publicKeyInfrastructureRoot': return new PublicKeyInfrastructureRoot();
                 case '#microsoft.graph.publishedResource': return new PublishedResource();
                 case '#microsoft.graph.purchaseInvoiceLine': return new PurchaseInvoiceLine();
+                case '#microsoft.graph.qrCode': return new QrCode();
+                case '#microsoft.graph.qrCodePinAuthenticationMethod': return new QrCodePinAuthenticationMethod();
+                case '#microsoft.graph.qrCodePinAuthenticationMethodConfiguration': return new QrCodePinAuthenticationMethodConfiguration();
+                case '#microsoft.graph.qrPin': return new QrPin();
                 case '#microsoft.graph.rbacApplication': return new RbacApplication();
                 case '#microsoft.graph.rbacApplicationMultiple': return new RbacApplicationMultiple();
                 case '#microsoft.graph.readingAssignmentSubmission': return new ReadingAssignmentSubmission();
@@ -2105,6 +2110,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userActivity': return new UserActivity();
                 case '#microsoft.graph.userAnalytics': return new UserAnalytics();
                 case '#microsoft.graph.userAppInstallStatus': return new UserAppInstallStatus();
+                case '#microsoft.graph.userCloudCommunication': return new UserCloudCommunication();
                 case '#microsoft.graph.userConfiguration': return new UserConfiguration();
                 case '#microsoft.graph.userConsentRequest': return new UserConsentRequest();
                 case '#microsoft.graph.userCountMetric': return new UserCountMetric();
@@ -2196,6 +2202,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.webApp': return new WebApp();
                 case '#microsoft.graph.webApplicationSegment': return new WebApplicationSegment();
                 case '#microsoft.graph.webPart': return new WebPart();
+                case '#microsoft.graph.whatIfAnalysisResult': return new WhatIfAnalysisResult();
                 case '#microsoft.graph.win32CatalogApp': return new Win32CatalogApp();
                 case '#microsoft.graph.win32LobApp': return new Win32LobApp();
                 case '#microsoft.graph.win32MobileAppCatalogPackage': return new Win32MobileAppCatalogPackage();
