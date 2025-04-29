@@ -37,7 +37,7 @@ class CloudPcSubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptionId property value. The ID of the subscription.
+     * Gets the subscriptionId property value. Indicates the ID of the subscription.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -49,7 +49,7 @@ class CloudPcSubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptionName property value. The name of the subscription.
+     * Gets the subscriptionName property value. Indicates the name of the subscription.
      * @return string|null
     */
     public function getSubscriptionName(): ?string {
@@ -71,7 +71,7 @@ class CloudPcSubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptionId property value. The ID of the subscription.
+     * Sets the subscriptionId property value. Indicates the ID of the subscription.
      * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
@@ -79,7 +79,7 @@ class CloudPcSubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptionName property value. The name of the subscription.
+     * Sets the subscriptionName property value. Indicates the name of the subscription.
      * @param string|null $value Value to set for the subscriptionName property.
     */
     public function setSubscriptionName(?string $value): void {

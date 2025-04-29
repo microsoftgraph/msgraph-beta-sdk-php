@@ -45,6 +45,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'regionGroup' => fn(ParseNode $n) => $o->setRegionGroup($n->getEnumValue(CloudPcRegionGroup::class)),
+            'regionRestrictionDetail' => fn(ParseNode $n) => $o->setRegionRestrictionDetail($n->getObjectValue([CloudPcSupportedRegionRestrictionDetail::class, 'createFromDiscriminatorValue'])),
             'regionStatus' => fn(ParseNode $n) => $o->setRegionStatus($n->getEnumValue(CloudPcSupportedRegionStatus::class)),
             'supportedSolution' => fn(ParseNode $n) => $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)),
         ]);
@@ -60,6 +61,18 @@ class CloudPcSupportedRegion extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'regionGroup'");
+    }
+
+    /**
+     * Gets the regionRestrictionDetail property value. When the region isn't available, all region restrictions are set to true. These restrictions apply to three properties: cPURestricted, gPURestricted, and nestedVirtualizationRestricted. cPURestricted indicates whether the region is available for CPU, gPURestricted indicates whether the region is available for GPU, and nestedVirtualizationRestricted indicates whether the region is available for nested virtualization. Read-only.
+     * @return CloudPcSupportedRegionRestrictionDetail|null
+    */
+    public function getRegionRestrictionDetail(): ?CloudPcSupportedRegionRestrictionDetail {
+        $val = $this->getBackingStore()->get('regionRestrictionDetail');
+        if (is_null($val) || $val instanceof CloudPcSupportedRegionRestrictionDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'regionRestrictionDetail'");
     }
 
     /**
@@ -94,6 +107,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('regionGroup', $this->getRegionGroup());
+        $writer->writeObjectValue('regionRestrictionDetail', $this->getRegionRestrictionDetail());
         $writer->writeEnumValue('regionStatus', $this->getRegionStatus());
         $writer->writeEnumValue('supportedSolution', $this->getSupportedSolution());
     }
@@ -112,6 +126,14 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     */
     public function setRegionGroup(?CloudPcRegionGroup $value): void {
         $this->getBackingStore()->set('regionGroup', $value);
+    }
+
+    /**
+     * Sets the regionRestrictionDetail property value. When the region isn't available, all region restrictions are set to true. These restrictions apply to three properties: cPURestricted, gPURestricted, and nestedVirtualizationRestricted. cPURestricted indicates whether the region is available for CPU, gPURestricted indicates whether the region is available for GPU, and nestedVirtualizationRestricted indicates whether the region is available for nested virtualization. Read-only.
+     * @param CloudPcSupportedRegionRestrictionDetail|null $value Value to set for the regionRestrictionDetail property.
+    */
+    public function setRegionRestrictionDetail(?CloudPcSupportedRegionRestrictionDetail $value): void {
+        $this->getBackingStore()->set('regionRestrictionDetail', $value);
     }
 
     /**

@@ -26,7 +26,7 @@ class ConditionalAccessPolicy extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.conditionalAccessWhatIfPolicy': return new ConditionalAccessWhatIfPolicy();
+                case '#microsoft.graph.whatIfAnalysisResult': return new WhatIfAnalysisResult();
             }
         }
         return new ConditionalAccessPolicy();

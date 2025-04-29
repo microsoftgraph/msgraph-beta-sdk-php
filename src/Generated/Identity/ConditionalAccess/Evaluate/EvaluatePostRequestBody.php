@@ -2,9 +2,9 @@
 
 namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Evaluate;
 
-use Microsoft\Graph\Beta\Generated\Models\ConditionalAccessContext;
-use Microsoft\Graph\Beta\Generated\Models\ConditionalAccessWhatIfConditions;
-use Microsoft\Graph\Beta\Generated\Models\ConditionalAccessWhatIfSubject;
+use Microsoft\Graph\Beta\Generated\Models\SignInConditions;
+use Microsoft\Graph\Beta\Generated\Models\SignInContext;
+use Microsoft\Graph\Beta\Generated\Models\SignInIdentity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -71,42 +71,6 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the conditionalAccessContext property value. The conditionalAccessContext property
-     * @return ConditionalAccessContext|null
-    */
-    public function getConditionalAccessContext(): ?ConditionalAccessContext {
-        $val = $this->getBackingStore()->get('conditionalAccessContext');
-        if (is_null($val) || $val instanceof ConditionalAccessContext) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessContext'");
-    }
-
-    /**
-     * Gets the conditionalAccessWhatIfConditions property value. The conditionalAccessWhatIfConditions property
-     * @return ConditionalAccessWhatIfConditions|null
-    */
-    public function getConditionalAccessWhatIfConditions(): ?ConditionalAccessWhatIfConditions {
-        $val = $this->getBackingStore()->get('conditionalAccessWhatIfConditions');
-        if (is_null($val) || $val instanceof ConditionalAccessWhatIfConditions) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessWhatIfConditions'");
-    }
-
-    /**
-     * Gets the conditionalAccessWhatIfSubject property value. The conditionalAccessWhatIfSubject property
-     * @return ConditionalAccessWhatIfSubject|null
-    */
-    public function getConditionalAccessWhatIfSubject(): ?ConditionalAccessWhatIfSubject {
-        $val = $this->getBackingStore()->get('conditionalAccessWhatIfSubject');
-        if (is_null($val) || $val instanceof ConditionalAccessWhatIfSubject) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessWhatIfSubject'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -114,10 +78,46 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
         $o = $this;
         return  [
             'appliedPoliciesOnly' => fn(ParseNode $n) => $o->setAppliedPoliciesOnly($n->getBooleanValue()),
-            'conditionalAccessContext' => fn(ParseNode $n) => $o->setConditionalAccessContext($n->getObjectValue([ConditionalAccessContext::class, 'createFromDiscriminatorValue'])),
-            'conditionalAccessWhatIfConditions' => fn(ParseNode $n) => $o->setConditionalAccessWhatIfConditions($n->getObjectValue([ConditionalAccessWhatIfConditions::class, 'createFromDiscriminatorValue'])),
-            'conditionalAccessWhatIfSubject' => fn(ParseNode $n) => $o->setConditionalAccessWhatIfSubject($n->getObjectValue([ConditionalAccessWhatIfSubject::class, 'createFromDiscriminatorValue'])),
+            'signInConditions' => fn(ParseNode $n) => $o->setSignInConditions($n->getObjectValue([SignInConditions::class, 'createFromDiscriminatorValue'])),
+            'signInContext' => fn(ParseNode $n) => $o->setSignInContext($n->getObjectValue([SignInContext::class, 'createFromDiscriminatorValue'])),
+            'signInIdentity' => fn(ParseNode $n) => $o->setSignInIdentity($n->getObjectValue([SignInIdentity::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the signInConditions property value. The signInConditions property
+     * @return SignInConditions|null
+    */
+    public function getSignInConditions(): ?SignInConditions {
+        $val = $this->getBackingStore()->get('signInConditions');
+        if (is_null($val) || $val instanceof SignInConditions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInConditions'");
+    }
+
+    /**
+     * Gets the signInContext property value. The signInContext property
+     * @return SignInContext|null
+    */
+    public function getSignInContext(): ?SignInContext {
+        $val = $this->getBackingStore()->get('signInContext');
+        if (is_null($val) || $val instanceof SignInContext) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInContext'");
+    }
+
+    /**
+     * Gets the signInIdentity property value. The signInIdentity property
+     * @return SignInIdentity|null
+    */
+    public function getSignInIdentity(): ?SignInIdentity {
+        $val = $this->getBackingStore()->get('signInIdentity');
+        if (is_null($val) || $val instanceof SignInIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInIdentity'");
     }
 
     /**
@@ -126,9 +126,9 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('appliedPoliciesOnly', $this->getAppliedPoliciesOnly());
-        $writer->writeObjectValue('conditionalAccessContext', $this->getConditionalAccessContext());
-        $writer->writeObjectValue('conditionalAccessWhatIfConditions', $this->getConditionalAccessWhatIfConditions());
-        $writer->writeObjectValue('conditionalAccessWhatIfSubject', $this->getConditionalAccessWhatIfSubject());
+        $writer->writeObjectValue('signInConditions', $this->getSignInConditions());
+        $writer->writeObjectValue('signInContext', $this->getSignInContext());
+        $writer->writeObjectValue('signInIdentity', $this->getSignInIdentity());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -157,27 +157,27 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the conditionalAccessContext property value. The conditionalAccessContext property
-     * @param ConditionalAccessContext|null $value Value to set for the conditionalAccessContext property.
+     * Sets the signInConditions property value. The signInConditions property
+     * @param SignInConditions|null $value Value to set for the signInConditions property.
     */
-    public function setConditionalAccessContext(?ConditionalAccessContext $value): void {
-        $this->getBackingStore()->set('conditionalAccessContext', $value);
+    public function setSignInConditions(?SignInConditions $value): void {
+        $this->getBackingStore()->set('signInConditions', $value);
     }
 
     /**
-     * Sets the conditionalAccessWhatIfConditions property value. The conditionalAccessWhatIfConditions property
-     * @param ConditionalAccessWhatIfConditions|null $value Value to set for the conditionalAccessWhatIfConditions property.
+     * Sets the signInContext property value. The signInContext property
+     * @param SignInContext|null $value Value to set for the signInContext property.
     */
-    public function setConditionalAccessWhatIfConditions(?ConditionalAccessWhatIfConditions $value): void {
-        $this->getBackingStore()->set('conditionalAccessWhatIfConditions', $value);
+    public function setSignInContext(?SignInContext $value): void {
+        $this->getBackingStore()->set('signInContext', $value);
     }
 
     /**
-     * Sets the conditionalAccessWhatIfSubject property value. The conditionalAccessWhatIfSubject property
-     * @param ConditionalAccessWhatIfSubject|null $value Value to set for the conditionalAccessWhatIfSubject property.
+     * Sets the signInIdentity property value. The signInIdentity property
+     * @param SignInIdentity|null $value Value to set for the signInIdentity property.
     */
-    public function setConditionalAccessWhatIfSubject(?ConditionalAccessWhatIfSubject $value): void {
-        $this->getBackingStore()->set('conditionalAccessWhatIfSubject', $value);
+    public function setSignInIdentity(?SignInIdentity $value): void {
+        $this->getBackingStore()->set('signInIdentity', $value);
     }
 
 }

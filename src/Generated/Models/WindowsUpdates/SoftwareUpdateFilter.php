@@ -28,6 +28,7 @@ class SoftwareUpdateFilter extends ContentFilter implements Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.windowsUpdates.driverUpdateFilter': return new DriverUpdateFilter();
                 case '#microsoft.graph.windowsUpdates.qualityUpdateFilter': return new QualityUpdateFilter();
+                case '#microsoft.graph.windowsUpdates.remediationUpdateFilter': return new RemediationUpdateFilter();
                 case '#microsoft.graph.windowsUpdates.windowsUpdateFilter': return new WindowsUpdateFilter();
             }
         }
