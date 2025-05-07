@@ -124,7 +124,7 @@ class ProtectionUnitsBulkJobBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the job. The possible values are: unknown, active, completed, completedWithErrors, and unknownFutureValue.
+     * Gets the status property value. The status property
      * @return ProtectionUnitsBulkJobStatus|null
     */
     public function getStatus(): ?ProtectionUnitsBulkJobStatus {
@@ -199,7 +199,7 @@ class ProtectionUnitsBulkJobBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the job. The possible values are: unknown, active, completed, completedWithErrors, and unknownFutureValue.
+     * Sets the status property value. The status property
      * @param ProtectionUnitsBulkJobStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ProtectionUnitsBulkJobStatus $value): void {

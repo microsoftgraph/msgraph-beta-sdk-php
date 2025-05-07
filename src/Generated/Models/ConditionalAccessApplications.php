@@ -98,6 +98,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
                 /** @var array<string>|null $val */
                 $this->setExcludeApplications($val);
             },
+            'globalSecureAccess' => fn(ParseNode $n) => $o->setGlobalSecureAccess($n->getObjectValue([ConditionalAccessGlobalSecureAccess::class, 'createFromDiscriminatorValue'])),
             'includeApplications' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -122,8 +123,21 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
                 /** @var array<string>|null $val */
                 $this->setIncludeUserActions($val);
             },
+            'networkAccess' => fn(ParseNode $n) => $o->setNetworkAccess($n->getObjectValue([ConditionalAccessNetworkAccess::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the globalSecureAccess property value. Represents traffic profile for Global Secure Access. This property is deprecated and will stop returning data on June 1, 2025. Use new Global Secure Access applications instead.
+     * @return ConditionalAccessGlobalSecureAccess|null
+    */
+    public function getGlobalSecureAccess(): ?ConditionalAccessGlobalSecureAccess {
+        $val = $this->getBackingStore()->get('globalSecureAccess');
+        if (is_null($val) || $val instanceof ConditionalAccessGlobalSecureAccess) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'globalSecureAccess'");
     }
 
     /**
@@ -169,6 +183,18 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
     }
 
     /**
+     * Gets the networkAccess property value. Represents traffic profile for Global Secure Access. This property is deprecated and will stop returning data on June 1, 2025. Use new Global Secure Access applications instead.
+     * @return ConditionalAccessNetworkAccess|null
+    */
+    public function getNetworkAccess(): ?ConditionalAccessNetworkAccess {
+        $val = $this->getBackingStore()->get('networkAccess');
+        if (is_null($val) || $val instanceof ConditionalAccessNetworkAccess) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'networkAccess'");
+    }
+
+    /**
      * Gets the @odata.type property value. The OdataType property
      * @return string|null
     */
@@ -187,9 +213,11 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('applicationFilter', $this->getApplicationFilter());
         $writer->writeCollectionOfPrimitiveValues('excludeApplications', $this->getExcludeApplications());
+        $writer->writeObjectValue('globalSecureAccess', $this->getGlobalSecureAccess());
         $writer->writeCollectionOfPrimitiveValues('includeApplications', $this->getIncludeApplications());
         $writer->writeCollectionOfPrimitiveValues('includeAuthenticationContextClassReferences', $this->getIncludeAuthenticationContextClassReferences());
         $writer->writeCollectionOfPrimitiveValues('includeUserActions', $this->getIncludeUserActions());
+        $writer->writeObjectValue('networkAccess', $this->getNetworkAccess());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -227,6 +255,14 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
     }
 
     /**
+     * Sets the globalSecureAccess property value. Represents traffic profile for Global Secure Access. This property is deprecated and will stop returning data on June 1, 2025. Use new Global Secure Access applications instead.
+     * @param ConditionalAccessGlobalSecureAccess|null $value Value to set for the globalSecureAccess property.
+    */
+    public function setGlobalSecureAccess(?ConditionalAccessGlobalSecureAccess $value): void {
+        $this->getBackingStore()->set('globalSecureAccess', $value);
+    }
+
+    /**
      * Sets the includeApplications property value. Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Apps included in Conditional Access Office 365 app suite  MicrosoftAdminPortals - For more information, see Conditional Access Target resources: Microsoft Admin Portals
      * @param array<string>|null $value Value to set for the includeApplications property.
     */
@@ -248,6 +284,14 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
     */
     public function setIncludeUserActions(?array $value): void {
         $this->getBackingStore()->set('includeUserActions', $value);
+    }
+
+    /**
+     * Sets the networkAccess property value. Represents traffic profile for Global Secure Access. This property is deprecated and will stop returning data on June 1, 2025. Use new Global Secure Access applications instead.
+     * @param ConditionalAccessNetworkAccess|null $value Value to set for the networkAccess property.
+    */
+    public function setNetworkAccess(?ConditionalAccessNetworkAccess $value): void {
+        $this->getBackingStore()->set('networkAccess', $value);
     }
 
     /**

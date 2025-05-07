@@ -73,38 +73,8 @@ class ConditionalAccessRoot extends Entity implements Parsable
             'authenticationContextClassReferences' => fn(ParseNode $n) => $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues([AuthenticationContextClassReference::class, 'createFromDiscriminatorValue'])),
             'authenticationStrength' => fn(ParseNode $n) => $o->setAuthenticationStrength($n->getObjectValue([AuthenticationStrengthRoot::class, 'createFromDiscriminatorValue'])),
             'authenticationStrengths' => fn(ParseNode $n) => $o->setAuthenticationStrengths($n->getObjectValue([AuthenticationStrengthRoot::class, 'createFromDiscriminatorValue'])),
-            'namedLocations' => fn(ParseNode $n) => $o->setNamedLocations($n->getCollectionOfObjectValues([NamedLocation::class, 'createFromDiscriminatorValue'])),
-            'policies' => fn(ParseNode $n) => $o->setPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'templates' => fn(ParseNode $n) => $o->setTemplates($n->getCollectionOfObjectValues([ConditionalAccessTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
-    }
-
-    /**
-     * Gets the namedLocations property value. Read-only. Nullable. Returns a collection of the specified named locations.
-     * @return array<NamedLocation>|null
-    */
-    public function getNamedLocations(): ?array {
-        $val = $this->getBackingStore()->get('namedLocations');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, NamedLocation::class);
-            /** @var array<NamedLocation>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'namedLocations'");
-    }
-
-    /**
-     * Gets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
-     * @return array<ConditionalAccessPolicy>|null
-    */
-    public function getPolicies(): ?array {
-        $val = $this->getBackingStore()->get('policies');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConditionalAccessPolicy::class);
-            /** @var array<ConditionalAccessPolicy>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'policies'");
     }
 
     /**
@@ -130,8 +100,6 @@ class ConditionalAccessRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('authenticationContextClassReferences', $this->getAuthenticationContextClassReferences());
         $writer->writeObjectValue('authenticationStrength', $this->getAuthenticationStrength());
         $writer->writeObjectValue('authenticationStrengths', $this->getAuthenticationStrengths());
-        $writer->writeCollectionOfObjectValues('namedLocations', $this->getNamedLocations());
-        $writer->writeCollectionOfObjectValues('policies', $this->getPolicies());
         $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
     }
 
@@ -157,22 +125,6 @@ class ConditionalAccessRoot extends Entity implements Parsable
     */
     public function setAuthenticationStrengths(?AuthenticationStrengthRoot $value): void {
         $this->getBackingStore()->set('authenticationStrengths', $value);
-    }
-
-    /**
-     * Sets the namedLocations property value. Read-only. Nullable. Returns a collection of the specified named locations.
-     * @param array<NamedLocation>|null $value Value to set for the namedLocations property.
-    */
-    public function setNamedLocations(?array $value): void {
-        $this->getBackingStore()->set('namedLocations', $value);
-    }
-
-    /**
-     * Sets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
-     * @param array<ConditionalAccessPolicy>|null $value Value to set for the policies property.
-    */
-    public function setPolicies(?array $value): void {
-        $this->getBackingStore()->set('policies', $value);
     }
 
     /**

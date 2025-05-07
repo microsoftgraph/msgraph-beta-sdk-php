@@ -9,4 +9,5 @@ class Scenario extends Enum {
     public const MFA = "mfa";
     public const DEVICES = "devices";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const CONDITIONAL_ACCESS = "conditionalAccess";
 }

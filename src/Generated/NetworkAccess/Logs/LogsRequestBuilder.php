@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Logs;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Connections\ConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\RemoteNetworks\RemoteNetworksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\TrafficRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class LogsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the connections property of the microsoft.graph.networkaccess.logs entity.
+    */
+    public function connections(): ConnectionsRequestBuilder {
+        return new ConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.logs entity.
     */

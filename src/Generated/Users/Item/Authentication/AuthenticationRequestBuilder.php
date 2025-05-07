@@ -16,6 +16,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicroso
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordMethods\PasswordMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods\PhoneMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PlatformCredentialMethods\PlatformCredentialMethodsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\QrCodePinMethod\QrCodePinMethodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Requirements\RequirementsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SignInPreferences\SignInPreferencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SoftwareOathMethods\SoftwareOathMethodsRequestBuilder;
@@ -99,6 +100,13 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
     */
     public function platformCredentialMethods(): PlatformCredentialMethodsRequestBuilder {
         return new PlatformCredentialMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the qrCodePinMethod property of the microsoft.graph.authentication entity.
+    */
+    public function qrCodePinMethod(): QrCodePinMethodRequestBuilder {
+        return new QrCodePinMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

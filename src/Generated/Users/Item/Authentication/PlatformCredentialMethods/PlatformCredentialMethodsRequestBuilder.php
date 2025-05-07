@@ -51,7 +51,7 @@ class PlatformCredentialMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get platformCredentialMethods from users
+     * Represents a platform credential instance registered to a user on Mac OS.
      * @param PlatformCredentialMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlatformCredentialAuthenticationMethodCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class PlatformCredentialMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get platformCredentialMethods from users
+     * Represents a platform credential instance registered to a user on Mac OS.
      * @param PlatformCredentialMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

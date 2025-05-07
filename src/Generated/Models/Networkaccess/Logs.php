@@ -27,12 +27,27 @@ class Logs extends Entity implements Parsable
     }
 
     /**
+     * Gets the connections property value. The connections property
+     * @return array<Connection>|null
+    */
+    public function getConnections(): ?array {
+        $val = $this->getBackingStore()->get('connections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Connection::class);
+            /** @var array<Connection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'connections'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'connections' => fn(ParseNode $n) => $o->setConnections($n->getCollectionOfObjectValues([Connection::class, 'createFromDiscriminatorValue'])),
             'remoteNetworks' => fn(ParseNode $n) => $o->setRemoteNetworks($n->getCollectionOfObjectValues([RemoteNetworkHealthEvent::class, 'createFromDiscriminatorValue'])),
             'traffic' => fn(ParseNode $n) => $o->setTraffic($n->getCollectionOfObjectValues([NetworkAccessTraffic::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -72,8 +87,17 @@ class Logs extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('connections', $this->getConnections());
         $writer->writeCollectionOfObjectValues('remoteNetworks', $this->getRemoteNetworks());
         $writer->writeCollectionOfObjectValues('traffic', $this->getTraffic());
+    }
+
+    /**
+     * Sets the connections property value. The connections property
+     * @param array<Connection>|null $value Value to set for the connections property.
+    */
+    public function setConnections(?array $value): void {
+        $this->getBackingStore()->set('connections', $value);
     }
 
     /**

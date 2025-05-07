@@ -83,7 +83,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the licenseType property value. The disaster recovery license type that provides the capability.
+     * Gets the licenseType property value. The disaster recovery license type that provides the capability. The possible values are: none, standard, unknownFutureValue, plus. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: plus.
      * @return CloudPcDisasterRecoveryLicenseType|null
     */
     public function getLicenseType(): ?CloudPcDisasterRecoveryLicenseType {
@@ -168,7 +168,7 @@ class CloudPcDisasterRecoveryCapability implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the licenseType property value. The disaster recovery license type that provides the capability.
+     * Sets the licenseType property value. The disaster recovery license type that provides the capability. The possible values are: none, standard, unknownFutureValue, plus. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: plus.
      * @param CloudPcDisasterRecoveryLicenseType|null $value Value to set for the licenseType property.
     */
     public function setLicenseType(?CloudPcDisasterRecoveryLicenseType $value): void {

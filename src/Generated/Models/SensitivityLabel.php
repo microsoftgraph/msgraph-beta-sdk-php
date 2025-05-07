@@ -76,6 +76,18 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
+     * Gets the color property value. The color property
+     * @return string|null
+    */
+    public function getColor(): ?string {
+        $val = $this->getBackingStore()->get('color');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'color'");
+    }
+
+    /**
      * Gets the description property value. The description property
      * @return string|null
     */
@@ -110,9 +122,11 @@ class SensitivityLabel extends Entity implements Parsable
             'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)),
             'assignedPolicies' => fn(ParseNode $n) => $o->setAssignedPolicies($n->getCollectionOfObjectValues([LabelPolicy::class, 'createFromDiscriminatorValue'])),
             'autoLabeling' => fn(ParseNode $n) => $o->setAutoLabeling($n->getObjectValue([AutoLabeling::class, 'createFromDiscriminatorValue'])),
+            'color' => fn(ParseNode $n) => $o->setColor($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isEndpointProtectionEnabled' => fn(ParseNode $n) => $o->setIsEndpointProtectionEnabled($n->getBooleanValue()),
             'labelActions' => fn(ParseNode $n) => $o->setLabelActions($n->getCollectionOfObjectValues([LabelActionBase::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
@@ -132,6 +146,18 @@ class SensitivityLabel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isDefault'");
+    }
+
+    /**
+     * Gets the isEnabled property value. The isEnabled property
+     * @return bool|null
+    */
+    public function getIsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -220,9 +246,11 @@ class SensitivityLabel extends Entity implements Parsable
         $writer->writeEnumValue('applicationMode', $this->getApplicationMode());
         $writer->writeCollectionOfObjectValues('assignedPolicies', $this->getAssignedPolicies());
         $writer->writeObjectValue('autoLabeling', $this->getAutoLabeling());
+        $writer->writeStringValue('color', $this->getColor());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->getIsEndpointProtectionEnabled());
         $writer->writeCollectionOfObjectValues('labelActions', $this->getLabelActions());
         $writer->writeStringValue('name', $this->getName());
@@ -264,6 +292,14 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
+     * Sets the color property value. The color property
+     * @param string|null $value Value to set for the color property.
+    */
+    public function setColor(?string $value): void {
+        $this->getBackingStore()->set('color', $value);
+    }
+
+    /**
      * Sets the description property value. The description property
      * @param string|null $value Value to set for the description property.
     */
@@ -285,6 +321,14 @@ class SensitivityLabel extends Entity implements Parsable
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
+    }
+
+    /**
+     * Sets the isEnabled property value. The isEnabled property
+     * @param bool|null $value Value to set for the isEnabled property.
+    */
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**

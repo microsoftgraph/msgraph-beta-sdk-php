@@ -156,20 +156,6 @@ class PolicyRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
-     * @return array<ConditionalAccessPolicy>|null
-    */
-    public function getConditionalAccessPolicies(): ?array {
-        $val = $this->getBackingStore()->get('conditionalAccessPolicies');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConditionalAccessPolicy::class);
-            /** @var array<ConditionalAccessPolicy>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessPolicies'");
-    }
-
-    /**
      * Gets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.
      * @return CrossTenantAccessPolicy|null
     */
@@ -272,7 +258,6 @@ class PolicyRoot extends Entity implements Parsable
             'authorizationPolicy' => fn(ParseNode $n) => $o->setAuthorizationPolicy($n->getCollectionOfObjectValues([AuthorizationPolicy::class, 'createFromDiscriminatorValue'])),
             'b2cAuthenticationMethodsPolicy' => fn(ParseNode $n) => $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue([B2cAuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'])),
             'claimsMappingPolicies' => fn(ParseNode $n) => $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues([ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'])),
-            'conditionalAccessPolicies' => fn(ParseNode $n) => $o->setConditionalAccessPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'crossTenantAccessPolicy' => fn(ParseNode $n) => $o->setCrossTenantAccessPolicy($n->getObjectValue([CrossTenantAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'defaultAppManagementPolicy' => fn(ParseNode $n) => $o->setDefaultAppManagementPolicy($n->getObjectValue([TenantAppManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'deviceRegistrationPolicy' => fn(ParseNode $n) => $o->setDeviceRegistrationPolicy($n->getObjectValue([DeviceRegistrationPolicy::class, 'createFromDiscriminatorValue'])),
@@ -462,7 +447,6 @@ class PolicyRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('authorizationPolicy', $this->getAuthorizationPolicy());
         $writer->writeObjectValue('b2cAuthenticationMethodsPolicy', $this->getB2cAuthenticationMethodsPolicy());
         $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->getClaimsMappingPolicies());
-        $writer->writeCollectionOfObjectValues('conditionalAccessPolicies', $this->getConditionalAccessPolicies());
         $writer->writeObjectValue('crossTenantAccessPolicy', $this->getCrossTenantAccessPolicy());
         $writer->writeObjectValue('defaultAppManagementPolicy', $this->getDefaultAppManagementPolicy());
         $writer->writeObjectValue('deviceRegistrationPolicy', $this->getDeviceRegistrationPolicy());
@@ -561,14 +545,6 @@ class PolicyRoot extends Entity implements Parsable
     */
     public function setClaimsMappingPolicies(?array $value): void {
         $this->getBackingStore()->set('claimsMappingPolicies', $value);
-    }
-
-    /**
-     * Sets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
-     * @param array<ConditionalAccessPolicy>|null $value Value to set for the conditionalAccessPolicies property.
-    */
-    public function setConditionalAccessPolicies(?array $value): void {
-        $this->getBackingStore()->set('conditionalAccessPolicies', $value);
     }
 
     /**

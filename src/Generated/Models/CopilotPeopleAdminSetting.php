@@ -25,12 +25,25 @@ class CopilotPeopleAdminSetting extends Entity implements Parsable
     }
 
     /**
+     * Gets the enhancedPersonalization property value. The enhancedPersonalization property
+     * @return EnhancedPersonalizationSetting|null
+    */
+    public function getEnhancedPersonalization(): ?EnhancedPersonalizationSetting {
+        $val = $this->getBackingStore()->get('enhancedPersonalization');
+        if (is_null($val) || $val instanceof EnhancedPersonalizationSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enhancedPersonalization'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'enhancedPersonalization' => fn(ParseNode $n) => $o->setEnhancedPersonalization($n->getObjectValue([EnhancedPersonalizationSetting::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -40,6 +53,15 @@ class CopilotPeopleAdminSetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('enhancedPersonalization', $this->getEnhancedPersonalization());
+    }
+
+    /**
+     * Sets the enhancedPersonalization property value. The enhancedPersonalization property
+     * @param EnhancedPersonalizationSetting|null $value Value to set for the enhancedPersonalization property.
+    */
+    public function setEnhancedPersonalization(?EnhancedPersonalizationSetting $value): void {
+        $this->getBackingStore()->set('enhancedPersonalization', $value);
     }
 
 }

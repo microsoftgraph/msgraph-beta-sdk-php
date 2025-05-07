@@ -65,6 +65,14 @@ class RetrieveCloudPcTroubleshootReportsPostRequestBody implements AdditionalDat
         $o = $this;
         return  [
             'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
+            'groupBy' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setGroupBy($val);
+            },
             'orderBy' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -98,6 +106,20 @@ class RetrieveCloudPcTroubleshootReportsPostRequestBody implements AdditionalDat
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'filter'");
+    }
+
+    /**
+     * Gets the groupBy property value. The groupBy property
+     * @return array<string>|null
+    */
+    public function getGroupBy(): ?array {
+        $val = $this->getBackingStore()->get('groupBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupBy'");
     }
 
     /**
@@ -182,6 +204,7 @@ class RetrieveCloudPcTroubleshootReportsPostRequestBody implements AdditionalDat
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('filter', $this->getFilter());
+        $writer->writeCollectionOfPrimitiveValues('groupBy', $this->getGroupBy());
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
         $writer->writeEnumValue('reportName', $this->getReportName());
         $writer->writeStringValue('search', $this->getSearch());
@@ -213,6 +236,14 @@ class RetrieveCloudPcTroubleshootReportsPostRequestBody implements AdditionalDat
     */
     public function setFilter(?string $value): void {
         $this->getBackingStore()->set('filter', $value);
+    }
+
+    /**
+     * Sets the groupBy property value. The groupBy property
+     * @param array<string>|null $value Value to set for the groupBy property.
+    */
+    public function setGroupBy(?array $value): void {
+        $this->getBackingStore()->set('groupBy', $value);
     }
 
     /**

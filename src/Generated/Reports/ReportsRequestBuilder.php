@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByPrinter\Dai
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByUser\DailyPrintUsageSummariesByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DeviceConfigurationDeviceActivity\DeviceConfigurationDeviceActivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DeviceConfigurationUserActivity\DeviceConfigurationUserActivityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetApiUsageserviceAreaServiceAreaPeriodPeriodAppIdAppId\GetApiUsageserviceAreaServiceAreaPeriodPeriodAppIdAppIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationRepeatOffenders\GetAttackSimulationRepeatOffendersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationSimulationUserCoverage\GetAttackSimulationSimulationUserCoverageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationTrainingUserCoverage\GetAttackSimulationTrainingUserCoverageRequestBuilder;
@@ -242,6 +243,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function deviceConfigurationUserActivity(): DeviceConfigurationUserActivityRequestBuilder {
         return new DeviceConfigurationUserActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getApiUsage method.
+    */
+    public function getApiUsageserviceAreaServiceAreaPeriodPeriodAppIdAppId(): GetApiUsageserviceAreaServiceAreaPeriodPeriodAppIdAppIdRequestBuilder {
+        return new GetApiUsageserviceAreaServiceAreaPeriodPeriodAppIdAppIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

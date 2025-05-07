@@ -44,8 +44,34 @@ class ProfileSource extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'kind' => fn(ParseNode $n) => $o->setKind($n->getStringValue()),
+            'sourceId' => fn(ParseNode $n) => $o->setSourceId($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the kind property value. The kind property
+     * @return string|null
+    */
+    public function getKind(): ?string {
+        $val = $this->getBackingStore()->get('kind');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kind'");
+    }
+
+    /**
+     * Gets the sourceId property value. The sourceId property
+     * @return string|null
+    */
+    public function getSourceId(): ?string {
+        $val = $this->getBackingStore()->get('sourceId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceId'");
     }
 
     /**
@@ -67,6 +93,8 @@ class ProfileSource extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('kind', $this->getKind());
+        $writer->writeStringValue('sourceId', $this->getSourceId());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
@@ -76,6 +104,22 @@ class ProfileSource extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the kind property value. The kind property
+     * @param string|null $value Value to set for the kind property.
+    */
+    public function setKind(?string $value): void {
+        $this->getBackingStore()->set('kind', $value);
+    }
+
+    /**
+     * Sets the sourceId property value. The sourceId property
+     * @param string|null $value Value to set for the sourceId property.
+    */
+    public function setSourceId(?string $value): void {
+        $this->getBackingStore()->set('sourceId', $value);
     }
 
     /**
