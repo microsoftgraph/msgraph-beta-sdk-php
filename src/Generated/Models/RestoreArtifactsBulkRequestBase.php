@@ -187,7 +187,7 @@ class RestoreArtifactsBulkRequestBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Determines the status of the long-running operation. The possible values area: unknown, active, completed, completedWithErrors, unknownFutureValue.
+     * Gets the status property value. The status property
      * @return RestoreArtifactsBulkRequestStatus|null
     */
     public function getStatus(): ?RestoreArtifactsBulkRequestStatus {
@@ -311,7 +311,7 @@ class RestoreArtifactsBulkRequestBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Determines the status of the long-running operation. The possible values area: unknown, active, completed, completedWithErrors, unknownFutureValue.
+     * Sets the status property value. The status property
      * @param RestoreArtifactsBulkRequestStatus|null $value Value to set for the status property.
     */
     public function setStatus(?RestoreArtifactsBulkRequestStatus $value): void {

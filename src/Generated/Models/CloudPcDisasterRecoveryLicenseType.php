@@ -8,4 +8,5 @@ class CloudPcDisasterRecoveryLicenseType extends Enum {
     public const NONE = "none";
     public const STANDARD = "standard";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const PLUS = "plus";
 }

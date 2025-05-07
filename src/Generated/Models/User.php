@@ -370,6 +370,18 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the communications property value. The user's communications settings on Teams.
+     * @return UserCloudCommunication|null
+    */
+    public function getCommunications(): ?UserCloudCommunication {
+        $val = $this->getBackingStore()->get('communications');
+        if (is_null($val) || $val instanceof UserCloudCommunication) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'communications'");
+    }
+
+    /**
      * Gets the companyName property value. The name of the company the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @return string|null
     */
@@ -481,6 +493,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'customSecurityAttributes'");
+    }
+
+    /**
+     * Gets the dataSecurityAndGovernance property value. The dataSecurityAndGovernance property
+     * @return UserDataSecurityAndGovernance|null
+    */
+    public function getDataSecurityAndGovernance(): ?UserDataSecurityAndGovernance {
+        $val = $this->getBackingStore()->get('dataSecurityAndGovernance');
+        if (is_null($val) || $val instanceof UserDataSecurityAndGovernance) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataSecurityAndGovernance'");
     }
 
     /**
@@ -803,6 +827,7 @@ class User extends DirectoryObject implements Parsable
             'cloudLicensing' => fn(ParseNode $n) => $o->setCloudLicensing($n->getObjectValue([UserCloudLicensing::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'cloudRealtimeCommunicationInfo' => fn(ParseNode $n) => $o->setCloudRealtimeCommunicationInfo($n->getObjectValue([CloudRealtimeCommunicationInfo::class, 'createFromDiscriminatorValue'])),
+            'communications' => fn(ParseNode $n) => $o->setCommunications($n->getObjectValue([UserCloudCommunication::class, 'createFromDiscriminatorValue'])),
             'companyName' => fn(ParseNode $n) => $o->setCompanyName($n->getStringValue()),
             'consentProvidedForMinor' => fn(ParseNode $n) => $o->setConsentProvidedForMinor($n->getStringValue()),
             'contactFolders' => fn(ParseNode $n) => $o->setContactFolders($n->getCollectionOfObjectValues([ContactFolder::class, 'createFromDiscriminatorValue'])),
@@ -812,6 +837,7 @@ class User extends DirectoryObject implements Parsable
             'createdObjects' => fn(ParseNode $n) => $o->setCreatedObjects($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'creationType' => fn(ParseNode $n) => $o->setCreationType($n->getStringValue()),
             'customSecurityAttributes' => fn(ParseNode $n) => $o->setCustomSecurityAttributes($n->getObjectValue([CustomSecurityAttributeValue::class, 'createFromDiscriminatorValue'])),
+            'dataSecurityAndGovernance' => fn(ParseNode $n) => $o->setDataSecurityAndGovernance($n->getObjectValue([UserDataSecurityAndGovernance::class, 'createFromDiscriminatorValue'])),
             'department' => fn(ParseNode $n) => $o->setDepartment($n->getStringValue()),
             'deviceEnrollmentConfigurations' => fn(ParseNode $n) => $o->setDeviceEnrollmentConfigurations($n->getCollectionOfObjectValues([DeviceEnrollmentConfiguration::class, 'createFromDiscriminatorValue'])),
             'deviceEnrollmentLimit' => fn(ParseNode $n) => $o->setDeviceEnrollmentLimit($n->getIntegerValue()),
@@ -2316,6 +2342,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('cloudLicensing', $this->getCloudLicensing());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('cloudRealtimeCommunicationInfo', $this->getCloudRealtimeCommunicationInfo());
+        $writer->writeObjectValue('communications', $this->getCommunications());
         $writer->writeStringValue('companyName', $this->getCompanyName());
         $writer->writeStringValue('consentProvidedForMinor', $this->getConsentProvidedForMinor());
         $writer->writeCollectionOfObjectValues('contactFolders', $this->getContactFolders());
@@ -2325,6 +2352,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('createdObjects', $this->getCreatedObjects());
         $writer->writeStringValue('creationType', $this->getCreationType());
         $writer->writeObjectValue('customSecurityAttributes', $this->getCustomSecurityAttributes());
+        $writer->writeObjectValue('dataSecurityAndGovernance', $this->getDataSecurityAndGovernance());
         $writer->writeStringValue('department', $this->getDepartment());
         $writer->writeCollectionOfObjectValues('deviceEnrollmentConfigurations', $this->getDeviceEnrollmentConfigurations());
         $writer->writeIntegerValue('deviceEnrollmentLimit', $this->getDeviceEnrollmentLimit());
@@ -2658,6 +2686,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the communications property value. The user's communications settings on Teams.
+     * @param UserCloudCommunication|null $value Value to set for the communications property.
+    */
+    public function setCommunications(?UserCloudCommunication $value): void {
+        $this->getBackingStore()->set('communications', $value);
+    }
+
+    /**
      * Sets the companyName property value. The name of the company the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @param string|null $value Value to set for the companyName property.
     */
@@ -2727,6 +2763,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setCustomSecurityAttributes(?CustomSecurityAttributeValue $value): void {
         $this->getBackingStore()->set('customSecurityAttributes', $value);
+    }
+
+    /**
+     * Sets the dataSecurityAndGovernance property value. The dataSecurityAndGovernance property
+     * @param UserDataSecurityAndGovernance|null $value Value to set for the dataSecurityAndGovernance property.
+    */
+    public function setDataSecurityAndGovernance(?UserDataSecurityAndGovernance $value): void {
+        $this->getBackingStore()->set('dataSecurityAndGovernance', $value);
     }
 
     /**

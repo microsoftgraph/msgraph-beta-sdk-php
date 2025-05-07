@@ -36,6 +36,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.classificationError': return new ClassificationError();
+                case '#microsoft.graph.processingError': return new ProcessingError();
             }
         }
         return new ClassifcationErrorBase();

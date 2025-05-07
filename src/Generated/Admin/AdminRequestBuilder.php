@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Admin\People\PeopleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\SharepointRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Teams\TeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Todo\TodoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\WindowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Admin;
@@ -104,6 +105,13 @@ class AdminRequestBuilder extends BaseRequestBuilder
     */
     public function sharepoint(): SharepointRequestBuilder {
         return new SharepointRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the teams property of the microsoft.graph.admin entity.
+    */
+    public function teams(): TeamsRequestBuilder {
+        return new TeamsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

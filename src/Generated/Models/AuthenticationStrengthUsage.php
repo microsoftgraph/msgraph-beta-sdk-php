@@ -9,7 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AuthenticationStrengthUsage implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -63,38 +62,8 @@ class AuthenticationStrengthUsage implements AdditionalDataHolder, BackedModel, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'mfa' => fn(ParseNode $n) => $o->setMfa($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
-            'none' => fn(ParseNode $n) => $o->setNone($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
-    }
-
-    /**
-     * Gets the mfa property value. The mfa property
-     * @return array<ConditionalAccessPolicy>|null
-    */
-    public function getMfa(): ?array {
-        $val = $this->getBackingStore()->get('mfa');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConditionalAccessPolicy::class);
-            /** @var array<ConditionalAccessPolicy>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'mfa'");
-    }
-
-    /**
-     * Gets the none property value. The none property
-     * @return array<ConditionalAccessPolicy>|null
-    */
-    public function getNone(): ?array {
-        $val = $this->getBackingStore()->get('none');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConditionalAccessPolicy::class);
-            /** @var array<ConditionalAccessPolicy>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'none'");
     }
 
     /**
@@ -114,8 +83,6 @@ class AuthenticationStrengthUsage implements AdditionalDataHolder, BackedModel, 
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('mfa', $this->getMfa());
-        $writer->writeCollectionOfObjectValues('none', $this->getNone());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -134,22 +101,6 @@ class AuthenticationStrengthUsage implements AdditionalDataHolder, BackedModel, 
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
-    }
-
-    /**
-     * Sets the mfa property value. The mfa property
-     * @param array<ConditionalAccessPolicy>|null $value Value to set for the mfa property.
-    */
-    public function setMfa(?array $value): void {
-        $this->getBackingStore()->set('mfa', $value);
-    }
-
-    /**
-     * Sets the none property value. The none property
-     * @param array<ConditionalAccessPolicy>|null $value Value to set for the none property.
-    */
-    public function setNone(?array $value): void {
-        $this->getBackingStore()->set('none', $value);
     }
 
     /**

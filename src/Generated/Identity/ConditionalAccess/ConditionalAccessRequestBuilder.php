@@ -5,9 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationContextClassReferences\AuthenticationContextClassReferencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrength\AuthenticationStrengthRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationStrengthsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Evaluate\EvaluateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\PoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\TemplatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -36,27 +33,6 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     */
     public function authenticationStrengths(): AuthenticationStrengthsRequestBuilder {
         return new AuthenticationStrengthsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the evaluate method.
-    */
-    public function evaluate(): EvaluateRequestBuilder {
-        return new EvaluateRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
-    */
-    public function namedLocations(): NamedLocationsRequestBuilder {
-        return new NamedLocationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
-    */
-    public function policies(): PoliciesRequestBuilder {
-        return new PoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

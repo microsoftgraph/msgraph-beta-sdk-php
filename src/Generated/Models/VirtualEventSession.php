@@ -94,7 +94,7 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the videoOnDemandWebUrl property value. The videoOnDemandWebUrl property
+     * Gets the videoOnDemandWebUrl property value. The URL of the video on demand (VOD) for Microsoft Teams events that allows webinar and town hall organizers to quickly publish and share event recordings.
      * @return string|null
     */
     public function getVideoOnDemandWebUrl(): ?string {
@@ -151,7 +151,7 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the videoOnDemandWebUrl property value. The videoOnDemandWebUrl property
+     * Sets the videoOnDemandWebUrl property value. The URL of the video on demand (VOD) for Microsoft Teams events that allows webinar and town hall organizers to quickly publish and share event recordings.
      * @param string|null $value Value to set for the videoOnDemandWebUrl property.
     */
     public function setVideoOnDemandWebUrl(?string $value): void {

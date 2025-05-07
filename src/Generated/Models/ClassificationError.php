@@ -22,6 +22,13 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
      * @return ClassificationError
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationError {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.processingError': return new ProcessingError();
+            }
+        }
         return new ClassificationError();
     }
 

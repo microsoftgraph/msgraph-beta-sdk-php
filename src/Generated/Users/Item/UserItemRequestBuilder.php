@@ -26,10 +26,12 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberGroups\CheckMemberGroup
 use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudClipboard\CloudClipboardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\CloudPCsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Communications\CommunicationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\ContactFoldersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Contacts\ContactsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ConvertExternalToInternalMemberUser\ConvertExternalToInternalMemberUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\CreatedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\DataSecurityAndGovernance\DataSecurityAndGovernanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeletePasswordSingleSignOnCredentials\DeletePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\DeviceEnrollmentConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshootingEvents\DeviceManagementTroubleshootingEventsRequestBuilder;
@@ -266,6 +268,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the communications property of the microsoft.graph.user entity.
+    */
+    public function communications(): CommunicationsRequestBuilder {
+        return new CommunicationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
     */
     public function contactFolders(): ContactFoldersRequestBuilder {
@@ -291,6 +300,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the dataSecurityAndGovernance property of the microsoft.graph.user entity.
+    */
+    public function dataSecurityAndGovernance(): DataSecurityAndGovernanceRequestBuilder {
+        return new DataSecurityAndGovernanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

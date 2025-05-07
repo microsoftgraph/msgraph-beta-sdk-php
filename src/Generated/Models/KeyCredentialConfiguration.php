@@ -73,6 +73,18 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
+     * Gets the excludeActors property value. The excludeActors property
+     * @return AppManagementPolicyActorExemptions|null
+    */
+    public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
+        $val = $this->getBackingStore()->get('excludeActors');
+        if (is_null($val) || $val instanceof AppManagementPolicyActorExemptions) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeActors'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -87,6 +99,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
                 /** @var array<string>|null $val */
                 $this->setCertificateBasedApplicationConfigurationIds($val);
             },
+            'excludeActors' => fn(ParseNode $n) => $o->setExcludeActors($n->getObjectValue([AppManagementPolicyActorExemptions::class, 'createFromDiscriminatorValue'])),
             'maxLifetime' => fn(ParseNode $n) => $o->setMaxLifetime($n->getDateIntervalValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'restrictForAppsCreatedAfterDateTime' => fn(ParseNode $n) => $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()),
@@ -161,6 +174,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('certificateBasedApplicationConfigurationIds', $this->getCertificateBasedApplicationConfigurationIds());
+        $writer->writeObjectValue('excludeActors', $this->getExcludeActors());
         $writer->writeDateIntervalValue('maxLifetime', $this->getMaxLifetime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeDateTimeValue('restrictForAppsCreatedAfterDateTime', $this->getRestrictForAppsCreatedAfterDateTime());
@@ -191,6 +205,14 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, BackedModel, P
     */
     public function setCertificateBasedApplicationConfigurationIds(?array $value): void {
         $this->getBackingStore()->set('certificateBasedApplicationConfigurationIds', $value);
+    }
+
+    /**
+     * Sets the excludeActors property value. The excludeActors property
+     * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
+    */
+    public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {
+        $this->getBackingStore()->set('excludeActors', $value);
     }
 
     /**

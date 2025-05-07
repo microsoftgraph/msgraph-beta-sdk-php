@@ -33,9 +33,22 @@ class CloudPcBulkRestore extends CloudPcBulkAction implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'ignoreUnhealthySnapshots' => fn(ParseNode $n) => $o->setIgnoreUnhealthySnapshots($n->getBooleanValue()),
             'restorePointDateTime' => fn(ParseNode $n) => $o->setRestorePointDateTime($n->getDateTimeValue()),
             'timeRange' => fn(ParseNode $n) => $o->setTimeRange($n->getEnumValue(RestoreTimeRange::class)),
         ]);
+    }
+
+    /**
+     * Gets the ignoreUnhealthySnapshots property value. True indicates that snapshots of unhealthy Cloud PCs are ignored. If no healthy snapshot exists within the selected timeRange, the healthy snapshot closest to the restorePointDateTime is used. False indicates that the snapshot within the selected timeRange and closest to the restorePointDateTime is used. The default value is false.
+     * @return bool|null
+    */
+    public function getIgnoreUnhealthySnapshots(): ?bool {
+        $val = $this->getBackingStore()->get('ignoreUnhealthySnapshots');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ignoreUnhealthySnapshots'");
     }
 
     /**
@@ -68,8 +81,17 @@ class CloudPcBulkRestore extends CloudPcBulkAction implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('ignoreUnhealthySnapshots', $this->getIgnoreUnhealthySnapshots());
         $writer->writeDateTimeValue('restorePointDateTime', $this->getRestorePointDateTime());
         $writer->writeEnumValue('timeRange', $this->getTimeRange());
+    }
+
+    /**
+     * Sets the ignoreUnhealthySnapshots property value. True indicates that snapshots of unhealthy Cloud PCs are ignored. If no healthy snapshot exists within the selected timeRange, the healthy snapshot closest to the restorePointDateTime is used. False indicates that the snapshot within the selected timeRange and closest to the restorePointDateTime is used. The default value is false.
+     * @param bool|null $value Value to set for the ignoreUnhealthySnapshots property.
+    */
+    public function setIgnoreUnhealthySnapshots(?bool $value): void {
+        $this->getBackingStore()->set('ignoreUnhealthySnapshots', $value);
     }
 
     /**

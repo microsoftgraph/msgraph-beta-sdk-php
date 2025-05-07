@@ -25,7 +25,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessTier property value. The access tier of the storage account. Possible values are hot, cool, premium, cold, and unknownFutureValue. Default value is hot. Read-only.
+     * Gets the accessTier property value. Indicates the access tier of the storage account. Possible values are hot, cool, premium, cold, and unknownFutureValue. Default value is hot. Read-only.
      * @return CloudPcStorageAccountAccessTier|null
     */
     public function getAccessTier(): ?CloudPcStorageAccountAccessTier {
@@ -63,7 +63,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     }
 
     /**
-     * Gets the storageAccountId property value. The ID of the storage account. Read-only.
+     * Gets the storageAccountId property value. Indicates the ID of the storage account. Read-only.
      * @return string|null
     */
     public function getStorageAccountId(): ?string {
@@ -75,7 +75,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     }
 
     /**
-     * Gets the storageAccountName property value. The name of the storage account. Read-only.
+     * Gets the storageAccountName property value. Indicates the name of the storage account. Read-only.
      * @return string|null
     */
     public function getStorageAccountName(): ?string {
@@ -99,7 +99,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessTier property value. The access tier of the storage account. Possible values are hot, cool, premium, cold, and unknownFutureValue. Default value is hot. Read-only.
+     * Sets the accessTier property value. Indicates the access tier of the storage account. Possible values are hot, cool, premium, cold, and unknownFutureValue. Default value is hot. Read-only.
      * @param CloudPcStorageAccountAccessTier|null $value Value to set for the accessTier property.
     */
     public function setAccessTier(?CloudPcStorageAccountAccessTier $value): void {
@@ -115,7 +115,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     }
 
     /**
-     * Sets the storageAccountId property value. The ID of the storage account. Read-only.
+     * Sets the storageAccountId property value. Indicates the ID of the storage account. Read-only.
      * @param string|null $value Value to set for the storageAccountId property.
     */
     public function setStorageAccountId(?string $value): void {
@@ -123,7 +123,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     }
 
     /**
-     * Sets the storageAccountName property value. The name of the storage account. Read-only.
+     * Sets the storageAccountName property value. Indicates the name of the storage account. Read-only.
      * @param string|null $value Value to set for the storageAccountName property.
     */
     public function setStorageAccountName(?string $value): void {

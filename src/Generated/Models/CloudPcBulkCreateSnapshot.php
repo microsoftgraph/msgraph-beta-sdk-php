@@ -50,7 +50,7 @@ class CloudPcBulkCreateSnapshot extends CloudPcBulkAction implements Parsable
     }
 
     /**
-     * Gets the storageAccountId property value. The unique identifier for Secure Azure Storage Account, which receives the restore points (snapshots). The value can't be modified after it's created. For example, '/subscriptions/06199b73-30a1-4922-8734-93feca64cdf6/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125'. Read-Only.
+     * Gets the storageAccountId property value. Indicates the unique identifier for Secure Azure Storage Account, which receives the restore points (snapshots). The value can't be modified after it's created. For example, '/subscriptions/06199b73-30a1-4922-8734-93feca64cdf6/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125'. Read-Only.
      * @return string|null
     */
     public function getStorageAccountId(): ?string {
@@ -80,7 +80,7 @@ class CloudPcBulkCreateSnapshot extends CloudPcBulkAction implements Parsable
     }
 
     /**
-     * Sets the storageAccountId property value. The unique identifier for Secure Azure Storage Account, which receives the restore points (snapshots). The value can't be modified after it's created. For example, '/subscriptions/06199b73-30a1-4922-8734-93feca64cdf6/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125'. Read-Only.
+     * Sets the storageAccountId property value. Indicates the unique identifier for Secure Azure Storage Account, which receives the restore points (snapshots). The value can't be modified after it's created. For example, '/subscriptions/06199b73-30a1-4922-8734-93feca64cdf6/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125'. Read-Only.
      * @param string|null $value Value to set for the storageAccountId property.
     */
     public function setStorageAccountId(?string $value): void {
