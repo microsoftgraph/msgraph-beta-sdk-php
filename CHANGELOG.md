@@ -7,6 +7,7 @@
 
 * **generation:** update request builders and models ([dfdd814](https://github.com/microsoftgraph/msgraph-beta-sdk-php/commit/dfdd814bb9db85bcdf7a4a71064b30a9919b16a7))
 
+
 ## [2.35.0](https://github.com/microsoftgraph/msgraph-beta-sdk-php/compare/v2.34.0...v2.35.0) (2025-04-15)
 
 
