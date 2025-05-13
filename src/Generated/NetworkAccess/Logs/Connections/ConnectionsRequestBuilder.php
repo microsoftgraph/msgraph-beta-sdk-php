@@ -52,10 +52,11 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connections from networkAccess
+     * Get a list of connection objects and their properties.
      * @param ConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-logs-list-connections?view=graph-rest-beta Find more info here
     */
     public function get(?ConnectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ConnectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connections from networkAccess
+     * Get a list of connection objects and their properties.
      * @param ConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

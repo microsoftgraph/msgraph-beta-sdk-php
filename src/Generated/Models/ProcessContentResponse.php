@@ -83,7 +83,7 @@ class ProcessContentResponse implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the policyActions property value. The policyActions property
+     * Gets the policyActions property value. A collection of policy actions (like DLP actions) triggered by the processed content.
      * @return array<DlpActionInfo>|null
     */
     public function getPolicyActions(): ?array {
@@ -97,7 +97,7 @@ class ProcessContentResponse implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the processingErrors property value. The processingErrors property
+     * Gets the processingErrors property value. A collection of errors encountered during the content processing.
      * @return array<ProcessingError>|null
     */
     public function getProcessingErrors(): ?array {
@@ -159,7 +159,7 @@ class ProcessContentResponse implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the policyActions property value. The policyActions property
+     * Sets the policyActions property value. A collection of policy actions (like DLP actions) triggered by the processed content.
      * @param array<DlpActionInfo>|null $value Value to set for the policyActions property.
     */
     public function setPolicyActions(?array $value): void {
@@ -167,7 +167,7 @@ class ProcessContentResponse implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the processingErrors property value. The processingErrors property
+     * Sets the processingErrors property value. A collection of errors encountered during the content processing.
      * @param array<ProcessingError>|null $value Value to set for the processingErrors property.
     */
     public function setProcessingErrors(?array $value): void {

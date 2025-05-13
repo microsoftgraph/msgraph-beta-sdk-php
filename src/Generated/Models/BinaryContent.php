@@ -27,7 +27,7 @@ class BinaryContent extends ContentBase implements Parsable
     }
 
     /**
-     * Gets the data property value. The data property
+     * Gets the data property value. The binary content, encoded as a Base64 string. Inherited from contentBase.
      * @return StreamInterface|null
     */
     public function getData(): ?StreamInterface {
@@ -59,7 +59,7 @@ class BinaryContent extends ContentBase implements Parsable
     }
 
     /**
-     * Sets the data property value. The data property
+     * Sets the data property value. The binary content, encoded as a Base64 string. Inherited from contentBase.
      * @param StreamInterface|null $value Value to set for the data property.
     */
     public function setData(?StreamInterface $value): void {

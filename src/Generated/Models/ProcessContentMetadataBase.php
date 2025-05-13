@@ -65,7 +65,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. Represents the actual content, either as text (textContent) or binary data (binaryContent). Optional if metadata alone is sufficient for policy evaluation. Do not use for contentActivities.
      * @return ContentBase|null
     */
     public function getContent(): ?ContentBase {
@@ -77,7 +77,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the correlationId property value. The correlationId property
+     * Gets the correlationId property value. An GUID identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation).
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -89,7 +89,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Required. Timestamp indicating when the original content was created (for example, file creation time, message sent time).
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -121,7 +121,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the identifier property value. The identifier property
+     * Gets the identifier property value. Required. A unique identifier for this specific content entry within the context of the calling application or enforcement plane (for example, message ID, file path/URL).
      * @return string|null
     */
     public function getIdentifier(): ?string {
@@ -133,7 +133,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the isTruncated property value. The isTruncated property
+     * Gets the isTruncated property value. Required. Indicates if the provided content has been truncated from its original form (for example, due to size limits).
      * @return bool|null
     */
     public function getIsTruncated(): ?bool {
@@ -145,7 +145,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the length property value. The length property
+     * Gets the length property value. The length of the original content in bytes.
      * @return int|null
     */
     public function getLength(): ?int {
@@ -157,7 +157,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the modifiedDateTime property value. The modifiedDateTime property
+     * Gets the modifiedDateTime property value. Required. Timestamp indicating when the original content was last modified. For ephemeral content like messages, this might be the same as createdDateTime.
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
@@ -169,7 +169,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Required. A descriptive name for the content (for example, file name, web page title, 'Chat Message').
      * @return string|null
     */
     public function getName(): ?string {
@@ -193,7 +193,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the sequenceNumber property value. The sequenceNumber property
+     * Gets the sequenceNumber property value. A sequence number indicating the order in which content was generated or should be processed, required when correlationId is used.
      * @return int|null
     */
     public function getSequenceNumber(): ?int {
@@ -239,7 +239,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. Represents the actual content, either as text (textContent) or binary data (binaryContent). Optional if metadata alone is sufficient for policy evaluation. Do not use for contentActivities.
      * @param ContentBase|null $value Value to set for the content property.
     */
     public function setContent(?ContentBase $value): void {
@@ -247,7 +247,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the correlationId property value. The correlationId property
+     * Sets the correlationId property value. An GUID identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation).
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
@@ -255,7 +255,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Required. Timestamp indicating when the original content was created (for example, file creation time, message sent time).
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -263,7 +263,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the identifier property value. The identifier property
+     * Sets the identifier property value. Required. A unique identifier for this specific content entry within the context of the calling application or enforcement plane (for example, message ID, file path/URL).
      * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {
@@ -271,7 +271,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the isTruncated property value. The isTruncated property
+     * Sets the isTruncated property value. Required. Indicates if the provided content has been truncated from its original form (for example, due to size limits).
      * @param bool|null $value Value to set for the isTruncated property.
     */
     public function setIsTruncated(?bool $value): void {
@@ -279,7 +279,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the length property value. The length property
+     * Sets the length property value. The length of the original content in bytes.
      * @param int|null $value Value to set for the length property.
     */
     public function setLength(?int $value): void {
@@ -287,7 +287,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the modifiedDateTime property value. The modifiedDateTime property
+     * Sets the modifiedDateTime property value. Required. Timestamp indicating when the original content was last modified. For ephemeral content like messages, this might be the same as createdDateTime.
      * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
@@ -295,7 +295,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Required. A descriptive name for the content (for example, file name, web page title, 'Chat Message').
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -311,7 +311,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the sequenceNumber property value. The sequenceNumber property
+     * Sets the sequenceNumber property value. A sequence number indicating the order in which content was generated or should be processed, required when correlationId is used.
      * @param int|null $value Value to set for the sequenceNumber property.
     */
     public function setSequenceNumber(?int $value): void {

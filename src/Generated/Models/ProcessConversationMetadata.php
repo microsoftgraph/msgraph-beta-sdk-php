@@ -27,7 +27,7 @@ class ProcessConversationMetadata extends ProcessContentMetadataBase implements 
     }
 
     /**
-     * Gets the accessedResources property value. The accessedResources property
+     * Gets the accessedResources property value. List of resources (for example, file URLs, web URLs) accessed during the generation of this message (relevant for bot interactions).
      * @return array<string>|null
     */
     public function getAccessedResources(): ?array {
@@ -61,7 +61,7 @@ class ProcessConversationMetadata extends ProcessContentMetadataBase implements 
     }
 
     /**
-     * Gets the parentMessageId property value. The parentMessageId property
+     * Gets the parentMessageId property value. Identifier of the parent message in a threaded conversation, if applicable.
      * @return string|null
     */
     public function getParentMessageId(): ?string {
@@ -73,7 +73,7 @@ class ProcessConversationMetadata extends ProcessContentMetadataBase implements 
     }
 
     /**
-     * Gets the plugins property value. The plugins property
+     * Gets the plugins property value. List of plugins used during the generation of this message (relevant for AI/bot interactions).
      * @return array<AiInteractionPlugin>|null
     */
     public function getPlugins(): ?array {
@@ -98,7 +98,7 @@ class ProcessConversationMetadata extends ProcessContentMetadataBase implements 
     }
 
     /**
-     * Sets the accessedResources property value. The accessedResources property
+     * Sets the accessedResources property value. List of resources (for example, file URLs, web URLs) accessed during the generation of this message (relevant for bot interactions).
      * @param array<string>|null $value Value to set for the accessedResources property.
     */
     public function setAccessedResources(?array $value): void {
@@ -106,7 +106,7 @@ class ProcessConversationMetadata extends ProcessContentMetadataBase implements 
     }
 
     /**
-     * Sets the parentMessageId property value. The parentMessageId property
+     * Sets the parentMessageId property value. Identifier of the parent message in a threaded conversation, if applicable.
      * @param string|null $value Value to set for the parentMessageId property.
     */
     public function setParentMessageId(?string $value): void {
@@ -114,7 +114,7 @@ class ProcessConversationMetadata extends ProcessContentMetadataBase implements 
     }
 
     /**
-     * Sets the plugins property value. The plugins property
+     * Sets the plugins property value. List of plugins used during the generation of this message (relevant for AI/bot interactions).
      * @param array<AiInteractionPlugin>|null $value Value to set for the plugins property.
     */
     public function setPlugins(?array $value): void {

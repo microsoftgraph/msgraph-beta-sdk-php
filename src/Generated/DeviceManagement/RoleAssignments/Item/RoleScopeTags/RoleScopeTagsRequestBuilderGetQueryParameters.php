@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\R
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The set of Role Scope Tags defined on the Role Assignment.
+ * Indicates the set of scope tags for the role assignment. These scope tags will limit the visibility of any Intune resources to those that match any of the scope tags in this collection.
 */
 class RoleScopeTagsRequestBuilderGetQueryParameters 
 {

@@ -52,7 +52,7 @@ class AiInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get aiInsights from app
+     * The AI insights generated for an online meeting. Read-only.
      * @param AiInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CallAiInsightCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class AiInsightsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get aiInsights from app
+     * The AI insights generated for an online meeting. Read-only.
      * @param AiInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

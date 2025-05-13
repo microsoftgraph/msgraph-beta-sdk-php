@@ -75,6 +75,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpd
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAndroidWorkProfileDeviceMigrationStatuses\RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveCloudPkiLeafCertificateReport\RetrieveCloudPkiLeafCertificateReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveCloudPkiLeafCertificateSummaryReport\RetrieveCloudPkiLeafCertificateSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveDeviceAppInstallationStatusReport\RetrieveDeviceAppInstallationStatusReportRequestBuilder;
@@ -587,6 +588,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getZebraFotaDeploymentReport(): GetZebraFotaDeploymentReportRequestBuilder {
         return new GetZebraFotaDeploymentReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveAndroidWorkProfileDeviceMigrationStatuses method.
+    */
+    public function retrieveAndroidWorkProfileDeviceMigrationStatuses(): RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilder {
+        return new RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

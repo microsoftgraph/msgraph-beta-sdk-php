@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class EnrollmentTimeDeviceMembershipTargetValidationErrorCode extends Enum {
-    public const UNKNOWN = "unknown";
     public const SECURITY_GROUP_NOT_FOUND = "securityGroupNotFound";
     public const NOT_SECURITY_GROUP = "notSecurityGroup";
     public const NOT_STATIC_SECURITY_GROUP = "notStaticSecurityGroup";

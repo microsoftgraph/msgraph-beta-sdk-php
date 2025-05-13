@@ -26,7 +26,7 @@ class TextContent extends ContentBase implements Parsable
     }
 
     /**
-     * Gets the data property value. The data property
+     * Gets the data property value. The text content data. Inherits properties from contentBase.
      * @return string|null
     */
     public function getData(): ?string {
@@ -58,7 +58,7 @@ class TextContent extends ContentBase implements Parsable
     }
 
     /**
-     * Sets the data property value. The data property
+     * Sets the data property value. The text content data. Inherits properties from contentBase.
      * @param string|null $value Value to set for the data property.
     */
     public function setData(?string $value): void {

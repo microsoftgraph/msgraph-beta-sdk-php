@@ -89,7 +89,7 @@ class PolicyLocation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The actual value representing the location (for example, 'contoso.com', 'https://partner.contoso.com/upload', '83ef198a-0396-4893-9d4f-d36efbffcaaa').
      * @return string|null
     */
     public function getValue(): ?string {
@@ -135,7 +135,7 @@ class PolicyLocation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The actual value representing the location (for example, 'contoso.com', 'https://partner.contoso.com/upload', '83ef198a-0396-4893-9d4f-d36efbffcaaa').
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

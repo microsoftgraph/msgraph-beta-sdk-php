@@ -81,7 +81,7 @@ class ProcessContentResponses implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the requestId property value. The requestId property
+     * Gets the requestId property value. The unique identifier that matches the requestId provided in the corresponding processContentBatchRequest.
      * @return string|null
     */
     public function getRequestId(): ?string {
@@ -140,7 +140,7 @@ class ProcessContentResponses implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the requestId property value. The requestId property
+     * Sets the requestId property value. The unique identifier that matches the requestId provided in the corresponding processContentBatchRequest.
      * @param string|null $value Value to set for the requestId property.
     */
     public function setRequestId(?string $value): void {

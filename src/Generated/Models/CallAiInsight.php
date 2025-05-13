@@ -27,7 +27,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionItems property value. The actionItems property
+     * Gets the actionItems property value. The collection of AI-generated action items. Read-only.
      * @return array<ActionItem>|null
     */
     public function getActionItems(): ?array {
@@ -41,7 +41,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the callId property value. The callId property
+     * Gets the callId property value. The ID for the online meeting call for which the callAiInsight was generated. Read-only.
      * @return string|null
     */
     public function getCallId(): ?string {
@@ -53,7 +53,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentCorrelationId property value. The contentCorrelationId property
+     * Gets the contentCorrelationId property value. The unique ID that correlates the transcript from which the insights were generated. Read-only.
      * @return string|null
     */
     public function getContentCorrelationId(): ?string {
@@ -65,7 +65,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time at which the corresponding transcript was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -77,7 +77,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. Date and time at which the corresponding transcription ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -106,7 +106,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the meetingNotes property value. The meetingNotes property
+     * Gets the meetingNotes property value. The collection of AI-generated meeting notes. Read-only.
      * @return array<MeetingNote>|null
     */
     public function getMeetingNotes(): ?array {
@@ -120,7 +120,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the viewpoint property value. The viewpoint property
+     * Gets the viewpoint property value. The caller-specific properties of the callAiInsight entity. Read-only.
      * @return CallAiInsightViewPoint|null
     */
     public function getViewpoint(): ?CallAiInsightViewPoint {
@@ -147,7 +147,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionItems property value. The actionItems property
+     * Sets the actionItems property value. The collection of AI-generated action items. Read-only.
      * @param array<ActionItem>|null $value Value to set for the actionItems property.
     */
     public function setActionItems(?array $value): void {
@@ -155,7 +155,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the callId property value. The callId property
+     * Sets the callId property value. The ID for the online meeting call for which the callAiInsight was generated. Read-only.
      * @param string|null $value Value to set for the callId property.
     */
     public function setCallId(?string $value): void {
@@ -163,7 +163,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentCorrelationId property value. The contentCorrelationId property
+     * Sets the contentCorrelationId property value. The unique ID that correlates the transcript from which the insights were generated. Read-only.
      * @param string|null $value Value to set for the contentCorrelationId property.
     */
     public function setContentCorrelationId(?string $value): void {
@@ -171,7 +171,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time at which the corresponding transcript was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -179,7 +179,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. Date and time at which the corresponding transcription ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
@@ -187,7 +187,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the meetingNotes property value. The meetingNotes property
+     * Sets the meetingNotes property value. The collection of AI-generated meeting notes. Read-only.
      * @param array<MeetingNote>|null $value Value to set for the meetingNotes property.
     */
     public function setMeetingNotes(?array $value): void {
@@ -195,7 +195,7 @@ class CallAiInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the viewpoint property value. The viewpoint property
+     * Sets the viewpoint property value. The caller-specific properties of the callAiInsight entity. Read-only.
      * @param CallAiInsightViewPoint|null $value Value to set for the viewpoint property.
     */
     public function setViewpoint(?CallAiInsightViewPoint $value): void {

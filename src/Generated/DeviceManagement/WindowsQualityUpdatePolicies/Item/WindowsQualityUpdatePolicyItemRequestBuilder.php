@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\BulkAction\BulkActionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\RetrieveWindowsQualityUpdateCatalogItemDetailsWithIds\RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdatePolicy;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -30,6 +32,13 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the bulkAction method.
+    */
+    public function bulkAction(): BulkActionRequestBuilder {
+        return new BulkActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -87,6 +96,15 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [WindowsQualityUpdatePolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the retrieveWindowsQualityUpdateCatalogItemDetails method.
+     * @param string $ids Usage: ids={ids}
+     * @return RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder
+    */
+    public function retrieveWindowsQualityUpdateCatalogItemDetailsWithIds(string $ids): RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder {
+        return new RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder($this->pathParameters, $this->requestAdapter, $ids);
     }
 
     /**

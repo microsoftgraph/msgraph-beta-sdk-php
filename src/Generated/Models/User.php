@@ -496,7 +496,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the dataSecurityAndGovernance property value. The dataSecurityAndGovernance property
+     * Gets the dataSecurityAndGovernance property value. The data security and governance settings for the user. Read-only. Nullable.
      * @return UserDataSecurityAndGovernance|null
     */
     public function getDataSecurityAndGovernance(): ?UserDataSecurityAndGovernance {
@@ -2766,7 +2766,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the dataSecurityAndGovernance property value. The dataSecurityAndGovernance property
+     * Sets the dataSecurityAndGovernance property value. The data security and governance settings for the user. Read-only. Nullable.
      * @param UserDataSecurityAndGovernance|null $value Value to set for the dataSecurityAndGovernance property.
     */
     public function setDataSecurityAndGovernance(?UserDataSecurityAndGovernance $value): void {

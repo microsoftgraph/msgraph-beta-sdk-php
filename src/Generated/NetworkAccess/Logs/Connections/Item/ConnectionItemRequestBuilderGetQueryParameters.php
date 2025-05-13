@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Connections\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get connections from networkAccess
+ * Read the properties and relationships of a connection object.
 */
 class ConnectionItemRequestBuilderGetQueryParameters 
 {

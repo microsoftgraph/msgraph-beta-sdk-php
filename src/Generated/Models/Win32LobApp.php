@@ -49,6 +49,18 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
+     * Gets the allowedArchitectures property value. Indicates the Windows architecture(s) this app should be installed on. The app will be treated as not applicable for devices with architectures not matching the selected value. When a non-null value is provided for the allowedArchitectures property, the value of the applicableArchitectures property is set to none. Possible values are: null, x86, x64, arm64. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * @return WindowsArchitecture|null
+    */
+    public function getAllowedArchitectures(): ?WindowsArchitecture {
+        $val = $this->getBackingStore()->get('allowedArchitectures');
+        if (is_null($val) || $val instanceof WindowsArchitecture) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedArchitectures'");
+    }
+
+    /**
      * Gets the applicableArchitectures property value. Contains properties for Windows architecture.
      * @return WindowsArchitecture|null
     */
@@ -94,6 +106,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowAvailableUninstall' => fn(ParseNode $n) => $o->setAllowAvailableUninstall($n->getBooleanValue()),
+            'allowedArchitectures' => fn(ParseNode $n) => $o->setAllowedArchitectures($n->getEnumValue(WindowsArchitecture::class)),
             'applicableArchitectures' => fn(ParseNode $n) => $o->setApplicableArchitectures($n->getEnumValue(WindowsArchitecture::class)),
             'detectionRules' => fn(ParseNode $n) => $o->setDetectionRules($n->getCollectionOfObjectValues([Win32LobAppDetection::class, 'createFromDiscriminatorValue'])),
             'displayVersion' => fn(ParseNode $n) => $o->setDisplayVersion($n->getStringValue()),
@@ -295,6 +308,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('allowAvailableUninstall', $this->getAllowAvailableUninstall());
+        $writer->writeEnumValue('allowedArchitectures', $this->getAllowedArchitectures());
         $writer->writeEnumValue('applicableArchitectures', $this->getApplicableArchitectures());
         $writer->writeCollectionOfObjectValues('detectionRules', $this->getDetectionRules());
         $writer->writeStringValue('displayVersion', $this->getDisplayVersion());
@@ -320,6 +334,14 @@ class Win32LobApp extends MobileLobApp implements Parsable
     */
     public function setAllowAvailableUninstall(?bool $value): void {
         $this->getBackingStore()->set('allowAvailableUninstall', $value);
+    }
+
+    /**
+     * Sets the allowedArchitectures property value. Indicates the Windows architecture(s) this app should be installed on. The app will be treated as not applicable for devices with architectures not matching the selected value. When a non-null value is provided for the allowedArchitectures property, the value of the applicableArchitectures property is set to none. Possible values are: null, x86, x64, arm64. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * @param WindowsArchitecture|null $value Value to set for the allowedArchitectures property.
+    */
+    public function setAllowedArchitectures(?WindowsArchitecture $value): void {
+        $this->getBackingStore()->set('allowedArchitectures', $value);
     }
 
     /**

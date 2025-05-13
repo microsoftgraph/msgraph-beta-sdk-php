@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AiInsights\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get aiInsights from app
+ * The AI insights generated for an online meeting. Read-only.
 */
 class CallAiInsightItemRequestBuilderGetQueryParameters 
 {

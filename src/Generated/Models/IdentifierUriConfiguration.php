@@ -68,7 +68,7 @@ class IdentifierUriConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the nonDefaultUriAddition property value. Block new identifier URIs for applications, unless they are the 'default' URI of the format api://{appId}.
+     * Gets the nonDefaultUriAddition property value. Block new identifier URIs for applications, unless they are the 'default' URI of the format api://{appId} or api://{tenantId}/{appId}.
      * @return IdentifierUriRestriction|null
     */
     public function getNonDefaultUriAddition(): ?IdentifierUriRestriction {
@@ -118,7 +118,7 @@ class IdentifierUriConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the nonDefaultUriAddition property value. Block new identifier URIs for applications, unless they are the 'default' URI of the format api://{appId}.
+     * Sets the nonDefaultUriAddition property value. Block new identifier URIs for applications, unless they are the 'default' URI of the format api://{appId} or api://{tenantId}/{appId}.
      * @param IdentifierUriRestriction|null $value Value to set for the nonDefaultUriAddition property.
     */
     public function setNonDefaultUriAddition(?IdentifierUriRestriction $value): void {

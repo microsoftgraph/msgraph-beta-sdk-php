@@ -31,11 +31,12 @@ class ProcessContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action processContent
+     * Process content against data protection policies in the context of the current user. 
      * @param ProcessContentPostRequestBody $body The request body
      * @param ProcessContentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProcessContentResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/userdatasecurityandgovernance-processcontent?view=graph-rest-beta Find more info here
     */
     public function post(ProcessContentPostRequestBody $body, ?ProcessContentRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class ProcessContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action processContent
+     * Process content against data protection policies in the context of the current user. 
      * @param ProcessContentPostRequestBody $body The request body
      * @param ProcessContentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

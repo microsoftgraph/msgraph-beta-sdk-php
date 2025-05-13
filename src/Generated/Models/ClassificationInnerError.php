@@ -36,7 +36,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the activityId property value. The activityId property
+     * Gets the activityId property value. The activity ID associated with the request that generated the error.
      * @return string|null
     */
     public function getActivityId(): ?string {
@@ -69,7 +69,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the clientRequestId property value. The clientRequestId property
+     * Gets the clientRequestId property value. The client request ID, if provided by the caller.
      * @return string|null
     */
     public function getClientRequestId(): ?string {
@@ -81,7 +81,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the code property value. The code property
+     * Gets the code property value. A more specific, potentially internal, error code string.
      * @return string|null
     */
     public function getCode(): ?string {
@@ -93,7 +93,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the errorDateTime property value. The errorDateTime property
+     * Gets the errorDateTime property value. The date and time the inner error occurred.
      * @return DateTime|null
     */
     public function getErrorDateTime(): ?DateTime {
@@ -145,7 +145,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the activityId property value. The activityId property
+     * Sets the activityId property value. The activity ID associated with the request that generated the error.
      * @param string|null $value Value to set for the activityId property.
     */
     public function setActivityId(?string $value): void {
@@ -169,7 +169,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the clientRequestId property value. The clientRequestId property
+     * Sets the clientRequestId property value. The client request ID, if provided by the caller.
      * @param string|null $value Value to set for the clientRequestId property.
     */
     public function setClientRequestId(?string $value): void {
@@ -177,7 +177,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the code property value. The code property
+     * Sets the code property value. A more specific, potentially internal, error code string.
      * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
@@ -185,7 +185,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the errorDateTime property value. The errorDateTime property
+     * Sets the errorDateTime property value. The date and time the inner error occurred.
      * @param DateTime|null $value Value to set for the errorDateTime property.
     */
     public function setErrorDateTime(?DateTime $value): void {

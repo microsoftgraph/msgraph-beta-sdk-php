@@ -33,7 +33,7 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. A collection of more specific errors that contribute to the overall error.
      * @return array<ClassifcationErrorBase>|null
     */
     public function getDetails(): ?array {
@@ -67,7 +67,7 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. A collection of more specific errors that contribute to the overall error.
      * @param array<ClassifcationErrorBase>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {

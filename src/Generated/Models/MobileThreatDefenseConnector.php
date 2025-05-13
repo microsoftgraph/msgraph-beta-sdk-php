@@ -41,6 +41,18 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
+     * Gets the allowPartnerToCollectIosCertificateMetadata property value. When TRUE, allows the Mobile Threat Defense partner to request a list of installed certificates on iOS/iPadOS devices from Intune to use for threat analysis. This list of installed certificates will be sent from enrolled iOS/iPadOS devices and will include unmanaged certificates (certificates not deployed through Intune). When FALSE, indicates that metadata about installed certificates will not be collected. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getAllowPartnerToCollectIosCertificateMetadata(): ?bool {
+        $val = $this->getBackingStore()->get('allowPartnerToCollectIosCertificateMetadata');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowPartnerToCollectIosCertificateMetadata'");
+    }
+
+    /**
      * Gets the allowPartnerToCollectIOSPersonalApplicationMetadata property value. When TRUE, indicates the Mobile Threat Defense partner may collect metadata about personally installed applications from Intune for iOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about personally installed applications from Intune for iOS devices. Default value is FALSE.
      * @return bool|null
     */
@@ -50,6 +62,18 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowPartnerToCollectIOSPersonalApplicationMetadata'");
+    }
+
+    /**
+     * Gets the allowPartnerToCollectIosPersonalCertificateMetadata property value. When TRUE, allows the Mobile Threat Defense partner to request a list of installed certificates on personally owned iOS/iPadOS devices from Intune to use for threat analysis. This list of installed certificates will be sent from enrolled personally owned iOS/iPadOS devices and will include unmanaged certificates (certificates not deployed through Intune). When FALSE, no metadata for installed certificates is sent for personally owned iOS/iPadOS devices. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getAllowPartnerToCollectIosPersonalCertificateMetadata(): ?bool {
+        $val = $this->getBackingStore()->get('allowPartnerToCollectIosPersonalCertificateMetadata');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowPartnerToCollectIosPersonalCertificateMetadata'");
     }
 
     /**
@@ -96,7 +120,9 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowPartnerToCollectIOSApplicationMetadata' => fn(ParseNode $n) => $o->setAllowPartnerToCollectIOSApplicationMetadata($n->getBooleanValue()),
+            'allowPartnerToCollectIosCertificateMetadata' => fn(ParseNode $n) => $o->setAllowPartnerToCollectIosCertificateMetadata($n->getBooleanValue()),
             'allowPartnerToCollectIOSPersonalApplicationMetadata' => fn(ParseNode $n) => $o->setAllowPartnerToCollectIOSPersonalApplicationMetadata($n->getBooleanValue()),
+            'allowPartnerToCollectIosPersonalCertificateMetadata' => fn(ParseNode $n) => $o->setAllowPartnerToCollectIosPersonalCertificateMetadata($n->getBooleanValue()),
             'androidDeviceBlockedOnMissingPartnerData' => fn(ParseNode $n) => $o->setAndroidDeviceBlockedOnMissingPartnerData($n->getBooleanValue()),
             'androidEnabled' => fn(ParseNode $n) => $o->setAndroidEnabled($n->getBooleanValue()),
             'androidMobileApplicationManagementEnabled' => fn(ParseNode $n) => $o->setAndroidMobileApplicationManagementEnabled($n->getBooleanValue()),
@@ -279,7 +305,9 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('allowPartnerToCollectIOSApplicationMetadata', $this->getAllowPartnerToCollectIOSApplicationMetadata());
+        $writer->writeBooleanValue('allowPartnerToCollectIosCertificateMetadata', $this->getAllowPartnerToCollectIosCertificateMetadata());
         $writer->writeBooleanValue('allowPartnerToCollectIOSPersonalApplicationMetadata', $this->getAllowPartnerToCollectIOSPersonalApplicationMetadata());
+        $writer->writeBooleanValue('allowPartnerToCollectIosPersonalCertificateMetadata', $this->getAllowPartnerToCollectIosPersonalCertificateMetadata());
         $writer->writeBooleanValue('androidDeviceBlockedOnMissingPartnerData', $this->getAndroidDeviceBlockedOnMissingPartnerData());
         $writer->writeBooleanValue('androidEnabled', $this->getAndroidEnabled());
         $writer->writeBooleanValue('androidMobileApplicationManagementEnabled', $this->getAndroidMobileApplicationManagementEnabled());
@@ -307,11 +335,27 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
+     * Sets the allowPartnerToCollectIosCertificateMetadata property value. When TRUE, allows the Mobile Threat Defense partner to request a list of installed certificates on iOS/iPadOS devices from Intune to use for threat analysis. This list of installed certificates will be sent from enrolled iOS/iPadOS devices and will include unmanaged certificates (certificates not deployed through Intune). When FALSE, indicates that metadata about installed certificates will not be collected. Default value is FALSE.
+     * @param bool|null $value Value to set for the allowPartnerToCollectIosCertificateMetadata property.
+    */
+    public function setAllowPartnerToCollectIosCertificateMetadata(?bool $value): void {
+        $this->getBackingStore()->set('allowPartnerToCollectIosCertificateMetadata', $value);
+    }
+
+    /**
      * Sets the allowPartnerToCollectIOSPersonalApplicationMetadata property value. When TRUE, indicates the Mobile Threat Defense partner may collect metadata about personally installed applications from Intune for iOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about personally installed applications from Intune for iOS devices. Default value is FALSE.
      * @param bool|null $value Value to set for the allowPartnerToCollectIOSPersonalApplicationMetadata property.
     */
     public function setAllowPartnerToCollectIOSPersonalApplicationMetadata(?bool $value): void {
         $this->getBackingStore()->set('allowPartnerToCollectIOSPersonalApplicationMetadata', $value);
+    }
+
+    /**
+     * Sets the allowPartnerToCollectIosPersonalCertificateMetadata property value. When TRUE, allows the Mobile Threat Defense partner to request a list of installed certificates on personally owned iOS/iPadOS devices from Intune to use for threat analysis. This list of installed certificates will be sent from enrolled personally owned iOS/iPadOS devices and will include unmanaged certificates (certificates not deployed through Intune). When FALSE, no metadata for installed certificates is sent for personally owned iOS/iPadOS devices. Default value is FALSE.
+     * @param bool|null $value Value to set for the allowPartnerToCollectIosPersonalCertificateMetadata property.
+    */
+    public function setAllowPartnerToCollectIosPersonalCertificateMetadata(?bool $value): void {
+        $this->getBackingStore()->set('allowPartnerToCollectIosPersonalCertificateMetadata', $value);
     }
 
     /**

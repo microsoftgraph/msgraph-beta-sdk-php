@@ -50,7 +50,7 @@ class AiUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the onlineMeetings property value. The onlineMeetings property
+     * Gets the onlineMeetings property value. Information about an online meeting, including AI insights.
      * @return array<AiOnlineMeeting>|null
     */
     public function getOnlineMeetings(): ?array {
@@ -82,7 +82,7 @@ class AiUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the onlineMeetings property value. The onlineMeetings property
+     * Sets the onlineMeetings property value. Information about an online meeting, including AI insights.
      * @param array<AiOnlineMeeting>|null $value Value to set for the onlineMeetings property.
     */
     public function setOnlineMeetings(?array $value): void {

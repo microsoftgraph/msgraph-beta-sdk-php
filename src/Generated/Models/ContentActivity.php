@@ -50,7 +50,7 @@ class ContentActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeIdentifier property value. The scopeIdentifier property
+     * Gets the scopeIdentifier property value. The scope identified from computed protection scopes.
      * @return string|null
     */
     public function getScopeIdentifier(): ?string {
@@ -62,7 +62,7 @@ class ContentActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. ID of the user.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -93,7 +93,7 @@ class ContentActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeIdentifier property value. The scopeIdentifier property
+     * Sets the scopeIdentifier property value. The scope identified from computed protection scopes.
      * @param string|null $value Value to set for the scopeIdentifier property.
     */
     public function setScopeIdentifier(?string $value): void {
@@ -101,7 +101,7 @@ class ContentActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. ID of the user.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

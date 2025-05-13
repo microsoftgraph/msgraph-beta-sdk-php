@@ -29,7 +29,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the aiInsights property value. The aiInsights property
+     * Gets the aiInsights property value. The AI insights generated for an online meeting. Read-only.
      * @return array<CallAiInsight>|null
     */
     public function getAiInsights(): ?array {
@@ -321,7 +321,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the aiInsights property value. The aiInsights property
+     * Sets the aiInsights property value. The AI insights generated for an online meeting. Read-only.
      * @param array<CallAiInsight>|null $value Value to set for the aiInsights property.
     */
     public function setAiInsights(?array $value): void {
