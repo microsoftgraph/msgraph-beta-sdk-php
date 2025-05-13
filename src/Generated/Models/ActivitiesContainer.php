@@ -26,7 +26,7 @@ class ActivitiesContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentActivities property value. The contentActivities property
+     * Gets the contentActivities property value. Collection of activity logs related to content processing.
      * @return array<ContentActivity>|null
     */
     public function getContentActivities(): ?array {
@@ -60,7 +60,7 @@ class ActivitiesContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentActivities property value. The contentActivities property
+     * Sets the contentActivities property value. Collection of activity logs related to content processing.
      * @param array<ContentActivity>|null $value Value to set for the contentActivities property.
     */
     public function setContentActivities(?array $value): void {

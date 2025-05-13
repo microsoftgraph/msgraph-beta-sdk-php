@@ -27,7 +27,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the agentVersion property value. The agentVersion property
+     * Gets the agentVersion property value. The version of the client that initiated the connection.
      * @return string|null
     */
     public function getAgentVersion(): ?string {
@@ -39,7 +39,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the applicationSnapshot property value. The applicationSnapshot property
+     * Gets the applicationSnapshot property value. appId (or client ID) of the destination Microsoft Entra application.
      * @return ApplicationSnapshot|null
     */
     public function getApplicationSnapshot(): ?ApplicationSnapshot {
@@ -51,7 +51,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The time the connection was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -63,7 +63,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the destinationFqdn property value. The destinationFqdn property
+     * Gets the destinationFqdn property value. The destination FQDN of the connection.
      * @return string|null
     */
     public function getDestinationFqdn(): ?string {
@@ -75,7 +75,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the destinationIp property value. The destinationIp property
+     * Gets the destinationIp property value. The destination IP of the connection.
      * @return string|null
     */
     public function getDestinationIp(): ?string {
@@ -87,7 +87,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the destinationPort property value. The destinationPort property
+     * Gets the destinationPort property value. The destination port of the connection.
      * @return int|null
     */
     public function getDestinationPort(): ?int {
@@ -99,7 +99,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceCategory property value. The deviceCategory property
+     * Gets the deviceCategory property value. The category of the device. The possible values are: client, branch, unknownFutureValue, remoteNetwork. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: remoteNetwork.
      * @return DeviceCategory|null
     */
     public function getDeviceCategory(): ?DeviceCategory {
@@ -111,7 +111,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. The DeviceID.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -123,7 +123,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceOperatingSystem property value. The deviceOperatingSystem property
+     * Gets the deviceOperatingSystem property value. The device operating system type.
      * @return string|null
     */
     public function getDeviceOperatingSystem(): ?string {
@@ -135,7 +135,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceOperatingSystemVersion property value. The deviceOperatingSystemVersion property
+     * Gets the deviceOperatingSystemVersion property value. The device operating system version.
      * @return string|null
     */
     public function getDeviceOperatingSystemVersion(): ?string {
@@ -147,7 +147,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. The time the connection was terminated.
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
@@ -197,7 +197,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the initiatingProcessName property value. The initiatingProcessName property
+     * Gets the initiatingProcessName property value. The process initiating the traffic connection.
      * @return string|null
     */
     public function getInitiatingProcessName(): ?string {
@@ -209,7 +209,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Gets the lastUpdateDateTime property value. When the connection was last updated.
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
@@ -221,7 +221,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the networkProtocol property value. The networkProtocol property
+     * Gets the networkProtocol property value. The network protocol of the connection. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue.
      * @return NetworkingProtocol|null
     */
     public function getNetworkProtocol(): ?NetworkingProtocol {
@@ -233,7 +233,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the popProcessingRegion property value. The popProcessingRegion property
+     * Gets the popProcessingRegion property value. The Point-of-Presence processing region of the traffic.
      * @return string|null
     */
     public function getPopProcessingRegion(): ?string {
@@ -245,7 +245,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the privateAccessDetails property value. The privateAccessDetails property
+     * Gets the privateAccessDetails property value. Private access details.
      * @return PrivateAccessDetails|null
     */
     public function getPrivateAccessDetails(): ?PrivateAccessDetails {
@@ -257,7 +257,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the receivedBytes property value. The receivedBytes property
+     * Gets the receivedBytes property value. Accumulative bytes received.
      * @return int|null
     */
     public function getReceivedBytes(): ?int {
@@ -269,7 +269,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the sentBytes property value. The sentBytes property
+     * Gets the sentBytes property value. Accumulative bytes sent.
      * @return int|null
     */
     public function getSentBytes(): ?int {
@@ -281,7 +281,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceIp property value. The sourceIp property
+     * Gets the sourceIp property value. The source IP of the connection.
      * @return string|null
     */
     public function getSourceIp(): ?string {
@@ -293,7 +293,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourcePort property value. The sourcePort property
+     * Gets the sourcePort property value. The source port of the connection.
      * @return int|null
     */
     public function getSourcePort(): ?int {
@@ -305,7 +305,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Status of the connection. The possible values are: open, active, closed, unknownFutureValue.
      * @return ConnectionStatus|null
     */
     public function getStatus(): ?ConnectionStatus {
@@ -317,7 +317,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The ID of the tenant where the connection was initiated.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -341,7 +341,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the transactionBlockCount property value. The transactionBlockCount property
+     * Gets the transactionBlockCount property value. The number of blocked transactions belonging to the connection.
      * @return int|null
     */
     public function getTransactionBlockCount(): ?int {
@@ -353,7 +353,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the transactionCount property value. The transactionCount property
+     * Gets the transactionCount property value. The number of transactions belonging to the connection.
      * @return int|null
     */
     public function getTransactionCount(): ?int {
@@ -365,7 +365,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the transportProtocol property value. The transportProtocol property
+     * Gets the transportProtocol property value. The transport protocol of the connection. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue.
      * @return NetworkingProtocol|null
     */
     public function getTransportProtocol(): ?NetworkingProtocol {
@@ -377,7 +377,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The user ID.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -389,7 +389,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The principal name of the user.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -437,7 +437,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the agentVersion property value. The agentVersion property
+     * Sets the agentVersion property value. The version of the client that initiated the connection.
      * @param string|null $value Value to set for the agentVersion property.
     */
     public function setAgentVersion(?string $value): void {
@@ -445,7 +445,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the applicationSnapshot property value. The applicationSnapshot property
+     * Sets the applicationSnapshot property value. appId (or client ID) of the destination Microsoft Entra application.
      * @param ApplicationSnapshot|null $value Value to set for the applicationSnapshot property.
     */
     public function setApplicationSnapshot(?ApplicationSnapshot $value): void {
@@ -453,7 +453,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The time the connection was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -461,7 +461,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the destinationFqdn property value. The destinationFqdn property
+     * Sets the destinationFqdn property value. The destination FQDN of the connection.
      * @param string|null $value Value to set for the destinationFqdn property.
     */
     public function setDestinationFqdn(?string $value): void {
@@ -469,7 +469,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the destinationIp property value. The destinationIp property
+     * Sets the destinationIp property value. The destination IP of the connection.
      * @param string|null $value Value to set for the destinationIp property.
     */
     public function setDestinationIp(?string $value): void {
@@ -477,7 +477,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the destinationPort property value. The destinationPort property
+     * Sets the destinationPort property value. The destination port of the connection.
      * @param int|null $value Value to set for the destinationPort property.
     */
     public function setDestinationPort(?int $value): void {
@@ -485,7 +485,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceCategory property value. The deviceCategory property
+     * Sets the deviceCategory property value. The category of the device. The possible values are: client, branch, unknownFutureValue, remoteNetwork. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: remoteNetwork.
      * @param DeviceCategory|null $value Value to set for the deviceCategory property.
     */
     public function setDeviceCategory(?DeviceCategory $value): void {
@@ -493,7 +493,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. The DeviceID.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -501,7 +501,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceOperatingSystem property value. The deviceOperatingSystem property
+     * Sets the deviceOperatingSystem property value. The device operating system type.
      * @param string|null $value Value to set for the deviceOperatingSystem property.
     */
     public function setDeviceOperatingSystem(?string $value): void {
@@ -509,7 +509,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceOperatingSystemVersion property value. The deviceOperatingSystemVersion property
+     * Sets the deviceOperatingSystemVersion property value. The device operating system version.
      * @param string|null $value Value to set for the deviceOperatingSystemVersion property.
     */
     public function setDeviceOperatingSystemVersion(?string $value): void {
@@ -517,7 +517,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. The time the connection was terminated.
      * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
@@ -525,7 +525,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the initiatingProcessName property value. The initiatingProcessName property
+     * Sets the initiatingProcessName property value. The process initiating the traffic connection.
      * @param string|null $value Value to set for the initiatingProcessName property.
     */
     public function setInitiatingProcessName(?string $value): void {
@@ -533,7 +533,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Sets the lastUpdateDateTime property value. When the connection was last updated.
      * @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
     public function setLastUpdateDateTime(?DateTime $value): void {
@@ -541,7 +541,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the networkProtocol property value. The networkProtocol property
+     * Sets the networkProtocol property value. The network protocol of the connection. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue.
      * @param NetworkingProtocol|null $value Value to set for the networkProtocol property.
     */
     public function setNetworkProtocol(?NetworkingProtocol $value): void {
@@ -549,7 +549,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the popProcessingRegion property value. The popProcessingRegion property
+     * Sets the popProcessingRegion property value. The Point-of-Presence processing region of the traffic.
      * @param string|null $value Value to set for the popProcessingRegion property.
     */
     public function setPopProcessingRegion(?string $value): void {
@@ -557,7 +557,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the privateAccessDetails property value. The privateAccessDetails property
+     * Sets the privateAccessDetails property value. Private access details.
      * @param PrivateAccessDetails|null $value Value to set for the privateAccessDetails property.
     */
     public function setPrivateAccessDetails(?PrivateAccessDetails $value): void {
@@ -565,7 +565,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the receivedBytes property value. The receivedBytes property
+     * Sets the receivedBytes property value. Accumulative bytes received.
      * @param int|null $value Value to set for the receivedBytes property.
     */
     public function setReceivedBytes(?int $value): void {
@@ -573,7 +573,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the sentBytes property value. The sentBytes property
+     * Sets the sentBytes property value. Accumulative bytes sent.
      * @param int|null $value Value to set for the sentBytes property.
     */
     public function setSentBytes(?int $value): void {
@@ -581,7 +581,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceIp property value. The sourceIp property
+     * Sets the sourceIp property value. The source IP of the connection.
      * @param string|null $value Value to set for the sourceIp property.
     */
     public function setSourceIp(?string $value): void {
@@ -589,7 +589,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourcePort property value. The sourcePort property
+     * Sets the sourcePort property value. The source port of the connection.
      * @param int|null $value Value to set for the sourcePort property.
     */
     public function setSourcePort(?int $value): void {
@@ -597,7 +597,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Status of the connection. The possible values are: open, active, closed, unknownFutureValue.
      * @param ConnectionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ConnectionStatus $value): void {
@@ -605,7 +605,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The ID of the tenant where the connection was initiated.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
@@ -621,7 +621,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the transactionBlockCount property value. The transactionBlockCount property
+     * Sets the transactionBlockCount property value. The number of blocked transactions belonging to the connection.
      * @param int|null $value Value to set for the transactionBlockCount property.
     */
     public function setTransactionBlockCount(?int $value): void {
@@ -629,7 +629,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the transactionCount property value. The transactionCount property
+     * Sets the transactionCount property value. The number of transactions belonging to the connection.
      * @param int|null $value Value to set for the transactionCount property.
     */
     public function setTransactionCount(?int $value): void {
@@ -637,7 +637,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the transportProtocol property value. The transportProtocol property
+     * Sets the transportProtocol property value. The transport protocol of the connection. The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue.
      * @param NetworkingProtocol|null $value Value to set for the transportProtocol property.
     */
     public function setTransportProtocol(?NetworkingProtocol $value): void {
@@ -645,7 +645,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The user ID.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -653,7 +653,7 @@ class Connection extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. The principal name of the user.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

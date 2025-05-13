@@ -81,7 +81,7 @@ class ConnectionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalCount property value. The totalCount property
+     * Gets the totalCount property value. Total number of connections for the specified traffic type.
      * @return int|null
     */
     public function getTotalCount(): ?int {
@@ -140,7 +140,7 @@ class ConnectionSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the totalCount property value. The totalCount property
+     * Sets the totalCount property value. Total number of connections for the specified traffic type.
      * @param int|null $value Value to set for the totalCount property.
     */
     public function setTotalCount(?int $value): void {

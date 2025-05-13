@@ -69,7 +69,7 @@ class CallAiInsightViewPoint implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the mentionEvents property value. The mentionEvents property
+     * Gets the mentionEvents property value. The collection of AI-generated mention events.
      * @return array<MentionEvent>|null
     */
     public function getMentionEvents(): ?array {
@@ -121,7 +121,7 @@ class CallAiInsightViewPoint implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the mentionEvents property value. The mentionEvents property
+     * Sets the mentionEvents property value. The collection of AI-generated mention events.
      * @param array<MentionEvent>|null $value Value to set for the mentionEvents property.
     */
     public function setMentionEvents(?array $value): void {

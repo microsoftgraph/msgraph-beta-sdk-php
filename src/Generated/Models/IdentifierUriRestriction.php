@@ -57,7 +57,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the excludeActors property value. Collection of custom security attribute exemptions. If an actor user or service principal has the custom security attribute, they're exempted from the restriction.
+     * Gets the excludeActors property value. Collection of custom security attribute exemptions. If an actor user or service principal has the custom security attribute defined in this section, they're exempted from the restriction.  This means that calls the user or service principal makes to create or update apps are exempt from this policy enforcement.
      * @return AppManagementPolicyActorExemptions|null
     */
     public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
@@ -188,7 +188,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the excludeActors property value. Collection of custom security attribute exemptions. If an actor user or service principal has the custom security attribute, they're exempted from the restriction.
+     * Sets the excludeActors property value. Collection of custom security attribute exemptions. If an actor user or service principal has the custom security attribute defined in this section, they're exempted from the restriction.  This means that calls the user or service principal makes to create or update apps are exempt from this policy enforcement.
      * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
     */
     public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {

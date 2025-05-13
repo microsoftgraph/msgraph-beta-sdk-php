@@ -79,6 +79,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
             'v12_0' => fn(ParseNode $n) => $o->setV120($n->getBooleanValue()),
             'v13_0' => fn(ParseNode $n) => $o->setV130($n->getBooleanValue()),
             'v14_0' => fn(ParseNode $n) => $o->setV140($n->getBooleanValue()),
+            'v15_0' => fn(ParseNode $n) => $o->setV150($n->getBooleanValue()),
         ];
     }
 
@@ -95,7 +96,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_10 property value. When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_10 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.10 or later is required to install the app. If 'False', OS X Version 10.10 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV1010(): ?bool {
@@ -107,7 +108,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_11 property value. When TRUE, indicates OS X 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_11 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.11 or later is required to install the app. If 'False', OS X Version 10.11 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV1011(): ?bool {
@@ -119,7 +120,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_12 property value. When TRUE, indicates macOS 10.12 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_12 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.12 or later is required to install the app. If 'False', OS X Version 10.12 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV1012(): ?bool {
@@ -131,7 +132,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_13 property value. When TRUE, indicates macOS 10.13 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_13 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.13 or later is required to install the app. If 'False', OS X Version 10.13 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV1013(): ?bool {
@@ -143,7 +144,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_14 property value. When TRUE, indicates macOS 10.14 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_14 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.14 or later is required to install the app. If 'False', OS X Version 10.14 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV1014(): ?bool {
@@ -155,7 +156,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_15 property value. When TRUE, indicates macOS 10.15 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_15 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.15 or later is required to install the app. If 'False', OS X Version 10.15 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV1015(): ?bool {
@@ -167,7 +168,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_7 property value. When TRUE, indicates Mac OS X 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_7 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.7 or later is required to install the app. If 'False', OS X Version 10.7 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV107(): ?bool {
@@ -179,7 +180,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_8 property value. When TRUE, indicates OS X 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_8 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.8 or later is required to install the app. If 'False', OS X Version 10.8 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV108(): ?bool {
@@ -191,7 +192,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v10_9 property value. When TRUE, indicates OS X 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_9 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.9 or later is required to install the app. If 'False', OS X Version 10.9 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV109(): ?bool {
@@ -203,7 +204,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v11_0 property value. When TRUE, indicates macOS 11.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v11_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 11.0 or later is required to install the app. If 'False', OS X Version 11.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV110(): ?bool {
@@ -215,7 +216,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v12_0 property value. When TRUE, indicates macOS 12.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v12_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 12.0 or later is required to install the app. If 'False', OS X Version 12.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV120(): ?bool {
@@ -227,7 +228,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v13_0 property value. When TRUE, indicates macOS 13.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v13_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 13.0 or later is required to install the app. If 'False', OS X Version 13.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV130(): ?bool {
@@ -239,7 +240,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the v14_0 property value. When TRUE, indicates macOS 14.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v14_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 14.0 or later is required to install the app. If 'False', OS X Version 14.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV140(): ?bool {
@@ -248,6 +249,18 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'v14_0'");
+    }
+
+    /**
+     * Gets the v15_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 15.0 or later is required to install the app. If 'False', OS X Version 15.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV150(): ?bool {
+        $val = $this->getBackingStore()->get('v15_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v15_0'");
     }
 
     /**
@@ -269,6 +282,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
         $writer->writeBooleanValue('v12_0', $this->getV120());
         $writer->writeBooleanValue('v13_0', $this->getV130());
         $writer->writeBooleanValue('v14_0', $this->getV140());
+        $writer->writeBooleanValue('v15_0', $this->getV150());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -297,7 +311,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_10 property value. When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_10 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.10 or later is required to install the app. If 'False', OS X Version 10.10 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_10 property.
     */
     public function setV1010(?bool $value): void {
@@ -305,7 +319,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_11 property value. When TRUE, indicates OS X 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_11 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.11 or later is required to install the app. If 'False', OS X Version 10.11 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_11 property.
     */
     public function setV1011(?bool $value): void {
@@ -313,7 +327,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_12 property value. When TRUE, indicates macOS 10.12 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_12 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.12 or later is required to install the app. If 'False', OS X Version 10.12 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_12 property.
     */
     public function setV1012(?bool $value): void {
@@ -321,7 +335,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_13 property value. When TRUE, indicates macOS 10.13 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_13 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.13 or later is required to install the app. If 'False', OS X Version 10.13 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_13 property.
     */
     public function setV1013(?bool $value): void {
@@ -329,7 +343,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_14 property value. When TRUE, indicates macOS 10.14 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_14 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.14 or later is required to install the app. If 'False', OS X Version 10.14 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_14 property.
     */
     public function setV1014(?bool $value): void {
@@ -337,7 +351,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_15 property value. When TRUE, indicates macOS 10.15 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_15 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.15 or later is required to install the app. If 'False', OS X Version 10.15 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_15 property.
     */
     public function setV1015(?bool $value): void {
@@ -345,7 +359,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_7 property value. When TRUE, indicates Mac OS X 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_7 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.7 or later is required to install the app. If 'False', OS X Version 10.7 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_7 property.
     */
     public function setV107(?bool $value): void {
@@ -353,7 +367,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_8 property value. When TRUE, indicates OS X 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_8 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.8 or later is required to install the app. If 'False', OS X Version 10.8 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_8 property.
     */
     public function setV108(?bool $value): void {
@@ -361,7 +375,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v10_9 property value. When TRUE, indicates OS X 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_9 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 10.9 or later is required to install the app. If 'False', OS X Version 10.9 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_9 property.
     */
     public function setV109(?bool $value): void {
@@ -369,7 +383,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v11_0 property value. When TRUE, indicates macOS 11.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v11_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 11.0 or later is required to install the app. If 'False', OS X Version 11.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v11_0 property.
     */
     public function setV110(?bool $value): void {
@@ -377,7 +391,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v12_0 property value. When TRUE, indicates macOS 12.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v12_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 12.0 or later is required to install the app. If 'False', OS X Version 12.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v12_0 property.
     */
     public function setV120(?bool $value): void {
@@ -385,7 +399,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v13_0 property value. When TRUE, indicates macOS 13.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v13_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 13.0 or later is required to install the app. If 'False', OS X Version 13.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v13_0 property.
     */
     public function setV130(?bool $value): void {
@@ -393,11 +407,19 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the v14_0 property value. When TRUE, indicates macOS 14.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v14_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 14.0 or later is required to install the app. If 'False', OS X Version 14.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v14_0 property.
     */
     public function setV140(?bool $value): void {
         $this->getBackingStore()->set('v14_0', $value);
+    }
+
+    /**
+     * Sets the v15_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 15.0 or later is required to install the app. If 'False', OS X Version 15.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v15_0 property.
+    */
+    public function setV150(?bool $value): void {
+        $this->getBackingStore()->set('v15_0', $value);
     }
 
 }

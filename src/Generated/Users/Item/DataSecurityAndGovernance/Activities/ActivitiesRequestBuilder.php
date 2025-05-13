@@ -53,7 +53,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activities from users
+     * Container for activity logs (content processing and audit) related to this user. ContainsTarget: true.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActivitiesContainer|null>
      * @throws Exception
@@ -99,7 +99,7 @@ class ActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activities from users
+     * Container for activity logs (content processing and audit) related to this user. ContainsTarget: true.
      * @param ActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

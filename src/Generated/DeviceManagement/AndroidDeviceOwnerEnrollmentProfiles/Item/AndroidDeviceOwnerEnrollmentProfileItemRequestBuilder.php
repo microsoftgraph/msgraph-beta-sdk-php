@@ -4,8 +4,11 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnro
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\ClearEnrollmentTimeDeviceMembershipTarget\ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\CreateToken\CreateTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\RetrieveEnrollmentTimeDeviceMembershipTarget\RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\RevokeToken\RevokeTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\SetEnrollmentTimeDeviceMembershipTarget\SetEnrollmentTimeDeviceMembershipTargetRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AndroidDeviceOwnerEnrollmentProfile;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -19,6 +22,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to call the clearEnrollmentTimeDeviceMembershipTarget method.
+    */
+    public function clearEnrollmentTimeDeviceMembershipTarget(): ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder {
+        return new ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the createToken method.
     */
     public function createToken(): CreateTokenRequestBuilder {
@@ -26,10 +36,24 @@ class AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder extends BaseRequestB
     }
     
     /**
+     * Provides operations to call the retrieveEnrollmentTimeDeviceMembershipTarget method.
+    */
+    public function retrieveEnrollmentTimeDeviceMembershipTarget(): RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder {
+        return new RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the revokeToken method.
     */
     public function revokeToken(): RevokeTokenRequestBuilder {
         return new RevokeTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setEnrollmentTimeDeviceMembershipTarget method.
+    */
+    public function setEnrollmentTimeDeviceMembershipTarget(): SetEnrollmentTimeDeviceMembershipTargetRequestBuilder {
+        return new SetEnrollmentTimeDeviceMembershipTargetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

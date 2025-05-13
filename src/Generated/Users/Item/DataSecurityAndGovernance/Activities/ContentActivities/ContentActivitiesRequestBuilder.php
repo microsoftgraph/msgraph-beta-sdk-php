@@ -52,7 +52,7 @@ class ContentActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get contentActivities from users
+     * Collection of activity logs related to content processing.
      * @param ContentActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentActivityCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class ContentActivitiesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get contentActivities from users
+     * Collection of activity logs related to content processing.
      * @param ContentActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

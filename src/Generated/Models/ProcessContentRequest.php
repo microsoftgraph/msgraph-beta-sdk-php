@@ -69,7 +69,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the contentEntries property value. The contentEntries property
+     * Gets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Required.
      * @return array<ProcessContentMetadataBase>|null
     */
     public function getContentEntries(): ?array {
@@ -171,7 +171,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the contentEntries property value. The contentEntries property
+     * Sets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Required.
      * @param array<ProcessContentMetadataBase>|null $value Value to set for the contentEntries property.
     */
     public function setContentEntries(?array $value): void {

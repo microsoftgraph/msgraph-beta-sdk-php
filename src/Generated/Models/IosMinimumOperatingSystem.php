@@ -74,6 +74,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
             'v15_0' => fn(ParseNode $n) => $o->setV150($n->getBooleanValue()),
             'v16_0' => fn(ParseNode $n) => $o->setV160($n->getBooleanValue()),
             'v17_0' => fn(ParseNode $n) => $o->setV170($n->getBooleanValue()),
+            'v18_0' => fn(ParseNode $n) => $o->setV180($n->getBooleanValue()),
             'v8_0' => fn(ParseNode $n) => $o->setV80($n->getBooleanValue()),
             'v9_0' => fn(ParseNode $n) => $o->setV90($n->getBooleanValue()),
         ];
@@ -92,7 +93,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v10_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 10.0 or later is required to install the app. If 'False', iOS Version 10.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV100(): ?bool {
@@ -104,7 +105,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v11_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 11.0 or later is required to install the app. If 'False', iOS Version 11.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV110(): ?bool {
@@ -116,7 +117,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v12_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 12.0 or later is required to install the app. If 'False', iOS Version 12.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV120(): ?bool {
@@ -128,7 +129,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v13_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 13.0 or later is required to install the app. If 'False', iOS Version 13.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV130(): ?bool {
@@ -140,7 +141,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v14_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 14.0 or later is required to install the app. If 'False', iOS Version 14.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV140(): ?bool {
@@ -152,7 +153,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v15_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 15.0 or later is required to install the app. If 'False', iOS Version 15.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV150(): ?bool {
@@ -164,7 +165,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v16_0 property value. When TRUE, only Version 16.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v16_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 16.0 or later is required to install the app. If 'False', iOS Version 16.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV160(): ?bool {
@@ -176,7 +177,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v17_0 property value. When TRUE, only Version 17.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v17_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 17.0 or later is required to install the app. If 'False', iOS Version 17.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV170(): ?bool {
@@ -188,7 +189,19 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v18_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 18.0 or later is required to install the app. If 'False', iOS Version 18.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV180(): ?bool {
+        $val = $this->getBackingStore()->get('v18_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v18_0'");
+    }
+
+    /**
+     * Gets the v8_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 8.0 or later is required to install the app. If 'False', iOS Version 8.0  is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV80(): ?bool {
@@ -200,7 +213,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Gets the v9_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 9.0 or later is required to install the app. If 'False', iOS Version 9.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV90(): ?bool {
@@ -225,6 +238,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
         $writer->writeBooleanValue('v15_0', $this->getV150());
         $writer->writeBooleanValue('v16_0', $this->getV160());
         $writer->writeBooleanValue('v17_0', $this->getV170());
+        $writer->writeBooleanValue('v18_0', $this->getV180());
         $writer->writeBooleanValue('v8_0', $this->getV80());
         $writer->writeBooleanValue('v9_0', $this->getV90());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -255,7 +269,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v10_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 10.0 or later is required to install the app. If 'False', iOS Version 10.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v10_0 property.
     */
     public function setV100(?bool $value): void {
@@ -263,7 +277,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v11_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 11.0 or later is required to install the app. If 'False', iOS Version 11.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v11_0 property.
     */
     public function setV110(?bool $value): void {
@@ -271,7 +285,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v12_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 12.0 or later is required to install the app. If 'False', iOS Version 12.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v12_0 property.
     */
     public function setV120(?bool $value): void {
@@ -279,7 +293,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v13_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 13.0 or later is required to install the app. If 'False', iOS Version 13.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v13_0 property.
     */
     public function setV130(?bool $value): void {
@@ -287,7 +301,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v14_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 14.0 or later is required to install the app. If 'False', iOS Version 14.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v14_0 property.
     */
     public function setV140(?bool $value): void {
@@ -295,7 +309,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v15_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 15.0 or later is required to install the app. If 'False', iOS Version 15.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v15_0 property.
     */
     public function setV150(?bool $value): void {
@@ -303,7 +317,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v16_0 property value. When TRUE, only Version 16.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v16_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 16.0 or later is required to install the app. If 'False', iOS Version 16.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v16_0 property.
     */
     public function setV160(?bool $value): void {
@@ -311,7 +325,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v17_0 property value. When TRUE, only Version 17.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v17_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 17.0 or later is required to install the app. If 'False', iOS Version 17.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v17_0 property.
     */
     public function setV170(?bool $value): void {
@@ -319,7 +333,15 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v18_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 18.0 or later is required to install the app. If 'False', iOS Version 18.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v18_0 property.
+    */
+    public function setV180(?bool $value): void {
+        $this->getBackingStore()->set('v18_0', $value);
+    }
+
+    /**
+     * Sets the v8_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 8.0 or later is required to install the app. If 'False', iOS Version 8.0  is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v8_0 property.
     */
     public function setV80(?bool $value): void {
@@ -327,7 +349,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * Sets the v9_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 9.0 or later is required to install the app. If 'False', iOS Version 9.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param bool|null $value Value to set for the v9_0 property.
     */
     public function setV90(?bool $value): void {

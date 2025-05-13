@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\DataSecurityAndGovernance\Ac
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get contentActivities from users
+ * Collection of activity logs related to content processing.
 */
 class ContentActivitiesRequestBuilderGetQueryParameters 
 {

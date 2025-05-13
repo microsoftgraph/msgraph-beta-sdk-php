@@ -31,7 +31,7 @@ class RoleScopeTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of Role Scope Tags defined on the Role Assignment.
+     * Indicates the set of scope tags for the role assignment. These scope tags will limit the visibility of any Intune resources to those that match any of the scope tags in this collection.
      * @param RoleScopeTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RoleScopeTag|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class RoleScopeTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of Role Scope Tags defined on the Role Assignment.
+     * Indicates the set of scope tags for the role assignment. These scope tags will limit the visibility of any Intune resources to those that match any of the scope tags in this collection.
      * @param RoleScopeTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

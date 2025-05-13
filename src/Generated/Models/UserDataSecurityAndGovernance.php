@@ -26,7 +26,7 @@ class UserDataSecurityAndGovernance extends DataSecurityAndGovernance implements
     }
 
     /**
-     * Gets the activities property value. The activities property
+     * Gets the activities property value. Container for activity logs (content processing and audit) related to this user. ContainsTarget: true.
      * @return ActivitiesContainer|null
     */
     public function getActivities(): ?ActivitiesContainer {
@@ -72,7 +72,7 @@ class UserDataSecurityAndGovernance extends DataSecurityAndGovernance implements
     }
 
     /**
-     * Sets the activities property value. The activities property
+     * Sets the activities property value. Container for activity logs (content processing and audit) related to this user. ContainsTarget: true.
      * @param ActivitiesContainer|null $value Value to set for the activities property.
     */
     public function setActivities(?ActivitiesContainer $value): void {

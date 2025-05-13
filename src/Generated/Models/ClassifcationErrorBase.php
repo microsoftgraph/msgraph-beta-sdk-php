@@ -64,7 +64,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the code property value. The code property
+     * Gets the code property value. A service-defined error code string.
      * @return string|null
     */
     public function getCode(): ?string {
@@ -91,7 +91,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the innerError property value. The innerError property
+     * Gets the innerError property value. Contains more specific, potentially internal error details.
      * @return ClassificationInnerError|null
     */
     public function getInnerError(): ?ClassificationInnerError {
@@ -103,7 +103,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the message property value. The message property
+     * Gets the message property value. A human-readable representation of the error.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -127,7 +127,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the target property value. The target property
+     * Gets the target property value. The target of the error (for example, the specific property or item causing the issue).
      * @return string|null
     */
     public function getTarget(): ?string {
@@ -168,7 +168,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the code property value. The code property
+     * Sets the code property value. A service-defined error code string.
      * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
@@ -176,7 +176,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the innerError property value. The innerError property
+     * Sets the innerError property value. Contains more specific, potentially internal error details.
      * @param ClassificationInnerError|null $value Value to set for the innerError property.
     */
     public function setInnerError(?ClassificationInnerError $value): void {
@@ -184,7 +184,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the message property value. The message property
+     * Sets the message property value. A human-readable representation of the error.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
@@ -200,7 +200,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the target property value. The target property
+     * Sets the target property value. The target of the error (for example, the specific property or item causing the issue).
      * @param string|null $value Value to set for the target property.
     */
     public function setTarget(?string $value): void {

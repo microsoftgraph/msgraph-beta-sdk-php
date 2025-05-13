@@ -29,7 +29,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Gets the advancedThreatProtectionRequiredSecurityLevel property value. Indicates the Microsoft Defender for Endpoint (also referred to Microsoft Defender Advanced Threat Protection (MDATP)) minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. Possible values are: unavailable, secured, low, medium, high, notSet.
      * @return DeviceThreatProtectionLevel|null
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
@@ -41,7 +41,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
+     * Gets the deviceThreatProtectionEnabled property value. Indicates whether the policy requires devices have device threat protection enabled.  When TRUE, threat protection is enabled.  When FALSE, threat protection is not enabled.  Default is FALSE.
      * @return bool|null
     */
     public function getDeviceThreatProtectionEnabled(): ?bool {
@@ -53,7 +53,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Indicates the minimum mobile threat protection risk level to that results in Intune reporting device noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. Possible values are: unavailable, secured, low, medium, high, notSet.
      * @return DeviceThreatProtectionLevel|null
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
@@ -90,6 +90,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
             'passwordRequired' => fn(ParseNode $n) => $o->setPasswordRequired($n->getBooleanValue()),
             'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
             'requireNoPendingSystemUpdates' => fn(ParseNode $n) => $o->setRequireNoPendingSystemUpdates($n->getBooleanValue()),
+            'securityBlockJailbrokenDevices' => fn(ParseNode $n) => $o->setSecurityBlockJailbrokenDevices($n->getBooleanValue()),
             'securityRequiredAndroidSafetyNetEvaluationType' => fn(ParseNode $n) => $o->setSecurityRequiredAndroidSafetyNetEvaluationType($n->getEnumValue(AndroidSafetyNetEvaluationType::class)),
             'securityRequireIntuneAppIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireIntuneAppIntegrity($n->getBooleanValue()),
             'securityRequireSafetyNetAttestationBasicIntegrity' => fn(ParseNode $n) => $o->setSecurityRequireSafetyNetAttestationBasicIntegrity($n->getBooleanValue()),
@@ -99,7 +100,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the minAndroidSecurityPatchLevel property value. Minimum Android security patch level.
+     * Gets the minAndroidSecurityPatchLevel property value. Indicates the minimum Android security patch level required to mark the device as compliant.  For example: 'February 1, 2025'
      * @return string|null
     */
     public function getMinAndroidSecurityPatchLevel(): ?string {
@@ -111,7 +112,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the osMaximumVersion property value. Maximum Android version.
+     * Gets the osMaximumVersion property value. Indicates the maximum Android version required to mark the device as compliant.  For example: '15'
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
@@ -123,7 +124,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the osMinimumVersion property value. Minimum Android version.
+     * Gets the osMinimumVersion property value. Indicates the minimum Android version required to mark the device as compliant. For example: '14'
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
@@ -135,7 +136,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 365
+     * Gets the passwordExpirationDays property value. Indicates the number of days before the password expires. Valid values 1 to 365.
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
@@ -147,7 +148,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinimumLength property value. Minimum password length. Valid values 4 to 16
+     * Gets the passwordMinimumLength property value. Indicates the minimum password length required to mark the device as compliant. Valid values are 4 to 16, inclusive. Valid values 4 to 16
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
@@ -159,7 +160,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinimumLetterCharacters property value. Indicates the minimum number of letter characters required for device password. Valid values 1 to 16
+     * Gets the passwordMinimumLetterCharacters property value. Indicates the minimum number of letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @return int|null
     */
     public function getPasswordMinimumLetterCharacters(): ?int {
@@ -171,7 +172,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinimumLowerCaseCharacters property value. Indicates the minimum number of lower case characters required for device password. Valid values 1 to 16
+     * Gets the passwordMinimumLowerCaseCharacters property value. Indicates the minimum number of lower case characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @return int|null
     */
     public function getPasswordMinimumLowerCaseCharacters(): ?int {
@@ -183,7 +184,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinimumNonLetterCharacters property value. Indicates the minimum number of non-letter characters required for device password. Valid values 1 to 16
+     * Gets the passwordMinimumNonLetterCharacters property value. Indicates the minimum number of non-letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @return int|null
     */
     public function getPasswordMinimumNonLetterCharacters(): ?int {
@@ -195,7 +196,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinimumNumericCharacters property value. Indicates the minimum number of numeric characters required for device password. Valid values 1 to 16
+     * Gets the passwordMinimumNumericCharacters property value. Indicates the minimum number of numeric characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @return int|null
     */
     public function getPasswordMinimumNumericCharacters(): ?int {
@@ -207,7 +208,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinimumSymbolCharacters property value. Indicates the minimum number of symbol characters required for device password. Valid values 1 to 16
+     * Gets the passwordMinimumSymbolCharacters property value. Indicates the minimum number of symbol characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @return int|null
     */
     public function getPasswordMinimumSymbolCharacters(): ?int {
@@ -219,7 +220,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinimumUpperCaseCharacters property value. Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16
+     * Gets the passwordMinimumUpperCaseCharacters property value. Indicates the minimum number of upper case letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @return int|null
     */
     public function getPasswordMinimumUpperCaseCharacters(): ?int {
@@ -231,7 +232,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required.
+     * Gets the passwordMinutesOfInactivityBeforeLock property value. Indicates the number of minutes of inactivity before a password is required.
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeLock(): ?int {
@@ -243,7 +244,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordPreviousPasswordCountToBlock property value. Number of previous passwords to block. Valid values 1 to 24
+     * Gets the passwordPreviousPasswordCountToBlock property value. Indicates the number of previous passwords to block. Valid values 1 to 24.
      * @return int|null
     */
     public function getPasswordPreviousPasswordCountToBlock(): ?int {
@@ -255,7 +256,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordRequired property value. Require a password to unlock device.
+     * Gets the passwordRequired property value. Indicates whether a password is required to unlock the device. When TRUE, there must be a password set that unlocks the device for the device to be marked as compliant.  When FALSE, a device is marked as compliant whether or not a password is set as required to unlock the device.  Default is FALSE.
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
@@ -267,7 +268,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
+     * Gets the passwordRequiredType property value. Indicates the password complexity requirement for the device to be marked compliant. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
@@ -279,7 +280,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the requireNoPendingSystemUpdates property value. Require device to have no pending Android system updates.
+     * Gets the requireNoPendingSystemUpdates property value. Indicates whether the device has pending security or OS updates and sets the compliance state accordingly.  When TRUE, checks if there are any pending system updates on each check in and if there are any pending security or OS version updates (System Updates), the device will be reported as non-compliant. If set to FALSE, then checks for any pending security or OS version updates (System Updates) are done without impact to device compliance state. Default is FALSE.
      * @return bool|null
     */
     public function getRequireNoPendingSystemUpdates(): ?bool {
@@ -291,7 +292,19 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequiredAndroidSafetyNetEvaluationType property value. Require a specific Play Integrity evaluation type for compliance. Possible values are: basic, hardwareBacked.
+     * Gets the securityBlockJailbrokenDevices property value. Indicates the device should not be rooted. When TRUE, if the device is detected as rooted it will be reported non-compliant. When FALSE, the device is not reported as non-compliant regardless of device rooted state. Default is FALSE.
+     * @return bool|null
+    */
+    public function getSecurityBlockJailbrokenDevices(): ?bool {
+        $val = $this->getBackingStore()->get('securityBlockJailbrokenDevices');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'securityBlockJailbrokenDevices'");
+    }
+
+    /**
+     * Gets the securityRequiredAndroidSafetyNetEvaluationType property value. Indicates the types of measurements and reference data used to evaluate the device SafetyNet evaluation. Evaluation is completed on the device to assess device integrity based on checks defined by Android and built into the device hardware, for example, compromised OS version or root detection. Possible values are: basic, hardwareBacked, with default value of basic. Possible values are: basic, hardwareBacked.
      * @return AndroidSafetyNetEvaluationType|null
     */
     public function getSecurityRequiredAndroidSafetyNetEvaluationType(): ?AndroidSafetyNetEvaluationType {
@@ -303,7 +316,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequireIntuneAppIntegrity property value. If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
+     * Gets the securityRequireIntuneAppIntegrity property value. Indicates whether Intune application integrity is required to mark the device as compliant.  When TRUE, Intune checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Play store. If the check fails, the device will be reported as non-compliant. Default is FALSE.
      * @return bool|null
     */
     public function getSecurityRequireIntuneAppIntegrity(): ?bool {
@@ -315,7 +328,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the Play Integrity basic integrity check.
+     * Gets the securityRequireSafetyNetAttestationBasicIntegrity property value. Indicates whether the compliance check will validate the Google Play Integrity check. When TRUE, the Google Play integrity basic check must pass to consider the device compliant.  When FALSE, the Google Play integrity basic check can pass or fail and the device will be considered compliant.  Default is FALSE.
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationBasicIntegrity(): ?bool {
@@ -327,7 +340,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the Play Integrity device integrity check.
+     * Gets the securityRequireSafetyNetAttestationCertifiedDevice property value. Indicates whether the compliance check will validate the Google Play Integrity check. When TRUE, the Google Play integrity device check must pass to consider the device compliant.  When FALSE, the Google Play integrity device check can pass or fail and the device will be considered compliant.  Default is FALSE.
      * @return bool|null
     */
     public function getSecurityRequireSafetyNetAttestationCertifiedDevice(): ?bool {
@@ -339,7 +352,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Gets the storageRequireEncryption property value. Require encryption on Android devices.
+     * Gets the storageRequireEncryption property value. Indicates whether encryption on Android devices is required to mark the device as compliant.
      * @return bool|null
     */
     public function getStorageRequireEncryption(): ?bool {
@@ -375,6 +388,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
         $writer->writeBooleanValue('passwordRequired', $this->getPasswordRequired());
         $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());
         $writer->writeBooleanValue('requireNoPendingSystemUpdates', $this->getRequireNoPendingSystemUpdates());
+        $writer->writeBooleanValue('securityBlockJailbrokenDevices', $this->getSecurityBlockJailbrokenDevices());
         $writer->writeEnumValue('securityRequiredAndroidSafetyNetEvaluationType', $this->getSecurityRequiredAndroidSafetyNetEvaluationType());
         $writer->writeBooleanValue('securityRequireIntuneAppIntegrity', $this->getSecurityRequireIntuneAppIntegrity());
         $writer->writeBooleanValue('securityRequireSafetyNetAttestationBasicIntegrity', $this->getSecurityRequireSafetyNetAttestationBasicIntegrity());
@@ -383,7 +397,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Sets the advancedThreatProtectionRequiredSecurityLevel property value. Indicates the Microsoft Defender for Endpoint (also referred to Microsoft Defender Advanced Threat Protection (MDATP)) minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. Possible values are: unavailable, secured, low, medium, high, notSet.
      * @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
     public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
@@ -391,7 +405,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
+     * Sets the deviceThreatProtectionEnabled property value. Indicates whether the policy requires devices have device threat protection enabled.  When TRUE, threat protection is enabled.  When FALSE, threat protection is not enabled.  Default is FALSE.
      * @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
     */
     public function setDeviceThreatProtectionEnabled(?bool $value): void {
@@ -399,7 +413,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Indicates the minimum mobile threat protection risk level to that results in Intune reporting device noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. Possible values are: unavailable, secured, low, medium, high, notSet.
      * @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
     public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
@@ -407,7 +421,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the minAndroidSecurityPatchLevel property value. Minimum Android security patch level.
+     * Sets the minAndroidSecurityPatchLevel property value. Indicates the minimum Android security patch level required to mark the device as compliant.  For example: 'February 1, 2025'
      * @param string|null $value Value to set for the minAndroidSecurityPatchLevel property.
     */
     public function setMinAndroidSecurityPatchLevel(?string $value): void {
@@ -415,7 +429,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the osMaximumVersion property value. Maximum Android version.
+     * Sets the osMaximumVersion property value. Indicates the maximum Android version required to mark the device as compliant.  For example: '15'
      * @param string|null $value Value to set for the osMaximumVersion property.
     */
     public function setOsMaximumVersion(?string $value): void {
@@ -423,7 +437,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the osMinimumVersion property value. Minimum Android version.
+     * Sets the osMinimumVersion property value. Indicates the minimum Android version required to mark the device as compliant. For example: '14'
      * @param string|null $value Value to set for the osMinimumVersion property.
     */
     public function setOsMinimumVersion(?string $value): void {
@@ -431,7 +445,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 365
+     * Sets the passwordExpirationDays property value. Indicates the number of days before the password expires. Valid values 1 to 365.
      * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
@@ -439,7 +453,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinimumLength property value. Minimum password length. Valid values 4 to 16
+     * Sets the passwordMinimumLength property value. Indicates the minimum password length required to mark the device as compliant. Valid values are 4 to 16, inclusive. Valid values 4 to 16
      * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
@@ -447,7 +461,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinimumLetterCharacters property value. Indicates the minimum number of letter characters required for device password. Valid values 1 to 16
+     * Sets the passwordMinimumLetterCharacters property value. Indicates the minimum number of letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @param int|null $value Value to set for the passwordMinimumLetterCharacters property.
     */
     public function setPasswordMinimumLetterCharacters(?int $value): void {
@@ -455,7 +469,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinimumLowerCaseCharacters property value. Indicates the minimum number of lower case characters required for device password. Valid values 1 to 16
+     * Sets the passwordMinimumLowerCaseCharacters property value. Indicates the minimum number of lower case characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @param int|null $value Value to set for the passwordMinimumLowerCaseCharacters property.
     */
     public function setPasswordMinimumLowerCaseCharacters(?int $value): void {
@@ -463,7 +477,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinimumNonLetterCharacters property value. Indicates the minimum number of non-letter characters required for device password. Valid values 1 to 16
+     * Sets the passwordMinimumNonLetterCharacters property value. Indicates the minimum number of non-letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @param int|null $value Value to set for the passwordMinimumNonLetterCharacters property.
     */
     public function setPasswordMinimumNonLetterCharacters(?int $value): void {
@@ -471,7 +485,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinimumNumericCharacters property value. Indicates the minimum number of numeric characters required for device password. Valid values 1 to 16
+     * Sets the passwordMinimumNumericCharacters property value. Indicates the minimum number of numeric characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @param int|null $value Value to set for the passwordMinimumNumericCharacters property.
     */
     public function setPasswordMinimumNumericCharacters(?int $value): void {
@@ -479,7 +493,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinimumSymbolCharacters property value. Indicates the minimum number of symbol characters required for device password. Valid values 1 to 16
+     * Sets the passwordMinimumSymbolCharacters property value. Indicates the minimum number of symbol characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @param int|null $value Value to set for the passwordMinimumSymbolCharacters property.
     */
     public function setPasswordMinimumSymbolCharacters(?int $value): void {
@@ -487,7 +501,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinimumUpperCaseCharacters property value. Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16
+     * Sets the passwordMinimumUpperCaseCharacters property value. Indicates the minimum number of upper case letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.
      * @param int|null $value Value to set for the passwordMinimumUpperCaseCharacters property.
     */
     public function setPasswordMinimumUpperCaseCharacters(?int $value): void {
@@ -495,7 +509,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required.
+     * Sets the passwordMinutesOfInactivityBeforeLock property value. Indicates the number of minutes of inactivity before a password is required.
      * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
     */
     public function setPasswordMinutesOfInactivityBeforeLock(?int $value): void {
@@ -503,7 +517,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordPreviousPasswordCountToBlock property value. Number of previous passwords to block. Valid values 1 to 24
+     * Sets the passwordPreviousPasswordCountToBlock property value. Indicates the number of previous passwords to block. Valid values 1 to 24.
      * @param int|null $value Value to set for the passwordPreviousPasswordCountToBlock property.
     */
     public function setPasswordPreviousPasswordCountToBlock(?int $value): void {
@@ -511,7 +525,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordRequired property value. Require a password to unlock device.
+     * Sets the passwordRequired property value. Indicates whether a password is required to unlock the device. When TRUE, there must be a password set that unlocks the device for the device to be marked as compliant.  When FALSE, a device is marked as compliant whether or not a password is set as required to unlock the device.  Default is FALSE.
      * @param bool|null $value Value to set for the passwordRequired property.
     */
     public function setPasswordRequired(?bool $value): void {
@@ -519,7 +533,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
+     * Sets the passwordRequiredType property value. Indicates the password complexity requirement for the device to be marked compliant. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
@@ -527,7 +541,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the requireNoPendingSystemUpdates property value. Require device to have no pending Android system updates.
+     * Sets the requireNoPendingSystemUpdates property value. Indicates whether the device has pending security or OS updates and sets the compliance state accordingly.  When TRUE, checks if there are any pending system updates on each check in and if there are any pending security or OS version updates (System Updates), the device will be reported as non-compliant. If set to FALSE, then checks for any pending security or OS version updates (System Updates) are done without impact to device compliance state. Default is FALSE.
      * @param bool|null $value Value to set for the requireNoPendingSystemUpdates property.
     */
     public function setRequireNoPendingSystemUpdates(?bool $value): void {
@@ -535,7 +549,15 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequiredAndroidSafetyNetEvaluationType property value. Require a specific Play Integrity evaluation type for compliance. Possible values are: basic, hardwareBacked.
+     * Sets the securityBlockJailbrokenDevices property value. Indicates the device should not be rooted. When TRUE, if the device is detected as rooted it will be reported non-compliant. When FALSE, the device is not reported as non-compliant regardless of device rooted state. Default is FALSE.
+     * @param bool|null $value Value to set for the securityBlockJailbrokenDevices property.
+    */
+    public function setSecurityBlockJailbrokenDevices(?bool $value): void {
+        $this->getBackingStore()->set('securityBlockJailbrokenDevices', $value);
+    }
+
+    /**
+     * Sets the securityRequiredAndroidSafetyNetEvaluationType property value. Indicates the types of measurements and reference data used to evaluate the device SafetyNet evaluation. Evaluation is completed on the device to assess device integrity based on checks defined by Android and built into the device hardware, for example, compromised OS version or root detection. Possible values are: basic, hardwareBacked, with default value of basic. Possible values are: basic, hardwareBacked.
      * @param AndroidSafetyNetEvaluationType|null $value Value to set for the securityRequiredAndroidSafetyNetEvaluationType property.
     */
     public function setSecurityRequiredAndroidSafetyNetEvaluationType(?AndroidSafetyNetEvaluationType $value): void {
@@ -543,7 +565,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequireIntuneAppIntegrity property value. If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
+     * Sets the securityRequireIntuneAppIntegrity property value. Indicates whether Intune application integrity is required to mark the device as compliant.  When TRUE, Intune checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Play store. If the check fails, the device will be reported as non-compliant. Default is FALSE.
      * @param bool|null $value Value to set for the securityRequireIntuneAppIntegrity property.
     */
     public function setSecurityRequireIntuneAppIntegrity(?bool $value): void {
@@ -551,7 +573,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the Play Integrity basic integrity check.
+     * Sets the securityRequireSafetyNetAttestationBasicIntegrity property value. Indicates whether the compliance check will validate the Google Play Integrity check. When TRUE, the Google Play integrity basic check must pass to consider the device compliant.  When FALSE, the Google Play integrity basic check can pass or fail and the device will be considered compliant.  Default is FALSE.
      * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationBasicIntegrity property.
     */
     public function setSecurityRequireSafetyNetAttestationBasicIntegrity(?bool $value): void {
@@ -559,7 +581,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the Play Integrity device integrity check.
+     * Sets the securityRequireSafetyNetAttestationCertifiedDevice property value. Indicates whether the compliance check will validate the Google Play Integrity check. When TRUE, the Google Play integrity device check must pass to consider the device compliant.  When FALSE, the Google Play integrity device check can pass or fail and the device will be considered compliant.  Default is FALSE.
      * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationCertifiedDevice property.
     */
     public function setSecurityRequireSafetyNetAttestationCertifiedDevice(?bool $value): void {
@@ -567,7 +589,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
     }
 
     /**
-     * Sets the storageRequireEncryption property value. Require encryption on Android devices.
+     * Sets the storageRequireEncryption property value. Indicates whether encryption on Android devices is required to mark the device as compliant.
      * @param bool|null $value Value to set for the storageRequireEncryption property.
     */
     public function setStorageRequireEncryption(?bool $value): void {

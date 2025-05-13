@@ -27,7 +27,7 @@ class Logs extends Entity implements Parsable
     }
 
     /**
-     * Gets the connections property value. The connections property
+     * Gets the connections property value. An aggregated log entry that contains comprehensive information about network traffic events.
      * @return array<Connection>|null
     */
     public function getConnections(): ?array {
@@ -93,7 +93,7 @@ class Logs extends Entity implements Parsable
     }
 
     /**
-     * Sets the connections property value. The connections property
+     * Sets the connections property value. An aggregated log entry that contains comprehensive information about network traffic events.
      * @param array<Connection>|null $value Value to set for the connections property.
     */
     public function setConnections(?array $value): void {

@@ -2305,6 +2305,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.windowsQualityUpdatePolicyAssignment': return new WindowsQualityUpdatePolicyAssignment();
                 case '#microsoft.graph.windowsQualityUpdateProfile': return new WindowsQualityUpdateProfile();
                 case '#microsoft.graph.windowsQualityUpdateProfileAssignment': return new WindowsQualityUpdateProfileAssignment();
+                case '#microsoft.graph.windowsRestoreDeviceEnrollmentConfiguration': return new WindowsRestoreDeviceEnrollmentConfiguration();
                 case '#microsoft.graph.windowsSetting': return new WindowsSetting();
                 case '#microsoft.graph.windowsSettingInstance': return new WindowsSettingInstance();
                 case '#microsoft.graph.windowsStoreApp': return new WindowsStoreApp();

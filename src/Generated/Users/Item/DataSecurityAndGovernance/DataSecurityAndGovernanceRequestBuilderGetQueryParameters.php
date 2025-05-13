@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\DataSecurityAndGovernance;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get dataSecurityAndGovernance from users
+ * The data security and governance settings for the user. Read-only. Nullable.
 */
 class DataSecurityAndGovernanceRequestBuilderGetQueryParameters 
 {

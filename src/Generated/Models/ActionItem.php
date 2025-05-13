@@ -82,7 +82,7 @@ class ActionItem implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ownerDisplayName property value. The ownerDisplayName property
+     * Gets the ownerDisplayName property value. The display name of the owner of the action item.
      * @return string|null
     */
     public function getOwnerDisplayName(): ?string {
@@ -94,7 +94,7 @@ class ActionItem implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the text property value. The text property
+     * Gets the text property value. The text content of the action item.
      * @return string|null
     */
     public function getText(): ?string {
@@ -106,7 +106,7 @@ class ActionItem implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. The title of the action item.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -154,7 +154,7 @@ class ActionItem implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ownerDisplayName property value. The ownerDisplayName property
+     * Sets the ownerDisplayName property value. The display name of the owner of the action item.
      * @param string|null $value Value to set for the ownerDisplayName property.
     */
     public function setOwnerDisplayName(?string $value): void {
@@ -162,7 +162,7 @@ class ActionItem implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the text property value. The text property
+     * Sets the text property value. The text content of the action item.
      * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
@@ -170,7 +170,7 @@ class ActionItem implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. The title of the action item.
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {

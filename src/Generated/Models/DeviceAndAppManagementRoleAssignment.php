@@ -48,7 +48,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     }
 
     /**
-     * Gets the members property value. The list of ids of role member security groups. These are IDs from Azure Active Directory.
+     * Gets the members property value. Indicates the list of role member security group Entra IDs. For example: {dec942f4-6777-4998-96b4-522e383b08e2}.
      * @return array<string>|null
     */
     public function getMembers(): ?array {
@@ -62,7 +62,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     }
 
     /**
-     * Gets the roleScopeTags property value. The set of Role Scope Tags defined on the Role Assignment.
+     * Gets the roleScopeTags property value. Indicates the set of scope tags for the role assignment. These scope tags will limit the visibility of any Intune resources to those that match any of the scope tags in this collection.
      * @return array<RoleScopeTag>|null
     */
     public function getRoleScopeTags(): ?array {
@@ -86,7 +86,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     }
 
     /**
-     * Sets the members property value. The list of ids of role member security groups. These are IDs from Azure Active Directory.
+     * Sets the members property value. Indicates the list of role member security group Entra IDs. For example: {dec942f4-6777-4998-96b4-522e383b08e2}.
      * @param array<string>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
@@ -94,7 +94,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     }
 
     /**
-     * Sets the roleScopeTags property value. The set of Role Scope Tags defined on the Role Assignment.
+     * Sets the roleScopeTags property value. Indicates the set of scope tags for the role assignment. These scope tags will limit the visibility of any Intune resources to those that match any of the scope tags in this collection.
      * @param array<RoleScopeTag>|null $value Value to set for the roleScopeTags property.
     */
     public function setRoleScopeTags(?array $value): void {

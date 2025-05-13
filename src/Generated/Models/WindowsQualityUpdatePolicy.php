@@ -30,6 +30,20 @@ class WindowsQualityUpdatePolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the approvalSettings property value. The list of approval settings for this policy. The maximun number of approval settings supported for one policy is 6. The expected number of approval settings for one policy from UX is 4.
+     * @return array<WindowsQualityUpdateApprovalSetting>|null
+    */
+    public function getApprovalSettings(): ?array {
+        $val = $this->getBackingStore()->get('approvalSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WindowsQualityUpdateApprovalSetting::class);
+            /** @var array<WindowsQualityUpdateApprovalSetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvalSettings'");
+    }
+
+    /**
      * Gets the assignments property value. List of the groups this profile is assgined to.
      * @return array<WindowsQualityUpdatePolicyAssignment>|null
     */
@@ -86,6 +100,7 @@ class WindowsQualityUpdatePolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'approvalSettings' => fn(ParseNode $n) => $o->setApprovalSettings($n->getCollectionOfObjectValues([WindowsQualityUpdateApprovalSetting::class, 'createFromDiscriminatorValue'])),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([WindowsQualityUpdatePolicyAssignment::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -147,6 +162,7 @@ class WindowsQualityUpdatePolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('approvalSettings', $this->getApprovalSettings());
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
@@ -154,6 +170,14 @@ class WindowsQualityUpdatePolicy extends Entity implements Parsable
         $writer->writeBooleanValue('hotpatchEnabled', $this->getHotpatchEnabled());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+    }
+
+    /**
+     * Sets the approvalSettings property value. The list of approval settings for this policy. The maximun number of approval settings supported for one policy is 6. The expected number of approval settings for one policy from UX is 4.
+     * @param array<WindowsQualityUpdateApprovalSetting>|null $value Value to set for the approvalSettings property.
+    */
+    public function setApprovalSettings(?array $value): void {
+        $this->getBackingStore()->set('approvalSettings', $value);
     }
 
     /**

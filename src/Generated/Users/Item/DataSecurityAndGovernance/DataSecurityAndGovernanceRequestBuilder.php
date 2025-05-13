@@ -77,7 +77,7 @@ class DataSecurityAndGovernanceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dataSecurityAndGovernance from users
+     * The data security and governance settings for the user. Read-only. Nullable.
      * @param DataSecurityAndGovernanceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserDataSecurityAndGovernance|null>
      * @throws Exception
@@ -123,7 +123,7 @@ class DataSecurityAndGovernanceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dataSecurityAndGovernance from users
+     * The data security and governance settings for the user. Read-only. Nullable.
      * @param DataSecurityAndGovernanceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

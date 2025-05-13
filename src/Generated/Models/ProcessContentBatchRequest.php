@@ -94,7 +94,7 @@ class ProcessContentBatchRequest implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the requestId property value. The requestId property
+     * Gets the requestId property value. A unique identifier provided by the client to correlate this specific request item within the batch.
      * @return string|null
     */
     public function getRequestId(): ?string {
@@ -106,7 +106,7 @@ class ProcessContentBatchRequest implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The unique identifier (Object ID or UPN) of the user in whose context the content should be processed.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -162,7 +162,7 @@ class ProcessContentBatchRequest implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the requestId property value. The requestId property
+     * Sets the requestId property value. A unique identifier provided by the client to correlate this specific request item within the batch.
      * @param string|null $value Value to set for the requestId property.
     */
     public function setRequestId(?string $value): void {
@@ -170,7 +170,7 @@ class ProcessContentBatchRequest implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The unique identifier (Object ID or UPN) of the user in whose context the content should be processed.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

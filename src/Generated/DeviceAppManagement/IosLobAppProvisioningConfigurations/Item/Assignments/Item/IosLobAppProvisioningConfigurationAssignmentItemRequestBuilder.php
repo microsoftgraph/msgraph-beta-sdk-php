@@ -45,7 +45,7 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
     }
 
     /**
-     * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
+     * The associated group assignments for IosLobAppProvisioningConfiguration.
      * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfigurationAssignment|null>
      * @throws Exception
@@ -91,7 +91,7 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
     }
 
     /**
-     * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
+     * The associated group assignments for IosLobAppProvisioningConfiguration.
      * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

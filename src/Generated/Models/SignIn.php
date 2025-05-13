@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\Agentic\AgentSignIn;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -24,6 +25,18 @@ class SignIn extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SignIn {
         return new SignIn();
+    }
+
+    /**
+     * Gets the agent property value. The agent property
+     * @return AgentSignIn|null
+    */
+    public function getAgent(): ?AgentSignIn {
+        $val = $this->getBackingStore()->get('agent');
+        if (is_null($val) || $val instanceof AgentSignIn) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agent'");
     }
 
     /**
@@ -363,6 +376,7 @@ class SignIn extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'agent' => fn(ParseNode $n) => $o->setAgent($n->getObjectValue([AgentSignIn::class, 'createFromDiscriminatorValue'])),
             'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'appliedConditionalAccessPolicies' => fn(ParseNode $n) => $o->setAppliedConditionalAccessPolicies($n->getCollectionOfObjectValues([AppliedConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
@@ -1058,6 +1072,7 @@ class SignIn extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('agent', $this->getAgent());
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeCollectionOfObjectValues('appliedConditionalAccessPolicies', $this->getAppliedConditionalAccessPolicies());
@@ -1132,6 +1147,14 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeEnumValue('userType', $this->getUserType());
+    }
+
+    /**
+     * Sets the agent property value. The agent property
+     * @param AgentSignIn|null $value Value to set for the agent property.
+    */
+    public function setAgent(?AgentSignIn $value): void {
+        $this->getBackingStore()->set('agent', $value);
     }
 
     /**

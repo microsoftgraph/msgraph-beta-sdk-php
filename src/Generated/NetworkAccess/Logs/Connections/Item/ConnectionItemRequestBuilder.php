@@ -45,10 +45,11 @@ class ConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connections from networkAccess
+     * Read the properties and relationships of a connection object.
      * @param ConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Connection|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-connection-get?view=graph-rest-beta Find more info here
     */
     public function get(?ConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -91,7 +92,7 @@ class ConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get connections from networkAccess
+     * Read the properties and relationships of a connection object.
      * @param ConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

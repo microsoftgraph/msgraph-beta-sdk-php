@@ -27,7 +27,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Gets the actionLastModifiedDateTime property value. The actionLastModifiedDateTime property
+     * Gets the actionLastModifiedDateTime property value. Timestamp when the notification action configuration was last modified.
      * @return DateTime|null
     */
     public function getActionLastModifiedDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Gets the emailText property value. The emailText property
+     * Gets the emailText property value. The body text of the email notification sent to users.
      * @return string|null
     */
     public function getEmailText(): ?string {
@@ -72,7 +72,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Gets the policyTip property value. The policyTip property
+     * Gets the policyTip property value. The text of the policy tip displayed to the user within the application (For example, Outlook, Word).
      * @return string|null
     */
     public function getPolicyTip(): ?string {
@@ -84,7 +84,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Gets the recipients property value. The recipients property
+     * Gets the recipients property value. List of email addresses or user identifiers designated to receive the notification email. Can include sender, owner, manager, etc.
      * @return array<string>|null
     */
     public function getRecipients(): ?array {
@@ -110,7 +110,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Sets the actionLastModifiedDateTime property value. The actionLastModifiedDateTime property
+     * Sets the actionLastModifiedDateTime property value. Timestamp when the notification action configuration was last modified.
      * @param DateTime|null $value Value to set for the actionLastModifiedDateTime property.
     */
     public function setActionLastModifiedDateTime(?DateTime $value): void {
@@ -118,7 +118,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Sets the emailText property value. The emailText property
+     * Sets the emailText property value. The body text of the email notification sent to users.
      * @param string|null $value Value to set for the emailText property.
     */
     public function setEmailText(?string $value): void {
@@ -126,7 +126,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Sets the policyTip property value. The policyTip property
+     * Sets the policyTip property value. The text of the policy tip displayed to the user within the application (For example, Outlook, Word).
      * @param string|null $value Value to set for the policyTip property.
     */
     public function setPolicyTip(?string $value): void {
@@ -134,7 +134,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Sets the recipients property value. The recipients property
+     * Sets the recipients property value. List of email addresses or user identifiers designated to receive the notification email. Can include sender, owner, manager, etc.
      * @param array<string>|null $value Value to set for the recipients property.
     */
     public function setRecipients(?array $value): void {

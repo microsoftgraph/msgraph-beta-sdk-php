@@ -76,7 +76,7 @@ class IntegratedApplicationMetadata implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the integrated application.
      * @return string|null
     */
     public function getName(): ?string {
@@ -100,7 +100,7 @@ class IntegratedApplicationMetadata implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The version number of the integrated application.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -139,7 +139,7 @@ class IntegratedApplicationMetadata implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the integrated application.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -155,7 +155,7 @@ class IntegratedApplicationMetadata implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The version number of the integrated application.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

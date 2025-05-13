@@ -36,10 +36,11 @@ class MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndD
     }
 
     /**
-     * Invoke function getConnectionSummaries
+     * An API part of Global Secure Access (GSA) product, reports of connections count per traffic type: Private/Internet/Microsoft.
      * @param MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetConnectionSummariesWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-reports-getconnectionsummaries?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -50,7 +51,7 @@ class MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndD
     }
 
     /**
-     * Invoke function getConnectionSummaries
+     * An API part of Global Secure Access (GSA) product, reports of connections count per traffic type: Private/Internet/Microsoft.
      * @param MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
