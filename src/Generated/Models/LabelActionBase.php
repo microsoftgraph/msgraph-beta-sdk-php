@@ -84,7 +84,7 @@ class LabelActionBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the action (for example, 'Encrypt', 'AddHeader').
      * @return string|null
     */
     public function getName(): ?string {
@@ -134,7 +134,7 @@ class LabelActionBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the action (for example, 'Encrypt', 'AddHeader').
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

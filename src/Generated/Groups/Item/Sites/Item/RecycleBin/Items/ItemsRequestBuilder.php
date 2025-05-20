@@ -5,7 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items\Delete\DeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items\Item\RecycleBinItemItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RecycleBinItem;
 use Microsoft\Graph\Beta\Generated\Models\RecycleBinItemCollectionResponse;
@@ -24,6 +26,20 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delete method.
+    */
+    public function deletePath(): DeleteRequestBuilder {
+        return new DeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the restore method.
+    */
+    public function restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

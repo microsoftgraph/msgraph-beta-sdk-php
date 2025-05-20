@@ -48,7 +48,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the areFillerWordsEnabled property value. The areFillerWordsEnabled property
+     * Gets the areFillerWordsEnabled property value. Indicates whether the student should receive feedback on their filler words from the Speaker Coach.
      * @return bool|null
     */
     public function getAreFillerWordsEnabled(): ?bool {
@@ -83,7 +83,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the isPaceEnabled property value. The isPaceEnabled property
+     * Gets the isPaceEnabled property value. Indicates whether the student should receive feedback on their pace from the Speaker Coach.
      * @return bool|null
     */
     public function getIsPaceEnabled(): ?bool {
@@ -95,7 +95,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the isPitchEnabled property value. The isPitchEnabled property
+     * Gets the isPitchEnabled property value. Indicates whether the student should receive feedback on their pitch from the Speaker Coach.
      * @return bool|null
     */
     public function getIsPitchEnabled(): ?bool {
@@ -107,7 +107,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the isPronunciationEnabled property value. The isPronunciationEnabled property
+     * Gets the isPronunciationEnabled property value. Indicates whether the student should receive feedback on their pronunciation from the Speaker Coach. This is automatically enabled if isAiFeedbackEnabled is set to true on the educationSpeakerProgressResource, or if spokenLanguageLocale is set to a value besides en-US on the educationSpeakerProgressResource.
      * @return bool|null
     */
     public function getIsPronunciationEnabled(): ?bool {
@@ -152,7 +152,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the areFillerWordsEnabled property value. The areFillerWordsEnabled property
+     * Sets the areFillerWordsEnabled property value. Indicates whether the student should receive feedback on their filler words from the Speaker Coach.
      * @param bool|null $value Value to set for the areFillerWordsEnabled property.
     */
     public function setAreFillerWordsEnabled(?bool $value): void {
@@ -168,7 +168,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the isPaceEnabled property value. The isPaceEnabled property
+     * Sets the isPaceEnabled property value. Indicates whether the student should receive feedback on their pace from the Speaker Coach.
      * @param bool|null $value Value to set for the isPaceEnabled property.
     */
     public function setIsPaceEnabled(?bool $value): void {
@@ -176,7 +176,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the isPitchEnabled property value. The isPitchEnabled property
+     * Sets the isPitchEnabled property value. Indicates whether the student should receive feedback on their pitch from the Speaker Coach.
      * @param bool|null $value Value to set for the isPitchEnabled property.
     */
     public function setIsPitchEnabled(?bool $value): void {
@@ -184,7 +184,7 @@ class EducationSpeakerCoachDeliverySettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the isPronunciationEnabled property value. The isPronunciationEnabled property
+     * Sets the isPronunciationEnabled property value. Indicates whether the student should receive feedback on their pronunciation from the Speaker Coach. This is automatically enabled if isAiFeedbackEnabled is set to true on the educationSpeakerProgressResource, or if spokenLanguageLocale is set to a value besides en-US on the educationSpeakerProgressResource.
      * @param bool|null $value Value to set for the isPronunciationEnabled property.
     */
     public function setIsPronunciationEnabled(?bool $value): void {

@@ -28,7 +28,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the agent property value. The agent property
+     * Gets the agent property value. Represents details about the agentic sign-in. Includes the type of agent as well as parentAppID in some cases
      * @return AgentSignIn|null
     */
     public function getAgent(): ?AgentSignIn {
@@ -1150,7 +1150,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the agent property value. The agent property
+     * Sets the agent property value. Represents details about the agentic sign-in. Includes the type of agent as well as parentAppID in some cases
      * @param AgentSignIn|null $value Value to set for the agent property.
     */
     public function setAgent(?AgentSignIn $value): void {

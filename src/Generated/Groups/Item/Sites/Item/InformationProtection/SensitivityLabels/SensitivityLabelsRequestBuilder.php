@@ -4,6 +4,8 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProte
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\ComputeRightsAndInheritance\ComputeRightsAndInheritanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Evaluate\EvaluateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
@@ -20,6 +22,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SensitivityLabelsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the computeRightsAndInheritance method.
+    */
+    public function computeRightsAndInheritance(): ComputeRightsAndInheritanceRequestBuilder {
+        return new ComputeRightsAndInheritanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to count the resources in the collection.
     */
@@ -43,6 +52,17 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sensitivityLabel%2Did'] = $sensitivityLabelId;
         return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the computeInheritance method.
+     * @param string $contentFormats Usage: contentFormats={contentFormats}
+     * @param string $labelIds Usage: labelIds={labelIds}
+     * @param string $locale Usage: locale='{locale}'
+     * @return ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder
+    */
+    public function computeInheritanceWithLabelIdsWithLocaleWithContentFormats(string $contentFormats, string $labelIds, string $locale): ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder {
+        return new ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder($this->pathParameters, $this->requestAdapter, $contentFormats, $labelIds, $locale);
     }
 
     /**

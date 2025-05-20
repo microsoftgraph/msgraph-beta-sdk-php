@@ -140,7 +140,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the parent property value. The parent label associated with a child label. Null if the label has no parent.
+     * Gets the parent property value. The parent property
      * @return SensitivityLabel|null
     */
     public function getParent(): ?SensitivityLabel {
@@ -250,7 +250,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the parent property value. The parent label associated with a child label. Null if the label has no parent.
+     * Sets the parent property value. The parent property
      * @param SensitivityLabel|null $value Value to set for the parent property.
     */
     public function setParent(?SensitivityLabel $value): void {

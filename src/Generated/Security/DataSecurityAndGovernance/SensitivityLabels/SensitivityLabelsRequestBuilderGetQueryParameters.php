@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\Sens
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get sensitivityLabels from security
+ * List the sensitivity labels available to a specific user.
 */
 class SensitivityLabelsRequestBuilderGetQueryParameters 
 {

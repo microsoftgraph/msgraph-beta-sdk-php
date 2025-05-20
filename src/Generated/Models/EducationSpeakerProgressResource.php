@@ -26,7 +26,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the aiFeedbackCriteria property value. The aiFeedbackCriteria property
+     * Gets the aiFeedbackCriteria property value. The feedback types that students should receive from AI feedback. This property should only be provided if isAiFeedbackEnabled is true.
      * @return EducationAiFeedbackCriteria|null
     */
     public function getAiFeedbackCriteria(): ?EducationAiFeedbackCriteria {
@@ -57,7 +57,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the isAiFeedbackEnabled property value. The isAiFeedbackEnabled property
+     * Gets the isAiFeedbackEnabled property value. Indicates whether AI feedback is enabled for the student submissions.
      * @return bool|null
     */
     public function getIsAiFeedbackEnabled(): ?bool {
@@ -69,7 +69,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the isVideoRequired property value. The isVideoRequired property
+     * Gets the isVideoRequired property value. Indicates whether video is required for the student recording.
      * @return bool|null
     */
     public function getIsVideoRequired(): ?bool {
@@ -81,7 +81,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the maxRecordingAttempts property value. The maxRecordingAttempts property
+     * Gets the maxRecordingAttempts property value. The maximum number of recording attempts available to the student. Specify 0 to set unlimited recording attempts.
      * @return int|null
     */
     public function getMaxRecordingAttempts(): ?int {
@@ -93,7 +93,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the presentationTitle property value. The presentationTitle property
+     * Gets the presentationTitle property value. The title of the speaker progress resource visible to students.
      * @return string|null
     */
     public function getPresentationTitle(): ?string {
@@ -105,7 +105,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the recordingTimeLimitInMinutes property value. The recordingTimeLimitInMinutes property
+     * Gets the recordingTimeLimitInMinutes property value. The time limit is in minutes for the student recording.
      * @return int|null
     */
     public function getRecordingTimeLimitInMinutes(): ?int {
@@ -117,7 +117,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the showRehearsalReportToStudentBeforeMediaUpload property value. The showRehearsalReportToStudentBeforeMediaUpload property
+     * Gets the showRehearsalReportToStudentBeforeMediaUpload property value. Allows students to view their rehearsal report before the assignment is graded.
      * @return bool|null
     */
     public function getShowRehearsalReportToStudentBeforeMediaUpload(): ?bool {
@@ -129,7 +129,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the speakerCoachSettings property value. The speakerCoachSettings property
+     * Gets the speakerCoachSettings property value. The feedback types that students should receive from the Speaker Coach.
      * @return EducationSpeakerCoachSettings|null
     */
     public function getSpeakerCoachSettings(): ?EducationSpeakerCoachSettings {
@@ -141,7 +141,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Gets the spokenLanguageLocale property value. The spokenLanguageLocale property
+     * Gets the spokenLanguageLocale property value. The spoken language for the student recording. For example, en-US.
      * @return string|null
     */
     public function getSpokenLanguageLocale(): ?string {
@@ -170,7 +170,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the aiFeedbackCriteria property value. The aiFeedbackCriteria property
+     * Sets the aiFeedbackCriteria property value. The feedback types that students should receive from AI feedback. This property should only be provided if isAiFeedbackEnabled is true.
      * @param EducationAiFeedbackCriteria|null $value Value to set for the aiFeedbackCriteria property.
     */
     public function setAiFeedbackCriteria(?EducationAiFeedbackCriteria $value): void {
@@ -178,7 +178,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the isAiFeedbackEnabled property value. The isAiFeedbackEnabled property
+     * Sets the isAiFeedbackEnabled property value. Indicates whether AI feedback is enabled for the student submissions.
      * @param bool|null $value Value to set for the isAiFeedbackEnabled property.
     */
     public function setIsAiFeedbackEnabled(?bool $value): void {
@@ -186,7 +186,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the isVideoRequired property value. The isVideoRequired property
+     * Sets the isVideoRequired property value. Indicates whether video is required for the student recording.
      * @param bool|null $value Value to set for the isVideoRequired property.
     */
     public function setIsVideoRequired(?bool $value): void {
@@ -194,7 +194,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the maxRecordingAttempts property value. The maxRecordingAttempts property
+     * Sets the maxRecordingAttempts property value. The maximum number of recording attempts available to the student. Specify 0 to set unlimited recording attempts.
      * @param int|null $value Value to set for the maxRecordingAttempts property.
     */
     public function setMaxRecordingAttempts(?int $value): void {
@@ -202,7 +202,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the presentationTitle property value. The presentationTitle property
+     * Sets the presentationTitle property value. The title of the speaker progress resource visible to students.
      * @param string|null $value Value to set for the presentationTitle property.
     */
     public function setPresentationTitle(?string $value): void {
@@ -210,7 +210,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the recordingTimeLimitInMinutes property value. The recordingTimeLimitInMinutes property
+     * Sets the recordingTimeLimitInMinutes property value. The time limit is in minutes for the student recording.
      * @param int|null $value Value to set for the recordingTimeLimitInMinutes property.
     */
     public function setRecordingTimeLimitInMinutes(?int $value): void {
@@ -218,7 +218,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the showRehearsalReportToStudentBeforeMediaUpload property value. The showRehearsalReportToStudentBeforeMediaUpload property
+     * Sets the showRehearsalReportToStudentBeforeMediaUpload property value. Allows students to view their rehearsal report before the assignment is graded.
      * @param bool|null $value Value to set for the showRehearsalReportToStudentBeforeMediaUpload property.
     */
     public function setShowRehearsalReportToStudentBeforeMediaUpload(?bool $value): void {
@@ -226,7 +226,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the speakerCoachSettings property value. The speakerCoachSettings property
+     * Sets the speakerCoachSettings property value. The feedback types that students should receive from the Speaker Coach.
      * @param EducationSpeakerCoachSettings|null $value Value to set for the speakerCoachSettings property.
     */
     public function setSpeakerCoachSettings(?EducationSpeakerCoachSettings $value): void {
@@ -234,7 +234,7 @@ class EducationSpeakerProgressResource extends EducationResource implements Pars
     }
 
     /**
-     * Sets the spokenLanguageLocale property value. The spokenLanguageLocale property
+     * Sets the spokenLanguageLocale property value. The spoken language for the student recording. For example, en-US.
      * @param string|null $value Value to set for the spokenLanguageLocale property.
     */
     public function setSpokenLanguageLocale(?string $value): void {

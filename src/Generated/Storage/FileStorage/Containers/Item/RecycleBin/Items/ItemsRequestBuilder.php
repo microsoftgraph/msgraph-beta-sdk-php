@@ -8,7 +8,9 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RecycleBinItem;
 use Microsoft\Graph\Beta\Generated\Models\RecycleBinItemCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Delete\DeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Item\RecycleBinItemItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Restore\RestoreRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -24,6 +26,20 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delete method.
+    */
+    public function deletePath(): DeleteRequestBuilder {
+        return new DeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the restore method.
+    */
+    public function restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

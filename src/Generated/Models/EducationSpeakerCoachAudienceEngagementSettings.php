@@ -68,7 +68,7 @@ class EducationSpeakerCoachAudienceEngagementSettings implements AdditionalDataH
     }
 
     /**
-     * Gets the isBodyLanguageEnabled property value. The isBodyLanguageEnabled property
+     * Gets the isBodyLanguageEnabled property value. Indicates whether the student should receive feedback on their body language from the Speaker Coach.
      * @return bool|null
     */
     public function getIsBodyLanguageEnabled(): ?bool {
@@ -118,7 +118,7 @@ class EducationSpeakerCoachAudienceEngagementSettings implements AdditionalDataH
     }
 
     /**
-     * Sets the isBodyLanguageEnabled property value. The isBodyLanguageEnabled property
+     * Sets the isBodyLanguageEnabled property value. Indicates whether the student should receive feedback on their body language from the Speaker Coach.
      * @param bool|null $value Value to set for the isBodyLanguageEnabled property.
     */
     public function setIsBodyLanguageEnabled(?bool $value): void {

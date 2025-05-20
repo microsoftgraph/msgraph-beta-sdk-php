@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
+use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\Item\Rights\RightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\Item\Sublabels\SublabelsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SensitivityLabelItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the rights property of the microsoft.graph.sensitivityLabel entity.
+    */
+    public function rights(): RightsRequestBuilder {
+        return new RightsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
     */
@@ -53,10 +61,11 @@ class SensitivityLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensitivityLabels from security
+     * Get a sensitivity label available for the entire tenant.
      * @param SensitivityLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensitivityLabel|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/sensitivitylabel-get?view=graph-rest-beta Find more info here
     */
     public function get(?SensitivityLabelItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -99,7 +108,7 @@ class SensitivityLabelItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensitivityLabels from security
+     * Get a sensitivity label available for the entire tenant.
      * @param SensitivityLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -48,7 +48,7 @@ class EducationAiFeedbackAudienceEngagementSettings implements AdditionalDataHol
     }
 
     /**
-     * Gets the areEngagementStrategiesEnabled property value. The areEngagementStrategiesEnabled property
+     * Gets the areEngagementStrategiesEnabled property value. Indicates whether the student should receive feedback on their engagement strategies from the AI feedback.
      * @return bool|null
     */
     public function getAreEngagementStrategiesEnabled(): ?bool {
@@ -82,7 +82,7 @@ class EducationAiFeedbackAudienceEngagementSettings implements AdditionalDataHol
     }
 
     /**
-     * Gets the isCallToActionEnabled property value. The isCallToActionEnabled property
+     * Gets the isCallToActionEnabled property value. Indicates whether the student should receive feedback on their call to action from the AI feedback.
      * @return bool|null
     */
     public function getIsCallToActionEnabled(): ?bool {
@@ -94,7 +94,7 @@ class EducationAiFeedbackAudienceEngagementSettings implements AdditionalDataHol
     }
 
     /**
-     * Gets the isEmotionalAndIntellectualAppealEnabled property value. The isEmotionalAndIntellectualAppealEnabled property
+     * Gets the isEmotionalAndIntellectualAppealEnabled property value. Indicates whether the student should receive feedback on their emotional and intellectual appeal from the AI feedback.
      * @return bool|null
     */
     public function getIsEmotionalAndIntellectualAppealEnabled(): ?bool {
@@ -138,7 +138,7 @@ class EducationAiFeedbackAudienceEngagementSettings implements AdditionalDataHol
     }
 
     /**
-     * Sets the areEngagementStrategiesEnabled property value. The areEngagementStrategiesEnabled property
+     * Sets the areEngagementStrategiesEnabled property value. Indicates whether the student should receive feedback on their engagement strategies from the AI feedback.
      * @param bool|null $value Value to set for the areEngagementStrategiesEnabled property.
     */
     public function setAreEngagementStrategiesEnabled(?bool $value): void {
@@ -154,7 +154,7 @@ class EducationAiFeedbackAudienceEngagementSettings implements AdditionalDataHol
     }
 
     /**
-     * Sets the isCallToActionEnabled property value. The isCallToActionEnabled property
+     * Sets the isCallToActionEnabled property value. Indicates whether the student should receive feedback on their call to action from the AI feedback.
      * @param bool|null $value Value to set for the isCallToActionEnabled property.
     */
     public function setIsCallToActionEnabled(?bool $value): void {
@@ -162,7 +162,7 @@ class EducationAiFeedbackAudienceEngagementSettings implements AdditionalDataHol
     }
 
     /**
-     * Sets the isEmotionalAndIntellectualAppealEnabled property value. The isEmotionalAndIntellectualAppealEnabled property
+     * Sets the isEmotionalAndIntellectualAppealEnabled property value. Indicates whether the student should receive feedback on their emotional and intellectual appeal from the AI feedback.
      * @param bool|null $value Value to set for the isEmotionalAndIntellectualAppealEnabled property.
     */
     public function setIsEmotionalAndIntellectualAppealEnabled(?bool $value): void {

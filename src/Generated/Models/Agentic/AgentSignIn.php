@@ -93,7 +93,7 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the parentAppId property value. The parentAppId property
+     * Gets the parentAppId property value. The ID of the parent application for agentic instances.
      * @return string|null
     */
     public function getParentAppId(): ?string {
@@ -148,7 +148,7 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the parentAppId property value. The parentAppId property
+     * Sets the parentAppId property value. The ID of the parent application for agentic instances.
      * @param string|null $value Value to set for the parentAppId property.
     */
     public function setParentAppId(?string $value): void {

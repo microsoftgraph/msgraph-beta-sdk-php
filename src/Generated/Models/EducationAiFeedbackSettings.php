@@ -48,7 +48,7 @@ class EducationAiFeedbackSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the audienceEngagementSettings property value. The audienceEngagementSettings property
+     * Gets the audienceEngagementSettings property value. The audience engagement related feedback types that students should receive from the AI feedback.
      * @return EducationAiFeedbackAudienceEngagementSettings|null
     */
     public function getAudienceEngagementSettings(): ?EducationAiFeedbackAudienceEngagementSettings {
@@ -68,7 +68,7 @@ class EducationAiFeedbackSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the contentSettings property value. The contentSettings property
+     * Gets the contentSettings property value. The content related feedback types that students should receive from the AI feedback.
      * @return EducationAiFeedbackContentSettings|null
     */
     public function getContentSettings(): ?EducationAiFeedbackContentSettings {
@@ -80,7 +80,7 @@ class EducationAiFeedbackSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the deliverySettings property value. The deliverySettings property
+     * Gets the deliverySettings property value. The delivery related feedback types that students should receive from the AI feedback.
      * @return EducationAiFeedbackDeliverySettings|null
     */
     public function getDeliverySettings(): ?EducationAiFeedbackDeliverySettings {
@@ -138,7 +138,7 @@ class EducationAiFeedbackSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the audienceEngagementSettings property value. The audienceEngagementSettings property
+     * Sets the audienceEngagementSettings property value. The audience engagement related feedback types that students should receive from the AI feedback.
      * @param EducationAiFeedbackAudienceEngagementSettings|null $value Value to set for the audienceEngagementSettings property.
     */
     public function setAudienceEngagementSettings(?EducationAiFeedbackAudienceEngagementSettings $value): void {
@@ -154,7 +154,7 @@ class EducationAiFeedbackSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the contentSettings property value. The contentSettings property
+     * Sets the contentSettings property value. The content related feedback types that students should receive from the AI feedback.
      * @param EducationAiFeedbackContentSettings|null $value Value to set for the contentSettings property.
     */
     public function setContentSettings(?EducationAiFeedbackContentSettings $value): void {
@@ -162,7 +162,7 @@ class EducationAiFeedbackSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the deliverySettings property value. The deliverySettings property
+     * Sets the deliverySettings property value. The delivery related feedback types that students should receive from the AI feedback.
      * @param EducationAiFeedbackDeliverySettings|null $value Value to set for the deliverySettings property.
     */
     public function setDeliverySettings(?EducationAiFeedbackDeliverySettings $value): void {

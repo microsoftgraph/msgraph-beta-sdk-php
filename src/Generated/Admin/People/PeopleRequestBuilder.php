@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\People\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\NamePronunciation\NamePronunciationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\People\ProfilePropertySettings\ProfilePropertySettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\Pronouns\PronounsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PeopleAdminSettings;
@@ -39,6 +40,13 @@ class PeopleRequestBuilder extends BaseRequestBuilder
     */
     public function profileCardProperties(): ProfileCardPropertiesRequestBuilder {
         return new ProfileCardPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the profilePropertySettings property of the microsoft.graph.peopleAdminSettings entity.
+    */
+    public function profilePropertySettings(): ProfilePropertySettingsRequestBuilder {
+        return new ProfilePropertySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
