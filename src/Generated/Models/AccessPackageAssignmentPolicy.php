@@ -63,7 +63,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessPackageNotificationSettings property value. The accessPackageNotificationSettings property
+     * Gets the accessPackageNotificationSettings property value. Represents the settings for email notifications for requests to an access package.
      * @return AccessPackageNotificationSettings|null
     */
     public function getAccessPackageNotificationSettings(): ?AccessPackageNotificationSettings {
@@ -355,7 +355,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessPackageNotificationSettings property value. The accessPackageNotificationSettings property
+     * Sets the accessPackageNotificationSettings property value. Represents the settings for email notifications for requests to an access package.
      * @param AccessPackageNotificationSettings|null $value Value to set for the accessPackageNotificationSettings property.
     */
     public function setAccessPackageNotificationSettings(?AccessPackageNotificationSettings $value): void {

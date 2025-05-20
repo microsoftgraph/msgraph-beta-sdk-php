@@ -77,7 +77,7 @@ class AutoLabeling implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the message property value. The message property
+     * Gets the message property value. The message displayed to the user when the label is applied automatically.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -101,7 +101,7 @@ class AutoLabeling implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sensitiveTypeIds property value. The sensitiveTypeIds property
+     * Gets the sensitiveTypeIds property value. The list of sensitive information type (SIT) IDs that trigger the automatic application of this label.
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
@@ -142,7 +142,7 @@ class AutoLabeling implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the message property value. The message property
+     * Sets the message property value. The message displayed to the user when the label is applied automatically.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
@@ -158,7 +158,7 @@ class AutoLabeling implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
+     * Sets the sensitiveTypeIds property value. The list of sensitive information type (SIT) IDs that trigger the automatic application of this label.
      * @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value): void {

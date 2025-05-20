@@ -70,7 +70,7 @@ class EducationAiFeedbackContentSettings implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the isMessageClarityEnabled property value. The isMessageClarityEnabled property
+     * Gets the isMessageClarityEnabled property value. Indicates whether the student should receive feedback on their message clarity from the AI feedback.
      * @return bool|null
     */
     public function getIsMessageClarityEnabled(): ?bool {
@@ -82,7 +82,7 @@ class EducationAiFeedbackContentSettings implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the isQualityOfInformationEnabled property value. The isQualityOfInformationEnabled property
+     * Gets the isQualityOfInformationEnabled property value. Indicates whether the student should receive feedback on their quality of information from the AI feedback.
      * @return bool|null
     */
     public function getIsQualityOfInformationEnabled(): ?bool {
@@ -94,7 +94,7 @@ class EducationAiFeedbackContentSettings implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the isSpeechOrganizationEnabled property value. The isSpeechOrganizationEnabled property
+     * Gets the isSpeechOrganizationEnabled property value. Indicates whether the student should receive feedback on their speech organization from the AI feedback.
      * @return bool|null
     */
     public function getIsSpeechOrganizationEnabled(): ?bool {
@@ -146,7 +146,7 @@ class EducationAiFeedbackContentSettings implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the isMessageClarityEnabled property value. The isMessageClarityEnabled property
+     * Sets the isMessageClarityEnabled property value. Indicates whether the student should receive feedback on their message clarity from the AI feedback.
      * @param bool|null $value Value to set for the isMessageClarityEnabled property.
     */
     public function setIsMessageClarityEnabled(?bool $value): void {
@@ -154,7 +154,7 @@ class EducationAiFeedbackContentSettings implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the isQualityOfInformationEnabled property value. The isQualityOfInformationEnabled property
+     * Sets the isQualityOfInformationEnabled property value. Indicates whether the student should receive feedback on their quality of information from the AI feedback.
      * @param bool|null $value Value to set for the isQualityOfInformationEnabled property.
     */
     public function setIsQualityOfInformationEnabled(?bool $value): void {
@@ -162,7 +162,7 @@ class EducationAiFeedbackContentSettings implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the isSpeechOrganizationEnabled property value. The isSpeechOrganizationEnabled property
+     * Sets the isSpeechOrganizationEnabled property value. Indicates whether the student should receive feedback on their speech organization from the AI feedback.
      * @param bool|null $value Value to set for the isSpeechOrganizationEnabled property.
     */
     public function setIsSpeechOrganizationEnabled(?bool $value): void {

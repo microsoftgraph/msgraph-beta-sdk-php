@@ -45,7 +45,7 @@ class ParentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The parent label associated with a child label. Null if the label has no parent.
+     * Get parent from users
      * @param ParentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensitivityLabel|null>
      * @throws Exception
@@ -91,7 +91,7 @@ class ParentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The parent label associated with a child label. Null if the label has no parent.
+     * Get parent from users
      * @param ParentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

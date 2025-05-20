@@ -64,6 +64,7 @@ class IdentifierUriConfiguration implements AdditionalDataHolder, BackedModel, P
         return  [
             'nonDefaultUriAddition' => fn(ParseNode $n) => $o->setNonDefaultUriAddition($n->getObjectValue([IdentifierUriRestriction::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'uriAdditionWithoutUniqueTenantIdentifier' => fn(ParseNode $n) => $o->setUriAdditionWithoutUniqueTenantIdentifier($n->getObjectValue([IdentifierUriRestriction::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -92,12 +93,25 @@ class IdentifierUriConfiguration implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
+     * Gets the uriAdditionWithoutUniqueTenantIdentifier property value. Block new identifier URIs for applications, unless they contain a unique tenant identifier like the tenant ID, appId (client ID), or verified domain. For example, api://{tenatId}/string, api://{appId}/string, {scheme}://string/{tenantId}, {scheme}://string/{appId}, https://{verified-domain.com}/path, {scheme}://{subdomain}.{verified-domain.com}/path.
+     * @return IdentifierUriRestriction|null
+    */
+    public function getUriAdditionWithoutUniqueTenantIdentifier(): ?IdentifierUriRestriction {
+        $val = $this->getBackingStore()->get('uriAdditionWithoutUniqueTenantIdentifier');
+        if (is_null($val) || $val instanceof IdentifierUriRestriction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uriAdditionWithoutUniqueTenantIdentifier'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('nonDefaultUriAddition', $this->getNonDefaultUriAddition());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('uriAdditionWithoutUniqueTenantIdentifier', $this->getUriAdditionWithoutUniqueTenantIdentifier());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -131,6 +145,14 @@ class IdentifierUriConfiguration implements AdditionalDataHolder, BackedModel, P
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the uriAdditionWithoutUniqueTenantIdentifier property value. Block new identifier URIs for applications, unless they contain a unique tenant identifier like the tenant ID, appId (client ID), or verified domain. For example, api://{tenatId}/string, api://{appId}/string, {scheme}://string/{tenantId}, {scheme}://string/{appId}, https://{verified-domain.com}/path, {scheme}://{subdomain}.{verified-domain.com}/path.
+     * @param IdentifierUriRestriction|null $value Value to set for the uriAdditionWithoutUniqueTenantIdentifier property.
+    */
+    public function setUriAdditionWithoutUniqueTenantIdentifier(?IdentifierUriRestriction $value): void {
+        $this->getBackingStore()->set('uriAdditionWithoutUniqueTenantIdentifier', $value);
     }
 
 }

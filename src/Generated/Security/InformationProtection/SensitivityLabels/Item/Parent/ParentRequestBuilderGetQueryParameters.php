@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\InformationProtection\Sensitiv
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The parent label associated with a child label. Null if the label has no parent.
+ * Get parent from security
 */
 class ParentRequestBuilderGetQueryParameters 
 {

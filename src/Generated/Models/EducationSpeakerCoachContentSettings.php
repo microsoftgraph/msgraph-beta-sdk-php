@@ -69,7 +69,7 @@ class EducationSpeakerCoachContentSettings implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the isInclusivenessEnabled property value. The isInclusivenessEnabled property
+     * Gets the isInclusivenessEnabled property value. Indicates whether the student should receive feedback on their inclusiveness from the Speaker Coach.
      * @return bool|null
     */
     public function getIsInclusivenessEnabled(): ?bool {
@@ -81,7 +81,7 @@ class EducationSpeakerCoachContentSettings implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the isRepetitiveLanguageEnabled property value. The isRepetitiveLanguageEnabled property
+     * Gets the isRepetitiveLanguageEnabled property value. Indicates whether the student should receive feedback on their repetitive language from the Speaker Coach.
      * @return bool|null
     */
     public function getIsRepetitiveLanguageEnabled(): ?bool {
@@ -132,7 +132,7 @@ class EducationSpeakerCoachContentSettings implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the isInclusivenessEnabled property value. The isInclusivenessEnabled property
+     * Sets the isInclusivenessEnabled property value. Indicates whether the student should receive feedback on their inclusiveness from the Speaker Coach.
      * @param bool|null $value Value to set for the isInclusivenessEnabled property.
     */
     public function setIsInclusivenessEnabled(?bool $value): void {
@@ -140,7 +140,7 @@ class EducationSpeakerCoachContentSettings implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the isRepetitiveLanguageEnabled property value. The isRepetitiveLanguageEnabled property
+     * Sets the isRepetitiveLanguageEnabled property value. Indicates whether the student should receive feedback on their repetitive language from the Speaker Coach.
      * @param bool|null $value Value to set for the isRepetitiveLanguageEnabled property.
     */
     public function setIsRepetitiveLanguageEnabled(?bool $value): void {

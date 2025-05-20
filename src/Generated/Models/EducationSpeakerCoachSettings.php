@@ -48,7 +48,7 @@ class EducationSpeakerCoachSettings implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the audienceEngagementSettings property value. The audienceEngagementSettings property
+     * Gets the audienceEngagementSettings property value. The audience engagement related feedback types that students should receive from the Speaker Coach.
      * @return EducationSpeakerCoachAudienceEngagementSettings|null
     */
     public function getAudienceEngagementSettings(): ?EducationSpeakerCoachAudienceEngagementSettings {
@@ -68,7 +68,7 @@ class EducationSpeakerCoachSettings implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the contentSettings property value. The contentSettings property
+     * Gets the contentSettings property value. The content related feedback types that students should receive from the Speaker Coach.
      * @return EducationSpeakerCoachContentSettings|null
     */
     public function getContentSettings(): ?EducationSpeakerCoachContentSettings {
@@ -80,7 +80,7 @@ class EducationSpeakerCoachSettings implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the deliverySettings property value. The deliverySettings property
+     * Gets the deliverySettings property value. The delivery related feedback types that students should receive from the Speaker Coach.
      * @return EducationSpeakerCoachDeliverySettings|null
     */
     public function getDeliverySettings(): ?EducationSpeakerCoachDeliverySettings {
@@ -138,7 +138,7 @@ class EducationSpeakerCoachSettings implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the audienceEngagementSettings property value. The audienceEngagementSettings property
+     * Sets the audienceEngagementSettings property value. The audience engagement related feedback types that students should receive from the Speaker Coach.
      * @param EducationSpeakerCoachAudienceEngagementSettings|null $value Value to set for the audienceEngagementSettings property.
     */
     public function setAudienceEngagementSettings(?EducationSpeakerCoachAudienceEngagementSettings $value): void {
@@ -154,7 +154,7 @@ class EducationSpeakerCoachSettings implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the contentSettings property value. The contentSettings property
+     * Sets the contentSettings property value. The content related feedback types that students should receive from the Speaker Coach.
      * @param EducationSpeakerCoachContentSettings|null $value Value to set for the contentSettings property.
     */
     public function setContentSettings(?EducationSpeakerCoachContentSettings $value): void {
@@ -162,7 +162,7 @@ class EducationSpeakerCoachSettings implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the deliverySettings property value. The deliverySettings property
+     * Sets the deliverySettings property value. The delivery related feedback types that students should receive from the Speaker Coach.
      * @param EducationSpeakerCoachDeliverySettings|null $value Value to set for the deliverySettings property.
     */
     public function setDeliverySettings(?EducationSpeakerCoachDeliverySettings $value): void {

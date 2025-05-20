@@ -48,7 +48,7 @@ class EducationAiFeedbackDeliverySettings implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the areRhetoricalTechniquesEnabled property value. The areRhetoricalTechniquesEnabled property
+     * Gets the areRhetoricalTechniquesEnabled property value. Indicates whether the student should receive feedback on their rhetorical techniques from the AI feedback.
      * @return bool|null
     */
     public function getAreRhetoricalTechniquesEnabled(): ?bool {
@@ -82,7 +82,7 @@ class EducationAiFeedbackDeliverySettings implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the isLanguageUseEnabled property value. The isLanguageUseEnabled property
+     * Gets the isLanguageUseEnabled property value. Indicates whether the student should receive feedback on their language use from the AI feedback.
      * @return bool|null
     */
     public function getIsLanguageUseEnabled(): ?bool {
@@ -94,7 +94,7 @@ class EducationAiFeedbackDeliverySettings implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the isStyleEnabled property value. The isStyleEnabled property
+     * Gets the isStyleEnabled property value. Indicates whether the student should receive feedback on their style from the AI feedback.
      * @return bool|null
     */
     public function getIsStyleEnabled(): ?bool {
@@ -138,7 +138,7 @@ class EducationAiFeedbackDeliverySettings implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the areRhetoricalTechniquesEnabled property value. The areRhetoricalTechniquesEnabled property
+     * Sets the areRhetoricalTechniquesEnabled property value. Indicates whether the student should receive feedback on their rhetorical techniques from the AI feedback.
      * @param bool|null $value Value to set for the areRhetoricalTechniquesEnabled property.
     */
     public function setAreRhetoricalTechniquesEnabled(?bool $value): void {
@@ -154,7 +154,7 @@ class EducationAiFeedbackDeliverySettings implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the isLanguageUseEnabled property value. The isLanguageUseEnabled property
+     * Sets the isLanguageUseEnabled property value. Indicates whether the student should receive feedback on their language use from the AI feedback.
      * @param bool|null $value Value to set for the isLanguageUseEnabled property.
     */
     public function setIsLanguageUseEnabled(?bool $value): void {
@@ -162,7 +162,7 @@ class EducationAiFeedbackDeliverySettings implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the isStyleEnabled property value. The isStyleEnabled property
+     * Sets the isStyleEnabled property value. Indicates whether the student should receive feedback on their style from the AI feedback.
      * @param bool|null $value Value to set for the isStyleEnabled property.
     */
     public function setIsStyleEnabled(?bool $value): void {

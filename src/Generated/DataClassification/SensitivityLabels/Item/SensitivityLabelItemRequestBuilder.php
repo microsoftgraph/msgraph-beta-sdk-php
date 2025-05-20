@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\It
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Item\Rights\RightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Item\Sublabels\SublabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SensitivityLabelItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the rights property of the microsoft.graph.sensitivityLabel entity.
+    */
+    public function rights(): RightsRequestBuilder {
+        return new RightsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
     */

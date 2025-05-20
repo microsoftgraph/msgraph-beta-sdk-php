@@ -37,7 +37,7 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     }
 
     /**
-     * Gets the points property value. Number of points a teacher is giving this submission object.
+     * Gets the points property value. Number of points a teacher gives to this submission object.
      * @return float|null
     */
     public function getPoints(): ?float {
@@ -58,7 +58,7 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     }
 
     /**
-     * Sets the points property value. Number of points a teacher is giving this submission object.
+     * Sets the points property value. Number of points a teacher gives to this submission object.
      * @param float|null $value Value to set for the points property.
     */
     public function setPoints(?float $value): void {

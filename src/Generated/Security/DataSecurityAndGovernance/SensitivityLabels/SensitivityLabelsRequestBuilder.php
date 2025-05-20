@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabelCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\ComputeRightsAndInheritance\ComputeRightsAndInheritanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\Evaluate\EvaluateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
@@ -20,6 +22,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SensitivityLabelsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the computeRightsAndInheritance method.
+    */
+    public function computeRightsAndInheritance(): ComputeRightsAndInheritanceRequestBuilder {
+        return new ComputeRightsAndInheritanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to count the resources in the collection.
     */
@@ -46,6 +55,17 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
+     * Provides operations to call the computeInheritance method.
+     * @param string $contentFormats Usage: contentFormats={contentFormats}
+     * @param string $labelIds Usage: labelIds={labelIds}
+     * @param string $locale Usage: locale='{locale}'
+     * @return ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder
+    */
+    public function computeInheritanceWithLabelIdsWithLocaleWithContentFormats(string $contentFormats, string $labelIds, string $locale): ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder {
+        return new ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder($this->pathParameters, $this->requestAdapter, $contentFormats, $labelIds, $locale);
+    }
+
+    /**
      * Instantiates a new SensitivityLabelsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -60,10 +80,11 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensitivityLabels from security
+     * List the sensitivity labels available to a specific user.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensitivityLabelCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/userdatasecurityandgovernance-list-sensitivitylabels?view=graph-rest-beta Find more info here
     */
     public function get(?SensitivityLabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +110,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensitivityLabels from security
+     * List the sensitivity labels available to a specific user.
      * @param SensitivityLabelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -1248,6 +1248,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.itemPublication': return new ItemPublication();
                 case '#microsoft.graph.itemRetentionLabel': return new ItemRetentionLabel();
                 case '#microsoft.graph.jobResponseBase': return new JobResponseBase();
+                case '#microsoft.graph.labelContentRight': return new LabelContentRight();
                 case '#microsoft.graph.landingPage': return new LandingPage();
                 case '#microsoft.graph.landingPageDetail': return new LandingPageDetail();
                 case '#microsoft.graph.languageProficiency': return new LanguageProficiency();
@@ -1694,6 +1695,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.profile': return new Profile();
                 case '#microsoft.graph.profileCardProperty': return new ProfileCardProperty();
                 case '#microsoft.graph.profilePhoto': return new ProfilePhoto();
+                case '#microsoft.graph.profilePropertySetting': return new ProfilePropertySetting();
                 case '#microsoft.graph.profileSource': return new ProfileSource();
                 case '#microsoft.graph.program': return new Program();
                 case '#microsoft.graph.programControl': return new ProgramControl();
@@ -2110,6 +2112,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.updateRecordingStatusOperation': return new UpdateRecordingStatusOperation();
                 case '#microsoft.graph.urlAssessmentRequest': return new UrlAssessmentRequest();
                 case '#microsoft.graph.usageRight': return new UsageRight();
+                case '#microsoft.graph.usageRightsIncluded': return new UsageRightsIncluded();
                 case '#microsoft.graph.usedInsight': return new UsedInsight();
                 case '#microsoft.graph.user': return new User();
                 case '#microsoft.graph.userAccountInformation': return new UserAccountInformation();
