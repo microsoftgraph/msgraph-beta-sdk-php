@@ -99,7 +99,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
+     * Gets the contentSources property value. Contains the connection to be targeted. Respects the following format: /external/connections/connectionid where connectionid is the ConnectionId defined in the connectors administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
      * @return array<string>|null
     */
     public function getContentSources(): ?array {
@@ -195,7 +195,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the fields property value. Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.
+     * Gets the fields property value. Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft 365 Copilot connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is labeled as title, you can retrieve it using the following syntax : label_title.Optional.
      * @return array<string>|null
     */
     public function getFields(): ?array {
@@ -281,7 +281,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sharePointOneDriveOptions property value. Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
+     * Gets the sharePointOneDriveOptions property value. Indicates the kind of content to be searched when a search is performed using application permissions. Optional.
      * @return SharePointOneDriveOptions|null
     */
     public function getSharePointOneDriveOptions(): ?SharePointOneDriveOptions {
@@ -333,7 +333,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the trimDuplicates property value. Indicates whether to trim away the duplicate SharePoint files from search results. Default value is false. Optional.
+     * Gets the trimDuplicates property value. Indicates whether to trim away the duplicate SharePoint files from search results. The default value is false. Optional.
      * @return bool|null
     */
     public function getTrimDuplicates(): ?bool {
@@ -411,7 +411,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
+     * Sets the contentSources property value. Contains the connection to be targeted. Respects the following format: /external/connections/connectionid where connectionid is the ConnectionId defined in the connectors administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
      * @param array<string>|null $value Value to set for the contentSources property.
     */
     public function setContentSources(?array $value): void {
@@ -435,7 +435,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the fields property value. Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.
+     * Sets the fields property value. Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft 365 Copilot connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is labeled as title, you can retrieve it using the following syntax : label_title.Optional.
      * @param array<string>|null $value Value to set for the fields property.
     */
     public function setFields(?array $value): void {
@@ -491,7 +491,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sharePointOneDriveOptions property value. Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
+     * Sets the sharePointOneDriveOptions property value. Indicates the kind of content to be searched when a search is performed using application permissions. Optional.
      * @param SharePointOneDriveOptions|null $value Value to set for the sharePointOneDriveOptions property.
     */
     public function setSharePointOneDriveOptions(?SharePointOneDriveOptions $value): void {
@@ -523,7 +523,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the trimDuplicates property value. Indicates whether to trim away the duplicate SharePoint files from search results. Default value is false. Optional.
+     * Sets the trimDuplicates property value. Indicates whether to trim away the duplicate SharePoint files from search results. The default value is false. Optional.
      * @param bool|null $value Value to set for the trimDuplicates property.
     */
     public function setTrimDuplicates(?bool $value): void {

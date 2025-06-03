@@ -56,7 +56,7 @@ class ThreatDetectionDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the confidenceLevel property value. The confidenceLevel property
+     * Gets the confidenceLevel property value. Indicates the confidence level in the threat detection.
      * @return string|null
     */
     public function getConfidenceLevel(): ?string {
@@ -94,7 +94,7 @@ class ThreatDetectionDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the priorityAccountProtection property value. The priorityAccountProtection property
+     * Gets the priorityAccountProtection property value. Indicates if the account has priority protection enabled.
      * @return string|null
     */
     public function getPriorityAccountProtection(): ?string {
@@ -106,7 +106,7 @@ class ThreatDetectionDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the threats property value. The threats property
+     * Gets the threats property value. Lists the detected threats.
      * @return string|null
     */
     public function getThreats(): ?string {
@@ -146,7 +146,7 @@ class ThreatDetectionDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the confidenceLevel property value. The confidenceLevel property
+     * Sets the confidenceLevel property value. Indicates the confidence level in the threat detection.
      * @param string|null $value Value to set for the confidenceLevel property.
     */
     public function setConfidenceLevel(?string $value): void {
@@ -162,7 +162,7 @@ class ThreatDetectionDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the priorityAccountProtection property value. The priorityAccountProtection property
+     * Sets the priorityAccountProtection property value. Indicates if the account has priority protection enabled.
      * @param string|null $value Value to set for the priorityAccountProtection property.
     */
     public function setPriorityAccountProtection(?string $value): void {
@@ -170,7 +170,7 @@ class ThreatDetectionDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the threats property value. The threats property
+     * Sets the threats property value. Lists the detected threats.
      * @param string|null $value Value to set for the threats property.
     */
     public function setThreats(?string $value): void {

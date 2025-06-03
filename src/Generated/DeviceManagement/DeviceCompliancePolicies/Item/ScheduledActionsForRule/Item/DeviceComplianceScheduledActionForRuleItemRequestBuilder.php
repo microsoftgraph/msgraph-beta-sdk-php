@@ -53,7 +53,7 @@ class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends BaseReque
     }
 
     /**
-     * The list of scheduled action for this rule
+     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceComplianceScheduledActionForRule|null>
      * @throws Exception
@@ -99,7 +99,7 @@ class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends BaseReque
     }
 
     /**
-     * The list of scheduled action for this rule
+     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

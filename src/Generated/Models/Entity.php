@@ -462,7 +462,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.androidWorkProfileTrustedRootCertificate': return new AndroidWorkProfileTrustedRootCertificate();
                 case '#microsoft.graph.androidWorkProfileVpnConfiguration': return new AndroidWorkProfileVpnConfiguration();
                 case '#microsoft.graph.androidWorkProfileWiFiConfiguration': return new AndroidWorkProfileWiFiConfiguration();
-                case '#microsoft.graph.announcement': return new Announcement();
                 case '#microsoft.graph.anonymousGuestConversationMember': return new AnonymousGuestConversationMember();
                 case '#microsoft.graph.aospDeviceOwnerCertificateProfileBase': return new AospDeviceOwnerCertificateProfileBase();
                 case '#microsoft.graph.aospDeviceOwnerCompliancePolicy': return new AospDeviceOwnerCompliancePolicy();
@@ -628,7 +627,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.certificateBasedAuthConfiguration': return new CertificateBasedAuthConfiguration();
                 case '#microsoft.graph.certificateBasedAuthPki': return new CertificateBasedAuthPki();
                 case '#microsoft.graph.certificateConnectorDetails': return new CertificateConnectorDetails();
-                case '#microsoft.graph.changeItemBase': return new ChangeItemBase();
                 case '#microsoft.graph.changeTrackedEntity': return new ChangeTrackedEntity();
                 case '#microsoft.graph.channel': return new Channel();
                 case '#microsoft.graph.chat': return new Chat();
@@ -973,6 +971,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.embeddedSIMActivationCodePoolAssignment': return new EmbeddedSIMActivationCodePoolAssignment();
                 case '#microsoft.graph.embeddedSIMDeviceState': return new EmbeddedSIMDeviceState();
                 case '#microsoft.graph.emergencyCallEvent': return new EmergencyCallEvent();
+                case '#microsoft.graph.employeeExperience': return new EmployeeExperience();
                 case '#microsoft.graph.employeeExperienceUser': return new EmployeeExperienceUser();
                 case '#microsoft.graph.encryptedAwsStorageBucketFinding': return new EncryptedAwsStorageBucketFinding();
                 case '#microsoft.graph.encryptedAzureStorageAccountFinding': return new EncryptedAzureStorageAccountFinding();
@@ -982,6 +981,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.endUserNotification': return new EndUserNotification();
                 case '#microsoft.graph.endUserNotificationDetail': return new EndUserNotificationDetail();
                 case '#microsoft.graph.engagementAsyncOperation': return new EngagementAsyncOperation();
+                case '#microsoft.graph.engagementRole': return new EngagementRole();
+                case '#microsoft.graph.engagementRoleMember': return new EngagementRoleMember();
                 case '#microsoft.graph.enhancedPersonalizationSetting': return new EnhancedPersonalizationSetting();
                 case '#microsoft.graph.enrollmentConfigurationAssignment': return new EnrollmentConfigurationAssignment();
                 case '#microsoft.graph.enrollmentProfile': return new EnrollmentProfile();
@@ -1720,6 +1721,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.readingAssignmentSubmission': return new ReadingAssignmentSubmission();
                 case '#microsoft.graph.recommendation': return new Recommendation();
                 case '#microsoft.graph.recommendationBase': return new RecommendationBase();
+                case '#microsoft.graph.recommendationConfiguration': return new RecommendationConfiguration();
                 case '#microsoft.graph.recordOperation': return new RecordOperation();
                 case '#microsoft.graph.recycleBin': return new RecycleBin();
                 case '#microsoft.graph.recycleBinItem': return new RecycleBinItem();
@@ -1750,7 +1752,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.riskyServicePrincipalHistoryItem': return new RiskyServicePrincipalHistoryItem();
                 case '#microsoft.graph.riskyUser': return new RiskyUser();
                 case '#microsoft.graph.riskyUserHistoryItem': return new RiskyUserHistoryItem();
-                case '#microsoft.graph.roadmap': return new Roadmap();
                 case '#microsoft.graph.roleAssignment': return new RoleAssignment();
                 case '#microsoft.graph.roleDefinition': return new RoleDefinition();
                 case '#microsoft.graph.roleManagementAlert': return new RoleManagementAlert();

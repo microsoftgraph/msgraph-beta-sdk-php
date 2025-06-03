@@ -995,7 +995,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the uniqueTokenIdentifier property value. A unique base64 encoded request identifier used to track tokens issued by Microsoft Entra ID as they're redeemed at resource providers.
+     * Gets the uniqueTokenIdentifier property value. A unique base64-encoded request identifier used to track tokens issued by Microsoft Entra ID as they're redeemed at resource providers.
      * @return string|null
     */
     public function getUniqueTokenIdentifier(): ?string {
@@ -1702,7 +1702,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the uniqueTokenIdentifier property value. A unique base64 encoded request identifier used to track tokens issued by Microsoft Entra ID as they're redeemed at resource providers.
+     * Sets the uniqueTokenIdentifier property value. A unique base64-encoded request identifier used to track tokens issued by Microsoft Entra ID as they're redeemed at resource providers.
      * @param string|null $value Value to set for the uniqueTokenIdentifier property.
     */
     public function setUniqueTokenIdentifier(?string $value): void {

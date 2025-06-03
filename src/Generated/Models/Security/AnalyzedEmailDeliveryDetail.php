@@ -83,7 +83,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the latestThreats property value. The latestThreats property
+     * Gets the latestThreats property value. Latest known threat on the email.
      * @return string|null
     */
     public function getLatestThreats(): ?string {
@@ -119,7 +119,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the originalThreats property value. The originalThreats property
+     * Gets the originalThreats property value. Threats identified at the time of delivery.
      * @return string|null
     */
     public function getOriginalThreats(): ?string {
@@ -168,7 +168,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the latestThreats property value. The latestThreats property
+     * Sets the latestThreats property value. Latest known threat on the email.
      * @param string|null $value Value to set for the latestThreats property.
     */
     public function setLatestThreats(?string $value): void {
@@ -192,7 +192,7 @@ class AnalyzedEmailDeliveryDetail implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the originalThreats property value. The originalThreats property
+     * Sets the originalThreats property value. Threats identified at the time of delivery.
      * @param string|null $value Value to set for the originalThreats property.
     */
     public function setOriginalThreats(?string $value): void {

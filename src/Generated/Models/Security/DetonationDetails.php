@@ -70,7 +70,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the compromiseIndicators property value. The compromiseIndicators property
+     * Gets the compromiseIndicators property value. Represents indicators and its associated verdict that suggests whether an email is compromised.
      * @return array<CompromiseIndicator>|null
     */
     public function getCompromiseIndicators(): ?array {
@@ -84,7 +84,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationBehaviourDetails property value. The detonationBehaviourDetails property
+     * Gets the detonationBehaviourDetails property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation
      * @return DetonationBehaviourDetails|null
     */
     public function getDetonationBehaviourDetails(): ?DetonationBehaviourDetails {
@@ -120,7 +120,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationScreenshotUri property value. The detonationScreenshotUri property
+     * Gets the detonationScreenshotUri property value. Show any screenshots that were captured during detonation. No screenshots are captured if the URL opens into a link that directly downloads a file. However, you see the downloaded file in the detonation chain.
      * @return string|null
     */
     public function getDetonationScreenshotUri(): ?string {
@@ -228,7 +228,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the compromiseIndicators property value. The compromiseIndicators property
+     * Sets the compromiseIndicators property value. Represents indicators and its associated verdict that suggests whether an email is compromised.
      * @param array<CompromiseIndicator>|null $value Value to set for the compromiseIndicators property.
     */
     public function setCompromiseIndicators(?array $value): void {
@@ -236,7 +236,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationBehaviourDetails property value. The detonationBehaviourDetails property
+     * Sets the detonationBehaviourDetails property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation
      * @param DetonationBehaviourDetails|null $value Value to set for the detonationBehaviourDetails property.
     */
     public function setDetonationBehaviourDetails(?DetonationBehaviourDetails $value): void {
@@ -260,7 +260,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationScreenshotUri property value. The detonationScreenshotUri property
+     * Sets the detonationScreenshotUri property value. Show any screenshots that were captured during detonation. No screenshots are captured if the URL opens into a link that directly downloads a file. However, you see the downloaded file in the detonation chain.
      * @param string|null $value Value to set for the detonationScreenshotUri property.
     */
     public function setDetonationScreenshotUri(?string $value): void {

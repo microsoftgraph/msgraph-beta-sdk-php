@@ -32,8 +32,21 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'grade' => fn(ParseNode $n) => $o->setGrade($n->getStringValue()),
             'points' => fn(ParseNode $n) => $o->setPoints($n->getFloatValue()),
         ]);
+    }
+
+    /**
+     * Gets the grade property value. The grade letter from the grading scheme that corresponds to the given number of points.
+     * @return string|null
+    */
+    public function getGrade(): ?string {
+        $val = $this->getBackingStore()->get('grade');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'grade'");
     }
 
     /**
@@ -54,7 +67,16 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('grade', $this->getGrade());
         $writer->writeFloatValue('points', $this->getPoints());
+    }
+
+    /**
+     * Sets the grade property value. The grade letter from the grading scheme that corresponds to the given number of points.
+     * @param string|null $value Value to set for the grade property.
+    */
+    public function setGrade(?string $value): void {
+        $this->getBackingStore()->set('grade', $value);
     }
 
     /**

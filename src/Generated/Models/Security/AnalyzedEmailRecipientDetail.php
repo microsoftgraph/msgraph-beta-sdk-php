@@ -57,7 +57,7 @@ class AnalyzedEmailRecipientDetail implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the ccRecipients property value. The ccRecipients property
+     * Gets the ccRecipients property value. Recipient address in the cc field.
      * @return array<string>|null
     */
     public function getCcRecipients(): ?array {
@@ -71,7 +71,7 @@ class AnalyzedEmailRecipientDetail implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. Domain name of the recipient.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -142,7 +142,7 @@ class AnalyzedEmailRecipientDetail implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the ccRecipients property value. The ccRecipients property
+     * Sets the ccRecipients property value. Recipient address in the cc field.
      * @param array<string>|null $value Value to set for the ccRecipients property.
     */
     public function setCcRecipients(?array $value): void {
@@ -150,7 +150,7 @@ class AnalyzedEmailRecipientDetail implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. Domain name of the recipient.
      * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {

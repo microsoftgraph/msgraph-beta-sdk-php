@@ -69,7 +69,7 @@ class AnalyzedEmailDlpRuleInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the the data loss prevention rule.
      * @return string|null
     */
     public function getName(): ?string {
@@ -93,7 +93,7 @@ class AnalyzedEmailDlpRuleInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the ruleId property value. The ruleId property
+     * Gets the ruleId property value. Unique identifier of the data loss prevention rule.
      * @return string|null
     */
     public function getRuleId(): ?string {
@@ -132,7 +132,7 @@ class AnalyzedEmailDlpRuleInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name of the the data loss prevention rule.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -148,7 +148,7 @@ class AnalyzedEmailDlpRuleInfo implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the ruleId property value. The ruleId property
+     * Sets the ruleId property value. Unique identifier of the data loss prevention rule.
      * @param string|null $value Value to set for the ruleId property.
     */
     public function setRuleId(?string $value): void {

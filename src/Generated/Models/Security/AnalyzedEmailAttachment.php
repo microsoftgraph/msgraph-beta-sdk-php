@@ -88,7 +88,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the fileExtension property value. The fileExtension property
+     * Gets the fileExtension property value. Extension of the file.
      * @return string|null
     */
     public function getFileExtension(): ?string {
@@ -112,7 +112,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the fileSize property value. The fileSize property
+     * Gets the fileSize property value. Size of the file.
      * @return int|null
     */
     public function getFileSize(): ?int {
@@ -136,7 +136,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the malwareFamily property value. The malwareFamily property
+     * Gets the malwareFamily property value. The threat name associated with the threat type.
      * @return string|null
     */
     public function getMalwareFamily(): ?string {
@@ -172,7 +172,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
+     * Gets the tenantAllowBlockListDetailInfo property value. Details of entries in tenant allow/block list configured by tenant.
      * @return string|null
     */
     public function getTenantAllowBlockListDetailInfo(): ?string {
@@ -238,7 +238,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the fileExtension property value. The fileExtension property
+     * Sets the fileExtension property value. Extension of the file.
      * @param string|null $value Value to set for the fileExtension property.
     */
     public function setFileExtension(?string $value): void {
@@ -254,7 +254,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the fileSize property value. The fileSize property
+     * Sets the fileSize property value. Size of the file.
      * @param int|null $value Value to set for the fileSize property.
     */
     public function setFileSize(?int $value): void {
@@ -270,7 +270,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the malwareFamily property value. The malwareFamily property
+     * Sets the malwareFamily property value. The threat name associated with the threat type.
      * @param string|null $value Value to set for the malwareFamily property.
     */
     public function setMalwareFamily(?string $value): void {
@@ -294,7 +294,7 @@ class AnalyzedEmailAttachment implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
+     * Sets the tenantAllowBlockListDetailInfo property value. Details of entries in tenant allow/block list configured by tenant.
      * @param string|null $value Value to set for the tenantAllowBlockListDetailInfo property.
     */
     public function setTenantAllowBlockListDetailInfo(?string $value): void {

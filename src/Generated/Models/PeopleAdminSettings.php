@@ -36,6 +36,7 @@ class PeopleAdminSettings extends Entity implements Parsable
             'namePronunciation' => fn(ParseNode $n) => $o->setNamePronunciation($n->getObjectValue([NamePronunciationSettings::class, 'createFromDiscriminatorValue'])),
             'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
             'profilePropertySettings' => fn(ParseNode $n) => $o->setProfilePropertySettings($n->getCollectionOfObjectValues([ProfilePropertySetting::class, 'createFromDiscriminatorValue'])),
+            'profileSources' => fn(ParseNode $n) => $o->setProfileSources($n->getCollectionOfObjectValues([ProfileSource::class, 'createFromDiscriminatorValue'])),
             'pronouns' => fn(ParseNode $n) => $o->setPronouns($n->getObjectValue([PronounsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -93,6 +94,20 @@ class PeopleAdminSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the profileSources property value. A collection of profile source settings configured by an administrator in an organization.
+     * @return array<ProfileSource>|null
+    */
+    public function getProfileSources(): ?array {
+        $val = $this->getBackingStore()->get('profileSources');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProfileSource::class);
+            /** @var array<ProfileSource>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileSources'");
+    }
+
+    /**
      * Gets the pronouns property value. Administrator settings that manage the support of pronouns in an organization.
      * @return PronounsSettings|null
     */
@@ -114,6 +129,7 @@ class PeopleAdminSettings extends Entity implements Parsable
         $writer->writeObjectValue('namePronunciation', $this->getNamePronunciation());
         $writer->writeCollectionOfObjectValues('profileCardProperties', $this->getProfileCardProperties());
         $writer->writeCollectionOfObjectValues('profilePropertySettings', $this->getProfilePropertySettings());
+        $writer->writeCollectionOfObjectValues('profileSources', $this->getProfileSources());
         $writer->writeObjectValue('pronouns', $this->getPronouns());
     }
 
@@ -147,6 +163,14 @@ class PeopleAdminSettings extends Entity implements Parsable
     */
     public function setProfilePropertySettings(?array $value): void {
         $this->getBackingStore()->set('profilePropertySettings', $value);
+    }
+
+    /**
+     * Sets the profileSources property value. A collection of profile source settings configured by an administrator in an organization.
+     * @param array<ProfileSource>|null $value Value to set for the profileSources property.
+    */
+    public function setProfileSources(?array $value): void {
+        $this->getBackingStore()->set('profileSources', $value);
     }
 
     /**

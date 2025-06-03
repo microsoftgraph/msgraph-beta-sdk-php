@@ -184,6 +184,7 @@ class Directory extends Entity implements Parsable
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'pendingExternalUserProfiles' => fn(ParseNode $n) => $o->setPendingExternalUserProfiles($n->getCollectionOfObjectValues([PendingExternalUserProfile::class, 'createFromDiscriminatorValue'])),
             'publicKeyInfrastructure' => fn(ParseNode $n) => $o->setPublicKeyInfrastructure($n->getObjectValue([PublicKeyInfrastructureRoot::class, 'createFromDiscriminatorValue'])),
+            'recommendationConfiguration' => fn(ParseNode $n) => $o->setRecommendationConfiguration($n->getObjectValue([RecommendationConfiguration::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
@@ -274,6 +275,18 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the recommendationConfiguration property value. The recommendationConfiguration property
+     * @return RecommendationConfiguration|null
+    */
+    public function getRecommendationConfiguration(): ?RecommendationConfiguration {
+        $val = $this->getBackingStore()->get('recommendationConfiguration');
+        if (is_null($val) || $val instanceof RecommendationConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendationConfiguration'");
+    }
+
+    /**
      * Gets the recommendations property value. List of recommended improvements to improve tenant posture.
      * @return array<Recommendation>|null
     */
@@ -349,6 +362,7 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->getOutboundSharedUserProfiles());
         $writer->writeCollectionOfObjectValues('pendingExternalUserProfiles', $this->getPendingExternalUserProfiles());
         $writer->writeObjectValue('publicKeyInfrastructure', $this->getPublicKeyInfrastructure());
+        $writer->writeObjectValue('recommendationConfiguration', $this->getRecommendationConfiguration());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
         $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
@@ -481,6 +495,14 @@ class Directory extends Entity implements Parsable
     */
     public function setPublicKeyInfrastructure(?PublicKeyInfrastructureRoot $value): void {
         $this->getBackingStore()->set('publicKeyInfrastructure', $value);
+    }
+
+    /**
+     * Sets the recommendationConfiguration property value. The recommendationConfiguration property
+     * @param RecommendationConfiguration|null $value Value to set for the recommendationConfiguration property.
+    */
+    public function setRecommendationConfiguration(?RecommendationConfiguration $value): void {
+        $this->getBackingStore()->set('recommendationConfiguration', $value);
     }
 
     /**
