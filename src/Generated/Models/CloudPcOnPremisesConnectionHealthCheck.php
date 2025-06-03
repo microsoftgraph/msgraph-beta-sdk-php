@@ -117,7 +117,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the errorType property value. The type of error that occurred during this health check.
+     * Gets the errorType property value. The type of error that occurred during this health check. For the list of possible values, see cloudPcOnPremisesConnectionHealthCheckErrorType.
      * @return CloudPcOnPremisesConnectionHealthCheckErrorType|null
     */
     public function getErrorType(): ?CloudPcOnPremisesConnectionHealthCheckErrorType {
@@ -271,7 +271,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the errorType property value. The type of error that occurred during this health check.
+     * Sets the errorType property value. The type of error that occurred during this health check. For the list of possible values, see cloudPcOnPremisesConnectionHealthCheckErrorType.
      * @param CloudPcOnPremisesConnectionHealthCheckErrorType|null $value Value to set for the errorType property.
     */
     public function setErrorType(?CloudPcOnPremisesConnectionHealthCheckErrorType $value): void {

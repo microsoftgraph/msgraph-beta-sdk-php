@@ -81,7 +81,7 @@ class CompromiseIndicator implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. Indicator.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -93,7 +93,7 @@ class CompromiseIndicator implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the verdict property value. The verdict property
+     * Gets the verdict property value. .The possible values are: none, malware, phish, siteUnavailable, spam, decryptionFailed, unsupportedUriScheme, unsupportedFileType, undefined, unknownFutureValue.
      * @return VerdictCategory|null
     */
     public function getVerdict(): ?VerdictCategory {
@@ -140,7 +140,7 @@ class CompromiseIndicator implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. Indicator.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
@@ -148,7 +148,7 @@ class CompromiseIndicator implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the verdict property value. The verdict property
+     * Sets the verdict property value. .The possible values are: none, malware, phish, siteUnavailable, spam, decryptionFailed, unsupportedUriScheme, unsupportedFileType, undefined, unknownFutureValue.
      * @param VerdictCategory|null $value Value to set for the verdict property.
     */
     public function setVerdict(?VerdictCategory $value): void {

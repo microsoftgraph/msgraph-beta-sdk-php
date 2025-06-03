@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RiskyUser;
 use Microsoft\Graph\Beta\Generated\Models\RiskyUserCollectionResponse;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RiskyUsers\ConfirmSafe\ConfirmSafeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Dismiss\DismissRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RiskyUsers\Item\RiskyUserItemRequestBuilder;
@@ -26,6 +27,13 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     */
     public function confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the confirmSafe method.
+    */
+    public function confirmSafe(): ConfirmSafeRequestBuilder {
+        return new ConfirmSafeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

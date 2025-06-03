@@ -53,6 +53,7 @@ class CloudPcOnPremisesConnectionHealthCheckErrorType extends Enum {
     public const RESOURCE_AVAILABILITY_CHECK_INTUNE_DEFAULT_WINDOWS_RESTRICTION_VIOLATION = "resourceAvailabilityCheckIntuneDefaultWindowsRestrictionViolation";
     public const RESOURCE_AVAILABILITY_CHECK_INTUNE_CUSTOM_WINDOWS_RESTRICTION_VIOLATION = "resourceAvailabilityCheckIntuneCustomWindowsRestrictionViolation";
     public const RESOURCE_AVAILABILITY_CHECK_DEPLOYMENT_QUOTA_LIMIT_REACHED = "resourceAvailabilityCheckDeploymentQuotaLimitReached";
+    public const RESOURCE_AVAILABILITY_CHECK_MISSING_REGISTRATION_FOR_LOCATION = "resourceAvailabilityCheckMissingRegistrationForLocation";
     public const RESOURCE_AVAILABILITY_CHECK_TRANSIENT_SERVICE_ERROR = "resourceAvailabilityCheckTransientServiceError";
     public const RESOURCE_AVAILABILITY_CHECK_UNKNOWN_ERROR = "resourceAvailabilityCheckUnknownError";
     public const PERMISSION_CHECK_NO_SUBSCRIPTION_READER_ROLE = "permissionCheckNoSubscriptionReaderRole";

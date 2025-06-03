@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Item\ClockOut\ClockOutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Item\Confirm\ConfirmRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Item\ConfirmForUser\ConfirmForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Item\EndBreak\EndBreakRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\TimeCards\Item\StartBreak\StartBreakRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -32,6 +33,13 @@ class TimeCardItemRequestBuilder extends BaseRequestBuilder
     */
     public function confirm(): ConfirmRequestBuilder {
         return new ConfirmRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the confirmForUser method.
+    */
+    public function confirmForUser(): ConfirmForUserRequestBuilder {
+        return new ConfirmForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

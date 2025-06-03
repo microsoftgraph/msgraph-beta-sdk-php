@@ -80,7 +80,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the clientType property value. The clientType property
+     * Gets the clientType property value. Shows the type of client that sent the message (for example, REST).
      * @return string|null
     */
     public function getClientType(): ?string {
@@ -144,7 +144,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the dlpRules property value. The dlpRules property
+     * Gets the dlpRules property value. Data loss prevention rules configured in purview.
      * @return array<AnalyzedEmailDlpRuleInfo>|null
     */
     public function getDlpRules(): ?array {
@@ -259,7 +259,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingDetail property value. The forwardingDetail property
+     * Gets the forwardingDetail property value. Email smtp forwarding details.
      * @return string|null
     */
     public function getForwardingDetail(): ?string {
@@ -271,7 +271,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the inboundConnectorFormattedName property value. The inboundConnectorFormattedName property
+     * Gets the inboundConnectorFormattedName property value. Custom instructions name that defines organizational mail flow and how the email was routed.
      * @return string|null
     */
     public function getInboundConnectorFormattedName(): ?string {
@@ -405,7 +405,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyType property value. The policyType property
+     * Gets the policyType property value. Type of policy configured that defines the delivery action on email.
      * @return string|null
     */
     public function getPolicyType(): ?string {
@@ -417,7 +417,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the primaryOverrideSource property value. The primaryOverrideSource property
+     * Gets the primaryOverrideSource property value. Shows the organization or user setting that altered the intended delivery location of the message (allowed instead of blocked, or blocked instead of allowed).
      * @return string|null
     */
     public function getPrimaryOverrideSource(): ?string {
@@ -429,7 +429,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the recipientDetail property value. The recipientDetail property
+     * Gets the recipientDetail property value. Details of the recipients.
      * @return AnalyzedEmailRecipientDetail|null
     */
     public function getRecipientDetail(): ?AnalyzedEmailRecipientDetail {
@@ -513,7 +513,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the threatDetectionDetails property value. The threatDetectionDetails property
+     * Gets the threatDetectionDetails property value. Information about threats detected in the email.
      * @return array<ThreatDetectionDetail>|null
     */
     public function getThreatDetectionDetails(): ?array {
@@ -541,7 +541,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Gets the timelineEvents property value. The timelineEvents property
+     * Gets the timelineEvents property value. Delivery and post-delivery events that happened to the email.
      * @return array<TimelineEvent>|null
     */
     public function getTimelineEvents(): ?array {
@@ -646,7 +646,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the clientType property value. The clientType property
+     * Sets the clientType property value. Shows the type of client that sent the message (for example, REST).
      * @param string|null $value Value to set for the clientType property.
     */
     public function setClientType(?string $value): void {
@@ -686,7 +686,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the dlpRules property value. The dlpRules property
+     * Sets the dlpRules property value. Data loss prevention rules configured in purview.
      * @param array<AnalyzedEmailDlpRuleInfo>|null $value Value to set for the dlpRules property.
     */
     public function setDlpRules(?array $value): void {
@@ -710,7 +710,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingDetail property value. The forwardingDetail property
+     * Sets the forwardingDetail property value. Email smtp forwarding details.
      * @param string|null $value Value to set for the forwardingDetail property.
     */
     public function setForwardingDetail(?string $value): void {
@@ -718,7 +718,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the inboundConnectorFormattedName property value. The inboundConnectorFormattedName property
+     * Sets the inboundConnectorFormattedName property value. Custom instructions name that defines organizational mail flow and how the email was routed.
      * @param string|null $value Value to set for the inboundConnectorFormattedName property.
     */
     public function setInboundConnectorFormattedName(?string $value): void {
@@ -806,7 +806,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyType property value. The policyType property
+     * Sets the policyType property value. Type of policy configured that defines the delivery action on email.
      * @param string|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?string $value): void {
@@ -814,7 +814,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the primaryOverrideSource property value. The primaryOverrideSource property
+     * Sets the primaryOverrideSource property value. Shows the organization or user setting that altered the intended delivery location of the message (allowed instead of blocked, or blocked instead of allowed).
      * @param string|null $value Value to set for the primaryOverrideSource property.
     */
     public function setPrimaryOverrideSource(?string $value): void {
@@ -822,7 +822,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the recipientDetail property value. The recipientDetail property
+     * Sets the recipientDetail property value. Details of the recipients.
      * @param AnalyzedEmailRecipientDetail|null $value Value to set for the recipientDetail property.
     */
     public function setRecipientDetail(?AnalyzedEmailRecipientDetail $value): void {
@@ -878,7 +878,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the threatDetectionDetails property value. The threatDetectionDetails property
+     * Sets the threatDetectionDetails property value. Information about threats detected in the email.
      * @param array<ThreatDetectionDetail>|null $value Value to set for the threatDetectionDetails property.
     */
     public function setThreatDetectionDetails(?array $value): void {
@@ -894,7 +894,7 @@ class AnalyzedEmail extends Entity implements Parsable
     }
 
     /**
-     * Sets the timelineEvents property value. The timelineEvents property
+     * Sets the timelineEvents property value. Delivery and post-delivery events that happened to the email.
      * @param array<TimelineEvent>|null $value Value to set for the timelineEvents property.
     */
     public function setTimelineEvents(?array $value): void {

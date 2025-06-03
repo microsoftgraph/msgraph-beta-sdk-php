@@ -58,7 +58,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventDateTime property value. The eventDateTime property
+     * Gets the eventDateTime property value. The date and time when the event occurred.
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -70,7 +70,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventDetails property value. The eventDetails property
+     * Gets the eventDetails property value. Additional details or context about the event.
      * @return string|null
     */
     public function getEventDetails(): ?string {
@@ -82,7 +82,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventResult property value. The eventResult property
+     * Gets the eventResult property value. The outcome or result of the event, such as delivery location or action taken.
      * @return string|null
     */
     public function getEventResult(): ?string {
@@ -94,7 +94,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventSource property value. The eventSource property
+     * Gets the eventSource property value. The origin or actor that triggered the event. The possible values are: system, admin, user, unknownFutureValue.
      * @return EventSource|null
     */
     public function getEventSource(): ?EventSource {
@@ -106,7 +106,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventThreats property value. The eventThreats property
+     * Gets the eventThreats property value. Collection of threats identified or associated with this event.
      * @return array<string>|null
     */
     public function getEventThreats(): ?array {
@@ -120,7 +120,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventType property value. The eventType property
+     * Gets the eventType property value. The type of event that occurred. The possible values are: originalDelivery, systemTimeTravel, dynamicDelivery, userUrlClick, reprocessed, zap, quarantineRelease, air, unknown, unknownFutureValue.
      * @return TimelineEventType|null
     */
     public function getEventType(): ?TimelineEventType {
@@ -199,7 +199,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventDateTime property value. The eventDateTime property
+     * Sets the eventDateTime property value. The date and time when the event occurred.
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -207,7 +207,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventDetails property value. The eventDetails property
+     * Sets the eventDetails property value. Additional details or context about the event.
      * @param string|null $value Value to set for the eventDetails property.
     */
     public function setEventDetails(?string $value): void {
@@ -215,7 +215,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventResult property value. The eventResult property
+     * Sets the eventResult property value. The outcome or result of the event, such as delivery location or action taken.
      * @param string|null $value Value to set for the eventResult property.
     */
     public function setEventResult(?string $value): void {
@@ -223,7 +223,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventSource property value. The eventSource property
+     * Sets the eventSource property value. The origin or actor that triggered the event. The possible values are: system, admin, user, unknownFutureValue.
      * @param EventSource|null $value Value to set for the eventSource property.
     */
     public function setEventSource(?EventSource $value): void {
@@ -231,7 +231,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventThreats property value. The eventThreats property
+     * Sets the eventThreats property value. Collection of threats identified or associated with this event.
      * @param array<string>|null $value Value to set for the eventThreats property.
     */
     public function setEventThreats(?array $value): void {
@@ -239,7 +239,7 @@ class TimelineEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventType property value. The eventType property
+     * Sets the eventType property value. The type of event that occurred. The possible values are: originalDelivery, systemTimeTravel, dynamicDelivery, userUrlClick, reprocessed, zap, quarantineRelease, air, unknown, unknownFutureValue.
      * @param TimelineEventType|null $value Value to set for the eventType property.
     */
     public function setEventType(?TimelineEventType $value): void {

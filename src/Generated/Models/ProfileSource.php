@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ProfileSource extends Entity implements Parsable 
 {
@@ -25,7 +26,7 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Name of the profile source intended to inform users about the profile source name.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -45,13 +46,14 @@ class ProfileSource extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'kind' => fn(ParseNode $n) => $o->setKind($n->getStringValue()),
+            'localizations' => fn(ParseNode $n) => $o->setLocalizations($n->getCollectionOfObjectValues([ProfileSourceLocalization::class, 'createFromDiscriminatorValue'])),
             'sourceId' => fn(ParseNode $n) => $o->setSourceId($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the kind property value. The kind property
+     * Gets the kind property value. Type of the profile source.
      * @return string|null
     */
     public function getKind(): ?string {
@@ -63,7 +65,21 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceId property value. The sourceId property
+     * Gets the localizations property value. Alternative localized labels specified by an administrator.
+     * @return array<ProfileSourceLocalization>|null
+    */
+    public function getLocalizations(): ?array {
+        $val = $this->getBackingStore()->get('localizations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ProfileSourceLocalization::class);
+            /** @var array<ProfileSourceLocalization>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'localizations'");
+    }
+
+    /**
+     * Gets the sourceId property value. Profile source identifier used as an alternate key.
      * @return string|null
     */
     public function getSourceId(): ?string {
@@ -75,7 +91,7 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. The webUrl property
+     * Gets the webUrl property value. Web URL of the profile source that directs users to the page view of profile data.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -94,12 +110,13 @@ class ProfileSource extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('kind', $this->getKind());
+        $writer->writeCollectionOfObjectValues('localizations', $this->getLocalizations());
         $writer->writeStringValue('sourceId', $this->getSourceId());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Name of the profile source intended to inform users about the profile source name.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -107,7 +124,7 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Sets the kind property value. The kind property
+     * Sets the kind property value. Type of the profile source.
      * @param string|null $value Value to set for the kind property.
     */
     public function setKind(?string $value): void {
@@ -115,7 +132,15 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceId property value. The sourceId property
+     * Sets the localizations property value. Alternative localized labels specified by an administrator.
+     * @param array<ProfileSourceLocalization>|null $value Value to set for the localizations property.
+    */
+    public function setLocalizations(?array $value): void {
+        $this->getBackingStore()->set('localizations', $value);
+    }
+
+    /**
+     * Sets the sourceId property value. Profile source identifier used as an alternate key.
      * @param string|null $value Value to set for the sourceId property.
     */
     public function setSourceId(?string $value): void {
@@ -123,7 +148,7 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. The webUrl property
+     * Sets the webUrl property value. Web URL of the profile source that directs users to the page view of profile data.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

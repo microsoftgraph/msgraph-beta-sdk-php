@@ -26,7 +26,7 @@ class DriveRestoreArtifactsBulkAdditionRequest extends RestoreArtifactsBulkReque
     }
 
     /**
-     * Gets the directoryObjectIds property value. The list of directory object IDs that are added to the corresponding OneDrive for work or school restore session in a bulk operation. This property isn't implemented yet. Future value; don't use.
+     * Gets the directoryObjectIds property value. The list of directory object IDs that are added to the corresponding OneDrive for work or school restore session in a bulk operation.
      * @return array<string>|null
     */
     public function getDirectoryObjectIds(): ?array {
@@ -90,7 +90,7 @@ class DriveRestoreArtifactsBulkAdditionRequest extends RestoreArtifactsBulkReque
     }
 
     /**
-     * Sets the directoryObjectIds property value. The list of directory object IDs that are added to the corresponding OneDrive for work or school restore session in a bulk operation. This property isn't implemented yet. Future value; don't use.
+     * Sets the directoryObjectIds property value. The list of directory object IDs that are added to the corresponding OneDrive for work or school restore session in a bulk operation.
      * @param array<string>|null $value Value to set for the directoryObjectIds property.
     */
     public function setDirectoryObjectIds(?array $value): void {

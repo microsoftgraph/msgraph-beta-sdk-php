@@ -33,6 +33,7 @@ class TeamworkUserIdentity extends Identity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'userIdentityType' => fn(ParseNode $n) => $o->setUserIdentityType($n->getEnumValue(TeamworkUserIdentityType::class)),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 
@@ -49,12 +50,25 @@ class TeamworkUserIdentity extends Identity implements Parsable
     }
 
     /**
+     * Gets the userPrincipalName property value. User principal name (UPN) of the user.
+     * @return string|null
+    */
+    public function getUserPrincipalName(): ?string {
+        $val = $this->getBackingStore()->get('userPrincipalName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPrincipalName'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('userIdentityType', $this->getUserIdentityType());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
@@ -63,6 +77,14 @@ class TeamworkUserIdentity extends Identity implements Parsable
     */
     public function setUserIdentityType(?TeamworkUserIdentityType $value): void {
         $this->getBackingStore()->set('userIdentityType', $value);
+    }
+
+    /**
+     * Sets the userPrincipalName property value. User principal name (UPN) of the user.
+     * @param string|null $value Value to set for the userPrincipalName property.
+    */
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

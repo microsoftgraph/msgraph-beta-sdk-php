@@ -57,7 +57,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name of sender from address.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -69,7 +69,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the domainCreationDateTime property value. The domainCreationDateTime property
+     * Gets the domainCreationDateTime property value. Date and time of creation of the sender domain.
      * @return DateTime|null
     */
     public function getDomainCreationDateTime(): ?DateTime {
@@ -81,7 +81,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. Registered name of the domain.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -93,7 +93,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the domainOwner property value. The domainOwner property
+     * Gets the domainOwner property value. Owner of the domain.
      * @return string|null
     */
     public function getDomainOwner(): ?string {
@@ -149,7 +149,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the location property value. The location property
+     * Gets the location property value. Location of the domain.
      * @return string|null
     */
     public function getLocation(): ?string {
@@ -173,7 +173,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the mailFromDomainName property value. The mailFromDomainName property
+     * Gets the mailFromDomainName property value. Domain name of sender mail from address.
      * @return string|null
     */
     public function getMailFromDomainName(): ?string {
@@ -231,7 +231,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name of sender from address.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -239,7 +239,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the domainCreationDateTime property value. The domainCreationDateTime property
+     * Sets the domainCreationDateTime property value. Date and time of creation of the sender domain.
      * @param DateTime|null $value Value to set for the domainCreationDateTime property.
     */
     public function setDomainCreationDateTime(?DateTime $value): void {
@@ -247,7 +247,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. Registered name of the domain.
      * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
@@ -255,7 +255,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the domainOwner property value. The domainOwner property
+     * Sets the domainOwner property value. Owner of the domain.
      * @param string|null $value Value to set for the domainOwner property.
     */
     public function setDomainOwner(?string $value): void {
@@ -279,7 +279,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the location property value. The location property
+     * Sets the location property value. Location of the domain.
      * @param string|null $value Value to set for the location property.
     */
     public function setLocation(?string $value): void {
@@ -295,7 +295,7 @@ class AnalyzedEmailSenderDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the mailFromDomainName property value. The mailFromDomainName property
+     * Sets the mailFromDomainName property value. Domain name of sender mail from address.
      * @param string|null $value Value to set for the mailFromDomainName property.
     */
     public function setMailFromDomainName(?string $value): void {

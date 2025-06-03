@@ -52,7 +52,7 @@ class SiteRestoreArtifactsBulkAdditionRequest extends RestoreArtifactsBulkReques
     }
 
     /**
-     * Gets the siteIds property value. The list of SharePoint site IDs that are added to the corresponding SharePoint restore session in a bulk operation. This property isn't implemented yet. Future value; don't use.
+     * Gets the siteIds property value. The list of SharePoint site IDs that are added to the corresponding SharePoint restore session in a bulk operation.
      * @return array<string>|null
     */
     public function getSiteIds(): ?array {
@@ -90,7 +90,7 @@ class SiteRestoreArtifactsBulkAdditionRequest extends RestoreArtifactsBulkReques
     }
 
     /**
-     * Sets the siteIds property value. The list of SharePoint site IDs that are added to the corresponding SharePoint restore session in a bulk operation. This property isn't implemented yet. Future value; don't use.
+     * Sets the siteIds property value. The list of SharePoint site IDs that are added to the corresponding SharePoint restore session in a bulk operation.
      * @param array<string>|null $value Value to set for the siteIds property.
     */
     public function setSiteIds(?array $value): void {

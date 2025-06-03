@@ -86,6 +86,7 @@ class EducationModule extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isPinned' => fn(ParseNode $n) => $o->setIsPinned($n->getBooleanValue()),
+            'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'resources' => fn(ParseNode $n) => $o->setResources($n->getCollectionOfObjectValues([EducationModuleResource::class, 'createFromDiscriminatorValue'])),
@@ -95,7 +96,7 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Gets the isPinned property value. Indicates whether the module is pinned or not.
+     * Gets the isPinned property value. Indicates whether the module is pinned.
      * @return bool|null
     */
     public function getIsPinned(): ?bool {
@@ -104,6 +105,18 @@ class EducationModule extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isPinned'");
+    }
+
+    /**
+     * Gets the languageTag property value. Specifies the language in which UI notifications for the assignment are displayed. If languageTag isn't provided, the default language is en-US. Optional.
+     * @return string|null
+    */
+    public function getLanguageTag(): ?string {
+        $val = $this->getBackingStore()->get('languageTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'languageTag'");
     }
 
     /**
@@ -177,6 +190,7 @@ class EducationModule extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isPinned', $this->getIsPinned());
+        $writer->writeStringValue('languageTag', $this->getLanguageTag());
         $writer->writeCollectionOfObjectValues('resources', $this->getResources());
     }
 
@@ -213,11 +227,19 @@ class EducationModule extends Entity implements Parsable
     }
 
     /**
-     * Sets the isPinned property value. Indicates whether the module is pinned or not.
+     * Sets the isPinned property value. Indicates whether the module is pinned.
      * @param bool|null $value Value to set for the isPinned property.
     */
     public function setIsPinned(?bool $value): void {
         $this->getBackingStore()->set('isPinned', $value);
+    }
+
+    /**
+     * Sets the languageTag property value. Specifies the language in which UI notifications for the assignment are displayed. If languageTag isn't provided, the default language is en-US. Optional.
+     * @param string|null $value Value to set for the languageTag property.
+    */
+    public function setLanguageTag(?string $value): void {
+        $this->getBackingStore()->set('languageTag', $value);
     }
 
     /**

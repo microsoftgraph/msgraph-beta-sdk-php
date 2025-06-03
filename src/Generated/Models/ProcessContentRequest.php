@@ -69,7 +69,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Required.
+     * Gets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses and file metadata for files. Required.
      * @return array<ProcessContentMetadataBase>|null
     */
     public function getContentEntries(): ?array {
@@ -122,7 +122,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the protectedAppMetadata property value. The protectedAppMetadata property
+     * Gets the protectedAppMetadata property value. Metadata about the protected application making the request. Required.
      * @return ProtectedApplicationMetadata|null
     */
     public function getProtectedAppMetadata(): ?ProtectedApplicationMetadata {
@@ -171,7 +171,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Required.
+     * Sets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses and file metadata for files. Required.
      * @param array<ProcessContentMetadataBase>|null $value Value to set for the contentEntries property.
     */
     public function setContentEntries(?array $value): void {
@@ -195,7 +195,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the protectedAppMetadata property value. The protectedAppMetadata property
+     * Sets the protectedAppMetadata property value. Metadata about the protected application making the request. Required.
      * @param ProtectedApplicationMetadata|null $value Value to set for the protectedAppMetadata property.
     */
     public function setProtectedAppMetadata(?ProtectedApplicationMetadata $value): void {

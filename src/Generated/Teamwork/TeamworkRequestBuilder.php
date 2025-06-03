@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Teamwork;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats\DeletedChatsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\DeletedTeamsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\DetermineIfInteractionIsAllowed\DetermineIfInteractionIsAllowedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\SendActivityNotificationToRecipients\SendActivityNotificationToRecipientsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamsAppSettings\TeamsAppSettingsRequestBuilder;
@@ -35,6 +36,13 @@ class TeamworkRequestBuilder extends BaseRequestBuilder
     */
     public function deletedTeams(): DeletedTeamsRequestBuilder {
         return new DeletedTeamsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the determineIfInteractionIsAllowed method.
+    */
+    public function determineIfInteractionIsAllowed(): DetermineIfInteractionIsAllowedRequestBuilder {
+        return new DetermineIfInteractionIsAllowedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -108,7 +108,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
+     * Gets the tenantAllowBlockListDetailInfo property value. Details of entries in tenant allow/block list configured by tenant.
      * @return string|null
     */
     public function getTenantAllowBlockListDetailInfo(): ?string {
@@ -198,7 +198,7 @@ class AnalyzedEmailUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the tenantAllowBlockListDetailInfo property value. The tenantAllowBlockListDetailInfo property
+     * Sets the tenantAllowBlockListDetailInfo property value. Details of entries in tenant allow/block list configured by tenant.
      * @param string|null $value Value to set for the tenantAllowBlockListDetailInfo property.
     */
     public function setTenantAllowBlockListDetailInfo(?string $value): void {

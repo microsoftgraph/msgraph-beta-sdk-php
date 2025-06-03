@@ -36,7 +36,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the actionStatus property value. The actionStatus property
+     * Gets the actionStatus property value. The status of the action performed during detonation (e.g., 'Successful', 'Failed', 'Blocked').
      * @return string|null
     */
     public function getActionStatus(): ?string {
@@ -69,7 +69,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the behaviourCapability property value. The behaviourCapability property
+     * Gets the behaviourCapability property value. Categorizes the capability or type of behavior observed.
      * @return string|null
     */
     public function getBehaviourCapability(): ?string {
@@ -81,7 +81,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the behaviourGroup property value. The behaviourGroup property
+     * Gets the behaviourGroup property value. Groups related behaviors together for classification purposes.
      * @return string|null
     */
     public function getBehaviourGroup(): ?string {
@@ -93,7 +93,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. More contextual information about the observed behavior or action.
      * @return string|null
     */
     public function getDetails(): ?string {
@@ -105,7 +105,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the eventDateTime property value. The eventDateTime property
+     * Gets the eventDateTime property value. The date and time when the behavior or action was observed during detonation.
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -149,7 +149,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the operation property value. The operation property
+     * Gets the operation property value. The specific operation or action that was performed.
      * @return string|null
     */
     public function getOperation(): ?string {
@@ -161,7 +161,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the processId property value. The processId property
+     * Gets the processId property value. The unique identifier of the process involved in the behavior.
      * @return string|null
     */
     public function getProcessId(): ?string {
@@ -173,7 +173,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the processName property value. The processName property
+     * Gets the processName property value. The name of the process that performed or was involved in the behavior.
      * @return string|null
     */
     public function getProcessName(): ?string {
@@ -185,7 +185,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the target property value. The target property
+     * Gets the target property value. The target of the operation.
      * @return string|null
     */
     public function getTarget(): ?string {
@@ -215,7 +215,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the actionStatus property value. The actionStatus property
+     * Sets the actionStatus property value. The status of the action performed during detonation (e.g., 'Successful', 'Failed', 'Blocked').
      * @param string|null $value Value to set for the actionStatus property.
     */
     public function setActionStatus(?string $value): void {
@@ -239,7 +239,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the behaviourCapability property value. The behaviourCapability property
+     * Sets the behaviourCapability property value. Categorizes the capability or type of behavior observed.
      * @param string|null $value Value to set for the behaviourCapability property.
     */
     public function setBehaviourCapability(?string $value): void {
@@ -247,7 +247,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the behaviourGroup property value. The behaviourGroup property
+     * Sets the behaviourGroup property value. Groups related behaviors together for classification purposes.
      * @param string|null $value Value to set for the behaviourGroup property.
     */
     public function setBehaviourGroup(?string $value): void {
@@ -255,7 +255,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. More contextual information about the observed behavior or action.
      * @param string|null $value Value to set for the details property.
     */
     public function setDetails(?string $value): void {
@@ -263,7 +263,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the eventDateTime property value. The eventDateTime property
+     * Sets the eventDateTime property value. The date and time when the behavior or action was observed during detonation.
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -279,7 +279,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the operation property value. The operation property
+     * Sets the operation property value. The specific operation or action that was performed.
      * @param string|null $value Value to set for the operation property.
     */
     public function setOperation(?string $value): void {
@@ -287,7 +287,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the processId property value. The processId property
+     * Sets the processId property value. The unique identifier of the process involved in the behavior.
      * @param string|null $value Value to set for the processId property.
     */
     public function setProcessId(?string $value): void {
@@ -295,7 +295,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the processName property value. The processName property
+     * Sets the processName property value. The name of the process that performed or was involved in the behavior.
      * @param string|null $value Value to set for the processName property.
     */
     public function setProcessName(?string $value): void {
@@ -303,7 +303,7 @@ class DetonationBehaviourDetails implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the target property value. The target property
+     * Sets the target property value. The target of the operation.
      * @param string|null $value Value to set for the target property.
     */
     public function setTarget(?string $value): void {

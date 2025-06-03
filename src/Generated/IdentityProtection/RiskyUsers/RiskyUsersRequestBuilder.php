@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\ConfirmSafe\ConfirmSafeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Dismiss\DismissRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\Item\RiskyUserItemRequestBuilder;
@@ -26,6 +27,13 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     */
     public function confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the confirmSafe method.
+    */
+    public function confirmSafe(): ConfirmSafeRequestBuilder {
+        return new ConfirmSafeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -68,11 +76,11 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a collection of riskyUser objects.
+     * Retrieve the properties and relationships of a riskyUser object.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskyUserCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/riskyusers-list?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/riskyusers-get?view=graph-rest-beta Find more info here
     */
     public function get(?RiskyUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -98,7 +106,7 @@ class RiskyUsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a collection of riskyUser objects.
+     * Retrieve the properties and relationships of a riskyUser object.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

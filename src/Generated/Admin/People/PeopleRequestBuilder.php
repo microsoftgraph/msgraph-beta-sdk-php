@@ -8,6 +8,8 @@ use Microsoft\Graph\Beta\Generated\Admin\People\ItemInsights\ItemInsightsRequest
 use Microsoft\Graph\Beta\Generated\Admin\People\NamePronunciation\NamePronunciationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\ProfilePropertySettings\ProfilePropertySettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\People\ProfileSources\ProfileSourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\People\ProfileSourcesWithSourceId\ProfileSourcesWithSourceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\Pronouns\PronounsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PeopleAdminSettings;
@@ -47,6 +49,13 @@ class PeopleRequestBuilder extends BaseRequestBuilder
     */
     public function profilePropertySettings(): ProfilePropertySettingsRequestBuilder {
         return new ProfilePropertySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the profileSources property of the microsoft.graph.peopleAdminSettings entity.
+    */
+    public function profileSources(): ProfileSourcesRequestBuilder {
+        return new ProfileSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -112,6 +121,15 @@ class PeopleRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [PeopleAdminSettings::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to manage the profileSources property of the microsoft.graph.peopleAdminSettings entity.
+     * @param string $sourceId Alternate key of profileSource
+     * @return ProfileSourcesWithSourceIdRequestBuilder
+    */
+    public function profileSourcesWithSourceId(string $sourceId): ProfileSourcesWithSourceIdRequestBuilder {
+        return new ProfileSourcesWithSourceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $sourceId);
     }
 
     /**

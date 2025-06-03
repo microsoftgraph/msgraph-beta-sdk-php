@@ -26,7 +26,7 @@ class ProtectedApplicationMetadata extends IntegratedApplicationMetadata impleme
     }
 
     /**
-     * Gets the applicationLocation property value. For internal use only. Don't use.
+     * Gets the applicationLocation property value. The Entra client (application) ID. Required.
      * @return PolicyLocation|null
     */
     public function getApplicationLocation(): ?PolicyLocation {
@@ -58,7 +58,7 @@ class ProtectedApplicationMetadata extends IntegratedApplicationMetadata impleme
     }
 
     /**
-     * Sets the applicationLocation property value. For internal use only. Don't use.
+     * Sets the applicationLocation property value. The Entra client (application) ID. Required.
      * @param PolicyLocation|null $value Value to set for the applicationLocation property.
     */
     public function setApplicationLocation(?PolicyLocation $value): void {

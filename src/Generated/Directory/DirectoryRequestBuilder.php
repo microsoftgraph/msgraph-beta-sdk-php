@@ -20,6 +20,7 @@ use Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\OnPremise
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\OutboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\PendingExternalUserProfiles\PendingExternalUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\PublicKeyInfrastructureRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\RecommendationConfiguration\RecommendationConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
@@ -148,6 +149,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function publicKeyInfrastructure(): PublicKeyInfrastructureRequestBuilder {
         return new PublicKeyInfrastructureRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the recommendationConfiguration property of the microsoft.graph.directory entity.
+    */
+    public function recommendationConfiguration(): RecommendationConfigurationRequestBuilder {
+        return new RecommendationConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
