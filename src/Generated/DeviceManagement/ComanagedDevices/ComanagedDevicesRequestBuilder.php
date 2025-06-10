@@ -5,9 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\AppDiagnosticsWithUpn\AppDiagnosticsWithUpnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\BulkReprovisionCloudPc\BulkReprovisionCloudPcRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\BulkRestoreCloudPc\BulkRestoreCloudPcRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\BulkSetCloudPcReviewStatus\BulkSetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\DownloadPowerliftAppDiagnostic\DownloadPowerliftAppDiagnosticRequestBuilder;
@@ -28,27 +25,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ComanagedDevicesRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to call the bulkReprovisionCloudPc method.
-    */
-    public function bulkReprovisionCloudPc(): BulkReprovisionCloudPcRequestBuilder {
-        return new BulkReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the bulkRestoreCloudPc method.
-    */
-    public function bulkRestoreCloudPc(): BulkRestoreCloudPcRequestBuilder {
-        return new BulkRestoreCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the bulkSetCloudPcReviewStatus method.
-    */
-    public function bulkSetCloudPcReviewStatus(): BulkSetCloudPcReviewStatusRequestBuilder {
-        return new BulkSetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to count the resources in the collection.
     */

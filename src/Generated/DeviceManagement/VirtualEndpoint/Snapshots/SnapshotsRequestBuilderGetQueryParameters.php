@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapsh
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of cloudPcSnapshot objects and their properties.
+ * Cloud PC snapshots.
 */
 class SnapshotsRequestBuilderGetQueryParameters 
 {

@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\CloudPC;
 use Microsoft\Graph\Beta\Generated\Models\CloudPCCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\BulkResize\BulkResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\GetProvisionedCloudPCsWithGroupIdWithServicePlanId\GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\CloudPCItemRequestBuilder;
@@ -22,13 +21,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CloudPCsRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to call the bulkResize method.
-    */
-    public function bulkResize(): BulkResizeRequestBuilder {
-        return new BulkResizeRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to count the resources in the collection.
     */
