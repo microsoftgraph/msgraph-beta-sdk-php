@@ -23,8 +23,6 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Disable\Disabl
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DisableLostMode\DisableLostModeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnableLostMode\EnableLostModeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnrollNowAction\EnrollNowActionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetCloudPcRemoteActionResults\GetCloudPcRemoteActionResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetCloudPcReviewStatus\GetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetFileVaultKey\GetFileVaultKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetNonCompliantSettings\GetNonCompliantSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\InitiateDeviceAttestation\InitiateDeviceAttestationRequestBuilder;
@@ -51,7 +49,6 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateFileVaul
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateLocalAdminPassword\RotateLocalAdminPasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\SecurityBaselineStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SendCustomNotificationToCompanyPortal\SendCustomNotificationToCompanyPortalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SetCloudPcReviewStatus\SetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SetDeviceName\SetDeviceNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ShutDown\ShutDownRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SyncDevice\SyncDeviceRequestBuilder;
@@ -189,20 +186,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function enrollNowAction(): EnrollNowActionRequestBuilder {
         return new EnrollNowActionRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getCloudPcRemoteActionResults method.
-    */
-    public function getCloudPcRemoteActionResults(): GetCloudPcRemoteActionResultsRequestBuilder {
-        return new GetCloudPcRemoteActionResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getCloudPcReviewStatus method.
-    */
-    public function getCloudPcReviewStatus(): GetCloudPcReviewStatusRequestBuilder {
-        return new GetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -388,13 +371,6 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to call the setCloudPcReviewStatus method.
-    */
-    public function setCloudPcReviewStatus(): SetCloudPcReviewStatusRequestBuilder {
-        return new SetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to call the setDeviceName method.
     */
     public function setDeviceName(): SetDeviceNameRequestBuilder {
@@ -535,6 +511,7 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

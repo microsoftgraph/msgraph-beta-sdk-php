@@ -37,7 +37,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Gets the maximumCount property value. Maximum number of simple settings in the collection
+     * Gets the maximumCount property value. Maximum number of simple settings in the collection. Valid values 1 to 100
      * @return int|null
     */
     public function getMaximumCount(): ?int {
@@ -49,7 +49,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Gets the minimumCount property value. Minimum number of simple settings in the collection
+     * Gets the minimumCount property value. Minimum number of simple settings in the collection. Valid values 1 to 100
      * @return int|null
     */
     public function getMinimumCount(): ?int {
@@ -71,7 +71,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Sets the maximumCount property value. Maximum number of simple settings in the collection
+     * Sets the maximumCount property value. Maximum number of simple settings in the collection. Valid values 1 to 100
      * @param int|null $value Value to set for the maximumCount property.
     */
     public function setMaximumCount(?int $value): void {
@@ -79,7 +79,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     }
 
     /**
-     * Sets the minimumCount property value. Minimum number of simple settings in the collection
+     * Sets the minimumCount property value. Minimum number of simple settings in the collection. Valid values 1 to 100
      * @param int|null $value Value to set for the minimumCount property.
     */
     public function setMinimumCount(?int $value): void {

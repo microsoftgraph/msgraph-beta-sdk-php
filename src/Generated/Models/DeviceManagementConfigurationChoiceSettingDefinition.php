@@ -33,7 +33,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the defaultOptionId property value. Default option for the choice setting.
+     * Gets the defaultOptionId property value. Default option for choice setting
      * @return string|null
     */
     public function getDefaultOptionId(): ?string {
@@ -57,7 +57,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Gets the options property value. Options for the setting that can be selected.
+     * Gets the options property value. Options for the setting that can be selected
      * @return array<DeviceManagementConfigurationOptionDefinition>|null
     */
     public function getOptions(): ?array {
@@ -81,7 +81,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the defaultOptionId property value. Default option for the choice setting.
+     * Sets the defaultOptionId property value. Default option for choice setting
      * @param string|null $value Value to set for the defaultOptionId property.
     */
     public function setDefaultOptionId(?string $value): void {
@@ -89,7 +89,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     }
 
     /**
-     * Sets the options property value. Options for the setting that can be selected.
+     * Sets the options property value. Options for the setting that can be selected
      * @param array<DeviceManagementConfigurationOptionDefinition>|null $value Value to set for the options property.
     */
     public function setOptions(?array $value): void {
