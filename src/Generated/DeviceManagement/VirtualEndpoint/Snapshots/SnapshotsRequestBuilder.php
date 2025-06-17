@@ -61,11 +61,10 @@ class SnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of cloudPcSnapshot objects and their properties.
+     * Cloud PC snapshots.
      * @param SnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcSnapshotCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-snapshots?view=graph-rest-beta Find more info here
     */
     public function get(?SnapshotsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -100,7 +99,7 @@ class SnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of cloudPcSnapshot objects and their properties.
+     * Cloud PC snapshots.
      * @param SnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

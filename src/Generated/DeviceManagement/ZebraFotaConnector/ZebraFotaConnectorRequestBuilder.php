@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\ApproveFo
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\Connect\ConnectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\Disconnect\DisconnectRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\HasActiveDeployments\HasActiveDeploymentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\RetrieveZebraFotaDeviceModels\RetrieveZebraFotaDeviceModelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ZebraFotaConnector;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -46,6 +47,13 @@ class ZebraFotaConnectorRequestBuilder extends BaseRequestBuilder
     */
     public function hasActiveDeployments(): HasActiveDeploymentsRequestBuilder {
         return new HasActiveDeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveZebraFotaDeviceModels method.
+    */
+    public function retrieveZebraFotaDeviceModels(): RetrieveZebraFotaDeviceModelsRequestBuilder {
+        return new RetrieveZebraFotaDeviceModelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -119,6 +127,7 @@ class ZebraFotaConnectorRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
+        $requestInfo->tryAddHeader('Accept', "application/json");
         return $requestInfo;
     }
 

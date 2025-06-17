@@ -49,4 +49,7 @@ class AppCategory extends Enum {
     public const GENERATIVE_AI = "generativeAi";
     public const UNKNOWN = "unknown";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const AI_MODEL_PROVIDER = "aiModelProvider";
+    public const MCP_SERVER = "mcpServer";
+    public const CLIENT_AI_APP = "clientAiApp";
 }

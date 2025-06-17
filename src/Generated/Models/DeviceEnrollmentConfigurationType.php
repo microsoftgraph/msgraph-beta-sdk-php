@@ -18,4 +18,5 @@ class DeviceEnrollmentConfigurationType extends Enum {
     public const SINGLE_PLATFORM_RESTRICTION = "singlePlatformRestriction";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const ENROLLMENT_NOTIFICATIONS_CONFIGURATION = "enrollmentNotificationsConfiguration";
+    public const WINDOWS_RESTORE = "windowsRestore";
 }

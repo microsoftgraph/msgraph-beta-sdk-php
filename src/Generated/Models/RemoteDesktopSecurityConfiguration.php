@@ -26,12 +26,27 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
+     * Gets the approvedClientApps property value. The approvedClientApps property
+     * @return array<ApprovedClientApp>|null
+    */
+    public function getApprovedClientApps(): ?array {
+        $val = $this->getBackingStore()->get('approvedClientApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ApprovedClientApp::class);
+            /** @var array<ApprovedClientApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvedClientApps'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'approvedClientApps' => fn(ParseNode $n) => $o->setApprovedClientApps($n->getCollectionOfObjectValues([ApprovedClientApp::class, 'createFromDiscriminatorValue'])),
             'isRemoteDesktopProtocolEnabled' => fn(ParseNode $n) => $o->setIsRemoteDesktopProtocolEnabled($n->getBooleanValue()),
             'targetDeviceGroups' => fn(ParseNode $n) => $o->setTargetDeviceGroups($n->getCollectionOfObjectValues([TargetDeviceGroup::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -69,8 +84,17 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('approvedClientApps', $this->getApprovedClientApps());
         $writer->writeBooleanValue('isRemoteDesktopProtocolEnabled', $this->getIsRemoteDesktopProtocolEnabled());
         $writer->writeCollectionOfObjectValues('targetDeviceGroups', $this->getTargetDeviceGroups());
+    }
+
+    /**
+     * Sets the approvedClientApps property value. The approvedClientApps property
+     * @param array<ApprovedClientApp>|null $value Value to set for the approvedClientApps property.
+    */
+    public function setApprovedClientApps(?array $value): void {
+        $this->getBackingStore()->set('approvedClientApps', $value);
     }
 
     /**
