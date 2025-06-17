@@ -28,6 +28,8 @@ class DeviceType extends Enum {
     public const ANDROIDN_G_M_S = "androidnGMS";
     public const CHROME_O_S = "chromeOS";
     public const LINUX = "linux";
+    public const VISION_O_S = "visionOS";
+    public const TV_O_S = "tvOS";
     public const BLACKBERRY = "blackberry";
     public const PALM = "palm";
     public const UNKNOWN = "unknown";

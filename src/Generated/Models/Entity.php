@@ -498,6 +498,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.approvalSolution': return new ApprovalSolution();
                 case '#microsoft.graph.approvalStep': return new ApprovalStep();
                 case '#microsoft.graph.approvalWorkflowProvider': return new ApprovalWorkflowProvider();
+                case '#microsoft.graph.approvedClientApp': return new ApprovedClientApp();
                 case '#microsoft.graph.appScope': return new AppScope();
                 case '#microsoft.graph.appVulnerabilityManagedDevice': return new AppVulnerabilityManagedDevice();
                 case '#microsoft.graph.appVulnerabilityMobileApp': return new AppVulnerabilityMobileApp();

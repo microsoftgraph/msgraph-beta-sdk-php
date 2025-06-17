@@ -9,4 +9,5 @@ class RoleAssignmentScopeType extends Enum {
     public const ALL_DEVICES = "allDevices";
     public const ALL_LICENSED_USERS = "allLicensedUsers";
     public const ALL_DEVICES_AND_LICENSED_USERS = "allDevicesAndLicensedUsers";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

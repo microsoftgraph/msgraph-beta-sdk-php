@@ -43,6 +43,14 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
                 /** @var array<string>|null $val */
                 $this->setMembers($val);
             },
+            'roleScopeTagIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoleScopeTagIds($val);
+            },
             'roleScopeTags' => fn(ParseNode $n) => $o->setRoleScopeTags($n->getCollectionOfObjectValues([RoleScopeTag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -59,6 +67,20 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'members'");
+    }
+
+    /**
+     * Gets the roleScopeTagIds property value. Indicates the set of role scope tag IDs for the role assignment. These scope tags will limit the visibility of any Intune resources to those that match any of the scope tags in this collection.
+     * @return array<string>|null
+    */
+    public function getRoleScopeTagIds(): ?array {
+        $val = $this->getBackingStore()->get('roleScopeTagIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -82,6 +104,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('members', $this->getMembers());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeCollectionOfObjectValues('roleScopeTags', $this->getRoleScopeTags());
     }
 
@@ -91,6 +114,14 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
+    }
+
+    /**
+     * Sets the roleScopeTagIds property value. Indicates the set of role scope tag IDs for the role assignment. These scope tags will limit the visibility of any Intune resources to those that match any of the scope tags in this collection.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
+    */
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**

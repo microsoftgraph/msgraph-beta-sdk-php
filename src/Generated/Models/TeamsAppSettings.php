@@ -37,7 +37,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the customAppSettings property value. The customAppSettings property
+     * Gets the customAppSettings property value. The settings for all custom apps in the tenant.
      * @return CustomAppSettings|null
     */
     public function getCustomAppSettings(): ?CustomAppSettings {
@@ -107,7 +107,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the customAppSettings property value. The customAppSettings property
+     * Sets the customAppSettings property value. The settings for all custom apps in the tenant.
      * @param CustomAppSettings|null $value Value to set for the customAppSettings property.
     */
     public function setCustomAppSettings(?CustomAppSettings $value): void {

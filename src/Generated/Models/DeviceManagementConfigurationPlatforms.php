@@ -15,4 +15,6 @@ class DeviceManagementConfigurationPlatforms extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const ANDROID_ENTERPRISE = "androidEnterprise";
     public const AOSP = "aosp";
+    public const VISION_O_S = "visionOS";
+    public const TV_O_S = "tvOS";
 }
