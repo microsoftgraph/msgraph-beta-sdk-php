@@ -11,7 +11,7 @@ You can install the Beta PHP SDK with Composer by editing your `composer.json` f
 {
     "require": {
          // x-release-please-start-version
-        "microsoft/microsoft-graph-beta": "^2.39.0"
+        "microsoft/microsoft-graph-beta": "^2.40.0"
          // x-release-please-end
     }
 }
