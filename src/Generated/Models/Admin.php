@@ -69,6 +69,18 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the configurationManagement property value. The configurationManagement property
+     * @return ConfigurationManagement|null
+    */
+    public function getConfigurationManagement(): ?ConfigurationManagement {
+        $val = $this->getBackingStore()->get('configurationManagement');
+        if (is_null($val) || $val instanceof ConfigurationManagement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationManagement'");
+    }
+
+    /**
      * Gets the dynamics property value. The dynamics property
      * @return AdminDynamics|null
     */
@@ -124,6 +136,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'appsAndServices' => fn(ParseNode $n) => $o->setAppsAndServices($n->getObjectValue([AdminAppsAndServices::class, 'createFromDiscriminatorValue'])),
+            'configurationManagement' => fn(ParseNode $n) => $o->setConfigurationManagement($n->getObjectValue([ConfigurationManagement::class, 'createFromDiscriminatorValue'])),
             'dynamics' => fn(ParseNode $n) => $o->setDynamics($n->getObjectValue([AdminDynamics::class, 'createFromDiscriminatorValue'])),
             'edge' => fn(ParseNode $n) => $o->setEdge($n->getObjectValue([Edge::class, 'createFromDiscriminatorValue'])),
             'entra' => fn(ParseNode $n) => $o->setEntra($n->getObjectValue([Entra::class, 'createFromDiscriminatorValue'])),
@@ -267,6 +280,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('appsAndServices', $this->getAppsAndServices());
+        $writer->writeObjectValue('configurationManagement', $this->getConfigurationManagement());
         $writer->writeObjectValue('dynamics', $this->getDynamics());
         $writer->writeObjectValue('edge', $this->getEdge());
         $writer->writeObjectValue('entra', $this->getEntra());
@@ -306,6 +320,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the configurationManagement property value. The configurationManagement property
+     * @param ConfigurationManagement|null $value Value to set for the configurationManagement property.
+    */
+    public function setConfigurationManagement(?ConfigurationManagement $value): void {
+        $this->getBackingStore()->set('configurationManagement', $value);
     }
 
     /**

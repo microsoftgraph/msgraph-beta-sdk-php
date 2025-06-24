@@ -45,10 +45,11 @@ class SelfServiceSignUpItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signUps from auditLogs
+     * Retrieve a specific Microsoft Entra External ID user selfServiceSignUp event for your tenant.  
      * @param SelfServiceSignUpItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SelfServiceSignUp|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/selfservicesignup-get?view=graph-rest-beta Find more info here
     */
     public function get(?SelfServiceSignUpItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class SelfServiceSignUpItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signUps from auditLogs
+     * Retrieve a specific Microsoft Entra External ID user selfServiceSignUp event for your tenant.  
      * @param SelfServiceSignUpItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

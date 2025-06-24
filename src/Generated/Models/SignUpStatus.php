@@ -48,7 +48,7 @@ class SignUpStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the additionalDetails property value. The additionalDetails property
+     * Gets the additionalDetails property value. Provides additional details on the sign-up activity.
      * @return string|null
     */
     public function getAdditionalDetails(): ?string {
@@ -68,7 +68,7 @@ class SignUpStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the errorCode property value. The errorCode property
+     * Gets the errorCode property value. Provides the 5-6 digit error code that's generated during a sign-up failure.
      * @return int|null
     */
     public function getErrorCode(): ?int {
@@ -80,7 +80,7 @@ class SignUpStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the failureReason property value. The failureReason property
+     * Gets the failureReason property value. Provides the error message or the reason for failure for the corresponding sign-up activity.
      * @return string|null
     */
     public function getFailureReason(): ?string {
@@ -138,7 +138,7 @@ class SignUpStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the additionalDetails property value. The additionalDetails property
+     * Sets the additionalDetails property value. Provides additional details on the sign-up activity.
      * @param string|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?string $value): void {
@@ -154,7 +154,7 @@ class SignUpStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the errorCode property value. The errorCode property
+     * Sets the errorCode property value. Provides the 5-6 digit error code that's generated during a sign-up failure.
      * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
@@ -162,7 +162,7 @@ class SignUpStatus implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the failureReason property value. The failureReason property
+     * Sets the failureReason property value. Provides the error message or the reason for failure for the corresponding sign-up activity.
      * @param string|null $value Value to set for the failureReason property.
     */
     public function setFailureReason(?string $value): void {

@@ -81,7 +81,7 @@ class SignUpIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signUpIdentifier property value. The signUpIdentifier property
+     * Gets the signUpIdentifier property value. The identification that the user is trying to utilize to sign up.
      * @return string|null
     */
     public function getSignUpIdentifier(): ?string {
@@ -93,7 +93,7 @@ class SignUpIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signUpIdentifierType property value. The signUpIdentifierType property
+     * Gets the signUpIdentifierType property value. The type of sign-up the user initiated. Possible values include:  emailAddress, unknownFutureValue. Supports $filter (eq) on the emailAddress.
      * @return SignUpIdentifierType|null
     */
     public function getSignUpIdentifierType(): ?SignUpIdentifierType {
@@ -140,7 +140,7 @@ class SignUpIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the signUpIdentifier property value. The signUpIdentifier property
+     * Sets the signUpIdentifier property value. The identification that the user is trying to utilize to sign up.
      * @param string|null $value Value to set for the signUpIdentifier property.
     */
     public function setSignUpIdentifier(?string $value): void {
@@ -148,7 +148,7 @@ class SignUpIdentity implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the signUpIdentifierType property value. The signUpIdentifierType property
+     * Sets the signUpIdentifierType property value. The type of sign-up the user initiated. Possible values include:  emailAddress, unknownFutureValue. Supports $filter (eq) on the emailAddress.
      * @param SignUpIdentifierType|null $value Value to set for the signUpIdentifierType property.
     */
     public function setSignUpIdentifierType(?SignUpIdentifierType $value): void {

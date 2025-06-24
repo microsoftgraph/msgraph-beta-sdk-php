@@ -83,6 +83,18 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
+     * Gets the deviceMetadata property value. The deviceMetadata property
+     * @return DeviceMetadata|null
+    */
+    public function getDeviceMetadata(): ?DeviceMetadata {
+        $val = $this->getBackingStore()->get('deviceMetadata');
+        if (is_null($val) || $val instanceof DeviceMetadata) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceMetadata'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -91,6 +103,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
         return  [
             'activityMetadata' => fn(ParseNode $n) => $o->setActivityMetadata($n->getObjectValue([ActivityMetadata::class, 'createFromDiscriminatorValue'])),
             'contentEntries' => fn(ParseNode $n) => $o->setContentEntries($n->getCollectionOfObjectValues([ProcessContentMetadataBase::class, 'createFromDiscriminatorValue'])),
+            'deviceMetadata' => fn(ParseNode $n) => $o->setDeviceMetadata($n->getObjectValue([DeviceMetadata::class, 'createFromDiscriminatorValue'])),
             'integratedAppMetadata' => fn(ParseNode $n) => $o->setIntegratedAppMetadata($n->getObjectValue([IntegratedApplicationMetadata::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'protectedAppMetadata' => fn(ParseNode $n) => $o->setProtectedAppMetadata($n->getObjectValue([ProtectedApplicationMetadata::class, 'createFromDiscriminatorValue'])),
@@ -140,6 +153,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('activityMetadata', $this->getActivityMetadata());
         $writer->writeCollectionOfObjectValues('contentEntries', $this->getContentEntries());
+        $writer->writeObjectValue('deviceMetadata', $this->getDeviceMetadata());
         $writer->writeObjectValue('integratedAppMetadata', $this->getIntegratedAppMetadata());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('protectedAppMetadata', $this->getProtectedAppMetadata());
@@ -176,6 +190,14 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function setContentEntries(?array $value): void {
         $this->getBackingStore()->set('contentEntries', $value);
+    }
+
+    /**
+     * Sets the deviceMetadata property value. The deviceMetadata property
+     * @param DeviceMetadata|null $value Value to set for the deviceMetadata property.
+    */
+    public function setDeviceMetadata(?DeviceMetadata $value): void {
+        $this->getBackingStore()->set('deviceMetadata', $value);
     }
 
     /**

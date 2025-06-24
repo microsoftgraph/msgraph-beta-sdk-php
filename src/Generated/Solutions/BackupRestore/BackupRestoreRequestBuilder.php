@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveInclusionRules\DriveInclusionRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnits\DriveProtectionUnitsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs\DriveProtectionUnitsBulkAdditionJobsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\EmailNotificationsSetting\EmailNotificationsSettingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\Enable\EnableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\ExchangeProtectionPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\ExchangeRestoreSessionsRequestBuilder;
@@ -56,6 +57,13 @@ class BackupRestoreRequestBuilder extends BaseRequestBuilder
     */
     public function driveProtectionUnitsBulkAdditionJobs(): DriveProtectionUnitsBulkAdditionJobsRequestBuilder {
         return new DriveProtectionUnitsBulkAdditionJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the emailNotificationsSetting property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function emailNotificationsSetting(): EmailNotificationsSettingRequestBuilder {
+        return new EmailNotificationsSettingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
