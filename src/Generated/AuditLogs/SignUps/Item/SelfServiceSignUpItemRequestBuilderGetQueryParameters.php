@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignUps\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get signUps from auditLogs
+ * Retrieve a specific Microsoft Entra External ID user selfServiceSignUp event for your tenant.  
 */
 class SelfServiceSignUpItemRequestBuilderGetQueryParameters 
 {

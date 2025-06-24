@@ -27,7 +27,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the appDisplayName property value. The appDisplayName property
+     * Gets the appDisplayName property value. App name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
@@ -39,7 +39,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. Unique GUID that represents the app ID in the Microsoft Entra ID.  Supports $filter (eq).
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -51,7 +51,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliedEventListeners property value. The appliedEventListeners property
+     * Gets the appliedEventListeners property value. Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, which the corresponding events in the sign-up event triggered.
      * @return array<AppliedAuthenticationEventListener>|null
     */
     public function getAppliedEventListeners(): ?array {
@@ -65,7 +65,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the correlationId property value. The correlationId property
+     * Gets the correlationId property value. The request ID sent from the client when the sign-up is initiated. Used to troubleshoot sign-up activity.  Supports $filter (eq).
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -77,7 +77,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time (UTC) the sign-up was initiated. Example: midnight on Jan 1, 2014 is reported as 2014-01-01T00:00:00Z.  Supports $orderby, $filter (eq, le, and ge).
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -109,7 +109,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the signUpIdentity property value. The signUpIdentity property
+     * Gets the signUpIdentity property value. Unique identifier for self-service sign-up user. Supports $filter (eq) on the signUpIdentifierType.
      * @return SignUpIdentity|null
     */
     public function getSignUpIdentity(): ?SignUpIdentity {
@@ -121,7 +121,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the signUpIdentityProvider property value. The signUpIdentityProvider property
+     * Gets the signUpIdentityProvider property value. Describes the type of account for which the user registered. Values include Email OTP, Email Password, Google.
      * @return string|null
     */
     public function getSignUpIdentityProvider(): ?string {
@@ -145,7 +145,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Sign-up status. Includes the error code and description of the error (if a sign-up failure or interrupt occurs).  Supports $filter (eq) on errorCode property.
      * @return SignUpStatus|null
     */
     public function getStatus(): ?SignUpStatus {
@@ -187,7 +187,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the appDisplayName property value. The appDisplayName property
+     * Sets the appDisplayName property value. App name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
@@ -195,7 +195,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. Unique GUID that represents the app ID in the Microsoft Entra ID.  Supports $filter (eq).
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
@@ -203,7 +203,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the appliedEventListeners property value. The appliedEventListeners property
+     * Sets the appliedEventListeners property value. Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, which the corresponding events in the sign-up event triggered.
      * @param array<AppliedAuthenticationEventListener>|null $value Value to set for the appliedEventListeners property.
     */
     public function setAppliedEventListeners(?array $value): void {
@@ -211,7 +211,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the correlationId property value. The correlationId property
+     * Sets the correlationId property value. The request ID sent from the client when the sign-up is initiated. Used to troubleshoot sign-up activity.  Supports $filter (eq).
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
@@ -219,7 +219,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time (UTC) the sign-up was initiated. Example: midnight on Jan 1, 2014 is reported as 2014-01-01T00:00:00Z.  Supports $orderby, $filter (eq, le, and ge).
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -227,7 +227,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the signUpIdentity property value. The signUpIdentity property
+     * Sets the signUpIdentity property value. Unique identifier for self-service sign-up user. Supports $filter (eq) on the signUpIdentifierType.
      * @param SignUpIdentity|null $value Value to set for the signUpIdentity property.
     */
     public function setSignUpIdentity(?SignUpIdentity $value): void {
@@ -235,7 +235,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the signUpIdentityProvider property value. The signUpIdentityProvider property
+     * Sets the signUpIdentityProvider property value. Describes the type of account for which the user registered. Values include Email OTP, Email Password, Google.
      * @param string|null $value Value to set for the signUpIdentityProvider property.
     */
     public function setSignUpIdentityProvider(?string $value): void {
@@ -251,7 +251,7 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Sign-up status. Includes the error code and description of the error (if a sign-up failure or interrupt occurs).  Supports $filter (eq) on errorCode property.
      * @param SignUpStatus|null $value Value to set for the status property.
     */
     public function setStatus(?SignUpStatus $value): void {

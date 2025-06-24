@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Gro
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * When the request activates a membership or ownership in PIM for groups, this object represents the eligibility request for the group. Otherwise, it's null.
+ * When the request activates a membership or ownership in PIM for Groups, this object represents the eligibility request for the group. Otherwise, it's null.
 */
 class ActivatedUsingRequestBuilderGetQueryParameters 
 {

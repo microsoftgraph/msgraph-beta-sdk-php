@@ -52,10 +52,11 @@ class SignUpsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signUps from auditLogs
+     * Retrieve the Microsoft Entra External ID user selfServiceSignUps events for your tenant.  The maximum and default page size is 1,000 objects and by default, the most recent sign-ups are returned first. Only sign-up events that occurred within the Microsoft Entra ID default retention period are available.
      * @param SignUpsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SelfServiceSignUpCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/auditlogroot-list-signups?view=graph-rest-beta Find more info here
     */
     public function get(?SignUpsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class SignUpsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get signUps from auditLogs
+     * Retrieve the Microsoft Entra External ID user selfServiceSignUps events for your tenant.  The maximum and default page size is 1,000 objects and by default, the most recent sign-ups are returned first. Only sign-up events that occurred within the Microsoft Entra ID default retention period are available.
      * @param SignUpsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

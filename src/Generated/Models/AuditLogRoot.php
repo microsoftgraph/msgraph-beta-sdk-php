@@ -142,7 +142,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signIns property value. The signIns property
+     * Gets the signIns property value. Represents Microsoft Entra sign-in events. Read-only. Nullable.
      * @return array<SignIn>|null
     */
     public function getSignIns(): ?array {
@@ -156,7 +156,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signUps property value. The signUps property
+     * Gets the signUps property value. Represents sign up events in Microsoft Entra External ID. Read-only. Nullable.
      * @return array<SelfServiceSignUp>|null
     */
     public function getSignUps(): ?array {
@@ -241,7 +241,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the signIns property value. The signIns property
+     * Sets the signIns property value. Represents Microsoft Entra sign-in events. Read-only. Nullable.
      * @param array<SignIn>|null $value Value to set for the signIns property.
     */
     public function setSignIns(?array $value): void {
@@ -249,7 +249,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the signUps property value. The signUps property
+     * Sets the signUps property value. Represents sign up events in Microsoft Entra External ID. Read-only. Nullable.
      * @param array<SelfServiceSignUp>|null $value Value to set for the signUps property.
     */
     public function setSignUps(?array $value): void {

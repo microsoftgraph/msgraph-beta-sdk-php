@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\AppsAndServices\AppsAndServicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Dynamics\DynamicsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Edge\EdgeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Entra\EntraRequestBuilder;
@@ -35,6 +36,13 @@ class AdminRequestBuilder extends BaseRequestBuilder
     */
     public function appsAndServices(): AppsAndServicesRequestBuilder {
         return new AppsAndServicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the configurationManagement property of the microsoft.graph.admin entity.
+    */
+    public function configurationManagement(): ConfigurationManagementRequestBuilder {
+        return new ConfigurationManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignUps;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get signUps from auditLogs
+ * Retrieve the Microsoft Entra External ID user selfServiceSignUps events for your tenant.  The maximum and default page size is 1,000 objects and by default, the most recent sign-ups are returned first. Only sign-up events that occurred within the Microsoft Entra ID default retention period are available.
 */
 class SignUpsRequestBuilderGetQueryParameters 
 {

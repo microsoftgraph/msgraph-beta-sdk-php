@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+ * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for Groups.
 */
 class RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters 
 {

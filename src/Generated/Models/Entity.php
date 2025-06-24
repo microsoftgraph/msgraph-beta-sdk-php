@@ -691,6 +691,13 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.conditionalAccessRoot': return new ConditionalAccessRoot();
                 case '#microsoft.graph.conditionalAccessTemplate': return new ConditionalAccessTemplate();
                 case '#microsoft.graph.configManagerCollection': return new ConfigManagerCollection();
+                case '#microsoft.graph.configurationApplication': return new ConfigurationApplication();
+                case '#microsoft.graph.configurationBaseline': return new ConfigurationBaseline();
+                case '#microsoft.graph.configurationDrift': return new ConfigurationDrift();
+                case '#microsoft.graph.configurationManagement': return new ConfigurationManagement();
+                case '#microsoft.graph.configurationMonitor': return new ConfigurationMonitor();
+                case '#microsoft.graph.configurationMonitoringResult': return new ConfigurationMonitoringResult();
+                case '#microsoft.graph.configurationSnapshotJob': return new ConfigurationSnapshotJob();
                 case '#microsoft.graph.connectedOrganization': return new ConnectedOrganization();
                 case '#microsoft.graph.connectionOperation': return new ConnectionOperation();
                 case '#microsoft.graph.connector': return new Connector();
@@ -968,6 +975,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.emailAuthenticationMethod': return new EmailAuthenticationMethod();
                 case '#microsoft.graph.emailAuthenticationMethodConfiguration': return new EmailAuthenticationMethodConfiguration();
                 case '#microsoft.graph.emailFileAssessmentRequest': return new EmailFileAssessmentRequest();
+                case '#microsoft.graph.emailNotificationsSetting': return new EmailNotificationsSetting();
                 case '#microsoft.graph.embeddedSIMActivationCodePool': return new EmbeddedSIMActivationCodePool();
                 case '#microsoft.graph.embeddedSIMActivationCodePoolAssignment': return new EmbeddedSIMActivationCodePoolAssignment();
                 case '#microsoft.graph.embeddedSIMDeviceState': return new EmbeddedSIMDeviceState();
