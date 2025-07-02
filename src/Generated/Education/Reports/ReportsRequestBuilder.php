@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Education\Reports\ReadingAssignmentSubmissions\ReadingAssignmentSubmissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInResponses\ReflectCheckInResponsesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Reports\SpeakerAssignmentSubmissions\SpeakerAssignmentSubmissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ReportsRoot;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -30,6 +31,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function reflectCheckInResponses(): ReflectCheckInResponsesRequestBuilder {
         return new ReflectCheckInResponsesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the speakerAssignmentSubmissions property of the microsoft.graph.reportsRoot entity.
+    */
+    public function speakerAssignmentSubmissions(): SpeakerAssignmentSubmissionsRequestBuilder {
+        return new SpeakerAssignmentSubmissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

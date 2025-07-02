@@ -1556,7 +1556,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.organizationalBranding': return new OrganizationalBranding();
                 case '#microsoft.graph.organizationalBrandingLocalization': return new OrganizationalBrandingLocalization();
                 case '#microsoft.graph.organizationalBrandingProperties': return new OrganizationalBrandingProperties();
-                case '#microsoft.graph.organizationalUnit': return new OrganizationalUnit();
                 case '#microsoft.graph.organizationSettings': return new OrganizationSettings();
                 case '#microsoft.graph.orgContact': return new OrgContact();
                 case '#microsoft.graph.outlookCategory': return new OutlookCategory();
@@ -1628,6 +1627,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.personResponsibility': return new PersonResponsibility();
                 case '#microsoft.graph.personWebsite': return new PersonWebsite();
                 case '#microsoft.graph.phoneAuthenticationMethod': return new PhoneAuthenticationMethod();
+                case '#microsoft.graph.phoneUserConversationMember': return new PhoneUserConversationMember();
                 case '#microsoft.graph.pinnedChatMessageInfo': return new PinnedChatMessageInfo();
                 case '#microsoft.graph.place': return new Place();
                 case '#microsoft.graph.planner': return new Planner();
@@ -1975,6 +1975,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.softwareOathAuthenticationMethod': return new SoftwareOathAuthenticationMethod();
                 case '#microsoft.graph.softwareOathAuthenticationMethodConfiguration': return new SoftwareOathAuthenticationMethodConfiguration();
                 case '#microsoft.graph.softwareUpdateStatusSummary': return new SoftwareUpdateStatusSummary();
+                case '#microsoft.graph.speakerAssignmentSubmission': return new SpeakerAssignmentSubmission();
                 case '#microsoft.graph.staleSignInAlertConfiguration': return new StaleSignInAlertConfiguration();
                 case '#microsoft.graph.staleSignInAlertIncident': return new StaleSignInAlertIncident();
                 case '#microsoft.graph.standardWebPart': return new StandardWebPart();

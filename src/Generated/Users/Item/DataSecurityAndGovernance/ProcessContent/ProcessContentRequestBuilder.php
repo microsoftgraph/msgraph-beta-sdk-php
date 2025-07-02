@@ -31,7 +31,7 @@ class ProcessContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Process content against data protection policies in the context of the current user. 
+     * Process content against data protection policies in the context of the current, or specified, user.
      * @param ProcessContentPostRequestBody $body The request body
      * @param ProcessContentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProcessContentResponse|null>
@@ -47,7 +47,7 @@ class ProcessContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Process content against data protection policies in the context of the current user. 
+     * Process content against data protection policies in the context of the current, or specified, user.
      * @param ProcessContentPostRequestBody $body The request body
      * @param ProcessContentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

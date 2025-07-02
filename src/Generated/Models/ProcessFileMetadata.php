@@ -50,7 +50,7 @@ class ProcessFileMetadata extends ProcessContentMetadataBase implements Parsable
     }
 
     /**
-     * Gets the ownerId property value. The unique identifier (for example, Object ID or UPN) of the owner of the file.
+     * Gets the ownerId property value. The unique identifier (for example, Entra User ID or UPN) of the owner of the file.
      * @return string|null
     */
     public function getOwnerId(): ?string {
@@ -80,7 +80,7 @@ class ProcessFileMetadata extends ProcessContentMetadataBase implements Parsable
     }
 
     /**
-     * Sets the ownerId property value. The unique identifier (for example, Object ID or UPN) of the owner of the file.
+     * Sets the ownerId property value. The unique identifier (for example, Entra User ID or UPN) of the owner of the file.
      * @param string|null $value Value to set for the ownerId property.
     */
     public function setOwnerId(?string $value): void {

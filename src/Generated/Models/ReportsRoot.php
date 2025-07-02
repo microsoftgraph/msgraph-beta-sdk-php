@@ -34,6 +34,7 @@ class ReportsRoot extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'readingAssignmentSubmissions' => fn(ParseNode $n) => $o->setReadingAssignmentSubmissions($n->getCollectionOfObjectValues([ReadingAssignmentSubmission::class, 'createFromDiscriminatorValue'])),
             'reflectCheckInResponses' => fn(ParseNode $n) => $o->setReflectCheckInResponses($n->getCollectionOfObjectValues([ReflectCheckInResponse::class, 'createFromDiscriminatorValue'])),
+            'speakerAssignmentSubmissions' => fn(ParseNode $n) => $o->setSpeakerAssignmentSubmissions($n->getCollectionOfObjectValues([SpeakerAssignmentSubmission::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -66,6 +67,20 @@ class ReportsRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the speakerAssignmentSubmissions property value. Details of submitted speaker assignments.
+     * @return array<SpeakerAssignmentSubmission>|null
+    */
+    public function getSpeakerAssignmentSubmissions(): ?array {
+        $val = $this->getBackingStore()->get('speakerAssignmentSubmissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SpeakerAssignmentSubmission::class);
+            /** @var array<SpeakerAssignmentSubmission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'speakerAssignmentSubmissions'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -73,6 +88,7 @@ class ReportsRoot extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('readingAssignmentSubmissions', $this->getReadingAssignmentSubmissions());
         $writer->writeCollectionOfObjectValues('reflectCheckInResponses', $this->getReflectCheckInResponses());
+        $writer->writeCollectionOfObjectValues('speakerAssignmentSubmissions', $this->getSpeakerAssignmentSubmissions());
     }
 
     /**
@@ -89,6 +105,14 @@ class ReportsRoot extends Entity implements Parsable
     */
     public function setReflectCheckInResponses(?array $value): void {
         $this->getBackingStore()->set('reflectCheckInResponses', $value);
+    }
+
+    /**
+     * Sets the speakerAssignmentSubmissions property value. Details of submitted speaker assignments.
+     * @param array<SpeakerAssignmentSubmission>|null $value Value to set for the speakerAssignmentSubmissions property.
+    */
+    public function setSpeakerAssignmentSubmissions(?array $value): void {
+        $this->getBackingStore()->set('speakerAssignmentSubmissions', $value);
     }
 
 }

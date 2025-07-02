@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CiamUserSnapshot implements AdditionalDataHolder, BackedModel, Parsable 
+class OperatingSystemSpecifications implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +18,7 @@ class CiamUserSnapshot implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new CiamUserSnapshot and sets the default values.
+     * Instantiates a new OperatingSystemSpecifications and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,10 +28,10 @@ class CiamUserSnapshot implements AdditionalDataHolder, BackedModel, Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return CiamUserSnapshot
+     * @return OperatingSystemSpecifications
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CiamUserSnapshot {
-        return new CiamUserSnapshot();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OperatingSystemSpecifications {
+        return new OperatingSystemSpecifications();
     }
 
     /**
@@ -63,7 +63,8 @@ class CiamUserSnapshot implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'operatingSystemPlatform' => fn(ParseNode $n) => $o->setOperatingSystemPlatform($n->getStringValue()),
+            'operatingSystemVersion' => fn(ParseNode $n) => $o->setOperatingSystemVersion($n->getStringValue()),
         ];
     }
 
@@ -80,15 +81,27 @@ class CiamUserSnapshot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the operatingSystemPlatform property value. The platform of the operating system (for example, 'Windows').
      * @return string|null
     */
-    public function getUserId(): ?string {
-        $val = $this->getBackingStore()->get('userId');
+    public function getOperatingSystemPlatform(): ?string {
+        $val = $this->getBackingStore()->get('operatingSystemPlatform');
         if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemPlatform'");
+    }
+
+    /**
+     * Gets the operatingSystemVersion property value. The version string of the operating system.
+     * @return string|null
+    */
+    public function getOperatingSystemVersion(): ?string {
+        $val = $this->getBackingStore()->get('operatingSystemVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemVersion'");
     }
 
     /**
@@ -97,7 +110,8 @@ class CiamUserSnapshot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('operatingSystemPlatform', $this->getOperatingSystemPlatform());
+        $writer->writeStringValue('operatingSystemVersion', $this->getOperatingSystemVersion());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -126,11 +140,19 @@ class CiamUserSnapshot implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
-     * @param string|null $value Value to set for the userId property.
+     * Sets the operatingSystemPlatform property value. The platform of the operating system (for example, 'Windows').
+     * @param string|null $value Value to set for the operatingSystemPlatform property.
     */
-    public function setUserId(?string $value): void {
-        $this->getBackingStore()->set('userId', $value);
+    public function setOperatingSystemPlatform(?string $value): void {
+        $this->getBackingStore()->set('operatingSystemPlatform', $value);
+    }
+
+    /**
+     * Sets the operatingSystemVersion property value. The version string of the operating system.
+     * @param string|null $value Value to set for the operatingSystemVersion property.
+    */
+    public function setOperatingSystemVersion(?string $value): void {
+        $this->getBackingStore()->set('operatingSystemVersion', $value);
     }
 
 }

@@ -11,4 +11,5 @@ class AlertType extends Enum {
     public const COMPLIANT_DEVICE_SIGN_IN_FAILURE = "compliantDeviceSignInFailure";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const CONDITIONAL_ACCESS_BLOCKED_SIGN_IN = "conditionalAccessBlockedSignIn";
+    public const SAML_SIGN_IN_FAILURE = "samlSignInFailure";
 }

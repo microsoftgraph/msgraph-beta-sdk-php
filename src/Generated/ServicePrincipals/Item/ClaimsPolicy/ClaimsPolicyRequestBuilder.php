@@ -46,12 +46,12 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
+     * Update a customClaimsPolicy object.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomClaimsPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/serviceprincipal-put-claimspolicy?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/customclaimspolicy-update?view=graph-rest-beta Find more info here
     */
     public function patch(CustomClaimsPolicy $body, ?ClaimsPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -62,12 +62,12 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
+     * Update a customClaimsPolicy object.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomClaimsPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/serviceprincipal-put-claimspolicy?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/customclaimspolicy-update?view=graph-rest-beta Find more info here
     */
     public function put(CustomClaimsPolicy $body, ?ClaimsPolicyRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
@@ -99,7 +99,7 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
+     * Update a customClaimsPolicy object.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -119,7 +119,7 @@ class ClaimsPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customClaimsPolicy object if it doesn't exist, or replace an existing one.
+     * Update a customClaimsPolicy object.
      * @param CustomClaimsPolicy $body The request body
      * @param ClaimsPolicyRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

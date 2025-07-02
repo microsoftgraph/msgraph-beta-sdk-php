@@ -15,4 +15,5 @@ class RegistrationAuthMethod extends Enum {
     public const FIDO = "fido";
     public const APP_PASSWORD = "appPassword";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const EXTERNAL_AUTH_METHOD = "externalAuthMethod";
 }
