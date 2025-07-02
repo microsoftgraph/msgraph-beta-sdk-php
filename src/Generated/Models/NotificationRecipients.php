@@ -57,7 +57,7 @@ class NotificationRecipients implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the customRecipients property value. A list of users or groups that receive notifications.
+     * Gets the customRecipients property value. A list of users or groups that receive notifications. Only specify this property when role is set to custom.
      * @return array<EmailIdentity>|null
     */
     public function getCustomRecipients(): ?array {
@@ -135,7 +135,7 @@ class NotificationRecipients implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the customRecipients property value. A list of users or groups that receive notifications.
+     * Sets the customRecipients property value. A list of users or groups that receive notifications. Only specify this property when role is set to custom.
      * @param array<EmailIdentity>|null $value Value to set for the customRecipients property.
     */
     public function setCustomRecipients(?array $value): void {

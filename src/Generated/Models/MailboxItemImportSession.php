@@ -82,7 +82,7 @@ class MailboxItemImportSession implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the importUrl property value. The URL endpoint that accepts POST requests for FastTransfer stream format of the item.
+     * Gets the importUrl property value. The URL endpoint that accepts POST requests for uploading a mailbox item exported using exportItems.
      * @return string|null
     */
     public function getImportUrl(): ?string {
@@ -141,7 +141,7 @@ class MailboxItemImportSession implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the importUrl property value. The URL endpoint that accepts POST requests for FastTransfer stream format of the item.
+     * Sets the importUrl property value. The URL endpoint that accepts POST requests for uploading a mailbox item exported using exportItems.
      * @param string|null $value Value to set for the importUrl property.
     */
     public function setImportUrl(?string $value): void {

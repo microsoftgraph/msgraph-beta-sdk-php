@@ -83,7 +83,7 @@ class ProcessContentResponse implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the policyActions property value. A collection of policy actions (like DLP actions) triggered by the processed content. NOTE: Currently, the only policyAction supported in processContentResponse is '_restrictAccess'
+     * Gets the policyActions property value. A collection of policy actions (like DLP actions) triggered by the processed content. NOTE: Currently, the only policy action supported in for this resource type is restrictAccess.
      * @return array<DlpActionInfo>|null
     */
     public function getPolicyActions(): ?array {
@@ -159,7 +159,7 @@ class ProcessContentResponse implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the policyActions property value. A collection of policy actions (like DLP actions) triggered by the processed content. NOTE: Currently, the only policyAction supported in processContentResponse is '_restrictAccess'
+     * Sets the policyActions property value. A collection of policy actions (like DLP actions) triggered by the processed content. NOTE: Currently, the only policy action supported in for this resource type is restrictAccess.
      * @param array<DlpActionInfo>|null $value Value to set for the policyActions property.
     */
     public function setPolicyActions(?array $value): void {

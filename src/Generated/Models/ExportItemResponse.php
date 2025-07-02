@@ -69,7 +69,7 @@ class ExportItemResponse implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the data property value. Data that represents an item in a base64 encoded FastTransfer stream format.
+     * Gets the data property value. Data that represents an item in a base64 encoded opaque stream.
      * @return StreamInterface|null
     */
     public function getData(): ?StreamInterface {
@@ -169,7 +169,7 @@ class ExportItemResponse implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the data property value. Data that represents an item in a base64 encoded FastTransfer stream format.
+     * Sets the data property value. Data that represents an item in a base64 encoded opaque stream.
      * @param StreamInterface|null $value Value to set for the data property.
     */
     public function setData(?StreamInterface $value): void {

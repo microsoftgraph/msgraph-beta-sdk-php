@@ -77,7 +77,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the correlationId property value. An GUID identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation).
+     * Gets the correlationId property value. An identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation).
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -247,7 +247,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the correlationId property value. An GUID identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation).
+     * Sets the correlationId property value. An identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation).
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {

@@ -37,9 +37,23 @@ class DlpActionInfo implements AdditionalDataHolder, BackedModel, Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.blockAccessAction': return new BlockAccessAction();
                 case '#microsoft.graph.notifyUserAction': return new NotifyUserAction();
+                case '#microsoft.graph.restrictAccessAction': return new RestrictAccessAction();
+                case '#microsoft.graph.restrictAccessActionBase': return new RestrictAccessActionBase();
             }
         }
         return new DlpActionInfo();
+    }
+
+    /**
+     * Gets the action property value. The type of DLP action. Possible value is restrictAccessAction.
+     * @return DlpAction|null
+    */
+    public function getAction(): ?DlpAction {
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof DlpAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
     }
 
     /**
@@ -70,6 +84,7 @@ class DlpActionInfo implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(DlpAction::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -91,8 +106,17 @@ class DlpActionInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('action', $this->getAction());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the action property value. The type of DLP action. Possible value is restrictAccessAction.
+     * @param DlpAction|null $value Value to set for the action property.
+    */
+    public function setAction(?DlpAction $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**

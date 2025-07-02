@@ -82,6 +82,7 @@ class ProtectionUnitBase extends Entity implements Parsable
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([PublicError::class, 'createFromDiscriminatorValue'])),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'offboardRequestedDateTime' => fn(ParseNode $n) => $o->setOffboardRequestedDateTime($n->getDateTimeValue()),
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
             'protectionSources' => fn(ParseNode $n) => $o->setProtectionSources($n->getEnumValue(ProtectionSource::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ProtectionUnitStatus::class)),
@@ -110,6 +111,18 @@ class ProtectionUnitBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the offboardRequestedDateTime property value. The time when protection unit offboard was requested.
+     * @return DateTime|null
+    */
+    public function getOffboardRequestedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('offboardRequestedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offboardRequestedDateTime'");
     }
 
     /**
@@ -159,6 +172,7 @@ class ProtectionUnitBase extends Entity implements Parsable
         $writer->writeObjectValue('error', $this->getError());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeDateTimeValue('offboardRequestedDateTime', $this->getOffboardRequestedDateTime());
         $writer->writeStringValue('policyId', $this->getPolicyId());
         $writer->writeEnumValue('protectionSources', $this->getProtectionSources());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -202,6 +216,14 @@ class ProtectionUnitBase extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the offboardRequestedDateTime property value. The time when protection unit offboard was requested.
+     * @param DateTime|null $value Value to set for the offboardRequestedDateTime property.
+    */
+    public function setOffboardRequestedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('offboardRequestedDateTime', $value);
     }
 
     /**

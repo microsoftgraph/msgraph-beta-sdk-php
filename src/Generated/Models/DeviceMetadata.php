@@ -77,6 +77,7 @@ class DeviceMetadata implements AdditionalDataHolder, BackedModel, Parsable
             'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getStringValue()),
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operatingSystemSpecifications' => fn(ParseNode $n) => $o->setOperatingSystemSpecifications($n->getObjectValue([OperatingSystemSpecifications::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -105,6 +106,18 @@ class DeviceMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the operatingSystemSpecifications property value. Details about the operating system platform and version.
+     * @return OperatingSystemSpecifications|null
+    */
+    public function getOperatingSystemSpecifications(): ?OperatingSystemSpecifications {
+        $val = $this->getBackingStore()->get('operatingSystemSpecifications');
+        if (is_null($val) || $val instanceof OperatingSystemSpecifications) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystemSpecifications'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -112,6 +125,7 @@ class DeviceMetadata implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('deviceType', $this->getDeviceType());
         $writer->writeStringValue('ipAddress', $this->getIpAddress());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('operatingSystemSpecifications', $this->getOperatingSystemSpecifications());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -153,6 +167,14 @@ class DeviceMetadata implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the operatingSystemSpecifications property value. Details about the operating system platform and version.
+     * @param OperatingSystemSpecifications|null $value Value to set for the operatingSystemSpecifications property.
+    */
+    public function setOperatingSystemSpecifications(?OperatingSystemSpecifications $value): void {
+        $this->getBackingStore()->set('operatingSystemSpecifications', $value);
     }
 
 }

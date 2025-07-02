@@ -31,7 +31,7 @@ class CreateImportSessionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a session to import an Exchange mailbox item using its FastTransfer stream (FTS) format.
+     * Create a session to import an Exchange mailbox item that was exported using the exportItems API.
      * @param CreateImportSessionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxItemImportSession|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class CreateImportSessionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a session to import an Exchange mailbox item using its FastTransfer stream (FTS) format.
+     * Create a session to import an Exchange mailbox item that was exported using the exportItems API.
      * @param CreateImportSessionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

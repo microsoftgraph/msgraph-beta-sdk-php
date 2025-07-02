@@ -104,7 +104,7 @@ class SelfServiceSignUp extends Entity implements Parsable
             'signUpIdentityProvider' => fn(ParseNode $n) => $o->setSignUpIdentityProvider($n->getStringValue()),
             'signUpStage' => fn(ParseNode $n) => $o->setSignUpStage($n->getEnumValue(SignUpStage::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignUpStatus::class, 'createFromDiscriminatorValue'])),
-            'userSnapshot' => fn(ParseNode $n) => $o->setUserSnapshot($n->getObjectValue([CiamUserSnapshot::class, 'createFromDiscriminatorValue'])),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 
@@ -157,15 +157,15 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Gets the userSnapshot property value. The userSnapshot property
-     * @return CiamUserSnapshot|null
+     * Gets the userId property value. The identifier of the user object created during the sign-up.
+     * @return string|null
     */
-    public function getUserSnapshot(): ?CiamUserSnapshot {
-        $val = $this->getBackingStore()->get('userSnapshot');
-        if (is_null($val) || $val instanceof CiamUserSnapshot) {
+    public function getUserId(): ?string {
+        $val = $this->getBackingStore()->get('userId');
+        if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSnapshot'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userId'");
     }
 
     /**
@@ -183,7 +183,7 @@ class SelfServiceSignUp extends Entity implements Parsable
         $writer->writeStringValue('signUpIdentityProvider', $this->getSignUpIdentityProvider());
         $writer->writeEnumValue('signUpStage', $this->getSignUpStage());
         $writer->writeObjectValue('status', $this->getStatus());
-        $writer->writeObjectValue('userSnapshot', $this->getUserSnapshot());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
@@ -259,11 +259,11 @@ class SelfServiceSignUp extends Entity implements Parsable
     }
 
     /**
-     * Sets the userSnapshot property value. The userSnapshot property
-     * @param CiamUserSnapshot|null $value Value to set for the userSnapshot property.
+     * Sets the userId property value. The identifier of the user object created during the sign-up.
+     * @param string|null $value Value to set for the userId property.
     */
-    public function setUserSnapshot(?CiamUserSnapshot $value): void {
-        $this->getBackingStore()->set('userSnapshot', $value);
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }
