@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts;
+namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\Item\Starter;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
@@ -8,10 +8,10 @@ use Microsoft\Kiota\Abstractions\RequestOption;
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class ContactsRequestBuilderPostRequestConfiguration extends BaseRequestConfiguration 
+class StarterRequestBuilderPatchRequestConfiguration extends BaseRequestConfiguration 
 {
     /**
-     * Instantiates a new ContactsRequestBuilderPostRequestConfiguration and sets the default values.
+     * Instantiates a new StarterRequestBuilderPatchRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

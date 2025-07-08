@@ -12,4 +12,5 @@ class RequiredLicenses extends Enum {
     public const MICROSOFT_ENTRA_ID_GOVERNANCE = "microsoftEntraIdGovernance";
     public const MICROSOFT_ENTRA_WORKLOAD_ID = "microsoftEntraWorkloadId";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const AATP = "aatp";
 }

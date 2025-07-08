@@ -11,4 +11,8 @@ class RecommendationStatus extends Enum {
     public const DISMISSED = "dismissed";
     public const POSTPONED = "postponed";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const RISK_ACCEPTED = "riskAccepted";
+    public const THIRD_PARTY = "thirdParty";
+    public const PLANNED = "planned";
+    public const ALTERNATE_MITIGATION = "alternateMitigation";
 }

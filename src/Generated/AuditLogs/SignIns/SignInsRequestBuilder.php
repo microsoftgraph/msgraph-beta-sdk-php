@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\ConfirmSafe\ConfirmSafeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Dismiss\DismissRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Item\SignInItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SignIn;
@@ -40,6 +41,13 @@ class SignInsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the dismiss method.
+    */
+    public function dismiss(): DismissRequestBuilder {
+        return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

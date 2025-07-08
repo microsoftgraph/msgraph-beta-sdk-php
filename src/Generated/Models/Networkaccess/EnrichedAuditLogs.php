@@ -26,7 +26,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Gets the exchange property value. Exchange Online enriched audit logs settings.
+     * Gets the exchange property value. The exchange property
      * @return EnrichedAuditLogsSettings|null
     */
     public function getExchange(): ?EnrichedAuditLogsSettings {
@@ -51,7 +51,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharepoint property value. SharePoint Online enriched audit logs settings.
+     * Gets the sharepoint property value. The sharepoint property
      * @return EnrichedAuditLogsSettings|null
     */
     public function getSharepoint(): ?EnrichedAuditLogsSettings {
@@ -63,7 +63,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Gets the teams property value. Teams enriched audit logs settings.
+     * Gets the teams property value. The teams property
      * @return EnrichedAuditLogsSettings|null
     */
     public function getTeams(): ?EnrichedAuditLogsSettings {
@@ -86,7 +86,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Sets the exchange property value. Exchange Online enriched audit logs settings.
+     * Sets the exchange property value. The exchange property
      * @param EnrichedAuditLogsSettings|null $value Value to set for the exchange property.
     */
     public function setExchange(?EnrichedAuditLogsSettings $value): void {
@@ -94,7 +94,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharepoint property value. SharePoint Online enriched audit logs settings.
+     * Sets the sharepoint property value. The sharepoint property
      * @param EnrichedAuditLogsSettings|null $value Value to set for the sharepoint property.
     */
     public function setSharepoint(?EnrichedAuditLogsSettings $value): void {
@@ -102,7 +102,7 @@ class EnrichedAuditLogs extends Entity implements Parsable
     }
 
     /**
-     * Sets the teams property value. Teams enriched audit logs settings.
+     * Sets the teams property value. The teams property
      * @param EnrichedAuditLogsSettings|null $value Value to set for the teams property.
     */
     public function setTeams(?EnrichedAuditLogsSettings $value): void {

@@ -69,6 +69,7 @@ class NetworkAccessRoot extends Entity implements Parsable
             'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([Reports::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
             'tenantStatus' => fn(ParseNode $n) => $o->setTenantStatus($n->getObjectValue([TenantStatus::class, 'createFromDiscriminatorValue'])),
+            'threatIntelligencePolicies' => fn(ParseNode $n) => $o->setThreatIntelligencePolicies($n->getCollectionOfObjectValues([ThreatIntelligencePolicy::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -177,6 +178,20 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the threatIntelligencePolicies property value. The threatIntelligencePolicies property
+     * @return array<ThreatIntelligencePolicy>|null
+    */
+    public function getThreatIntelligencePolicies(): ?array {
+        $val = $this->getBackingStore()->get('threatIntelligencePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ThreatIntelligencePolicy::class);
+            /** @var array<ThreatIntelligencePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'threatIntelligencePolicies'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -192,6 +207,7 @@ class NetworkAccessRoot extends Entity implements Parsable
         $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('tenantStatus', $this->getTenantStatus());
+        $writer->writeCollectionOfObjectValues('threatIntelligencePolicies', $this->getThreatIntelligencePolicies());
     }
 
     /**
@@ -272,6 +288,14 @@ class NetworkAccessRoot extends Entity implements Parsable
     */
     public function setTenantStatus(?TenantStatus $value): void {
         $this->getBackingStore()->set('tenantStatus', $value);
+    }
+
+    /**
+     * Sets the threatIntelligencePolicies property value. The threatIntelligencePolicies property
+     * @param array<ThreatIntelligencePolicy>|null $value Value to set for the threatIntelligencePolicies property.
+    */
+    public function setThreatIntelligencePolicies(?array $value): void {
+        $this->getBackingStore()->set('threatIntelligencePolicies', $value);
     }
 
 }

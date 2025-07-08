@@ -52,7 +52,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tenant-level or group-specific group settings objects.
+     * Retrieve a list of tenant-level or group-specific directory settings objects.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySettingCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new setting based on the templates available in directorySettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
+     * Create a new directory setting based on the templates available in directorySettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
      * @param DirectorySetting $body The request body
      * @param SettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySetting|null>
@@ -83,7 +83,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a list of tenant-level or group-specific group settings objects.
+     * Retrieve a list of tenant-level or group-specific directory settings objects.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new setting based on the templates available in directorySettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
+     * Create a new directory setting based on the templates available in directorySettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
      * @param DirectorySetting $body The request body
      * @param SettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -6,7 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\CallsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\GetAllOnlineMeetingMessages\GetAllOnlineMeetingMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\GetPresencesByUserId\GetPresencesByUserIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\OnlineMeetingConversationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\OnlineMeetingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Presences\PresencesRequestBuilder;
@@ -37,10 +39,24 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getAllOnlineMeetingMessages method.
+    */
+    public function getAllOnlineMeetingMessages(): GetAllOnlineMeetingMessagesRequestBuilder {
+        return new GetAllOnlineMeetingMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getPresencesByUserId method.
     */
     public function getPresencesByUserId(): GetPresencesByUserIdRequestBuilder {
         return new GetPresencesByUserIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the onlineMeetingConversations property of the microsoft.graph.cloudCommunications entity.
+    */
+    public function onlineMeetingConversations(): OnlineMeetingConversationsRequestBuilder {
+        return new OnlineMeetingConversationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -96,7 +112,7 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update communications
-     * @param CloudCommunications $body The request body
+     * @param CloudCommunications $body Represents a container that exposes navigation properties for cloud communications resources.
      * @param CommunicationsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCommunications|null>
      * @throws Exception
@@ -132,7 +148,7 @@ class CommunicationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update communications
-     * @param CloudCommunications $body The request body
+     * @param CloudCommunications $body Represents a container that exposes navigation properties for cloud communications resources.
      * @param CommunicationsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
