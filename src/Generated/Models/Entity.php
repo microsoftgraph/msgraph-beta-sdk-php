@@ -147,6 +147,9 @@ use Microsoft\Graph\Beta\Generated\Models\Networkaccess\RemoteNetworkHealthEvent
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Reports;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Settings;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\TenantStatus;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ThreatIntelligencePolicy;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ThreatIntelligencePolicyLink;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ThreatIntelligenceRule;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\WebCategoryFilteringRule;
 use Microsoft\Graph\Beta\Generated\Models\Partner\Security\AdminsMfaEnforcedSecurityRequirement;
 use Microsoft\Graph\Beta\Generated\Models\Partner\Security\CustomersMfaEnforcedSecurityRequirement;
@@ -980,7 +983,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.embeddedSIMActivationCodePoolAssignment': return new EmbeddedSIMActivationCodePoolAssignment();
                 case '#microsoft.graph.embeddedSIMDeviceState': return new EmbeddedSIMDeviceState();
                 case '#microsoft.graph.emergencyCallEvent': return new EmergencyCallEvent();
-                case '#microsoft.graph.employeeExperience': return new EmployeeExperience();
                 case '#microsoft.graph.employeeExperienceUser': return new EmployeeExperienceUser();
                 case '#microsoft.graph.encryptedAwsStorageBucketFinding': return new EncryptedAwsStorageBucketFinding();
                 case '#microsoft.graph.encryptedAzureStorageAccountFinding': return new EncryptedAzureStorageAccountFinding();
@@ -990,6 +992,12 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.endUserNotification': return new EndUserNotification();
                 case '#microsoft.graph.endUserNotificationDetail': return new EndUserNotificationDetail();
                 case '#microsoft.graph.engagementAsyncOperation': return new EngagementAsyncOperation();
+                case '#microsoft.graph.engagementConversation': return new EngagementConversation();
+                case '#microsoft.graph.engagementConversationDiscussionMessage': return new EngagementConversationDiscussionMessage();
+                case '#microsoft.graph.engagementConversationMessage': return new EngagementConversationMessage();
+                case '#microsoft.graph.engagementConversationMessageReaction': return new EngagementConversationMessageReaction();
+                case '#microsoft.graph.engagementConversationQuestionMessage': return new EngagementConversationQuestionMessage();
+                case '#microsoft.graph.engagementConversationSystemMessage': return new EngagementConversationSystemMessage();
                 case '#microsoft.graph.engagementRole': return new EngagementRole();
                 case '#microsoft.graph.engagementRoleMember': return new EngagementRoleMember();
                 case '#microsoft.graph.enhancedPersonalizationSetting': return new EnhancedPersonalizationSetting();
@@ -1491,6 +1499,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.networkaccess.reports': return new Reports();
                 case '#microsoft.graph.networkaccess.settings': return new Settings();
                 case '#microsoft.graph.networkaccess.tenantStatus': return new TenantStatus();
+                case '#microsoft.graph.networkaccess.threatIntelligencePolicy': return new ThreatIntelligencePolicy();
+                case '#microsoft.graph.networkaccess.threatIntelligencePolicyLink': return new ThreatIntelligencePolicyLink();
+                case '#microsoft.graph.networkaccess.threatIntelligenceRule': return new ThreatIntelligenceRule();
                 case '#microsoft.graph.networkaccess.webCategoryFilteringRule': return new WebCategoryFilteringRule();
                 case '#microsoft.graph.newsLinkPage': return new NewsLinkPage();
                 case '#microsoft.graph.noMfaOnRoleActivationAlertConfiguration': return new NoMfaOnRoleActivationAlertConfiguration();
@@ -1532,6 +1543,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onInteractiveAuthFlowStartListener': return new OnInteractiveAuthFlowStartListener();
                 case '#microsoft.graph.onlineMeeting': return new OnlineMeeting();
                 case '#microsoft.graph.onlineMeetingBase': return new OnlineMeetingBase();
+                case '#microsoft.graph.onlineMeetingEngagementConversation': return new OnlineMeetingEngagementConversation();
                 case '#microsoft.graph.onOtpSendCustomExtension': return new OnOtpSendCustomExtension();
                 case '#microsoft.graph.onPhoneMethodLoadStartListener': return new OnPhoneMethodLoadStartListener();
                 case '#microsoft.graph.onPremisesAgent': return new OnPremisesAgent();

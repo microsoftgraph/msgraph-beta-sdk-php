@@ -169,7 +169,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sizeInGB property value. The sizeInGB property
+     * Gets the sizeInGB property value. The size of the image in GB. For example, 64. Read-only.
      * @return int|null
     */
     public function getSizeInGB(): ?int {
@@ -323,7 +323,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the sizeInGB property value. The sizeInGB property
+     * Sets the sizeInGB property value. The size of the image in GB. For example, 64. Read-only.
      * @param int|null $value Value to set for the sizeInGB property.
     */
     public function setSizeInGB(?int $value): void {

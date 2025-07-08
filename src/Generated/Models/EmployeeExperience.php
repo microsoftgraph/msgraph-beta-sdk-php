@@ -2,21 +2,31 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Represents a container that exposes navigation properties for employee experience resources.
 */
-class EmployeeExperience extends Entity implements Parsable 
+class EmployeeExperience implements AdditionalDataHolder, BackedModel, Parsable 
 {
+    /**
+     * @var BackingStore $backingStore Stores model information.
+    */
+    private BackingStore $backingStore;
+    
     /**
      * Instantiates a new EmployeeExperience and sets the default values.
     */
     public function __construct() {
-        parent::__construct();
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -26,6 +36,27 @@ class EmployeeExperience extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EmployeeExperience {
         return new EmployeeExperience();
+    }
+
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        $val = $this->getBackingStore()->get('additionalData');
+        if (is_null($val) || is_array($val)) {
+            /** @var array<string, mixed>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
+    }
+
+    /**
+     * Gets the BackingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -62,14 +93,15 @@ class EmployeeExperience extends Entity implements Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return array_merge(parent::getFieldDeserializers(), [
+        return  [
             'communities' => fn(ParseNode $n) => $o->setCommunities($n->getCollectionOfObjectValues([Community::class, 'createFromDiscriminatorValue'])),
             'engagementAsyncOperations' => fn(ParseNode $n) => $o->setEngagementAsyncOperations($n->getCollectionOfObjectValues([EngagementAsyncOperation::class, 'createFromDiscriminatorValue'])),
             'goals' => fn(ParseNode $n) => $o->setGoals($n->getObjectValue([Goals::class, 'createFromDiscriminatorValue'])),
             'learningCourseActivities' => fn(ParseNode $n) => $o->setLearningCourseActivities($n->getCollectionOfObjectValues([LearningCourseActivity::class, 'createFromDiscriminatorValue'])),
             'learningProviders' => fn(ParseNode $n) => $o->setLearningProviders($n->getCollectionOfObjectValues([LearningProvider::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roles' => fn(ParseNode $n) => $o->setRoles($n->getCollectionOfObjectValues([EngagementRole::class, 'createFromDiscriminatorValue'])),
-        ]);
+        ];
     }
 
     /**
@@ -113,6 +145,18 @@ class EmployeeExperience extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        $val = $this->getBackingStore()->get('odataType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
      * Gets the roles property value. A collection of roles in Viva Engage.
      * @return array<EngagementRole>|null
     */
@@ -131,13 +175,30 @@ class EmployeeExperience extends Entity implements Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('communities', $this->getCommunities());
         $writer->writeCollectionOfObjectValues('engagementAsyncOperations', $this->getEngagementAsyncOperations());
         $writer->writeObjectValue('goals', $this->getGoals());
         $writer->writeCollectionOfObjectValues('learningCourseActivities', $this->getLearningCourseActivities());
         $writer->writeCollectionOfObjectValues('learningProviders', $this->getLearningProviders());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('roles', $this->getRoles());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the BackingStore property value. Stores model information.
+     * @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
@@ -178,6 +239,14 @@ class EmployeeExperience extends Entity implements Parsable
     */
     public function setLearningProviders(?array $value): void {
         $this->getBackingStore()->set('learningProviders', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the @odata.type property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

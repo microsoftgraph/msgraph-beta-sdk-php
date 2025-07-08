@@ -17,6 +17,7 @@ use Microsoft\Graph\Beta\Generated\NetworkAccess\MicrosoftGraphNetworkaccessOnbo
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\TenantStatus\TenantStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\ThreatIntelligencePolicies\ThreatIntelligencePoliciesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -102,6 +103,13 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
     */
     public function tenantStatus(): TenantStatusRequestBuilder {
         return new TenantStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the threatIntelligencePolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
+    */
+    public function threatIntelligencePolicies(): ThreatIntelligencePoliciesRequestBuilder {
+        return new ThreatIntelligencePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
