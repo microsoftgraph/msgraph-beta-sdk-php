@@ -20,6 +20,7 @@ use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\FileSecurityPro
 use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\HostSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Identities\IdentitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Incidents\IncidentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\IncidentTasks\IncidentTasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
@@ -143,6 +144,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function incidents(): IncidentsRequestBuilder {
         return new IncidentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the incidentTasks property of the microsoft.graph.security entity.
+    */
+    public function incidentTasks(): IncidentTasksRequestBuilder {
+        return new IncidentTasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

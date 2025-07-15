@@ -25,25 +25,12 @@ class UserCloudCommunication extends Entity implements Parsable
     }
 
     /**
-     * Gets the callSettings property value. The call settings assigned to the user.
-     * @return CallSettings|null
-    */
-    public function getCallSettings(): ?CallSettings {
-        $val = $this->getBackingStore()->get('callSettings');
-        if (is_null($val) || $val instanceof CallSettings) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'callSettings'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'callSettings' => fn(ParseNode $n) => $o->setCallSettings($n->getObjectValue([CallSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -53,15 +40,6 @@ class UserCloudCommunication extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('callSettings', $this->getCallSettings());
-    }
-
-    /**
-     * Sets the callSettings property value. The call settings assigned to the user.
-     * @param CallSettings|null $value Value to set for the callSettings property.
-    */
-    public function setCallSettings(?CallSettings $value): void {
-        $this->getBackingStore()->set('callSettings', $value);
     }
 
 }

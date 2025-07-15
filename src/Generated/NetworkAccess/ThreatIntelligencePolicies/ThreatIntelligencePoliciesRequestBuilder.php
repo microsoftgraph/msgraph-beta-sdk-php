@@ -52,10 +52,11 @@ class ThreatIntelligencePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get threatIntelligencePolicies from networkAccess
+     * Get a list of the threatIntelligencePolicy objects and their properties.
      * @param ThreatIntelligencePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ThreatIntelligencePolicyCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-list-threatintelligencepolicies?view=graph-rest-beta Find more info here
     */
     public function get(?ThreatIntelligencePoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ThreatIntelligencePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to threatIntelligencePolicies for networkAccess
+     * Create a new threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicy $body The request body
      * @param ThreatIntelligencePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ThreatIntelligencePolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-post-threatintelligencepolicies?view=graph-rest-beta Find more info here
     */
     public function post(ThreatIntelligencePolicy $body, ?ThreatIntelligencePoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ThreatIntelligencePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get threatIntelligencePolicies from networkAccess
+     * Get a list of the threatIntelligencePolicy objects and their properties.
      * @param ThreatIntelligencePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ThreatIntelligencePoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to threatIntelligencePolicies for networkAccess
+     * Create a new threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicy $body The request body
      * @param ThreatIntelligencePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

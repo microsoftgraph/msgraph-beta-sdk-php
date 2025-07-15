@@ -38,7 +38,6 @@ class GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder extends Base
      * @param GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/reportroot-getmicrosoft365copilotusageuserdetail?view=graph-rest-beta Find more info here
     */
     public function get(?GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

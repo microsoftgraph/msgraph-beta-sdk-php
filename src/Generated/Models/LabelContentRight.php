@@ -46,6 +46,7 @@ class LabelContentRight extends Entity implements Parsable
             'cid' => fn(ParseNode $n) => $o->setCid($n->getStringValue()),
             'format' => fn(ParseNode $n) => $o->setFormat($n->getStringValue()),
             'label' => fn(ParseNode $n) => $o->setLabel($n->getObjectValue([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
+            'rights' => fn(ParseNode $n) => $o->setRights($n->getEnumValue(UsageRights::class)),
         ]);
     }
 
@@ -74,6 +75,18 @@ class LabelContentRight extends Entity implements Parsable
     }
 
     /**
+     * Gets the rights property value. The rights property
+     * @return UsageRights|null
+    */
+    public function getRights(): ?UsageRights {
+        $val = $this->getBackingStore()->get('rights');
+        if (is_null($val) || $val instanceof UsageRights) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rights'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -82,6 +95,7 @@ class LabelContentRight extends Entity implements Parsable
         $writer->writeStringValue('cid', $this->getCid());
         $writer->writeStringValue('format', $this->getFormat());
         $writer->writeObjectValue('label', $this->getLabel());
+        $writer->writeEnumValue('rights', $this->getRights());
     }
 
     /**
@@ -106,6 +120,14 @@ class LabelContentRight extends Entity implements Parsable
     */
     public function setLabel(?SensitivityLabel $value): void {
         $this->getBackingStore()->set('label', $value);
+    }
+
+    /**
+     * Sets the rights property value. The rights property
+     * @param UsageRights|null $value Value to set for the rights property.
+    */
+    public function setRights(?UsageRights $value): void {
+        $this->getBackingStore()->set('rights', $value);
     }
 
 }

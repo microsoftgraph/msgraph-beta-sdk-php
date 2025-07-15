@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\Po
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The traffic forwarding policies associated with this profile.
+ * Get a list of the tlsInspectionPolicyLink objects on a filtering profile.
 */
 class PoliciesRequestBuilderGetQueryParameters 
 {

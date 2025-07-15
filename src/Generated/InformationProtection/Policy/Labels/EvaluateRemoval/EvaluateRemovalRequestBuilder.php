@@ -35,7 +35,6 @@ class EvaluateRemovalRequestBuilder extends BaseRequestBuilder
      * @param EvaluateRemovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluateRemovalPostResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/informationprotectionlabel-evaluateremoval?view=graph-rest-beta Find more info here
     */
     public function post(EvaluateRemovalPostRequestBody $body, ?EvaluateRemovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

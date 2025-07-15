@@ -34,7 +34,6 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCredentialUserRegistrationCountGetResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-beta Find more info here
     */
     public function get(?GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

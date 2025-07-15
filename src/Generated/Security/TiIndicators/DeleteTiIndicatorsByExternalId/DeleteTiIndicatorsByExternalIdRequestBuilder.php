@@ -35,7 +35,6 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
      * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeleteTiIndicatorsByExternalIdPostResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta Find more info here
     */
     public function post(DeleteTiIndicatorsByExternalIdPostRequestBody $body, ?DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

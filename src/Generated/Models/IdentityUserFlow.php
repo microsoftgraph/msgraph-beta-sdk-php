@@ -39,33 +39,7 @@ class IdentityUserFlow extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userFlowType' => fn(ParseNode $n) => $o->setUserFlowType($n->getEnumValue(UserFlowType::class)),
-            'userFlowTypeVersion' => fn(ParseNode $n) => $o->setUserFlowTypeVersion($n->getFloatValue()),
         ]);
-    }
-
-    /**
-     * Gets the userFlowType property value. The userFlowType property
-     * @return UserFlowType|null
-    */
-    public function getUserFlowType(): ?UserFlowType {
-        $val = $this->getBackingStore()->get('userFlowType');
-        if (is_null($val) || $val instanceof UserFlowType) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userFlowType'");
-    }
-
-    /**
-     * Gets the userFlowTypeVersion property value. The userFlowTypeVersion property
-     * @return float|null
-    */
-    public function getUserFlowTypeVersion(): ?float {
-        $val = $this->getBackingStore()->get('userFlowTypeVersion');
-        if (is_null($val) || is_float($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'userFlowTypeVersion'");
     }
 
     /**
@@ -74,24 +48,6 @@ class IdentityUserFlow extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('userFlowType', $this->getUserFlowType());
-        $writer->writeFloatValue('userFlowTypeVersion', $this->getUserFlowTypeVersion());
-    }
-
-    /**
-     * Sets the userFlowType property value. The userFlowType property
-     * @param UserFlowType|null $value Value to set for the userFlowType property.
-    */
-    public function setUserFlowType(?UserFlowType $value): void {
-        $this->getBackingStore()->set('userFlowType', $value);
-    }
-
-    /**
-     * Sets the userFlowTypeVersion property value. The userFlowTypeVersion property
-     * @param float|null $value Value to set for the userFlowTypeVersion property.
-    */
-    public function setUserFlowTypeVersion(?float $value): void {
-        $this->getBackingStore()->set('userFlowTypeVersion', $value);
     }
 
 }

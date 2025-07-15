@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ThreatIntelligencePolicie
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get threatIntelligencePolicies from networkAccess
+ * Get a list of the threatIntelligencePolicy objects and their properties.
 */
 class ThreatIntelligencePoliciesRequestBuilderGetQueryParameters 
 {

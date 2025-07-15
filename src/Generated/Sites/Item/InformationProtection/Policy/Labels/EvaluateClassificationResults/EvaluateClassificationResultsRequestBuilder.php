@@ -35,7 +35,6 @@ class EvaluateClassificationResultsRequestBuilder extends BaseRequestBuilder
      * @param EvaluateClassificationResultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluateClassificationResultsPostResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/informationprotectionlabel-evaluateclassificationresults?view=graph-rest-beta Find more info here
     */
     public function post(EvaluateClassificationResultsPostRequestBody $body, ?EvaluateClassificationResultsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

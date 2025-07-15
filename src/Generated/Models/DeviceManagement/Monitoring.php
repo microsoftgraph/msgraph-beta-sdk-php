@@ -6,7 +6,6 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Monitoring extends Entity implements Parsable 
 {
@@ -27,42 +26,12 @@ class Monitoring extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertRecords property value. The collection of records of alert events.
-     * @return array<AlertRecord>|null
-    */
-    public function getAlertRecords(): ?array {
-        $val = $this->getBackingStore()->get('alertRecords');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, AlertRecord::class);
-            /** @var array<AlertRecord>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRecords'");
-    }
-
-    /**
-     * Gets the alertRules property value. The collection of alert rules.
-     * @return array<AlertRule>|null
-    */
-    public function getAlertRules(): ?array {
-        $val = $this->getBackingStore()->get('alertRules');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, AlertRule::class);
-            /** @var array<AlertRule>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'alertRules'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertRecords' => fn(ParseNode $n) => $o->setAlertRecords($n->getCollectionOfObjectValues([AlertRecord::class, 'createFromDiscriminatorValue'])),
-            'alertRules' => fn(ParseNode $n) => $o->setAlertRules($n->getCollectionOfObjectValues([AlertRule::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -72,24 +41,6 @@ class Monitoring extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('alertRecords', $this->getAlertRecords());
-        $writer->writeCollectionOfObjectValues('alertRules', $this->getAlertRules());
-    }
-
-    /**
-     * Sets the alertRecords property value. The collection of records of alert events.
-     * @param array<AlertRecord>|null $value Value to set for the alertRecords property.
-    */
-    public function setAlertRecords(?array $value): void {
-        $this->getBackingStore()->set('alertRecords', $value);
-    }
-
-    /**
-     * Sets the alertRules property value. The collection of alert rules.
-     * @param array<AlertRule>|null $value Value to set for the alertRules property.
-    */
-    public function setAlertRules(?array $value): void {
-        $this->getBackingStore()->set('alertRules', $value);
     }
 
 }

@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class OutlookUser extends Entity implements Parsable 
 {
@@ -32,67 +31,7 @@ class OutlookUser extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'masterCategories' => fn(ParseNode $n) => $o->setMasterCategories($n->getCollectionOfObjectValues([OutlookCategory::class, 'createFromDiscriminatorValue'])),
-            'taskFolders' => fn(ParseNode $n) => $o->setTaskFolders($n->getCollectionOfObjectValues([OutlookTaskFolder::class, 'createFromDiscriminatorValue'])),
-            'taskGroups' => fn(ParseNode $n) => $o->setTaskGroups($n->getCollectionOfObjectValues([OutlookTaskGroup::class, 'createFromDiscriminatorValue'])),
-            'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([OutlookTask::class, 'createFromDiscriminatorValue'])),
         ]);
-    }
-
-    /**
-     * Gets the masterCategories property value. A list of categories defined for the user.
-     * @return array<OutlookCategory>|null
-    */
-    public function getMasterCategories(): ?array {
-        $val = $this->getBackingStore()->get('masterCategories');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, OutlookCategory::class);
-            /** @var array<OutlookCategory>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'masterCategories'");
-    }
-
-    /**
-     * Gets the taskFolders property value. The user's Outlook task folders. Read-only. Nullable.
-     * @return array<OutlookTaskFolder>|null
-    */
-    public function getTaskFolders(): ?array {
-        $val = $this->getBackingStore()->get('taskFolders');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, OutlookTaskFolder::class);
-            /** @var array<OutlookTaskFolder>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'taskFolders'");
-    }
-
-    /**
-     * Gets the taskGroups property value. The user's Outlook task groups. Read-only. Nullable.
-     * @return array<OutlookTaskGroup>|null
-    */
-    public function getTaskGroups(): ?array {
-        $val = $this->getBackingStore()->get('taskGroups');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, OutlookTaskGroup::class);
-            /** @var array<OutlookTaskGroup>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'taskGroups'");
-    }
-
-    /**
-     * Gets the tasks property value. The user's Outlook tasks. Read-only. Nullable.
-     * @return array<OutlookTask>|null
-    */
-    public function getTasks(): ?array {
-        $val = $this->getBackingStore()->get('tasks');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, OutlookTask::class);
-            /** @var array<OutlookTask>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks'");
     }
 
     /**
@@ -101,42 +40,6 @@ class OutlookUser extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('masterCategories', $this->getMasterCategories());
-        $writer->writeCollectionOfObjectValues('taskFolders', $this->getTaskFolders());
-        $writer->writeCollectionOfObjectValues('taskGroups', $this->getTaskGroups());
-        $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
-    }
-
-    /**
-     * Sets the masterCategories property value. A list of categories defined for the user.
-     * @param array<OutlookCategory>|null $value Value to set for the masterCategories property.
-    */
-    public function setMasterCategories(?array $value): void {
-        $this->getBackingStore()->set('masterCategories', $value);
-    }
-
-    /**
-     * Sets the taskFolders property value. The user's Outlook task folders. Read-only. Nullable.
-     * @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
-    */
-    public function setTaskFolders(?array $value): void {
-        $this->getBackingStore()->set('taskFolders', $value);
-    }
-
-    /**
-     * Sets the taskGroups property value. The user's Outlook task groups. Read-only. Nullable.
-     * @param array<OutlookTaskGroup>|null $value Value to set for the taskGroups property.
-    */
-    public function setTaskGroups(?array $value): void {
-        $this->getBackingStore()->set('taskGroups', $value);
-    }
-
-    /**
-     * Sets the tasks property value. The user's Outlook tasks. Read-only. Nullable.
-     * @param array<OutlookTask>|null $value Value to set for the tasks property.
-    */
-    public function setTasks(?array $value): void {
-        $this->getBackingStore()->set('tasks', $value);
     }
 
 }

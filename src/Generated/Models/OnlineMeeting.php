@@ -95,13 +95,13 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
 
     /**
      * Gets the capabilities property value. The list of meeting capabilities. Possible values are: questionAndAnswer,unknownFutureValue.
-     * @return array<MeetingCapabilities>|null
+     * @return array<string>|null
     */
     public function getCapabilities(): ?array {
         $val = $this->getBackingStore()->get('capabilities');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, MeetingCapabilities::class);
-            /** @var array<MeetingCapabilities>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'capabilities'");
@@ -155,7 +155,14 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
             'attendeeReport' => fn(ParseNode $n) => $o->setAttendeeReport($n->getBinaryContent()),
             'broadcastRecording' => fn(ParseNode $n) => $o->setBroadcastRecording($n->getBinaryContent()),
             'broadcastSettings' => fn(ParseNode $n) => $o->setBroadcastSettings($n->getObjectValue([BroadcastMeetingSettings::class, 'createFromDiscriminatorValue'])),
-            'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getCollectionOfEnumValues(MeetingCapabilities::class)),
+            'capabilities' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCapabilities($val);
+            },
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
@@ -307,7 +314,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
         $writer->writeBinaryContent('attendeeReport', $this->getAttendeeReport());
         $writer->writeBinaryContent('broadcastRecording', $this->getBroadcastRecording());
         $writer->writeObjectValue('broadcastSettings', $this->getBroadcastSettings());
-        $writer->writeCollectionOfEnumValues('capabilities', $this->getCapabilities());
+        $writer->writeCollectionOfPrimitiveValues('capabilities', $this->getCapabilities());
         $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeStringValue('externalId', $this->getExternalId());
@@ -365,7 +372,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
 
     /**
      * Sets the capabilities property value. The list of meeting capabilities. Possible values are: questionAndAnswer,unknownFutureValue.
-     * @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
+     * @param array<string>|null $value Value to set for the capabilities property.
     */
     public function setCapabilities(?array $value): void {
         $this->getBackingStore()->set('capabilities', $value);

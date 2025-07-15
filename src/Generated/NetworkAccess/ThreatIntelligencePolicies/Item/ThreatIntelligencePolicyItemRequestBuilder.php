@@ -39,10 +39,11 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property threatIntelligencePolicies for networkAccess
+     * Delete a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-delete-threatintelligencepolicies?view=graph-rest-beta Find more info here
     */
     public function delete(?ThreatIntelligencePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get threatIntelligencePolicies from networkAccess
+     * Read the properties and relationships of a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ThreatIntelligencePolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicy-get?view=graph-rest-beta Find more info here
     */
     public function get(?ThreatIntelligencePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property threatIntelligencePolicies in networkAccess
+     * Update the properties of a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicy $body The request body
      * @param ThreatIntelligencePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ThreatIntelligencePolicy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicy-update?view=graph-rest-beta Find more info here
     */
     public function patch(ThreatIntelligencePolicy $body, ?ThreatIntelligencePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property threatIntelligencePolicies for networkAccess
+     * Delete a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get threatIntelligencePolicies from networkAccess
+     * Read the properties and relationships of a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property threatIntelligencePolicies in networkAccess
+     * Update the properties of a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicy $body The request body
      * @param ThreatIntelligencePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

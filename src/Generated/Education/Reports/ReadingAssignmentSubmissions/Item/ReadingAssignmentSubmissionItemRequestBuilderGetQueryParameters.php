@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Reports\ReadingAssignmentSubm
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get readingAssignmentSubmissions from education
+ * Details of submitted reading assignments.
 */
 class ReadingAssignmentSubmissionItemRequestBuilderGetQueryParameters 
 {

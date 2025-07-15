@@ -104,7 +104,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
+     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @return string|null
     */
     public function getCustomBrowserProtocol(): ?string {
@@ -232,6 +232,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
             },
             'faceIdBlocked' => fn(ParseNode $n) => $o->setFaceIdBlocked($n->getBooleanValue()),
             'filterOpenInToOnlyManagedApps' => fn(ParseNode $n) => $o->setFilterOpenInToOnlyManagedApps($n->getBooleanValue()),
+            'genmojiConfigurationState' => fn(ParseNode $n) => $o->setGenmojiConfigurationState($n->getEnumValue(GenmojiIosManagedAppConfigurationState::class)),
             'managedUniversalLinks' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -245,7 +246,9 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
             'minimumWarningSdkVersion' => fn(ParseNode $n) => $o->setMinimumWarningSdkVersion($n->getStringValue()),
             'minimumWipeSdkVersion' => fn(ParseNode $n) => $o->setMinimumWipeSdkVersion($n->getStringValue()),
             'protectInboundDataFromUnknownSources' => fn(ParseNode $n) => $o->setProtectInboundDataFromUnknownSources($n->getBooleanValue()),
+            'screenCaptureConfigurationState' => fn(ParseNode $n) => $o->setScreenCaptureConfigurationState($n->getEnumValue(ScreenCaptureIosManagedAppConfigurationState::class)),
             'thirdPartyKeyboardsBlocked' => fn(ParseNode $n) => $o->setThirdPartyKeyboardsBlocked($n->getBooleanValue()),
+            'writingToolsConfigurationState' => fn(ParseNode $n) => $o->setWritingToolsConfigurationState($n->getEnumValue(WritingToolsIosManagedAppConfigurationState::class)),
         ]);
     }
 
@@ -259,6 +262,18 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'filterOpenInToOnlyManagedApps'");
+    }
+
+    /**
+     * Gets the genmojiConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence Genmoji setting. Possible values are: notBlocked, blocked, unknownFutureValue.
+     * @return GenmojiIosManagedAppConfigurationState|null
+    */
+    public function getGenmojiConfigurationState(): ?GenmojiIosManagedAppConfigurationState {
+        $val = $this->getBackingStore()->get('genmojiConfigurationState');
+        if (is_null($val) || $val instanceof GenmojiIosManagedAppConfigurationState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'genmojiConfigurationState'");
     }
 
     /**
@@ -336,6 +351,18 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
+     * Gets the screenCaptureConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence screen capture setting. Possible values are: notBlocked, blocked, unknownFutureValue.
+     * @return ScreenCaptureIosManagedAppConfigurationState|null
+    */
+    public function getScreenCaptureConfigurationState(): ?ScreenCaptureIosManagedAppConfigurationState {
+        $val = $this->getBackingStore()->get('screenCaptureConfigurationState');
+        if (is_null($val) || $val instanceof ScreenCaptureIosManagedAppConfigurationState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'screenCaptureConfigurationState'");
+    }
+
+    /**
      * Gets the thirdPartyKeyboardsBlocked property value. Defines if third party keyboards are allowed while accessing a managed app
      * @return bool|null
     */
@@ -345,6 +372,18 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'thirdPartyKeyboardsBlocked'");
+    }
+
+    /**
+     * Gets the writingToolsConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence writing tools setting. Possible values are: notBlocked, blocked, unknownFutureValue.
+     * @return WritingToolsIosManagedAppConfigurationState|null
+    */
+    public function getWritingToolsConfigurationState(): ?WritingToolsIosManagedAppConfigurationState {
+        $val = $this->getBackingStore()->get('writingToolsConfigurationState');
+        if (is_null($val) || $val instanceof WritingToolsIosManagedAppConfigurationState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'writingToolsConfigurationState'");
     }
 
     /**
@@ -368,13 +407,16 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
         $writer->writeCollectionOfPrimitiveValues('exemptedUniversalLinks', $this->getExemptedUniversalLinks());
         $writer->writeBooleanValue('faceIdBlocked', $this->getFaceIdBlocked());
         $writer->writeBooleanValue('filterOpenInToOnlyManagedApps', $this->getFilterOpenInToOnlyManagedApps());
+        $writer->writeEnumValue('genmojiConfigurationState', $this->getGenmojiConfigurationState());
         $writer->writeCollectionOfPrimitiveValues('managedUniversalLinks', $this->getManagedUniversalLinks());
         $writer->writeStringValue('messagingRedirectAppUrlScheme', $this->getMessagingRedirectAppUrlScheme());
         $writer->writeStringValue('minimumRequiredSdkVersion', $this->getMinimumRequiredSdkVersion());
         $writer->writeStringValue('minimumWarningSdkVersion', $this->getMinimumWarningSdkVersion());
         $writer->writeStringValue('minimumWipeSdkVersion', $this->getMinimumWipeSdkVersion());
         $writer->writeBooleanValue('protectInboundDataFromUnknownSources', $this->getProtectInboundDataFromUnknownSources());
+        $writer->writeEnumValue('screenCaptureConfigurationState', $this->getScreenCaptureConfigurationState());
         $writer->writeBooleanValue('thirdPartyKeyboardsBlocked', $this->getThirdPartyKeyboardsBlocked());
+        $writer->writeEnumValue('writingToolsConfigurationState', $this->getWritingToolsConfigurationState());
     }
 
     /**
@@ -426,7 +468,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
+     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @param string|null $value Value to set for the customBrowserProtocol property.
     */
     public function setCustomBrowserProtocol(?string $value): void {
@@ -498,6 +540,14 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
+     * Sets the genmojiConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence Genmoji setting. Possible values are: notBlocked, blocked, unknownFutureValue.
+     * @param GenmojiIosManagedAppConfigurationState|null $value Value to set for the genmojiConfigurationState property.
+    */
+    public function setGenmojiConfigurationState(?GenmojiIosManagedAppConfigurationState $value): void {
+        $this->getBackingStore()->set('genmojiConfigurationState', $value);
+    }
+
+    /**
      * Sets the managedUniversalLinks property value. A list of custom urls that are allowed to invocate a managed app
      * @param array<string>|null $value Value to set for the managedUniversalLinks property.
     */
@@ -546,11 +596,27 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
+     * Sets the screenCaptureConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence screen capture setting. Possible values are: notBlocked, blocked, unknownFutureValue.
+     * @param ScreenCaptureIosManagedAppConfigurationState|null $value Value to set for the screenCaptureConfigurationState property.
+    */
+    public function setScreenCaptureConfigurationState(?ScreenCaptureIosManagedAppConfigurationState $value): void {
+        $this->getBackingStore()->set('screenCaptureConfigurationState', $value);
+    }
+
+    /**
      * Sets the thirdPartyKeyboardsBlocked property value. Defines if third party keyboards are allowed while accessing a managed app
      * @param bool|null $value Value to set for the thirdPartyKeyboardsBlocked property.
     */
     public function setThirdPartyKeyboardsBlocked(?bool $value): void {
         $this->getBackingStore()->set('thirdPartyKeyboardsBlocked', $value);
+    }
+
+    /**
+     * Sets the writingToolsConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence writing tools setting. Possible values are: notBlocked, blocked, unknownFutureValue.
+     * @param WritingToolsIosManagedAppConfigurationState|null $value Value to set for the writingToolsConfigurationState property.
+    */
+    public function setWritingToolsConfigurationState(?WritingToolsIosManagedAppConfigurationState $value): void {
+        $this->getBackingStore()->set('writingToolsConfigurationState', $value);
     }
 
 }

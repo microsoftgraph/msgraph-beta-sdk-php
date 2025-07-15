@@ -16,4 +16,6 @@ class DeviceCleanupRulePlatformType extends Enum {
     public const WINDOWS = "windows";
     public const WINDOWS_HOLOGRAPHIC = "windowsHolographic";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const VISION_O_S = "visionOS";
+    public const TV_O_S = "tvOS";
 }

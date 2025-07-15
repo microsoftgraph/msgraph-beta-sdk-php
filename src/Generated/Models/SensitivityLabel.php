@@ -62,32 +62,6 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignedPolicies property value. The assignedPolicies property
-     * @return array<LabelPolicy>|null
-    */
-    public function getAssignedPolicies(): ?array {
-        $val = $this->getBackingStore()->get('assignedPolicies');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, LabelPolicy::class);
-            /** @var array<LabelPolicy>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignedPolicies'");
-    }
-
-    /**
-     * Gets the autoLabeling property value. The autoLabeling property
-     * @return AutoLabeling|null
-    */
-    public function getAutoLabeling(): ?AutoLabeling {
-        $val = $this->getBackingStore()->get('autoLabeling');
-        if (is_null($val) || $val instanceof AutoLabeling) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoLabeling'");
-    }
-
-    /**
      * Gets the autoTooltip property value. The autoTooltip property
      * @return string|null
     */
@@ -145,8 +119,6 @@ class SensitivityLabel extends Entity implements Parsable
             'actionSource' => fn(ParseNode $n) => $o->setActionSource($n->getEnumValue(LabelActionSource::class)),
             'applicableTo' => fn(ParseNode $n) => $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)),
             'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)),
-            'assignedPolicies' => fn(ParseNode $n) => $o->setAssignedPolicies($n->getCollectionOfObjectValues([LabelPolicy::class, 'createFromDiscriminatorValue'])),
-            'autoLabeling' => fn(ParseNode $n) => $o->setAutoLabeling($n->getObjectValue([AutoLabeling::class, 'createFromDiscriminatorValue'])),
             'autoTooltip' => fn(ParseNode $n) => $o->setAutoTooltip($n->getStringValue()),
             'color' => fn(ParseNode $n) => $o->setColor($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -155,7 +127,6 @@ class SensitivityLabel extends Entity implements Parsable
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isEndpointProtectionEnabled' => fn(ParseNode $n) => $o->setIsEndpointProtectionEnabled($n->getBooleanValue()),
             'isScopedToUser' => fn(ParseNode $n) => $o->setIsScopedToUser($n->getBooleanValue()),
-            'labelActions' => fn(ParseNode $n) => $o->setLabelActions($n->getCollectionOfObjectValues([LabelActionBase::class, 'createFromDiscriminatorValue'])),
             'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
@@ -211,20 +182,6 @@ class SensitivityLabel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isScopedToUser'");
-    }
-
-    /**
-     * Gets the labelActions property value. The labelActions property
-     * @return array<LabelActionBase>|null
-    */
-    public function getLabelActions(): ?array {
-        $val = $this->getBackingStore()->get('labelActions');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, LabelActionBase::class);
-            /** @var array<LabelActionBase>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'labelActions'");
     }
 
     /**
@@ -310,8 +267,6 @@ class SensitivityLabel extends Entity implements Parsable
         $writer->writeEnumValue('actionSource', $this->getActionSource());
         $writer->writeEnumValue('applicableTo', $this->getApplicableTo());
         $writer->writeEnumValue('applicationMode', $this->getApplicationMode());
-        $writer->writeCollectionOfObjectValues('assignedPolicies', $this->getAssignedPolicies());
-        $writer->writeObjectValue('autoLabeling', $this->getAutoLabeling());
         $writer->writeStringValue('autoTooltip', $this->getAutoTooltip());
         $writer->writeStringValue('color', $this->getColor());
         $writer->writeStringValue('description', $this->getDescription());
@@ -320,7 +275,6 @@ class SensitivityLabel extends Entity implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->getIsEndpointProtectionEnabled());
         $writer->writeBooleanValue('isScopedToUser', $this->getIsScopedToUser());
-        $writer->writeCollectionOfObjectValues('labelActions', $this->getLabelActions());
         $writer->writeStringValue('locale', $this->getLocale());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeIntegerValue('priority', $this->getPriority());
@@ -351,22 +305,6 @@ class SensitivityLabel extends Entity implements Parsable
     */
     public function setApplicationMode(?ApplicationMode $value): void {
         $this->getBackingStore()->set('applicationMode', $value);
-    }
-
-    /**
-     * Sets the assignedPolicies property value. The assignedPolicies property
-     * @param array<LabelPolicy>|null $value Value to set for the assignedPolicies property.
-    */
-    public function setAssignedPolicies(?array $value): void {
-        $this->getBackingStore()->set('assignedPolicies', $value);
-    }
-
-    /**
-     * Sets the autoLabeling property value. The autoLabeling property
-     * @param AutoLabeling|null $value Value to set for the autoLabeling property.
-    */
-    public function setAutoLabeling(?AutoLabeling $value): void {
-        $this->getBackingStore()->set('autoLabeling', $value);
     }
 
     /**
@@ -431,14 +369,6 @@ class SensitivityLabel extends Entity implements Parsable
     */
     public function setIsScopedToUser(?bool $value): void {
         $this->getBackingStore()->set('isScopedToUser', $value);
-    }
-
-    /**
-     * Sets the labelActions property value. The labelActions property
-     * @param array<LabelActionBase>|null $value Value to set for the labelActions property.
-    */
-    public function setLabelActions(?array $value): void {
-        $this->getBackingStore()->set('labelActions', $value);
     }
 
     /**

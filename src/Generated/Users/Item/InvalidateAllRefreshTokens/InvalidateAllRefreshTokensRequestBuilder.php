@@ -34,7 +34,6 @@ class InvalidateAllRefreshTokensRequestBuilder extends BaseRequestBuilder
      * @param InvalidateAllRefreshTokensRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InvalidateAllRefreshTokensPostResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta Find more info here
     */
     public function post(?InvalidateAllRefreshTokensRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

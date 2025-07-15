@@ -25,39 +25,13 @@ class UserInsightsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the daily property value. Summaries of daily user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
-     * @return DailyUserInsightMetricsRoot|null
-    */
-    public function getDaily(): ?DailyUserInsightMetricsRoot {
-        $val = $this->getBackingStore()->get('daily');
-        if (is_null($val) || $val instanceof DailyUserInsightMetricsRoot) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'daily'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'daily' => fn(ParseNode $n) => $o->setDaily($n->getObjectValue([DailyUserInsightMetricsRoot::class, 'createFromDiscriminatorValue'])),
-            'monthly' => fn(ParseNode $n) => $o->setMonthly($n->getObjectValue([MonthlyUserInsightMetricsRoot::class, 'createFromDiscriminatorValue'])),
         ]);
-    }
-
-    /**
-     * Gets the monthly property value. Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
-     * @return MonthlyUserInsightMetricsRoot|null
-    */
-    public function getMonthly(): ?MonthlyUserInsightMetricsRoot {
-        $val = $this->getBackingStore()->get('monthly');
-        if (is_null($val) || $val instanceof MonthlyUserInsightMetricsRoot) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'monthly'");
     }
 
     /**
@@ -66,24 +40,6 @@ class UserInsightsRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('daily', $this->getDaily());
-        $writer->writeObjectValue('monthly', $this->getMonthly());
-    }
-
-    /**
-     * Sets the daily property value. Summaries of daily user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
-     * @param DailyUserInsightMetricsRoot|null $value Value to set for the daily property.
-    */
-    public function setDaily(?DailyUserInsightMetricsRoot $value): void {
-        $this->getBackingStore()->set('daily', $value);
-    }
-
-    /**
-     * Sets the monthly property value. Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.
-     * @param MonthlyUserInsightMetricsRoot|null $value Value to set for the monthly property.
-    */
-    public function setMonthly(?MonthlyUserInsightMetricsRoot $value): void {
-        $this->getBackingStore()->set('monthly', $value);
     }
 
 }

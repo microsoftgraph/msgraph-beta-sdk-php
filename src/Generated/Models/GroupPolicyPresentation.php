@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
-use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -45,52 +44,13 @@ class GroupPolicyPresentation extends Entity implements Parsable
     }
 
     /**
-     * Gets the definition property value. The group policy definition associated with the presentation.
-     * @return GroupPolicyDefinition|null
-    */
-    public function getDefinition(): ?GroupPolicyDefinition {
-        $val = $this->getBackingStore()->get('definition');
-        if (is_null($val) || $val instanceof GroupPolicyDefinition) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'definition'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definition' => fn(ParseNode $n) => $o->setDefinition($n->getObjectValue([GroupPolicyDefinition::class, 'createFromDiscriminatorValue'])),
-            'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
-            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
         ]);
-    }
-
-    /**
-     * Gets the label property value. Localized text label for any presentation entity. The default value is empty.
-     * @return string|null
-    */
-    public function getLabel(): ?string {
-        $val = $this->getBackingStore()->get('label');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
-    }
-
-    /**
-     * Gets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     * @return DateTime|null
-    */
-    public function getLastModifiedDateTime(): ?DateTime {
-        $val = $this->getBackingStore()->get('lastModifiedDateTime');
-        if (is_null($val) || $val instanceof DateTime) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -99,33 +59,6 @@ class GroupPolicyPresentation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('definition', $this->getDefinition());
-        $writer->writeStringValue('label', $this->getLabel());
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
-    }
-
-    /**
-     * Sets the definition property value. The group policy definition associated with the presentation.
-     * @param GroupPolicyDefinition|null $value Value to set for the definition property.
-    */
-    public function setDefinition(?GroupPolicyDefinition $value): void {
-        $this->getBackingStore()->set('definition', $value);
-    }
-
-    /**
-     * Sets the label property value. Localized text label for any presentation entity. The default value is empty.
-     * @param string|null $value Value to set for the label property.
-    */
-    public function setLabel(?string $value): void {
-        $this->getBackingStore()->set('label', $value);
-    }
-
-    /**
-     * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
-    */
-    public function setLastModifiedDateTime(?DateTime $value): void {
-        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

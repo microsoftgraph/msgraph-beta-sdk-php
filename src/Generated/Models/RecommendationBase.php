@@ -109,13 +109,13 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Gets the featureAreas property value. The directory feature that the recommendation is related to.
-     * @return array<RecommendationFeatureAreas>|null
+     * @return array<string>|null
     */
     public function getFeatureAreas(): ?array {
         $val = $this->getBackingStore()->get('featureAreas');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, RecommendationFeatureAreas::class);
-            /** @var array<RecommendationFeatureAreas>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'featureAreas'");
@@ -134,7 +134,14 @@ class RecommendationBase extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getFloatValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'featureAreas' => fn(ParseNode $n) => $o->setFeatureAreas($n->getCollectionOfEnumValues(RecommendationFeatureAreas::class)),
+            'featureAreas' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setFeatureAreas($val);
+            },
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'impactStartDateTime' => fn(ParseNode $n) => $o->setImpactStartDateTime($n->getDateTimeValue()),
             'impactType' => fn(ParseNode $n) => $o->setImpactType($n->getStringValue()),
@@ -312,7 +319,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue.
+     * Gets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue, aatp. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: aatp.
      * @return RequiredLicenses|null
     */
     public function getRequiredLicenses(): ?RequiredLicenses {
@@ -347,7 +354,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeFloatValue('currentScore', $this->getCurrentScore());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeCollectionOfEnumValues('featureAreas', $this->getFeatureAreas());
+        $writer->writeCollectionOfPrimitiveValues('featureAreas', $this->getFeatureAreas());
         $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
         $writer->writeDateTimeValue('impactStartDateTime', $this->getImpactStartDateTime());
         $writer->writeStringValue('impactType', $this->getImpactType());
@@ -415,7 +422,7 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Sets the featureAreas property value. The directory feature that the recommendation is related to.
-     * @param array<RecommendationFeatureAreas>|null $value Value to set for the featureAreas property.
+     * @param array<string>|null $value Value to set for the featureAreas property.
     */
     public function setFeatureAreas(?array $value): void {
         $this->getBackingStore()->set('featureAreas', $value);
@@ -526,7 +533,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue.
+     * Sets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue, aatp. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: aatp.
      * @param RequiredLicenses|null $value Value to set for the requiredLicenses property.
     */
     public function setRequiredLicenses(?RequiredLicenses $value): void {

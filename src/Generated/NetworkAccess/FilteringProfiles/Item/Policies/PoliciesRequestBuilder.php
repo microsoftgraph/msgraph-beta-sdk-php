@@ -52,10 +52,11 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The traffic forwarding policies associated with this profile.
+     * Get a list of the tlsInspectionPolicyLink objects on a filtering profile.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLinkCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-list?view=graph-rest-beta Find more info here
     */
     public function get(?PoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to policies for networkAccess
+     * Create a new tlsInspectionPolicyLink to connect a filtering profile with a tlsInspectionPolicy. One 1 tlsInspectionPolicy is allowed for every filtering profile.
      * @param PolicyLink $body The request body
      * @param PoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-post?view=graph-rest-beta Find more info here
     */
     public function post(PolicyLink $body, ?PoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The traffic forwarding policies associated with this profile.
+     * Get a list of the tlsInspectionPolicyLink objects on a filtering profile.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to policies for networkAccess
+     * Create a new tlsInspectionPolicyLink to connect a filtering profile with a tlsInspectionPolicy. One 1 tlsInspectionPolicy is allowed for every filtering profile.
      * @param PolicyLink $body The request body
      * @param PoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

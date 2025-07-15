@@ -126,13 +126,13 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
-     * @return array<EntityType>|null
+     * @return array<string>|null
     */
     public function getEntityTypes(): ?array {
         $val = $this->getBackingStore()->get('entityTypes');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, EntityType::class);
-            /** @var array<EntityType>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'entityTypes'");
@@ -164,7 +164,14 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
                 $this->setContentSources($val);
             },
             'enableTopResults' => fn(ParseNode $n) => $o->setEnableTopResults($n->getBooleanValue()),
-            'entityTypes' => fn(ParseNode $n) => $o->setEntityTypes($n->getCollectionOfEnumValues(EntityType::class)),
+            'entityTypes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEntityTypes($val);
+            },
             'fields' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -354,7 +361,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('collapseProperties', $this->getCollapseProperties());
         $writer->writeCollectionOfPrimitiveValues('contentSources', $this->getContentSources());
         $writer->writeBooleanValue('enableTopResults', $this->getEnableTopResults());
-        $writer->writeCollectionOfEnumValues('entityTypes', $this->getEntityTypes());
+        $writer->writeCollectionOfPrimitiveValues('entityTypes', $this->getEntityTypes());
         $writer->writeCollectionOfPrimitiveValues('fields', $this->getFields());
         $writer->writeIntegerValue('from', $this->getFrom());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -428,7 +435,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
-     * @param array<EntityType>|null $value Value to set for the entityTypes property.
+     * @param array<string>|null $value Value to set for the entityTypes property.
     */
     public function setEntityTypes(?array $value): void {
         $this->getBackingStore()->set('entityTypes', $value);

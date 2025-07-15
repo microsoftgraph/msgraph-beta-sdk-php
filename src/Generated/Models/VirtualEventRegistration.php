@@ -172,7 +172,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Gets the sessions property value. The sessions property
+     * Gets the sessions property value. Sessions for a registration.
      * @return array<VirtualEventSession>|null
     */
     public function getSessions(): ?array {
@@ -311,7 +311,7 @@ class VirtualEventRegistration extends Entity implements Parsable
     }
 
     /**
-     * Sets the sessions property value. The sessions property
+     * Sets the sessions property value. Sessions for a registration.
      * @param array<VirtualEventSession>|null $value Value to set for the sessions property.
     */
     public function setSessions(?array $value): void {

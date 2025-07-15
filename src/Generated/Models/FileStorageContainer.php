@@ -168,6 +168,7 @@ class FileStorageContainer extends Entity implements Parsable
             'isItemVersioningEnabled' => fn(ParseNode $n) => $o->setIsItemVersioningEnabled($n->getBooleanValue()),
             'itemMajorVersionLimit' => fn(ParseNode $n) => $o->setItemMajorVersionLimit($n->getIntegerValue()),
             'lockState' => fn(ParseNode $n) => $o->setLockState($n->getEnumValue(SiteLockState::class)),
+            'migrationJobs' => fn(ParseNode $n) => $o->setMigrationJobs($n->getCollectionOfObjectValues([SharePointMigrationJob::class, 'createFromDiscriminatorValue'])),
             'owners' => fn(ParseNode $n) => $o->setOwners($n->getCollectionOfObjectValues([UserIdentity::class, 'createFromDiscriminatorValue'])),
             'ownershipType' => fn(ParseNode $n) => $o->setOwnershipType($n->getEnumValue(FileStorageContainerOwnershipType::class)),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
@@ -214,6 +215,20 @@ class FileStorageContainer extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lockState'");
+    }
+
+    /**
+     * Gets the migrationJobs property value. The migrationJobs property
+     * @return array<SharePointMigrationJob>|null
+    */
+    public function getMigrationJobs(): ?array {
+        $val = $this->getBackingStore()->get('migrationJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SharePointMigrationJob::class);
+            /** @var array<SharePointMigrationJob>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migrationJobs'");
     }
 
     /**
@@ -349,6 +364,7 @@ class FileStorageContainer extends Entity implements Parsable
         $writer->writeBooleanValue('isItemVersioningEnabled', $this->getIsItemVersioningEnabled());
         $writer->writeIntegerValue('itemMajorVersionLimit', $this->getItemMajorVersionLimit());
         $writer->writeEnumValue('lockState', $this->getLockState());
+        $writer->writeCollectionOfObjectValues('migrationJobs', $this->getMigrationJobs());
         $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
         $writer->writeEnumValue('ownershipType', $this->getOwnershipType());
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
@@ -462,6 +478,14 @@ class FileStorageContainer extends Entity implements Parsable
     */
     public function setLockState(?SiteLockState $value): void {
         $this->getBackingStore()->set('lockState', $value);
+    }
+
+    /**
+     * Sets the migrationJobs property value. The migrationJobs property
+     * @param array<SharePointMigrationJob>|null $value Value to set for the migrationJobs property.
+    */
+    public function setMigrationJobs(?array $value): void {
+        $this->getBackingStore()->set('migrationJobs', $value);
     }
 
     /**

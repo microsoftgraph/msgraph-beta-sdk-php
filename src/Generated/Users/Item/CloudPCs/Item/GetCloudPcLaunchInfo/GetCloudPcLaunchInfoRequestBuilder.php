@@ -35,7 +35,6 @@ class GetCloudPcLaunchInfoRequestBuilder extends BaseRequestBuilder
      * @param GetCloudPcLaunchInfoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcLaunchInfo|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpc-getcloudpclaunchinfo?view=graph-rest-beta Find more info here
     */
     public function get(?GetCloudPcLaunchInfoRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

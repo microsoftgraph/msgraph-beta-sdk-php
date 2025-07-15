@@ -37,13 +37,13 @@ class UserManagementOptions implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalAttributes property value. The different attribute choices for the users to be provisioned. The possible values are: userGradeLevel, userNumber, unknownFutureValue.
-     * @return array<AdditionalUserAttributes>|null
+     * @return array<string>|null
     */
     public function getAdditionalAttributes(): ?array {
         $val = $this->getBackingStore()->get('additionalAttributes');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, AdditionalUserAttributes::class);
-            /** @var array<AdditionalUserAttributes>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalAttributes'");
@@ -89,7 +89,14 @@ class UserManagementOptions implements AdditionalDataHolder, BackedModel, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalAttributes' => fn(ParseNode $n) => $o->setAdditionalAttributes($n->getCollectionOfEnumValues(AdditionalUserAttributes::class)),
+            'additionalAttributes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAdditionalAttributes($val);
+            },
             'additionalOptions' => fn(ParseNode $n) => $o->setAdditionalOptions($n->getObjectValue([AdditionalUserOptions::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -112,7 +119,7 @@ class UserManagementOptions implements AdditionalDataHolder, BackedModel, Parsab
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfEnumValues('additionalAttributes', $this->getAdditionalAttributes());
+        $writer->writeCollectionOfPrimitiveValues('additionalAttributes', $this->getAdditionalAttributes());
         $writer->writeObjectValue('additionalOptions', $this->getAdditionalOptions());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -120,7 +127,7 @@ class UserManagementOptions implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalAttributes property value. The different attribute choices for the users to be provisioned. The possible values are: userGradeLevel, userNumber, unknownFutureValue.
-     * @param array<AdditionalUserAttributes>|null $value Value to set for the additionalAttributes property.
+     * @param array<string>|null $value Value to set for the additionalAttributes property.
     */
     public function setAdditionalAttributes(?array $value): void {
         $this->getBackingStore()->set('additionalAttributes', $value);

@@ -31,20 +31,7 @@ class UxSetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'restrictNonAdminAccess' => fn(ParseNode $n) => $o->setRestrictNonAdminAccess($n->getEnumValue(NonAdminSetting::class)),
         ]);
-    }
-
-    /**
-     * Gets the restrictNonAdminAccess property value. The restrictNonAdminAccess property
-     * @return NonAdminSetting|null
-    */
-    public function getRestrictNonAdminAccess(): ?NonAdminSetting {
-        $val = $this->getBackingStore()->get('restrictNonAdminAccess');
-        if (is_null($val) || $val instanceof NonAdminSetting) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'restrictNonAdminAccess'");
     }
 
     /**
@@ -53,15 +40,6 @@ class UxSetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('restrictNonAdminAccess', $this->getRestrictNonAdminAccess());
-    }
-
-    /**
-     * Sets the restrictNonAdminAccess property value. The restrictNonAdminAccess property
-     * @param NonAdminSetting|null $value Value to set for the restrictNonAdminAccess property.
-    */
-    public function setRestrictNonAdminAccess(?NonAdminSetting $value): void {
-        $this->getBackingStore()->set('restrictNonAdminAccess', $value);
     }
 
 }

@@ -52,11 +52,11 @@ class ReflectCheckInResponsesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a reflectCheckInResponse object. This method gets the responses to a Microsoft Reflect check-in.
+     * Get a list of Reflect check-ins that were submitted by a student.
      * @param ReflectCheckInResponsesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReflectCheckInResponseCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/reflectcheckinresponse-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/reportsroot-list-reflectcheckinresponses?view=graph-rest-beta Find more info here
     */
     public function get(?ReflectCheckInResponsesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +82,7 @@ class ReflectCheckInResponsesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a reflectCheckInResponse object. This method gets the responses to a Microsoft Reflect check-in.
+     * Get a list of Reflect check-ins that were submitted by a student.
      * @param ReflectCheckInResponsesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -35,7 +35,6 @@ class UnarchiveRequestBuilder extends BaseRequestBuilder
      * @param UnarchiveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plannerplan-unarchive?view=graph-rest-beta Find more info here
     */
     public function post(UnarchivePostRequestBody $body, ?UnarchiveRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -43,6 +43,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoveDeviceFi
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Retire\RetireRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RetrieveMacOSManagedDeviceLocalAdminAccountDetail\RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RevokeAppleVppLicenses\RevokeAppleVppLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateBitLockerKeys\RotateBitLockerKeysRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateFileVaultKey\RotateFileVaultKeyRequestBuilder;
@@ -326,6 +327,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function retire(): RetireRequestBuilder {
         return new RetireRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveMacOSManagedDeviceLocalAdminAccountDetail method.
+    */
+    public function retrieveMacOSManagedDeviceLocalAdminAccountDetail(): RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder {
+        return new RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

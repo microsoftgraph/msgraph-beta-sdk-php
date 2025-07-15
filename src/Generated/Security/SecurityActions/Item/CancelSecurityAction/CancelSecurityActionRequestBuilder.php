@@ -34,7 +34,6 @@ class CancelSecurityActionRequestBuilder extends BaseRequestBuilder
      * @param CancelSecurityActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/securityaction-cancelsecurityaction?view=graph-rest-beta Find more info here
     */
     public function post(?CancelSecurityActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

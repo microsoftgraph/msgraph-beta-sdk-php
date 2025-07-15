@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInRespons
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a reflectCheckInResponse object. This method gets the responses to a Microsoft Reflect check-in.
+ * Get a list of Reflect check-ins that were submitted by a student.
 */
 class ReflectCheckInResponsesRequestBuilderGetQueryParameters 
 {
