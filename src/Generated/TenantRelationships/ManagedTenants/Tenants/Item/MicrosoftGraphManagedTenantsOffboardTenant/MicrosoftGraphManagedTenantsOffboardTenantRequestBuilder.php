@@ -35,7 +35,6 @@ class MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder extends BaseReque
      * @param MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Tenant|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/managedtenants-tenant-offboardtenant?view=graph-rest-beta Find more info here
     */
     public function post(?MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

@@ -34,7 +34,6 @@ class GetOpenShiftsRequestBuilder extends BaseRequestBuilder
      * @param GetOpenShiftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetOpenShiftsGetResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/team-getopenshifts?view=graph-rest-beta Find more info here
     */
     public function get(?GetOpenShiftsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

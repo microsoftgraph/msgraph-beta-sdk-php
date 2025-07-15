@@ -38,7 +38,6 @@ class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder extends BaseR
      * @param GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getrealtimeremoteconnectionstatus?view=graph-rest-beta Find more info here
     */
     public function get(?GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

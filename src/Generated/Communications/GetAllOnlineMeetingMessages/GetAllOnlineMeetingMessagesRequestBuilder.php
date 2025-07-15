@@ -34,7 +34,6 @@ class GetAllOnlineMeetingMessagesRequestBuilder extends BaseRequestBuilder
      * @param GetAllOnlineMeetingMessagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAllOnlineMeetingMessagesGetResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudcommunications-getallonlinemeetingmessages?view=graph-rest-beta Find more info here
     */
     public function get(?GetAllOnlineMeetingMessagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

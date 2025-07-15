@@ -18,6 +18,8 @@ use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\TenantStatus\TenantStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\ThreatIntelligencePolicies\ThreatIntelligencePoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Tls\TlsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\TlsInspectionPolicies\TlsInspectionPoliciesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -110,6 +112,20 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
     */
     public function threatIntelligencePolicies(): ThreatIntelligencePoliciesRequestBuilder {
         return new ThreatIntelligencePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tls property of the microsoft.graph.networkaccess.networkAccessRoot entity.
+    */
+    public function tls(): TlsRequestBuilder {
+        return new TlsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tlsInspectionPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
+    */
+    public function tlsInspectionPolicies(): TlsInspectionPoliciesRequestBuilder {
+        return new TlsInspectionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

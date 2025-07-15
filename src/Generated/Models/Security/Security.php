@@ -32,20 +32,7 @@ class Security extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'informationProtection' => fn(ParseNode $n) => $o->setInformationProtection($n->getObjectValue([InformationProtection::class, 'createFromDiscriminatorValue'])),
         ]);
-    }
-
-    /**
-     * Gets the informationProtection property value. The informationProtection property
-     * @return InformationProtection|null
-    */
-    public function getInformationProtection(): ?InformationProtection {
-        $val = $this->getBackingStore()->get('informationProtection');
-        if (is_null($val) || $val instanceof InformationProtection) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'informationProtection'");
     }
 
     /**
@@ -54,15 +41,6 @@ class Security extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
-    }
-
-    /**
-     * Sets the informationProtection property value. The informationProtection property
-     * @param InformationProtection|null $value Value to set for the informationProtection property.
-    */
-    public function setInformationProtection(?InformationProtection $value): void {
-        $this->getBackingStore()->set('informationProtection', $value);
     }
 
 }

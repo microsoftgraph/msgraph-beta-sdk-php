@@ -36,7 +36,6 @@ class UploadSecretRequestBuilder extends BaseRequestBuilder
      * @param UploadSecretRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKey|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret?view=graph-rest-beta Find more info here
     */
     public function post(UploadSecretPostRequestBody $body, ?UploadSecretRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

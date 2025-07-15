@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TenantDataSecurityAndGovernance;
+use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\PolicyFiles\PolicyFilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\ProcessContentAsync\ProcessContentAsyncRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\ProtectionScopes\ProtectionScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\SensitivityLabelsRequestBuilder;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DataSecurityAndGovernanceRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the policyFiles property of the microsoft.graph.tenantDataSecurityAndGovernance entity.
+    */
+    public function policyFiles(): PolicyFilesRequestBuilder {
+        return new PolicyFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the processContentAsync method.
     */

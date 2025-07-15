@@ -31,10 +31,11 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Policy.
+     * Get a list of threatIntelligencePolicy objects associated with a threat intelligence policy link.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Policy|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-list-policy?view=graph-rest-beta Find more info here
     */
     public function get(?PolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Policy.
+     * Get a list of threatIntelligencePolicy objects associated with a threat intelligence policy link.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

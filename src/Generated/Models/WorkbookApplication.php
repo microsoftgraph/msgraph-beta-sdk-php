@@ -25,25 +25,12 @@ class WorkbookApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the calculationMode property value. Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
-     * @return string|null
-    */
-    public function getCalculationMode(): ?string {
-        $val = $this->getBackingStore()->get('calculationMode');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'calculationMode'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'calculationMode' => fn(ParseNode $n) => $o->setCalculationMode($n->getStringValue()),
         ]);
     }
 
@@ -53,15 +40,6 @@ class WorkbookApplication extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('calculationMode', $this->getCalculationMode());
-    }
-
-    /**
-     * Sets the calculationMode property value. Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
-     * @param string|null $value Value to set for the calculationMode property.
-    */
-    public function setCalculationMode(?string $value): void {
-        $this->getBackingStore()->set('calculationMode', $value);
     }
 
 }

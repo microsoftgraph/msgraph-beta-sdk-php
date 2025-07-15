@@ -57,7 +57,7 @@ class ThreatIntelligenceMatchingConditions implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the destinations property value. The destinations property
+     * Gets the destinations property value. A collection of destinations that are considered potential threats for network access evaluation.
      * @return array<ThreatIntelligenceDestination>|null
     */
     public function getDestinations(): ?array {
@@ -96,7 +96,7 @@ class ThreatIntelligenceMatchingConditions implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. The severity level of the threat associated with the destinations. Higher severity levels typically result in stricter security controls. The possible values are: low, medium, high, unknownFutureValue.
      * @return ThreatIntelligenceSeverity|null
     */
     public function getSeverity(): ?ThreatIntelligenceSeverity {
@@ -135,7 +135,7 @@ class ThreatIntelligenceMatchingConditions implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the destinations property value. The destinations property
+     * Sets the destinations property value. A collection of destinations that are considered potential threats for network access evaluation.
      * @param array<ThreatIntelligenceDestination>|null $value Value to set for the destinations property.
     */
     public function setDestinations(?array $value): void {
@@ -151,7 +151,7 @@ class ThreatIntelligenceMatchingConditions implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. The severity level of the threat associated with the destinations. Higher severity levels typically result in stricter security controls. The possible values are: low, medium, high, unknownFutureValue.
      * @param ThreatIntelligenceSeverity|null $value Value to set for the severity property.
     */
     public function setSeverity(?ThreatIntelligenceSeverity $value): void {

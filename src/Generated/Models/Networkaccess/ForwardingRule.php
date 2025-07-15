@@ -48,6 +48,18 @@ class ForwardingRule extends PolicyRule implements Parsable
     }
 
     /**
+     * Gets the clientFallbackAction property value. The clientFallbackAction property
+     * @return ClientFallbackAction|null
+    */
+    public function getClientFallbackAction(): ?ClientFallbackAction {
+        $val = $this->getBackingStore()->get('clientFallbackAction');
+        if (is_null($val) || $val instanceof ClientFallbackAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientFallbackAction'");
+    }
+
+    /**
      * Gets the destinations property value. Destinations maintain a list of potential destinations and destination types that the user may access within the context of a network filtering policy. This includes IP addresses and fully qualified domain names (FQDNs)/URLs.
      * @return array<RuleDestination>|null
     */
@@ -69,6 +81,7 @@ class ForwardingRule extends PolicyRule implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(ForwardingRuleAction::class)),
+            'clientFallbackAction' => fn(ParseNode $n) => $o->setClientFallbackAction($n->getEnumValue(ClientFallbackAction::class)),
             'destinations' => fn(ParseNode $n) => $o->setDestinations($n->getCollectionOfObjectValues([RuleDestination::class, 'createFromDiscriminatorValue'])),
             'ruleType' => fn(ParseNode $n) => $o->setRuleType($n->getEnumValue(NetworkDestinationType::class)),
         ]);
@@ -93,6 +106,7 @@ class ForwardingRule extends PolicyRule implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('action', $this->getAction());
+        $writer->writeEnumValue('clientFallbackAction', $this->getClientFallbackAction());
         $writer->writeCollectionOfObjectValues('destinations', $this->getDestinations());
         $writer->writeEnumValue('ruleType', $this->getRuleType());
     }
@@ -103,6 +117,14 @@ class ForwardingRule extends PolicyRule implements Parsable
     */
     public function setAction(?ForwardingRuleAction $value): void {
         $this->getBackingStore()->set('action', $value);
+    }
+
+    /**
+     * Sets the clientFallbackAction property value. The clientFallbackAction property
+     * @param ClientFallbackAction|null $value Value to set for the clientFallbackAction property.
+    */
+    public function setClientFallbackAction(?ClientFallbackAction $value): void {
+        $this->getBackingStore()->set('clientFallbackAction', $value);
     }
 
     /**

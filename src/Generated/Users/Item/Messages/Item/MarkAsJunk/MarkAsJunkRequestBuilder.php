@@ -36,7 +36,6 @@ class MarkAsJunkRequestBuilder extends BaseRequestBuilder
      * @param MarkAsJunkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Message|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/message-markasjunk?view=graph-rest-beta Find more info here
     */
     public function post(MarkAsJunkPostRequestBody $body, ?MarkAsJunkRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

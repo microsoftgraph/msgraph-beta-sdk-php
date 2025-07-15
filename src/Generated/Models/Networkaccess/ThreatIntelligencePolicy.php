@@ -39,7 +39,7 @@ class ThreatIntelligencePolicy extends Policy implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time when the policy was last modified.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -73,7 +73,7 @@ class ThreatIntelligencePolicy extends Policy implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. The date and time when the policy was last modified.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Reports;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Education\Reports\ReadingAssignmentSubmissions\ReadingAssignmentSubmissionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Education\Reports\ReadingCoachPassages\ReadingCoachPassagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInResponses\ReflectCheckInResponsesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\Reports\SpeakerAssignmentSubmissions\SpeakerAssignmentSubmissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -24,6 +25,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function readingAssignmentSubmissions(): ReadingAssignmentSubmissionsRequestBuilder {
         return new ReadingAssignmentSubmissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the readingCoachPassages property of the microsoft.graph.reportsRoot entity.
+    */
+    public function readingCoachPassages(): ReadingCoachPassagesRequestBuilder {
+        return new ReadingCoachPassagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

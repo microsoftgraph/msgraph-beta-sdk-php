@@ -32,20 +32,7 @@ class ConnectionQuota extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'itemsRemaining' => fn(ParseNode $n) => $o->setItemsRemaining($n->getIntegerValue()),
         ]);
-    }
-
-    /**
-     * Gets the itemsRemaining property value. The minimum of two values, one representing the items remaining in the connection and the other remaining items at tenant-level. The following equation represents the formula used to calculate the minimum number: min ({max capacity in the connection} – {number of items in the connection}, {tenant quota} – {number of items indexed in all connections}). If the connection is not monetized, such as in a preview connector or preview content experience, then this property is simply the number of remaining items in the connection.
-     * @return int|null
-    */
-    public function getItemsRemaining(): ?int {
-        $val = $this->getBackingStore()->get('itemsRemaining');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemsRemaining'");
     }
 
     /**
@@ -54,15 +41,6 @@ class ConnectionQuota extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('itemsRemaining', $this->getItemsRemaining());
-    }
-
-    /**
-     * Sets the itemsRemaining property value. The minimum of two values, one representing the items remaining in the connection and the other remaining items at tenant-level. The following equation represents the formula used to calculate the minimum number: min ({max capacity in the connection} – {number of items in the connection}, {tenant quota} – {number of items indexed in all connections}). If the connection is not monetized, such as in a preview connector or preview content experience, then this property is simply the number of remaining items in the connection.
-     * @param int|null $value Value to set for the itemsRemaining property.
-    */
-    public function setItemsRemaining(?int $value): void {
-        $this->getBackingStore()->set('itemsRemaining', $value);
     }
 
 }

@@ -45,7 +45,7 @@ class ThreatIntelligenceFqdnDestination extends ThreatIntelligenceDestination im
     }
 
     /**
-     * Gets the values property value. The values property
+     * Gets the values property value. A collection of fully qualified domain names (FQDNs) associated with potential security threats.
      * @return array<string>|null
     */
     public function getValues(): ?array {
@@ -68,7 +68,7 @@ class ThreatIntelligenceFqdnDestination extends ThreatIntelligenceDestination im
     }
 
     /**
-     * Sets the values property value. The values property
+     * Sets the values property value. A collection of fully qualified domain names (FQDNs) associated with potential security threats.
      * @param array<string>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {

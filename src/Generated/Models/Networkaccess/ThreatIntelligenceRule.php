@@ -38,7 +38,7 @@ class ThreatIntelligenceRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A description of the threat intelligence rule. Supports $filter (eq).
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -77,7 +77,7 @@ class ThreatIntelligenceRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. The priority of the rule which determines the order of rule evaluation. Lower values indicate higher priority. Supports $filter (eq).
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -122,7 +122,7 @@ class ThreatIntelligenceRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. A description of the threat intelligence rule. Supports $filter (eq).
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -138,7 +138,7 @@ class ThreatIntelligenceRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. The priority of the rule which determines the order of rule evaluation. Lower values indicate higher priority. Supports $filter (eq).
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {

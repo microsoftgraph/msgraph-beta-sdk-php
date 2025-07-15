@@ -37,13 +37,13 @@ class ClassGroupConfiguration implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalAttributes property value. The different attributes to sync for the class groups. The possible values are: courseTitle, courseCode, courseSubject, courseGradeLevel, courseExternalId, academicSessionTitle, academicSessionExternalId, classCode, unknownFutureValue.
-     * @return array<AdditionalClassGroupAttributes>|null
+     * @return array<string>|null
     */
     public function getAdditionalAttributes(): ?array {
         $val = $this->getBackingStore()->get('additionalAttributes');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, AdditionalClassGroupAttributes::class);
-            /** @var array<AdditionalClassGroupAttributes>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalAttributes'");
@@ -101,7 +101,14 @@ class ClassGroupConfiguration implements AdditionalDataHolder, BackedModel, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalAttributes' => fn(ParseNode $n) => $o->setAdditionalAttributes($n->getCollectionOfEnumValues(AdditionalClassGroupAttributes::class)),
+            'additionalAttributes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAdditionalAttributes($val);
+            },
             'additionalOptions' => fn(ParseNode $n) => $o->setAdditionalOptions($n->getObjectValue([AdditionalClassGroupOptions::class, 'createFromDiscriminatorValue'])),
             'enrollmentMappings' => fn(ParseNode $n) => $o->setEnrollmentMappings($n->getObjectValue([EnrollmentMappings::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -125,7 +132,7 @@ class ClassGroupConfiguration implements AdditionalDataHolder, BackedModel, Pars
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfEnumValues('additionalAttributes', $this->getAdditionalAttributes());
+        $writer->writeCollectionOfPrimitiveValues('additionalAttributes', $this->getAdditionalAttributes());
         $writer->writeObjectValue('additionalOptions', $this->getAdditionalOptions());
         $writer->writeObjectValue('enrollmentMappings', $this->getEnrollmentMappings());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -134,7 +141,7 @@ class ClassGroupConfiguration implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalAttributes property value. The different attributes to sync for the class groups. The possible values are: courseTitle, courseCode, courseSubject, courseGradeLevel, courseExternalId, academicSessionTitle, academicSessionExternalId, classCode, unknownFutureValue.
-     * @param array<AdditionalClassGroupAttributes>|null $value Value to set for the additionalAttributes property.
+     * @param array<string>|null $value Value to set for the additionalAttributes property.
     */
     public function setAdditionalAttributes(?array $value): void {
         $this->getBackingStore()->set('additionalAttributes', $value);

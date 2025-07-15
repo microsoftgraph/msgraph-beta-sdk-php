@@ -70,6 +70,8 @@ class NetworkAccessRoot extends Entity implements Parsable
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
             'tenantStatus' => fn(ParseNode $n) => $o->setTenantStatus($n->getObjectValue([TenantStatus::class, 'createFromDiscriminatorValue'])),
             'threatIntelligencePolicies' => fn(ParseNode $n) => $o->setThreatIntelligencePolicies($n->getCollectionOfObjectValues([ThreatIntelligencePolicy::class, 'createFromDiscriminatorValue'])),
+            'tls' => fn(ParseNode $n) => $o->setTls($n->getObjectValue([TlsTermination::class, 'createFromDiscriminatorValue'])),
+            'tlsInspectionPolicies' => fn(ParseNode $n) => $o->setTlsInspectionPolicies($n->getCollectionOfObjectValues([TlsInspectionPolicy::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -102,7 +104,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
+     * Gets the forwardingPolicies property value. The forwardingPolicies property
      * @return array<ForwardingPolicy>|null
     */
     public function getForwardingPolicies(): ?array {
@@ -116,7 +118,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the forwardingProfiles property value. A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
+     * Gets the forwardingProfiles property value. The forwardingProfiles property
      * @return array<ForwardingProfile>|null
     */
     public function getForwardingProfiles(): ?array {
@@ -192,6 +194,32 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the tls property value. A container for tenant-level TLS inspection settings for Global Secure Access.
+     * @return TlsTermination|null
+    */
+    public function getTls(): ?TlsTermination {
+        $val = $this->getBackingStore()->get('tls');
+        if (is_null($val) || $val instanceof TlsTermination) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tls'");
+    }
+
+    /**
+     * Gets the tlsInspectionPolicies property value. Allows you to configure TLS termination for your organization's network traffic through Global Secure Access.
+     * @return array<TlsInspectionPolicy>|null
+    */
+    public function getTlsInspectionPolicies(): ?array {
+        $val = $this->getBackingStore()->get('tlsInspectionPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TlsInspectionPolicy::class);
+            /** @var array<TlsInspectionPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tlsInspectionPolicies'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -208,6 +236,8 @@ class NetworkAccessRoot extends Entity implements Parsable
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('tenantStatus', $this->getTenantStatus());
         $writer->writeCollectionOfObjectValues('threatIntelligencePolicies', $this->getThreatIntelligencePolicies());
+        $writer->writeObjectValue('tls', $this->getTls());
+        $writer->writeCollectionOfObjectValues('tlsInspectionPolicies', $this->getTlsInspectionPolicies());
     }
 
     /**
@@ -243,7 +273,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingPolicies property value. A forwarding policy defines the specific traffic that is routed through the Global Secure Access Service. It's then added to a forwarding profile.
+     * Sets the forwardingPolicies property value. The forwardingPolicies property
      * @param array<ForwardingPolicy>|null $value Value to set for the forwardingPolicies property.
     */
     public function setForwardingPolicies(?array $value): void {
@@ -251,7 +281,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the forwardingProfiles property value. A forwarding profile determines which types of traffic are routed through the Global Secure Access services and which ones are skipped. The handling of specific traffic is determined by the forwarding policies that are added to the forwarding profile.
+     * Sets the forwardingProfiles property value. The forwardingProfiles property
      * @param array<ForwardingProfile>|null $value Value to set for the forwardingProfiles property.
     */
     public function setForwardingProfiles(?array $value): void {
@@ -296,6 +326,22 @@ class NetworkAccessRoot extends Entity implements Parsable
     */
     public function setThreatIntelligencePolicies(?array $value): void {
         $this->getBackingStore()->set('threatIntelligencePolicies', $value);
+    }
+
+    /**
+     * Sets the tls property value. A container for tenant-level TLS inspection settings for Global Secure Access.
+     * @param TlsTermination|null $value Value to set for the tls property.
+    */
+    public function setTls(?TlsTermination $value): void {
+        $this->getBackingStore()->set('tls', $value);
+    }
+
+    /**
+     * Sets the tlsInspectionPolicies property value. Allows you to configure TLS termination for your organization's network traffic through Global Secure Access.
+     * @param array<TlsInspectionPolicy>|null $value Value to set for the tlsInspectionPolicies property.
+    */
+    public function setTlsInspectionPolicies(?array $value): void {
+        $this->getBackingStore()->set('tlsInspectionPolicies', $value);
     }
 
 }

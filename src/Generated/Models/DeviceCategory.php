@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.
@@ -29,61 +28,13 @@ class DeviceCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Optional description for the device category.
-     * @return string|null
-    */
-    public function getDescription(): ?string {
-        $val = $this->getBackingStore()->get('description');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'description'");
-    }
-
-    /**
-     * Gets the displayName property value. Display name for the device category.
-     * @return string|null
-    */
-    public function getDisplayName(): ?string {
-        $val = $this->getBackingStore()->get('displayName');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'roleScopeTagIds' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setRoleScopeTagIds($val);
-            },
         ]);
-    }
-
-    /**
-     * Gets the roleScopeTagIds property value. Optional role scope tags for the device category.
-     * @return array<string>|null
-    */
-    public function getRoleScopeTagIds(): ?array {
-        $val = $this->getBackingStore()->get('roleScopeTagIds');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTagIds'");
     }
 
     /**
@@ -92,33 +43,6 @@ class DeviceCategory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->getDescription());
-        $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
-    }
-
-    /**
-     * Sets the description property value. Optional description for the device category.
-     * @param string|null $value Value to set for the description property.
-    */
-    public function setDescription(?string $value): void {
-        $this->getBackingStore()->set('description', $value);
-    }
-
-    /**
-     * Sets the displayName property value. Display name for the device category.
-     * @param string|null $value Value to set for the displayName property.
-    */
-    public function setDisplayName(?string $value): void {
-        $this->getBackingStore()->set('displayName', $value);
-    }
-
-    /**
-     * Sets the roleScopeTagIds property value. Optional role scope tags for the device category.
-     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
-    */
-    public function setRoleScopeTagIds(?array $value): void {
-        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
 }

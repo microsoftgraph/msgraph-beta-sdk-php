@@ -52,11 +52,11 @@ class ReadingAssignmentSubmissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a readingAssignmentSubmission object.
+     * Get a list of reading assignments that were submitted by a student.
      * @param ReadingAssignmentSubmissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReadingAssignmentSubmissionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/readingassignmentsubmission-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/reportsroot-list-readingassignmentsubmissions?view=graph-rest-beta Find more info here
     */
     public function get(?ReadingAssignmentSubmissionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +82,7 @@ class ReadingAssignmentSubmissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a readingAssignmentSubmission object.
+     * Get a list of reading assignments that were submitted by a student.
      * @param ReadingAssignmentSubmissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

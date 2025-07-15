@@ -35,7 +35,6 @@ class AssignAndActivateBySerialNumberRequestBuilder extends BaseRequestBuilder
      * @param AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/hardwareoathauthenticationmethod-assignandactivatebyserialnumber?view=graph-rest-beta Find more info here
     */
     public function post(AssignAndActivateBySerialNumberPostRequestBody $body, ?AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

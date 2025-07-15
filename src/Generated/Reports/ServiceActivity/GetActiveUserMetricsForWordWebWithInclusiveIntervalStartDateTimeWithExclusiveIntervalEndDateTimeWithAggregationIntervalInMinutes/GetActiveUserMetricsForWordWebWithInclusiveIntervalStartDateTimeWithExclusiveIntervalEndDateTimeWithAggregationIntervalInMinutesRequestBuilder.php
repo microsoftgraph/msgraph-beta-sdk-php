@@ -40,7 +40,6 @@ class GetActiveUserMetricsForWordWebWithInclusiveIntervalStartDateTimeWithExclus
      * @param GetActiveUserMetricsForWordWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetActiveUserMetricsForWordWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesGetResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/serviceactivity-getactiveusermetricsforwordweb?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveUserMetricsForWordWebWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

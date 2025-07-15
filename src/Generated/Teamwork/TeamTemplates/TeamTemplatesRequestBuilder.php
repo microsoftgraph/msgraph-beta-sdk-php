@@ -52,11 +52,11 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate. 
+     * Get the list of teamTemplate objects that are available for a tenant. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamTemplateCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/teamtemplate-list-definitions?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/teamwork-list-teamtemplates?view=graph-rest-beta Find more info here
     */
     public function get(?TeamTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -82,7 +82,7 @@ class TeamTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate. 
+     * Get the list of teamTemplate objects that are available for a tenant. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

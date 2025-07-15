@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class TenantDataSecurityAndGovernance extends DataSecurityAndGovernance implements Parsable 
 {
@@ -32,8 +33,23 @@ class TenantDataSecurityAndGovernance extends DataSecurityAndGovernance implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'policyFiles' => fn(ParseNode $n) => $o->setPolicyFiles($n->getCollectionOfObjectValues([PolicyFile::class, 'createFromDiscriminatorValue'])),
             'protectionScopes' => fn(ParseNode $n) => $o->setProtectionScopes($n->getObjectValue([TenantProtectionScopeContainer::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the policyFiles property value. The policyFiles property
+     * @return array<PolicyFile>|null
+    */
+    public function getPolicyFiles(): ?array {
+        $val = $this->getBackingStore()->get('policyFiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PolicyFile::class);
+            /** @var array<PolicyFile>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyFiles'");
     }
 
     /**
@@ -54,7 +70,16 @@ class TenantDataSecurityAndGovernance extends DataSecurityAndGovernance implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('policyFiles', $this->getPolicyFiles());
         $writer->writeObjectValue('protectionScopes', $this->getProtectionScopes());
+    }
+
+    /**
+     * Sets the policyFiles property value. The policyFiles property
+     * @param array<PolicyFile>|null $value Value to set for the policyFiles property.
+    */
+    public function setPolicyFiles(?array $value): void {
+        $this->getBackingStore()->set('policyFiles', $value);
     }
 
     /**

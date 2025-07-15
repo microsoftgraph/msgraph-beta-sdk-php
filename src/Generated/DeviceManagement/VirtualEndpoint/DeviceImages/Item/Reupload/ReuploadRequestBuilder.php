@@ -34,7 +34,6 @@ class ReuploadRequestBuilder extends BaseRequestBuilder
      * @param ReuploadRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-reupload?view=graph-rest-beta Find more info here
     */
     public function post(?ReuploadRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

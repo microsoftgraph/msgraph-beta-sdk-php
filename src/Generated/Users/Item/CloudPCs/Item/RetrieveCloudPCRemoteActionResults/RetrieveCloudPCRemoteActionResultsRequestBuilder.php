@@ -34,7 +34,6 @@ class RetrieveCloudPCRemoteActionResultsRequestBuilder extends BaseRequestBuilde
      * @param RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveCloudPCRemoteActionResultsGetResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpc-retrievecloudpcremoteactionresults?view=graph-rest-beta Find more info here
     */
     public function get(?RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

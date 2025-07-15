@@ -35,7 +35,6 @@ class RefreshRequestBuilder extends BaseRequestBuilder
      * @param RefreshRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/unifiedrolemanagementalert-refresh?view=graph-rest-beta Find more info here
     */
     public function post(RefreshPostRequestBody $body, ?RefreshRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

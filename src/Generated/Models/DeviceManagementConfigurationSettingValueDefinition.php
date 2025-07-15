@@ -35,6 +35,7 @@ class DeviceManagementConfigurationSettingValueDefinition implements AdditionalD
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationFloatSettingValueDefinition': return new DeviceManagementConfigurationFloatSettingValueDefinition();
                 case '#microsoft.graph.deviceManagementConfigurationIntegerSettingValueDefinition': return new DeviceManagementConfigurationIntegerSettingValueDefinition();
                 case '#microsoft.graph.deviceManagementConfigurationStringSettingValueDefinition': return new DeviceManagementConfigurationStringSettingValueDefinition();
             }

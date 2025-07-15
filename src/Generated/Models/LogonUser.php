@@ -106,7 +106,14 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
             'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
             'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
             'logonId' => fn(ParseNode $n) => $o->setLogonId($n->getStringValue()),
-            'logonTypes' => fn(ParseNode $n) => $o->setLogonTypes($n->getCollectionOfEnumValues(LogonType::class)),
+            'logonTypes' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLogonTypes($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -149,13 +156,13 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @return array<LogonType>|null
+     * @return array<string>|null
     */
     public function getLogonTypes(): ?array {
         $val = $this->getBackingStore()->get('logonTypes');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, LogonType::class);
-            /** @var array<LogonType>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'logonTypes'");
@@ -184,7 +191,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
         $writer->writeStringValue('logonId', $this->getLogonId());
-        $writer->writeCollectionOfEnumValues('logonTypes', $this->getLogonTypes());
+        $writer->writeCollectionOfPrimitiveValues('logonTypes', $this->getLogonTypes());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -255,7 +262,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @param array<LogonType>|null $value Value to set for the logonTypes property.
+     * @param array<string>|null $value Value to set for the logonTypes property.
     */
     public function setLogonTypes(?array $value): void {
         $this->getBackingStore()->set('logonTypes', $value);

@@ -35,7 +35,6 @@ class MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder extends BaseRequestBu
      * @param MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ediscovery-reviewset-addtoreviewset?view=graph-rest-beta Find more info here
     */
     public function post(AddToReviewSetPostRequestBody $body, ?MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -56,7 +56,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the calendar property value. The calendar to use, e.g., Gregorian Calendar.Returned by default.
+     * Gets the calendar property value. The calendar to use; for example, Gregorian Calendar.Returned by default.
      * @return string|null
     */
     public function getCalendar(): ?string {
@@ -86,7 +86,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the firstDayOfWeek property value. The first day of the week to use, e.g., Sunday.Returned by default.
+     * Gets the firstDayOfWeek property value. The first day of the week to use; for example, Sunday.Returned by default.
      * @return string|null
     */
     public function getFirstDayOfWeek(): ?string {
@@ -202,7 +202,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the calendar property value. The calendar to use, e.g., Gregorian Calendar.Returned by default.
+     * Sets the calendar property value. The calendar to use; for example, Gregorian Calendar.Returned by default.
      * @param string|null $value Value to set for the calendar property.
     */
     public function setCalendar(?string $value): void {
@@ -210,7 +210,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the firstDayOfWeek property value. The first day of the week to use, e.g., Sunday.Returned by default.
+     * Sets the firstDayOfWeek property value. The first day of the week to use; for example, Sunday.Returned by default.
      * @param string|null $value Value to set for the firstDayOfWeek property.
     */
     public function setFirstDayOfWeek(?string $value): void {

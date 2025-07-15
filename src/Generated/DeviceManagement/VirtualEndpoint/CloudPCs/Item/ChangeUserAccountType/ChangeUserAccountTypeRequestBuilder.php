@@ -35,7 +35,6 @@ class ChangeUserAccountTypeRequestBuilder extends BaseRequestBuilder
      * @param ChangeUserAccountTypeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/cloudpc-changeuseraccounttype?view=graph-rest-beta Find more info here
     */
     public function post(ChangeUserAccountTypePostRequestBody $body, ?ChangeUserAccountTypeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

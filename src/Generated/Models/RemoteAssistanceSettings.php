@@ -28,52 +28,13 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowSessionsToUnenrolledDevices property value. Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
-     * @return bool|null
-    */
-    public function getAllowSessionsToUnenrolledDevices(): ?bool {
-        $val = $this->getBackingStore()->get('allowSessionsToUnenrolledDevices');
-        if (is_null($val) || is_bool($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowSessionsToUnenrolledDevices'");
-    }
-
-    /**
-     * Gets the blockChat property value. Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
-     * @return bool|null
-    */
-    public function getBlockChat(): ?bool {
-        $val = $this->getBackingStore()->get('blockChat');
-        if (is_null($val) || is_bool($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockChat'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowSessionsToUnenrolledDevices' => fn(ParseNode $n) => $o->setAllowSessionsToUnenrolledDevices($n->getBooleanValue()),
-            'blockChat' => fn(ParseNode $n) => $o->setBlockChat($n->getBooleanValue()),
-            'remoteAssistanceState' => fn(ParseNode $n) => $o->setRemoteAssistanceState($n->getEnumValue(RemoteAssistanceState::class)),
         ]);
-    }
-
-    /**
-     * Gets the remoteAssistanceState property value. State of remote assistance for the account
-     * @return RemoteAssistanceState|null
-    */
-    public function getRemoteAssistanceState(): ?RemoteAssistanceState {
-        $val = $this->getBackingStore()->get('remoteAssistanceState');
-        if (is_null($val) || $val instanceof RemoteAssistanceState) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteAssistanceState'");
     }
 
     /**
@@ -82,33 +43,6 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowSessionsToUnenrolledDevices', $this->getAllowSessionsToUnenrolledDevices());
-        $writer->writeBooleanValue('blockChat', $this->getBlockChat());
-        $writer->writeEnumValue('remoteAssistanceState', $this->getRemoteAssistanceState());
-    }
-
-    /**
-     * Sets the allowSessionsToUnenrolledDevices property value. Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
-     * @param bool|null $value Value to set for the allowSessionsToUnenrolledDevices property.
-    */
-    public function setAllowSessionsToUnenrolledDevices(?bool $value): void {
-        $this->getBackingStore()->set('allowSessionsToUnenrolledDevices', $value);
-    }
-
-    /**
-     * Sets the blockChat property value. Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
-     * @param bool|null $value Value to set for the blockChat property.
-    */
-    public function setBlockChat(?bool $value): void {
-        $this->getBackingStore()->set('blockChat', $value);
-    }
-
-    /**
-     * Sets the remoteAssistanceState property value. State of remote assistance for the account
-     * @param RemoteAssistanceState|null $value Value to set for the remoteAssistanceState property.
-    */
-    public function setRemoteAssistanceState(?RemoteAssistanceState $value): void {
-        $this->getBackingStore()->set('remoteAssistanceState', $value);
     }
 
 }

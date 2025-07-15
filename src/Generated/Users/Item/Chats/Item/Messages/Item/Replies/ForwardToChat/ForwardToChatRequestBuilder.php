@@ -35,7 +35,6 @@ class ForwardToChatRequestBuilder extends BaseRequestBuilder
      * @param ForwardToChatRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ForwardToChatPostResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/chatmessage-forwardtochat?view=graph-rest-beta Find more info here
     */
     public function post(ForwardToChatPostRequestBody $body, ?ForwardToChatRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

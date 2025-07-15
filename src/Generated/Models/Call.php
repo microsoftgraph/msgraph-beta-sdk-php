@@ -27,13 +27,13 @@ class Call extends Entity implements Parsable
 
     /**
      * Gets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
-     * @return array<Modality>|null
+     * @return array<string>|null
     */
     public function getActiveModalities(): ?array {
         $val = $this->getBackingStore()->get('activeModalities');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, Modality::class);
-            /** @var array<Modality>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'activeModalities'");
@@ -160,7 +160,14 @@ class Call extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeModalities' => fn(ParseNode $n) => $o->setActiveModalities($n->getCollectionOfEnumValues(Modality::class)),
+            'activeModalities' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setActiveModalities($val);
+            },
             'answeredBy' => fn(ParseNode $n) => $o->setAnsweredBy($n->getObjectValue([ParticipantInfo::class, 'createFromDiscriminatorValue'])),
             'audioRoutingGroups' => fn(ParseNode $n) => $o->setAudioRoutingGroups($n->getCollectionOfObjectValues([AudioRoutingGroup::class, 'createFromDiscriminatorValue'])),
             'callbackUri' => fn(ParseNode $n) => $o->setCallbackUri($n->getStringValue()),
@@ -178,10 +185,24 @@ class Call extends Entity implements Parsable
             'myParticipantId' => fn(ParseNode $n) => $o->setMyParticipantId($n->getStringValue()),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([CommsOperation::class, 'createFromDiscriminatorValue'])),
             'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfObjectValues([Participant::class, 'createFromDiscriminatorValue'])),
-            'requestedModalities' => fn(ParseNode $n) => $o->setRequestedModalities($n->getCollectionOfEnumValues(Modality::class)),
+            'requestedModalities' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRequestedModalities($val);
+            },
             'resultInfo' => fn(ParseNode $n) => $o->setResultInfo($n->getObjectValue([ResultInfo::class, 'createFromDiscriminatorValue'])),
             'ringingTimeoutInSeconds' => fn(ParseNode $n) => $o->setRingingTimeoutInSeconds($n->getIntegerValue()),
-            'routingPolicies' => fn(ParseNode $n) => $o->setRoutingPolicies($n->getCollectionOfEnumValues(RoutingPolicy::class)),
+            'routingPolicies' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setRoutingPolicies($val);
+            },
             'source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([ParticipantInfo::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(CallState::class)),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
@@ -295,13 +316,13 @@ class Call extends Entity implements Parsable
 
     /**
      * Gets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
-     * @return array<Modality>|null
+     * @return array<string>|null
     */
     public function getRequestedModalities(): ?array {
         $val = $this->getBackingStore()->get('requestedModalities');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, Modality::class);
-            /** @var array<Modality>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'requestedModalities'");
@@ -333,13 +354,13 @@ class Call extends Entity implements Parsable
 
     /**
      * Gets the routingPolicies property value. This property is applicable for peer to peer calls only. Possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
-     * @return array<RoutingPolicy>|null
+     * @return array<string>|null
     */
     public function getRoutingPolicies(): ?array {
         $val = $this->getBackingStore()->get('routingPolicies');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, RoutingPolicy::class);
-            /** @var array<RoutingPolicy>|null $val */
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'routingPolicies'");
@@ -449,7 +470,7 @@ class Call extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('activeModalities', $this->getActiveModalities());
+        $writer->writeCollectionOfPrimitiveValues('activeModalities', $this->getActiveModalities());
         $writer->writeObjectValue('answeredBy', $this->getAnsweredBy());
         $writer->writeCollectionOfObjectValues('audioRoutingGroups', $this->getAudioRoutingGroups());
         $writer->writeStringValue('callbackUri', $this->getCallbackUri());
@@ -467,10 +488,10 @@ class Call extends Entity implements Parsable
         $writer->writeStringValue('myParticipantId', $this->getMyParticipantId());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
-        $writer->writeCollectionOfEnumValues('requestedModalities', $this->getRequestedModalities());
+        $writer->writeCollectionOfPrimitiveValues('requestedModalities', $this->getRequestedModalities());
         $writer->writeObjectValue('resultInfo', $this->getResultInfo());
         $writer->writeIntegerValue('ringingTimeoutInSeconds', $this->getRingingTimeoutInSeconds());
-        $writer->writeCollectionOfEnumValues('routingPolicies', $this->getRoutingPolicies());
+        $writer->writeCollectionOfPrimitiveValues('routingPolicies', $this->getRoutingPolicies());
         $writer->writeObjectValue('source', $this->getSource());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeStringValue('subject', $this->getSubject());
@@ -483,7 +504,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
-     * @param array<Modality>|null $value Value to set for the activeModalities property.
+     * @param array<string>|null $value Value to set for the activeModalities property.
     */
     public function setActiveModalities(?array $value): void {
         $this->getBackingStore()->set('activeModalities', $value);
@@ -627,7 +648,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
-     * @param array<Modality>|null $value Value to set for the requestedModalities property.
+     * @param array<string>|null $value Value to set for the requestedModalities property.
     */
     public function setRequestedModalities(?array $value): void {
         $this->getBackingStore()->set('requestedModalities', $value);
@@ -651,7 +672,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the routingPolicies property value. This property is applicable for peer to peer calls only. Possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
-     * @param array<RoutingPolicy>|null $value Value to set for the routingPolicies property.
+     * @param array<string>|null $value Value to set for the routingPolicies property.
     */
     public function setRoutingPolicies(?array $value): void {
         $this->getBackingStore()->set('routingPolicies', $value);
