@@ -31,7 +31,20 @@ class RecommendationConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'isNotificationEnabled' => fn(ParseNode $n) => $o->setIsNotificationEnabled($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the isNotificationEnabled property value. Indicates whether notifications for recommendations are enabled.
+     * @return bool|null
+    */
+    public function getIsNotificationEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isNotificationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isNotificationEnabled'");
     }
 
     /**
@@ -40,6 +53,15 @@ class RecommendationConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('isNotificationEnabled', $this->getIsNotificationEnabled());
+    }
+
+    /**
+     * Sets the isNotificationEnabled property value. Indicates whether notifications for recommendations are enabled.
+     * @param bool|null $value Value to set for the isNotificationEnabled property.
+    */
+    public function setIsNotificationEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isNotificationEnabled', $value);
     }
 
 }

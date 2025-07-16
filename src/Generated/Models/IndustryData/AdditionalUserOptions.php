@@ -81,7 +81,7 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the markAllStudentsAsMinors property value. Indicates whether all students should be marked as minors.
+     * Gets the markAllStudentsAsMinors property value. Indicates whether all students should be marked as minors. The markAllStudentsAsMinors property is deprecated and will stop returning data on October 15, 2025. Going forward, use the studentAgeGroup property.
      * @return bool|null
     */
     public function getMarkAllStudentsAsMinors(): ?bool {
@@ -140,7 +140,7 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the markAllStudentsAsMinors property value. Indicates whether all students should be marked as minors.
+     * Sets the markAllStudentsAsMinors property value. Indicates whether all students should be marked as minors. The markAllStudentsAsMinors property is deprecated and will stop returning data on October 15, 2025. Going forward, use the studentAgeGroup property.
      * @param bool|null $value Value to set for the markAllStudentsAsMinors property.
     */
     public function setMarkAllStudentsAsMinors(?bool $value): void {

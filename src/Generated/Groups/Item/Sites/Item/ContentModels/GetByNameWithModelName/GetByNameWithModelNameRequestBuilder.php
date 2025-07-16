@@ -62,6 +62,7 @@ class GetByNameWithModelNameRequestBuilder extends BaseRequestBuilder
      * @param GetByNameWithModelNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentModel|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/contentmodel-getbyname?view=graph-rest-beta Find more info here
     */
     public function get(?GetByNameWithModelNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

@@ -35,6 +35,7 @@ class DeleteTiIndicatorsRequestBuilder extends BaseRequestBuilder
      * @param DeleteTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeleteTiIndicatorsPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta Find more info here
     */
     public function post(DeleteTiIndicatorsPostRequestBody $body, ?DeleteTiIndicatorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

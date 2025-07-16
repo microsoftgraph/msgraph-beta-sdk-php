@@ -69,12 +69,12 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a threatIntelligencePolicyLink object.
+     * Update the properties of a tlsInspectionPolicyLink object.
      * @param PolicyLink $body The request body
      * @param PolicyLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-update?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-update?view=graph-rest-beta Find more info here
     */
     public function patch(PolicyLink $body, ?PolicyLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -124,7 +124,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a threatIntelligencePolicyLink object.
+     * Update the properties of a tlsInspectionPolicyLink object.
      * @param PolicyLink $body The request body
      * @param PolicyLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

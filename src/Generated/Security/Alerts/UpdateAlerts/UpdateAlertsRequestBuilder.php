@@ -35,6 +35,7 @@ class UpdateAlertsRequestBuilder extends BaseRequestBuilder
      * @param UpdateAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UpdateAlertsPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/alert-updatealerts?view=graph-rest-beta Find more info here
     */
     public function post(UpdateAlertsPostRequestBody $body, ?UpdateAlertsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

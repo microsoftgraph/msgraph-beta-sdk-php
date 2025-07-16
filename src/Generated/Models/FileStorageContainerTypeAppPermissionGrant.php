@@ -62,13 +62,13 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
 
     /**
      * Gets the applicationPermissions property value. The applicationPermissions property
-     * @return array<string>|null
+     * @return array<FileStorageContainerTypeAppPermission>|null
     */
     public function getApplicationPermissions(): ?array {
         $val = $this->getBackingStore()->get('applicationPermissions');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+            TypeUtils::validateCollectionValues($val, FileStorageContainerTypeAppPermission::class);
+            /** @var array<FileStorageContainerTypeAppPermission>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'applicationPermissions'");
@@ -84,13 +84,13 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
 
     /**
      * Gets the delegatedPermissions property value. The delegatedPermissions property
-     * @return array<string>|null
+     * @return array<FileStorageContainerTypeAppPermission>|null
     */
     public function getDelegatedPermissions(): ?array {
         $val = $this->getBackingStore()->get('delegatedPermissions');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+            TypeUtils::validateCollectionValues($val, FileStorageContainerTypeAppPermission::class);
+            /** @var array<FileStorageContainerTypeAppPermission>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedPermissions'");
@@ -104,22 +104,8 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
         $o = $this;
         return  [
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
-            'applicationPermissions' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setApplicationPermissions($val);
-            },
-            'delegatedPermissions' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setDelegatedPermissions($val);
-            },
+            'applicationPermissions' => fn(ParseNode $n) => $o->setApplicationPermissions($n->getCollectionOfEnumValues(FileStorageContainerTypeAppPermission::class)),
+            'delegatedPermissions' => fn(ParseNode $n) => $o->setDelegatedPermissions($n->getCollectionOfEnumValues(FileStorageContainerTypeAppPermission::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -142,8 +128,8 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('appId', $this->getAppId());
-        $writer->writeCollectionOfPrimitiveValues('applicationPermissions', $this->getApplicationPermissions());
-        $writer->writeCollectionOfPrimitiveValues('delegatedPermissions', $this->getDelegatedPermissions());
+        $writer->writeCollectionOfEnumValues('applicationPermissions', $this->getApplicationPermissions());
+        $writer->writeCollectionOfEnumValues('delegatedPermissions', $this->getDelegatedPermissions());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -166,7 +152,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
 
     /**
      * Sets the applicationPermissions property value. The applicationPermissions property
-     * @param array<string>|null $value Value to set for the applicationPermissions property.
+     * @param array<FileStorageContainerTypeAppPermission>|null $value Value to set for the applicationPermissions property.
     */
     public function setApplicationPermissions(?array $value): void {
         $this->getBackingStore()->set('applicationPermissions', $value);
@@ -182,7 +168,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
 
     /**
      * Sets the delegatedPermissions property value. The delegatedPermissions property
-     * @param array<string>|null $value Value to set for the delegatedPermissions property.
+     * @param array<FileStorageContainerTypeAppPermission>|null $value Value to set for the delegatedPermissions property.
     */
     public function setDelegatedPermissions(?array $value): void {
         $this->getBackingStore()->set('delegatedPermissions', $value);

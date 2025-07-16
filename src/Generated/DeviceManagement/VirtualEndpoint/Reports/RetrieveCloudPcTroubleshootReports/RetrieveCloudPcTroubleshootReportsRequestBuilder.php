@@ -36,6 +36,7 @@ class RetrieveCloudPcTroubleshootReportsRequestBuilder extends BaseRequestBuilde
      * @param RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievecloudpctroubleshootreports?view=graph-rest-beta Find more info here
     */
     public function post(RetrieveCloudPcTroubleshootReportsPostRequestBody $body, ?RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

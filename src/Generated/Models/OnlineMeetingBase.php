@@ -203,13 +203,13 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Gets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. Possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
-     * @return array<string>|null
+     * @return array<OnlineMeetingRole>|null
     */
     public function getAnonymizeIdentityForRoles(): ?array {
         $val = $this->getBackingStore()->get('anonymizeIdentityForRoles');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+            TypeUtils::validateCollectionValues($val, OnlineMeetingRole::class);
+            /** @var array<OnlineMeetingRole>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'anonymizeIdentityForRoles'");
@@ -286,14 +286,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'allowTeamworkReactions' => fn(ParseNode $n) => $o->setAllowTeamworkReactions($n->getBooleanValue()),
             'allowTranscription' => fn(ParseNode $n) => $o->setAllowTranscription($n->getBooleanValue()),
             'allowWhiteboard' => fn(ParseNode $n) => $o->setAllowWhiteboard($n->getBooleanValue()),
-            'anonymizeIdentityForRoles' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setAnonymizeIdentityForRoles($val);
-            },
+            'anonymizeIdentityForRoles' => fn(ParseNode $n) => $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingRole::class)),
             'attendanceReports' => fn(ParseNode $n) => $o->setAttendanceReports($n->getCollectionOfObjectValues([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
             'audioConferencing' => fn(ParseNode $n) => $o->setAudioConferencing($n->getObjectValue([AudioConferencing::class, 'createFromDiscriminatorValue'])),
             'chatInfo' => fn(ParseNode $n) => $o->setChatInfo($n->getObjectValue([ChatInfo::class, 'createFromDiscriminatorValue'])),
@@ -464,7 +457,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeBooleanValue('allowTeamworkReactions', $this->getAllowTeamworkReactions());
         $writer->writeBooleanValue('allowTranscription', $this->getAllowTranscription());
         $writer->writeBooleanValue('allowWhiteboard', $this->getAllowWhiteboard());
-        $writer->writeCollectionOfPrimitiveValues('anonymizeIdentityForRoles', $this->getAnonymizeIdentityForRoles());
+        $writer->writeCollectionOfEnumValues('anonymizeIdentityForRoles', $this->getAnonymizeIdentityForRoles());
         $writer->writeCollectionOfObjectValues('attendanceReports', $this->getAttendanceReports());
         $writer->writeObjectValue('audioConferencing', $this->getAudioConferencing());
         $writer->writeObjectValue('chatInfo', $this->getChatInfo());
@@ -596,7 +589,7 @@ class OnlineMeetingBase extends Entity implements Parsable
 
     /**
      * Sets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. Possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
-     * @param array<string>|null $value Value to set for the anonymizeIdentityForRoles property.
+     * @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
     */
     public function setAnonymizeIdentityForRoles(?array $value): void {
         $this->getBackingStore()->set('anonymizeIdentityForRoles', $value);

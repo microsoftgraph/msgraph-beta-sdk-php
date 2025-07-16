@@ -67,12 +67,12 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create one or more hardwareOathTokenAuthenticationMethodDevice objects. This API supports two scenarios:- Create the new hardware tokens without assigning to users. You can then assign to a user.- Create and assign any individual hardware tokens to users in the same request.
+     * Create a new hardwareOathTokenAuthenticationMethodDevice object. This API supports two scenarios:- Create the new hardware token without assigning to a user. You can then assign to a user.- Create and assign a hardware token to a user in the same request. 
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/authenticationmethoddevice-update?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/authenticationmethoddevice-post-hardwareoathdevices?view=graph-rest-beta Find more info here
     */
     public function post(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -104,7 +104,7 @@ class HardwareOathDevicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create one or more hardwareOathTokenAuthenticationMethodDevice objects. This API supports two scenarios:- Create the new hardware tokens without assigning to users. You can then assign to a user.- Create and assign any individual hardware tokens to users in the same request.
+     * Create a new hardwareOathTokenAuthenticationMethodDevice object. This API supports two scenarios:- Create the new hardware token without assigning to a user. You can then assign to a user.- Create and assign a hardware token to a user in the same request. 
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
      * @param HardwareOathDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

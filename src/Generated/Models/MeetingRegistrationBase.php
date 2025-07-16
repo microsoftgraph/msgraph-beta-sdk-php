@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class MeetingRegistrationBase extends Entity implements Parsable 
 {
@@ -33,13 +34,41 @@ class MeetingRegistrationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the allowedRegistrant property value. Specifies who can register for the meeting.
+     * @return MeetingAudience|null
+    */
+    public function getAllowedRegistrant(): ?MeetingAudience {
+        $val = $this->getBackingStore()->get('allowedRegistrant');
+        if (is_null($val) || $val instanceof MeetingAudience) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedRegistrant'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowedRegistrant' => fn(ParseNode $n) => $o->setAllowedRegistrant($n->getEnumValue(MeetingAudience::class)),
+            'registrants' => fn(ParseNode $n) => $o->setRegistrants($n->getCollectionOfObjectValues([MeetingRegistrantBase::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the registrants property value. Registrants of the online meeting.
+     * @return array<MeetingRegistrantBase>|null
+    */
+    public function getRegistrants(): ?array {
+        $val = $this->getBackingStore()->get('registrants');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MeetingRegistrantBase::class);
+            /** @var array<MeetingRegistrantBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'registrants'");
     }
 
     /**
@@ -48,6 +77,24 @@ class MeetingRegistrationBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('allowedRegistrant', $this->getAllowedRegistrant());
+        $writer->writeCollectionOfObjectValues('registrants', $this->getRegistrants());
+    }
+
+    /**
+     * Sets the allowedRegistrant property value. Specifies who can register for the meeting.
+     * @param MeetingAudience|null $value Value to set for the allowedRegistrant property.
+    */
+    public function setAllowedRegistrant(?MeetingAudience $value): void {
+        $this->getBackingStore()->set('allowedRegistrant', $value);
+    }
+
+    /**
+     * Sets the registrants property value. Registrants of the online meeting.
+     * @param array<MeetingRegistrantBase>|null $value Value to set for the registrants property.
+    */
+    public function setRegistrants(?array $value): void {
+        $this->getBackingStore()->set('registrants', $value);
     }
 
 }

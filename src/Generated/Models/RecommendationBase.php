@@ -109,13 +109,13 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Gets the featureAreas property value. The directory feature that the recommendation is related to.
-     * @return array<string>|null
+     * @return array<RecommendationFeatureAreas>|null
     */
     public function getFeatureAreas(): ?array {
         $val = $this->getBackingStore()->get('featureAreas');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+            TypeUtils::validateCollectionValues($val, RecommendationFeatureAreas::class);
+            /** @var array<RecommendationFeatureAreas>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'featureAreas'");
@@ -134,14 +134,7 @@ class RecommendationBase extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getFloatValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'featureAreas' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setFeatureAreas($val);
-            },
+            'featureAreas' => fn(ParseNode $n) => $o->setFeatureAreas($n->getCollectionOfEnumValues(RecommendationFeatureAreas::class)),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'impactStartDateTime' => fn(ParseNode $n) => $o->setImpactStartDateTime($n->getDateTimeValue()),
             'impactType' => fn(ParseNode $n) => $o->setImpactType($n->getStringValue()),
@@ -354,7 +347,7 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeFloatValue('currentScore', $this->getCurrentScore());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeCollectionOfPrimitiveValues('featureAreas', $this->getFeatureAreas());
+        $writer->writeCollectionOfEnumValues('featureAreas', $this->getFeatureAreas());
         $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
         $writer->writeDateTimeValue('impactStartDateTime', $this->getImpactStartDateTime());
         $writer->writeStringValue('impactType', $this->getImpactType());
@@ -422,7 +415,7 @@ class RecommendationBase extends Entity implements Parsable
 
     /**
      * Sets the featureAreas property value. The directory feature that the recommendation is related to.
-     * @param array<string>|null $value Value to set for the featureAreas property.
+     * @param array<RecommendationFeatureAreas>|null $value Value to set for the featureAreas property.
     */
     public function setFeatureAreas(?array $value): void {
         $this->getBackingStore()->set('featureAreas', $value);

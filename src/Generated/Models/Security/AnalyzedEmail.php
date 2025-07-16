@@ -252,14 +252,7 @@ class AnalyzedEmail extends Entity implements Parsable
             'spamConfidenceLevel' => fn(ParseNode $n) => $o->setSpamConfidenceLevel($n->getStringValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
             'threatDetectionDetails' => fn(ParseNode $n) => $o->setThreatDetectionDetails($n->getCollectionOfObjectValues([ThreatDetectionDetail::class, 'createFromDiscriminatorValue'])),
-            'threatTypes' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setThreatTypes($val);
-            },
+            'threatTypes' => fn(ParseNode $n) => $o->setThreatTypes($n->getCollectionOfEnumValues(ThreatType::class)),
             'timelineEvents' => fn(ParseNode $n) => $o->setTimelineEvents($n->getCollectionOfObjectValues([TimelineEvent::class, 'createFromDiscriminatorValue'])),
             'urls' => fn(ParseNode $n) => $o->setUrls($n->getCollectionOfObjectValues([AnalyzedEmailUrl::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -535,13 +528,13 @@ class AnalyzedEmail extends Entity implements Parsable
 
     /**
      * Gets the threatTypes property value. Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.
-     * @return array<string>|null
+     * @return array<ThreatType>|null
     */
     public function getThreatTypes(): ?array {
         $val = $this->getBackingStore()->get('threatTypes');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+            TypeUtils::validateCollectionValues($val, ThreatType::class);
+            /** @var array<ThreatType>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'threatTypes'");
@@ -615,7 +608,7 @@ class AnalyzedEmail extends Entity implements Parsable
         $writer->writeStringValue('spamConfidenceLevel', $this->getSpamConfidenceLevel());
         $writer->writeStringValue('subject', $this->getSubject());
         $writer->writeCollectionOfObjectValues('threatDetectionDetails', $this->getThreatDetectionDetails());
-        $writer->writeCollectionOfPrimitiveValues('threatTypes', $this->getThreatTypes());
+        $writer->writeCollectionOfEnumValues('threatTypes', $this->getThreatTypes());
         $writer->writeCollectionOfObjectValues('timelineEvents', $this->getTimelineEvents());
         $writer->writeCollectionOfObjectValues('urls', $this->getUrls());
     }
@@ -894,7 +887,7 @@ class AnalyzedEmail extends Entity implements Parsable
 
     /**
      * Sets the threatTypes property value. Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.
-     * @param array<string>|null $value Value to set for the threatTypes property.
+     * @param array<ThreatType>|null $value Value to set for the threatTypes property.
     */
     public function setThreatTypes(?array $value): void {
         $this->getBackingStore()->set('threatTypes', $value);

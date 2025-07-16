@@ -36,6 +36,7 @@ class ReplyWithQuoteRequestBuilder extends BaseRequestBuilder
      * @param ReplyWithQuoteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChatMessage|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/chatmessage-replywithquote?view=graph-rest-beta Find more info here
     */
     public function post(ReplyWithQuotePostRequestBody $body, ?ReplyWithQuoteRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

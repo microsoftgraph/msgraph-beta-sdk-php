@@ -35,6 +35,7 @@ class GetFrontlineCloudPcAccessStateRequestBuilder extends BaseRequestBuilder
      * @param GetFrontlineCloudPcAccessStateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FrontlineCloudPcAccessState|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-getfrontlinecloudpcaccessstate?view=graph-rest-beta Find more info here
     */
     public function get(?GetFrontlineCloudPcAccessStateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

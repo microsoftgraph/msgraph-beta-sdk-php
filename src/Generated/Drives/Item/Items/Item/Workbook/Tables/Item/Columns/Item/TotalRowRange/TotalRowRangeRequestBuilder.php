@@ -245,6 +245,7 @@ class TotalRowRangeRequestBuilder extends BaseRequestBuilder
      * @param TotalRowRangeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookRange|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tablecolumn-totalrowrange?view=graph-rest-beta Find more info here
     */
     public function get(?TotalRowRangeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
