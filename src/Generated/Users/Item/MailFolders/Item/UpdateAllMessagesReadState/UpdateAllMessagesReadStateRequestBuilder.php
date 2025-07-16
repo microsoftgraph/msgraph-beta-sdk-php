@@ -35,6 +35,7 @@ class UpdateAllMessagesReadStateRequestBuilder extends BaseRequestBuilder
      * @param UpdateAllMessagesReadStateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mailfolder-updateallmessagesreadstate?view=graph-rest-beta Find more info here
     */
     public function post(UpdateAllMessagesReadStatePostRequestBody $body, ?UpdateAllMessagesReadStateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -36,6 +36,7 @@ class ConvertExternalToInternalMemberUserRequestBuilder extends BaseRequestBuild
      * @param ConvertExternalToInternalMemberUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConversionUserDetails|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/user-convertexternaltointernalmemberuser?view=graph-rest-beta Find more info here
     */
     public function post(ConvertExternalToInternalMemberUserPostRequestBody $body, ?ConvertExternalToInternalMemberUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

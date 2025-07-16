@@ -240,7 +240,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
      * @return string|null
     */
     public function getCustomBrowserDisplayName(): ?string {
@@ -252,7 +252,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Gets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
      * @return string|null
     */
     public function getCustomBrowserPackageId(): ?string {
@@ -829,7 +829,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
      * @param string|null $value Value to set for the customBrowserDisplayName property.
     */
     public function setCustomBrowserDisplayName(?string $value): void {
@@ -837,7 +837,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
-     * Sets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
      * @param string|null $value Value to set for the customBrowserPackageId property.
     */
     public function setCustomBrowserPackageId(?string $value): void {

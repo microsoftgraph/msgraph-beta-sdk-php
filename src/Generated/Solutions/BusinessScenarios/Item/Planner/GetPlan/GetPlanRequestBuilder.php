@@ -36,6 +36,7 @@ class GetPlanRequestBuilder extends BaseRequestBuilder
      * @param GetPlanRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenarioPlanReference|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/businessscenarioplanner-getplan?view=graph-rest-beta Find more info here
     */
     public function post(GetPlanPostRequestBody $body, ?GetPlanRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

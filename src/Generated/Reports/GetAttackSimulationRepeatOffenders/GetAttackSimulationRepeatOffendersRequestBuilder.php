@@ -34,6 +34,7 @@ class GetAttackSimulationRepeatOffendersRequestBuilder extends BaseRequestBuilde
      * @param GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAttackSimulationRepeatOffendersGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/reportroot-getattacksimulationrepeatoffenders?view=graph-rest-beta Find more info here
     */
     public function get(?GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

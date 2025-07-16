@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AwsUser extends AwsIdentity implements Parsable 
 {
@@ -13,6 +14,7 @@ class AwsUser extends AwsIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.awsUser');
     }
 
     /**
@@ -25,12 +27,27 @@ class AwsUser extends AwsIdentity implements Parsable
     }
 
     /**
+     * Gets the assumableRoles property value. Roles assumed by the user.
+     * @return array<AwsRole>|null
+    */
+    public function getAssumableRoles(): ?array {
+        $val = $this->getBackingStore()->get('assumableRoles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AwsRole::class);
+            /** @var array<AwsRole>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assumableRoles'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assumableRoles' => fn(ParseNode $n) => $o->setAssumableRoles($n->getCollectionOfObjectValues([AwsRole::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -40,6 +57,15 @@ class AwsUser extends AwsIdentity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('assumableRoles', $this->getAssumableRoles());
+    }
+
+    /**
+     * Sets the assumableRoles property value. Roles assumed by the user.
+     * @param array<AwsRole>|null $value Value to set for the assumableRoles property.
+    */
+    public function setAssumableRoles(?array $value): void {
+        $this->getBackingStore()->set('assumableRoles', $value);
     }
 
 }

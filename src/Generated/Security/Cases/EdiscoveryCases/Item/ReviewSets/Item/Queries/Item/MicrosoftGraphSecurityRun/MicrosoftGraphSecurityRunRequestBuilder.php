@@ -34,6 +34,7 @@ class MicrosoftGraphSecurityRunRequestBuilder extends BaseRequestBuilder
      * @param MicrosoftGraphSecurityRunRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RunGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-run?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphSecurityRunRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

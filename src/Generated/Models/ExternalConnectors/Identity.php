@@ -32,7 +32,20 @@ class Identity extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(IdentityType::class)),
         ]);
+    }
+
+    /**
+     * Gets the type property value. The type of identity. Possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
+     * @return IdentityType|null
+    */
+    public function getType(): ?IdentityType {
+        $val = $this->getBackingStore()->get('type');
+        if (is_null($val) || $val instanceof IdentityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -41,6 +54,15 @@ class Identity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('type', $this->getType());
+    }
+
+    /**
+     * Sets the type property value. The type of identity. Possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
+     * @param IdentityType|null $value Value to set for the type property.
+    */
+    public function setType(?IdentityType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

@@ -35,6 +35,7 @@ class MicrosoftGraphIndustryDataGetStatisticsRequestBuilder extends BaseRequestB
      * @param MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataRunStatistics|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/industrydata-industrydatarun-getstatistics?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

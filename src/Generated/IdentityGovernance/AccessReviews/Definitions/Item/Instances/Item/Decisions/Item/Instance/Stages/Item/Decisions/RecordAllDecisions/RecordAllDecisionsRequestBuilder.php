@@ -35,6 +35,7 @@ class RecordAllDecisionsRequestBuilder extends BaseRequestBuilder
      * @param RecordAllDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-recordalldecisions?view=graph-rest-beta Find more info here
     */
     public function post(RecordAllDecisionsPostRequestBody $body, ?RecordAllDecisionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

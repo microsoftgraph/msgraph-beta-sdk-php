@@ -36,6 +36,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
      * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getdailyaggregatedremoteconnectionreports?view=graph-rest-beta Find more info here
     */
     public function post(GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

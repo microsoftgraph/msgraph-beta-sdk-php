@@ -36,6 +36,7 @@ class AddToDriveRequestBuilder extends BaseRequestBuilder
      * @param AddToDriveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentModelUsage|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/contentmodel-addtodrive?view=graph-rest-beta Find more info here
     */
     public function post(AddToDrivePostRequestBody $body, ?AddToDriveRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

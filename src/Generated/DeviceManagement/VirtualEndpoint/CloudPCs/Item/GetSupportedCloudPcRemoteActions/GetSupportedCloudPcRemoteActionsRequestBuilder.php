@@ -34,6 +34,7 @@ class GetSupportedCloudPcRemoteActionsRequestBuilder extends BaseRequestBuilder
      * @param GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetSupportedCloudPcRemoteActionsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-getsupportedcloudpcremoteactions?view=graph-rest-beta Find more info here
     */
     public function get(?GetSupportedCloudPcRemoteActionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

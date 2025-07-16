@@ -35,6 +35,7 @@ class MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder extends 
      * @param MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluateClassificationResultsPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensitivitylabel-evaluateclassificationresults?view=graph-rest-beta Find more info here
     */
     public function post(EvaluateClassificationResultsPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

@@ -36,6 +36,7 @@ class ExtractLabelRequestBuilder extends BaseRequestBuilder
      * @param ExtractLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InformationProtectionContentLabel|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/informationprotectionlabel-extractlabel?view=graph-rest-beta Find more info here
     */
     public function post(ExtractLabelPostRequestBody $body, ?ExtractLabelRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

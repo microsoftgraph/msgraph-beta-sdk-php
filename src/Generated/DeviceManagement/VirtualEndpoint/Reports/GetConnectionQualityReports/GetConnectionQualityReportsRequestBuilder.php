@@ -36,6 +36,7 @@ class GetConnectionQualityReportsRequestBuilder extends BaseRequestBuilder
      * @param GetConnectionQualityReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-getconnectionqualityreports?view=graph-rest-beta Find more info here
     */
     public function post(GetConnectionQualityReportsPostRequestBody $body, ?GetConnectionQualityReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

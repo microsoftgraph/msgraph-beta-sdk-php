@@ -32,7 +32,33 @@ class TenantStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'onboardingErrorMessage' => fn(ParseNode $n) => $o->setOnboardingErrorMessage($n->getStringValue()),
+            'onboardingStatus' => fn(ParseNode $n) => $o->setOnboardingStatus($n->getEnumValue(OnboardingStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the onboardingErrorMessage property value. Reflects a message to the user if there's an error.
+     * @return string|null
+    */
+    public function getOnboardingErrorMessage(): ?string {
+        $val = $this->getBackingStore()->get('onboardingErrorMessage');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardingErrorMessage'");
+    }
+
+    /**
+     * Gets the onboardingStatus property value. The onboardingStatus property
+     * @return OnboardingStatus|null
+    */
+    public function getOnboardingStatus(): ?OnboardingStatus {
+        $val = $this->getBackingStore()->get('onboardingStatus');
+        if (is_null($val) || $val instanceof OnboardingStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardingStatus'");
     }
 
     /**
@@ -41,6 +67,24 @@ class TenantStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('onboardingErrorMessage', $this->getOnboardingErrorMessage());
+        $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
+    }
+
+    /**
+     * Sets the onboardingErrorMessage property value. Reflects a message to the user if there's an error.
+     * @param string|null $value Value to set for the onboardingErrorMessage property.
+    */
+    public function setOnboardingErrorMessage(?string $value): void {
+        $this->getBackingStore()->set('onboardingErrorMessage', $value);
+    }
+
+    /**
+     * Sets the onboardingStatus property value. The onboardingStatus property
+     * @param OnboardingStatus|null $value Value to set for the onboardingStatus property.
+    */
+    public function setOnboardingStatus(?OnboardingStatus $value): void {
+        $this->getBackingStore()->set('onboardingStatus', $value);
     }
 
 }

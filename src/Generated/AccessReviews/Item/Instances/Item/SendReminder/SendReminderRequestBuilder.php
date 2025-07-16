@@ -34,6 +34,7 @@ class SendReminderRequestBuilder extends BaseRequestBuilder
      * @param SendReminderRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreview-sendreminder?view=graph-rest-beta Find more info here
     */
     public function post(?SendReminderRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);

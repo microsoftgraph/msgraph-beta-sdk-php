@@ -35,6 +35,7 @@ class SubmitTiIndicatorsRequestBuilder extends BaseRequestBuilder
      * @param SubmitTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SubmitTiIndicatorsPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta Find more info here
     */
     public function post(SubmitTiIndicatorsPostRequestBody $body, ?SubmitTiIndicatorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

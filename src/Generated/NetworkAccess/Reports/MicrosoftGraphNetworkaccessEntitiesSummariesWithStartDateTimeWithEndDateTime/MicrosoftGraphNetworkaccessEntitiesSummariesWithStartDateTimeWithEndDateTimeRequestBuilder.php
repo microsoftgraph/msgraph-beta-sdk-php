@@ -40,6 +40,7 @@ class MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTi
      * @param MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EntitiesSummariesWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-reports-entitiessummaries?view=graph-rest-beta Find more info here
     */
     public function get(?MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

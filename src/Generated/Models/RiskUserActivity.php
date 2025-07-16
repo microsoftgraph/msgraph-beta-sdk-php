@@ -70,13 +70,13 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the eventTypes property value. List of risk event types. Deprecated. Use riskEventType instead.
-     * @return array<string>|null
+     * @return array<RiskEventType>|null
     */
     public function getEventTypes(): ?array {
         $val = $this->getBackingStore()->get('eventTypes');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+            TypeUtils::validateCollectionValues($val, RiskEventType::class);
+            /** @var array<RiskEventType>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'eventTypes'");
@@ -90,14 +90,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(RiskDetail::class)),
-            'eventTypes' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setEventTypes($val);
-            },
+            'eventTypes' => fn(ParseNode $n) => $o->setEventTypes($n->getCollectionOfEnumValues(RiskEventType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'riskEventTypes' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -142,7 +135,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('detail', $this->getDetail());
-        $writer->writeCollectionOfPrimitiveValues('eventTypes', $this->getEventTypes());
+        $writer->writeCollectionOfEnumValues('eventTypes', $this->getEventTypes());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('riskEventTypes', $this->getRiskEventTypes());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -174,7 +167,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the eventTypes property value. List of risk event types. Deprecated. Use riskEventType instead.
-     * @param array<string>|null $value Value to set for the eventTypes property.
+     * @param array<RiskEventType>|null $value Value to set for the eventTypes property.
     */
     public function setEventTypes(?array $value): void {
         $this->getBackingStore()->set('eventTypes', $value);

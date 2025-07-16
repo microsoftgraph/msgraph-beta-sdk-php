@@ -35,6 +35,7 @@ class CreateImportSessionRequestBuilder extends BaseRequestBuilder
      * @param CreateImportSessionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxItemImportSession|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mailbox-createimportsession?view=graph-rest-beta Find more info here
     */
     public function post(?CreateImportSessionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
