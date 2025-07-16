@@ -64,14 +64,7 @@ class ApprovalItemViewPoint implements AdditionalDataHolder, BackedModel, Parsab
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'roles' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setRoles($val);
-            },
+            'roles' => fn(ParseNode $n) => $o->setRoles($n->getCollectionOfEnumValues(ApproverRole::class)),
         ];
     }
 
@@ -89,13 +82,13 @@ class ApprovalItemViewPoint implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the roles property value. Collection of roles associated with the requesting user for the approval item. If the owner of the approval item is making the request, the collection of roles includes the role owner. If the requesting user was assigned as an approver, the collection includes the role approver.
-     * @return array<string>|null
+     * @return array<ApproverRole>|null
     */
     public function getRoles(): ?array {
         $val = $this->getBackingStore()->get('roles');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
+            TypeUtils::validateCollectionValues($val, ApproverRole::class);
+            /** @var array<ApproverRole>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'roles'");
@@ -107,7 +100,7 @@ class ApprovalItemViewPoint implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeCollectionOfPrimitiveValues('roles', $this->getRoles());
+        $writer->writeCollectionOfEnumValues('roles', $this->getRoles());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -137,7 +130,7 @@ class ApprovalItemViewPoint implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the roles property value. Collection of roles associated with the requesting user for the approval item. If the owner of the approval item is making the request, the collection of roles includes the role owner. If the requesting user was assigned as an approver, the collection includes the role approver.
-     * @param array<string>|null $value Value to set for the roles property.
+     * @param array<ApproverRole>|null $value Value to set for the roles property.
     */
     public function setRoles(?array $value): void {
         $this->getBackingStore()->set('roles', $value);

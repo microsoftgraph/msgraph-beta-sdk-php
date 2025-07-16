@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class RemoteDesktopSecurityConfiguration extends Entity implements Parsable 
 {
@@ -25,13 +26,56 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
+     * Gets the approvedClientApps property value. The approvedClientApps property
+     * @return array<ApprovedClientApp>|null
+    */
+    public function getApprovedClientApps(): ?array {
+        $val = $this->getBackingStore()->get('approvedClientApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ApprovedClientApp::class);
+            /** @var array<ApprovedClientApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvedClientApps'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'approvedClientApps' => fn(ParseNode $n) => $o->setApprovedClientApps($n->getCollectionOfObjectValues([ApprovedClientApp::class, 'createFromDiscriminatorValue'])),
+            'isRemoteDesktopProtocolEnabled' => fn(ParseNode $n) => $o->setIsRemoteDesktopProtocolEnabled($n->getBooleanValue()),
+            'targetDeviceGroups' => fn(ParseNode $n) => $o->setTargetDeviceGroups($n->getCollectionOfObjectValues([TargetDeviceGroup::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the isRemoteDesktopProtocolEnabled property value. Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled.
+     * @return bool|null
+    */
+    public function getIsRemoteDesktopProtocolEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isRemoteDesktopProtocolEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRemoteDesktopProtocolEnabled'");
+    }
+
+    /**
+     * Gets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
+     * @return array<TargetDeviceGroup>|null
+    */
+    public function getTargetDeviceGroups(): ?array {
+        $val = $this->getBackingStore()->get('targetDeviceGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TargetDeviceGroup::class);
+            /** @var array<TargetDeviceGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'targetDeviceGroups'");
     }
 
     /**
@@ -40,6 +84,33 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('approvedClientApps', $this->getApprovedClientApps());
+        $writer->writeBooleanValue('isRemoteDesktopProtocolEnabled', $this->getIsRemoteDesktopProtocolEnabled());
+        $writer->writeCollectionOfObjectValues('targetDeviceGroups', $this->getTargetDeviceGroups());
+    }
+
+    /**
+     * Sets the approvedClientApps property value. The approvedClientApps property
+     * @param array<ApprovedClientApp>|null $value Value to set for the approvedClientApps property.
+    */
+    public function setApprovedClientApps(?array $value): void {
+        $this->getBackingStore()->set('approvedClientApps', $value);
+    }
+
+    /**
+     * Sets the isRemoteDesktopProtocolEnabled property value. Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled.
+     * @param bool|null $value Value to set for the isRemoteDesktopProtocolEnabled property.
+    */
+    public function setIsRemoteDesktopProtocolEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isRemoteDesktopProtocolEnabled', $value);
+    }
+
+    /**
+     * Sets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
+     * @param array<TargetDeviceGroup>|null $value Value to set for the targetDeviceGroups property.
+    */
+    public function setTargetDeviceGroups(?array $value): void {
+        $this->getBackingStore()->set('targetDeviceGroups', $value);
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -28,13 +29,104 @@ class ManagedDeviceOverview extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceExchangeAccessStateSummary property value. Distribution of Exchange Access State in Intune
+     * @return DeviceExchangeAccessStateSummary|null
+    */
+    public function getDeviceExchangeAccessStateSummary(): ?DeviceExchangeAccessStateSummary {
+        $val = $this->getBackingStore()->get('deviceExchangeAccessStateSummary');
+        if (is_null($val) || $val instanceof DeviceExchangeAccessStateSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceExchangeAccessStateSummary'");
+    }
+
+    /**
+     * Gets the deviceOperatingSystemSummary property value. Device operating system summary.
+     * @return DeviceOperatingSystemSummary|null
+    */
+    public function getDeviceOperatingSystemSummary(): ?DeviceOperatingSystemSummary {
+        $val = $this->getBackingStore()->get('deviceOperatingSystemSummary');
+        if (is_null($val) || $val instanceof DeviceOperatingSystemSummary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceOperatingSystemSummary'");
+    }
+
+    /**
+     * Gets the dualEnrolledDeviceCount property value. The number of devices enrolled in both MDM and EAS
+     * @return int|null
+    */
+    public function getDualEnrolledDeviceCount(): ?int {
+        $val = $this->getBackingStore()->get('dualEnrolledDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dualEnrolledDeviceCount'");
+    }
+
+    /**
+     * Gets the enrolledDeviceCount property value. Total enrolled device count. Does not include PC devices managed via Intune PC Agent
+     * @return int|null
+    */
+    public function getEnrolledDeviceCount(): ?int {
+        $val = $this->getBackingStore()->get('enrolledDeviceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enrolledDeviceCount'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'deviceExchangeAccessStateSummary' => fn(ParseNode $n) => $o->setDeviceExchangeAccessStateSummary($n->getObjectValue([DeviceExchangeAccessStateSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceOperatingSystemSummary' => fn(ParseNode $n) => $o->setDeviceOperatingSystemSummary($n->getObjectValue([DeviceOperatingSystemSummary::class, 'createFromDiscriminatorValue'])),
+            'dualEnrolledDeviceCount' => fn(ParseNode $n) => $o->setDualEnrolledDeviceCount($n->getIntegerValue()),
+            'enrolledDeviceCount' => fn(ParseNode $n) => $o->setEnrolledDeviceCount($n->getIntegerValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'managedDeviceModelsAndManufacturers' => fn(ParseNode $n) => $o->setManagedDeviceModelsAndManufacturers($n->getObjectValue([ManagedDeviceModelsAndManufacturers::class, 'createFromDiscriminatorValue'])),
+            'mdmEnrolledCount' => fn(ParseNode $n) => $o->setMdmEnrolledCount($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. Last modified date time of device overview
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the managedDeviceModelsAndManufacturers property value. Models and Manufactures meatadata for managed devices in the account
+     * @return ManagedDeviceModelsAndManufacturers|null
+    */
+    public function getManagedDeviceModelsAndManufacturers(): ?ManagedDeviceModelsAndManufacturers {
+        $val = $this->getBackingStore()->get('managedDeviceModelsAndManufacturers');
+        if (is_null($val) || $val instanceof ManagedDeviceModelsAndManufacturers) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedDeviceModelsAndManufacturers'");
+    }
+
+    /**
+     * Gets the mdmEnrolledCount property value. The number of devices enrolled in MDM
+     * @return int|null
+    */
+    public function getMdmEnrolledCount(): ?int {
+        $val = $this->getBackingStore()->get('mdmEnrolledCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mdmEnrolledCount'");
     }
 
     /**
@@ -43,6 +135,69 @@ class ManagedDeviceOverview extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('deviceExchangeAccessStateSummary', $this->getDeviceExchangeAccessStateSummary());
+        $writer->writeObjectValue('deviceOperatingSystemSummary', $this->getDeviceOperatingSystemSummary());
+        $writer->writeIntegerValue('dualEnrolledDeviceCount', $this->getDualEnrolledDeviceCount());
+        $writer->writeIntegerValue('enrolledDeviceCount', $this->getEnrolledDeviceCount());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('managedDeviceModelsAndManufacturers', $this->getManagedDeviceModelsAndManufacturers());
+        $writer->writeIntegerValue('mdmEnrolledCount', $this->getMdmEnrolledCount());
+    }
+
+    /**
+     * Sets the deviceExchangeAccessStateSummary property value. Distribution of Exchange Access State in Intune
+     * @param DeviceExchangeAccessStateSummary|null $value Value to set for the deviceExchangeAccessStateSummary property.
+    */
+    public function setDeviceExchangeAccessStateSummary(?DeviceExchangeAccessStateSummary $value): void {
+        $this->getBackingStore()->set('deviceExchangeAccessStateSummary', $value);
+    }
+
+    /**
+     * Sets the deviceOperatingSystemSummary property value. Device operating system summary.
+     * @param DeviceOperatingSystemSummary|null $value Value to set for the deviceOperatingSystemSummary property.
+    */
+    public function setDeviceOperatingSystemSummary(?DeviceOperatingSystemSummary $value): void {
+        $this->getBackingStore()->set('deviceOperatingSystemSummary', $value);
+    }
+
+    /**
+     * Sets the dualEnrolledDeviceCount property value. The number of devices enrolled in both MDM and EAS
+     * @param int|null $value Value to set for the dualEnrolledDeviceCount property.
+    */
+    public function setDualEnrolledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('dualEnrolledDeviceCount', $value);
+    }
+
+    /**
+     * Sets the enrolledDeviceCount property value. Total enrolled device count. Does not include PC devices managed via Intune PC Agent
+     * @param int|null $value Value to set for the enrolledDeviceCount property.
+    */
+    public function setEnrolledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('enrolledDeviceCount', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. Last modified date time of device overview
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the managedDeviceModelsAndManufacturers property value. Models and Manufactures meatadata for managed devices in the account
+     * @param ManagedDeviceModelsAndManufacturers|null $value Value to set for the managedDeviceModelsAndManufacturers property.
+    */
+    public function setManagedDeviceModelsAndManufacturers(?ManagedDeviceModelsAndManufacturers $value): void {
+        $this->getBackingStore()->set('managedDeviceModelsAndManufacturers', $value);
+    }
+
+    /**
+     * Sets the mdmEnrolledCount property value. The number of devices enrolled in MDM
+     * @param int|null $value Value to set for the mdmEnrolledCount property.
+    */
+    public function setMdmEnrolledCount(?int $value): void {
+        $this->getBackingStore()->set('mdmEnrolledCount', $value);
     }
 
 }

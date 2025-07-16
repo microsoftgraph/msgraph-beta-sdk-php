@@ -34,7 +34,33 @@ class EndpointPrivilegeManagementProvisioningStatus extends Entity implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'licenseType' => fn(ParseNode $n) => $o->setLicenseType($n->getEnumValue(LicenseType::class)),
+            'onboardedToMicrosoftManagedPlatform' => fn(ParseNode $n) => $o->setOnboardedToMicrosoftManagedPlatform($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the licenseType property value. Indicates whether tenant has a valid Intune Endpoint Privilege Management license. Possible value are : 0 - notPaid, 1 - paid, 2 - trial. See LicenseType enum for more details. Default notPaid .
+     * @return LicenseType|null
+    */
+    public function getLicenseType(): ?LicenseType {
+        $val = $this->getBackingStore()->get('licenseType');
+        if (is_null($val) || $val instanceof LicenseType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseType'");
+    }
+
+    /**
+     * Gets the onboardedToMicrosoftManagedPlatform property value. Indicates whether tenant is onboarded to Microsoft Managed Platform - Cloud (MMPC). When set to true, implies tenant is onboarded and when set to false, implies tenant is not onboarded. Default set to false.
+     * @return bool|null
+    */
+    public function getOnboardedToMicrosoftManagedPlatform(): ?bool {
+        $val = $this->getBackingStore()->get('onboardedToMicrosoftManagedPlatform');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onboardedToMicrosoftManagedPlatform'");
     }
 
     /**
@@ -43,6 +69,24 @@ class EndpointPrivilegeManagementProvisioningStatus extends Entity implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('licenseType', $this->getLicenseType());
+        $writer->writeBooleanValue('onboardedToMicrosoftManagedPlatform', $this->getOnboardedToMicrosoftManagedPlatform());
+    }
+
+    /**
+     * Sets the licenseType property value. Indicates whether tenant has a valid Intune Endpoint Privilege Management license. Possible value are : 0 - notPaid, 1 - paid, 2 - trial. See LicenseType enum for more details. Default notPaid .
+     * @param LicenseType|null $value Value to set for the licenseType property.
+    */
+    public function setLicenseType(?LicenseType $value): void {
+        $this->getBackingStore()->set('licenseType', $value);
+    }
+
+    /**
+     * Sets the onboardedToMicrosoftManagedPlatform property value. Indicates whether tenant is onboarded to Microsoft Managed Platform - Cloud (MMPC). When set to true, implies tenant is onboarded and when set to false, implies tenant is not onboarded. Default set to false.
+     * @param bool|null $value Value to set for the onboardedToMicrosoftManagedPlatform property.
+    */
+    public function setOnboardedToMicrosoftManagedPlatform(?bool $value): void {
+        $this->getBackingStore()->set('onboardedToMicrosoftManagedPlatform', $value);
     }
 
 }

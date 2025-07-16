@@ -35,6 +35,7 @@ class RetrievePolicyApplyActionResultRequestBuilder extends BaseRequestBuilder
      * @param RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPolicyApplyActionResult|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-retrievepolicyapplyactionresult?view=graph-rest-beta Find more info here
     */
     public function get(?RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);

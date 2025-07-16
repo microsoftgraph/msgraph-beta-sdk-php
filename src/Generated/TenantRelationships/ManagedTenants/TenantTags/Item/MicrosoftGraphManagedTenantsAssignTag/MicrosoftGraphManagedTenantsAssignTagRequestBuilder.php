@@ -36,6 +36,7 @@ class MicrosoftGraphManagedTenantsAssignTagRequestBuilder extends BaseRequestBui
      * @param MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/managedtenants-tenanttag-assigntag?view=graph-rest-beta Find more info here
     */
     public function post(AssignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

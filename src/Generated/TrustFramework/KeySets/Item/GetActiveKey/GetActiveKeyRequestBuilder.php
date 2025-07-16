@@ -35,6 +35,7 @@ class GetActiveKeyRequestBuilder extends BaseRequestBuilder
      * @param GetActiveKeyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TrustFrameworkKey|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/trustframeworkkeyset-getactivekey?view=graph-rest-beta Find more info here
     */
     public function get(?GetActiveKeyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
