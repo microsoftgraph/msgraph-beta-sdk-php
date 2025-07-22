@@ -41,7 +41,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     }
 
     /**
-     * Gets the appLogCollectionRequests property value. The collection property of AppLogUploadRequest.
+     * Gets the appLogCollectionRequests property value. Indicates collection of App Log Upload Request.
      * @return array<AppLogCollectionRequest>|null
     */
     public function getAppLogCollectionRequests(): ?array {
@@ -143,7 +143,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     }
 
     /**
-     * Sets the appLogCollectionRequests property value. The collection property of AppLogUploadRequest.
+     * Sets the appLogCollectionRequests property value. Indicates collection of App Log Upload Request.
      * @param array<AppLogCollectionRequest>|null $value Value to set for the appLogCollectionRequests property.
     */
     public function setAppLogCollectionRequests(?array $value): void {

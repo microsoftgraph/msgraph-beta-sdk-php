@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleDefinitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get roleDefinitions from roleManagement
+ * Get a list of unifiedRoleDefinition objects for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)- Defender (Microsoft Defender XDR)- directory (Microsoft Entra ID) - entitlement management (Microsoft Entra ID)- Exchange Online
 */
 class RoleDefinitionsRequestBuilderGetQueryParameters 
 {

@@ -103,7 +103,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Gets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
+     * Gets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual, unknownFutureValue, retention. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: retention. The default value is automatic.
      * @return CloudPcSnapshotType|null
     */
     public function getSnapshotType(): ?CloudPcSnapshotType {
@@ -182,7 +182,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Sets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
+     * Sets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual, unknownFutureValue, retention. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: retention. The default value is automatic.
      * @param CloudPcSnapshotType|null $value Value to set for the snapshotType property.
     */
     public function setSnapshotType(?CloudPcSnapshotType $value): void {
