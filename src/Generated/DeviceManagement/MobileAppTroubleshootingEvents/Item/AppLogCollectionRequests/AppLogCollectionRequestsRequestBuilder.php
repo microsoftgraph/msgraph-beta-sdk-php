@@ -52,7 +52,7 @@ class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection property of AppLogUploadRequest.
+     * Indicates collection of App Log Upload Request.
      * @param AppLogCollectionRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppLogCollectionRequestCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection property of AppLogUploadRequest.
+     * Indicates collection of App Log Upload Request.
      * @param AppLogCollectionRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
