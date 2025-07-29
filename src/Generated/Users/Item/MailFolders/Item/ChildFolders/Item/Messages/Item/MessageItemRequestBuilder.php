@@ -20,6 +20,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Reply\ReplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\ReplyAll\ReplyAllRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\ReportMessage\ReportMessageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Send\SendRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Unsubscribe\UnsubscribeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\Item\Value\ContentRequestBuilder;
@@ -136,6 +137,13 @@ class MessageItemRequestBuilder extends BaseRequestBuilder
     */
     public function replyAll(): ReplyAllRequestBuilder {
         return new ReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the reportMessage method.
+    */
+    public function reportMessage(): ReportMessageRequestBuilder {
+        return new ReportMessageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

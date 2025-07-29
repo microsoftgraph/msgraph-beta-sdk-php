@@ -77,6 +77,7 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
             'allowStudentContactAssociation' => fn(ParseNode $n) => $o->setAllowStudentContactAssociation($n->getBooleanValue()),
             'markAllStudentsAsMinors' => fn(ParseNode $n) => $o->setMarkAllStudentsAsMinors($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'studentAgeGroup' => fn(ParseNode $n) => $o->setStudentAgeGroup($n->getEnumValue(StudentAgeGroup::class)),
         ];
     }
 
@@ -105,6 +106,18 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
+     * Gets the studentAgeGroup property value. Indicates the age group classification for students. Possible values are: minor, notAdult, adult, unknownFutureValue. Use null to disable age group enforcement.
+     * @return StudentAgeGroup|null
+    */
+    public function getStudentAgeGroup(): ?StudentAgeGroup {
+        $val = $this->getBackingStore()->get('studentAgeGroup');
+        if (is_null($val) || $val instanceof StudentAgeGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'studentAgeGroup'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -112,6 +125,7 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
         $writer->writeBooleanValue('allowStudentContactAssociation', $this->getAllowStudentContactAssociation());
         $writer->writeBooleanValue('markAllStudentsAsMinors', $this->getMarkAllStudentsAsMinors());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('studentAgeGroup', $this->getStudentAgeGroup());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -153,6 +167,14 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the studentAgeGroup property value. Indicates the age group classification for students. Possible values are: minor, notAdult, adult, unknownFutureValue. Use null to disable age group enforcement.
+     * @param StudentAgeGroup|null $value Value to set for the studentAgeGroup property.
+    */
+    public function setStudentAgeGroup(?StudentAgeGroup $value): void {
+        $this->getBackingStore()->set('studentAgeGroup', $value);
     }
 
 }

@@ -26,7 +26,7 @@ class ItemAddress extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the detail property value. The detail property
+     * Gets the detail property value. Details about the address itself.
      * @return PhysicalAddress|null
     */
     public function getDetail(): ?PhysicalAddress {
@@ -86,7 +86,7 @@ class ItemAddress extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the detail property value. The detail property
+     * Sets the detail property value. Details about the address itself.
      * @param PhysicalAddress|null $value Value to set for the detail property.
     */
     public function setDetail(?PhysicalAddress $value): void {

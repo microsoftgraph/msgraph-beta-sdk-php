@@ -26,7 +26,7 @@ class StopAndQuarantineFileIncidentTaskResponseAction extends IncidentTaskRespon
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. Optional. The identifier of the device where the file is located. This property allows targeting the action to a specific device when the same file exists on multiple devices.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -58,7 +58,7 @@ class StopAndQuarantineFileIncidentTaskResponseAction extends IncidentTaskRespon
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. Optional. The identifier of the device where the file is located. This property allows targeting the action to a specific device when the same file exists on multiple devices.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {

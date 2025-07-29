@@ -36,6 +36,18 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the billingPolicyId property value. The billingPolicyId property
+     * @return string|null
+    */
+    public function getBillingPolicyId(): ?string {
+        $val = $this->getBackingStore()->get('billingPolicyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'billingPolicyId'");
+    }
+
+    /**
      * Gets the createdBy property value. The identity of person who created the policy.
      * @return IdentitySet|null
     */
@@ -78,6 +90,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'billingPolicyId' => fn(ParseNode $n) => $o->setBillingPolicyId($n->getStringValue()),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -144,6 +157,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('billingPolicyId', $this->getBillingPolicyId());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
@@ -151,6 +165,14 @@ class ProtectionPolicyBase extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfObjectValues('retentionSettings', $this->getRetentionSettings());
         $writer->writeEnumValue('status', $this->getStatus());
+    }
+
+    /**
+     * Sets the billingPolicyId property value. The billingPolicyId property
+     * @param string|null $value Value to set for the billingPolicyId property.
+    */
+    public function setBillingPolicyId(?string $value): void {
+        $this->getBackingStore()->set('billingPolicyId', $value);
     }
 
     /**

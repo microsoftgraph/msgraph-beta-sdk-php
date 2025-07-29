@@ -163,6 +163,7 @@ class CloudPC extends Entity implements Parsable
             'partnerAgentInstallResults' => fn(ParseNode $n) => $o->setPartnerAgentInstallResults($n->getCollectionOfObjectValues([CloudPcPartnerAgentInstallResult::class, 'createFromDiscriminatorValue'])),
             'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPcPowerState::class)),
             'productType' => fn(ParseNode $n) => $o->setProductType($n->getEnumValue(CloudPcProductType::class)),
+            'provisionedDateTime' => fn(ParseNode $n) => $o->setProvisionedDateTime($n->getDateTimeValue()),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
@@ -177,6 +178,7 @@ class CloudPC extends Entity implements Parsable
             'servicePlanId' => fn(ParseNode $n) => $o->setServicePlanId($n->getStringValue()),
             'servicePlanName' => fn(ParseNode $n) => $o->setServicePlanName($n->getStringValue()),
             'servicePlanType' => fn(ParseNode $n) => $o->setServicePlanType($n->getEnumValue(CloudPcServicePlanType::class)),
+            'sharedDeviceDetail' => fn(ParseNode $n) => $o->setSharedDeviceDetail($n->getObjectValue([CloudPcFrontlineSharedDeviceDetail::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcStatus::class)),
             'statusDetail' => fn(ParseNode $n) => $o->setStatusDetail($n->getObjectValue([CloudPcStatusDetail::class, 'createFromDiscriminatorValue'])),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getObjectValue([CloudPcStatusDetails::class, 'createFromDiscriminatorValue'])),
@@ -344,6 +346,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the provisionedDateTime property value. The latest provisioned date and time, automatically generated and assigned during the initial provisioning or any subsequent reprovisioning of the Cloud PC. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @return DateTime|null
+    */
+    public function getProvisionedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('provisionedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisionedDateTime'");
+    }
+
+    /**
      * Gets the provisioningPolicyId property value. The provisioning policy ID of the Cloud PC.
      * @return string|null
     */
@@ -427,6 +441,18 @@ class CloudPC extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'servicePlanType'");
+    }
+
+    /**
+     * Gets the sharedDeviceDetail property value. Indicates the Cloud PC device details (for example, assignedToUserPrincipalName) associated with the frontline shared service plan.
+     * @return CloudPcFrontlineSharedDeviceDetail|null
+    */
+    public function getSharedDeviceDetail(): ?CloudPcFrontlineSharedDeviceDetail {
+        $val = $this->getBackingStore()->get('sharedDeviceDetail');
+        if (is_null($val) || $val instanceof CloudPcFrontlineSharedDeviceDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedDeviceDetail'");
     }
 
     /**
@@ -517,6 +543,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('partnerAgentInstallResults', $this->getPartnerAgentInstallResults());
         $writer->writeEnumValue('powerState', $this->getPowerState());
         $writer->writeEnumValue('productType', $this->getProductType());
+        $writer->writeDateTimeValue('provisionedDateTime', $this->getProvisionedDateTime());
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('provisioningPolicyName', $this->getProvisioningPolicyName());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
@@ -524,6 +551,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('servicePlanId', $this->getServicePlanId());
         $writer->writeStringValue('servicePlanName', $this->getServicePlanName());
         $writer->writeEnumValue('servicePlanType', $this->getServicePlanType());
+        $writer->writeObjectValue('sharedDeviceDetail', $this->getSharedDeviceDetail());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeObjectValue('statusDetail', $this->getStatusDetail());
         $writer->writeObjectValue('statusDetails', $this->getStatusDetails());
@@ -708,6 +736,14 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Sets the provisionedDateTime property value. The latest provisioned date and time, automatically generated and assigned during the initial provisioning or any subsequent reprovisioning of the Cloud PC. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the provisionedDateTime property.
+    */
+    public function setProvisionedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('provisionedDateTime', $value);
+    }
+
+    /**
      * Sets the provisioningPolicyId property value. The provisioning policy ID of the Cloud PC.
      * @param string|null $value Value to set for the provisioningPolicyId property.
     */
@@ -761,6 +797,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setServicePlanType(?CloudPcServicePlanType $value): void {
         $this->getBackingStore()->set('servicePlanType', $value);
+    }
+
+    /**
+     * Sets the sharedDeviceDetail property value. Indicates the Cloud PC device details (for example, assignedToUserPrincipalName) associated with the frontline shared service plan.
+     * @param CloudPcFrontlineSharedDeviceDetail|null $value Value to set for the sharedDeviceDetail property.
+    */
+    public function setSharedDeviceDetail(?CloudPcFrontlineSharedDeviceDetail $value): void {
+        $this->getBackingStore()->set('sharedDeviceDetail', $value);
     }
 
     /**

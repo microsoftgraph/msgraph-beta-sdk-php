@@ -40,6 +40,20 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
+     * Gets the externalAuthenticationMethods property value. The externalAuthenticationMethods property
+     * @return array<ExternalAuthenticationMethod>|null
+    */
+    public function getExternalAuthenticationMethods(): ?array {
+        $val = $this->getBackingStore()->get('externalAuthenticationMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ExternalAuthenticationMethod::class);
+            /** @var array<ExternalAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalAuthenticationMethods'");
+    }
+
+    /**
      * Gets the fido2Methods property value. Represents the FIDO2 security keys registered to a user for authentication.
      * @return array<Fido2AuthenticationMethod>|null
     */
@@ -61,6 +75,7 @@ class Authentication extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'emailMethods' => fn(ParseNode $n) => $o->setEmailMethods($n->getCollectionOfObjectValues([EmailAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
+            'externalAuthenticationMethods' => fn(ParseNode $n) => $o->setExternalAuthenticationMethods($n->getCollectionOfObjectValues([ExternalAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'fido2Methods' => fn(ParseNode $n) => $o->setFido2Methods($n->getCollectionOfObjectValues([Fido2AuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'hardwareOathMethods' => fn(ParseNode $n) => $o->setHardwareOathMethods($n->getCollectionOfObjectValues([HardwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'methods' => fn(ParseNode $n) => $o->setMethods($n->getCollectionOfObjectValues([AuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -276,6 +291,7 @@ class Authentication extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('emailMethods', $this->getEmailMethods());
+        $writer->writeCollectionOfObjectValues('externalAuthenticationMethods', $this->getExternalAuthenticationMethods());
         $writer->writeCollectionOfObjectValues('fido2Methods', $this->getFido2Methods());
         $writer->writeCollectionOfObjectValues('hardwareOathMethods', $this->getHardwareOathMethods());
         $writer->writeCollectionOfObjectValues('methods', $this->getMethods());
@@ -299,6 +315,14 @@ class Authentication extends Entity implements Parsable
     */
     public function setEmailMethods(?array $value): void {
         $this->getBackingStore()->set('emailMethods', $value);
+    }
+
+    /**
+     * Sets the externalAuthenticationMethods property value. The externalAuthenticationMethods property
+     * @param array<ExternalAuthenticationMethod>|null $value Value to set for the externalAuthenticationMethods property.
+    */
+    public function setExternalAuthenticationMethods(?array $value): void {
+        $this->getBackingStore()->set('externalAuthenticationMethods', $value);
     }
 
     /**

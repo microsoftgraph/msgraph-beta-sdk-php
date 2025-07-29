@@ -30,6 +30,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\MemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\MembersWithLicenseErrorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\OnenoteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\OnPremisesSyncBehavior\OnPremisesSyncBehaviorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\OwnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Photo\PhotoRequestBuilder;
@@ -243,6 +244,13 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
     */
     public function onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the onPremisesSyncBehavior property of the microsoft.graph.group entity.
+    */
+    public function onPremisesSyncBehavior(): OnPremisesSyncBehaviorRequestBuilder {
+        return new OnPremisesSyncBehaviorRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

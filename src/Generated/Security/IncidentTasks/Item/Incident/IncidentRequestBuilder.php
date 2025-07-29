@@ -31,7 +31,7 @@ class IncidentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get incident from security
+     * Required. The incident that contains this task. Must contain a valid incident ID.
      * @param IncidentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Incident|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class IncidentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get incident from security
+     * Required. The incident that contains this task. Must contain a valid incident ID.
      * @param IncidentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

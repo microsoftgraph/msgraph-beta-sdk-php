@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenIssuancePolicies\Item;
+namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\ExternalAuthenticationMethods\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+ * Get externalAuthenticationMethods from users
 */
-class TokenIssuancePolicyItemRequestBuilderGetQueryParameters 
+class ExternalAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {
     /**
      * @QueryParameter("%24expand")
@@ -22,7 +22,7 @@ class TokenIssuancePolicyItemRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new TokenIssuancePolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new ExternalAuthenticationMethodItemRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

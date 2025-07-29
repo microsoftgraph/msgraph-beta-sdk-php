@@ -61,7 +61,7 @@ class IncidentTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get incidentTasks from security
+     * A collection of tasks associated with security incidents.
      * @param IncidentTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IncidentTask|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class IncidentTaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get incidentTasks from security
+     * A collection of tasks associated with security incidents.
      * @param IncidentTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -57,7 +57,7 @@ class IncidentTaskResponseAction extends ResponseAction implements Parsable
     }
 
     /**
-     * Gets the identifierValue property value. The identifierValue property
+     * Gets the identifierValue property value. Required. The identifier value for the response action. This value is specific to the type of action being performed.
      * @return string|null
     */
     public function getIdentifierValue(): ?string {
@@ -78,7 +78,7 @@ class IncidentTaskResponseAction extends ResponseAction implements Parsable
     }
 
     /**
-     * Sets the identifierValue property value. The identifierValue property
+     * Sets the identifierValue property value. Required. The identifier value for the response action. This value is specific to the type of action being performed.
      * @param string|null $value Value to set for the identifierValue property.
     */
     public function setIdentifierValue(?string $value): void {

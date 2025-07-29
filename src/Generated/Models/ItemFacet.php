@@ -65,7 +65,7 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. Provides the identifier of the user and/or application that created the entity.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -132,7 +132,7 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. Provides the identifier of the user and/or application that last modified the entity.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -207,7 +207,7 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. Provides the identifier of the user and/or application that created the entity.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -239,7 +239,7 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. Provides the identifier of the user and/or application that last modified the entity.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
