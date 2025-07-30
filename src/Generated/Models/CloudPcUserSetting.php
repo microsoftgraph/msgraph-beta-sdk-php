@@ -90,6 +90,7 @@ class CloudPcUserSetting extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
             'notificationSetting' => fn(ParseNode $n) => $o->setNotificationSetting($n->getObjectValue([CloudPcNotificationSetting::class, 'createFromDiscriminatorValue'])),
+            'provisioningSourceType' => fn(ParseNode $n) => $o->setProvisioningSourceType($n->getEnumValue(CloudPcProvisioningSourceType::class)),
             'resetEnabled' => fn(ParseNode $n) => $o->setResetEnabled($n->getBooleanValue()),
             'restorePointSetting' => fn(ParseNode $n) => $o->setRestorePointSetting($n->getObjectValue([CloudPcRestorePointSetting::class, 'createFromDiscriminatorValue'])),
             'selfServiceEnabled' => fn(ParseNode $n) => $o->setSelfServiceEnabled($n->getBooleanValue()),
@@ -130,6 +131,18 @@ class CloudPcUserSetting extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'notificationSetting'");
+    }
+
+    /**
+     * Gets the provisioningSourceType property value. The provisioningSourceType property
+     * @return CloudPcProvisioningSourceType|null
+    */
+    public function getProvisioningSourceType(): ?CloudPcProvisioningSourceType {
+        $val = $this->getBackingStore()->get('provisioningSourceType');
+        if (is_null($val) || $val instanceof CloudPcProvisioningSourceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningSourceType'");
     }
 
     /**
@@ -181,6 +194,7 @@ class CloudPcUserSetting extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
         $writer->writeObjectValue('notificationSetting', $this->getNotificationSetting());
+        $writer->writeEnumValue('provisioningSourceType', $this->getProvisioningSourceType());
         $writer->writeBooleanValue('resetEnabled', $this->getResetEnabled());
         $writer->writeObjectValue('restorePointSetting', $this->getRestorePointSetting());
         $writer->writeBooleanValue('selfServiceEnabled', $this->getSelfServiceEnabled());
@@ -240,6 +254,14 @@ class CloudPcUserSetting extends Entity implements Parsable
     */
     public function setNotificationSetting(?CloudPcNotificationSetting $value): void {
         $this->getBackingStore()->set('notificationSetting', $value);
+    }
+
+    /**
+     * Sets the provisioningSourceType property value. The provisioningSourceType property
+     * @param CloudPcProvisioningSourceType|null $value Value to set for the provisioningSourceType property.
+    */
+    public function setProvisioningSourceType(?CloudPcProvisioningSourceType $value): void {
+        $this->getBackingStore()->set('provisioningSourceType', $value);
     }
 
     /**

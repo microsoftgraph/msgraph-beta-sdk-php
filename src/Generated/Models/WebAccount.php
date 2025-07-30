@@ -54,7 +54,7 @@ class WebAccount extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the service property value. The service property
+     * Gets the service property value. Contains basic detail about the service that is being associated.
      * @return ServiceInformation|null
     */
     public function getService(): ?ServiceInformation {
@@ -136,7 +136,7 @@ class WebAccount extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the service property value. The service property
+     * Sets the service property value. Contains basic detail about the service that is being associated.
      * @param ServiceInformation|null $value Value to set for the service property.
     */
     public function setService(?ServiceInformation $value): void {

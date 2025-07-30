@@ -1035,6 +1035,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.extension': return new Extension();
                 case '#microsoft.graph.extensionProperty': return new ExtensionProperty();
                 case '#microsoft.graph.external': return new External();
+                case '#microsoft.graph.externalAuthenticationMethod': return new ExternalAuthenticationMethod();
                 case '#microsoft.graph.externalAuthenticationMethodConfiguration': return new ExternalAuthenticationMethodConfiguration();
                 case '#microsoft.graph.externalConnection': return new ExternalConnection();
                 case '#microsoft.graph.externalConnectors.connectionOperation': return new ConnectionOperation();
@@ -1564,6 +1565,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onPremisesConditionalAccessSettings': return new OnPremisesConditionalAccessSettings();
                 case '#microsoft.graph.onPremisesDirectorySynchronization': return new OnPremisesDirectorySynchronization();
                 case '#microsoft.graph.onPremisesPublishingProfile': return new OnPremisesPublishingProfile();
+                case '#microsoft.graph.onPremisesSyncBehavior': return new OnPremisesSyncBehavior();
                 case '#microsoft.graph.onTokenIssuanceStartCustomExtension': return new OnTokenIssuanceStartCustomExtension();
                 case '#microsoft.graph.onTokenIssuanceStartListener': return new OnTokenIssuanceStartListener();
                 case '#microsoft.graph.onUserCreateStartListener': return new OnUserCreateStartListener();
@@ -2129,6 +2131,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.trustFrameworkPolicy': return new TrustFrameworkPolicy();
                 case '#microsoft.graph.unenforcedMfaAwsUserFinding': return new UnenforcedMfaAwsUserFinding();
                 case '#microsoft.graph.unifiedRbacApplication': return new UnifiedRbacApplication();
+                case '#microsoft.graph.unifiedRbacApplicationMultiple': return new UnifiedRbacApplicationMultiple();
                 case '#microsoft.graph.unifiedRbacResourceAction': return new UnifiedRbacResourceAction();
                 case '#microsoft.graph.unifiedRbacResourceNamespace': return new UnifiedRbacResourceNamespace();
                 case '#microsoft.graph.unifiedRbacResourceScope': return new UnifiedRbacResourceScope();

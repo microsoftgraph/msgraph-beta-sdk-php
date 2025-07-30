@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -100,6 +101,30 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the createdBy property value. The createdBy property
+     * @return string|null
+    */
+    public function getCreatedBy(): ?string {
+        $val = $this->getBackingStore()->get('createdBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdBy'");
+    }
+
+    /**
+     * Gets the createdDateTime property value. The createdDateTime property
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
+    }
+
+    /**
      * Gets the description property value. The provisioning policy description. Supports $filter, $select, and $orderBy.
      * @return string|null
     */
@@ -162,6 +187,8 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'autopilotConfiguration' => fn(ParseNode $n) => $o->setAutopilotConfiguration($n->getObjectValue([CloudPcAutopilotConfiguration::class, 'createFromDiscriminatorValue'])),
             'cloudPcGroupDisplayName' => fn(ParseNode $n) => $o->setCloudPcGroupDisplayName($n->getStringValue()),
             'cloudPcNamingTemplate' => fn(ParseNode $n) => $o->setCloudPcNamingTemplate($n->getStringValue()),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'domainJoinConfigurations' => fn(ParseNode $n) => $o->setDomainJoinConfigurations($n->getCollectionOfObjectValues([CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'])),
@@ -170,6 +197,8 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
             'imageId' => fn(ParseNode $n) => $o->setImageId($n->getStringValue()),
             'imageType' => fn(ParseNode $n) => $o->setImageType($n->getEnumValue(CloudPcProvisioningPolicyImageType::class)),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
             'microsoftManagedDesktop' => fn(ParseNode $n) => $o->setMicrosoftManagedDesktop($n->getObjectValue([MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'])),
@@ -233,6 +262,30 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'imageType'");
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * @return string|null
+    */
+    public function getLastModifiedBy(): ?string {
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -333,6 +386,8 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeObjectValue('autopilotConfiguration', $this->getAutopilotConfiguration());
         $writer->writeStringValue('cloudPcGroupDisplayName', $this->getCloudPcGroupDisplayName());
         $writer->writeStringValue('cloudPcNamingTemplate', $this->getCloudPcNamingTemplate());
+        $writer->writeStringValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('domainJoinConfigurations', $this->getDomainJoinConfigurations());
@@ -341,6 +396,8 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeStringValue('imageDisplayName', $this->getImageDisplayName());
         $writer->writeStringValue('imageId', $this->getImageId());
         $writer->writeEnumValue('imageType', $this->getImageType());
+        $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeBooleanValue('localAdminEnabled', $this->getLocalAdminEnabled());
         $writer->writeEnumValue('managedBy', $this->getManagedBy());
         $writer->writeObjectValue('microsoftManagedDesktop', $this->getMicrosoftManagedDesktop());
@@ -396,6 +453,22 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setCloudPcNamingTemplate(?string $value): void {
         $this->getBackingStore()->set('cloudPcNamingTemplate', $value);
+    }
+
+    /**
+     * Sets the createdBy property value. The createdBy property
+     * @param string|null $value Value to set for the createdBy property.
+    */
+    public function setCreatedBy(?string $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
+    }
+
+    /**
+     * Sets the createdDateTime property value. The createdDateTime property
+     * @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
@@ -460,6 +533,22 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setImageType(?CloudPcProvisioningPolicyImageType $value): void {
         $this->getBackingStore()->set('imageType', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * @param string|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?string $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**

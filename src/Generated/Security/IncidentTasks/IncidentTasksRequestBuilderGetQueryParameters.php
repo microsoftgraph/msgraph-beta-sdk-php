@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\IncidentTasks;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get incidentTasks from security
+ * Get incident tasks that Microsoft Defender Experts for XDR identified for remediation.
 */
 class IncidentTasksRequestBuilderGetQueryParameters 
 {

@@ -22,6 +22,13 @@ class RbacApplicationMultiple extends Entity implements Parsable
      * @return RbacApplicationMultiple
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): RbacApplicationMultiple {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.unifiedRbacApplicationMultiple': return new UnifiedRbacApplicationMultiple();
+            }
+        }
         return new RbacApplicationMultiple();
     }
 

@@ -38,6 +38,18 @@ class ConfigurationApplication extends Entity implements Parsable
     }
 
     /**
+     * Gets the appOwnerOrganizationId property value. The appOwnerOrganizationId property
+     * @return string|null
+    */
+    public function getAppOwnerOrganizationId(): ?string {
+        $val = $this->getBackingStore()->get('appOwnerOrganizationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appOwnerOrganizationId'");
+    }
+
+    /**
      * Gets the clientCredentials property value. The clientCredentials property
      * @return ClientCredentials|null
     */
@@ -105,6 +117,7 @@ class ConfigurationApplication extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'appOwnerOrganizationId' => fn(ParseNode $n) => $o->setAppOwnerOrganizationId($n->getStringValue()),
             'clientCredentials' => fn(ParseNode $n) => $o->setClientCredentials($n->getObjectValue([ClientCredentials::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -159,6 +172,7 @@ class ConfigurationApplication extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('appOwnerOrganizationId', $this->getAppOwnerOrganizationId());
         $writer->writeObjectValue('clientCredentials', $this->getClientCredentials());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeStringValue('description', $this->getDescription());
@@ -172,6 +186,14 @@ class ConfigurationApplication extends Entity implements Parsable
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
+    }
+
+    /**
+     * Sets the appOwnerOrganizationId property value. The appOwnerOrganizationId property
+     * @param string|null $value Value to set for the appOwnerOrganizationId property.
+    */
+    public function setAppOwnerOrganizationId(?string $value): void {
+        $this->getBackingStore()->set('appOwnerOrganizationId', $value);
     }
 
     /**

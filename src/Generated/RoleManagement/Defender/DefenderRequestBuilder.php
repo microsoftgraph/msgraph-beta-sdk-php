@@ -5,7 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RbacApplicationMultiple;
+use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacApplicationMultiple;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\CustomAppScopes\CustomAppScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\ResourceNamespaces\ResourceNamespacesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleAssignments\RoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleDefinitions\RoleDefinitionsRequestBuilder;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DefenderRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the customAppScopes property of the microsoft.graph.unifiedRbacApplicationMultiple entity.
+    */
+    public function customAppScopes(): CustomAppScopesRequestBuilder {
+        return new CustomAppScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplicationMultiple entity.
     */
@@ -71,7 +79,7 @@ class DefenderRequestBuilder extends BaseRequestBuilder
     /**
      * Get defender from roleManagement
      * @param DefenderRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<RbacApplicationMultiple|null>
+     * @return Promise<UnifiedRbacApplicationMultiple|null>
      * @throws Exception
     */
     public function get(?DefenderRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -79,22 +87,22 @@ class DefenderRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [RbacApplicationMultiple::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [UnifiedRbacApplicationMultiple::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Update the navigation property defender in roleManagement
-     * @param RbacApplicationMultiple $body The request body
+     * @param UnifiedRbacApplicationMultiple $body The request body
      * @param DefenderRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<RbacApplicationMultiple|null>
+     * @return Promise<UnifiedRbacApplicationMultiple|null>
      * @throws Exception
     */
-    public function patch(RbacApplicationMultiple $body, ?DefenderRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UnifiedRbacApplicationMultiple $body, ?DefenderRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [RbacApplicationMultiple::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [UnifiedRbacApplicationMultiple::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -138,11 +146,11 @@ class DefenderRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property defender in roleManagement
-     * @param RbacApplicationMultiple $body The request body
+     * @param UnifiedRbacApplicationMultiple $body The request body
      * @param DefenderRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(RbacApplicationMultiple $body, ?DefenderRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UnifiedRbacApplicationMultiple $body, ?DefenderRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

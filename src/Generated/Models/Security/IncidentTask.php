@@ -51,7 +51,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdByDisplayName property value. The createdByDisplayName property
+     * Gets the createdByDisplayName property value. Name of the entity that created the task. Read-only.
      * @return string|null
     */
     public function getCreatedByDisplayName(): ?string {
@@ -63,7 +63,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Creation time of the task. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -75,7 +75,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the remediation action.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -87,7 +87,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Title of the task.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -121,7 +121,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the incident property value. The incident property
+     * Gets the incident property value. Required. The incident that contains this task. Must contain a valid incident ID.
      * @return Incident|null
     */
     public function getIncident(): ?Incident {
@@ -133,7 +133,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedByDisplayName property value. The lastModifiedByDisplayName property
+     * Gets the lastModifiedByDisplayName property value. Name of the entity that last updated the task. Read-only.
      * @return string|null
     */
     public function getLastModifiedByDisplayName(): ?string {
@@ -145,7 +145,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Last update time of the task. Read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -157,7 +157,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the responseAction property value. The responseAction property
+     * Gets the responseAction property value. The reponse action.
      * @return IncidentTaskResponseAction|null
     */
     public function getResponseAction(): ?IncidentTaskResponseAction {
@@ -229,7 +229,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdByDisplayName property value. The createdByDisplayName property
+     * Sets the createdByDisplayName property value. Name of the entity that created the task. Read-only.
      * @param string|null $value Value to set for the createdByDisplayName property.
     */
     public function setCreatedByDisplayName(?string $value): void {
@@ -237,7 +237,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Creation time of the task. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -245,7 +245,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the remediation action.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -253,7 +253,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Title of the task.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -261,7 +261,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the incident property value. The incident property
+     * Sets the incident property value. Required. The incident that contains this task. Must contain a valid incident ID.
      * @param Incident|null $value Value to set for the incident property.
     */
     public function setIncident(?Incident $value): void {
@@ -269,7 +269,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedByDisplayName property value. The lastModifiedByDisplayName property
+     * Sets the lastModifiedByDisplayName property value. Name of the entity that last updated the task. Read-only.
      * @param string|null $value Value to set for the lastModifiedByDisplayName property.
     */
     public function setLastModifiedByDisplayName(?string $value): void {
@@ -277,7 +277,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Last update time of the task. Read-only.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -285,7 +285,7 @@ class IncidentTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the responseAction property value. The responseAction property
+     * Sets the responseAction property value. The reponse action.
      * @param IncidentTaskResponseAction|null $value Value to set for the responseAction property.
     */
     public function setResponseAction(?IncidentTaskResponseAction $value): void {

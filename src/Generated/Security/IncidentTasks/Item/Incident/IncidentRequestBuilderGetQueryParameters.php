@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\IncidentTasks\Item\Incident;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get incident from security
+ * Required. The incident that contains this task. Must contain a valid incident ID.
 */
 class IncidentRequestBuilderGetQueryParameters 
 {

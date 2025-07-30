@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenLifetimePolicies\Item;
+namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender\CustomAppScopes\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+ * Represents the resources that the principal has been granted access.
 */
-class TokenLifetimePolicyItemRequestBuilderGetQueryParameters 
+class CustomAppScopeItemRequestBuilderGetQueryParameters 
 {
     /**
      * @QueryParameter("%24expand")
@@ -22,7 +22,7 @@ class TokenLifetimePolicyItemRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new TokenLifetimePolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new CustomAppScopeItemRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

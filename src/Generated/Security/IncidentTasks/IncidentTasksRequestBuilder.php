@@ -52,10 +52,11 @@ class IncidentTasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get incidentTasks from security
+     * Get incident tasks that Microsoft Defender Experts for XDR identified for remediation.
      * @param IncidentTasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IncidentTaskCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-list-incidenttasks?view=graph-rest-beta Find more info here
     */
     public function get(?IncidentTasksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class IncidentTasksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get incidentTasks from security
+     * Get incident tasks that Microsoft Defender Experts for XDR identified for remediation.
      * @param IncidentTasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

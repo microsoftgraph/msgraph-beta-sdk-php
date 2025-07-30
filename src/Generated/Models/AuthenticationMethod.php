@@ -27,6 +27,7 @@ class AuthenticationMethod extends Entity implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.emailAuthenticationMethod': return new EmailAuthenticationMethod();
+                case '#microsoft.graph.externalAuthenticationMethod': return new ExternalAuthenticationMethod();
                 case '#microsoft.graph.fido2AuthenticationMethod': return new Fido2AuthenticationMethod();
                 case '#microsoft.graph.hardwareOathAuthenticationMethod': return new HardwareOathAuthenticationMethod();
                 case '#microsoft.graph.microsoftAuthenticatorAuthenticationMethod': return new MicrosoftAuthenticatorAuthenticationMethod();

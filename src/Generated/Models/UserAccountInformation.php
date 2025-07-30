@@ -64,7 +64,7 @@ class UserAccountInformation extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the preferredLanguageTag property value. The preferredLanguageTag property
+     * Gets the preferredLanguageTag property value. Contains the language the user has associated as preferred for the account.
      * @return LocaleInfo|null
     */
     public function getPreferredLanguageTag(): ?LocaleInfo {
@@ -116,7 +116,7 @@ class UserAccountInformation extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the preferredLanguageTag property value. The preferredLanguageTag property
+     * Sets the preferredLanguageTag property value. Contains the language the user has associated as preferred for the account.
      * @param LocaleInfo|null $value Value to set for the preferredLanguageTag property.
     */
     public function setPreferredLanguageTag(?LocaleInfo $value): void {

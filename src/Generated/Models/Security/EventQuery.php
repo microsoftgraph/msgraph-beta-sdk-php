@@ -81,7 +81,7 @@ class EventQuery implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the query property value. Represents unique identification for the  query. 'Asset ID' for SharePoint Online and OneDrive for Business, 'keywords' for Exchange Online.
+     * Gets the query property value. Represents unique identification for the  query. 'Asset ID' for SharePoint in Microsoft 365 and OneDrive for work or school, 'keywords' for Exchange Online.
      * @return string|null
     */
     public function getQuery(): ?string {
@@ -93,7 +93,7 @@ class EventQuery implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the queryType property value. Represents the type of query associated with an event. 'files' for SPO and ODB and 'messages' for EXO.The possible values are: files, messages, unknownFutureValue.
+     * Gets the queryType property value. Represents the type of query associated with an event. 'files' for SharePoint in Microsoft 365 and OneDrive for work or school, and 'messages' for Exchange Online. The possible values are: files, messages, unknownFutureValue.
      * @return QueryType|null
     */
     public function getQueryType(): ?QueryType {
@@ -140,7 +140,7 @@ class EventQuery implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the query property value. Represents unique identification for the  query. 'Asset ID' for SharePoint Online and OneDrive for Business, 'keywords' for Exchange Online.
+     * Sets the query property value. Represents unique identification for the  query. 'Asset ID' for SharePoint in Microsoft 365 and OneDrive for work or school, 'keywords' for Exchange Online.
      * @param string|null $value Value to set for the query property.
     */
     public function setQuery(?string $value): void {
@@ -148,7 +148,7 @@ class EventQuery implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the queryType property value. Represents the type of query associated with an event. 'files' for SPO and ODB and 'messages' for EXO.The possible values are: files, messages, unknownFutureValue.
+     * Sets the queryType property value. Represents the type of query associated with an event. 'files' for SharePoint in Microsoft 365 and OneDrive for work or school, and 'messages' for Exchange Online. The possible values are: files, messages, unknownFutureValue.
      * @param QueryType|null $value Value to set for the queryType property.
     */
     public function setQueryType(?QueryType $value): void {

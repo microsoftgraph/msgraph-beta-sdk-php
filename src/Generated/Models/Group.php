@@ -399,6 +399,7 @@ class Group extends DirectoryObject implements Parsable
             'onPremisesProvisioningErrors' => fn(ParseNode $n) => $o->setOnPremisesProvisioningErrors($n->getCollectionOfObjectValues([OnPremisesProvisioningError::class, 'createFromDiscriminatorValue'])),
             'onPremisesSamAccountName' => fn(ParseNode $n) => $o->setOnPremisesSamAccountName($n->getStringValue()),
             'onPremisesSecurityIdentifier' => fn(ParseNode $n) => $o->setOnPremisesSecurityIdentifier($n->getStringValue()),
+            'onPremisesSyncBehavior' => fn(ParseNode $n) => $o->setOnPremisesSyncBehavior($n->getObjectValue([OnPremisesSyncBehavior::class, 'createFromDiscriminatorValue'])),
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'organizationId' => fn(ParseNode $n) => $o->setOrganizationId($n->getStringValue()),
             'owners' => fn(ParseNode $n) => $o->setOwners($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
@@ -801,6 +802,18 @@ class Group extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSecurityIdentifier'");
+    }
+
+    /**
+     * Gets the onPremisesSyncBehavior property value. Indicates the state of synchronization for a group between the cloud and on-premises Active Directory. Supports $filter only with advanced query capabilities. For example, $filter=onPremisesSyncBehavior/isCloudManaged eq true&$count=true.
+     * @return OnPremisesSyncBehavior|null
+    */
+    public function getOnPremisesSyncBehavior(): ?OnPremisesSyncBehavior {
+        $val = $this->getBackingStore()->get('onPremisesSyncBehavior');
+        if (is_null($val) || $val instanceof OnPremisesSyncBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSyncBehavior'");
     }
 
     /**
@@ -1246,6 +1259,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('onPremisesProvisioningErrors', $this->getOnPremisesProvisioningErrors());
         $writer->writeStringValue('onPremisesSamAccountName', $this->getOnPremisesSamAccountName());
         $writer->writeStringValue('onPremisesSecurityIdentifier', $this->getOnPremisesSecurityIdentifier());
+        $writer->writeObjectValue('onPremisesSyncBehavior', $this->getOnPremisesSyncBehavior());
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
         $writer->writeStringValue('organizationId', $this->getOrganizationId());
         $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
@@ -1684,6 +1698,14 @@ class Group extends DirectoryObject implements Parsable
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {
         $this->getBackingStore()->set('onPremisesSecurityIdentifier', $value);
+    }
+
+    /**
+     * Sets the onPremisesSyncBehavior property value. Indicates the state of synchronization for a group between the cloud and on-premises Active Directory. Supports $filter only with advanced query capabilities. For example, $filter=onPremisesSyncBehavior/isCloudManaged eq true&$count=true.
+     * @param OnPremisesSyncBehavior|null $value Value to set for the onPremisesSyncBehavior property.
+    */
+    public function setOnPremisesSyncBehavior(?OnPremisesSyncBehavior $value): void {
+        $this->getBackingStore()->set('onPremisesSyncBehavior', $value);
     }
 
     /**

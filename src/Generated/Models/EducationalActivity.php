@@ -66,7 +66,7 @@ class EducationalActivity extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the institution property value. The institution property
+     * Gets the institution property value. Contains details of the institution studied at.
      * @return InstitutionData|null
     */
     public function getInstitution(): ?InstitutionData {
@@ -78,7 +78,7 @@ class EducationalActivity extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the program property value. The program property
+     * Gets the program property value. Contains extended information about the program or course.
      * @return EducationalActivityDetail|null
     */
     public function getProgram(): ?EducationalActivityDetail {
@@ -131,7 +131,7 @@ class EducationalActivity extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the institution property value. The institution property
+     * Sets the institution property value. Contains details of the institution studied at.
      * @param InstitutionData|null $value Value to set for the institution property.
     */
     public function setInstitution(?InstitutionData $value): void {
@@ -139,7 +139,7 @@ class EducationalActivity extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the program property value. The program property
+     * Sets the program property value. Contains extended information about the program or course.
      * @param EducationalActivityDetail|null $value Value to set for the program property.
     */
     public function setProgram(?EducationalActivityDetail $value): void {

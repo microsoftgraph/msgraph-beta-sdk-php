@@ -26,7 +26,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the additionalOptions property value. The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue, htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, optimizedPartitionSize, includeReport. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, optimizedPartitionSize, includeReport.
+     * Gets the additionalOptions property value. The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue, htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport.
      * @return AdditionalOptions|null
     */
     public function getAdditionalOptions(): ?AdditionalOptions {
@@ -112,7 +112,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Gets the exportFormat property value. Format of the emails of the export. The possible values are: pst, msg, eml, unknownFutureValue.
+     * Gets the exportFormat property value. Format of the emails of the export. The possible values are: pst, msg, eml (deprecated), unknownFutureValue. The eml member is deprecated. It remains in beta for backward compatibility. Going forward, use either pst or msg.
      * @return ExportFormat|null
     */
     public function getExportFormat(): ?ExportFormat {
@@ -200,7 +200,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the additionalOptions property value. The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue, htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, optimizedPartitionSize, includeReport. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, optimizedPartitionSize, includeReport.
+     * Sets the additionalOptions property value. The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue, htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport.
      * @param AdditionalOptions|null $value Value to set for the additionalOptions property.
     */
     public function setAdditionalOptions(?AdditionalOptions $value): void {
@@ -256,7 +256,7 @@ class EdiscoverySearchExportOperation extends CaseOperation implements Parsable
     }
 
     /**
-     * Sets the exportFormat property value. Format of the emails of the export. The possible values are: pst, msg, eml, unknownFutureValue.
+     * Sets the exportFormat property value. Format of the emails of the export. The possible values are: pst, msg, eml (deprecated), unknownFutureValue. The eml member is deprecated. It remains in beta for backward compatibility. Going forward, use either pst or msg.
      * @param ExportFormat|null $value Value to set for the exportFormat property.
     */
     public function setExportFormat(?ExportFormat $value): void {

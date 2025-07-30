@@ -17,4 +17,5 @@ class CloudPcDeviceImageErrorCode extends Enum {
     public const SOURCE_IMAGE_SIZE_EXCEEDS_LIMITATION = "sourceImageSizeExceedsLimitation";
     public const SOURCE_IMAGE_WITH_DATA_DISK_NOT_SUPPORTED = "sourceImageWithDataDiskNotSupported";
     public const SOURCE_IMAGE_WITH_DISK_ENCRYPTION_SET_NOT_SUPPORTED = "sourceImageWithDiskEncryptionSetNotSupported";
+    public const SOURCE_IMAGE_WITH_AZURE_DISK_ENCRYPTION_NOT_SUPPORTED = "sourceImageWithAzureDiskEncryptionNotSupported";
 }

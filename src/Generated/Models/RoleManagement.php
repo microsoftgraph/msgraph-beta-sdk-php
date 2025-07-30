@@ -70,11 +70,11 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the defender property value. The defender property
-     * @return RbacApplicationMultiple|null
+     * @return UnifiedRbacApplicationMultiple|null
     */
-    public function getDefender(): ?RbacApplicationMultiple {
+    public function getDefender(): ?UnifiedRbacApplicationMultiple {
         $val = $this->getBackingStore()->get('defender');
-        if (is_null($val) || $val instanceof RbacApplicationMultiple) {
+        if (is_null($val) || $val instanceof UnifiedRbacApplicationMultiple) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defender'");
@@ -150,7 +150,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'cloudPC' => fn(ParseNode $n) => $o->setCloudPC($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
-            'defender' => fn(ParseNode $n) => $o->setDefender($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
+            'defender' => fn(ParseNode $n) => $o->setDefender($n->getObjectValue([UnifiedRbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'deviceManagement' => fn(ParseNode $n) => $o->setDeviceManagement($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
             'directory' => fn(ParseNode $n) => $o->setDirectory($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
             'enterpriseApps' => fn(ParseNode $n) => $o->setEnterpriseApps($n->getCollectionOfObjectValues([RbacApplication::class, 'createFromDiscriminatorValue'])),
@@ -214,9 +214,9 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the defender property value. The defender property
-     * @param RbacApplicationMultiple|null $value Value to set for the defender property.
+     * @param UnifiedRbacApplicationMultiple|null $value Value to set for the defender property.
     */
-    public function setDefender(?RbacApplicationMultiple $value): void {
+    public function setDefender(?UnifiedRbacApplicationMultiple $value): void {
         $this->getBackingStore()->set('defender', $value);
     }
 
