@@ -146,6 +146,20 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the extensions property value. The collection of open extensions defined for this site. Nullable.
+     * @return array<Extension>|null
+    */
+    public function getExtensions(): ?array {
+        $val = $this->getBackingStore()->get('extensions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Extension::class);
+            /** @var array<Extension>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'extensions'");
+    }
+
+    /**
      * Gets the externalColumns property value. The collection of column definitions available in the site that is referenced from the sites in the parent hierarchy of the current site.
      * @return array<ColumnDefinition>|null
     */
@@ -175,6 +189,7 @@ class Site extends BaseItem implements Parsable
             'documentProcessingJobs' => fn(ParseNode $n) => $o->setDocumentProcessingJobs($n->getCollectionOfObjectValues([DocumentProcessingJob::class, 'createFromDiscriminatorValue'])),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'drives' => fn(ParseNode $n) => $o->setDrives($n->getCollectionOfObjectValues([Drive::class, 'createFromDiscriminatorValue'])),
+            'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
             'externalColumns' => fn(ParseNode $n) => $o->setExternalColumns($n->getCollectionOfObjectValues([ColumnDefinition::class, 'createFromDiscriminatorValue'])),
             'informationProtection' => fn(ParseNode $n) => $o->setInformationProtection($n->getObjectValue([InformationProtection::class, 'createFromDiscriminatorValue'])),
             'isPersonalSite' => fn(ParseNode $n) => $o->setIsPersonalSite($n->getBooleanValue()),
@@ -416,6 +431,7 @@ class Site extends BaseItem implements Parsable
         $writer->writeCollectionOfObjectValues('documentProcessingJobs', $this->getDocumentProcessingJobs());
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeCollectionOfObjectValues('drives', $this->getDrives());
+        $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
         $writer->writeCollectionOfObjectValues('externalColumns', $this->getExternalColumns());
         $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
         $writer->writeBooleanValue('isPersonalSite', $this->getIsPersonalSite());
@@ -505,6 +521,14 @@ class Site extends BaseItem implements Parsable
     */
     public function setDrives(?array $value): void {
         $this->getBackingStore()->set('drives', $value);
+    }
+
+    /**
+     * Sets the extensions property value. The collection of open extensions defined for this site. Nullable.
+     * @param array<Extension>|null $value Value to set for the extensions property.
+    */
+    public function setExtensions(?array $value): void {
+        $this->getBackingStore()->set('extensions', $value);
     }
 
     /**

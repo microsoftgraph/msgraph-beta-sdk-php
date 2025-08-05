@@ -52,7 +52,7 @@ class ExternalAuthenticationMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalAuthenticationMethods from users
+     * Represents the external methods registered to a user for authentication.
      * @param ExternalAuthenticationMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalAuthenticationMethodCollectionResponse|null>
      * @throws Exception
@@ -66,11 +66,12 @@ class ExternalAuthenticationMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to externalAuthenticationMethods for users
+     * Create a new externalAuthenticationMethod object. This API doesn't support self-service operations.
      * @param ExternalAuthenticationMethod $body The request body
      * @param ExternalAuthenticationMethodsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalAuthenticationMethod|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authentication-post-externalauthenticationmethods?view=graph-rest-beta Find more info here
     */
     public function post(ExternalAuthenticationMethod $body, ?ExternalAuthenticationMethodsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +82,7 @@ class ExternalAuthenticationMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalAuthenticationMethods from users
+     * Represents the external methods registered to a user for authentication.
      * @param ExternalAuthenticationMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +103,7 @@ class ExternalAuthenticationMethodsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to externalAuthenticationMethods for users
+     * Create a new externalAuthenticationMethod object. This API doesn't support self-service operations.
      * @param ExternalAuthenticationMethod $body The request body
      * @param ExternalAuthenticationMethodsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

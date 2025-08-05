@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ExtendedProperties;
 use Microsoft\Graph\Beta\Generated\Models\Partner\Security\AdditionalDataDictionary;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -39,6 +40,7 @@ class Dictionary implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.customAppScopeAttributesDictionary': return new CustomAppScopeAttributesDictionary();
                 case '#microsoft.graph.customMetadataDictionary': return new CustomMetadataDictionary();
                 case '#microsoft.graph.fileStorageContainerCustomPropertyDictionary': return new FileStorageContainerCustomPropertyDictionary();
+                case '#microsoft.graph.networkaccess.extendedProperties': return new ExtendedProperties();
                 case '#microsoft.graph.openComplexDictionaryType': return new OpenComplexDictionaryType();
                 case '#microsoft.graph.partner.security.additionalDataDictionary': return new AdditionalDataDictionary();
                 case '#microsoft.graph.plannerFormsDictionary': return new PlannerFormsDictionary();

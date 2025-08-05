@@ -26,7 +26,7 @@ class RelatedFile extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the directory property value. The directory property
+     * Gets the directory property value. Directory path of the file. Required.
      * @return string|null
     */
     public function getDirectory(): ?string {
@@ -51,7 +51,7 @@ class RelatedFile extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the file. Required.
      * @return string|null
     */
     public function getName(): ?string {
@@ -63,7 +63,7 @@ class RelatedFile extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the sizeInBytes property value. The sizeInBytes property
+     * Gets the sizeInBytes property value. Size of the file in bytes. Required.
      * @return int|null
     */
     public function getSizeInBytes(): ?int {
@@ -86,7 +86,7 @@ class RelatedFile extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the directory property value. The directory property
+     * Sets the directory property value. Directory path of the file. Required.
      * @param string|null $value Value to set for the directory property.
     */
     public function setDirectory(?string $value): void {
@@ -94,7 +94,7 @@ class RelatedFile extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name of the file. Required.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -102,7 +102,7 @@ class RelatedFile extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the sizeInBytes property value. The sizeInBytes property
+     * Sets the sizeInBytes property value. Size of the file in bytes. Required.
      * @param int|null $value Value to set for the sizeInBytes property.
     */
     public function setSizeInBytes(?int $value): void {

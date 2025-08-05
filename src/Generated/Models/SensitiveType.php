@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -57,6 +58,7 @@ class SensitiveType extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
             'rulePackageId' => fn(ParseNode $n) => $o->setRulePackageId($n->getStringValue()),
@@ -65,6 +67,18 @@ class SensitiveType extends Entity implements Parsable
             'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)),
             'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
     }
 
     /**
@@ -159,6 +173,7 @@ class SensitiveType extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('classificationMethod', $this->getClassificationMethod());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeStringValue('publisherName', $this->getPublisherName());
         $writer->writeStringValue('rulePackageId', $this->getRulePackageId());
@@ -182,6 +197,14 @@ class SensitiveType extends Entity implements Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**

@@ -31,7 +31,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing trustFrameworkPolicy.
+     * Delete an existing trustFrameworkPolicy object from an Microsoft Entra B2C tenant.
      * @param ContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -80,7 +80,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete an existing trustFrameworkPolicy.
+     * Delete an existing trustFrameworkPolicy object from an Microsoft Entra B2C tenant.
      * @param ContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

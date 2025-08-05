@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\GetVapidPublicKey\GetVapidPublicKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\Item\SubscriptionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Subscription;
@@ -24,6 +25,13 @@ class SubscriptionsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getVapidPublicKey method.
+    */
+    public function getVapidPublicKey(): GetVapidPublicKeyRequestBuilder {
+        return new GetVapidPublicKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

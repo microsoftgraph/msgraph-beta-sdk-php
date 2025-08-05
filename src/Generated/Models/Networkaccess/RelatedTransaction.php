@@ -37,7 +37,7 @@ class RelatedTransaction extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the transactionId property value. The transactionId property
+     * Gets the transactionId property value. Unique identifier of the transaction. Required.
      * @return string|null
     */
     public function getTransactionId(): ?string {
@@ -58,7 +58,7 @@ class RelatedTransaction extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the transactionId property value. The transactionId property
+     * Sets the transactionId property value. Unique identifier of the transaction. Required.
      * @param string|null $value Value to set for the transactionId property.
     */
     public function setTransactionId(?string $value): void {

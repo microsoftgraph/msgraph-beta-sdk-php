@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Crea
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\DocumentProcessingJobs\DocumentProcessingJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Drives\DrivesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\ExternalColumns\ExternalColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\GetApplicableContentTypesForListWithListId\GetApplicableContentTypesForListWithListIdRequestBuilder;
@@ -102,6 +103,13 @@ class GetByPathWithPathRequestBuilder extends BaseRequestBuilder
     */
     public function drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.site entity.
+    */
+    public function extensions(): ExtensionsRequestBuilder {
+        return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

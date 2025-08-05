@@ -40,7 +40,7 @@ class RelatedDestination extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the fqdn property value. The fqdn property
+     * Gets the fqdn property value. Fully qualified domain name of the destination. Required.
      * @return string|null
     */
     public function getFqdn(): ?string {
@@ -52,7 +52,7 @@ class RelatedDestination extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the ip property value. The ip property
+     * Gets the ip property value. IP address of the destination. Required.
      * @return string|null
     */
     public function getIp(): ?string {
@@ -76,7 +76,7 @@ class RelatedDestination extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the port property value. The port property
+     * Gets the port property value. Port number used to access the destination. Required.
      * @return int|null
     */
     public function getPort(): ?int {
@@ -100,7 +100,7 @@ class RelatedDestination extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the fqdn property value. The fqdn property
+     * Sets the fqdn property value. Fully qualified domain name of the destination. Required.
      * @param string|null $value Value to set for the fqdn property.
     */
     public function setFqdn(?string $value): void {
@@ -108,7 +108,7 @@ class RelatedDestination extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the ip property value. The ip property
+     * Sets the ip property value. IP address of the destination. Required.
      * @param string|null $value Value to set for the ip property.
     */
     public function setIp(?string $value): void {
@@ -124,7 +124,7 @@ class RelatedDestination extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the port property value. The port property
+     * Sets the port property value. Port number used to access the destination. Required.
      * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {

@@ -100,7 +100,7 @@ class Conversation extends Entity implements Parsable
     }
 
     /**
-     * Gets the topic property value. The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+     * Gets the topic property value. The topic of the conversation. This property can be set when the conversation is created, but it can't be updated.
      * @return string|null
     */
     public function getTopic(): ?string {
@@ -172,7 +172,7 @@ class Conversation extends Entity implements Parsable
     }
 
     /**
-     * Sets the topic property value. The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+     * Sets the topic property value. The topic of the conversation. This property can be set when the conversation is created, but it can't be updated.
      * @param string|null $value Value to set for the topic property.
     */
     public function setTopic(?string $value): void {

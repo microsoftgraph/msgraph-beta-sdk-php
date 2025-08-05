@@ -40,7 +40,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalAuthenticationMethods property value. The externalAuthenticationMethods property
+     * Gets the externalAuthenticationMethods property value. Represents the external methods registered to a user for authentication.
      * @return array<ExternalAuthenticationMethod>|null
     */
     public function getExternalAuthenticationMethods(): ?array {
@@ -318,7 +318,7 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalAuthenticationMethods property value. The externalAuthenticationMethods property
+     * Sets the externalAuthenticationMethods property value. Represents the external methods registered to a user for authentication.
      * @param array<ExternalAuthenticationMethod>|null $value Value to set for the externalAuthenticationMethods property.
     */
     public function setExternalAuthenticationMethods(?array $value): void {

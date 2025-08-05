@@ -31,7 +31,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policy from networkAccess
+     * The filtering policy associated with the alert. This relationship allows you to retrieve or manage the filtering policy that triggered or is related to the alert instance.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FilteringPolicy|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policy from networkAccess
+     * The filtering policy associated with the alert. This relationship allows you to retrieve or manage the filtering policy that triggered or is related to the alert instance.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -38,7 +38,7 @@ class RelatedUser extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. Unique identifier of the user. Required.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -50,7 +50,7 @@ class RelatedUser extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. Principal name of the user. Required.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -72,7 +72,7 @@ class RelatedUser extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. Unique identifier of the user. Required.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
@@ -80,7 +80,7 @@ class RelatedUser extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. Principal name of the user. Required.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
