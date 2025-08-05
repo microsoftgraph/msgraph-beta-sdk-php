@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\Item\Policy;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get policy from networkAccess
+ * The filtering policy associated with the alert. This relationship allows you to retrieve or manage the filtering policy that triggered or is related to the alert instance.
 */
 class PolicyRequestBuilderGetQueryParameters 
 {

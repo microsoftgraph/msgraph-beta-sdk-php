@@ -26,7 +26,7 @@ class RelatedDevice extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. Unique identifier of the device involved in the alert. Required.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -58,7 +58,7 @@ class RelatedDevice extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. Unique identifier of the device involved in the alert. Required.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {

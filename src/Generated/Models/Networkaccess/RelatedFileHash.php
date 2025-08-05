@@ -50,7 +50,7 @@ class RelatedFileHash extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The hash value. Required.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -80,7 +80,7 @@ class RelatedFileHash extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The hash value. Required.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

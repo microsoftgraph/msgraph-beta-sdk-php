@@ -37,7 +37,7 @@ class RelatedRemoteNetwork extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the remoteNetworkId property value. The remoteNetworkId property
+     * Gets the remoteNetworkId property value. Unique identifier of the remote network. Required.
      * @return string|null
     */
     public function getRemoteNetworkId(): ?string {
@@ -58,7 +58,7 @@ class RelatedRemoteNetwork extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the remoteNetworkId property value. The remoteNetworkId property
+     * Sets the remoteNetworkId property value. Unique identifier of the remote network. Required.
      * @param string|null $value Value to set for the remoteNetworkId property.
     */
     public function setRemoteNetworkId(?string $value): void {

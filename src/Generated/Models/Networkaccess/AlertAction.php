@@ -35,7 +35,7 @@ class AlertAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the actionLink property value. The actionLink property
+     * Gets the actionLink property value. A link to more information or to perform the action (if applicable).
      * @return string|null
     */
     public function getActionLink(): ?string {
@@ -47,7 +47,7 @@ class AlertAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the actionText property value. The actionText property
+     * Gets the actionText property value. Text describing the action. Required.
      * @return string|null
     */
     public function getActionText(): ?string {
@@ -116,7 +116,7 @@ class AlertAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the actionLink property value. The actionLink property
+     * Sets the actionLink property value. A link to more information or to perform the action (if applicable).
      * @param string|null $value Value to set for the actionLink property.
     */
     public function setActionLink(?string $value): void {
@@ -124,7 +124,7 @@ class AlertAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the actionText property value. The actionText property
+     * Sets the actionText property value. Text describing the action. Required.
      * @param string|null $value Value to set for the actionText property.
     */
     public function setActionText(?string $value): void {

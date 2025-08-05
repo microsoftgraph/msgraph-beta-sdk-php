@@ -26,7 +26,7 @@ class ExternalAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Gets the configurationId property value. The configurationId property
+     * Gets the configurationId property value. A unique identifier used to manage the external auth method within Microsoft Entra ID.
      * @return string|null
     */
     public function getConfigurationId(): ?string {
@@ -38,7 +38,7 @@ class ExternalAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Custom name given to the registered external authentication method.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -72,7 +72,7 @@ class ExternalAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Sets the configurationId property value. The configurationId property
+     * Sets the configurationId property value. A unique identifier used to manage the external auth method within Microsoft Entra ID.
      * @param string|null $value Value to set for the configurationId property.
     */
     public function setConfigurationId(?string $value): void {
@@ -80,7 +80,7 @@ class ExternalAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Custom name given to the registered external authentication method.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

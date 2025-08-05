@@ -31,10 +31,11 @@ class ExternalAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property externalAuthenticationMethods for users
+     * Delete an externalAuthenticationMethod object. This API doesn't support self-service operations.
      * @param ExternalAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/authentication-delete-externalauthenticationmethods?view=graph-rest-beta Find more info here
     */
     public function delete(?ExternalAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class ExternalAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalAuthenticationMethods from users
+     * Represents the external methods registered to a user for authentication.
      * @param ExternalAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalAuthenticationMethod|null>
      * @throws Exception
@@ -74,7 +75,7 @@ class ExternalAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property externalAuthenticationMethods for users
+     * Delete an externalAuthenticationMethod object. This API doesn't support self-service operations.
      * @param ExternalAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +93,7 @@ class ExternalAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalAuthenticationMethods from users
+     * Represents the external methods registered to a user for authentication.
      * @param ExternalAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

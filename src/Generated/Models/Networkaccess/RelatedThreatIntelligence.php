@@ -37,7 +37,7 @@ class RelatedThreatIntelligence extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the threatCount property value. The threatCount property
+     * Gets the threatCount property value. Number of threats detected by threat intelligence. Required.
      * @return int|null
     */
     public function getThreatCount(): ?int {
@@ -58,7 +58,7 @@ class RelatedThreatIntelligence extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the threatCount property value. The threatCount property
+     * Sets the threatCount property value. Number of threats detected by threat intelligence. Required.
      * @param int|null $value Value to set for the threatCount property.
     */
     public function setThreatCount(?int $value): void {

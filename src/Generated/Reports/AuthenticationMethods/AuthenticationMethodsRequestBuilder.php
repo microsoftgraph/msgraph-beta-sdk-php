@@ -6,7 +6,12 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethodsRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserEventsSummary\UserEventsSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserMfaSignInSummary\UserMfaSignInSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserPasswordResetsAndChangesSummary\UserPasswordResetsAndChangesSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistrationActivityWithPeriod\UserRegistrationActivityWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistrationDetails\UserRegistrationDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserSignInsByAuthMethodSummaryWithPeriod\UserSignInsByAuthMethodSummaryWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByFeature\UsersRegisteredByFeatureRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByMethod\UsersRegisteredByMethodRequestBuilder;
@@ -21,6 +26,27 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the userEventsSummary property of the microsoft.graph.authenticationMethodsRoot entity.
+    */
+    public function userEventsSummary(): UserEventsSummaryRequestBuilder {
+        return new UserEventsSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the userMfaSignInSummary property of the microsoft.graph.authenticationMethodsRoot entity.
+    */
+    public function userMfaSignInSummary(): UserMfaSignInSummaryRequestBuilder {
+        return new UserMfaSignInSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the userPasswordResetsAndChangesSummary property of the microsoft.graph.authenticationMethodsRoot entity.
+    */
+    public function userPasswordResetsAndChangesSummary(): UserPasswordResetsAndChangesSummaryRequestBuilder {
+        return new UserPasswordResetsAndChangesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
     */
@@ -156,6 +182,24 @@ class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder
         $requestInfo->tryAddHeader('Accept', "application/json");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
+    }
+
+    /**
+     * Provides operations to call the userRegistrationActivity method.
+     * @param string $period Usage: period='{period}'
+     * @return UserRegistrationActivityWithPeriodRequestBuilder
+    */
+    public function userRegistrationActivityWithPeriod(string $period): UserRegistrationActivityWithPeriodRequestBuilder {
+        return new UserRegistrationActivityWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    }
+
+    /**
+     * Provides operations to call the userSignInsByAuthMethodSummary method.
+     * @param string $period Usage: period='{period}'
+     * @return UserSignInsByAuthMethodSummaryWithPeriodRequestBuilder
+    */
+    public function userSignInsByAuthMethodSummaryWithPeriod(string $period): UserSignInsByAuthMethodSummaryWithPeriodRequestBuilder {
+        return new UserSignInsByAuthMethodSummaryWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
     }
 
     /**

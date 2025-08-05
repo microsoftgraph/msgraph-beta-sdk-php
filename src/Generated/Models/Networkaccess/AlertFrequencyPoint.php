@@ -73,7 +73,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the highSeverityCount property value. The highSeverityCount property
+     * Gets the highSeverityCount property value. Total number of high alert severity. Required.
      * @return int|null
     */
     public function getHighSeverityCount(): ?int {
@@ -85,7 +85,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the informationalSeverityCount property value. The informationalSeverityCount property
+     * Gets the informationalSeverityCount property value. Total number of informational alert severity. Required.
      * @return int|null
     */
     public function getInformationalSeverityCount(): ?int {
@@ -97,7 +97,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lowSeverityCount property value. The lowSeverityCount property
+     * Gets the lowSeverityCount property value. Total number of low alert severity. Required.
      * @return int|null
     */
     public function getLowSeverityCount(): ?int {
@@ -109,7 +109,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mediumSeverityCount property value. The mediumSeverityCount property
+     * Gets the mediumSeverityCount property value. Total number of medium alert severity. Required.
      * @return int|null
     */
     public function getMediumSeverityCount(): ?int {
@@ -133,7 +133,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the timeStampDateTime property value. The timeStampDateTime property
+     * Gets the timeStampDateTime property value. The time bucket for counting the alert severities. Required.
      * @return DateTime|null
     */
     public function getTimeStampDateTime(): ?DateTime {
@@ -175,7 +175,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the highSeverityCount property value. The highSeverityCount property
+     * Sets the highSeverityCount property value. Total number of high alert severity. Required.
      * @param int|null $value Value to set for the highSeverityCount property.
     */
     public function setHighSeverityCount(?int $value): void {
@@ -183,7 +183,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the informationalSeverityCount property value. The informationalSeverityCount property
+     * Sets the informationalSeverityCount property value. Total number of informational alert severity. Required.
      * @param int|null $value Value to set for the informationalSeverityCount property.
     */
     public function setInformationalSeverityCount(?int $value): void {
@@ -191,7 +191,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lowSeverityCount property value. The lowSeverityCount property
+     * Sets the lowSeverityCount property value. Total number of low alert severity. Required.
      * @param int|null $value Value to set for the lowSeverityCount property.
     */
     public function setLowSeverityCount(?int $value): void {
@@ -199,7 +199,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mediumSeverityCount property value. The mediumSeverityCount property
+     * Sets the mediumSeverityCount property value. Total number of medium alert severity. Required.
      * @param int|null $value Value to set for the mediumSeverityCount property.
     */
     public function setMediumSeverityCount(?int $value): void {
@@ -215,7 +215,7 @@ class AlertFrequencyPoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the timeStampDateTime property value. The timeStampDateTime property
+     * Sets the timeStampDateTime property value. The time bucket for counting the alert severities. Required.
      * @param DateTime|null $value Value to set for the timeStampDateTime property.
     */
     public function setTimeStampDateTime(?DateTime $value): void {

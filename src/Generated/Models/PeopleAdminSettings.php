@@ -34,6 +34,7 @@ class PeopleAdminSettings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
             'namePronunciation' => fn(ParseNode $n) => $o->setNamePronunciation($n->getObjectValue([NamePronunciationSettings::class, 'createFromDiscriminatorValue'])),
+            'photoUpdateSettings' => fn(ParseNode $n) => $o->setPhotoUpdateSettings($n->getObjectValue([PhotoUpdateSettings::class, 'createFromDiscriminatorValue'])),
             'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
             'profilePropertySettings' => fn(ParseNode $n) => $o->setProfilePropertySettings($n->getCollectionOfObjectValues([ProfilePropertySetting::class, 'createFromDiscriminatorValue'])),
             'profileSources' => fn(ParseNode $n) => $o->setProfileSources($n->getCollectionOfObjectValues([ProfileSource::class, 'createFromDiscriminatorValue'])),
@@ -63,6 +64,18 @@ class PeopleAdminSettings extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'namePronunciation'");
+    }
+
+    /**
+     * Gets the photoUpdateSettings property value. Administrator settings that manage the support for item photo updates in an organization.
+     * @return PhotoUpdateSettings|null
+    */
+    public function getPhotoUpdateSettings(): ?PhotoUpdateSettings {
+        $val = $this->getBackingStore()->get('photoUpdateSettings');
+        if (is_null($val) || $val instanceof PhotoUpdateSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'photoUpdateSettings'");
     }
 
     /**
@@ -127,6 +140,7 @@ class PeopleAdminSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('itemInsights', $this->getItemInsights());
         $writer->writeObjectValue('namePronunciation', $this->getNamePronunciation());
+        $writer->writeObjectValue('photoUpdateSettings', $this->getPhotoUpdateSettings());
         $writer->writeCollectionOfObjectValues('profileCardProperties', $this->getProfileCardProperties());
         $writer->writeCollectionOfObjectValues('profilePropertySettings', $this->getProfilePropertySettings());
         $writer->writeCollectionOfObjectValues('profileSources', $this->getProfileSources());
@@ -147,6 +161,14 @@ class PeopleAdminSettings extends Entity implements Parsable
     */
     public function setNamePronunciation(?NamePronunciationSettings $value): void {
         $this->getBackingStore()->set('namePronunciation', $value);
+    }
+
+    /**
+     * Sets the photoUpdateSettings property value. Administrator settings that manage the support for item photo updates in an organization.
+     * @param PhotoUpdateSettings|null $value Value to set for the photoUpdateSettings property.
+    */
+    public function setPhotoUpdateSettings(?PhotoUpdateSettings $value): void {
+        $this->getBackingStore()->set('photoUpdateSettings', $value);
     }
 
     /**

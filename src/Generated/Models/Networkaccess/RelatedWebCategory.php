@@ -37,7 +37,7 @@ class RelatedWebCategory extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the webCategoryName property value. The webCategoryName property
+     * Gets the webCategoryName property value. Name of the web category. Required.
      * @return string|null
     */
     public function getWebCategoryName(): ?string {
@@ -58,7 +58,7 @@ class RelatedWebCategory extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the webCategoryName property value. The webCategoryName property
+     * Sets the webCategoryName property value. Name of the web category. Required.
      * @param string|null $value Value to set for the webCategoryName property.
     */
     public function setWebCategoryName(?string $value): void {

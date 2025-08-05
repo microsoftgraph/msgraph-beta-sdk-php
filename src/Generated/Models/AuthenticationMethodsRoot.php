@@ -32,8 +32,53 @@ class AuthenticationMethodsRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'userEventsSummary' => fn(ParseNode $n) => $o->setUserEventsSummary($n->getCollectionOfObjectValues([UserEventsSummary::class, 'createFromDiscriminatorValue'])),
+            'userMfaSignInSummary' => fn(ParseNode $n) => $o->setUserMfaSignInSummary($n->getCollectionOfObjectValues([UserMfaSignInSummary::class, 'createFromDiscriminatorValue'])),
+            'userPasswordResetsAndChangesSummary' => fn(ParseNode $n) => $o->setUserPasswordResetsAndChangesSummary($n->getCollectionOfObjectValues([UserPasswordResetsAndChangesSummary::class, 'createFromDiscriminatorValue'])),
             'userRegistrationDetails' => fn(ParseNode $n) => $o->setUserRegistrationDetails($n->getCollectionOfObjectValues([UserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the userEventsSummary property value. Represents a specific user MFA/SSPR registration or reset event, including whether the event was successful, which authentication method was targeted, and failure reason if any.
+     * @return array<UserEventsSummary>|null
+    */
+    public function getUserEventsSummary(): ?array {
+        $val = $this->getBackingStore()->get('userEventsSummary');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserEventsSummary::class);
+            /** @var array<UserEventsSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userEventsSummary'");
+    }
+
+    /**
+     * Gets the userMfaSignInSummary property value. Represents the total count of MFA vs non-MFA sign-in counts for a specified period.
+     * @return array<UserMfaSignInSummary>|null
+    */
+    public function getUserMfaSignInSummary(): ?array {
+        $val = $this->getBackingStore()->get('userMfaSignInSummary');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserMfaSignInSummary::class);
+            /** @var array<UserMfaSignInSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userMfaSignInSummary'");
+    }
+
+    /**
+     * Gets the userPasswordResetsAndChangesSummary property value. Represents the summary of password resets and changes for a specific day. This includes the number of password resets that were self-service and those triggered by an administrator.
+     * @return array<UserPasswordResetsAndChangesSummary>|null
+    */
+    public function getUserPasswordResetsAndChangesSummary(): ?array {
+        $val = $this->getBackingStore()->get('userPasswordResetsAndChangesSummary');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserPasswordResetsAndChangesSummary::class);
+            /** @var array<UserPasswordResetsAndChangesSummary>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPasswordResetsAndChangesSummary'");
     }
 
     /**
@@ -56,7 +101,34 @@ class AuthenticationMethodsRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('userEventsSummary', $this->getUserEventsSummary());
+        $writer->writeCollectionOfObjectValues('userMfaSignInSummary', $this->getUserMfaSignInSummary());
+        $writer->writeCollectionOfObjectValues('userPasswordResetsAndChangesSummary', $this->getUserPasswordResetsAndChangesSummary());
         $writer->writeCollectionOfObjectValues('userRegistrationDetails', $this->getUserRegistrationDetails());
+    }
+
+    /**
+     * Sets the userEventsSummary property value. Represents a specific user MFA/SSPR registration or reset event, including whether the event was successful, which authentication method was targeted, and failure reason if any.
+     * @param array<UserEventsSummary>|null $value Value to set for the userEventsSummary property.
+    */
+    public function setUserEventsSummary(?array $value): void {
+        $this->getBackingStore()->set('userEventsSummary', $value);
+    }
+
+    /**
+     * Sets the userMfaSignInSummary property value. Represents the total count of MFA vs non-MFA sign-in counts for a specified period.
+     * @param array<UserMfaSignInSummary>|null $value Value to set for the userMfaSignInSummary property.
+    */
+    public function setUserMfaSignInSummary(?array $value): void {
+        $this->getBackingStore()->set('userMfaSignInSummary', $value);
+    }
+
+    /**
+     * Sets the userPasswordResetsAndChangesSummary property value. Represents the summary of password resets and changes for a specific day. This includes the number of password resets that were self-service and those triggered by an administrator.
+     * @param array<UserPasswordResetsAndChangesSummary>|null $value Value to set for the userPasswordResetsAndChangesSummary property.
+    */
+    public function setUserPasswordResetsAndChangesSummary(?array $value): void {
+        $this->getBackingStore()->set('userPasswordResetsAndChangesSummary', $value);
     }
 
     /**

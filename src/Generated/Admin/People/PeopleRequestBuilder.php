@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\People\ItemInsights\ItemInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\NamePronunciation\NamePronunciationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\People\PhotoUpdateSettings\PhotoUpdateSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\ProfilePropertySettings\ProfilePropertySettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\ProfileSources\ProfileSourcesRequestBuilder;
@@ -35,6 +36,13 @@ class PeopleRequestBuilder extends BaseRequestBuilder
     */
     public function namePronunciation(): NamePronunciationRequestBuilder {
         return new NamePronunciationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the photoUpdateSettings property of the microsoft.graph.peopleAdminSettings entity.
+    */
+    public function photoUpdateSettings(): PhotoUpdateSettingsRequestBuilder {
+        return new PhotoUpdateSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

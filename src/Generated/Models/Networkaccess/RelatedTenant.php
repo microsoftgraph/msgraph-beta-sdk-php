@@ -37,7 +37,7 @@ class RelatedTenant extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. Unique identifier of the tenant. Required.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -58,7 +58,7 @@ class RelatedTenant extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. Unique identifier of the tenant. Required.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

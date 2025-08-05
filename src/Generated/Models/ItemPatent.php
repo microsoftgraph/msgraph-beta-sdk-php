@@ -92,7 +92,7 @@ class ItemPatent extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the issuingAuthority property value. Authority which granted the patent.
+     * Gets the issuingAuthority property value. Authority that granted the patent.
      * @return string|null
     */
     public function getIssuingAuthority(): ?string {
@@ -175,7 +175,7 @@ class ItemPatent extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the issuingAuthority property value. Authority which granted the patent.
+     * Sets the issuingAuthority property value. Authority that granted the patent.
      * @param string|null $value Value to set for the issuingAuthority property.
     */
     public function setIssuingAuthority(?string $value): void {

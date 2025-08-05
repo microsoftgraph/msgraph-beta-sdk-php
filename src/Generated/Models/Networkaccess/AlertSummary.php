@@ -68,7 +68,7 @@ class AlertSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the count property value. The count property
+     * Gets the count property value. Total number of alerts with this specific severity and type. Required.
      * @return int|null
     */
     public function getCount(): ?int {
@@ -154,7 +154,7 @@ class AlertSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the count property value. The count property
+     * Sets the count property value. Total number of alerts with this specific severity and type. Required.
      * @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value): void {

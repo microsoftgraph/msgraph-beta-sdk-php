@@ -31,7 +31,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personAward object from a user's profile.
+     * Delete a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -76,7 +76,7 @@ class PersonAwardItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes a personAward object from a user's profile.
+     * Delete a personAward object from a user's profile.
      * @param PersonAwardItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

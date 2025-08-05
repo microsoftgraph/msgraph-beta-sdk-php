@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\ExternalAuthe
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get externalAuthenticationMethods from users
+ * Represents the external methods registered to a user for authentication.
 */
 class ExternalAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {

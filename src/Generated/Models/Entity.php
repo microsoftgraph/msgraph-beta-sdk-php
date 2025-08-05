@@ -1655,6 +1655,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.personWebsite': return new PersonWebsite();
                 case '#microsoft.graph.phoneAuthenticationMethod': return new PhoneAuthenticationMethod();
                 case '#microsoft.graph.phoneUserConversationMember': return new PhoneUserConversationMember();
+                case '#microsoft.graph.photoUpdateSettings': return new PhotoUpdateSettings();
                 case '#microsoft.graph.pinnedChatMessageInfo': return new PinnedChatMessageInfo();
                 case '#microsoft.graph.place': return new Place();
                 case '#microsoft.graph.planner': return new Planner();
@@ -2180,6 +2181,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userCountMetric': return new UserCountMetric();
                 case '#microsoft.graph.userCredentialUsageDetails': return new UserCredentialUsageDetails();
                 case '#microsoft.graph.userDataSecurityAndGovernance': return new UserDataSecurityAndGovernance();
+                case '#microsoft.graph.userEventsSummary': return new UserEventsSummary();
                 case '#microsoft.graph.userExperienceAnalyticsAnomaly': return new UserExperienceAnalyticsAnomaly();
                 case '#microsoft.graph.userExperienceAnalyticsAnomalyCorrelationGroupOverview': return new UserExperienceAnalyticsAnomalyCorrelationGroupOverview();
                 case '#microsoft.graph.userExperienceAnalyticsAnomalyDevice': return new UserExperienceAnalyticsAnomalyDevice();
@@ -2228,8 +2230,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userInsightsRoot': return new UserInsightsRoot();
                 case '#microsoft.graph.userInsightsSettings': return new UserInsightsSettings();
                 case '#microsoft.graph.userInstallStateSummary': return new UserInstallStateSummary();
+                case '#microsoft.graph.userMfaSignInSummary': return new UserMfaSignInSummary();
+                case '#microsoft.graph.userPasswordResetsAndChangesSummary': return new UserPasswordResetsAndChangesSummary();
                 case '#microsoft.graph.userPFXCertificate': return new UserPFXCertificate();
                 case '#microsoft.graph.userProtectionScopeContainer': return new UserProtectionScopeContainer();
+                case '#microsoft.graph.userRegistrationActivitySummary': return new UserRegistrationActivitySummary();
                 case '#microsoft.graph.userRegistrationDetails': return new UserRegistrationDetails();
                 case '#microsoft.graph.userRequestsMetric': return new UserRequestsMetric();
                 case '#microsoft.graph.userScopeTeamsAppInstallation': return new UserScopeTeamsAppInstallation();

@@ -132,7 +132,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the externalId property value. The external ID. A custom ID. Optional.
+     * Gets the externalId property value. The external ID that is a custom identifier. Optional.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -388,7 +388,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the externalId property value. The external ID. A custom ID. Optional.
+     * Sets the externalId property value. The external ID that is a custom identifier. Optional.
      * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {

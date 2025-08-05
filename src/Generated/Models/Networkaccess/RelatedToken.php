@@ -37,7 +37,7 @@ class RelatedToken extends RelatedResource implements Parsable
     }
 
     /**
-     * Gets the uniqueTokenIdentifier property value. The uniqueTokenIdentifier property
+     * Gets the uniqueTokenIdentifier property value. Unique identifier of the token. Required.
      * @return string|null
     */
     public function getUniqueTokenIdentifier(): ?string {
@@ -58,7 +58,7 @@ class RelatedToken extends RelatedResource implements Parsable
     }
 
     /**
-     * Sets the uniqueTokenIdentifier property value. The uniqueTokenIdentifier property
+     * Sets the uniqueTokenIdentifier property value. Unique identifier of the token. Required.
      * @param string|null $value Value to set for the uniqueTokenIdentifier property.
     */
     public function setUniqueTokenIdentifier(?string $value): void {

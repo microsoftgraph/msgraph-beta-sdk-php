@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Sites\Item\CreatedByUser\CreatedByUserRequest
 use Microsoft\Graph\Beta\Generated\Sites\Item\DocumentProcessingJobs\DocumentProcessingJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Drives\DrivesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\ExternalColumns\ExternalColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\GetApplicableContentTypesForListWithListId\GetApplicableContentTypesForListWithListIdRequestBuilder;
@@ -103,6 +104,13 @@ class SiteItemRequestBuilder extends BaseRequestBuilder
     */
     public function drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.site entity.
+    */
+    public function extensions(): ExtensionsRequestBuilder {
+        return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
