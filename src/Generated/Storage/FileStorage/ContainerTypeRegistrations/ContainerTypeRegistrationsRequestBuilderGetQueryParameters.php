@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegist
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get containerTypeRegistrations from storage
+ * Get a list of the fileStorageContainerTypeRegistration objects and their properties.
 */
 class ContainerTypeRegistrationsRequestBuilderGetQueryParameters 
 {

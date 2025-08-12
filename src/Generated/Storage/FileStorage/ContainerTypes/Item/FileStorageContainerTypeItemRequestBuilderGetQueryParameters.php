@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypes\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get containerTypes from storage
+ * Get a fileStorageContainerType using its ID.
 */
 class FileStorageContainerTypeItemRequestBuilderGetQueryParameters 
 {

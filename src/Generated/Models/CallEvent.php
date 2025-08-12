@@ -67,6 +67,8 @@ class CallEvent extends Entity implements Parsable
             'callEventType' => fn(ParseNode $n) => $o->setCallEventType($n->getEnumValue(CallEventType::class)),
             'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
             'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfObjectValues([Participant::class, 'createFromDiscriminatorValue'])),
+            'recordingState' => fn(ParseNode $n) => $o->setRecordingState($n->getObjectValue([RecordingState::class, 'createFromDiscriminatorValue'])),
+            'transcriptionState' => fn(ParseNode $n) => $o->setTranscriptionState($n->getObjectValue([TranscriptionState::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -85,6 +87,30 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
+     * Gets the recordingState property value. The recordingState property
+     * @return RecordingState|null
+    */
+    public function getRecordingState(): ?RecordingState {
+        $val = $this->getBackingStore()->get('recordingState');
+        if (is_null($val) || $val instanceof RecordingState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recordingState'");
+    }
+
+    /**
+     * Gets the transcriptionState property value. The transcriptionState property
+     * @return TranscriptionState|null
+    */
+    public function getTranscriptionState(): ?TranscriptionState {
+        $val = $this->getBackingStore()->get('transcriptionState');
+        if (is_null($val) || $val instanceof TranscriptionState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'transcriptionState'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -93,6 +119,8 @@ class CallEvent extends Entity implements Parsable
         $writer->writeEnumValue('callEventType', $this->getCallEventType());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
+        $writer->writeObjectValue('recordingState', $this->getRecordingState());
+        $writer->writeObjectValue('transcriptionState', $this->getTranscriptionState());
     }
 
     /**
@@ -117,6 +145,22 @@ class CallEvent extends Entity implements Parsable
     */
     public function setParticipants(?array $value): void {
         $this->getBackingStore()->set('participants', $value);
+    }
+
+    /**
+     * Sets the recordingState property value. The recordingState property
+     * @param RecordingState|null $value Value to set for the recordingState property.
+    */
+    public function setRecordingState(?RecordingState $value): void {
+        $this->getBackingStore()->set('recordingState', $value);
+    }
+
+    /**
+     * Sets the transcriptionState property value. The transcriptionState property
+     * @param TranscriptionState|null $value Value to set for the transcriptionState property.
+    */
+    public function setTranscriptionState(?TranscriptionState $value): void {
+        $this->getBackingStore()->set('transcriptionState', $value);
     }
 
 }

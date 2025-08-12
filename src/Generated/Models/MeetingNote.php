@@ -83,7 +83,7 @@ class MeetingNote implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the subpoints property value. A collection of subpoints of the meeting note.
+     * Gets the subpoints property value. The subpoints property
      * @return array<MeetingNoteSubpoint>|null
     */
     public function getSubpoints(): ?array {
@@ -97,7 +97,7 @@ class MeetingNote implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the text property value. The text of the meeting note.
+     * Gets the text property value. The text property
      * @return string|null
     */
     public function getText(): ?string {
@@ -109,7 +109,7 @@ class MeetingNote implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the title property value. The title of the meeting note.
+     * Gets the title property value. The title property
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -157,7 +157,7 @@ class MeetingNote implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the subpoints property value. A collection of subpoints of the meeting note.
+     * Sets the subpoints property value. The subpoints property
      * @param array<MeetingNoteSubpoint>|null $value Value to set for the subpoints property.
     */
     public function setSubpoints(?array $value): void {
@@ -165,7 +165,7 @@ class MeetingNote implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the text property value. The text of the meeting note.
+     * Sets the text property value. The text property
      * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
@@ -173,7 +173,7 @@ class MeetingNote implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the title property value. The title of the meeting note.
+     * Sets the title property value. The title property
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {

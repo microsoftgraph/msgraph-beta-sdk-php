@@ -52,10 +52,11 @@ class ApplicationPermissionGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get applicationPermissionGrants from storage
+     * List all app permission grants in a fileStorageContainerTypeRegistration.
      * @param ApplicationPermissionGrantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeAppPermissionGrantCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertyperegistration-list-applicationpermissiongrants?view=graph-rest-beta Find more info here
     */
     public function get(?ApplicationPermissionGrantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ApplicationPermissionGrantsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get applicationPermissionGrants from storage
+     * List all app permission grants in a fileStorageContainerTypeRegistration.
      * @param ApplicationPermissionGrantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -81,6 +81,30 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the employeeId property value. The identifier assigned to the employee.
+     * @return string|null
+    */
+    public function getEmployeeId(): ?string {
+        $val = $this->getBackingStore()->get('employeeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'employeeId'");
+    }
+
+    /**
+     * Gets the employeeType property value. The type of employment for the position.
+     * @return string|null
+    */
+    public function getEmployeeType(): ?string {
+        $val = $this->getBackingStore()->get('employeeType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'employeeType'");
+    }
+
+    /**
      * Gets the endMonthYear property value. The date when the position ended.
      * @return Date|null
     */
@@ -101,6 +125,8 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'company' => fn(ParseNode $n) => $o->setCompany($n->getObjectValue([CompanyDetail::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'employeeId' => fn(ParseNode $n) => $o->setEmployeeId($n->getStringValue()),
+            'employeeType' => fn(ParseNode $n) => $o->setEmployeeType($n->getStringValue()),
             'endMonthYear' => fn(ParseNode $n) => $o->setEndMonthYear($n->getDateValue()),
             'jobTitle' => fn(ParseNode $n) => $o->setJobTitle($n->getStringValue()),
             'layer' => fn(ParseNode $n) => $o->setLayer($n->getIntegerValue()),
@@ -229,6 +255,8 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('company', $this->getCompany());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('employeeId', $this->getEmployeeId());
+        $writer->writeStringValue('employeeType', $this->getEmployeeType());
         $writer->writeDateValue('endMonthYear', $this->getEndMonthYear());
         $writer->writeStringValue('jobTitle', $this->getJobTitle());
         $writer->writeIntegerValue('layer', $this->getLayer());
@@ -272,6 +300,22 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the employeeId property value. The identifier assigned to the employee.
+     * @param string|null $value Value to set for the employeeId property.
+    */
+    public function setEmployeeId(?string $value): void {
+        $this->getBackingStore()->set('employeeId', $value);
+    }
+
+    /**
+     * Sets the employeeType property value. The type of employment for the position.
+     * @param string|null $value Value to set for the employeeType property.
+    */
+    public function setEmployeeType(?string $value): void {
+        $this->getBackingStore()->set('employeeType', $value);
     }
 
     /**

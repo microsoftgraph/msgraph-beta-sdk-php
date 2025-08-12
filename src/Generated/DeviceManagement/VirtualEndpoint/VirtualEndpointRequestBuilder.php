@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\AuditEvents\AuditEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\BulkActions\BulkActionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\CloudAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\CloudPCsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CrossCloudGovernmentOrganizationMapping\CrossCloudGovernmentOrganizationMappingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\DeviceImagesRequestBuilder;
@@ -47,6 +48,13 @@ class VirtualEndpointRequestBuilder extends BaseRequestBuilder
     */
     public function bulkActions(): BulkActionsRequestBuilder {
         return new BulkActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the cloudApps property of the microsoft.graph.virtualEndpoint entity.
+    */
+    public function cloudApps(): CloudAppsRequestBuilder {
+        return new CloudAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

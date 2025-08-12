@@ -19,6 +19,5 @@ class AdditionalOptions extends Enum {
     public const CONDENSE_PATHS = "condensePaths";
     public const FRIENDLY_NAME = "friendlyName";
     public const SPLIT_SOURCE = "splitSource";
-    public const OPTIMIZED_PARTITION_SIZE = "optimizedPartitionSize";
     public const INCLUDE_REPORT = "includeReport";
 }

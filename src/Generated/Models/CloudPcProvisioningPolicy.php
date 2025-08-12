@@ -211,6 +211,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
                 /** @var array<string>|null $val */
                 $this->setScopeIds($val);
             },
+            'userExperienceType' => fn(ParseNode $n) => $o->setUserExperienceType($n->getEnumValue(CloudPcUserExperienceType::class)),
             'windowsSetting' => fn(ParseNode $n) => $o->setWindowsSetting($n->getObjectValue([CloudPcWindowsSetting::class, 'createFromDiscriminatorValue'])),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -351,6 +352,18 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the userExperienceType property value. The userExperienceType property
+     * @return CloudPcUserExperienceType|null
+    */
+    public function getUserExperienceType(): ?CloudPcUserExperienceType {
+        $val = $this->getBackingStore()->get('userExperienceType');
+        if (is_null($val) || $val instanceof CloudPcUserExperienceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceType'");
+    }
+
+    /**
      * Gets the windowsSetting property value. Indicates a specific Windows setting to configure during the creation of Cloud PCs for this provisioning policy. Supports $select.
      * @return CloudPcWindowsSetting|null
     */
@@ -403,6 +416,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeObjectValue('microsoftManagedDesktop', $this->getMicrosoftManagedDesktop());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
+        $writer->writeEnumValue('userExperienceType', $this->getUserExperienceType());
         $writer->writeObjectValue('windowsSetting', $this->getWindowsSetting());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
     }
@@ -589,6 +603,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setScopeIds(?array $value): void {
         $this->getBackingStore()->set('scopeIds', $value);
+    }
+
+    /**
+     * Sets the userExperienceType property value. The userExperienceType property
+     * @param CloudPcUserExperienceType|null $value Value to set for the userExperienceType property.
+    */
+    public function setUserExperienceType(?CloudPcUserExperienceType $value): void {
+        $this->getBackingStore()->set('userExperienceType', $value);
     }
 
     /**

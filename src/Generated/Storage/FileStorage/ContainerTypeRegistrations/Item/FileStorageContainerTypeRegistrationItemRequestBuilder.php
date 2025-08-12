@@ -39,10 +39,11 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete navigation property containerTypeRegistrations for storage
+     * Delete a fileStorageContainerTypeRegistration object. A registration can only be deleted if it has neither containers nor deleted containers
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestorage-delete-containertyperegistrations?view=graph-rest-beta Find more info here
     */
     public function delete(?FileStorageContainerTypeRegistrationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get containerTypeRegistrations from storage
+     * Read the properties and relationships of a fileStorageContainerTypeRegistration object.
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeRegistration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertyperegistration-get?view=graph-rest-beta Find more info here
     */
     public function get(?FileStorageContainerTypeRegistrationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the navigation property containerTypeRegistrations in storage
+     * Update the properties of a fileStorageContainerTypeRegistration object. ETag is used for optimistic concurrency control. It must match the value from Create, Get or the previous Update.
      * @param FileStorageContainerTypeRegistration $body The request body
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeRegistration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertyperegistration-update?view=graph-rest-beta Find more info here
     */
     public function patch(FileStorageContainerTypeRegistration $body, ?FileStorageContainerTypeRegistrationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Delete navigation property containerTypeRegistrations for storage
+     * Delete a fileStorageContainerTypeRegistration object. A registration can only be deleted if it has neither containers nor deleted containers
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get containerTypeRegistrations from storage
+     * Read the properties and relationships of a fileStorageContainerTypeRegistration object.
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the navigation property containerTypeRegistrations in storage
+     * Update the properties of a fileStorageContainerTypeRegistration object. ETag is used for optimistic concurrency control. It must match the value from Create, Get or the previous Update.
      * @param FileStorageContainerTypeRegistration $body The request body
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

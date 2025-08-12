@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Workspace extends Place implements Parsable 
 {
@@ -27,7 +26,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the building property value. Specifies the building name or building number that the workspace is in.
+     * Gets the building property value. The name or identifier of the building where the workspace is located.
      * @return string|null
     */
     public function getBuilding(): ?string {
@@ -39,7 +38,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the capacity property value. Specifies the capacity of the workspace.
+     * Gets the capacity property value. The maximum number of individual desks within a workspace.
      * @return int|null
     */
     public function getCapacity(): ?int {
@@ -51,7 +50,19 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the emailAddress property value. Email address of the workspace.
+     * Gets the displayDeviceName property value. The name of the display device (for example, monitor or projector) that is available in the workspace.
+     * @return string|null
+    */
+    public function getDisplayDeviceName(): ?string {
+        $val = $this->getBackingStore()->get('displayDeviceName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayDeviceName'");
+    }
+
+    /**
+     * Gets the emailAddress property value. The email address that is associated with the workspace. This email address is used for booking.
      * @return string|null
     */
     public function getEmailAddress(): ?string {
@@ -71,25 +82,17 @@ class Workspace extends Place implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'building' => fn(ParseNode $n) => $o->setBuilding($n->getStringValue()),
             'capacity' => fn(ParseNode $n) => $o->setCapacity($n->getIntegerValue()),
+            'displayDeviceName' => fn(ParseNode $n) => $o->setDisplayDeviceName($n->getStringValue()),
             'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
             'floorLabel' => fn(ParseNode $n) => $o->setFloorLabel($n->getStringValue()),
             'floorNumber' => fn(ParseNode $n) => $o->setFloorNumber($n->getIntegerValue()),
-            'isWheelChairAccessible' => fn(ParseNode $n) => $o->setIsWheelChairAccessible($n->getBooleanValue()),
-            'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
+            'mode' => fn(ParseNode $n) => $o->setMode($n->getObjectValue([PlaceMode::class, 'createFromDiscriminatorValue'])),
             'nickname' => fn(ParseNode $n) => $o->setNickname($n->getStringValue()),
-            'tags' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setTags($val);
-            },
         ]);
     }
 
     /**
-     * Gets the floorLabel property value. Specifies a descriptive label for the floor, for example, P.
+     * Gets the floorLabel property value. A human-readable label for the floor; for example, Ground Floor.
      * @return string|null
     */
     public function getFloorLabel(): ?string {
@@ -101,7 +104,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the floorNumber property value. Specifies the floor number that the workspace is on.
+     * Gets the floorNumber property value. The numeric floor level within the building. For example, 1 for first floor, 2 for second floor, and so on.
      * @return int|null
     */
     public function getFloorNumber(): ?int {
@@ -113,31 +116,19 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the isWheelChairAccessible property value. Specifies whether the workspace is wheelchair accessible.
-     * @return bool|null
+     * Gets the mode property value. The mode for a workspace. The supported modes are:reservablePlaceMode - Workspaces that can be booked in advance using desk pool reservation tools.dropInPlaceMode - First come, first served desks. When you plug into a peripheral on one of these desks in the workspace, the desk is booked for you, assuming that the peripheral has been associated with the desk in the Microsoft Teams Rooms Pro management portal.offlinePlaceMode - Workspaces that are taken down for maintenance or marked as not reservable.
+     * @return PlaceMode|null
     */
-    public function getIsWheelChairAccessible(): ?bool {
-        $val = $this->getBackingStore()->get('isWheelChairAccessible');
-        if (is_null($val) || is_bool($val)) {
+    public function getMode(): ?PlaceMode {
+        $val = $this->getBackingStore()->get('mode');
+        if (is_null($val) || $val instanceof PlaceMode) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'isWheelChairAccessible'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mode'");
     }
 
     /**
-     * Gets the label property value. Specifies a descriptive label for the workspace, for example, a number or name.
-     * @return string|null
-    */
-    public function getLabel(): ?string {
-        $val = $this->getBackingStore()->get('label');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
-    }
-
-    /**
-     * Gets the nickname property value. Specifies a nickname for the workspace, for example, 'quiet workspace'.
+     * Gets the nickname property value. A short, friendly name for the workspace, often used for easier identification or display in the UI.
      * @return string|null
     */
     public function getNickname(): ?string {
@@ -149,20 +140,6 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the tags property value. Specifies other features of the workspace; for example, the type of view or furniture type.
-     * @return array<string>|null
-    */
-    public function getTags(): ?array {
-        $val = $this->getBackingStore()->get('tags');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -170,17 +147,16 @@ class Workspace extends Place implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('building', $this->getBuilding());
         $writer->writeIntegerValue('capacity', $this->getCapacity());
+        $writer->writeStringValue('displayDeviceName', $this->getDisplayDeviceName());
         $writer->writeStringValue('emailAddress', $this->getEmailAddress());
         $writer->writeStringValue('floorLabel', $this->getFloorLabel());
         $writer->writeIntegerValue('floorNumber', $this->getFloorNumber());
-        $writer->writeBooleanValue('isWheelChairAccessible', $this->getIsWheelChairAccessible());
-        $writer->writeStringValue('label', $this->getLabel());
+        $writer->writeObjectValue('mode', $this->getMode());
         $writer->writeStringValue('nickname', $this->getNickname());
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
     }
 
     /**
-     * Sets the building property value. Specifies the building name or building number that the workspace is in.
+     * Sets the building property value. The name or identifier of the building where the workspace is located.
      * @param string|null $value Value to set for the building property.
     */
     public function setBuilding(?string $value): void {
@@ -188,7 +164,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Sets the capacity property value. Specifies the capacity of the workspace.
+     * Sets the capacity property value. The maximum number of individual desks within a workspace.
      * @param int|null $value Value to set for the capacity property.
     */
     public function setCapacity(?int $value): void {
@@ -196,7 +172,15 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Sets the emailAddress property value. Email address of the workspace.
+     * Sets the displayDeviceName property value. The name of the display device (for example, monitor or projector) that is available in the workspace.
+     * @param string|null $value Value to set for the displayDeviceName property.
+    */
+    public function setDisplayDeviceName(?string $value): void {
+        $this->getBackingStore()->set('displayDeviceName', $value);
+    }
+
+    /**
+     * Sets the emailAddress property value. The email address that is associated with the workspace. This email address is used for booking.
      * @param string|null $value Value to set for the emailAddress property.
     */
     public function setEmailAddress(?string $value): void {
@@ -204,7 +188,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Sets the floorLabel property value. Specifies a descriptive label for the floor, for example, P.
+     * Sets the floorLabel property value. A human-readable label for the floor; for example, Ground Floor.
      * @param string|null $value Value to set for the floorLabel property.
     */
     public function setFloorLabel(?string $value): void {
@@ -212,7 +196,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Sets the floorNumber property value. Specifies the floor number that the workspace is on.
+     * Sets the floorNumber property value. The numeric floor level within the building. For example, 1 for first floor, 2 for second floor, and so on.
      * @param int|null $value Value to set for the floorNumber property.
     */
     public function setFloorNumber(?int $value): void {
@@ -220,35 +204,19 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Sets the isWheelChairAccessible property value. Specifies whether the workspace is wheelchair accessible.
-     * @param bool|null $value Value to set for the isWheelChairAccessible property.
+     * Sets the mode property value. The mode for a workspace. The supported modes are:reservablePlaceMode - Workspaces that can be booked in advance using desk pool reservation tools.dropInPlaceMode - First come, first served desks. When you plug into a peripheral on one of these desks in the workspace, the desk is booked for you, assuming that the peripheral has been associated with the desk in the Microsoft Teams Rooms Pro management portal.offlinePlaceMode - Workspaces that are taken down for maintenance or marked as not reservable.
+     * @param PlaceMode|null $value Value to set for the mode property.
     */
-    public function setIsWheelChairAccessible(?bool $value): void {
-        $this->getBackingStore()->set('isWheelChairAccessible', $value);
+    public function setMode(?PlaceMode $value): void {
+        $this->getBackingStore()->set('mode', $value);
     }
 
     /**
-     * Sets the label property value. Specifies a descriptive label for the workspace, for example, a number or name.
-     * @param string|null $value Value to set for the label property.
-    */
-    public function setLabel(?string $value): void {
-        $this->getBackingStore()->set('label', $value);
-    }
-
-    /**
-     * Sets the nickname property value. Specifies a nickname for the workspace, for example, 'quiet workspace'.
+     * Sets the nickname property value. A short, friendly name for the workspace, often used for easier identification or display in the UI.
      * @param string|null $value Value to set for the nickname property.
     */
     public function setNickname(?string $value): void {
         $this->getBackingStore()->set('nickname', $value);
-    }
-
-    /**
-     * Sets the tags property value. Specifies other features of the workspace; for example, the type of view or furniture type.
-     * @param array<string>|null $value Value to set for the tags property.
-    */
-    public function setTags(?array $value): void {
-        $this->getBackingStore()->set('tags', $value);
     }
 
 }

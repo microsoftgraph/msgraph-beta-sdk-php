@@ -183,6 +183,7 @@ class CloudPC extends Entity implements Parsable
             'statusDetail' => fn(ParseNode $n) => $o->setStatusDetail($n->getObjectValue([CloudPcStatusDetail::class, 'createFromDiscriminatorValue'])),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getObjectValue([CloudPcStatusDetails::class, 'createFromDiscriminatorValue'])),
             'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
+            'userExperienceType' => fn(ParseNode $n) => $o->setUserExperienceType($n->getEnumValue(CloudPcUserExperienceType::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
@@ -504,6 +505,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the userExperienceType property value. The userExperienceType property
+     * @return CloudPcUserExperienceType|null
+    */
+    public function getUserExperienceType(): ?CloudPcUserExperienceType {
+        $val = $this->getBackingStore()->get('userExperienceType');
+        if (is_null($val) || $val instanceof CloudPcUserExperienceType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceType'");
+    }
+
+    /**
      * Gets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the Cloud PC.
      * @return string|null
     */
@@ -556,6 +569,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeObjectValue('statusDetail', $this->getStatusDetail());
         $writer->writeObjectValue('statusDetails', $this->getStatusDetails());
         $writer->writeEnumValue('userAccountType', $this->getUserAccountType());
+        $writer->writeEnumValue('userExperienceType', $this->getUserExperienceType());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
@@ -837,6 +851,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setUserAccountType(?CloudPcUserAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
+    }
+
+    /**
+     * Sets the userExperienceType property value. The userExperienceType property
+     * @param CloudPcUserExperienceType|null $value Value to set for the userExperienceType property.
+    */
+    public function setUserExperienceType(?CloudPcUserExperienceType $value): void {
+        $this->getBackingStore()->set('userExperienceType', $value);
     }
 
     /**

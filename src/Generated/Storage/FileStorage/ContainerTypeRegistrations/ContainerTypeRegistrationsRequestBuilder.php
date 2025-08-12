@@ -52,10 +52,11 @@ class ContainerTypeRegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get containerTypeRegistrations from storage
+     * Get a list of the fileStorageContainerTypeRegistration objects and their properties.
      * @param ContainerTypeRegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeRegistrationCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestorage-list-containertyperegistrations?view=graph-rest-beta Find more info here
     */
     public function get(?ContainerTypeRegistrationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ContainerTypeRegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get containerTypeRegistrations from storage
+     * Get a list of the fileStorageContainerTypeRegistration objects and their properties.
      * @param ContainerTypeRegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

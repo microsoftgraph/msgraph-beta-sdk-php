@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class Room extends Place implements Parsable 
 {
@@ -27,7 +26,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the audioDeviceName property value. Specifies the name of the audio device in the room.
+     * Gets the audioDeviceName property value. The name of the audio device that is available in the room.
      * @return string|null
     */
     public function getAudioDeviceName(): ?string {
@@ -39,7 +38,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the bookingType property value. Type of room. Possible values are standard, and reserved.
+     * Gets the bookingType property value. Specifies how the room can be booked. Possible values are:unknown - Unspecified booking behavior. We don't recommend that you use this value.standard - Available for general booking.reserved - Reserved for specific users or purposes.
      * @return BookingType|null
     */
     public function getBookingType(): ?BookingType {
@@ -51,7 +50,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the building property value. Specifies the building name or building number that the room is in.
+     * Gets the building property value. The name or identifier of the building where the room is located.
      * @return string|null
     */
     public function getBuilding(): ?string {
@@ -63,7 +62,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the capacity property value. Specifies the capacity of the room.
+     * Gets the capacity property value. The maximum number of people the room can accommodate.
      * @return int|null
     */
     public function getCapacity(): ?int {
@@ -75,7 +74,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the displayDeviceName property value. Specifies the name of the display device in the room.
+     * Gets the displayDeviceName property value. The name of the display device (for example, monitor or projector) that is available in the room.
      * @return string|null
     */
     public function getDisplayDeviceName(): ?string {
@@ -87,7 +86,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the emailAddress property value. Email address of the room.
+     * Gets the emailAddress property value. The email address associated with the room. This email address is used for booking.
      * @return string|null
     */
     public function getEmailAddress(): ?string {
@@ -113,23 +112,14 @@ class Room extends Place implements Parsable
             'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
             'floorLabel' => fn(ParseNode $n) => $o->setFloorLabel($n->getStringValue()),
             'floorNumber' => fn(ParseNode $n) => $o->setFloorNumber($n->getIntegerValue()),
-            'isWheelChairAccessible' => fn(ParseNode $n) => $o->setIsWheelChairAccessible($n->getBooleanValue()),
-            'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
+            'isTeamsEnabled' => fn(ParseNode $n) => $o->setIsTeamsEnabled($n->getBooleanValue()),
             'nickname' => fn(ParseNode $n) => $o->setNickname($n->getStringValue()),
-            'tags' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setTags($val);
-            },
             'videoDeviceName' => fn(ParseNode $n) => $o->setVideoDeviceName($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the floorLabel property value. Specifies a descriptive label for the floor, for example, P.
+     * Gets the floorLabel property value. A human-readable label for the floor; for example, Ground Floor.
      * @return string|null
     */
     public function getFloorLabel(): ?string {
@@ -141,7 +131,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the floorNumber property value. Specifies the floor number that the room is on.
+     * Gets the floorNumber property value. The numeric floor level within the building. For example, 1 for first floor, 2 for second floor, and so on.
      * @return int|null
     */
     public function getFloorNumber(): ?int {
@@ -153,31 +143,19 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the isWheelChairAccessible property value. Specifies whether the room is wheelchair accessible.
+     * Gets the isTeamsEnabled property value. Indicates whether the room is configured with the Microsoft Teams Rooms system.
      * @return bool|null
     */
-    public function getIsWheelChairAccessible(): ?bool {
-        $val = $this->getBackingStore()->get('isWheelChairAccessible');
+    public function getIsTeamsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isTeamsEnabled');
         if (is_null($val) || is_bool($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'isWheelChairAccessible'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isTeamsEnabled'");
     }
 
     /**
-     * Gets the label property value. Specifies a descriptive label for the room, for example, a number or name.
-     * @return string|null
-    */
-    public function getLabel(): ?string {
-        $val = $this->getBackingStore()->get('label');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
-    }
-
-    /**
-     * Gets the nickname property value. Specifies a nickname for the room, for example, 'conf room'.
+     * Gets the nickname property value. A short, friendly name for the room, often used for easier identification or display in UI.
      * @return string|null
     */
     public function getNickname(): ?string {
@@ -189,21 +167,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the tags property value. Specifies other features of the room; for example, the type of view or furniture type.
-     * @return array<string>|null
-    */
-    public function getTags(): ?array {
-        $val = $this->getBackingStore()->get('tags');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, 'string');
-            /** @var array<string>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
-    }
-
-    /**
-     * Gets the videoDeviceName property value. Specifies the name of the video device in the room.
+     * Gets the videoDeviceName property value. The name of the video device that is available in the room.
      * @return string|null
     */
     public function getVideoDeviceName(): ?string {
@@ -228,15 +192,13 @@ class Room extends Place implements Parsable
         $writer->writeStringValue('emailAddress', $this->getEmailAddress());
         $writer->writeStringValue('floorLabel', $this->getFloorLabel());
         $writer->writeIntegerValue('floorNumber', $this->getFloorNumber());
-        $writer->writeBooleanValue('isWheelChairAccessible', $this->getIsWheelChairAccessible());
-        $writer->writeStringValue('label', $this->getLabel());
+        $writer->writeBooleanValue('isTeamsEnabled', $this->getIsTeamsEnabled());
         $writer->writeStringValue('nickname', $this->getNickname());
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
         $writer->writeStringValue('videoDeviceName', $this->getVideoDeviceName());
     }
 
     /**
-     * Sets the audioDeviceName property value. Specifies the name of the audio device in the room.
+     * Sets the audioDeviceName property value. The name of the audio device that is available in the room.
      * @param string|null $value Value to set for the audioDeviceName property.
     */
     public function setAudioDeviceName(?string $value): void {
@@ -244,7 +206,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the bookingType property value. Type of room. Possible values are standard, and reserved.
+     * Sets the bookingType property value. Specifies how the room can be booked. Possible values are:unknown - Unspecified booking behavior. We don't recommend that you use this value.standard - Available for general booking.reserved - Reserved for specific users or purposes.
      * @param BookingType|null $value Value to set for the bookingType property.
     */
     public function setBookingType(?BookingType $value): void {
@@ -252,7 +214,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the building property value. Specifies the building name or building number that the room is in.
+     * Sets the building property value. The name or identifier of the building where the room is located.
      * @param string|null $value Value to set for the building property.
     */
     public function setBuilding(?string $value): void {
@@ -260,7 +222,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the capacity property value. Specifies the capacity of the room.
+     * Sets the capacity property value. The maximum number of people the room can accommodate.
      * @param int|null $value Value to set for the capacity property.
     */
     public function setCapacity(?int $value): void {
@@ -268,7 +230,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the displayDeviceName property value. Specifies the name of the display device in the room.
+     * Sets the displayDeviceName property value. The name of the display device (for example, monitor or projector) that is available in the room.
      * @param string|null $value Value to set for the displayDeviceName property.
     */
     public function setDisplayDeviceName(?string $value): void {
@@ -276,7 +238,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the emailAddress property value. Email address of the room.
+     * Sets the emailAddress property value. The email address associated with the room. This email address is used for booking.
      * @param string|null $value Value to set for the emailAddress property.
     */
     public function setEmailAddress(?string $value): void {
@@ -284,7 +246,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the floorLabel property value. Specifies a descriptive label for the floor, for example, P.
+     * Sets the floorLabel property value. A human-readable label for the floor; for example, Ground Floor.
      * @param string|null $value Value to set for the floorLabel property.
     */
     public function setFloorLabel(?string $value): void {
@@ -292,7 +254,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the floorNumber property value. Specifies the floor number that the room is on.
+     * Sets the floorNumber property value. The numeric floor level within the building. For example, 1 for first floor, 2 for second floor, and so on.
      * @param int|null $value Value to set for the floorNumber property.
     */
     public function setFloorNumber(?int $value): void {
@@ -300,23 +262,15 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the isWheelChairAccessible property value. Specifies whether the room is wheelchair accessible.
-     * @param bool|null $value Value to set for the isWheelChairAccessible property.
+     * Sets the isTeamsEnabled property value. Indicates whether the room is configured with the Microsoft Teams Rooms system.
+     * @param bool|null $value Value to set for the isTeamsEnabled property.
     */
-    public function setIsWheelChairAccessible(?bool $value): void {
-        $this->getBackingStore()->set('isWheelChairAccessible', $value);
+    public function setIsTeamsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isTeamsEnabled', $value);
     }
 
     /**
-     * Sets the label property value. Specifies a descriptive label for the room, for example, a number or name.
-     * @param string|null $value Value to set for the label property.
-    */
-    public function setLabel(?string $value): void {
-        $this->getBackingStore()->set('label', $value);
-    }
-
-    /**
-     * Sets the nickname property value. Specifies a nickname for the room, for example, 'conf room'.
+     * Sets the nickname property value. A short, friendly name for the room, often used for easier identification or display in UI.
      * @param string|null $value Value to set for the nickname property.
     */
     public function setNickname(?string $value): void {
@@ -324,15 +278,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the tags property value. Specifies other features of the room; for example, the type of view or furniture type.
-     * @param array<string>|null $value Value to set for the tags property.
-    */
-    public function setTags(?array $value): void {
-        $this->getBackingStore()->set('tags', $value);
-    }
-
-    /**
-     * Sets the videoDeviceName property value. Specifies the name of the video device in the room.
+     * Sets the videoDeviceName property value. The name of the video device that is available in the room.
      * @param string|null $value Value to set for the videoDeviceName property.
     */
     public function setVideoDeviceName(?string $value): void {

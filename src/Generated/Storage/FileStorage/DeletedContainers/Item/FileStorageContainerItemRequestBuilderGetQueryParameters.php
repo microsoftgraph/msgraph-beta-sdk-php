@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get deletedContainers from storage
+ * The collection of deleted fileStorageContainer resources.
 */
 class FileStorageContainerItemRequestBuilderGetQueryParameters 
 {

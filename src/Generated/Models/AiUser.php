@@ -38,7 +38,7 @@ class AiUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the interactionHistory property value. The history of interactions between AI agents and users.
+     * Gets the interactionHistory property value. The interactionHistory property
      * @return AiInteractionHistory|null
     */
     public function getInteractionHistory(): ?AiInteractionHistory {
@@ -50,7 +50,7 @@ class AiUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the onlineMeetings property value. Information about an online meeting, including AI insights.
+     * Gets the onlineMeetings property value. The onlineMeetings property
      * @return array<AiOnlineMeeting>|null
     */
     public function getOnlineMeetings(): ?array {
@@ -74,7 +74,7 @@ class AiUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the interactionHistory property value. The history of interactions between AI agents and users.
+     * Sets the interactionHistory property value. The interactionHistory property
      * @param AiInteractionHistory|null $value Value to set for the interactionHistory property.
     */
     public function setInteractionHistory(?AiInteractionHistory $value): void {
@@ -82,7 +82,7 @@ class AiUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the onlineMeetings property value. Information about an online meeting, including AI insights.
+     * Sets the onlineMeetings property value. The onlineMeetings property
      * @param array<AiOnlineMeeting>|null $value Value to set for the onlineMeetings property.
     */
     public function setOnlineMeetings(?array $value): void {

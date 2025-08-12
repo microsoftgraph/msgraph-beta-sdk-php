@@ -80,6 +80,18 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the costCenter property value. The cost center associated with the company or department.
+     * @return string|null
+    */
+    public function getCostCenter(): ?string {
+        $val = $this->getBackingStore()->get('costCenter');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'costCenter'");
+    }
+
+    /**
      * Gets the department property value. Department Name within a company.
      * @return string|null
     */
@@ -104,6 +116,18 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the division property value. The division within the company.
+     * @return string|null
+    */
+    public function getDivision(): ?string {
+        $val = $this->getBackingStore()->get('division');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'division'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -112,8 +136,10 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'address' => fn(ParseNode $n) => $o->setAddress($n->getObjectValue([PhysicalAddress::class, 'createFromDiscriminatorValue'])),
             'companyCode' => fn(ParseNode $n) => $o->setCompanyCode($n->getStringValue()),
+            'costCenter' => fn(ParseNode $n) => $o->setCostCenter($n->getStringValue()),
             'department' => fn(ParseNode $n) => $o->setDepartment($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'division' => fn(ParseNode $n) => $o->setDivision($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'officeLocation' => fn(ParseNode $n) => $o->setOfficeLocation($n->getStringValue()),
             'pronunciation' => fn(ParseNode $n) => $o->setPronunciation($n->getStringValue()),
@@ -189,8 +215,10 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('address', $this->getAddress());
         $writer->writeStringValue('companyCode', $this->getCompanyCode());
+        $writer->writeStringValue('costCenter', $this->getCostCenter());
         $writer->writeStringValue('department', $this->getDepartment());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('division', $this->getDivision());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('officeLocation', $this->getOfficeLocation());
         $writer->writeStringValue('pronunciation', $this->getPronunciation());
@@ -232,6 +260,14 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the costCenter property value. The cost center associated with the company or department.
+     * @param string|null $value Value to set for the costCenter property.
+    */
+    public function setCostCenter(?string $value): void {
+        $this->getBackingStore()->set('costCenter', $value);
+    }
+
+    /**
      * Sets the department property value. Department Name within a company.
      * @param string|null $value Value to set for the department property.
     */
@@ -245,6 +281,14 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the division property value. The division within the company.
+     * @param string|null $value Value to set for the division property.
+    */
+    public function setDivision(?string $value): void {
+        $this->getBackingStore()->set('division', $value);
     }
 
     /**

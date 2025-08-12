@@ -81,7 +81,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the allowedOutboundClipboardSharingExceptionLength property value. Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed.
+     * Gets the allowedOutboundClipboardSharingExceptionLength property value. Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed. Valid values 0 to 65535
      * @return int|null
     */
     public function getAllowedOutboundClipboardSharingExceptionLength(): ?int {
@@ -342,7 +342,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the maximumPinRetries property value. Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.
+     * Gets the maximumPinRetries property value. Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped. Valid values 1 to 65535
      * @return int|null
     */
     public function getMaximumPinRetries(): ?int {
@@ -606,7 +606,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the previousPinBlockCount property value. Requires a pin to be unique from the number specified in this property.
+     * Gets the previousPinBlockCount property value. Requires a pin to be unique from the number specified in this property. Valid values 0 to 24
      * @return int|null
     */
     public function getPreviousPinBlockCount(): ?int {
@@ -745,7 +745,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the allowedOutboundClipboardSharingExceptionLength property value. Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed.
+     * Sets the allowedOutboundClipboardSharingExceptionLength property value. Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed. Valid values 0 to 65535
      * @param int|null $value Value to set for the allowedOutboundClipboardSharingExceptionLength property.
     */
     public function setAllowedOutboundClipboardSharingExceptionLength(?int $value): void {
@@ -881,7 +881,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the maximumPinRetries property value. Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.
+     * Sets the maximumPinRetries property value. Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped. Valid values 1 to 65535
      * @param int|null $value Value to set for the maximumPinRetries property.
     */
     public function setMaximumPinRetries(?int $value): void {
@@ -1057,7 +1057,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the previousPinBlockCount property value. Requires a pin to be unique from the number specified in this property.
+     * Sets the previousPinBlockCount property value. Requires a pin to be unique from the number specified in this property. Valid values 0 to 24
      * @param int|null $value Value to set for the previousPinBlockCount property.
     */
     public function setPreviousPinBlockCount(?int $value): void {
