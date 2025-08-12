@@ -342,7 +342,7 @@ class DeviceAppManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the mobileAppRelationships property value. List mobileAppRelationship objects for mobile applications.
+     * Gets the mobileAppRelationships property value. The mobile app relationship represents the dependency or supersedence relationship between two Intune mobile LOB applications.
      * @return array<MobileAppRelationship>|null
     */
     public function getMobileAppRelationships(): ?array {
@@ -706,7 +706,7 @@ class DeviceAppManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the mobileAppRelationships property value. List mobileAppRelationship objects for mobile applications.
+     * Sets the mobileAppRelationships property value. The mobile app relationship represents the dependency or supersedence relationship between two Intune mobile LOB applications.
      * @param array<MobileAppRelationship>|null $value Value to set for the mobileAppRelationships property.
     */
     public function setMobileAppRelationships(?array $value): void {

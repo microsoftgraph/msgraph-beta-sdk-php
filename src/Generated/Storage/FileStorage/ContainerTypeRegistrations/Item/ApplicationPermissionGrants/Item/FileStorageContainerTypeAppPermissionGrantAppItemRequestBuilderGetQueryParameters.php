@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegist
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get applicationPermissionGrants from storage
+ * Read a specific app permission grant in a fileStorageContainerTypeRegistration.
 */
 class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderGetQueryParameters 
 {

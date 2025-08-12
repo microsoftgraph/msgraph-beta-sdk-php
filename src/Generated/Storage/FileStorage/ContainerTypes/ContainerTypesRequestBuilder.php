@@ -52,10 +52,11 @@ class ContainerTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get containerTypes from storage
+     * Get a list of the fileStorageContainerType objects and their properties for the current tenant.
      * @param ContainerTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestorage-list-containertypes?view=graph-rest-beta Find more info here
     */
     public function get(?ContainerTypesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ContainerTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to containerTypes for storage
+     * Create a new fileStorageContainerType in the owning tenant. The number of container types in a tenant is limited.
      * @param FileStorageContainerType $body The request body
      * @param ContainerTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerType|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestorage-post-containertypes?view=graph-rest-beta Find more info here
     */
     public function post(FileStorageContainerType $body, ?ContainerTypesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ContainerTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get containerTypes from storage
+     * Get a list of the fileStorageContainerType objects and their properties for the current tenant.
      * @param ContainerTypesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ContainerTypesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to containerTypes for storage
+     * Create a new fileStorageContainerType in the owning tenant. The number of container types in a tenant is limited.
      * @param FileStorageContainerType $body The request body
      * @param ContainerTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

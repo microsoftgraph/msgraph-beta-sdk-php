@@ -39,11 +39,11 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a threatIntelligencePolicyLink object.
+     * Delete a tlsInspectionPolicyLink object. Used to unlink a tlsInspectionPolicy from a filtering profile.
      * @param PolicyLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-delete?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?PolicyLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,11 +54,11 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a tlsInspectionPolicyLink object.
+     * Read the properties and relationships of a threatIntelligencePolicyLink object.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-get?view=graph-rest-beta Find more info here
     */
     public function get(?PolicyLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -69,12 +69,12 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a threatIntelligencePolicyLink object.
+     * Update the properties of a tlsInspectionPolicyLink object.
      * @param PolicyLink $body The request body
      * @param PolicyLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-update?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-update?view=graph-rest-beta Find more info here
     */
     public function patch(PolicyLink $body, ?PolicyLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -85,7 +85,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a threatIntelligencePolicyLink object.
+     * Delete a tlsInspectionPolicyLink object. Used to unlink a tlsInspectionPolicy from a filtering profile.
      * @param PolicyLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +103,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a tlsInspectionPolicyLink object.
+     * Read the properties and relationships of a threatIntelligencePolicyLink object.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +124,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a threatIntelligencePolicyLink object.
+     * Update the properties of a tlsInspectionPolicyLink object.
      * @param PolicyLink $body The request body
      * @param PolicyLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

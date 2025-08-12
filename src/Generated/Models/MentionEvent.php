@@ -57,7 +57,7 @@ class MentionEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the eventDateTime property value. The date and time of the mention event. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the eventDateTime property value. The eventDateTime property
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -95,7 +95,7 @@ class MentionEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the speaker property value. The speaker who mentioned the user.
+     * Gets the speaker property value. The speaker property
      * @return IdentitySet|null
     */
     public function getSpeaker(): ?IdentitySet {
@@ -107,7 +107,7 @@ class MentionEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the transcriptUtterance property value. The utterance in the online meeting transcript that contains the mention event.
+     * Gets the transcriptUtterance property value. The transcriptUtterance property
      * @return string|null
     */
     public function getTranscriptUtterance(): ?string {
@@ -147,7 +147,7 @@ class MentionEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the eventDateTime property value. The date and time of the mention event. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the eventDateTime property value. The eventDateTime property
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -163,7 +163,7 @@ class MentionEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the speaker property value. The speaker who mentioned the user.
+     * Sets the speaker property value. The speaker property
      * @param IdentitySet|null $value Value to set for the speaker property.
     */
     public function setSpeaker(?IdentitySet $value): void {
@@ -171,7 +171,7 @@ class MentionEvent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the transcriptUtterance property value. The utterance in the online meeting transcript that contains the mention event.
+     * Sets the transcriptUtterance property value. The transcriptUtterance property
      * @param string|null $value Value to set for the transcriptUtterance property.
     */
     public function setTranscriptUtterance(?string $value): void {

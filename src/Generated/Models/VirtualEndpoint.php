@@ -54,6 +54,20 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
+     * Gets the cloudApps property value. The cloudApps property
+     * @return array<CloudPcCloudApp>|null
+    */
+    public function getCloudApps(): ?array {
+        $val = $this->getBackingStore()->get('cloudApps');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcCloudApp::class);
+            /** @var array<CloudPcCloudApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudApps'");
+    }
+
+    /**
      * Gets the cloudPCs property value. Cloud managed virtual desktops.
      * @return array<CloudPC>|null
     */
@@ -116,6 +130,7 @@ class VirtualEndpoint extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'auditEvents' => fn(ParseNode $n) => $o->setAuditEvents($n->getCollectionOfObjectValues([CloudPcAuditEvent::class, 'createFromDiscriminatorValue'])),
             'bulkActions' => fn(ParseNode $n) => $o->setBulkActions($n->getCollectionOfObjectValues([CloudPcBulkAction::class, 'createFromDiscriminatorValue'])),
+            'cloudApps' => fn(ParseNode $n) => $o->setCloudApps($n->getCollectionOfObjectValues([CloudPcCloudApp::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'crossCloudGovernmentOrganizationMapping' => fn(ParseNode $n) => $o->setCrossCloudGovernmentOrganizationMapping($n->getObjectValue([CloudPcCrossCloudGovernmentOrganizationMapping::class, 'createFromDiscriminatorValue'])),
             'deviceImages' => fn(ParseNode $n) => $o->setDeviceImages($n->getCollectionOfObjectValues([CloudPcDeviceImage::class, 'createFromDiscriminatorValue'])),
@@ -277,6 +292,7 @@ class VirtualEndpoint extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('auditEvents', $this->getAuditEvents());
         $writer->writeCollectionOfObjectValues('bulkActions', $this->getBulkActions());
+        $writer->writeCollectionOfObjectValues('cloudApps', $this->getCloudApps());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('crossCloudGovernmentOrganizationMapping', $this->getCrossCloudGovernmentOrganizationMapping());
         $writer->writeCollectionOfObjectValues('deviceImages', $this->getDeviceImages());
@@ -307,6 +323,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setBulkActions(?array $value): void {
         $this->getBackingStore()->set('bulkActions', $value);
+    }
+
+    /**
+     * Sets the cloudApps property value. The cloudApps property
+     * @param array<CloudPcCloudApp>|null $value Value to set for the cloudApps property.
+    */
+    public function setCloudApps(?array $value): void {
+        $this->getBackingStore()->set('cloudApps', $value);
     }
 
     /**

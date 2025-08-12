@@ -603,6 +603,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.browserSharedCookie': return new BrowserSharedCookie();
                 case '#microsoft.graph.browserSite': return new BrowserSite();
                 case '#microsoft.graph.browserSiteList': return new BrowserSiteList();
+                case '#microsoft.graph.building': return new Building();
                 case '#microsoft.graph.builtInIdentityProvider': return new BuiltInIdentityProvider();
                 case '#microsoft.graph.bulkUpload': return new BulkUpload();
                 case '#microsoft.graph.businessFlow': return new BusinessFlow();
@@ -673,6 +674,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudPcBulkRestore': return new CloudPcBulkRestore();
                 case '#microsoft.graph.cloudPcBulkSetReviewStatus': return new CloudPcBulkSetReviewStatus();
                 case '#microsoft.graph.cloudPcBulkTroubleshoot': return new CloudPcBulkTroubleshoot();
+                case '#microsoft.graph.cloudPcCloudApp': return new CloudPcCloudApp();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
                 case '#microsoft.graph.cloudPcCrossCloudGovernmentOrganizationMapping': return new CloudPcCrossCloudGovernmentOrganizationMapping();
                 case '#microsoft.graph.cloudPcDeviceImage': return new CloudPcDeviceImage();
@@ -778,6 +780,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.depOnboardingSetting': return new DepOnboardingSetting();
                 case '#microsoft.graph.depTvOSEnrollmentProfile': return new DepTvOSEnrollmentProfile();
                 case '#microsoft.graph.depVisionOSEnrollmentProfile': return new DepVisionOSEnrollmentProfile();
+                case '#microsoft.graph.desk': return new Desk();
                 case '#microsoft.graph.detectedApp': return new DetectedApp();
                 case '#microsoft.graph.device': return new Device();
                 case '#microsoft.graph.deviceAndAppManagementAssignmentFilter': return new DeviceAndAppManagementAssignmentFilter();
@@ -1076,6 +1079,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.fileStorageContainerTypeRegistration': return new FileStorageContainerTypeRegistration();
                 case '#microsoft.graph.filterOperatorSchema': return new FilterOperatorSchema();
                 case '#microsoft.graph.finding': return new Finding();
+                case '#microsoft.graph.floor': return new Floor();
                 case '#microsoft.graph.focusActivityStatistics': return new FocusActivityStatistics();
                 case '#microsoft.graph.gcpAuthorizationSystem': return new GcpAuthorizationSystem();
                 case '#microsoft.graph.gcpAuthorizationSystemResource': return new GcpAuthorizationSystemResource();
@@ -1822,6 +1826,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.secretInformationAccessAwsRoleFinding': return new SecretInformationAccessAwsRoleFinding();
                 case '#microsoft.graph.secretInformationAccessAwsServerlessFunctionFinding': return new SecretInformationAccessAwsServerlessFunctionFinding();
                 case '#microsoft.graph.secretInformationAccessAwsUserFinding': return new SecretInformationAccessAwsUserFinding();
+                case '#microsoft.graph.section': return new Section();
                 case '#microsoft.graph.sectionGroup': return new SectionGroup();
                 case '#microsoft.graph.secureScore': return new SecureScore();
                 case '#microsoft.graph.secureScoreControlProfile': return new SecureScoreControlProfile();

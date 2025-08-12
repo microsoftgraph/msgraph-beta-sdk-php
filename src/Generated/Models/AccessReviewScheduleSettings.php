@@ -132,6 +132,7 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
             'defaultDecision' => fn(ParseNode $n) => $o->setDefaultDecision($n->getStringValue()),
             'defaultDecisionEnabled' => fn(ParseNode $n) => $o->setDefaultDecisionEnabled($n->getBooleanValue()),
             'instanceDurationInDays' => fn(ParseNode $n) => $o->setInstanceDurationInDays($n->getIntegerValue()),
+            'isAgenticExperienceEnabled' => fn(ParseNode $n) => $o->setIsAgenticExperienceEnabled($n->getBooleanValue()),
             'justificationRequiredOnApproval' => fn(ParseNode $n) => $o->setJustificationRequiredOnApproval($n->getBooleanValue()),
             'mailNotificationsEnabled' => fn(ParseNode $n) => $o->setMailNotificationsEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -153,6 +154,18 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'instanceDurationInDays'");
+    }
+
+    /**
+     * Gets the isAgenticExperienceEnabled property value. The isAgenticExperienceEnabled property
+     * @return bool|null
+    */
+    public function getIsAgenticExperienceEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isAgenticExperienceEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAgenticExperienceEnabled'");
     }
 
     /**
@@ -264,6 +277,7 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
         $writer->writeStringValue('defaultDecision', $this->getDefaultDecision());
         $writer->writeBooleanValue('defaultDecisionEnabled', $this->getDefaultDecisionEnabled());
         $writer->writeIntegerValue('instanceDurationInDays', $this->getInstanceDurationInDays());
+        $writer->writeBooleanValue('isAgenticExperienceEnabled', $this->getIsAgenticExperienceEnabled());
         $writer->writeBooleanValue('justificationRequiredOnApproval', $this->getJustificationRequiredOnApproval());
         $writer->writeBooleanValue('mailNotificationsEnabled', $this->getMailNotificationsEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -337,6 +351,14 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, BackedModel,
     */
     public function setInstanceDurationInDays(?int $value): void {
         $this->getBackingStore()->set('instanceDurationInDays', $value);
+    }
+
+    /**
+     * Sets the isAgenticExperienceEnabled property value. The isAgenticExperienceEnabled property
+     * @param bool|null $value Value to set for the isAgenticExperienceEnabled property.
+    */
+    public function setIsAgenticExperienceEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isAgenticExperienceEnabled', $value);
     }
 
     /**

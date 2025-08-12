@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties of an azureADDevice object.
+ * Read the properties and relationships of an updatableAssetGroup object.
 */
 class UpdatableAssetItemRequestBuilderGetQueryParameters 
 {

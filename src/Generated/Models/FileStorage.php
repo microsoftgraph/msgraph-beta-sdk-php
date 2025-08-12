@@ -26,7 +26,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Gets the containers property value. The containers property
+     * Gets the containers property value. The collection of active fileStorageContainer resources.
      * @return array<FileStorageContainer>|null
     */
     public function getContainers(): ?array {
@@ -40,7 +40,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Gets the containerTypeRegistrations property value. The containerTypeRegistrations property
+     * Gets the containerTypeRegistrations property value. The collection of fileStorageContainerTypeRegistration resources.
      * @return array<FileStorageContainerTypeRegistration>|null
     */
     public function getContainerTypeRegistrations(): ?array {
@@ -54,7 +54,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Gets the containerTypes property value. The containerTypes property
+     * Gets the containerTypes property value. The collection of fileStorageContainerType resources.
      * @return array<FileStorageContainerType>|null
     */
     public function getContainerTypes(): ?array {
@@ -68,7 +68,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedContainers property value. The deletedContainers property
+     * Gets the deletedContainers property value. The collection of deleted fileStorageContainer resources.
      * @return array<FileStorageContainer>|null
     */
     public function getDeletedContainers(): ?array {
@@ -108,7 +108,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Sets the containers property value. The containers property
+     * Sets the containers property value. The collection of active fileStorageContainer resources.
      * @param array<FileStorageContainer>|null $value Value to set for the containers property.
     */
     public function setContainers(?array $value): void {
@@ -116,7 +116,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Sets the containerTypeRegistrations property value. The containerTypeRegistrations property
+     * Sets the containerTypeRegistrations property value. The collection of fileStorageContainerTypeRegistration resources.
      * @param array<FileStorageContainerTypeRegistration>|null $value Value to set for the containerTypeRegistrations property.
     */
     public function setContainerTypeRegistrations(?array $value): void {
@@ -124,7 +124,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Sets the containerTypes property value. The containerTypes property
+     * Sets the containerTypes property value. The collection of fileStorageContainerType resources.
      * @param array<FileStorageContainerType>|null $value Value to set for the containerTypes property.
     */
     public function setContainerTypes(?array $value): void {
@@ -132,7 +132,7 @@ class FileStorage extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedContainers property value. The deletedContainers property
+     * Sets the deletedContainers property value. The collection of deleted fileStorageContainer resources.
      * @param array<FileStorageContainer>|null $value Value to set for the deletedContainers property.
     */
     public function setDeletedContainers(?array $value): void {

@@ -31,10 +31,11 @@ class FileStorageContainerTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property containerTypes for storage
+     * Delete a fileStorageContainerType object from the tenant. A fileStorageContainerType can only be deleted if no registrations are associated with it in any tenant.
      * @param FileStorageContainerTypeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestorage-delete-containertypes?view=graph-rest-beta Find more info here
     */
     public function delete(?FileStorageContainerTypeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class FileStorageContainerTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get containerTypes from storage
+     * Get a fileStorageContainerType using its ID.
      * @param FileStorageContainerTypeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerType|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertype-get?view=graph-rest-beta Find more info here
     */
     public function get(?FileStorageContainerTypeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class FileStorageContainerTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property containerTypes in storage
+     * Update the properties of a fileStorageContainerType object. The properties updated are reflected in each registered fileStorageContainerTypeRegistration in a maximum of 24 hours. Settings overridden in a tenant aren't updated. ETag is used for optimistic concurrency control. It must match the value from Create, Get or the previous Update.
      * @param FileStorageContainerType $body The request body
      * @param FileStorageContainerTypeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerType|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertype-update?view=graph-rest-beta Find more info here
     */
     public function patch(FileStorageContainerType $body, ?FileStorageContainerTypeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +77,7 @@ class FileStorageContainerTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property containerTypes for storage
+     * Delete a fileStorageContainerType object from the tenant. A fileStorageContainerType can only be deleted if no registrations are associated with it in any tenant.
      * @param FileStorageContainerTypeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +95,7 @@ class FileStorageContainerTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get containerTypes from storage
+     * Get a fileStorageContainerType using its ID.
      * @param FileStorageContainerTypeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +116,7 @@ class FileStorageContainerTypeItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property containerTypes in storage
+     * Update the properties of a fileStorageContainerType object. The properties updated are reflected in each registered fileStorageContainerTypeRegistration in a maximum of 24 hours. Settings overridden in a tenant aren't updated. ETag is used for optimistic concurrency control. It must match the value from Create, Get or the previous Update.
      * @param FileStorageContainerType $body The request body
      * @param FileStorageContainerTypeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

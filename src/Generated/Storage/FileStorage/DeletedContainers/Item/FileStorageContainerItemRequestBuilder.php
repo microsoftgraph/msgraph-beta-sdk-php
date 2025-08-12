@@ -141,7 +141,7 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deletedContainers from storage
+     * The collection of deleted fileStorageContainer resources.
      * @param FileStorageContainerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainer|null>
      * @throws Exception
@@ -188,7 +188,7 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deletedContainers from storage
+     * The collection of deleted fileStorageContainer resources.
      * @param FileStorageContainerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

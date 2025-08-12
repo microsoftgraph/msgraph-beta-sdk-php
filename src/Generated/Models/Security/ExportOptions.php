@@ -15,5 +15,4 @@ class ExportOptions extends Enum {
     public const INCLUDE_FOLDER_AND_PATH = "includeFolderAndPath";
     public const FRIENDLY_NAME = "friendlyName";
     public const CONDENSE_PATHS = "condensePaths";
-    public const OPTIMIZED_PARTITION_SIZE = "optimizedPartitionSize";
 }

@@ -75,7 +75,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the isDiscoverabilityEnabled property value. The isDiscoverabilityEnabled property
+     * Gets the isDiscoverabilityEnabled property value. Indicates whether items from containers are surfaced in experiences such as My Activity or Microsoft 365.
      * @return bool|null
     */
     public function getIsDiscoverabilityEnabled(): ?bool {
@@ -87,7 +87,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the isItemVersioningEnabled property value. The isItemVersioningEnabled property
+     * Gets the isItemVersioningEnabled property value. Indicates whether item versioning is enabled.
      * @return bool|null
     */
     public function getIsItemVersioningEnabled(): ?bool {
@@ -99,7 +99,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the isSearchEnabled property value. The isSearchEnabled property
+     * Gets the isSearchEnabled property value. Indicates whether search is enabled.
      * @return bool|null
     */
     public function getIsSearchEnabled(): ?bool {
@@ -111,7 +111,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the isSharingRestricted property value. The isSharingRestricted property
+     * Gets the isSharingRestricted property value. Only the manager and owner can share files in the container if restricted sharing is enabled.
      * @return bool|null
     */
     public function getIsSharingRestricted(): ?bool {
@@ -123,7 +123,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the itemMajorVersionLimit property value. The itemMajorVersionLimit property
+     * Gets the itemMajorVersionLimit property value. Maximum number of versions. Versioning must be enabled ('isItemVersioningEnabled'=true).
      * @return int|null
     */
     public function getItemMajorVersionLimit(): ?int {
@@ -135,7 +135,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the maxStoragePerContainerInBytes property value. The maxStoragePerContainerInBytes property
+     * Gets the maxStoragePerContainerInBytes property value. Controls maximum storage in bytes.
      * @return int|null
     */
     public function getMaxStoragePerContainerInBytes(): ?int {
@@ -159,7 +159,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the sharingCapability property value. The sharingCapability property
+     * Gets the sharingCapability property value. Sharing capabilities permitted for containers. The possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly, unknownFutureValue. Can always be updated.
      * @return SharingCapabilities|null
     */
     public function getSharingCapability(): ?SharingCapabilities {
@@ -171,7 +171,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Gets the urlTemplate property value. The urlTemplate property
+     * Gets the urlTemplate property value. Pattern used to redirect files.
      * @return string|null
     */
     public function getUrlTemplate(): ?string {
@@ -216,7 +216,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the isDiscoverabilityEnabled property value. The isDiscoverabilityEnabled property
+     * Sets the isDiscoverabilityEnabled property value. Indicates whether items from containers are surfaced in experiences such as My Activity or Microsoft 365.
      * @param bool|null $value Value to set for the isDiscoverabilityEnabled property.
     */
     public function setIsDiscoverabilityEnabled(?bool $value): void {
@@ -224,7 +224,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the isItemVersioningEnabled property value. The isItemVersioningEnabled property
+     * Sets the isItemVersioningEnabled property value. Indicates whether item versioning is enabled.
      * @param bool|null $value Value to set for the isItemVersioningEnabled property.
     */
     public function setIsItemVersioningEnabled(?bool $value): void {
@@ -232,7 +232,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the isSearchEnabled property value. The isSearchEnabled property
+     * Sets the isSearchEnabled property value. Indicates whether search is enabled.
      * @param bool|null $value Value to set for the isSearchEnabled property.
     */
     public function setIsSearchEnabled(?bool $value): void {
@@ -240,7 +240,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the isSharingRestricted property value. The isSharingRestricted property
+     * Sets the isSharingRestricted property value. Only the manager and owner can share files in the container if restricted sharing is enabled.
      * @param bool|null $value Value to set for the isSharingRestricted property.
     */
     public function setIsSharingRestricted(?bool $value): void {
@@ -248,7 +248,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the itemMajorVersionLimit property value. The itemMajorVersionLimit property
+     * Sets the itemMajorVersionLimit property value. Maximum number of versions. Versioning must be enabled ('isItemVersioningEnabled'=true).
      * @param int|null $value Value to set for the itemMajorVersionLimit property.
     */
     public function setItemMajorVersionLimit(?int $value): void {
@@ -256,7 +256,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the maxStoragePerContainerInBytes property value. The maxStoragePerContainerInBytes property
+     * Sets the maxStoragePerContainerInBytes property value. Controls maximum storage in bytes.
      * @param int|null $value Value to set for the maxStoragePerContainerInBytes property.
     */
     public function setMaxStoragePerContainerInBytes(?int $value): void {
@@ -272,7 +272,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the sharingCapability property value. The sharingCapability property
+     * Sets the sharingCapability property value. Sharing capabilities permitted for containers. The possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly, unknownFutureValue. Can always be updated.
      * @param SharingCapabilities|null $value Value to set for the sharingCapability property.
     */
     public function setSharingCapability(?SharingCapabilities $value): void {
@@ -280,7 +280,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
-     * Sets the urlTemplate property value. The urlTemplate property
+     * Sets the urlTemplate property value. Pattern used to redirect files.
      * @param string|null $value Value to set for the urlTemplate property.
     */
     public function setUrlTemplate(?string $value): void {

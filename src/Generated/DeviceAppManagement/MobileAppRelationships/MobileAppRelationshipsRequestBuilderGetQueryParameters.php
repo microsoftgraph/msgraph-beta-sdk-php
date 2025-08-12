@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppRelationsh
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List mobileAppRelationship objects for mobile applications.
+ * The mobile app relationship represents the dependency or supersedence relationship between two Intune mobile LOB applications.
 */
 class MobileAppRelationshipsRequestBuilderGetQueryParameters 
 {

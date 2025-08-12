@@ -58,13 +58,27 @@ class UserAccountInformation extends ItemFacet implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'ageGroup' => fn(ParseNode $n) => $o->setAgeGroup($n->getStringValue()),
             'countryCode' => fn(ParseNode $n) => $o->setCountryCode($n->getStringValue()),
+            'originTenantInfo' => fn(ParseNode $n) => $o->setOriginTenantInfo($n->getObjectValue([OriginTenantInfo::class, 'createFromDiscriminatorValue'])),
             'preferredLanguageTag' => fn(ParseNode $n) => $o->setPreferredLanguageTag($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            'userPersona' => fn(ParseNode $n) => $o->setUserPersona($n->getEnumValue(UserPersona::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the preferredLanguageTag property value. Contains the language the user has associated as preferred for the account.
+     * Gets the originTenantInfo property value. Contains the identifiers of the user and the origin tenant that provisioned the user. This property is populated when the user is invited as a guest to the host tenant.
+     * @return OriginTenantInfo|null
+    */
+    public function getOriginTenantInfo(): ?OriginTenantInfo {
+        $val = $this->getBackingStore()->get('originTenantInfo');
+        if (is_null($val) || $val instanceof OriginTenantInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originTenantInfo'");
+    }
+
+    /**
+     * Gets the preferredLanguageTag property value. Contains the language that the user associated as preferred for their account.
      * @return LocaleInfo|null
     */
     public function getPreferredLanguageTag(): ?LocaleInfo {
@@ -73,6 +87,18 @@ class UserAccountInformation extends ItemFacet implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'preferredLanguageTag'");
+    }
+
+    /**
+     * Gets the userPersona property value. Represents the user's persona. The possible values are: unknown, externalMember, externalGuest, internalMember, internalGuest, unknownFutureValue.
+     * @return UserPersona|null
+    */
+    public function getUserPersona(): ?UserPersona {
+        $val = $this->getBackingStore()->get('userPersona');
+        if (is_null($val) || $val instanceof UserPersona) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userPersona'");
     }
 
     /**
@@ -95,7 +121,9 @@ class UserAccountInformation extends ItemFacet implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('ageGroup', $this->getAgeGroup());
         $writer->writeStringValue('countryCode', $this->getCountryCode());
+        $writer->writeObjectValue('originTenantInfo', $this->getOriginTenantInfo());
         $writer->writeObjectValue('preferredLanguageTag', $this->getPreferredLanguageTag());
+        $writer->writeEnumValue('userPersona', $this->getUserPersona());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
@@ -116,11 +144,27 @@ class UserAccountInformation extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the preferredLanguageTag property value. Contains the language the user has associated as preferred for the account.
+     * Sets the originTenantInfo property value. Contains the identifiers of the user and the origin tenant that provisioned the user. This property is populated when the user is invited as a guest to the host tenant.
+     * @param OriginTenantInfo|null $value Value to set for the originTenantInfo property.
+    */
+    public function setOriginTenantInfo(?OriginTenantInfo $value): void {
+        $this->getBackingStore()->set('originTenantInfo', $value);
+    }
+
+    /**
+     * Sets the preferredLanguageTag property value. Contains the language that the user associated as preferred for their account.
      * @param LocaleInfo|null $value Value to set for the preferredLanguageTag property.
     */
     public function setPreferredLanguageTag(?LocaleInfo $value): void {
         $this->getBackingStore()->set('preferredLanguageTag', $value);
+    }
+
+    /**
+     * Sets the userPersona property value. Represents the user's persona. The possible values are: unknown, externalMember, externalGuest, internalMember, internalGuest, unknownFutureValue.
+     * @param UserPersona|null $value Value to set for the userPersona property.
+    */
+    public function setUserPersona(?UserPersona $value): void {
+        $this->getBackingStore()->set('userPersona', $value);
     }
 
     /**

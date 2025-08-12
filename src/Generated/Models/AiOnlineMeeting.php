@@ -26,7 +26,7 @@ class AiOnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the aiInsights property value. A set of AI insights associated with an AI online meeting.
+     * Gets the aiInsights property value. The aiInsights property
      * @return array<CallAiInsight>|null
     */
     public function getAiInsights(): ?array {
@@ -60,7 +60,7 @@ class AiOnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the aiInsights property value. A set of AI insights associated with an AI online meeting.
+     * Sets the aiInsights property value. The aiInsights property
      * @param array<CallAiInsight>|null $value Value to set for the aiInsights property.
     */
     public function setAiInsights(?array $value): void {

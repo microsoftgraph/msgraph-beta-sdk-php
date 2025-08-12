@@ -81,7 +81,7 @@ class MeetingNoteSubpoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the text property value. The text of the meeting note subpoint.
+     * Gets the text property value. The text property
      * @return string|null
     */
     public function getText(): ?string {
@@ -93,7 +93,7 @@ class MeetingNoteSubpoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the title property value. The title of the meeting note subpoint.
+     * Gets the title property value. The title property
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -140,7 +140,7 @@ class MeetingNoteSubpoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the text property value. The text of the meeting note subpoint.
+     * Sets the text property value. The text property
      * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
@@ -148,7 +148,7 @@ class MeetingNoteSubpoint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the title property value. The title of the meeting note subpoint.
+     * Sets the title property value. The title property
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {

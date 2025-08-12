@@ -45,7 +45,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List mobileAppRelationship objects for mobile applications.
+     * The mobile app relationship represents the dependency or supersedence relationship between two Intune mobile LOB applications.
      * @param MobileAppRelationshipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppRelationship|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class MobileAppRelationshipItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * List mobileAppRelationship objects for mobile applications.
+     * The mobile app relationship represents the dependency or supersedence relationship between two Intune mobile LOB applications.
      * @param MobileAppRelationshipItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,10 +31,11 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Delete navigation property applicationPermissionGrants for storage
+     * Delete a fileStorageContainerTypeAppPermissionGrant object in a fileStorageContainerTypeRegistration.
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertyperegistration-delete-applicationpermissiongrants?view=graph-rest-beta Find more info here
     */
     public function delete(?FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Get applicationPermissionGrants from storage
+     * Read a specific app permission grant in a fileStorageContainerTypeRegistration.
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeAppPermissionGrant|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertypeapppermissiongrant-get?view=graph-rest-beta Find more info here
     */
     public function get(?FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Update the navigation property applicationPermissionGrants in storage
+     * Create a new fileStorageContainerTypeAppPermissionGrant object in a fileStorageContainerTypeRegistration.
      * @param FileStorageContainerTypeAppPermissionGrant $body The request body
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeAppPermissionGrant|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertyperegistration-post-applicationpermissiongrants?view=graph-rest-beta Find more info here
     */
     public function patch(FileStorageContainerTypeAppPermissionGrant $body, ?FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +77,7 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Delete navigation property applicationPermissionGrants for storage
+     * Delete a fileStorageContainerTypeAppPermissionGrant object in a fileStorageContainerTypeRegistration.
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +95,7 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Get applicationPermissionGrants from storage
+     * Read a specific app permission grant in a fileStorageContainerTypeRegistration.
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +116,7 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Update the navigation property applicationPermissionGrants in storage
+     * Create a new fileStorageContainerTypeAppPermissionGrant object in a fileStorageContainerTypeRegistration.
      * @param FileStorageContainerTypeAppPermissionGrant $body The request body
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

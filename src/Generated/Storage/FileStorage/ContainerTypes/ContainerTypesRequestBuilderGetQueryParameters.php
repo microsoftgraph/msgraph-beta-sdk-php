@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypes;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get containerTypes from storage
+ * Get a list of the fileStorageContainerType objects and their properties for the current tenant.
 */
 class ContainerTypesRequestBuilderGetQueryParameters 
 {

@@ -49,7 +49,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. Application ID to which to set permissions.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -61,7 +61,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
     }
 
     /**
-     * Gets the applicationPermissions property value. The applicationPermissions property
+     * Gets the applicationPermissions property value. Allowed permissions when you use delegated tokens. The possible values are: none, readContent, writeContent, manageContent, create, delete, read, write, enumeratePermissions, addPermissions, updatePermissions, deletePermissions, deleteOwnPermission, managePermissions, full, unknownFutureValue.
      * @return array<FileStorageContainerTypeAppPermission>|null
     */
     public function getApplicationPermissions(): ?array {
@@ -83,7 +83,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
     }
 
     /**
-     * Gets the delegatedPermissions property value. The delegatedPermissions property
+     * Gets the delegatedPermissions property value. Allowed permissions when you use application tokens. The possible values are: none, readContent, writeContent, manageContent, create, delete, read, write, enumeratePermissions, addPermissions, updatePermissions, deletePermissions, deleteOwnPermission, managePermissions, full, unknownFutureValue.
      * @return array<FileStorageContainerTypeAppPermission>|null
     */
     public function getDelegatedPermissions(): ?array {
@@ -143,7 +143,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
     }
 
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. Application ID to which to set permissions.
      * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
@@ -151,7 +151,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
     }
 
     /**
-     * Sets the applicationPermissions property value. The applicationPermissions property
+     * Sets the applicationPermissions property value. Allowed permissions when you use delegated tokens. The possible values are: none, readContent, writeContent, manageContent, create, delete, read, write, enumeratePermissions, addPermissions, updatePermissions, deletePermissions, deleteOwnPermission, managePermissions, full, unknownFutureValue.
      * @param array<FileStorageContainerTypeAppPermission>|null $value Value to set for the applicationPermissions property.
     */
     public function setApplicationPermissions(?array $value): void {
@@ -167,7 +167,7 @@ class FileStorageContainerTypeAppPermissionGrant implements AdditionalDataHolder
     }
 
     /**
-     * Sets the delegatedPermissions property value. The delegatedPermissions property
+     * Sets the delegatedPermissions property value. Allowed permissions when you use application tokens. The possible values are: none, readContent, writeContent, manageContent, create, delete, read, write, enumeratePermissions, addPermissions, updatePermissions, deletePermissions, deleteOwnPermission, managePermissions, full, unknownFutureValue.
      * @param array<FileStorageContainerTypeAppPermission>|null $value Value to set for the delegatedPermissions property.
     */
     public function setDelegatedPermissions(?array $value): void {

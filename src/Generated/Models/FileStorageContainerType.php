@@ -50,7 +50,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The creation date. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -62,7 +62,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Gets the etag property value. The etag property
+     * Gets the etag property value. Used in update scenarios for optimistic concurrency control. Read-only.
      * @return string|null
     */
     public function getEtag(): ?string {
@@ -74,7 +74,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. The expiration date. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -104,7 +104,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the fileStorageContainerType.
      * @return string|null
     */
     public function getName(): ?string {
@@ -116,7 +116,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Gets the owningAppId property value. The owningAppId property
+     * Gets the owningAppId property value. ID of the application that owns the fileStorageContainerType.
      * @return string|null
     */
     public function getOwningAppId(): ?string {
@@ -172,7 +172,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The creation date. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -180,7 +180,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Sets the etag property value. The etag property
+     * Sets the etag property value. Used in update scenarios for optimistic concurrency control. Read-only.
      * @param string|null $value Value to set for the etag property.
     */
     public function setEtag(?string $value): void {
@@ -188,7 +188,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. The expiration date. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -196,7 +196,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the fileStorageContainerType.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -204,7 +204,7 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
-     * Sets the owningAppId property value. The owningAppId property
+     * Sets the owningAppId property value. ID of the application that owns the fileStorageContainerType.
      * @param string|null $value Value to set for the owningAppId property.
     */
     public function setOwningAppId(?string $value): void {
