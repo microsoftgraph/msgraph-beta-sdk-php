@@ -36,7 +36,7 @@ class Account implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. List of the type of action. The possible values are: disable, enable, forcePasswordReset, revokeAllSessions, requireUserToSignInAgain, markUserAsCompromised.
      * @return array<Action>|null
     */
     public function getActions(): ?array {
@@ -85,7 +85,7 @@ class Account implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the identifier property value. The identifier property
+     * Gets the identifier property value. The account ID.
      * @return string|null
     */
     public function getIdentifier(): ?string {
@@ -133,7 +133,7 @@ class Account implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. List of the type of action. The possible values are: disable, enable, forcePasswordReset, revokeAllSessions, requireUserToSignInAgain, markUserAsCompromised.
      * @param array<Action>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
@@ -157,7 +157,7 @@ class Account implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the identifier property value. The identifier property
+     * Sets the identifier property value. The account ID.
      * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {

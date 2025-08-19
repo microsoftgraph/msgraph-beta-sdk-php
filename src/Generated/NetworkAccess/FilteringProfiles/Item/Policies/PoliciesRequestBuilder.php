@@ -52,11 +52,11 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tlsInspectionPolicyLink objects on a filtering profile.
+     * Get a list of the threatIntelligencePolicyLink objects and their properties.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLinkCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-list?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-list?view=graph-rest-beta Find more info here
     */
     public function get(?PoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -83,7 +83,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the tlsInspectionPolicyLink objects on a filtering profile.
+     * Get a list of the threatIntelligencePolicyLink objects and their properties.
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

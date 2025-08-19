@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudA
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get cloudApps from deviceManagement
+ * List all the cloudPcCloudApp objects filtered by a provision policy ID.
 */
 class CloudAppsRequestBuilderGetQueryParameters 
 {

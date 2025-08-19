@@ -52,10 +52,11 @@ class IdentityAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get identityAccounts from security
+     * Get a list of the identityAccounts objects and their properties.
      * @param IdentityAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityAccountsCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-identitycontainer-list-identityaccounts?view=graph-rest-beta Find more info here
     */
     public function get(?IdentityAccountsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class IdentityAccountsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get identityAccounts from security
+     * Get a list of the identityAccounts objects and their properties.
      * @param IdentityAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

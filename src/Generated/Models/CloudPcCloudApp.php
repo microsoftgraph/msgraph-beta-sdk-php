@@ -27,7 +27,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionFailedErrorCode property value. The actionFailedErrorCode property
+     * Gets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. Possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
      * @return CloudPcCloudAppActionFailedErrorCode|null
     */
     public function getActionFailedErrorCode(): ?CloudPcCloudAppActionFailedErrorCode {
@@ -39,7 +39,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionFailedErrorMessage property value. The actionFailedErrorMessage property
+     * Gets the actionFailedErrorMessage property value. The error message when the IT admin failed to publish, unpublish, update, or reset a cloud app. For example: 'Publish failed because it exceeds the 500 cloud apps limitation under the policy. You need to unpublish some cloud apps under this policy in order to publish this cloud app again.' Read-only.
      * @return string|null
     */
     public function getActionFailedErrorMessage(): ?string {
@@ -51,7 +51,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the addedDateTime property value. The addedDateTime property
+     * Gets the addedDateTime property value. The date and time when the cloud app was added to this tenant and became visible in the admin portal. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. An IT admin can't set or modify it. Supports $filter, $select, and $orderBy. Read-only.
      * @return DateTime|null
     */
     public function getAddedDateTime(): ?DateTime {
@@ -87,7 +87,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the availableToUser property value. The availableToUser property
+     * Gets the availableToUser property value. Indicates whether this cloud app is available to end users through the end-user portal or the Windows App. The default value is false. It changes to true if the cloud app is successfully published, and reverts to false when the admin unpublishes the cloud app. Supports $filter, $select, and $orderBy.
      * @return bool|null
     */
     public function getAvailableToUser(): ?bool {
@@ -99,7 +99,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description associated with the cloud app. The maximum allowed length for this property is 512 characters. Supports $filter, $select, and $orderBy.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -111,7 +111,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the discoveredAppName property value. The discoveredAppName property
+     * Gets the discoveredAppName property value. Name of the discovered app associated with the cloud app. For example, Paint, Supports $filter, $select, and $orderBy. Read-only.
      * @return string|null
     */
     public function getDiscoveredAppName(): ?string {
@@ -123,7 +123,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name for the cloud app. The display name for the cloud app, which appears on the end-user portal and must be unique within a single provisioning policy. It uses the discovered app name as the default value. The maximum allowed length for this property is 64 characters. For example, Paint. Supports $filter, $select, and $orderBy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -164,7 +164,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastPublishedDateTime property value. The lastPublishedDateTime property
+     * Gets the lastPublishedDateTime property value. The latest date time when the admin published the cloud app. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. An IT admin can't set or modify it. Supports $filter, $select, and $orderBy. Read-only.
      * @return DateTime|null
     */
     public function getLastPublishedDateTime(): ?DateTime {
@@ -176,7 +176,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningPolicyId property value. The provisioningPolicyId property
+     * Gets the provisioningPolicyId property value. The ID of the provisioning policy associated with this cloud app. For example, 96133506-c05b-4dbb-a150-ed4adc59895f. Supports $filter, $select, and $orderBy. Read-only. Required.
      * @return string|null
     */
     public function getProvisioningPolicyId(): ?string {
@@ -188,7 +188,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeIds property value. The scopeIds property
+     * Gets the scopeIds property value. The list of scope tag IDs for this cloud app. Inherited from the provisioning policy when the app is created or updated. Read-only.
      * @return array<string>|null
     */
     public function getScopeIds(): ?array {
@@ -222,7 +222,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionFailedErrorCode property value. The actionFailedErrorCode property
+     * Sets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. Possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
      * @param CloudPcCloudAppActionFailedErrorCode|null $value Value to set for the actionFailedErrorCode property.
     */
     public function setActionFailedErrorCode(?CloudPcCloudAppActionFailedErrorCode $value): void {
@@ -230,7 +230,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionFailedErrorMessage property value. The actionFailedErrorMessage property
+     * Sets the actionFailedErrorMessage property value. The error message when the IT admin failed to publish, unpublish, update, or reset a cloud app. For example: 'Publish failed because it exceeds the 500 cloud apps limitation under the policy. You need to unpublish some cloud apps under this policy in order to publish this cloud app again.' Read-only.
      * @param string|null $value Value to set for the actionFailedErrorMessage property.
     */
     public function setActionFailedErrorMessage(?string $value): void {
@@ -238,7 +238,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the addedDateTime property value. The addedDateTime property
+     * Sets the addedDateTime property value. The date and time when the cloud app was added to this tenant and became visible in the admin portal. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. An IT admin can't set or modify it. Supports $filter, $select, and $orderBy. Read-only.
      * @param DateTime|null $value Value to set for the addedDateTime property.
     */
     public function setAddedDateTime(?DateTime $value): void {
@@ -262,7 +262,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the availableToUser property value. The availableToUser property
+     * Sets the availableToUser property value. Indicates whether this cloud app is available to end users through the end-user portal or the Windows App. The default value is false. It changes to true if the cloud app is successfully published, and reverts to false when the admin unpublishes the cloud app. Supports $filter, $select, and $orderBy.
      * @param bool|null $value Value to set for the availableToUser property.
     */
     public function setAvailableToUser(?bool $value): void {
@@ -270,7 +270,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description associated with the cloud app. The maximum allowed length for this property is 512 characters. Supports $filter, $select, and $orderBy.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -278,7 +278,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the discoveredAppName property value. The discoveredAppName property
+     * Sets the discoveredAppName property value. Name of the discovered app associated with the cloud app. For example, Paint, Supports $filter, $select, and $orderBy. Read-only.
      * @param string|null $value Value to set for the discoveredAppName property.
     */
     public function setDiscoveredAppName(?string $value): void {
@@ -286,7 +286,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name for the cloud app. The display name for the cloud app, which appears on the end-user portal and must be unique within a single provisioning policy. It uses the discovered app name as the default value. The maximum allowed length for this property is 64 characters. For example, Paint. Supports $filter, $select, and $orderBy.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -294,7 +294,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastPublishedDateTime property value. The lastPublishedDateTime property
+     * Sets the lastPublishedDateTime property value. The latest date time when the admin published the cloud app. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. An IT admin can't set or modify it. Supports $filter, $select, and $orderBy. Read-only.
      * @param DateTime|null $value Value to set for the lastPublishedDateTime property.
     */
     public function setLastPublishedDateTime(?DateTime $value): void {
@@ -302,7 +302,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningPolicyId property value. The provisioningPolicyId property
+     * Sets the provisioningPolicyId property value. The ID of the provisioning policy associated with this cloud app. For example, 96133506-c05b-4dbb-a150-ed4adc59895f. Supports $filter, $select, and $orderBy. Read-only. Required.
      * @param string|null $value Value to set for the provisioningPolicyId property.
     */
     public function setProvisioningPolicyId(?string $value): void {
@@ -310,7 +310,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeIds property value. The scopeIds property
+     * Sets the scopeIds property value. The list of scope tag IDs for this cloud app. Inherited from the provisioning policy when the app is created or updated. Read-only.
      * @param array<string>|null $value Value to set for the scopeIds property.
     */
     public function setScopeIds(?array $value): void {

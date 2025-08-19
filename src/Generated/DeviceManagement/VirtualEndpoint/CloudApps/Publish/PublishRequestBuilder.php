@@ -30,11 +30,12 @@ class PublishRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action publish
+     * Publish a cloudPcCloudApp object to make it available to end users through their portal, such as the Windows App. 
      * @param PublishPostRequestBody $body The request body
      * @param PublishRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpccloudapp-publish?view=graph-rest-beta Find more info here
     */
     public function post(PublishPostRequestBody $body, ?PublishRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class PublishRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action publish
+     * Publish a cloudPcCloudApp object to make it available to end users through their portal, such as the Windows App. 
      * @param PublishPostRequestBody $body The request body
      * @param PublishRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

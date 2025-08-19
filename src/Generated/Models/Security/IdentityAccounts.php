@@ -34,7 +34,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the accounts property value. The accounts property
+     * Gets the accounts property value. Collection of accounts of the identity in different identity providers.
      * @return array<Account>|null
     */
     public function getAccounts(): ?array {
@@ -48,7 +48,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the cloudSecurityIdentifier property value. The cloudSecurityIdentifier property
+     * Gets the cloudSecurityIdentifier property value. The cloud security identifier of the identityAccount.
      * @return string|null
     */
     public function getCloudSecurityIdentifier(): ?string {
@@ -60,7 +60,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The  Active Directory display name of the identityAccount.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -72,7 +72,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the domain property value. The domain property
+     * Gets the domain property value. The Active Directory domain name of the identityAccount.
      * @return string|null
     */
     public function getDomain(): ?string {
@@ -100,7 +100,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Boolean indicating if the identityAccounts is enabled.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -112,7 +112,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * Gets the onPremisesSecurityIdentifier property value. The on-premises security identifier of the identityAccount.
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
@@ -138,7 +138,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the accounts property value. The accounts property
+     * Sets the accounts property value. Collection of accounts of the identity in different identity providers.
      * @param array<Account>|null $value Value to set for the accounts property.
     */
     public function setAccounts(?array $value): void {
@@ -146,7 +146,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the cloudSecurityIdentifier property value. The cloudSecurityIdentifier property
+     * Sets the cloudSecurityIdentifier property value. The cloud security identifier of the identityAccount.
      * @param string|null $value Value to set for the cloudSecurityIdentifier property.
     */
     public function setCloudSecurityIdentifier(?string $value): void {
@@ -154,7 +154,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The  Active Directory display name of the identityAccount.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -162,7 +162,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the domain property value. The domain property
+     * Sets the domain property value. The Active Directory domain name of the identityAccount.
      * @param string|null $value Value to set for the domain property.
     */
     public function setDomain(?string $value): void {
@@ -170,7 +170,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Boolean indicating if the identityAccounts is enabled.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
@@ -178,7 +178,7 @@ class IdentityAccounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
+     * Sets the onPremisesSecurityIdentifier property value. The on-premises security identifier of the identityAccount.
      * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {

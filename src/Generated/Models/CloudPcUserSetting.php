@@ -134,7 +134,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningSourceType property value. The provisioningSourceType property
+     * Gets the provisioningSourceType property value. Indicates the provisioning source of the Cloud PC prepared for an end user. Possible values are: image, snapshot, unknownFutureValue. The default value is image. If this property isn't set or set to null, its functionality is the same as setting it to image.
      * @return CloudPcProvisioningSourceType|null
     */
     public function getProvisioningSourceType(): ?CloudPcProvisioningSourceType {
@@ -170,7 +170,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the selfServiceEnabled property value. Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal. The selfServiceEnabled property is deprecated and will stop returning data on December 1, 2023.
+     * Gets the selfServiceEnabled property value. Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal. The selfServiceEnabled property is deprecated and stopped returning data on December 1, 2023.
      * @return bool|null
     */
     public function getSelfServiceEnabled(): ?bool {
@@ -257,7 +257,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningSourceType property value. The provisioningSourceType property
+     * Sets the provisioningSourceType property value. Indicates the provisioning source of the Cloud PC prepared for an end user. Possible values are: image, snapshot, unknownFutureValue. The default value is image. If this property isn't set or set to null, its functionality is the same as setting it to image.
      * @param CloudPcProvisioningSourceType|null $value Value to set for the provisioningSourceType property.
     */
     public function setProvisioningSourceType(?CloudPcProvisioningSourceType $value): void {
@@ -281,7 +281,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the selfServiceEnabled property value. Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal. The selfServiceEnabled property is deprecated and will stop returning data on December 1, 2023.
+     * Sets the selfServiceEnabled property value. Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal. The selfServiceEnabled property is deprecated and stopped returning data on December 1, 2023.
      * @param bool|null $value Value to set for the selfServiceEnabled property.
     */
     public function setSelfServiceEnabled(?bool $value): void {

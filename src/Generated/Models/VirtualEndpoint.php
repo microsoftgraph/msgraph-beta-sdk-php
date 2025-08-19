@@ -54,7 +54,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the cloudApps property value. The cloudApps property
+     * Gets the cloudApps property value. A collection of cloud apps that are built on frontline shared options and provide Windows 365 end users with access to app-only sessions instead of a full desktop experience.
      * @return array<CloudPcCloudApp>|null
     */
     public function getCloudApps(): ?array {
@@ -326,7 +326,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the cloudApps property value. The cloudApps property
+     * Sets the cloudApps property value. A collection of cloud apps that are built on frontline shared options and provide Windows 365 end users with access to app-only sessions instead of a full desktop experience.
      * @param array<CloudPcCloudApp>|null $value Value to set for the cloudApps property.
     */
     public function setCloudApps(?array $value): void {

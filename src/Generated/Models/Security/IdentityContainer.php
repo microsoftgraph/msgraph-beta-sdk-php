@@ -54,7 +54,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the identityAccounts property value. The identityAccounts property
+     * Gets the identityAccounts property value. Represents an identity's details in the context of Microsoft Defender for Identity.
      * @return array<IdentityAccounts>|null
     */
     public function getIdentityAccounts(): ?array {
@@ -101,7 +101,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the identityAccounts property value. The identityAccounts property
+     * Sets the identityAccounts property value. Represents an identity's details in the context of Microsoft Defender for Identity.
      * @param array<IdentityAccounts>|null $value Value to set for the identityAccounts property.
     */
     public function setIdentityAccounts(?array $value): void {

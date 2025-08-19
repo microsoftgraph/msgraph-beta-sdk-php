@@ -35,7 +35,7 @@ class InvokeActionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the accountId property value. The accountId property
+     * Gets the accountId property value. The account ID.
      * @return string|null
     */
     public function getAccountId(): ?string {
@@ -80,7 +80,7 @@ class InvokeActionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the correlationId property value. The correlationId property
+     * Gets the correlationId property value. The unique identifier for tracking the request.
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -144,7 +144,7 @@ class InvokeActionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the accountId property value. The accountId property
+     * Sets the accountId property value. The account ID.
      * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {
@@ -176,7 +176,7 @@ class InvokeActionResult implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the correlationId property value. The correlationId property
+     * Sets the correlationId property value. The unique identifier for tracking the request.
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {

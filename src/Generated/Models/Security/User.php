@@ -26,7 +26,7 @@ class User extends IdentityAccounts implements Parsable
     }
 
     /**
-     * Gets the emailAddress property value. The emailAddress property
+     * Gets the emailAddress property value. Email address of the user.
      * @return string|null
     */
     public function getEmailAddress(): ?string {
@@ -50,7 +50,7 @@ class User extends IdentityAccounts implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The user principal name.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -72,7 +72,7 @@ class User extends IdentityAccounts implements Parsable
     }
 
     /**
-     * Sets the emailAddress property value. The emailAddress property
+     * Sets the emailAddress property value. Email address of the user.
      * @param string|null $value Value to set for the emailAddress property.
     */
     public function setEmailAddress(?string $value): void {
@@ -80,7 +80,7 @@ class User extends IdentityAccounts implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. The user principal name.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

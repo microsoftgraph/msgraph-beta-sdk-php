@@ -31,11 +31,12 @@ class MicrosoftGraphSecurityInvokeActionRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action invokeAction
+     * Perform actions such as revoking accounts and forcing password reset for identity accounts that are observed in Microsoft Defender for Identity. This action allows reading and performing identity security actions on behalf of the signed-in identity.
      * @param InvokeActionPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityInvokeActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InvokeActionResult|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-identityaccounts-invokeaction?view=graph-rest-beta Find more info here
     */
     public function post(InvokeActionPostRequestBody $body, ?MicrosoftGraphSecurityInvokeActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class MicrosoftGraphSecurityInvokeActionRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Invoke action invokeAction
+     * Perform actions such as revoking accounts and forcing password reset for identity accounts that are observed in Microsoft Defender for Identity. This action allows reading and performing identity security actions on behalf of the signed-in identity.
      * @param InvokeActionPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityInvokeActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
