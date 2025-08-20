@@ -60,7 +60,7 @@ class CloudPcDiscoveredApp implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the appName property value. The appName property
+     * Gets the appName property value. The name of the discovered app; for example, Paint. Read-only.
      * @return string|null
     */
     public function getAppName(): ?string {
@@ -80,7 +80,7 @@ class CloudPcDiscoveredApp implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the discoveredAppId property value. The discoveredAppId property
+     * Gets the discoveredAppId property value. The unique identifier of the discovered app. Read-only.
      * @return string|null
     */
     public function getDiscoveredAppId(): ?string {
@@ -119,7 +119,7 @@ class CloudPcDiscoveredApp implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the sourceId property value. The sourceId property
+     * Gets the sourceId property value. The ID of the source of the discovered app. For example, if the source is a custom device image, the sourceId value is the ID of that image. For example, 3035e17f-c0f7-49c1-9502-5990afcaf86f. Read-only.
      * @return string|null
     */
     public function getSourceId(): ?string {
@@ -160,7 +160,7 @@ class CloudPcDiscoveredApp implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the appName property value. The appName property
+     * Sets the appName property value. The name of the discovered app; for example, Paint. Read-only.
      * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
@@ -176,7 +176,7 @@ class CloudPcDiscoveredApp implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the discoveredAppId property value. The discoveredAppId property
+     * Sets the discoveredAppId property value. The unique identifier of the discovered app. Read-only.
      * @param string|null $value Value to set for the discoveredAppId property.
     */
     public function setDiscoveredAppId(?string $value): void {
@@ -192,7 +192,7 @@ class CloudPcDiscoveredApp implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the sourceId property value. The sourceId property
+     * Sets the sourceId property value. The ID of the source of the discovered app. For example, if the source is a custom device image, the sourceId value is the ID of that image. For example, 3035e17f-c0f7-49c1-9502-5990afcaf86f. Read-only.
      * @param string|null $value Value to set for the sourceId property.
     */
     public function setSourceId(?string $value): void {

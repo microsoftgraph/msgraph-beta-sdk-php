@@ -729,6 +729,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.copilotAdmin': return new CopilotAdmin();
                 case '#microsoft.graph.copilotAdminLimitedMode': return new CopilotAdminLimitedMode();
                 case '#microsoft.graph.copilotAdminSetting': return new CopilotAdminSetting();
+                case '#microsoft.graph.copilotCommunicationsRoot': return new CopilotCommunicationsRoot();
                 case '#microsoft.graph.copilotPeopleAdminSetting': return new CopilotPeopleAdminSetting();
                 case '#microsoft.graph.copilotSetting': return new CopilotSetting();
                 case '#microsoft.graph.corsConfiguration_v2': return new CorsConfiguration_v2();
@@ -1468,6 +1469,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.monthlyInactiveUsersByApplicationMetric': return new MonthlyInactiveUsersByApplicationMetric();
                 case '#microsoft.graph.monthlyInactiveUsersMetric': return new MonthlyInactiveUsersMetric();
                 case '#microsoft.graph.monthlyUserInsightMetricsRoot': return new MonthlyUserInsightMetricsRoot();
+                case '#microsoft.graph.multiActivitySubscription': return new MultiActivitySubscription();
                 case '#microsoft.graph.multiTenantOrganization': return new MultiTenantOrganization();
                 case '#microsoft.graph.multiTenantOrganizationIdentitySyncPolicyTemplate': return new MultiTenantOrganizationIdentitySyncPolicyTemplate();
                 case '#microsoft.graph.multiTenantOrganizationJoinRequestRecord': return new MultiTenantOrganizationJoinRequestRecord();
@@ -1762,6 +1764,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.rbacApplicationMultiple': return new RbacApplicationMultiple();
                 case '#microsoft.graph.readingAssignmentSubmission': return new ReadingAssignmentSubmission();
                 case '#microsoft.graph.readingCoachPassage': return new ReadingCoachPassage();
+                case '#microsoft.graph.realtimeActivityFeedRoot': return new RealtimeActivityFeedRoot();
+                case '#microsoft.graph.realtimeActivityMeeting': return new RealtimeActivityMeeting();
+                case '#microsoft.graph.realTimeTranscript': return new RealTimeTranscript();
                 case '#microsoft.graph.recommendation': return new Recommendation();
                 case '#microsoft.graph.recommendationBase': return new RecommendationBase();
                 case '#microsoft.graph.recommendationConfiguration': return new RecommendationConfiguration();

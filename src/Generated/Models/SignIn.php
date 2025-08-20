@@ -210,7 +210,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationRequirement property value. The authentication requirement as explicitly requested by a resource provider. Does not account for previously satisfied claims. If primary authentication fails, the sign-in attempt is not evaluated by Conditional Access, so the resulting value is SingleFactorAuthentication.  Supports $filter (eq, startsWith).
+     * Gets the authenticationRequirement property value. The authentication stage reached during sign-in. It doesn't account for previously satisfied claims. If primary authentication fails, the sign-in attempt is not evaluated by Conditional Access, so the resulting value is singleFactorAuthentication.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAuthenticationRequirement(): ?string {
@@ -1262,7 +1262,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationRequirement property value. The authentication requirement as explicitly requested by a resource provider. Does not account for previously satisfied claims. If primary authentication fails, the sign-in attempt is not evaluated by Conditional Access, so the resulting value is SingleFactorAuthentication.  Supports $filter (eq, startsWith).
+     * Sets the authenticationRequirement property value. The authentication stage reached during sign-in. It doesn't account for previously satisfied claims. If primary authentication fails, the sign-in attempt is not evaluated by Conditional Access, so the resulting value is singleFactorAuthentication.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the authenticationRequirement property.
     */
     public function setAuthenticationRequirement(?string $value): void {

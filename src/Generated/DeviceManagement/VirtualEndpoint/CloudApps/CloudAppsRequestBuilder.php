@@ -77,10 +77,11 @@ class CloudAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudApps from deviceManagement
+     * List all the cloudPcCloudApp objects filtered by a provision policy ID.
      * @param CloudAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcCloudAppCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudapps?view=graph-rest-beta Find more info here
     */
     public function get(?CloudAppsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -115,7 +116,7 @@ class CloudAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudApps from deviceManagement
+     * List all the cloudPcCloudApp objects filtered by a provision policy ID.
      * @param CloudAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

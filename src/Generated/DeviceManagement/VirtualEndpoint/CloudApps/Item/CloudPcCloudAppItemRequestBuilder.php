@@ -45,10 +45,11 @@ class CloudPcCloudAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudApps from deviceManagement
+     * Read the properties of a specific cloudPcCloudApp object.
      * @param CloudPcCloudAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcCloudApp|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpccloudapp-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcCloudAppItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class CloudPcCloudAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property cloudApps in deviceManagement
+     * Update the properties of a cloudPcCloudApp object, such as the display name or icon path.
      * @param CloudPcCloudApp $body The request body
      * @param CloudPcCloudAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcCloudApp|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpccloudapp-update?view=graph-rest-beta Find more info here
     */
     public function patch(CloudPcCloudApp $body, ?CloudPcCloudAppItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class CloudPcCloudAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudApps from deviceManagement
+     * Read the properties of a specific cloudPcCloudApp object.
      * @param CloudPcCloudAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class CloudPcCloudAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property cloudApps in deviceManagement
+     * Update the properties of a cloudPcCloudApp object, such as the display name or icon path.
      * @param CloudPcCloudApp $body The request body
      * @param CloudPcCloudAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

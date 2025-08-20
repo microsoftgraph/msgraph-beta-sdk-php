@@ -56,7 +56,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the commandLineArguments property value. The commandLineArguments property
+     * Gets the commandLineArguments property value. Specifies the command-line arguments for the cloud app. These parameters are passed to the cloud app when it's launched. The maximum allowed length for this property is 2,048 characters. For example, -fullscreen -loop.
      * @return string|null
     */
     public function getCommandLineArguments(): ?string {
@@ -83,7 +83,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the filePath property value. The filePath property
+     * Gets the filePath property value. Specifies the path to the executable file for the application within the OS of the hosting Cloud PC. The value should be an absolute path to a Windows or Universal app. For example, C:/app.exe or shell:AppsFolder/appname!App. Read-only.
      * @return string|null
     */
     public function getFilePath(): ?string {
@@ -95,7 +95,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the iconIndex property value. The iconIndex property
+     * Gets the iconIndex property value. Specifies the index of the icon within the file specified by the iconPath property. For example, if iconPath is set to C:/Program Files/MyApp/myapp.ico and iconIndex is set to 0, the system uses the first icon in the myapp.ico file. The default value is 0.
      * @return int|null
     */
     public function getIconIndex(): ?int {
@@ -107,7 +107,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the iconPath property value. The iconPath property
+     * Gets the iconPath property value. Specifies the path to the icon file for the application within the OS of the hosting Cloud PC. When an admin updates the path of a cloud app, the value should be a rooted absolute path. For example, C:/Windows/system32/WindowsPowerShell/v1.0/powershell_ise.exe. If this property isn't defined, a default icon is used.
      * @return string|null
     */
     public function getIconPath(): ?string {
@@ -160,7 +160,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the commandLineArguments property value. The commandLineArguments property
+     * Sets the commandLineArguments property value. Specifies the command-line arguments for the cloud app. These parameters are passed to the cloud app when it's launched. The maximum allowed length for this property is 2,048 characters. For example, -fullscreen -loop.
      * @param string|null $value Value to set for the commandLineArguments property.
     */
     public function setCommandLineArguments(?string $value): void {
@@ -168,7 +168,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the filePath property value. The filePath property
+     * Sets the filePath property value. Specifies the path to the executable file for the application within the OS of the hosting Cloud PC. The value should be an absolute path to a Windows or Universal app. For example, C:/app.exe or shell:AppsFolder/appname!App. Read-only.
      * @param string|null $value Value to set for the filePath property.
     */
     public function setFilePath(?string $value): void {
@@ -176,7 +176,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the iconIndex property value. The iconIndex property
+     * Sets the iconIndex property value. Specifies the index of the icon within the file specified by the iconPath property. For example, if iconPath is set to C:/Program Files/MyApp/myapp.ico and iconIndex is set to 0, the system uses the first icon in the myapp.ico file. The default value is 0.
      * @param int|null $value Value to set for the iconIndex property.
     */
     public function setIconIndex(?int $value): void {
@@ -184,7 +184,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the iconPath property value. The iconPath property
+     * Sets the iconPath property value. Specifies the path to the icon file for the application within the OS of the hosting Cloud PC. When an admin updates the path of a cloud app, the value should be a rooted absolute path. For example, C:/Windows/system32/WindowsPowerShell/v1.0/powershell_ise.exe. If this property isn't defined, a default icon is used.
      * @param string|null $value Value to set for the iconPath property.
     */
     public function setIconPath(?string $value): void {

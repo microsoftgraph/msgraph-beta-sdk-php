@@ -104,7 +104,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
      * @return string|null
     */
     public function getCustomBrowserProtocol(): ?string {
@@ -468,7 +468,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
      * @param string|null $value Value to set for the customBrowserProtocol property.
     */
     public function setCustomBrowserProtocol(?string $value): void {

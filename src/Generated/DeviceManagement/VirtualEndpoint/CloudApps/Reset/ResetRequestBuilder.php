@@ -30,11 +30,12 @@ class ResetRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action reset
+     * Reset the app details of the cloudPcCloudApp object to the app details of the initially discovered app that this cloud app is mapped to. This action requires the Microsoft.CloudPC/CloudApps/Update permission.
      * @param ResetPostRequestBody $body The request body
      * @param ResetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpccloudapp-reset?view=graph-rest-beta Find more info here
     */
     public function post(ResetPostRequestBody $body, ?ResetRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ResetRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action reset
+     * Reset the app details of the cloudPcCloudApp object to the app details of the initially discovered app that this cloud app is mapped to. This action requires the Microsoft.CloudPC/CloudApps/Update permission.
      * @param ResetPostRequestBody $body The request body
      * @param ResetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

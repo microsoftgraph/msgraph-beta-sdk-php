@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\IdentityAccounts\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get identityAccounts from security
+ * Read the properties and relationships of a single identity security account object. This allows retrieving information about available identity accounts.
 */
 class IdentityAccountsItemRequestBuilderGetQueryParameters 
 {
