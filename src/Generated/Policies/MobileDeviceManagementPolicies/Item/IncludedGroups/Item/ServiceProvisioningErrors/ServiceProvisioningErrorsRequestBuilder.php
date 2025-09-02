@@ -13,7 +13,7 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Builds and executes requests for operations under /policies/mobileDeviceManagementPolicies/{mobilityManagementPolicy-id}/includedGroups/{group-id}/serviceProvisioningErrors
+ * Builds and executes requests for operations under /policies/mobileDeviceManagementPolicies/{mobileDeviceManagementPolicy-id}/includedGroups/{group-id}/serviceProvisioningErrors
 */
 class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder 
 {
@@ -30,7 +30,7 @@ class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/mobileDeviceManagementPolicies/{mobilityManagementPolicy%2Did}/includedGroups/{group%2Did}/serviceProvisioningErrors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/mobileDeviceManagementPolicies/{mobileDeviceManagementPolicy%2Did}/includedGroups/{group%2Did}/serviceProvisioningErrors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

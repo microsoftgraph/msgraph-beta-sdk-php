@@ -117,7 +117,7 @@ class CloudCommunications implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the onlineMeetingConversations property value. A collection of structured question-and-answer (Q&A) thread in Teams directly associated with online meetings.
+     * Gets the onlineMeetingConversations property value. A collection of structured question-and-answer (Q&A) threads in Teams directly associated with online meetings.
      * @return array<OnlineMeetingEngagementConversation>|null
     */
     public function getOnlineMeetingConversations(): ?array {
@@ -213,7 +213,7 @@ class CloudCommunications implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the onlineMeetingConversations property value. A collection of structured question-and-answer (Q&A) thread in Teams directly associated with online meetings.
+     * Sets the onlineMeetingConversations property value. A collection of structured question-and-answer (Q&A) threads in Teams directly associated with online meetings.
      * @param array<OnlineMeetingEngagementConversation>|null $value Value to set for the onlineMeetingConversations property.
     */
     public function setOnlineMeetingConversations(?array $value): void {

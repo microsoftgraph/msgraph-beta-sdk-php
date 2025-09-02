@@ -2,27 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
-use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Store\BackedModel;
-use Microsoft\Kiota\Abstractions\Store\BackingStore;
-use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolder, BackedModel, Parsable 
+class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem implements Parsable 
 {
-    /**
-     * @var BackingStore $backingStore Stores model information.
-    */
-    private BackingStore $backingStore;
-    
     /**
      * Instantiates a new CrossTenantAccessPolicyConfigurationPartner and sets the default values.
     */
     public function __construct() {
-        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
-        $this->setAdditionalData([]);
+        parent::__construct();
+        $this->setOdataType('#microsoft.graph.crossTenantAccessPolicyConfigurationPartner');
     }
 
     /**
@@ -32,19 +23,6 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyConfigurationPartner {
         return new CrossTenantAccessPolicyConfigurationPartner();
-    }
-
-    /**
-     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>|null
-    */
-    public function getAdditionalData(): ?array {
-        $val = $this->getBackingStore()->get('additionalData');
-        if (is_null($val) || is_array($val)) {
-            /** @var array<string, mixed>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
     }
 
     /**
@@ -108,20 +86,12 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
-     * Gets the BackingStore property value. Stores model information.
-     * @return BackingStore
-    */
-    public function getBackingStore(): BackingStore {
-        return $this->backingStore;
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return  [
+        return array_merge(parent::getFieldDeserializers(), [
             'automaticUserConsentSettings' => fn(ParseNode $n) => $o->setAutomaticUserConsentSettings($n->getObjectValue([InboundOutboundPolicyConfiguration::class, 'createFromDiscriminatorValue'])),
             'b2bCollaborationInbound' => fn(ParseNode $n) => $o->setB2bCollaborationInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bCollaborationOutbound' => fn(ParseNode $n) => $o->setB2bCollaborationOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
@@ -131,10 +101,9 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
             'inboundTrust' => fn(ParseNode $n) => $o->setInboundTrust($n->getObjectValue([CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'])),
             'isInMultiTenantOrganization' => fn(ParseNode $n) => $o->setIsInMultiTenantOrganization($n->getBooleanValue()),
             'isServiceProvider' => fn(ParseNode $n) => $o->setIsServiceProvider($n->getBooleanValue()),
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'tenantRestrictions' => fn(ParseNode $n) => $o->setTenantRestrictions($n->getObjectValue([CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'])),
-        ];
+        ]);
     }
 
     /**
@@ -186,18 +155,6 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
-    */
-    public function getOdataType(): ?string {
-        $val = $this->getBackingStore()->get('odataType');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
-    }
-
-    /**
      * Gets the tenantId property value. The tenant identifier for the partner Microsoft Entra organization. Read-only. Key.
      * @return string|null
     */
@@ -226,6 +183,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
         $writer->writeObjectValue('automaticUserConsentSettings', $this->getAutomaticUserConsentSettings());
         $writer->writeObjectValue('b2bCollaborationInbound', $this->getB2bCollaborationInbound());
         $writer->writeObjectValue('b2bCollaborationOutbound', $this->getB2bCollaborationOutbound());
@@ -235,18 +193,8 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
         $writer->writeObjectValue('inboundTrust', $this->getInboundTrust());
         $writer->writeBooleanValue('isInMultiTenantOrganization', $this->getIsInMultiTenantOrganization());
         $writer->writeBooleanValue('isServiceProvider', $this->getIsServiceProvider());
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('tenantRestrictions', $this->getTenantRestrictions());
-        $writer->writeAdditionalData($this->getAdditionalData());
-    }
-
-    /**
-     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param array<string,mixed> $value Value to set for the AdditionalData property.
-    */
-    public function setAdditionalData(?array $value): void {
-        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
@@ -290,14 +238,6 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
-     * Sets the BackingStore property value. Stores model information.
-     * @param BackingStore $value Value to set for the BackingStore property.
-    */
-    public function setBackingStore(BackingStore $value): void {
-        $this->backingStore = $value;
-    }
-
-    /**
      * Sets the identitySynchronization property value. Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multitenant organization by automating the creation, update, and deletion of users from one tenant to another.
      * @param CrossTenantIdentitySyncPolicyPartner|null $value Value to set for the identitySynchronization property.
     */
@@ -327,14 +267,6 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     */
     public function setIsServiceProvider(?bool $value): void {
         $this->getBackingStore()->set('isServiceProvider', $value);
-    }
-
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param string|null $value Value to set for the @odata.type property.
-    */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**

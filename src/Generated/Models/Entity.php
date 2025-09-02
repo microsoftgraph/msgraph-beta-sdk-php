@@ -631,6 +631,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.callTranscript': return new CallTranscript();
                 case '#microsoft.graph.cancelMediaProcessingOperation': return new CancelMediaProcessingOperation();
                 case '#microsoft.graph.canvasLayout': return new CanvasLayout();
+                case '#microsoft.graph.caPoliciesDeletableRoot': return new CaPoliciesDeletableRoot();
                 case '#microsoft.graph.cartToClassAssociation': return new CartToClassAssociation();
                 case '#microsoft.graph.certificateAuthorityAsEntity': return new CertificateAuthorityAsEntity();
                 case '#microsoft.graph.certificateAuthorityDetail': return new CertificateAuthorityDetail();
@@ -1457,12 +1458,14 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.mobileAppInstallStatus': return new MobileAppInstallStatus();
                 case '#microsoft.graph.mobileAppInstallSummary': return new MobileAppInstallSummary();
                 case '#microsoft.graph.mobileAppIntentAndState': return new MobileAppIntentAndState();
+                case '#microsoft.graph.mobileAppManagementPolicy': return new MobileAppManagementPolicy();
                 case '#microsoft.graph.mobileAppPolicySetItem': return new MobileAppPolicySetItem();
                 case '#microsoft.graph.mobileAppProvisioningConfigGroupAssignment': return new MobileAppProvisioningConfigGroupAssignment();
                 case '#microsoft.graph.mobileAppRelationship': return new MobileAppRelationship();
                 case '#microsoft.graph.mobileAppSupersedence': return new MobileAppSupersedence();
                 case '#microsoft.graph.mobileAppTroubleshootingEvent': return new MobileAppTroubleshootingEvent();
                 case '#microsoft.graph.mobileContainedApp': return new MobileContainedApp();
+                case '#microsoft.graph.mobileDeviceManagementPolicy': return new MobileDeviceManagementPolicy();
                 case '#microsoft.graph.mobileLobApp': return new MobileLobApp();
                 case '#microsoft.graph.mobileThreatDefenseConnector': return new MobileThreatDefenseConnector();
                 case '#microsoft.graph.mobilityManagementPolicy': return new MobilityManagementPolicy();
@@ -1684,6 +1687,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.platformCredentialAuthenticationMethod': return new PlatformCredentialAuthenticationMethod();
                 case '#microsoft.graph.playPromptOperation': return new PlayPromptOperation();
                 case '#microsoft.graph.policyBase': return new PolicyBase();
+                case '#microsoft.graph.policyDeletableRoot': return new PolicyDeletableRoot();
                 case '#microsoft.graph.policyFile': return new PolicyFile();
                 case '#microsoft.graph.policyRoot': return new PolicyRoot();
                 case '#microsoft.graph.policySet': return new PolicySet();
