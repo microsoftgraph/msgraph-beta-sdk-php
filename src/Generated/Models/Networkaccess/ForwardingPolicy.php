@@ -32,8 +32,21 @@ class ForwardingPolicy extends Policy implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'privateAccessAppId' => fn(ParseNode $n) => $o->setPrivateAccessAppId($n->getStringValue()),
             'trafficForwardingType' => fn(ParseNode $n) => $o->setTrafficForwardingType($n->getEnumValue(TrafficForwardingType::class)),
         ]);
+    }
+
+    /**
+     * Gets the privateAccessAppId property value. The privateAccessAppId property
+     * @return string|null
+    */
+    public function getPrivateAccessAppId(): ?string {
+        $val = $this->getBackingStore()->get('privateAccessAppId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privateAccessAppId'");
     }
 
     /**
@@ -54,7 +67,16 @@ class ForwardingPolicy extends Policy implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('privateAccessAppId', $this->getPrivateAccessAppId());
         $writer->writeEnumValue('trafficForwardingType', $this->getTrafficForwardingType());
+    }
+
+    /**
+     * Sets the privateAccessAppId property value. The privateAccessAppId property
+     * @param string|null $value Value to set for the privateAccessAppId property.
+    */
+    public function setPrivateAccessAppId(?string $value): void {
+        $this->getBackingStore()->set('privateAccessAppId', $value);
     }
 
     /**

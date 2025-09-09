@@ -27,6 +27,18 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
+     * Gets the action property value. The action property
+     * @return ActionType|null
+    */
+    public function getAction(): ?ActionType {
+        $val = $this->getBackingStore()->get('action');
+        if (is_null($val) || $val instanceof ActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'action'");
+    }
+
+    /**
      * Gets the application property value. The on-premises nonweb application published through Microsoft Entra application proxy. Expanded by default and supports $expand.
      * @return Application|null
     */
@@ -69,6 +81,7 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(ActionType::class)),
             'application' => fn(ParseNode $n) => $o->setApplication($n->getObjectValue([Application::class, 'createFromDiscriminatorValue'])),
             'destinationHost' => fn(ParseNode $n) => $o->setDestinationHost($n->getStringValue()),
             'destinationType' => fn(ParseNode $n) => $o->setDestinationType($n->getEnumValue(PrivateNetworkDestinationType::class)),
@@ -129,12 +142,21 @@ class IpApplicationSegment extends ApplicationSegment implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('action', $this->getAction());
         $writer->writeObjectValue('application', $this->getApplication());
         $writer->writeStringValue('destinationHost', $this->getDestinationHost());
         $writer->writeEnumValue('destinationType', $this->getDestinationType());
         $writer->writeIntegerValue('port', $this->getPort());
         $writer->writeCollectionOfPrimitiveValues('ports', $this->getPorts());
         $writer->writeEnumValue('protocol', $this->getProtocol());
+    }
+
+    /**
+     * Sets the action property value. The action property
+     * @param ActionType|null $value Value to set for the action property.
+    */
+    public function setAction(?ActionType $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**

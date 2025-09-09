@@ -81,6 +81,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAppleOSUpdat
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveCloudPkiLeafCertificateReport\RetrieveCloudPkiLeafCertificateReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveCloudPkiLeafCertificateSummaryReport\RetrieveCloudPkiLeafCertificateSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveDeviceAppInstallationStatusReport\RetrieveDeviceAppInstallationStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveEnrollmentTimeGroupingFailureReport\RetrieveEnrollmentTimeGroupingFailureReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveSecurityTaskAppsReport\RetrieveSecurityTaskAppsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveWin32CatalogAppsUpdateReport\RetrieveWin32CatalogAppsUpdateReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
@@ -632,6 +633,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function retrieveDeviceAppInstallationStatusReport(): RetrieveDeviceAppInstallationStatusReportRequestBuilder {
         return new RetrieveDeviceAppInstallationStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveEnrollmentTimeGroupingFailureReport method.
+    */
+    public function retrieveEnrollmentTimeGroupingFailureReport(): RetrieveEnrollmentTimeGroupingFailureReportRequestBuilder {
+        return new RetrieveEnrollmentTimeGroupingFailureReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

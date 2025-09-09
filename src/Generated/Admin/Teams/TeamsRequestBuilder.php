@@ -61,7 +61,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a collection of user configurations.
+     * A container for all Teams telephone number management functionalities and user configurations.
      * @param TeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAdminRoot|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class TeamsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a collection of user configurations.
+     * A container for all Teams telephone number management functionalities and user configurations.
      * @param TeamsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

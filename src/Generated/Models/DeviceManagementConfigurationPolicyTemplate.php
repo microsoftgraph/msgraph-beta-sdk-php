@@ -65,6 +65,18 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
+     * Gets the disableEntraGroupPolicyAssignment property value. Indicates whether assignments to Entra security groups is disabled
+     * @return bool|null
+    */
+    public function getDisableEntraGroupPolicyAssignment(): ?bool {
+        $val = $this->getBackingStore()->get('disableEntraGroupPolicyAssignment');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableEntraGroupPolicyAssignment'");
+    }
+
+    /**
      * Gets the displayName property value. Template display name
      * @return string|null
     */
@@ -98,6 +110,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
             'allowUnmanagedSettings' => fn(ParseNode $n) => $o->setAllowUnmanagedSettings($n->getBooleanValue()),
             'baseId' => fn(ParseNode $n) => $o->setBaseId($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'disableEntraGroupPolicyAssignment' => fn(ParseNode $n) => $o->setDisableEntraGroupPolicyAssignment($n->getBooleanValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'displayVersion' => fn(ParseNode $n) => $o->setDisplayVersion($n->getStringValue()),
             'lifecycleState' => fn(ParseNode $n) => $o->setLifecycleState($n->getEnumValue(DeviceManagementTemplateLifecycleState::class)),
@@ -205,6 +218,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
         $writer->writeBooleanValue('allowUnmanagedSettings', $this->getAllowUnmanagedSettings());
         $writer->writeStringValue('baseId', $this->getBaseId());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBooleanValue('disableEntraGroupPolicyAssignment', $this->getDisableEntraGroupPolicyAssignment());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('displayVersion', $this->getDisplayVersion());
         $writer->writeEnumValue('lifecycleState', $this->getLifecycleState());
@@ -236,6 +250,14 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the disableEntraGroupPolicyAssignment property value. Indicates whether assignments to Entra security groups is disabled
+     * @param bool|null $value Value to set for the disableEntraGroupPolicyAssignment property.
+    */
+    public function setDisableEntraGroupPolicyAssignment(?bool $value): void {
+        $this->getBackingStore()->set('disableEntraGroupPolicyAssignment', $value);
     }
 
     /**

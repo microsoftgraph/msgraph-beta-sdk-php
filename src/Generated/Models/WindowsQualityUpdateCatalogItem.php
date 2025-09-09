@@ -42,6 +42,18 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
+     * Gets the cveSeverityInformation property value. CVE information for catalog items
+     * @return WindowsQualityUpdateCveSeverityInformation|null
+    */
+    public function getCveSeverityInformation(): ?WindowsQualityUpdateCveSeverityInformation {
+        $val = $this->getBackingStore()->get('cveSeverityInformation');
+        if (is_null($val) || $val instanceof WindowsQualityUpdateCveSeverityInformation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cveSeverityInformation'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -49,6 +61,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(WindowsQualityUpdateCategory::class)),
+            'cveSeverityInformation' => fn(ParseNode $n) => $o->setCveSeverityInformation($n->getObjectValue([WindowsQualityUpdateCveSeverityInformation::class, 'createFromDiscriminatorValue'])),
             'isExpeditable' => fn(ParseNode $n) => $o->setIsExpeditable($n->getBooleanValue()),
             'kbArticleId' => fn(ParseNode $n) => $o->setKbArticleId($n->getStringValue()),
             'productRevisions' => fn(ParseNode $n) => $o->setProductRevisions($n->getCollectionOfObjectValues([WindowsQualityUpdateCatalogProductRevision::class, 'createFromDiscriminatorValue'])),
@@ -113,6 +126,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('classification', $this->getClassification());
+        $writer->writeObjectValue('cveSeverityInformation', $this->getCveSeverityInformation());
         $writer->writeBooleanValue('isExpeditable', $this->getIsExpeditable());
         $writer->writeStringValue('kbArticleId', $this->getKbArticleId());
         $writer->writeCollectionOfObjectValues('productRevisions', $this->getProductRevisions());
@@ -125,6 +139,14 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public function setClassification(?WindowsQualityUpdateCategory $value): void {
         $this->getBackingStore()->set('classification', $value);
+    }
+
+    /**
+     * Sets the cveSeverityInformation property value. CVE information for catalog items
+     * @param WindowsQualityUpdateCveSeverityInformation|null $value Value to set for the cveSeverityInformation property.
+    */
+    public function setCveSeverityInformation(?WindowsQualityUpdateCveSeverityInformation $value): void {
+        $this->getBackingStore()->set('cveSeverityInformation', $value);
     }
 
     /**

@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryHoldPolicy;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\MicrosoftGraphSecurityRetryPolicy\MicrosoftGraphSecurityRetryPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\SiteSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class EdiscoveryHoldPolicyItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the retryPolicy method.
+    */
+    public function microsoftGraphSecurityRetryPolicy(): MicrosoftGraphSecurityRetryPolicyRequestBuilder {
+        return new MicrosoftGraphSecurityRetryPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
     */

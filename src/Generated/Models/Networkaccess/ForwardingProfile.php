@@ -49,10 +49,23 @@ class ForwardingProfile extends Profile implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'associations' => fn(ParseNode $n) => $o->setAssociations($n->getCollectionOfObjectValues([Association::class, 'createFromDiscriminatorValue'])),
+            'isCustomProfile' => fn(ParseNode $n) => $o->setIsCustomProfile($n->getBooleanValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
             'servicePrincipal' => fn(ParseNode $n) => $o->setServicePrincipal($n->getObjectValue([ServicePrincipal::class, 'createFromDiscriminatorValue'])),
             'trafficForwardingType' => fn(ParseNode $n) => $o->setTrafficForwardingType($n->getEnumValue(TrafficForwardingType::class)),
         ]);
+    }
+
+    /**
+     * Gets the isCustomProfile property value. The isCustomProfile property
+     * @return bool|null
+    */
+    public function getIsCustomProfile(): ?bool {
+        $val = $this->getBackingStore()->get('isCustomProfile');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isCustomProfile'");
     }
 
     /**
@@ -98,6 +111,7 @@ class ForwardingProfile extends Profile implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('associations', $this->getAssociations());
+        $writer->writeBooleanValue('isCustomProfile', $this->getIsCustomProfile());
         $writer->writeIntegerValue('priority', $this->getPriority());
         $writer->writeObjectValue('servicePrincipal', $this->getServicePrincipal());
         $writer->writeEnumValue('trafficForwardingType', $this->getTrafficForwardingType());
@@ -109,6 +123,14 @@ class ForwardingProfile extends Profile implements Parsable
     */
     public function setAssociations(?array $value): void {
         $this->getBackingStore()->set('associations', $value);
+    }
+
+    /**
+     * Sets the isCustomProfile property value. The isCustomProfile property
+     * @param bool|null $value Value to set for the isCustomProfile property.
+    */
+    public function setIsCustomProfile(?bool $value): void {
+        $this->getBackingStore()->set('isCustomProfile', $value);
     }
 
     /**
