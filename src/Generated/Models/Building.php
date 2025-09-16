@@ -34,6 +34,7 @@ class Building extends Place implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'hasWiFi' => fn(ParseNode $n) => $o->setHasWiFi($n->getBooleanValue()),
+            'map' => fn(ParseNode $n) => $o->setMap($n->getObjectValue([BuildingMap::class, 'createFromDiscriminatorValue'])),
             'resourceLinks' => fn(ParseNode $n) => $o->setResourceLinks($n->getCollectionOfObjectValues([ResourceLink::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -48,6 +49,18 @@ class Building extends Place implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hasWiFi'");
+    }
+
+    /**
+     * Gets the map property value. Map file associated with a building in Places. This object is the IMDF-format representation of building.geojson.
+     * @return BuildingMap|null
+    */
+    public function getMap(): ?BuildingMap {
+        $val = $this->getBackingStore()->get('map');
+        if (is_null($val) || $val instanceof BuildingMap) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'map'");
     }
 
     /**
@@ -71,6 +84,7 @@ class Building extends Place implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('hasWiFi', $this->getHasWiFi());
+        $writer->writeObjectValue('map', $this->getMap());
         $writer->writeCollectionOfObjectValues('resourceLinks', $this->getResourceLinks());
     }
 
@@ -80,6 +94,14 @@ class Building extends Place implements Parsable
     */
     public function setHasWiFi(?bool $value): void {
         $this->getBackingStore()->set('hasWiFi', $value);
+    }
+
+    /**
+     * Sets the map property value. Map file associated with a building in Places. This object is the IMDF-format representation of building.geojson.
+     * @param BuildingMap|null $value Value to set for the map property.
+    */
+    public function setMap(?BuildingMap $value): void {
+        $this->getBackingStore()->set('map', $value);
     }
 
     /**

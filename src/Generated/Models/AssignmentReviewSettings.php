@@ -91,6 +91,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
             'accessReviewTimeoutBehavior' => fn(ParseNode $n) => $o->setAccessReviewTimeoutBehavior($n->getEnumValue(AccessReviewTimeoutBehavior::class)),
             'durationInDays' => fn(ParseNode $n) => $o->setDurationInDays($n->getIntegerValue()),
             'isAccessRecommendationEnabled' => fn(ParseNode $n) => $o->setIsAccessRecommendationEnabled($n->getBooleanValue()),
+            'isAgenticExperienceEnabled' => fn(ParseNode $n) => $o->setIsAgenticExperienceEnabled($n->getBooleanValue()),
             'isApprovalJustificationRequired' => fn(ParseNode $n) => $o->setIsApprovalJustificationRequired($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -111,6 +112,18 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isAccessRecommendationEnabled'");
+    }
+
+    /**
+     * Gets the isAgenticExperienceEnabled property value. The isAgenticExperienceEnabled property
+     * @return bool|null
+    */
+    public function getIsAgenticExperienceEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isAgenticExperienceEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isAgenticExperienceEnabled'");
     }
 
     /**
@@ -207,6 +220,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
         $writer->writeEnumValue('accessReviewTimeoutBehavior', $this->getAccessReviewTimeoutBehavior());
         $writer->writeIntegerValue('durationInDays', $this->getDurationInDays());
         $writer->writeBooleanValue('isAccessRecommendationEnabled', $this->getIsAccessRecommendationEnabled());
+        $writer->writeBooleanValue('isAgenticExperienceEnabled', $this->getIsAgenticExperienceEnabled());
         $writer->writeBooleanValue('isApprovalJustificationRequired', $this->getIsApprovalJustificationRequired());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -255,6 +269,14 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
     */
     public function setIsAccessRecommendationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isAccessRecommendationEnabled', $value);
+    }
+
+    /**
+     * Sets the isAgenticExperienceEnabled property value. The isAgenticExperienceEnabled property
+     * @param bool|null $value Value to set for the isAgenticExperienceEnabled property.
+    */
+    public function setIsAgenticExperienceEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isAgenticExperienceEnabled', $value);
     }
 
     /**

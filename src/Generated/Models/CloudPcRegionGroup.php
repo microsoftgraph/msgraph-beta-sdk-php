@@ -30,4 +30,23 @@ class CloudPcRegionGroup extends Enum {
     public const MEXICO = "mexico";
     public const AUSTRALASIA = "australasia";
     public const EUROPE = "europe";
+    public const SINGAPORE = "singapore";
+    public const HONG_KONG = "hongKong";
+    public const IRELAND = "ireland";
+    public const SWEDEN = "sweden";
+    public const POLAND = "poland";
+    public const ITALY = "italy";
+    public const SPAIN = "spain";
+    public const NETHERLANDS = "netherlands";
+    public const BRAZIL = "brazil";
+    public const ISRAEL = "israel";
+    public const AUTOMATIC = "automatic";
+    public const INDONESIA = "indonesia";
+    public const TAIWAN = "taiwan";
+    public const MALAYSIA = "malaysia";
+    public const NEW_ZEALAND = "newZealand";
+    public const AUSTRIA = "austria";
+    public const DENMARK = "denmark";
+    public const BELGIUM = "belgium";
+    public const KENYA = "kenya";
 }

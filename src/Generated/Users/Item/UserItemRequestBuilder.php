@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\User;
 use Microsoft\Graph\Beta\Generated\Users\Item\Activities\ActivitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AdhocCalls\AdhocCallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AgreementAcceptances\AgreementAcceptancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\AppConsentRequestsForApprovalRequestBuilder;
@@ -139,6 +140,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the adhocCalls property of the microsoft.graph.user entity.
+    */
+    public function adhocCalls(): AdhocCallsRequestBuilder {
+        return new AdhocCallsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

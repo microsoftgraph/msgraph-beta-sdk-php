@@ -13,4 +13,6 @@ class AlertRuleTemplate extends Enum {
     public const CLOUD_PC_FRONTLINE_INSUFFICIENT_LICENSES_SCENARIO = "cloudPcFrontlineInsufficientLicensesScenario";
     public const CLOUD_PC_INACCESSIBLE_SCENARIO = "cloudPcInaccessibleScenario";
     public const CLOUD_PC_FRONTLINE_CONCURRENCY_SCENARIO = "cloudPcFrontlineConcurrencyScenario";
+    public const CLOUD_PC_USER_SETTINGS_PERSISTENCE_SCENARIO = "cloudPcUserSettingsPersistenceScenario";
+    public const CLOUD_PC_DEPROVISION_FAILED_SCENARIO = "cloudPcDeprovisionFailedScenario";
 }

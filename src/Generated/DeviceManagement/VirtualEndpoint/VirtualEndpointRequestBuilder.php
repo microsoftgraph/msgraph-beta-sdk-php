@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\Cl
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\CloudPCsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CrossCloudGovernmentOrganizationMapping\CrossCloudGovernmentOrganizationMappingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\DeviceImagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\ExternalPartnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\ExternalPartnerSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\FrontLineServicePlans\FrontLineServicePlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\GalleryImagesRequestBuilder;
@@ -76,6 +77,13 @@ class VirtualEndpointRequestBuilder extends BaseRequestBuilder
     */
     public function deviceImages(): DeviceImagesRequestBuilder {
         return new DeviceImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the externalPartners property of the microsoft.graph.virtualEndpoint entity.
+    */
+    public function externalPartners(): ExternalPartnersRequestBuilder {
+        return new ExternalPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

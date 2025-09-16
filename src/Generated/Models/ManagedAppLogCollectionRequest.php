@@ -50,10 +50,8 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
             'managedAppRegistrationId' => fn(ParseNode $n) => $o->setManagedAppRegistrationId($n->getStringValue()),
-            'requestedBy' => fn(ParseNode $n) => $o->setRequestedBy($n->getStringValue()),
             'requestedByUserPrincipalName' => fn(ParseNode $n) => $o->setRequestedByUserPrincipalName($n->getStringValue()),
             'requestedDateTime' => fn(ParseNode $n) => $o->setRequestedDateTime($n->getDateTimeValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
             'uploadedLogs' => fn(ParseNode $n) => $o->setUploadedLogs($n->getCollectionOfObjectValues([ManagedAppLogUpload::class, 'createFromDiscriminatorValue'])),
             'userLogUploadConsent' => fn(ParseNode $n) => $o->setUserLogUploadConsent($n->getEnumValue(ManagedAppLogUploadConsent::class)),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
@@ -70,18 +68,6 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'managedAppRegistrationId'");
-    }
-
-    /**
-     * Gets the requestedBy property value. The user principal name associated with the request for the managed application log collection. Read-only.
-     * @return string|null
-    */
-    public function getRequestedBy(): ?string {
-        $val = $this->getBackingStore()->get('requestedBy');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'requestedBy'");
     }
 
     /**
@@ -106,18 +92,6 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'requestedDateTime'");
-    }
-
-    /**
-     * Gets the status property value. Indicates the status for the app log collection request - pending, completed or failed. Default is pending.
-     * @return string|null
-    */
-    public function getStatus(): ?string {
-        $val = $this->getBackingStore()->get('status');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'status'");
     }
 
     /**
@@ -166,10 +140,8 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('completedDateTime', $this->getCompletedDateTime());
         $writer->writeStringValue('managedAppRegistrationId', $this->getManagedAppRegistrationId());
-        $writer->writeStringValue('requestedBy', $this->getRequestedBy());
         $writer->writeStringValue('requestedByUserPrincipalName', $this->getRequestedByUserPrincipalName());
         $writer->writeDateTimeValue('requestedDateTime', $this->getRequestedDateTime());
-        $writer->writeStringValue('status', $this->getStatus());
         $writer->writeCollectionOfObjectValues('uploadedLogs', $this->getUploadedLogs());
         $writer->writeEnumValue('userLogUploadConsent', $this->getUserLogUploadConsent());
         $writer->writeStringValue('version', $this->getVersion());
@@ -192,14 +164,6 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestedBy property value. The user principal name associated with the request for the managed application log collection. Read-only.
-     * @param string|null $value Value to set for the requestedBy property.
-    */
-    public function setRequestedBy(?string $value): void {
-        $this->getBackingStore()->set('requestedBy', $value);
-    }
-
-    /**
      * Sets the requestedByUserPrincipalName property value. The user principal name associated with the request for the managed application log collection. Read-only.
      * @param string|null $value Value to set for the requestedByUserPrincipalName property.
     */
@@ -213,14 +177,6 @@ class ManagedAppLogCollectionRequest extends Entity implements Parsable
     */
     public function setRequestedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('requestedDateTime', $value);
-    }
-
-    /**
-     * Sets the status property value. Indicates the status for the app log collection request - pending, completed or failed. Default is pending.
-     * @param string|null $value Value to set for the status property.
-    */
-    public function setStatus(?string $value): void {
-        $this->getBackingStore()->set('status', $value);
     }
 
     /**

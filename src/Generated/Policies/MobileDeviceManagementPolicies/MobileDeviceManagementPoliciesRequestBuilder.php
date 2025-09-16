@@ -4,11 +4,11 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicy;
-use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\MobileDeviceManagementPolicy;
+use Microsoft\Graph\Beta\Generated\Models\MobileDeviceManagementPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobileDeviceManagementPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -28,13 +28,13 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the mobileDeviceManagementPolicies property of the microsoft.graph.policyRoot entity.
-     * @param string $mobilityManagementPolicyId The unique identifier of mobilityManagementPolicy
-     * @return MobilityManagementPolicyItemRequestBuilder
+     * @param string $mobileDeviceManagementPolicyId The unique identifier of mobileDeviceManagementPolicy
+     * @return MobileDeviceManagementPolicyItemRequestBuilder
     */
-    public function byMobilityManagementPolicyId(string $mobilityManagementPolicyId): MobilityManagementPolicyItemRequestBuilder {
+    public function byMobileDeviceManagementPolicyId(string $mobileDeviceManagementPolicyId): MobileDeviceManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobilityManagementPolicy%2Did'] = $mobilityManagementPolicyId;
-        return new MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['mobileDeviceManagementPolicy%2Did'] = $mobileDeviceManagementPolicyId;
+        return new MobileDeviceManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -54,7 +54,7 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Get a list of the mobilityManagementPolicy objects and their properties.
      * @param MobileDeviceManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<MobilityManagementPolicyCollectionResponse|null>
+     * @return Promise<MobileDeviceManagementPolicyCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-list?view=graph-rest-beta Find more info here
     */
@@ -63,22 +63,22 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [MobilityManagementPolicyCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [MobileDeviceManagementPolicyCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create new navigation property to mobileDeviceManagementPolicies for policies
-     * @param MobilityManagementPolicy $body The request body
+     * @param MobileDeviceManagementPolicy $body The request body
      * @param MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<MobilityManagementPolicy|null>
+     * @return Promise<MobileDeviceManagementPolicy|null>
      * @throws Exception
     */
-    public function post(MobilityManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MobileDeviceManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [MobilityManagementPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [MobileDeviceManagementPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -104,11 +104,11 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create new navigation property to mobileDeviceManagementPolicies for policies
-     * @param MobilityManagementPolicy $body The request body
+     * @param MobileDeviceManagementPolicy $body The request body
      * @param MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MobilityManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MobileDeviceManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

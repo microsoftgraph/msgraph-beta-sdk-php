@@ -64,7 +64,20 @@ class AuthenticationMethod extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'lastUsedDateTime' => fn(ParseNode $n) => $o->setLastUsedDateTime($n->getDateTimeValue()),
         ]);
+    }
+
+    /**
+     * Gets the lastUsedDateTime property value. The lastUsedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastUsedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastUsedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUsedDateTime'");
     }
 
     /**
@@ -74,6 +87,7 @@ class AuthenticationMethod extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('lastUsedDateTime', $this->getLastUsedDateTime());
     }
 
     /**
@@ -82,6 +96,14 @@ class AuthenticationMethod extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the lastUsedDateTime property value. The lastUsedDateTime property
+     * @param DateTime|null $value Value to set for the lastUsedDateTime property.
+    */
+    public function setLastUsedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUsedDateTime', $value);
     }
 
 }

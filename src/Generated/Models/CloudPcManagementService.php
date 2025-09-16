@@ -9,4 +9,6 @@ class CloudPcManagementService extends Enum {
     public const DEV_BOX = "devBox";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const RPA_BOX = "rpaBox";
+    public const MICROSOFT365_OPAL = "microsoft365Opal";
+    public const MICROSOFT365_BIZ_CHAT = "microsoft365BizChat";
 }
