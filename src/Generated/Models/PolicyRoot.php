@@ -156,6 +156,20 @@ class PolicyRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
+     * @return array<ConditionalAccessPolicy>|null
+    */
+    public function getConditionalAccessPolicies(): ?array {
+        $val = $this->getBackingStore()->get('conditionalAccessPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConditionalAccessPolicy::class);
+            /** @var array<ConditionalAccessPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'conditionalAccessPolicies'");
+    }
+
+    /**
      * Gets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.
      * @return CrossTenantAccessPolicy|null
     */
@@ -177,6 +191,18 @@ class PolicyRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'defaultAppManagementPolicy'");
+    }
+
+    /**
+     * Gets the deletedItems property value. Policies that support soft-delete functionality and can be restored within 30 days.
+     * @return PolicyDeletableRoot|null
+    */
+    public function getDeletedItems(): ?PolicyDeletableRoot {
+        $val = $this->getBackingStore()->get('deletedItems');
+        if (is_null($val) || $val instanceof PolicyDeletableRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedItems'");
     }
 
     /**
@@ -258,8 +284,10 @@ class PolicyRoot extends Entity implements Parsable
             'authorizationPolicy' => fn(ParseNode $n) => $o->setAuthorizationPolicy($n->getCollectionOfObjectValues([AuthorizationPolicy::class, 'createFromDiscriminatorValue'])),
             'b2cAuthenticationMethodsPolicy' => fn(ParseNode $n) => $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue([B2cAuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'])),
             'claimsMappingPolicies' => fn(ParseNode $n) => $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues([ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'])),
+            'conditionalAccessPolicies' => fn(ParseNode $n) => $o->setConditionalAccessPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'crossTenantAccessPolicy' => fn(ParseNode $n) => $o->setCrossTenantAccessPolicy($n->getObjectValue([CrossTenantAccessPolicy::class, 'createFromDiscriminatorValue'])),
             'defaultAppManagementPolicy' => fn(ParseNode $n) => $o->setDefaultAppManagementPolicy($n->getObjectValue([TenantAppManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getObjectValue([PolicyDeletableRoot::class, 'createFromDiscriminatorValue'])),
             'deviceRegistrationPolicy' => fn(ParseNode $n) => $o->setDeviceRegistrationPolicy($n->getObjectValue([DeviceRegistrationPolicy::class, 'createFromDiscriminatorValue'])),
             'directoryRoleAccessReviewPolicy' => fn(ParseNode $n) => $o->setDirectoryRoleAccessReviewPolicy($n->getObjectValue([DirectoryRoleAccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
             'externalIdentitiesPolicy' => fn(ParseNode $n) => $o->setExternalIdentitiesPolicy($n->getObjectValue([ExternalIdentitiesPolicy::class, 'createFromDiscriminatorValue'])),
@@ -267,8 +295,8 @@ class PolicyRoot extends Entity implements Parsable
             'federatedTokenValidationPolicy' => fn(ParseNode $n) => $o->setFederatedTokenValidationPolicy($n->getObjectValue([FederatedTokenValidationPolicy::class, 'createFromDiscriminatorValue'])),
             'homeRealmDiscoveryPolicies' => fn(ParseNode $n) => $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues([HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'])),
             'identitySecurityDefaultsEnforcementPolicy' => fn(ParseNode $n) => $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue([IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'])),
-            'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
-            'mobileDeviceManagementPolicies' => fn(ParseNode $n) => $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobileAppManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'mobileDeviceManagementPolicies' => fn(ParseNode $n) => $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues([MobileDeviceManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'permissionGrantPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues([PermissionGrantPolicy::class, 'createFromDiscriminatorValue'])),
             'permissionGrantPreApprovalPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPreApprovalPolicies($n->getCollectionOfObjectValues([PermissionGrantPreApprovalPolicy::class, 'createFromDiscriminatorValue'])),
             'roleManagementPolicies' => fn(ParseNode $n) => $o->setRoleManagementPolicies($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'])),
@@ -307,13 +335,13 @@ class PolicyRoot extends Entity implements Parsable
 
     /**
      * Gets the mobileAppManagementPolicies property value. The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
-     * @return array<MobilityManagementPolicy>|null
+     * @return array<MobileAppManagementPolicy>|null
     */
     public function getMobileAppManagementPolicies(): ?array {
         $val = $this->getBackingStore()->get('mobileAppManagementPolicies');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, MobilityManagementPolicy::class);
-            /** @var array<MobilityManagementPolicy>|null $val */
+            TypeUtils::validateCollectionValues($val, MobileAppManagementPolicy::class);
+            /** @var array<MobileAppManagementPolicy>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileAppManagementPolicies'");
@@ -321,13 +349,13 @@ class PolicyRoot extends Entity implements Parsable
 
     /**
      * Gets the mobileDeviceManagementPolicies property value. The mobileDeviceManagementPolicies property
-     * @return array<MobilityManagementPolicy>|null
+     * @return array<MobileDeviceManagementPolicy>|null
     */
     public function getMobileDeviceManagementPolicies(): ?array {
         $val = $this->getBackingStore()->get('mobileDeviceManagementPolicies');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, MobilityManagementPolicy::class);
-            /** @var array<MobilityManagementPolicy>|null $val */
+            TypeUtils::validateCollectionValues($val, MobileDeviceManagementPolicy::class);
+            /** @var array<MobileDeviceManagementPolicy>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileDeviceManagementPolicies'");
@@ -447,8 +475,10 @@ class PolicyRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('authorizationPolicy', $this->getAuthorizationPolicy());
         $writer->writeObjectValue('b2cAuthenticationMethodsPolicy', $this->getB2cAuthenticationMethodsPolicy());
         $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->getClaimsMappingPolicies());
+        $writer->writeCollectionOfObjectValues('conditionalAccessPolicies', $this->getConditionalAccessPolicies());
         $writer->writeObjectValue('crossTenantAccessPolicy', $this->getCrossTenantAccessPolicy());
         $writer->writeObjectValue('defaultAppManagementPolicy', $this->getDefaultAppManagementPolicy());
+        $writer->writeObjectValue('deletedItems', $this->getDeletedItems());
         $writer->writeObjectValue('deviceRegistrationPolicy', $this->getDeviceRegistrationPolicy());
         $writer->writeObjectValue('directoryRoleAccessReviewPolicy', $this->getDirectoryRoleAccessReviewPolicy());
         $writer->writeObjectValue('externalIdentitiesPolicy', $this->getExternalIdentitiesPolicy());
@@ -548,6 +578,14 @@ class PolicyRoot extends Entity implements Parsable
     }
 
     /**
+     * Sets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
+     * @param array<ConditionalAccessPolicy>|null $value Value to set for the conditionalAccessPolicies property.
+    */
+    public function setConditionalAccessPolicies(?array $value): void {
+        $this->getBackingStore()->set('conditionalAccessPolicies', $value);
+    }
+
+    /**
      * Sets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.
      * @param CrossTenantAccessPolicy|null $value Value to set for the crossTenantAccessPolicy property.
     */
@@ -561,6 +599,14 @@ class PolicyRoot extends Entity implements Parsable
     */
     public function setDefaultAppManagementPolicy(?TenantAppManagementPolicy $value): void {
         $this->getBackingStore()->set('defaultAppManagementPolicy', $value);
+    }
+
+    /**
+     * Sets the deletedItems property value. Policies that support soft-delete functionality and can be restored within 30 days.
+     * @param PolicyDeletableRoot|null $value Value to set for the deletedItems property.
+    */
+    public function setDeletedItems(?PolicyDeletableRoot $value): void {
+        $this->getBackingStore()->set('deletedItems', $value);
     }
 
     /**
@@ -621,7 +667,7 @@ class PolicyRoot extends Entity implements Parsable
 
     /**
      * Sets the mobileAppManagementPolicies property value. The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.
-     * @param array<MobilityManagementPolicy>|null $value Value to set for the mobileAppManagementPolicies property.
+     * @param array<MobileAppManagementPolicy>|null $value Value to set for the mobileAppManagementPolicies property.
     */
     public function setMobileAppManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('mobileAppManagementPolicies', $value);
@@ -629,7 +675,7 @@ class PolicyRoot extends Entity implements Parsable
 
     /**
      * Sets the mobileDeviceManagementPolicies property value. The mobileDeviceManagementPolicies property
-     * @param array<MobilityManagementPolicy>|null $value Value to set for the mobileDeviceManagementPolicies property.
+     * @param array<MobileDeviceManagementPolicy>|null $value Value to set for the mobileDeviceManagementPolicies property.
     */
     public function setMobileDeviceManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('mobileDeviceManagementPolicies', $value);

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversatio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of structured question-and-answer (Q&A) thread in Teams directly associated with online meetings.
+ * A collection of structured question-and-answer (Q&A) threads in Teams directly associated with online meetings.
 */
 class OnlineMeetingEngagementConversationItemRequestBuilderGetQueryParameters 
 {

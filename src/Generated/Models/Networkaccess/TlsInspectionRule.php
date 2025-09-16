@@ -52,7 +52,7 @@ class TlsInspectionRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Gets the matchingConditions property value. The matchingConditions property
+     * Gets the matchingConditions property value. The conditions that determine when this rule should be applied to traffic.
      * @return TlsInspectionMatchingConditions|null
     */
     public function getMatchingConditions(): ?TlsInspectionMatchingConditions {
@@ -108,7 +108,7 @@ class TlsInspectionRule extends PolicyRule implements Parsable
     }
 
     /**
-     * Sets the matchingConditions property value. The matchingConditions property
+     * Sets the matchingConditions property value. The conditions that determine when this rule should be applied to traffic.
      * @param TlsInspectionMatchingConditions|null $value Value to set for the matchingConditions property.
     */
     public function setMatchingConditions(?TlsInspectionMatchingConditions $value): void {

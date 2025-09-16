@@ -152,6 +152,7 @@ class CloudPC extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'frontlineCloudPcAvailability' => fn(ParseNode $n) => $o->setFrontlineCloudPcAvailability($n->getEnumValue(FrontlineCloudPcAvailability::class)),
             'gracePeriodEndDateTime' => fn(ParseNode $n) => $o->setGracePeriodEndDateTime($n->getDateTimeValue()),
+            'groupDetail' => fn(ParseNode $n) => $o->setGroupDetail($n->getObjectValue([CloudPcEntraGroupDetail::class, 'createFromDiscriminatorValue'])),
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
             'lastLoginResult' => fn(ParseNode $n) => $o->setLastLoginResult($n->getObjectValue([CloudPcLoginResult::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -183,6 +184,7 @@ class CloudPC extends Entity implements Parsable
             'statusDetail' => fn(ParseNode $n) => $o->setStatusDetail($n->getObjectValue([CloudPcStatusDetail::class, 'createFromDiscriminatorValue'])),
             'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getObjectValue([CloudPcStatusDetails::class, 'createFromDiscriminatorValue'])),
             'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
+            'userDetail' => fn(ParseNode $n) => $o->setUserDetail($n->getObjectValue([CloudPcEntraUserDetail::class, 'createFromDiscriminatorValue'])),
             'userExperienceType' => fn(ParseNode $n) => $o->setUserExperienceType($n->getEnumValue(CloudPcUserExperienceType::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
@@ -210,6 +212,18 @@ class CloudPC extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'gracePeriodEndDateTime'");
+    }
+
+    /**
+     * Gets the groupDetail property value. The Microsoft Entra group details (for example, ID and display name) for the Entra ID group associated with the user's Reserve Cloud PC assignment. Read-only.
+     * @return CloudPcEntraGroupDetail|null
+    */
+    public function getGroupDetail(): ?CloudPcEntraGroupDetail {
+        $val = $this->getBackingStore()->get('groupDetail');
+        if (is_null($val) || $val instanceof CloudPcEntraGroupDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupDetail'");
     }
 
     /**
@@ -505,6 +519,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the userDetail property value. The user details (for example, ID and display name) for the user associated with a Reserve Cloud PC assignment. Read-only.
+     * @return CloudPcEntraUserDetail|null
+    */
+    public function getUserDetail(): ?CloudPcEntraUserDetail {
+        $val = $this->getBackingStore()->get('userDetail');
+        if (is_null($val) || $val instanceof CloudPcEntraUserDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userDetail'");
+    }
+
+    /**
      * Gets the userExperienceType property value. Specifies the type of cloud object the end user can access. The possible values are: cloudPc, cloudApp, unknownFutureValue. When set to cloudPc, it indicates that the end user can access the entire desktop. When set to cloudApp, it indicates that the end user can only access cloud apps published under the associated provisioning policy. Since the cloud app experience also creates Cloud PC devices that appear in the Cloud PC device list, this property helps differentiate them. The default value is cloudPc. This property is defined in the provisioning policy.
      * @return CloudPcUserExperienceType|null
     */
@@ -545,6 +571,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeEnumValue('frontlineCloudPcAvailability', $this->getFrontlineCloudPcAvailability());
         $writer->writeDateTimeValue('gracePeriodEndDateTime', $this->getGracePeriodEndDateTime());
+        $writer->writeObjectValue('groupDetail', $this->getGroupDetail());
         $writer->writeStringValue('imageDisplayName', $this->getImageDisplayName());
         $writer->writeObjectValue('lastLoginResult', $this->getLastLoginResult());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
@@ -569,6 +596,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeObjectValue('statusDetail', $this->getStatusDetail());
         $writer->writeObjectValue('statusDetails', $this->getStatusDetails());
         $writer->writeEnumValue('userAccountType', $this->getUserAccountType());
+        $writer->writeObjectValue('userDetail', $this->getUserDetail());
         $writer->writeEnumValue('userExperienceType', $this->getUserExperienceType());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
@@ -659,6 +687,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setGracePeriodEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('gracePeriodEndDateTime', $value);
+    }
+
+    /**
+     * Sets the groupDetail property value. The Microsoft Entra group details (for example, ID and display name) for the Entra ID group associated with the user's Reserve Cloud PC assignment. Read-only.
+     * @param CloudPcEntraGroupDetail|null $value Value to set for the groupDetail property.
+    */
+    public function setGroupDetail(?CloudPcEntraGroupDetail $value): void {
+        $this->getBackingStore()->set('groupDetail', $value);
     }
 
     /**
@@ -851,6 +887,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setUserAccountType(?CloudPcUserAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
+    }
+
+    /**
+     * Sets the userDetail property value. The user details (for example, ID and display name) for the user associated with a Reserve Cloud PC assignment. Read-only.
+     * @param CloudPcEntraUserDetail|null $value Value to set for the userDetail property.
+    */
+    public function setUserDetail(?CloudPcEntraUserDetail $value): void {
+        $this->getBackingStore()->set('userDetail', $value);
     }
 
     /**

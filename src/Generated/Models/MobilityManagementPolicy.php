@@ -22,6 +22,14 @@ class MobilityManagementPolicy extends Entity implements Parsable
      * @return MobilityManagementPolicy
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MobilityManagementPolicy {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.mobileAppManagementPolicy': return new MobileAppManagementPolicy();
+                case '#microsoft.graph.mobileDeviceManagementPolicy': return new MobileDeviceManagementPolicy();
+            }
+        }
         return new MobilityManagementPolicy();
     }
 

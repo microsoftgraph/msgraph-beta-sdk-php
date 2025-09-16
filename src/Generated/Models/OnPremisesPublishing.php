@@ -131,6 +131,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             'internalUrl' => fn(ParseNode $n) => $o->setInternalUrl($n->getStringValue()),
             'isAccessibleViaZTNAClient' => fn(ParseNode $n) => $o->setIsAccessibleViaZTNAClient($n->getBooleanValue()),
             'isBackendCertificateValidationEnabled' => fn(ParseNode $n) => $o->setIsBackendCertificateValidationEnabled($n->getBooleanValue()),
+            'isContinuousAccessEvaluationEnabled' => fn(ParseNode $n) => $o->setIsContinuousAccessEvaluationEnabled($n->getBooleanValue()),
             'isDnsResolutionEnabled' => fn(ParseNode $n) => $o->setIsDnsResolutionEnabled($n->getBooleanValue()),
             'isHttpOnlyCookieEnabled' => fn(ParseNode $n) => $o->setIsHttpOnlyCookieEnabled($n->getBooleanValue()),
             'isOnPremPublishingEnabled' => fn(ParseNode $n) => $o->setIsOnPremPublishingEnabled($n->getBooleanValue()),
@@ -187,6 +188,18 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isBackendCertificateValidationEnabled'");
+    }
+
+    /**
+     * Gets the isContinuousAccessEvaluationEnabled property value. Indicates whether continuous access evaluation is enabled for Application Proxy application. For all Application Proxy apps, the property is set to true by default.
+     * @return bool|null
+    */
+    public function getIsContinuousAccessEvaluationEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isContinuousAccessEvaluationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isContinuousAccessEvaluationEnabled'");
     }
 
     /**
@@ -434,6 +447,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeStringValue('internalUrl', $this->getInternalUrl());
         $writer->writeBooleanValue('isAccessibleViaZTNAClient', $this->getIsAccessibleViaZTNAClient());
         $writer->writeBooleanValue('isBackendCertificateValidationEnabled', $this->getIsBackendCertificateValidationEnabled());
+        $writer->writeBooleanValue('isContinuousAccessEvaluationEnabled', $this->getIsContinuousAccessEvaluationEnabled());
         $writer->writeBooleanValue('isDnsResolutionEnabled', $this->getIsDnsResolutionEnabled());
         $writer->writeBooleanValue('isHttpOnlyCookieEnabled', $this->getIsHttpOnlyCookieEnabled());
         $writer->writeBooleanValue('isOnPremPublishingEnabled', $this->getIsOnPremPublishingEnabled());
@@ -534,6 +548,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setIsBackendCertificateValidationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isBackendCertificateValidationEnabled', $value);
+    }
+
+    /**
+     * Sets the isContinuousAccessEvaluationEnabled property value. Indicates whether continuous access evaluation is enabled for Application Proxy application. For all Application Proxy apps, the property is set to true by default.
+     * @param bool|null $value Value to set for the isContinuousAccessEvaluationEnabled property.
+    */
+    public function setIsContinuousAccessEvaluationEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isContinuousAccessEvaluationEnabled', $value);
     }
 
     /**

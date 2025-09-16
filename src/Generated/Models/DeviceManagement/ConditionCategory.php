@@ -16,4 +16,7 @@ class ConditionCategory extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const FRONTLINE_BUFFER_USAGE_DURATION = "frontlineBufferUsageDuration";
     public const FRONTLINE_BUFFER_USAGE_THRESHOLD = "frontlineBufferUsageThreshold";
+    public const CLOUD_PC_USER_SETTINGS_PERSISTENCE_USAGE_THRESHOLD = "cloudPcUserSettingsPersistenceUsageThreshold";
+    public const CLOUD_PC_DEPROVISIONED_THRESHOLD = "cloudPcDeprovisionedThreshold";
+    public const CLOUD_PC_RESERVE_DEPROVISION_FAILED_THRESHOLD = "cloudPcReserveDeprovisionFailedThreshold";
 }

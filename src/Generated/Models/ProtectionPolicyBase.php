@@ -60,7 +60,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The time of creation of the policy.
+     * Gets the createdDateTime property value. The date and time when the policy was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -94,11 +94,25 @@ class ProtectionPolicyBase extends Entity implements Parsable
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'protectionPolicyArtifactCount' => fn(ParseNode $n) => $o->setProtectionPolicyArtifactCount($n->getObjectValue([ProtectionPolicyArtifactCount::class, 'createFromDiscriminatorValue'])),
             'retentionSettings' => fn(ParseNode $n) => $o->setRetentionSettings($n->getCollectionOfObjectValues([RetentionSetting::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ProtectionPolicyStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the isEnabled property value. Indicates whether the policy is enabled.
+     * @return bool|null
+    */
+    public function getIsEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEnabled'");
     }
 
     /**
@@ -114,7 +128,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The timestamp of the last modification of the policy.
+     * Gets the lastModifiedDateTime property value. The date and time when the policy was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -123,6 +137,18 @@ class ProtectionPolicyBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Returned only on $select.
+     * @return ProtectionPolicyArtifactCount|null
+    */
+    public function getProtectionPolicyArtifactCount(): ?ProtectionPolicyArtifactCount {
+        $val = $this->getBackingStore()->get('protectionPolicyArtifactCount');
+        if (is_null($val) || $val instanceof ProtectionPolicyArtifactCount) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protectionPolicyArtifactCount'");
     }
 
     /**
@@ -161,8 +187,10 @@ class ProtectionPolicyBase extends Entity implements Parsable
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('protectionPolicyArtifactCount', $this->getProtectionPolicyArtifactCount());
         $writer->writeCollectionOfObjectValues('retentionSettings', $this->getRetentionSettings());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -184,7 +212,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The time of creation of the policy.
+     * Sets the createdDateTime property value. The date and time when the policy was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -200,6 +228,14 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
+     * Sets the isEnabled property value. Indicates whether the policy is enabled.
+     * @param bool|null $value Value to set for the isEnabled property.
+    */
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
+    }
+
+    /**
      * Sets the lastModifiedBy property value. The identity of the person who last modified the policy.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
@@ -208,11 +244,19 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The timestamp of the last modification of the policy.
+     * Sets the lastModifiedDateTime property value. The date and time when the policy was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Returned only on $select.
+     * @param ProtectionPolicyArtifactCount|null $value Value to set for the protectionPolicyArtifactCount property.
+    */
+    public function setProtectionPolicyArtifactCount(?ProtectionPolicyArtifactCount $value): void {
+        $this->getBackingStore()->set('protectionPolicyArtifactCount', $value);
     }
 
     /**

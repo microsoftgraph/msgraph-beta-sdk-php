@@ -75,12 +75,25 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
         $o = $this;
         return  [
             'domainJoinType' => fn(ParseNode $n) => $o->setDomainJoinType($n->getEnumValue(CloudPcDomainJoinType::class)),
+            'geographicLocationType' => fn(ParseNode $n) => $o->setGeographicLocationType($n->getEnumValue(CloudPcGeographicLocationType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
             'regionGroup' => fn(ParseNode $n) => $o->setRegionGroup($n->getEnumValue(CloudPcRegionGroup::class)),
             'regionName' => fn(ParseNode $n) => $o->setRegionName($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcDomainJoinType::class)),
         ];
+    }
+
+    /**
+     * Gets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * @return CloudPcGeographicLocationType|null
+    */
+    public function getGeographicLocationType(): ?CloudPcGeographicLocationType {
+        $val = $this->getBackingStore()->get('geographicLocationType');
+        if (is_null($val) || $val instanceof CloudPcGeographicLocationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'geographicLocationType'");
     }
 
     /**
@@ -149,6 +162,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('domainJoinType', $this->getDomainJoinType());
+        $writer->writeEnumValue('geographicLocationType', $this->getGeographicLocationType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('onPremisesConnectionId', $this->getOnPremisesConnectionId());
         $writer->writeEnumValue('regionGroup', $this->getRegionGroup());
@@ -179,6 +193,14 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     */
     public function setDomainJoinType(?CloudPcDomainJoinType $value): void {
         $this->getBackingStore()->set('domainJoinType', $value);
+    }
+
+    /**
+     * Sets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * @param CloudPcGeographicLocationType|null $value Value to set for the geographicLocationType property.
+    */
+    public function setGeographicLocationType(?CloudPcGeographicLocationType $value): void {
+        $this->getBackingStore()->set('geographicLocationType', $value);
     }
 
     /**

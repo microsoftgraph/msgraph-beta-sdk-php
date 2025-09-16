@@ -68,6 +68,20 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the adhocCalls property value. Ad hoc calls associated with the user. Read-only. Nullable.
+     * @return array<AdhocCall>|null
+    */
+    public function getAdhocCalls(): ?array {
+        $val = $this->getBackingStore()->get('adhocCalls');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AdhocCall::class);
+            /** @var array<AdhocCall>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'adhocCalls'");
+    }
+
+    /**
      * Gets the ageGroup property value. Sets the age group of the user. Allowed values: null, Minor, NotAdult, and Adult. For more information, see legal age group property definitions. Supports $filter (eq, ne, not, and in).
      * @return string|null
     */
@@ -797,6 +811,7 @@ class User extends DirectoryObject implements Parsable
             'aboutMe' => fn(ParseNode $n) => $o->setAboutMe($n->getStringValue()),
             'accountEnabled' => fn(ParseNode $n) => $o->setAccountEnabled($n->getBooleanValue()),
             'activities' => fn(ParseNode $n) => $o->setActivities($n->getCollectionOfObjectValues([UserActivity::class, 'createFromDiscriminatorValue'])),
+            'adhocCalls' => fn(ParseNode $n) => $o->setAdhocCalls($n->getCollectionOfObjectValues([AdhocCall::class, 'createFromDiscriminatorValue'])),
             'ageGroup' => fn(ParseNode $n) => $o->setAgeGroup($n->getStringValue()),
             'agreementAcceptances' => fn(ParseNode $n) => $o->setAgreementAcceptances($n->getCollectionOfObjectValues([AgreementAcceptance::class, 'createFromDiscriminatorValue'])),
             'analytics' => fn(ParseNode $n) => $o->setAnalytics($n->getObjectValue([UserAnalytics::class, 'createFromDiscriminatorValue'])),
@@ -2319,6 +2334,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeStringValue('aboutMe', $this->getAboutMe());
         $writer->writeBooleanValue('accountEnabled', $this->getAccountEnabled());
         $writer->writeCollectionOfObjectValues('activities', $this->getActivities());
+        $writer->writeCollectionOfObjectValues('adhocCalls', $this->getAdhocCalls());
         $writer->writeStringValue('ageGroup', $this->getAgeGroup());
         $writer->writeCollectionOfObjectValues('agreementAcceptances', $this->getAgreementAcceptances());
         $writer->writeObjectValue('analytics', $this->getAnalytics());
@@ -2499,6 +2515,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setActivities(?array $value): void {
         $this->getBackingStore()->set('activities', $value);
+    }
+
+    /**
+     * Sets the adhocCalls property value. Ad hoc calls associated with the user. Read-only. Nullable.
+     * @param array<AdhocCall>|null $value Value to set for the adhocCalls property.
+    */
+    public function setAdhocCalls(?array $value): void {
+        $this->getBackingStore()->set('adhocCalls', $value);
     }
 
     /**

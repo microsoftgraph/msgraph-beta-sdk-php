@@ -117,7 +117,6 @@ use Microsoft\Graph\Beta\Generated\Models\RoleDefinition;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTag;
 use Microsoft\Graph\Beta\Generated\Models\ServiceNowConnection;
 use Microsoft\Graph\Beta\Generated\Models\SoftwareUpdateStatusSummary;
-use Microsoft\Graph\Beta\Generated\Models\TelecomExpenseManagementPartner;
 use Microsoft\Graph\Beta\Generated\Models\TenantAttachRBAC;
 use Microsoft\Graph\Beta\Generated\Models\TermsAndConditions;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomaly;
@@ -1211,7 +1210,6 @@ class DeviceManagement extends Entity implements Parsable
             'softwareUpdateStatusSummary' => fn(ParseNode $n) => $o->setSoftwareUpdateStatusSummary($n->getObjectValue([SoftwareUpdateStatusSummary::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getEnumValue(DeviceManagementSubscriptions::class)),
             'subscriptionState' => fn(ParseNode $n) => $o->setSubscriptionState($n->getEnumValue(DeviceManagementSubscriptionState::class)),
-            'telecomExpenseManagementPartners' => fn(ParseNode $n) => $o->setTelecomExpenseManagementPartners($n->getCollectionOfObjectValues([TelecomExpenseManagementPartner::class, 'createFromDiscriminatorValue'])),
             'templateInsights' => fn(ParseNode $n) => $o->setTemplateInsights($n->getCollectionOfObjectValues([DeviceManagementTemplateInsightsDefinition::class, 'createFromDiscriminatorValue'])),
             'templates' => fn(ParseNode $n) => $o->setTemplates($n->getCollectionOfObjectValues([DeviceManagementTemplate::class, 'createFromDiscriminatorValue'])),
             'templateSettings' => fn(ParseNode $n) => $o->setTemplateSettings($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingTemplate::class, 'createFromDiscriminatorValue'])),
@@ -2039,20 +2037,6 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subscriptionState'");
-    }
-
-    /**
-     * Gets the telecomExpenseManagementPartners property value. The telecom expense management partners.
-     * @return array<TelecomExpenseManagementPartner>|null
-    */
-    public function getTelecomExpenseManagementPartners(): ?array {
-        $val = $this->getBackingStore()->get('telecomExpenseManagementPartners');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, TelecomExpenseManagementPartner::class);
-            /** @var array<TelecomExpenseManagementPartner>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'telecomExpenseManagementPartners'");
     }
 
     /**
@@ -3131,7 +3115,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('softwareUpdateStatusSummary', $this->getSoftwareUpdateStatusSummary());
         $writer->writeEnumValue('subscriptions', $this->getSubscriptions());
         $writer->writeEnumValue('subscriptionState', $this->getSubscriptionState());
-        $writer->writeCollectionOfObjectValues('telecomExpenseManagementPartners', $this->getTelecomExpenseManagementPartners());
         $writer->writeCollectionOfObjectValues('templateInsights', $this->getTemplateInsights());
         $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
         $writer->writeCollectionOfObjectValues('templateSettings', $this->getTemplateSettings());
@@ -4169,14 +4152,6 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setSubscriptionState(?DeviceManagementSubscriptionState $value): void {
         $this->getBackingStore()->set('subscriptionState', $value);
-    }
-
-    /**
-     * Sets the telecomExpenseManagementPartners property value. The telecom expense management partners.
-     * @param array<TelecomExpenseManagementPartner>|null $value Value to set for the telecomExpenseManagementPartners property.
-    */
-    public function setTelecomExpenseManagementPartners(?array $value): void {
-        $this->getBackingStore()->set('telecomExpenseManagementPartners', $value);
     }
 
     /**

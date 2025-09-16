@@ -100,7 +100,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 10 Enterprise + OS Optimizations. The offerDisplayName property is deprecated and will stop returning data on January 31, 2024.
+     * Gets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 11 Enterprise. The offerDisplayName property is deprecated and will stop returning data on January 31, 2024.
      * @return string|null
     */
     public function getOfferDisplayName(): ?string {
@@ -300,7 +300,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 10 Enterprise + OS Optimizations. The offerDisplayName property is deprecated and will stop returning data on January 31, 2024.
+     * Sets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 11 Enterprise. The offerDisplayName property is deprecated and will stop returning data on January 31, 2024.
      * @param string|null $value Value to set for the offerDisplayName property.
     */
     public function setOfferDisplayName(?string $value): void {

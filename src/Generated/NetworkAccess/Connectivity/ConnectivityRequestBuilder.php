@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Connectivity;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\BranchesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrl\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\RemoteNetworksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -72,6 +73,15 @@ class ConnectivityRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Connectivity::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getWebCategoryByUrl method.
+     * @param string $url Usage: url='{url}'
+     * @return MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder
+    */
+    public function microsoftGraphNetworkaccessGetWebCategoryByUrlWithUrl(string $url): MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder {
+        return new MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $url);
     }
 
     /**

@@ -4,11 +4,11 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicy;
-use Microsoft\Graph\Beta\Generated\Models\MobilityManagementPolicyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\MobileAppManagementPolicy;
+use Microsoft\Graph\Beta\Generated\Models\MobileAppManagementPolicyCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobileAppManagementPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -28,13 +28,13 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the mobileAppManagementPolicies property of the microsoft.graph.policyRoot entity.
-     * @param string $mobilityManagementPolicyId The unique identifier of mobilityManagementPolicy
-     * @return MobilityManagementPolicyItemRequestBuilder
+     * @param string $mobileAppManagementPolicyId The unique identifier of mobileAppManagementPolicy
+     * @return MobileAppManagementPolicyItemRequestBuilder
     */
-    public function byMobilityManagementPolicyId(string $mobilityManagementPolicyId): MobilityManagementPolicyItemRequestBuilder {
+    public function byMobileAppManagementPolicyId(string $mobileAppManagementPolicyId): MobileAppManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobilityManagementPolicy%2Did'] = $mobilityManagementPolicyId;
-        return new MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['mobileAppManagementPolicy%2Did'] = $mobileAppManagementPolicyId;
+        return new MobileAppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -54,7 +54,7 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Get a list of the mobilityManagementPolicy objects and their properties.
      * @param MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<MobilityManagementPolicyCollectionResponse|null>
+     * @return Promise<MobileAppManagementPolicyCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-list?view=graph-rest-beta Find more info here
     */
@@ -63,22 +63,22 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [MobilityManagementPolicyCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [MobileAppManagementPolicyCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create new navigation property to mobileAppManagementPolicies for policies
-     * @param MobilityManagementPolicy $body The request body
+     * @param MobileAppManagementPolicy $body The request body
      * @param MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<MobilityManagementPolicy|null>
+     * @return Promise<MobileAppManagementPolicy|null>
      * @throws Exception
     */
-    public function post(MobilityManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [MobilityManagementPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [MobileAppManagementPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -104,11 +104,11 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create new navigation property to mobileAppManagementPolicies for policies
-     * @param MobilityManagementPolicy $body The request body
+     * @param MobileAppManagementPolicy $body The request body
      * @param MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MobilityManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

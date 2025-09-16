@@ -8,7 +8,7 @@ use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
 /**
- * Builds and executes requests for operations under /policies/mobileAppManagementPolicies/{mobilityManagementPolicy-id}/includedGroups/{group-id}
+ * Builds and executes requests for operations under /policies/mobileAppManagementPolicies/{mobileAppManagementPolicy-id}/includedGroups/{group-id}
 */
 class GroupItemRequestBuilder extends BaseRequestBuilder 
 {
@@ -32,7 +32,7 @@ class GroupItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/mobileAppManagementPolicies/{mobilityManagementPolicy%2Did}/includedGroups/{group%2Did}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/mobileAppManagementPolicies/{mobileAppManagementPolicy%2Did}/includedGroups/{group%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

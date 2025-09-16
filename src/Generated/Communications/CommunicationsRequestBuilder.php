@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\AdhocCallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\CallsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\GetAllOnlineMeetingMessages\GetAllOnlineMeetingMessagesRequestBuilder;
@@ -24,6 +25,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CommunicationsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the adhocCalls property of the microsoft.graph.cloudCommunications entity.
+    */
+    public function adhocCalls(): AdhocCallsRequestBuilder {
+        return new AdhocCallsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
     */

@@ -48,8 +48,22 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'className' => fn(ParseNode $n) => $o->setClassName($n->getStringValue()),
+            'offlineAppAccessEnabled' => fn(ParseNode $n) => $o->setOfflineAppAccessEnabled($n->getBooleanValue()),
             'package' => fn(ParseNode $n) => $o->setPackage($n->getStringValue()),
+            'preSignInAppAccessEnabled' => fn(ParseNode $n) => $o->setPreSignInAppAccessEnabled($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the offlineAppAccessEnabled property value. Indicates whether the application can be used when sign in fails due to network issues in Managed Home Screen. When TRUE, indicates the application can be used when sign in fails due to network issues in Managed Home Screen. When FALSE, indicates the application cannot be used when sign in fails due to network issues in Managed Home Screen. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getOfflineAppAccessEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('offlineAppAccessEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offlineAppAccessEnabled'");
     }
 
     /**
@@ -65,13 +79,27 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
     }
 
     /**
+     * Gets the preSignInAppAccessEnabled property value. Indicates whether the application can be used prior to signing in to the Managed Home Screen. When TRUE, indicates the app can be used prior to sign in for Managed Home Screen. When FALSE, indicates the app cannot be used prior to sign in for Managed Home Screen. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getPreSignInAppAccessEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('preSignInAppAccessEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'preSignInAppAccessEnabled'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('className', $this->getClassName());
+        $writer->writeBooleanValue('offlineAppAccessEnabled', $this->getOfflineAppAccessEnabled());
         $writer->writeStringValue('package', $this->getPackage());
+        $writer->writeBooleanValue('preSignInAppAccessEnabled', $this->getPreSignInAppAccessEnabled());
     }
 
     /**
@@ -83,11 +111,27 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
     }
 
     /**
+     * Sets the offlineAppAccessEnabled property value. Indicates whether the application can be used when sign in fails due to network issues in Managed Home Screen. When TRUE, indicates the application can be used when sign in fails due to network issues in Managed Home Screen. When FALSE, indicates the application cannot be used when sign in fails due to network issues in Managed Home Screen. Default value is FALSE.
+     * @param bool|null $value Value to set for the offlineAppAccessEnabled property.
+    */
+    public function setOfflineAppAccessEnabled(?bool $value): void {
+        $this->getBackingStore()->set('offlineAppAccessEnabled', $value);
+    }
+
+    /**
      * Sets the package property value. Package name of application
      * @param string|null $value Value to set for the package property.
     */
     public function setPackage(?string $value): void {
         $this->getBackingStore()->set('package', $value);
+    }
+
+    /**
+     * Sets the preSignInAppAccessEnabled property value. Indicates whether the application can be used prior to signing in to the Managed Home Screen. When TRUE, indicates the app can be used prior to sign in for Managed Home Screen. When FALSE, indicates the app cannot be used prior to sign in for Managed Home Screen. Default value is FALSE.
+     * @param bool|null $value Value to set for the preSignInAppAccessEnabled property.
+    */
+    public function setPreSignInAppAccessEnabled(?bool $value): void {
+        $this->getBackingStore()->set('preSignInAppAccessEnabled', $value);
     }
 
 }
