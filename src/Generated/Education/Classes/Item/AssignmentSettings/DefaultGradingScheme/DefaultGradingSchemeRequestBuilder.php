@@ -31,7 +31,7 @@ class DefaultGradingSchemeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get defaultGradingScheme from education
+     * The default grading scheme for assignments created in this class.
      * @param DefaultGradingSchemeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationGradingScheme|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class DefaultGradingSchemeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get defaultGradingScheme from education
+     * The default grading scheme for assignments created in this class.
      * @param DefaultGradingSchemeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

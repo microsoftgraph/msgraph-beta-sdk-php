@@ -31,7 +31,7 @@ class GradingSchemeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get gradingScheme from education
+     * When set, enables users to configure custom string grades based on the percentage of total points earned on this assignment.
      * @param GradingSchemeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationGradingScheme|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class GradingSchemeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get gradingScheme from education
+     * When set, enables users to configure custom string grades based on the percentage of total points earned on this assignment.
      * @param GradingSchemeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
