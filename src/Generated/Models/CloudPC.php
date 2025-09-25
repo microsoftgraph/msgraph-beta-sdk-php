@@ -63,7 +63,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectionSettings property value. The connectionSettings property
+     * Gets the connectionSettings property value. The connection settings of the Cloud PC. Possible values: enableSingleSignOn. Read-only. This property is deprecated and stopped retuning data on August 31, 2024. Going forward, use the connectionSetting property.
      * @return CloudPcConnectionSettings|null
     */
     public function getConnectionSettings(): ?CloudPcConnectionSettings {
@@ -397,7 +397,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue,sharedByUser, sharedByEntraGroup. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup. The default value is dedicated. CAUTION: The shared member is deprecated and will stop returning on April 30, 2027； in the future, use the sharedByUser member.
+     * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The default value is dedicated. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
      * @return CloudPcProvisioningType|null
     */
     public function getProvisioningType(): ?CloudPcProvisioningType {
@@ -626,7 +626,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectionSettings property value. The connectionSettings property
+     * Sets the connectionSettings property value. The connection settings of the Cloud PC. Possible values: enableSingleSignOn. Read-only. This property is deprecated and stopped retuning data on August 31, 2024. Going forward, use the connectionSetting property.
      * @param CloudPcConnectionSettings|null $value Value to set for the connectionSettings property.
     */
     public function setConnectionSettings(?CloudPcConnectionSettings $value): void {
@@ -810,7 +810,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue,sharedByUser, sharedByEntraGroup. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup. The default value is dedicated. CAUTION: The shared member is deprecated and will stop returning on April 30, 2027； in the future, use the sharedByUser member.
+     * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The default value is dedicated. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
      * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
     */
     public function setProvisioningType(?CloudPcProvisioningType $value): void {

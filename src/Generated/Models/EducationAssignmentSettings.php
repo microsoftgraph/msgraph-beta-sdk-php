@@ -26,7 +26,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the defaultGradingScheme property value. The defaultGradingScheme property
+     * Gets the defaultGradingScheme property value. The default grading scheme for assignments created in this class.
      * @return EducationGradingScheme|null
     */
     public function getDefaultGradingScheme(): ?EducationGradingScheme {
@@ -66,7 +66,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the gradingSchemes property value. The gradingSchemes property
+     * Gets the gradingSchemes property value. The grading schemes that can be attached to assignments created in this class.
      * @return array<EducationGradingScheme>|null
     */
     public function getGradingSchemes(): ?array {
@@ -104,7 +104,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the defaultGradingScheme property value. The defaultGradingScheme property
+     * Sets the defaultGradingScheme property value. The default grading scheme for assignments created in this class.
      * @param EducationGradingScheme|null $value Value to set for the defaultGradingScheme property.
     */
     public function setDefaultGradingScheme(?EducationGradingScheme $value): void {
@@ -120,7 +120,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the gradingSchemes property value. The gradingSchemes property
+     * Sets the gradingSchemes property value. The grading schemes that can be attached to assignments created in this class.
      * @param array<EducationGradingScheme>|null $value Value to set for the gradingSchemes property.
     */
     public function setGradingSchemes(?array $value): void {

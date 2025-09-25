@@ -37,7 +37,7 @@ class UserInactivityTrigger extends WorkflowExecutionTrigger implements Parsable
     }
 
     /**
-     * Gets the inactivityPeriodInDays property value. The inactivityPeriodInDays property
+     * Gets the inactivityPeriodInDays property value. The number of days a user must be inactive before triggering workflow execution.
      * @return int|null
     */
     public function getInactivityPeriodInDays(): ?int {
@@ -58,7 +58,7 @@ class UserInactivityTrigger extends WorkflowExecutionTrigger implements Parsable
     }
 
     /**
-     * Sets the inactivityPeriodInDays property value. The inactivityPeriodInDays property
+     * Sets the inactivityPeriodInDays property value. The number of days a user must be inactive before triggering workflow execution.
      * @param int|null $value Value to set for the inactivityPeriodInDays property.
     */
     public function setInactivityPeriodInDays(?int $value): void {

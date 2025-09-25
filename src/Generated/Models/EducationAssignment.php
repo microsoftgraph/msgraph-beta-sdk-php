@@ -273,7 +273,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the gradingScheme property value. The gradingScheme property
+     * Gets the gradingScheme property value. When set, enables users to configure custom string grades based on the percentage of total points earned on this assignment.
      * @return EducationGradingScheme|null
     */
     public function getGradingScheme(): ?EducationGradingScheme {
@@ -597,7 +597,7 @@ class EducationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the gradingScheme property value. The gradingScheme property
+     * Sets the gradingScheme property value. When set, enables users to configure custom string grades based on the percentage of total points earned on this assignment.
      * @param EducationGradingScheme|null $value Value to set for the gradingScheme property.
     */
     public function setGradingScheme(?EducationGradingScheme $value): void {

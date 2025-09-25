@@ -56,7 +56,7 @@ class CloudPcConnectionSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the enableSingleSignOn property value. The enableSingleSignOn property
+     * Gets the enableSingleSignOn property value. Indicates whether single sign-on is enabled. The default value is false.
      * @return bool|null
     */
     public function getEnableSingleSignOn(): ?bool {
@@ -118,7 +118,7 @@ class CloudPcConnectionSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the enableSingleSignOn property value. The enableSingleSignOn property
+     * Sets the enableSingleSignOn property value. Indicates whether single sign-on is enabled. The default value is false.
      * @param bool|null $value Value to set for the enableSingleSignOn property.
     */
     public function setEnableSingleSignOn(?bool $value): void {
