@@ -69,7 +69,7 @@ class OnlineMeetingEngagementConversationItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * A collection of structured question-and-answer (Q&A) thread in Teams directly associated with online meetings.
+     * A collection of structured question-and-answer (Q&A) threads in Teams directly associated with online meetings.
      * @param OnlineMeetingEngagementConversationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnlineMeetingEngagementConversation|null>
      * @throws Exception
@@ -116,7 +116,7 @@ class OnlineMeetingEngagementConversationItemRequestBuilder extends BaseRequestB
     }
 
     /**
-     * A collection of structured question-and-answer (Q&A) thread in Teams directly associated with online meetings.
+     * A collection of structured question-and-answer (Q&A) threads in Teams directly associated with online meetings.
      * @param OnlineMeetingEngagementConversationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

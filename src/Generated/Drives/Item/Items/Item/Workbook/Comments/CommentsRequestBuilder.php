@@ -52,7 +52,7 @@ class CommentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get comments from drives
+     * Represents a collection of comments in a workbook.
      * @param CommentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookCommentCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class CommentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get comments from drives
+     * Represents a collection of comments in a workbook.
      * @param CommentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -96,6 +96,18 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the cloudApplicationMetadata property value. Contains metadata about the cloud application involved in the network transaction, such as application name, category, and risk level. Supports $filter (eq) and $orderby.
+     * @return CloudApplicationMetadata|null
+    */
+    public function getCloudApplicationMetadata(): ?CloudApplicationMetadata {
+        $val = $this->getBackingStore()->get('cloudApplicationMetadata');
+        if (is_null($val) || $val instanceof CloudApplicationMetadata) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudApplicationMetadata'");
+    }
+
+    /**
      * Gets the connectionId property value. Represents a unique identifier assigned to a connection. Supports $filter (eq) and $orderby.
      * @return string|null
     */
@@ -261,6 +273,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
             'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(FilteringPolicyAction::class)),
             'agentVersion' => fn(ParseNode $n) => $o->setAgentVersion($n->getStringValue()),
             'applicationSnapshot' => fn(ParseNode $n) => $o->setApplicationSnapshot($n->getObjectValue([ApplicationSnapshot::class, 'createFromDiscriminatorValue'])),
+            'cloudApplicationMetadata' => fn(ParseNode $n) => $o->setCloudApplicationMetadata($n->getObjectValue([CloudApplicationMetadata::class, 'createFromDiscriminatorValue'])),
             'connectionId' => fn(ParseNode $n) => $o->setConnectionId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -697,6 +710,7 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeEnumValue('action', $this->getAction());
         $writer->writeStringValue('agentVersion', $this->getAgentVersion());
         $writer->writeObjectValue('applicationSnapshot', $this->getApplicationSnapshot());
+        $writer->writeObjectValue('cloudApplicationMetadata', $this->getCloudApplicationMetadata());
         $writer->writeStringValue('connectionId', $this->getConnectionId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
@@ -782,6 +796,14 @@ class NetworkAccessTraffic implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the cloudApplicationMetadata property value. Contains metadata about the cloud application involved in the network transaction, such as application name, category, and risk level. Supports $filter (eq) and $orderby.
+     * @param CloudApplicationMetadata|null $value Value to set for the cloudApplicationMetadata property.
+    */
+    public function setCloudApplicationMetadata(?CloudApplicationMetadata $value): void {
+        $this->getBackingStore()->set('cloudApplicationMetadata', $value);
     }
 
     /**

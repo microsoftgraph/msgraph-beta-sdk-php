@@ -68,7 +68,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the webCategories property value. The webCategories property
+     * Gets the webCategories property value. The URL category.
      * @return array<WebCategory>|null
     */
     public function getWebCategories(): ?array {
@@ -109,7 +109,7 @@ class Connectivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the webCategories property value. The webCategories property
+     * Sets the webCategories property value. The URL category.
      * @param array<WebCategory>|null $value Value to set for the webCategories property.
     */
     public function setWebCategories(?array $value): void {

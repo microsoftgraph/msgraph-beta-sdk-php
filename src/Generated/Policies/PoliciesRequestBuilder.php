@@ -16,8 +16,10 @@ use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Authe
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\AuthorizationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\B2cAuthenticationMethodsPolicy\B2cAuthenticationMethodsPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ClaimsMappingPolicies\ClaimsMappingPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\ConditionalAccessPolicies\ConditionalAccessPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\CrossTenantAccessPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\DefaultAppManagementPolicy\DefaultAppManagementPolicyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\DeletedItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\DeviceRegistrationPolicy\DeviceRegistrationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\DirectoryRoleAccessReviewPolicy\DirectoryRoleAccessReviewPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ExternalIdentitiesPolicy\ExternalIdentitiesPolicyRequestBuilder;
@@ -115,6 +117,13 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
+    */
+    public function conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
+        return new ConditionalAccessPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
@@ -126,6 +135,13 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function defaultAppManagementPolicy(): DefaultAppManagementPolicyRequestBuilder {
         return new DefaultAppManagementPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the deletedItems property of the microsoft.graph.policyRoot entity.
+    */
+    public function deletedItems(): DeletedItemsRequestBuilder {
+        return new DeletedItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

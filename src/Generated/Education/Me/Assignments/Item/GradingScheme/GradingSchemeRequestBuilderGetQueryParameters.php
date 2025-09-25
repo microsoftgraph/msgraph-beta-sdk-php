@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\GradingSc
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get gradingScheme from education
+ * When set, enables users to configure custom string grades based on the percentage of total points earned on this assignment.
 */
 class GradingSchemeRequestBuilderGetQueryParameters 
 {

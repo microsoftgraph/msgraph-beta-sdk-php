@@ -80,6 +80,18 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the disableEntraGroupPolicyAssignment property value. Indicates whether Entra Group policy assignment is disabled
+     * @return bool|null
+    */
+    public function getDisableEntraGroupPolicyAssignment(): ?bool {
+        $val = $this->getBackingStore()->get('disableEntraGroupPolicyAssignment');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableEntraGroupPolicyAssignment'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -90,6 +102,7 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'disableEntraGroupPolicyAssignment' => fn(ParseNode $n) => $o->setDisableEntraGroupPolicyAssignment($n->getBooleanValue()),
             'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
@@ -244,6 +257,7 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('creationSource', $this->getCreationSource());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBooleanValue('disableEntraGroupPolicyAssignment', $this->getDisableEntraGroupPolicyAssignment());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeEnumValue('platforms', $this->getPlatforms());
@@ -285,6 +299,14 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the disableEntraGroupPolicyAssignment property value. Indicates whether Entra Group policy assignment is disabled
+     * @param bool|null $value Value to set for the disableEntraGroupPolicyAssignment property.
+    */
+    public function setDisableEntraGroupPolicyAssignment(?bool $value): void {
+        $this->getBackingStore()->set('disableEntraGroupPolicyAssignment', $value);
     }
 
     /**

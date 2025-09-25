@@ -44,11 +44,24 @@ class CloudPcSupportedRegion extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'geographicLocationType' => fn(ParseNode $n) => $o->setGeographicLocationType($n->getEnumValue(CloudPcGeographicLocationType::class)),
             'regionGroup' => fn(ParseNode $n) => $o->setRegionGroup($n->getEnumValue(CloudPcRegionGroup::class)),
             'regionRestrictionDetail' => fn(ParseNode $n) => $o->setRegionRestrictionDetail($n->getObjectValue([CloudPcSupportedRegionRestrictionDetail::class, 'createFromDiscriminatorValue'])),
             'regionStatus' => fn(ParseNode $n) => $o->setRegionStatus($n->getEnumValue(CloudPcSupportedRegionStatus::class)),
             'supportedSolution' => fn(ParseNode $n) => $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)),
         ]);
+    }
+
+    /**
+     * Gets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * @return CloudPcGeographicLocationType|null
+    */
+    public function getGeographicLocationType(): ?CloudPcGeographicLocationType {
+        $val = $this->getBackingStore()->get('geographicLocationType');
+        if (is_null($val) || $val instanceof CloudPcGeographicLocationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'geographicLocationType'");
     }
 
     /**
@@ -106,6 +119,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('geographicLocationType', $this->getGeographicLocationType());
         $writer->writeEnumValue('regionGroup', $this->getRegionGroup());
         $writer->writeObjectValue('regionRestrictionDetail', $this->getRegionRestrictionDetail());
         $writer->writeEnumValue('regionStatus', $this->getRegionStatus());
@@ -118,6 +132,14 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * @param CloudPcGeographicLocationType|null $value Value to set for the geographicLocationType property.
+    */
+    public function setGeographicLocationType(?CloudPcGeographicLocationType $value): void {
+        $this->getBackingStore()->set('geographicLocationType', $value);
     }
 
     /**

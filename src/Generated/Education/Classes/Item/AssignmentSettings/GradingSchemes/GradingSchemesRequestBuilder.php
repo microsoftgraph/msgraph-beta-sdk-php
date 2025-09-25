@@ -66,12 +66,12 @@ class GradingSchemesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationGradingScheme object.
+     * Create a new educationGradingScheme on an educationClass. Only teachers can perform this operation.
      * @param EducationGradingScheme $body The request body
      * @param GradingSchemesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationGradingScheme|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/educationgradingscheme-post?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationassignmentsettings-post-gradingschemes?view=graph-rest-beta Find more info here
     */
     public function post(EducationGradingScheme $body, ?GradingSchemesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -103,7 +103,7 @@ class GradingSchemesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new educationGradingScheme object.
+     * Create a new educationGradingScheme on an educationClass. Only teachers can perform this operation.
      * @param EducationGradingScheme $body The request body
      * @param GradingSchemesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

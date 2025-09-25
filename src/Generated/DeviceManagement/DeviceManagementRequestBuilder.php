@@ -127,7 +127,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\SendCustomNotificationToComp
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\ServiceNowConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SettingDefinitions\SettingDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SoftwareUpdateStatusSummary\SoftwareUpdateStatusSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TelecomExpenseManagementPartners\TelecomExpenseManagementPartnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TemplateInsights\TemplateInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TemplateSettings\TemplateSettingsRequestBuilder;
@@ -1026,13 +1025,6 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function softwareUpdateStatusSummary(): SoftwareUpdateStatusSummaryRequestBuilder {
         return new SoftwareUpdateStatusSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
-    */
-    public function telecomExpenseManagementPartners(): TelecomExpenseManagementPartnersRequestBuilder {
-        return new TelecomExpenseManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

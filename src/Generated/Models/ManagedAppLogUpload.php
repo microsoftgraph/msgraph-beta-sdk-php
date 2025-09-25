@@ -65,24 +65,11 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managedAppComponent' => fn(ParseNode $n) => $o->setManagedAppComponent($n->getStringValue()),
             'managedAppComponentDescription' => fn(ParseNode $n) => $o->setManagedAppComponentDescription($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'referenceId' => fn(ParseNode $n) => $o->setReferenceId($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ManagedAppLogUploadState::class)),
         ];
-    }
-
-    /**
-     * Gets the managedAppComponent property value. The Mobile Application Management (MAM) Logs Uploading Component. Such components can be the application itself, the MAM SDK, and other on-device components that are capable of uploading diagnostic logs. Read-only.
-     * @return string|null
-    */
-    public function getManagedAppComponent(): ?string {
-        $val = $this->getBackingStore()->get('managedAppComponent');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedAppComponent'");
     }
 
     /**
@@ -138,7 +125,6 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('managedAppComponent', $this->getManagedAppComponent());
         $writer->writeStringValue('managedAppComponentDescription', $this->getManagedAppComponentDescription());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('referenceId', $this->getReferenceId());
@@ -160,14 +146,6 @@ class ManagedAppLogUpload implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
-    }
-
-    /**
-     * Sets the managedAppComponent property value. The Mobile Application Management (MAM) Logs Uploading Component. Such components can be the application itself, the MAM SDK, and other on-device components that are capable of uploading diagnostic logs. Read-only.
-     * @param string|null $value Value to set for the managedAppComponent property.
-    */
-    public function setManagedAppComponent(?string $value): void {
-        $this->getBackingStore()->set('managedAppComponent', $value);
     }
 
     /**

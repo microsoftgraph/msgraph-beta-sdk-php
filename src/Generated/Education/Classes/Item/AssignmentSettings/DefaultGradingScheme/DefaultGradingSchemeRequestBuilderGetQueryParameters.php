@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettin
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get defaultGradingScheme from education
+ * The default grading scheme for assignments created in this class.
 */
 class DefaultGradingSchemeRequestBuilderGetQueryParameters 
 {

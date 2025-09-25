@@ -369,6 +369,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'kioskModeIconSize' => fn(ParseNode $n) => $o->setKioskModeIconSize($n->getEnumValue(AndroidDeviceOwnerKioskModeIconSize::class)),
             'kioskModeLockHomeScreen' => fn(ParseNode $n) => $o->setKioskModeLockHomeScreen($n->getBooleanValue()),
             'kioskModeManagedFolders' => fn(ParseNode $n) => $o->setKioskModeManagedFolders($n->getCollectionOfObjectValues([AndroidDeviceOwnerKioskModeManagedFolder::class, 'createFromDiscriminatorValue'])),
+            'kioskModeManagedHomeScreenAppSettings' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenAppSettings($n->getCollectionOfObjectValues([AndroidDeviceOwnerKioskModeApp::class, 'createFromDiscriminatorValue'])),
             'kioskModeManagedHomeScreenAutoSignout' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenAutoSignout($n->getBooleanValue()),
             'kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenInactiveSignOutDelayInSeconds($n->getIntegerValue()),
             'kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds' => fn(ParseNode $n) => $o->setKioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds($n->getIntegerValue()),
@@ -730,6 +731,20 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedFolders'");
+    }
+
+    /**
+     * Gets the kioskModeManagedHomeScreenAppSettings property value. Indicates the list of managed applications and associated settings, which will be applied when android device is run on kiosk mode with Managed Home Screen. This collection can contain a maximum of 500 elements.
+     * @return array<AndroidDeviceOwnerKioskModeApp>|null
+    */
+    public function getKioskModeManagedHomeScreenAppSettings(): ?array {
+        $val = $this->getBackingStore()->get('kioskModeManagedHomeScreenAppSettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AndroidDeviceOwnerKioskModeApp::class);
+            /** @var array<AndroidDeviceOwnerKioskModeApp>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'kioskModeManagedHomeScreenAppSettings'");
     }
 
     /**
@@ -1932,6 +1947,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeEnumValue('kioskModeIconSize', $this->getKioskModeIconSize());
         $writer->writeBooleanValue('kioskModeLockHomeScreen', $this->getKioskModeLockHomeScreen());
         $writer->writeCollectionOfObjectValues('kioskModeManagedFolders', $this->getKioskModeManagedFolders());
+        $writer->writeCollectionOfObjectValues('kioskModeManagedHomeScreenAppSettings', $this->getKioskModeManagedHomeScreenAppSettings());
         $writer->writeBooleanValue('kioskModeManagedHomeScreenAutoSignout', $this->getKioskModeManagedHomeScreenAutoSignout());
         $writer->writeIntegerValue('kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds', $this->getKioskModeManagedHomeScreenInactiveSignOutDelayInSeconds());
         $writer->writeIntegerValue('kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds', $this->getKioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds());
@@ -2379,6 +2395,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setKioskModeManagedFolders(?array $value): void {
         $this->getBackingStore()->set('kioskModeManagedFolders', $value);
+    }
+
+    /**
+     * Sets the kioskModeManagedHomeScreenAppSettings property value. Indicates the list of managed applications and associated settings, which will be applied when android device is run on kiosk mode with Managed Home Screen. This collection can contain a maximum of 500 elements.
+     * @param array<AndroidDeviceOwnerKioskModeApp>|null $value Value to set for the kioskModeManagedHomeScreenAppSettings property.
+    */
+    public function setKioskModeManagedHomeScreenAppSettings(?array $value): void {
+        $this->getBackingStore()->set('kioskModeManagedHomeScreenAppSettings', $value);
     }
 
     /**

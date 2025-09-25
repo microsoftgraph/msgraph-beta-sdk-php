@@ -25,7 +25,7 @@ class WorkbookCommentReply extends Entity implements Parsable
     }
 
     /**
-     * Gets the content property value. The content of the reply.
+     * Gets the content property value. The content of the reply that is the displayed to end-users.
      * @return string|null
     */
     public function getContent(): ?string {
@@ -37,7 +37,7 @@ class WorkbookCommentReply extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentType property value. The content type for the reply.
+     * Gets the contentType property value. The content type for the reply. Supported values are: plain, mention.
      * @return string|null
     */
     public function getContentType(): ?string {
@@ -85,7 +85,7 @@ class WorkbookCommentReply extends Entity implements Parsable
     }
 
     /**
-     * Sets the content property value. The content of the reply.
+     * Sets the content property value. The content of the reply that is the displayed to end-users.
      * @param string|null $value Value to set for the content property.
     */
     public function setContent(?string $value): void {
@@ -93,7 +93,7 @@ class WorkbookCommentReply extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentType property value. The content type for the reply.
+     * Sets the contentType property value. The content type for the reply. Supported values are: plain, mention.
      * @param string|null $value Value to set for the contentType property.
     */
     public function setContentType(?string $value): void {

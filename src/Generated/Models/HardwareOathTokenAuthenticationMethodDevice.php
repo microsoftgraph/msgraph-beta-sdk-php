@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -59,6 +60,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
             'assignedTo' => fn(ParseNode $n) => $o->setAssignedTo($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'assignTo' => fn(ParseNode $n) => $o->setAssignTo($n->getObjectValue([User::class, 'createFromDiscriminatorValue'])),
             'hashFunction' => fn(ParseNode $n) => $o->setHashFunction($n->getEnumValue(HardwareOathTokenHashFunction::class)),
+            'lastUsedDateTime' => fn(ParseNode $n) => $o->setLastUsedDateTime($n->getDateTimeValue()),
             'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
             'secretKey' => fn(ParseNode $n) => $o->setSecretKey($n->getStringValue()),
@@ -78,6 +80,18 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hashFunction'");
+    }
+
+    /**
+     * Gets the lastUsedDateTime property value. The lastUsedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastUsedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastUsedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUsedDateTime'");
     }
 
     /**
@@ -161,6 +175,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
         $writer->writeObjectValue('assignedTo', $this->getAssignedTo());
         $writer->writeObjectValue('assignTo', $this->getAssignTo());
         $writer->writeEnumValue('hashFunction', $this->getHashFunction());
+        $writer->writeDateTimeValue('lastUsedDateTime', $this->getLastUsedDateTime());
         $writer->writeStringValue('manufacturer', $this->getManufacturer());
         $writer->writeStringValue('model', $this->getModel());
         $writer->writeStringValue('secretKey', $this->getSecretKey());
@@ -191,6 +206,14 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     */
     public function setHashFunction(?HardwareOathTokenHashFunction $value): void {
         $this->getBackingStore()->set('hashFunction', $value);
+    }
+
+    /**
+     * Sets the lastUsedDateTime property value. The lastUsedDateTime property
+     * @param DateTime|null $value Value to set for the lastUsedDateTime property.
+    */
+    public function setLastUsedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUsedDateTime', $value);
     }
 
     /**
