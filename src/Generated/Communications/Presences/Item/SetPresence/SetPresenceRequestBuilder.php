@@ -30,7 +30,7 @@ class SetPresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the availability and activity status in a presence session of an application for a user.
+     * Set the availability and activity status in a presence session of an application for a user.  For more information about presence sessions, states permutations, and timeouts, see Manage presence state using the Microsoft Graph API.
      * @param SetPresencePostRequestBody $body The request body
      * @param SetPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -46,7 +46,7 @@ class SetPresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the availability and activity status in a presence session of an application for a user.
+     * Set the availability and activity status in a presence session of an application for a user.  For more information about presence sessions, states permutations, and timeouts, see Manage presence state using the Microsoft Graph API.
      * @param SetPresencePostRequestBody $body The request body
      * @param SetPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

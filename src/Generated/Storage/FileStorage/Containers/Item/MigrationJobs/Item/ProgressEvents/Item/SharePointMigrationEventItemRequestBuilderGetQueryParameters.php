@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Mig
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get progressEvents from storage
+ * A collection of migration events that reflects the job status changes.
 */
 class SharePointMigrationEventItemRequestBuilderGetQueryParameters 
 {

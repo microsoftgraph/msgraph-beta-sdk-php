@@ -25,7 +25,7 @@ class Presence extends Entity implements Parsable
     }
 
     /**
-     * Gets the activity property value. The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive, InAMeeting, Offline, OffWork, OutOfOffice, PresenceUnknown, Presenting, UrgentInterruptionsOnly.
+     * Gets the activity property value. The supplemental information to a user's availability. Possible values are available, away, beRightBack, busy, doNotDisturb, offline, outOfOffice, presenceUnknown.
      * @return string|null
     */
     public function getActivity(): ?string {
@@ -37,7 +37,7 @@ class Presence extends Entity implements Parsable
     }
 
     /**
-     * Gets the availability property value. The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown.
+     * Gets the availability property value. The base presence information for a user. Possible values are available, away, beRightBack, busy, doNotDisturb, focusing, inACall, inAMeeting, offline, presenting, presenceUnknown.
      * @return string|null
     */
     public function getAvailability(): ?string {
@@ -112,7 +112,7 @@ class Presence extends Entity implements Parsable
     }
 
     /**
-     * Sets the activity property value. The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive, InAMeeting, Offline, OffWork, OutOfOffice, PresenceUnknown, Presenting, UrgentInterruptionsOnly.
+     * Sets the activity property value. The supplemental information to a user's availability. Possible values are available, away, beRightBack, busy, doNotDisturb, offline, outOfOffice, presenceUnknown.
      * @param string|null $value Value to set for the activity property.
     */
     public function setActivity(?string $value): void {
@@ -120,7 +120,7 @@ class Presence extends Entity implements Parsable
     }
 
     /**
-     * Sets the availability property value. The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown.
+     * Sets the availability property value. The base presence information for a user. Possible values are available, away, beRightBack, busy, doNotDisturb, focusing, inACall, inAMeeting, offline, presenting, presenceUnknown.
      * @param string|null $value Value to set for the availability property.
     */
     public function setAvailability(?string $value): void {

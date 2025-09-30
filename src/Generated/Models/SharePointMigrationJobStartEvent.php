@@ -37,7 +37,7 @@ class SharePointMigrationJobStartEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Gets the isRestarted property value. The isRestarted property
+     * Gets the isRestarted property value. True if the job is restarted. False if it's the initial start. Read-only.
      * @return bool|null
     */
     public function getIsRestarted(): ?bool {
@@ -49,7 +49,7 @@ class SharePointMigrationJobStartEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Gets the totalRetryCount property value. The totalRetryCount property
+     * Gets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @return int|null
     */
     public function getTotalRetryCount(): ?int {
@@ -71,7 +71,7 @@ class SharePointMigrationJobStartEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Sets the isRestarted property value. The isRestarted property
+     * Sets the isRestarted property value. True if the job is restarted. False if it's the initial start. Read-only.
      * @param bool|null $value Value to set for the isRestarted property.
     */
     public function setIsRestarted(?bool $value): void {
@@ -79,7 +79,7 @@ class SharePointMigrationJobStartEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Sets the totalRetryCount property value. The totalRetryCount property
+     * Sets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @param int|null $value Value to set for the totalRetryCount property.
     */
     public function setTotalRetryCount(?int $value): void {

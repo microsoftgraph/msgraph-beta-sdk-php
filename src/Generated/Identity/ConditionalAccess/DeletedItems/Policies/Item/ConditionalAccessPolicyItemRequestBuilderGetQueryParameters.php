@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get policies from identity
+ * Read the properties and relationships of a policyDeletableItem object, which might be one of the following deleted policy types:- crossTenantAccessPolicyConfigurationPartner- crossTenantIdentitySyncPolicyPartner- conditionalAccessPolicy- namedLocation
 */
 class ConditionalAccessPolicyItemRequestBuilderGetQueryParameters 
 {

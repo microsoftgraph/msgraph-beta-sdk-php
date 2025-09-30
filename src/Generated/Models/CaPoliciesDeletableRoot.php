@@ -38,7 +38,7 @@ class CaPoliciesDeletableRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the namedLocations property value. The namedLocations property
+     * Gets the namedLocations property value. Read-only. Nullable. Returns a collection of the specified named locations.
      * @return array<NamedLocation>|null
     */
     public function getNamedLocations(): ?array {
@@ -52,7 +52,7 @@ class CaPoliciesDeletableRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the policies property value. The policies property
+     * Gets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
      * @return array<ConditionalAccessPolicy>|null
     */
     public function getPolicies(): ?array {
@@ -76,7 +76,7 @@ class CaPoliciesDeletableRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the namedLocations property value. The namedLocations property
+     * Sets the namedLocations property value. Read-only. Nullable. Returns a collection of the specified named locations.
      * @param array<NamedLocation>|null $value Value to set for the namedLocations property.
     */
     public function setNamedLocations(?array $value): void {
@@ -84,7 +84,7 @@ class CaPoliciesDeletableRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the policies property value. The policies property
+     * Sets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
      * @param array<ConditionalAccessPolicy>|null $value Value to set for the policies property.
     */
     public function setPolicies(?array $value): void {

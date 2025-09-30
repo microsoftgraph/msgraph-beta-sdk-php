@@ -25,7 +25,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the bytesProcessed property value. The bytesProcessed property
+     * Gets the bytesProcessed property value. The number of bytes processed. Read-only.
      * @return int|null
     */
     public function getBytesProcessed(): ?int {
@@ -37,7 +37,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the bytesProcessedOnlyCurrentVersion property value. The bytesProcessedOnlyCurrentVersion property
+     * Gets the bytesProcessedOnlyCurrentVersion property value. The number of bytes processed with version history excluded. Read-only.
      * @return int|null
     */
     public function getBytesProcessedOnlyCurrentVersion(): ?int {
@@ -49,7 +49,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the cpuDurationMs property value. The cpuDurationMs property
+     * Gets the cpuDurationMs property value. CPU duration in milliseconds. Read-only.
      * @return int|null
     */
     public function getCpuDurationMs(): ?int {
@@ -88,7 +88,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the filesProcessed property value. The filesProcessed property
+     * Gets the filesProcessed property value. The number of files processed. Read-only.
      * @return int|null
     */
     public function getFilesProcessed(): ?int {
@@ -100,7 +100,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the filesProcessedOnlyCurrentVersion property value. The filesProcessedOnlyCurrentVersion property
+     * Gets the filesProcessedOnlyCurrentVersion property value. The number of files processed with version history excluded. Read-only.
      * @return int|null
     */
     public function getFilesProcessedOnlyCurrentVersion(): ?int {
@@ -112,7 +112,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the isCompleted property value. The isCompleted property
+     * Gets the isCompleted property value. True if the job status is End. False if the job is In progress. Read-only.
      * @return bool|null
     */
     public function getIsCompleted(): ?bool {
@@ -124,7 +124,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the lastProcessedObjectId property value. The lastProcessedObjectId property
+     * Gets the lastProcessedObjectId property value. The unique identifier of the last object processed. Read-only.
      * @return string|null
     */
     public function getLastProcessedObjectId(): ?string {
@@ -136,7 +136,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the objectsProcessed property value. The objectsProcessed property
+     * Gets the objectsProcessed property value. The number of objects processed. Read-only.
      * @return int|null
     */
     public function getObjectsProcessed(): ?int {
@@ -148,7 +148,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the sqlDurationMs property value. The sqlDurationMs property
+     * Gets the sqlDurationMs property value. SQL duration in milliseconds. Read-only.
      * @return int|null
     */
     public function getSqlDurationMs(): ?int {
@@ -160,7 +160,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the sqlQueryCount property value. The sqlQueryCount property
+     * Gets the sqlQueryCount property value. SQL query count. Read-only.
      * @return int|null
     */
     public function getSqlQueryCount(): ?int {
@@ -172,7 +172,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the totalDurationMs property value. The totalDurationMs property
+     * Gets the totalDurationMs property value. Total duration time in milliseconds. Read-only.
      * @return int|null
     */
     public function getTotalDurationMs(): ?int {
@@ -184,7 +184,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the totalErrors property value. The totalErrors property
+     * Gets the totalErrors property value. Total errors. Read-only.
      * @return int|null
     */
     public function getTotalErrors(): ?int {
@@ -196,7 +196,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the totalExpectedBytes property value. The totalExpectedBytes property
+     * Gets the totalExpectedBytes property value. Total bytes to be processed. Read-only.
      * @return int|null
     */
     public function getTotalExpectedBytes(): ?int {
@@ -208,7 +208,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the totalExpectedObjects property value. The totalExpectedObjects property
+     * Gets the totalExpectedObjects property value. The number of objects to process. Read-only.
      * @return int|null
     */
     public function getTotalExpectedObjects(): ?int {
@@ -220,7 +220,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the totalRetryCount property value. The totalRetryCount property
+     * Gets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @return int|null
     */
     public function getTotalRetryCount(): ?int {
@@ -232,7 +232,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the totalWarnings property value. The totalWarnings property
+     * Gets the totalWarnings property value. Total warnings. Read-only.
      * @return int|null
     */
     public function getTotalWarnings(): ?int {
@@ -244,7 +244,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Gets the waitTimeOnSqlThrottlingMs property value. The waitTimeOnSqlThrottlingMs property
+     * Gets the waitTimeOnSqlThrottlingMs property value. Waiting time due to SQL throttling, in milliseconds. Read-only.
      * @return int|null
     */
     public function getWaitTimeOnSqlThrottlingMs(): ?int {
@@ -281,7 +281,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the bytesProcessed property value. The bytesProcessed property
+     * Sets the bytesProcessed property value. The number of bytes processed. Read-only.
      * @param int|null $value Value to set for the bytesProcessed property.
     */
     public function setBytesProcessed(?int $value): void {
@@ -289,7 +289,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the bytesProcessedOnlyCurrentVersion property value. The bytesProcessedOnlyCurrentVersion property
+     * Sets the bytesProcessedOnlyCurrentVersion property value. The number of bytes processed with version history excluded. Read-only.
      * @param int|null $value Value to set for the bytesProcessedOnlyCurrentVersion property.
     */
     public function setBytesProcessedOnlyCurrentVersion(?int $value): void {
@@ -297,7 +297,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the cpuDurationMs property value. The cpuDurationMs property
+     * Sets the cpuDurationMs property value. CPU duration in milliseconds. Read-only.
      * @param int|null $value Value to set for the cpuDurationMs property.
     */
     public function setCpuDurationMs(?int $value): void {
@@ -305,7 +305,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the filesProcessed property value. The filesProcessed property
+     * Sets the filesProcessed property value. The number of files processed. Read-only.
      * @param int|null $value Value to set for the filesProcessed property.
     */
     public function setFilesProcessed(?int $value): void {
@@ -313,7 +313,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the filesProcessedOnlyCurrentVersion property value. The filesProcessedOnlyCurrentVersion property
+     * Sets the filesProcessedOnlyCurrentVersion property value. The number of files processed with version history excluded. Read-only.
      * @param int|null $value Value to set for the filesProcessedOnlyCurrentVersion property.
     */
     public function setFilesProcessedOnlyCurrentVersion(?int $value): void {
@@ -321,7 +321,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the isCompleted property value. The isCompleted property
+     * Sets the isCompleted property value. True if the job status is End. False if the job is In progress. Read-only.
      * @param bool|null $value Value to set for the isCompleted property.
     */
     public function setIsCompleted(?bool $value): void {
@@ -329,7 +329,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the lastProcessedObjectId property value. The lastProcessedObjectId property
+     * Sets the lastProcessedObjectId property value. The unique identifier of the last object processed. Read-only.
      * @param string|null $value Value to set for the lastProcessedObjectId property.
     */
     public function setLastProcessedObjectId(?string $value): void {
@@ -337,7 +337,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the objectsProcessed property value. The objectsProcessed property
+     * Sets the objectsProcessed property value. The number of objects processed. Read-only.
      * @param int|null $value Value to set for the objectsProcessed property.
     */
     public function setObjectsProcessed(?int $value): void {
@@ -345,7 +345,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the sqlDurationMs property value. The sqlDurationMs property
+     * Sets the sqlDurationMs property value. SQL duration in milliseconds. Read-only.
      * @param int|null $value Value to set for the sqlDurationMs property.
     */
     public function setSqlDurationMs(?int $value): void {
@@ -353,7 +353,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the sqlQueryCount property value. The sqlQueryCount property
+     * Sets the sqlQueryCount property value. SQL query count. Read-only.
      * @param int|null $value Value to set for the sqlQueryCount property.
     */
     public function setSqlQueryCount(?int $value): void {
@@ -361,7 +361,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the totalDurationMs property value. The totalDurationMs property
+     * Sets the totalDurationMs property value. Total duration time in milliseconds. Read-only.
      * @param int|null $value Value to set for the totalDurationMs property.
     */
     public function setTotalDurationMs(?int $value): void {
@@ -369,7 +369,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the totalErrors property value. The totalErrors property
+     * Sets the totalErrors property value. Total errors. Read-only.
      * @param int|null $value Value to set for the totalErrors property.
     */
     public function setTotalErrors(?int $value): void {
@@ -377,7 +377,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the totalExpectedBytes property value. The totalExpectedBytes property
+     * Sets the totalExpectedBytes property value. Total bytes to be processed. Read-only.
      * @param int|null $value Value to set for the totalExpectedBytes property.
     */
     public function setTotalExpectedBytes(?int $value): void {
@@ -385,7 +385,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the totalExpectedObjects property value. The totalExpectedObjects property
+     * Sets the totalExpectedObjects property value. The number of objects to process. Read-only.
      * @param int|null $value Value to set for the totalExpectedObjects property.
     */
     public function setTotalExpectedObjects(?int $value): void {
@@ -393,7 +393,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the totalRetryCount property value. The totalRetryCount property
+     * Sets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @param int|null $value Value to set for the totalRetryCount property.
     */
     public function setTotalRetryCount(?int $value): void {
@@ -401,7 +401,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the totalWarnings property value. The totalWarnings property
+     * Sets the totalWarnings property value. Total warnings. Read-only.
      * @param int|null $value Value to set for the totalWarnings property.
     */
     public function setTotalWarnings(?int $value): void {
@@ -409,7 +409,7 @@ class SharePointMigrationJobProgressEvent extends SharePointMigrationEvent imple
     }
 
     /**
-     * Sets the waitTimeOnSqlThrottlingMs property value. The waitTimeOnSqlThrottlingMs property
+     * Sets the waitTimeOnSqlThrottlingMs property value. Waiting time due to SQL throttling, in milliseconds. Read-only.
      * @param int|null $value Value to set for the waitTimeOnSqlThrottlingMs property.
     */
     public function setWaitTimeOnSqlThrottlingMs(?int $value): void {

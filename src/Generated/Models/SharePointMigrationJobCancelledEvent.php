@@ -37,7 +37,7 @@ class SharePointMigrationJobCancelledEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Gets the isCancelledByUser property value. The isCancelledByUser property
+     * Gets the isCancelledByUser property value. True when a user cancels the job; otherwise, false. Read-only.
      * @return bool|null
     */
     public function getIsCancelledByUser(): ?bool {
@@ -49,7 +49,7 @@ class SharePointMigrationJobCancelledEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Gets the totalRetryCount property value. The totalRetryCount property
+     * Gets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @return int|null
     */
     public function getTotalRetryCount(): ?int {
@@ -71,7 +71,7 @@ class SharePointMigrationJobCancelledEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Sets the isCancelledByUser property value. The isCancelledByUser property
+     * Sets the isCancelledByUser property value. True when a user cancels the job; otherwise, false. Read-only.
      * @param bool|null $value Value to set for the isCancelledByUser property.
     */
     public function setIsCancelledByUser(?bool $value): void {
@@ -79,7 +79,7 @@ class SharePointMigrationJobCancelledEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Sets the totalRetryCount property value. The totalRetryCount property
+     * Sets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @param int|null $value Value to set for the totalRetryCount property.
     */
     public function setTotalRetryCount(?int $value): void {

@@ -52,7 +52,7 @@ class MigrationJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get migrationJobs from storage
+     * The collection of sharePointMigrationJob objects local to the container. Read-write.
      * @param MigrationJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointMigrationJobCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class MigrationJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get migrationJobs from storage
+     * The collection of sharePointMigrationJob objects local to the container. Read-write.
      * @param MigrationJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

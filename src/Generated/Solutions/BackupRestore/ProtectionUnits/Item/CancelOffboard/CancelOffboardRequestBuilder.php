@@ -31,7 +31,7 @@ class CancelOffboardRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel offboard for a protectionUnitBase.
+     * Cancel the offboarding of a protectionUnitBase.
      * @param CancelOffboardRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProtectionUnitBase|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class CancelOffboardRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel offboard for a protectionUnitBase.
+     * Cancel the offboarding of a protectionUnitBase.
      * @param CancelOffboardRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

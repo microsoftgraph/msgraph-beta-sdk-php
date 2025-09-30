@@ -218,7 +218,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the migrationJobs property value. The migrationJobs property
+     * Gets the migrationJobs property value. The collection of sharePointMigrationJob objects local to the container. Read-write.
      * @return array<SharePointMigrationJob>|null
     */
     public function getMigrationJobs(): ?array {
@@ -481,7 +481,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the migrationJobs property value. The migrationJobs property
+     * Sets the migrationJobs property value. The collection of sharePointMigrationJob objects local to the container. Read-write.
      * @param array<SharePointMigrationJob>|null $value Value to set for the migrationJobs property.
     */
     public function setMigrationJobs(?array $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Mig
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get migrationJobs from storage
+ * The collection of sharePointMigrationJob objects local to the container. Read-write.
 */
 class SharePointMigrationJobItemRequestBuilderGetQueryParameters 
 {

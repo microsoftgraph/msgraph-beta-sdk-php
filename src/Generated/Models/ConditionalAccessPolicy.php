@@ -113,7 +113,7 @@ class ConditionalAccessPolicy extends PolicyDeletableItem implements Parsable
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Specifies the identifier of a conditionalAccessPolicy object. Read-only.
      * @return string|null
     */
     public function getId(): ?string {
@@ -218,7 +218,7 @@ class ConditionalAccessPolicy extends PolicyDeletableItem implements Parsable
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Specifies the identifier of a conditionalAccessPolicy object. Read-only.
      * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {

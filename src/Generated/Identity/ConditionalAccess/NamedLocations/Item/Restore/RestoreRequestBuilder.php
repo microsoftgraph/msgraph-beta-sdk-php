@@ -31,10 +31,11 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action restore
+     * Restore a deleted ipNamedLocation object.
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NamedLocation|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/ipnamedlocation-restore?view=graph-rest-beta Find more info here
     */
     public function post(?RestoreRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action restore
+     * Restore a deleted ipNamedLocation object.
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

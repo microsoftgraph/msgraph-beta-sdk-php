@@ -40,7 +40,7 @@ class SharePointMigrationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the correlationId property value. The correlationId property
+     * Gets the correlationId property value. The correlation ID of a migration job. Read-only.
      * @return string|null
     */
     public function getCorrelationId(): ?string {
@@ -52,7 +52,7 @@ class SharePointMigrationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventDateTime property value. The eventDateTime property
+     * Gets the eventDateTime property value. The date and time when the job status changes. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -77,7 +77,7 @@ class SharePointMigrationEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the jobId property value. The jobId property
+     * Gets the jobId property value. The unique identifier of a migration job. Read-only.
      * @return string|null
     */
     public function getJobId(): ?string {
@@ -100,7 +100,7 @@ class SharePointMigrationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the correlationId property value. The correlationId property
+     * Sets the correlationId property value. The correlation ID of a migration job. Read-only.
      * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
@@ -108,7 +108,7 @@ class SharePointMigrationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventDateTime property value. The eventDateTime property
+     * Sets the eventDateTime property value. The date and time when the job status changes. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -116,7 +116,7 @@ class SharePointMigrationEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the jobId property value. The jobId property
+     * Sets the jobId property value. The unique identifier of a migration job. Read-only.
      * @param string|null $value Value to set for the jobId property.
     */
     public function setJobId(?string $value): void {

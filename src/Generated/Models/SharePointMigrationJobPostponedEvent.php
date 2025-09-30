@@ -40,7 +40,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Gets the jobsInQueue property value. The jobsInQueue property
+     * Gets the jobsInQueue property value. The number of migration jobs in the queue of the current database. Read-only.
      * @return int|null
     */
     public function getJobsInQueue(): ?int {
@@ -52,7 +52,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Gets the nextPickupDateTime property value. The nextPickupDateTime property
+     * Gets the nextPickupDateTime property value. The date and time that indicate when this job is picked up next. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getNextPickupDateTime(): ?DateTime {
@@ -64,7 +64,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Gets the reason property value. The reason property
+     * Gets the reason property value. The reason for the postponement. Read-only.
      * @return string|null
     */
     public function getReason(): ?string {
@@ -76,7 +76,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Gets the totalRetryCount property value. The totalRetryCount property
+     * Gets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @return int|null
     */
     public function getTotalRetryCount(): ?int {
@@ -100,7 +100,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Sets the jobsInQueue property value. The jobsInQueue property
+     * Sets the jobsInQueue property value. The number of migration jobs in the queue of the current database. Read-only.
      * @param int|null $value Value to set for the jobsInQueue property.
     */
     public function setJobsInQueue(?int $value): void {
@@ -108,7 +108,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Sets the nextPickupDateTime property value. The nextPickupDateTime property
+     * Sets the nextPickupDateTime property value. The date and time that indicate when this job is picked up next. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the nextPickupDateTime property.
     */
     public function setNextPickupDateTime(?DateTime $value): void {
@@ -116,7 +116,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Sets the reason property value. The reason property
+     * Sets the reason property value. The reason for the postponement. Read-only.
      * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {
@@ -124,7 +124,7 @@ class SharePointMigrationJobPostponedEvent extends SharePointMigrationEvent impl
     }
 
     /**
-     * Sets the totalRetryCount property value. The totalRetryCount property
+     * Sets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @param int|null $value Value to set for the totalRetryCount property.
     */
     public function setTotalRetryCount(?int $value): void {

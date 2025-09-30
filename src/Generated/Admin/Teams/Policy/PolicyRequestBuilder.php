@@ -45,7 +45,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policy from admin
+     * Represents a navigation property to the Teams policy assignment object.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsPolicyAssignment|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class PolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get policy from admin
+     * Represents a navigation property to the Teams policy assignment object.
      * @param PolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

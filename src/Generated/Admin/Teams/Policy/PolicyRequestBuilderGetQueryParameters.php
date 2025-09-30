@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Teams\Policy;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get policy from admin
+ * Represents a navigation property to the Teams policy assignment object.
 */
 class PolicyRequestBuilderGetQueryParameters 
 {

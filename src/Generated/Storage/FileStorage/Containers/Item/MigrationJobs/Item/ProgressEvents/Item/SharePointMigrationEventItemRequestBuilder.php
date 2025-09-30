@@ -45,7 +45,7 @@ class SharePointMigrationEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get progressEvents from storage
+     * A collection of migration events that reflects the job status changes.
      * @param SharePointMigrationEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointMigrationEvent|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SharePointMigrationEventItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get progressEvents from storage
+     * A collection of migration events that reflects the job status changes.
      * @param SharePointMigrationEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

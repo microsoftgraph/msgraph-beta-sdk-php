@@ -61,7 +61,7 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deletedItems from identity
+     * Read-only. Nullable. Returns a collection of the deleted Conditional Access objects.
      * @param DeletedItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CaPoliciesDeletableRoot|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get deletedItems from identity
+     * Read-only. Nullable. Returns a collection of the deleted Conditional Access objects.
      * @param DeletedItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

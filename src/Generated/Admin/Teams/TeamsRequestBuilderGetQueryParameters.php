@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Teams;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A container for all Teams telephone number management functionalities and user configurations.
+ * A container for Teams administration functionalities, such as user configurations, telephone number management, and policy assignments.
 */
 class TeamsRequestBuilderGetQueryParameters 
 {

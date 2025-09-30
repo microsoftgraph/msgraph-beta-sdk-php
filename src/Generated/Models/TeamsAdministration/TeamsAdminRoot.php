@@ -39,7 +39,7 @@ class TeamsAdminRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the policy property value. The policy property
+     * Gets the policy property value. Represents a navigation property to the Teams policy assignment object.
      * @return TeamsPolicyAssignment|null
     */
     public function getPolicy(): ?TeamsPolicyAssignment {
@@ -75,7 +75,7 @@ class TeamsAdminRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the policy property value. The policy property
+     * Sets the policy property value. Represents a navigation property to the Teams policy assignment object.
      * @param TeamsPolicyAssignment|null $value Value to set for the policy property.
     */
     public function setPolicy(?TeamsPolicyAssignment $value): void {

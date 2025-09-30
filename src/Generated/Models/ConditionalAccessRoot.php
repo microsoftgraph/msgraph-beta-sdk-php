@@ -64,7 +64,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedItems property value. The deletedItems property
+     * Gets the deletedItems property value. Read-only. Nullable. Returns a collection of the deleted Conditional Access objects.
      * @return CaPoliciesDeletableRoot|null
     */
     public function getDeletedItems(): ?CaPoliciesDeletableRoot {
@@ -174,7 +174,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedItems property value. The deletedItems property
+     * Sets the deletedItems property value. Read-only. Nullable. Returns a collection of the deleted Conditional Access objects.
      * @param CaPoliciesDeletableRoot|null $value Value to set for the deletedItems property.
     */
     public function setDeletedItems(?CaPoliciesDeletableRoot $value): void {

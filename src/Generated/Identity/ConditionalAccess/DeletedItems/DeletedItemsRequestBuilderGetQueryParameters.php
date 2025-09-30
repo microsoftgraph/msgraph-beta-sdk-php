@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get deletedItems from identity
+ * Read-only. Nullable. Returns a collection of the deleted Conditional Access objects.
 */
 class DeletedItemsRequestBuilderGetQueryParameters 
 {
