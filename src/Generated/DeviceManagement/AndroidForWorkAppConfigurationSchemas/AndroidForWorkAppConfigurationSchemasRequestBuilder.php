@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas\Item\AndroidForWorkAppConfigurationSchemaItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkAppConfigurationSchema;
-use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkAppConfigurationSchemaCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas\Item\AndroidForWorkAppConfigurationSchemaItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidForWorkAppConfigurationSchema;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidForWorkAppConfigurationSchemaCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

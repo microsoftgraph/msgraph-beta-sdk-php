@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerPlan;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Archive\ArchiveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Buckets\BucketsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Details\DetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\MoveToContainer\MoveToContainerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\TasksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Unarchive\UnarchiveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerPlan;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Archive\ArchiveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Buckets\BucketsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Details\DetailsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\MoveToContainer\MoveToContainerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\TasksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\ResourceNamespaces\Item\ImportResourceActions;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\ResourceNamespaces\Item\ImportResourceActions;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

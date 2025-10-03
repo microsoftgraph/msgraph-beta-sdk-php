@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SharePointMigrationJob;
-use Microsoft\Graph\Beta\Generated\Models\SharePointMigrationJobCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\SharePointMigrationJobItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharePointMigrationJob;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharePointMigrationJobCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\SharePointMigrationJobItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

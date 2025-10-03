@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Reconciliation;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\Partners\Billing\Reconciliation;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Partners\Billing\BillingReconciliation;
-use Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Reconciliation\Billed\BilledRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Reconciliation\Unbilled\UnbilledRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partners\Billing\BillingReconciliation;
+use Microsoft\\Graph\\Beta\\Generated\Reports\Partners\Billing\Reconciliation\Billed\BilledRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\Partners\Billing\Reconciliation\Unbilled\UnbilledRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

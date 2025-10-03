@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceOperations\Item\GetScopesForUserWithUserid;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ResourceOperations\Item\GetScopesForUserWithUserid;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

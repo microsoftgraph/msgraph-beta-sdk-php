@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecureScoreControlProfiles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

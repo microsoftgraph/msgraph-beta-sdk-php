@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Chat;
-use Microsoft\Graph\Beta\Generated\Models\ChatCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\AllMessages\AllMessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\GetAllMessages\GetAllMessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\GetAllRetainedMessages\GetAllRetainedMessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\ChatItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Chat;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\AllMessages\AllMessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\GetAllMessages\GetAllMessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\GetAllRetainedMessages\GetAllRetainedMessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\ChatItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

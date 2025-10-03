@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\ForwardingProfiles\Item\Policies;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\ForwardingProfiles\Item\Policies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\PolicyLink;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\PolicyLinkCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\ForwardingProfiles\Item\Policies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\ForwardingProfiles\Item\Policies\Item\PolicyLinkItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\PolicyLink;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\PolicyLinkCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\ForwardingProfiles\Item\Policies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\ForwardingProfiles\Item\Policies\Item\PolicyLinkItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphAndroidManagedStoreApp\Categories\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphAndroidManagedStoreApp\Categories\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

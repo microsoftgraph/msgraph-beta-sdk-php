@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceEnrollmentConfigurations\HasPayloadLinks;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceEnrollmentConfigurations\HasPayloadLinks;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

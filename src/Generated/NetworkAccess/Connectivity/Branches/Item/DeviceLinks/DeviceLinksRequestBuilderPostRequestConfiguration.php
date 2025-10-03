@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\DeviceLinks;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\Item\DeviceLinks;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

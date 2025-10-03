@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\CreateToken;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\CreateToken;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Attachments\AttachmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Extensions\ExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Forward\ForwardRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\InReplyTo\InReplyToRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\MentionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Reply\ReplyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Post;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Attachments\AttachmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Extensions\ExtensionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Forward\ForwardRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\InReplyTo\InReplyToRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\MentionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Reply\ReplyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Post;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

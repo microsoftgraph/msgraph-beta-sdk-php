@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

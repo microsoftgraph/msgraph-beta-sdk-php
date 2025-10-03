@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails\MicrosoftGraphSecurityRemediate;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\AnalyzedEmails\MicrosoftGraphSecurityRemediate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

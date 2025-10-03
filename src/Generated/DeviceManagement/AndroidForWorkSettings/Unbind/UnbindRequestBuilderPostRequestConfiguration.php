@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings\Unbind;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkSettings\Unbind;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

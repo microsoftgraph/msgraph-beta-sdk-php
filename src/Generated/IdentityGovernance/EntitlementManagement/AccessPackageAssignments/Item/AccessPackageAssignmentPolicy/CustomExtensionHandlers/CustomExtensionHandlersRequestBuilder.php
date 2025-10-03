@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentPolicy\CustomExtensionHandlers;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentPolicy\CustomExtensionHandlers;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentPolicy\CustomExtensionHandlers\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentPolicy\CustomExtensionHandlers\Item\CustomExtensionHandlerItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CustomExtensionHandler;
-use Microsoft\Graph\Beta\Generated\Models\CustomExtensionHandlerCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentPolicy\CustomExtensionHandlers\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackageAssignmentPolicy\CustomExtensionHandlers\Item\CustomExtensionHandlerItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CustomExtensionHandler;
+use Microsoft\\Graph\\Beta\\Generated\Models\CustomExtensionHandlerCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

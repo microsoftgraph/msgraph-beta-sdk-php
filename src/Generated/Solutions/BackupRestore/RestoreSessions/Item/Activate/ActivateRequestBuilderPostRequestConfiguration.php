@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\RestoreSessions\Item\Activate;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\RestoreSessions\Item\Activate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

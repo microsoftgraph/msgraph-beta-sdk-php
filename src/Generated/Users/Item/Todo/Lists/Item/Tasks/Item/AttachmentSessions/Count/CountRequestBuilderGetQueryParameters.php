@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

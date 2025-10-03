@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DataSharingConsents\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

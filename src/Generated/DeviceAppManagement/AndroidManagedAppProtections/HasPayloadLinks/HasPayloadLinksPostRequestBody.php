@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\AndroidManagedAppProtections\HasPayloadLinks;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\AndroidManagedAppProtections\HasPayloadLinks;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

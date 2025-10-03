@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Item\Buckets\Item\Tasks\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Item\Buckets\Item\Tasks\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

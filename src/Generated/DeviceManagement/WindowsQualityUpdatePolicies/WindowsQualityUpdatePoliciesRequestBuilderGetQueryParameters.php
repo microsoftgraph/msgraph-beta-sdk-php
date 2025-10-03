@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsQualityUpdatePolicies;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

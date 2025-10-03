@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Apps\AppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\DeploymentSummary\DeploymentSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AndroidManagedAppProtection;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Apps\AppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\DeploymentSummary\DeploymentSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidManagedAppProtection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

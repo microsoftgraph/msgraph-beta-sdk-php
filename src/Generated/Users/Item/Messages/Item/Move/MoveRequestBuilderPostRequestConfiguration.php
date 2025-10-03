@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\Move;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Messages\Item\Move;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

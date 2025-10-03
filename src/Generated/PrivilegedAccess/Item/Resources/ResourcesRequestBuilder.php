@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\Resources;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\GovernanceResource;
-use Microsoft\Graph\Beta\Generated\Models\GovernanceResourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\GovernanceResourceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Register\RegisterRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GovernanceResource;
+use Microsoft\\Graph\\Beta\\Generated\Models\GovernanceResourceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\Resources\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\Resources\Item\GovernanceResourceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\Resources\Register\RegisterRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

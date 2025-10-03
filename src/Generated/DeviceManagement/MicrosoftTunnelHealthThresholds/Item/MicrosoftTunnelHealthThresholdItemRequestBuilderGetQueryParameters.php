@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

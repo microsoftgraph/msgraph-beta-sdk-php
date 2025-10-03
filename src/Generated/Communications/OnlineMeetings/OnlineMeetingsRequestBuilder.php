@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\CreateOrGet\CreateOrGetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime\GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime\GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
-use Microsoft\Graph\Beta\Generated\Models\OnlineMeetingCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\CreateOrGet\CreateOrGetRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime\GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime\GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnlineMeeting;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnlineMeetingCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

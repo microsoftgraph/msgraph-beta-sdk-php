@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Assignments;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Assignments;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

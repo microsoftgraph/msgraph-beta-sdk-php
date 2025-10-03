@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\Privacy\SubjectRightsRequests;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComplianceSettings\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

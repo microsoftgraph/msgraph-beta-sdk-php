@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

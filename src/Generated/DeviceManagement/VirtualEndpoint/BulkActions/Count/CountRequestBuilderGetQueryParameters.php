@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\BulkActions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\BulkActions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AuditLog\Queries\Item\Records\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AuditLog\Queries\Item\Records\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

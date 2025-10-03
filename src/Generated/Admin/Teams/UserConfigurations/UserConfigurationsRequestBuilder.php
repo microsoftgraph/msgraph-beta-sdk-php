@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\UserConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\UserConfigurations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\UserConfigurations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\UserConfigurations\Item\TeamsUserConfigurationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsUserConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsUserConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\UserConfigurations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\UserConfigurations\Item\TeamsUserConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\TeamsUserConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\TeamsUserConfigurationCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

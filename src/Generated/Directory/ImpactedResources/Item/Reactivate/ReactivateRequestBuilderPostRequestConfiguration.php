@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\Reactivate;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\ImpactedResources\Item\Reactivate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

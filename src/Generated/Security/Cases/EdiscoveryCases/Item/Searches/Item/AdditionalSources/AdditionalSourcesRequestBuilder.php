@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\AdditionalSources;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\AdditionalSources;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\DataSource;
-use Microsoft\Graph\Beta\Generated\Models\Security\DataSourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\AdditionalSources\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\AdditionalSources\Item\DataSourceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DataSource;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DataSourceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\AdditionalSources\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\AdditionalSources\Item\DataSourceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

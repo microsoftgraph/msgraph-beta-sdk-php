@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\CalendarView;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EventCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\CalendarView\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EventCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ForwardingProfile;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ForwardingProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\Item\ForwardingProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\ForwardingProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\ForwardingProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingProfiles\Item\ForwardingProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Planner\Plans\Item\MoveToContainer;
+namespace Microsoft\\Graph\\Beta\\Generated\Planner\Plans\Item\MoveToContainer;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

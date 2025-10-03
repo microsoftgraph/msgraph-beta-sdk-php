@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance\UploadClientCertificate\UploadClientCertificateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityApiConnector;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance\UploadClientCertificate\UploadClientCertificateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityApiConnector;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

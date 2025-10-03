@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\AppliedPolicies\Item\TargetApps;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\AppliedPolicies\Item\TargetApps;
 
-use Microsoft\Graph\Beta\Generated\Models\ManagedMobileApp;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedMobileApp;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

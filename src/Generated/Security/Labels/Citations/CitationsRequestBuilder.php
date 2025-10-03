@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\Citations;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Labels\Citations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\CitationTemplate;
-use Microsoft\Graph\Beta\Generated\Models\Security\CitationTemplateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Labels\Citations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Labels\Citations\Item\CitationTemplateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\CitationTemplate;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\CitationTemplateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\Citations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\Citations\Item\CitationTemplateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

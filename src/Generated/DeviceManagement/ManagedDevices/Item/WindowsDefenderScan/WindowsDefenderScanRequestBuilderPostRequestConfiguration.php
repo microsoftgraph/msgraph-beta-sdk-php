@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\WindowsDefenderScan;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDevices\Item\WindowsDefenderScan;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

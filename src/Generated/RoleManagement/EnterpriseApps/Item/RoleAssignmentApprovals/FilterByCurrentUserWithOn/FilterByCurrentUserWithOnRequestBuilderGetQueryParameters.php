@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\FilterByCurrentUserWithOn;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\FilterByCurrentUserWithOn;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

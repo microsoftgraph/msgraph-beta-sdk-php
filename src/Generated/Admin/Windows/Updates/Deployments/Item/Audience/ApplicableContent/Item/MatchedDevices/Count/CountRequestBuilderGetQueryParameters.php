@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\ApplicableContent\Item\MatchedDevices\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Deployments\Item\Audience\ApplicableContent\Item\MatchedDevices\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

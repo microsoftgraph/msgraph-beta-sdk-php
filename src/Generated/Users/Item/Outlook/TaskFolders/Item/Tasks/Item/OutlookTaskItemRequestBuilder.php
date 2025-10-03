@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OutlookTask;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\Attachments\AttachmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\Complete\CompleteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\PermanentDelete\PermanentDeleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OutlookTask;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\Attachments\AttachmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\Complete\CompleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

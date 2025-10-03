@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\RoleManagementAlerts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\AlertConfigurations\AlertConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\AlertDefinitions\AlertDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Alerts\AlertsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RoleManagementAlert;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\RoleManagementAlerts\AlertConfigurations\AlertConfigurationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\RoleManagementAlerts\AlertDefinitions\AlertDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\RoleManagementAlerts\Alerts\AlertsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\RoleManagementAlerts\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RoleManagementAlert;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

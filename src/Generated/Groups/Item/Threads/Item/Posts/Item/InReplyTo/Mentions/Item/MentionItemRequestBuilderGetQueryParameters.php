@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\InReplyTo\Mentions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\InReplyTo\Mentions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

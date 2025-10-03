@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests\Item\ManagedAppLogCollectionRequestItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ManagedAppLogCollectionRequest;
-use Microsoft\Graph\Beta\Generated\Models\ManagedAppLogCollectionRequestCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests\Item\ManagedAppLogCollectionRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedAppLogCollectionRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedAppLogCollectionRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

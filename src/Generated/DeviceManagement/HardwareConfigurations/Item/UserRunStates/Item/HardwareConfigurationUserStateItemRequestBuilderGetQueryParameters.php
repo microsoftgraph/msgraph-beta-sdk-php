@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\UserRunStates\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\UserRunStates\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\RosterPlans\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\RosterPlans\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

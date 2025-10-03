@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices\Item\AssignTo\MailboxSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices\Item\AssignTo\MailboxSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\Item\MicrosoftGraphWindowsUpdatesAddMembersById;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\Item\MicrosoftGraphWindowsUpdatesAddMembersById;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\GetExpiringVppTokenCountWithExpiringBeforeDateTime;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DepOnboardingSettings\GetExpiringVppTokenCountWithExpiringBeforeDateTime;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

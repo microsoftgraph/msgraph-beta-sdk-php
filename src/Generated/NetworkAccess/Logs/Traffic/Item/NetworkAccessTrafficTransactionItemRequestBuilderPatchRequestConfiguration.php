@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\Traffic\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

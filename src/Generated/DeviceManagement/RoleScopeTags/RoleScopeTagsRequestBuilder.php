@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\GetRoleScopeTagsById\GetRoleScopeTagsByIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\HasCustomRoleScopeTag\HasCustomRoleScopeTagRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\RoleScopeTagItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RoleScopeTag;
-use Microsoft\Graph\Beta\Generated\Models\RoleScopeTagCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\GetRoleScopeTagsById\GetRoleScopeTagsByIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\HasCustomRoleScopeTag\HasCustomRoleScopeTagRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\Item\RoleScopeTagItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RoleScopeTag;
+use Microsoft\\Graph\\Beta\\Generated\Models\RoleScopeTagCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

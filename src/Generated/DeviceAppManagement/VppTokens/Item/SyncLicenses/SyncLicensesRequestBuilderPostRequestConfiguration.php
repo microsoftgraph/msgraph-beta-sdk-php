@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Item\SyncLicenses;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens\Item\SyncLicenses;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\Item\Recordings\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\AdhocCalls\Item\Recordings\Delta;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

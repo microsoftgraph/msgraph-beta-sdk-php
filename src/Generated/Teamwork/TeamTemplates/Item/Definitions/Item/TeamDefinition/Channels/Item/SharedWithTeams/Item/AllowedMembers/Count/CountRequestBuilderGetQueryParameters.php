@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\SharedWithTeams\Item\AllowedMembers\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\SharedWithTeams\Item\AllowedMembers\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

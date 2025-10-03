@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearUserPreferredPresence;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\ClearUserPreferredPresence;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

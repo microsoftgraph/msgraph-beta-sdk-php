@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\SignUps;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\SignUps;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserSignUpMetricCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\SignUps\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\SignUps\Item\UserSignUpMetricItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserSignUpMetricCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\SignUps\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\SignUps\Item\UserSignUpMetricItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

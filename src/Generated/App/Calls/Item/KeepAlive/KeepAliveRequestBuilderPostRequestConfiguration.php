@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\KeepAlive;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\KeepAlive;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

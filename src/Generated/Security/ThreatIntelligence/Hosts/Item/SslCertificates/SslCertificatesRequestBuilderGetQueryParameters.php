@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\SslCertificates;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\Hosts\Item\SslCertificates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

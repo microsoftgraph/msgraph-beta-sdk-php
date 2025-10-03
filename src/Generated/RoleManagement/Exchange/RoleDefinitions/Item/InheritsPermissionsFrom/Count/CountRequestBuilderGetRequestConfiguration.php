@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\Item\InheritsPermissionsFrom\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\RoleDefinitions\Item\InheritsPermissionsFrom\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

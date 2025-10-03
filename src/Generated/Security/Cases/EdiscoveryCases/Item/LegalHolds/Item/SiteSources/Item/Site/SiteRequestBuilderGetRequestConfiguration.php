@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\Item\Site;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\Item\Site;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

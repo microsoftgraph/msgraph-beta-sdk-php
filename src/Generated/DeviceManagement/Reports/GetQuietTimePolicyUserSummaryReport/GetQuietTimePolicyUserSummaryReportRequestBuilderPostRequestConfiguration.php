@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetQuietTimePolicyUserSummaryReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetQuietTimePolicyUserSummaryReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

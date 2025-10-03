@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetRemoteAssistanceSessionsReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetRemoteAssistanceSessionsReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

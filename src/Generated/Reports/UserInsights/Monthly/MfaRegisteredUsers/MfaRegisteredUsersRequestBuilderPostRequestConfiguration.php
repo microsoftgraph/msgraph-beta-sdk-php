@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

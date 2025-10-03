@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleDefinitions;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleDefinitions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleDefinition;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleDefinitionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleDefinitions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleDefinitions\Item\UnifiedRoleDefinitionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleDefinition;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleDefinitionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleDefinitions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleDefinitions\Item\UnifiedRoleDefinitionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

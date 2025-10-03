@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Item\Buckets\Item\Tasks\Item\BucketTaskBoardFormat;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Item\Buckets\Item\Tasks\Item\BucketTaskBoardFormat;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

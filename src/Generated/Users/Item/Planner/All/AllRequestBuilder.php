@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\All;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\All;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerDelta;
-use Microsoft\Graph\Beta\Generated\Models\PlannerDeltaCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\Item\PlannerDeltaItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerDelta;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerDeltaCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\All\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\All\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\All\Item\PlannerDeltaItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

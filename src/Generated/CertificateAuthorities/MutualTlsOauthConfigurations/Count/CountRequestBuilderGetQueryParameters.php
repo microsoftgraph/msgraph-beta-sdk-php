@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\CertificateAuthorities\MutualTlsOauthConfigurations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\CertificateAuthorities\MutualTlsOauthConfigurations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamworkDevice;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Activity\ActivityRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Configuration\ConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Health\HealthRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Restart\RestartRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\RunDiagnostics\RunDiagnosticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\UpdateSoftware\UpdateSoftwareRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkDevice;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Activity\ActivityRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Configuration\ConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Health\HealthRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Restart\RestartRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\RunDiagnostics\RunDiagnosticsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\UpdateSoftware\UpdateSoftwareRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

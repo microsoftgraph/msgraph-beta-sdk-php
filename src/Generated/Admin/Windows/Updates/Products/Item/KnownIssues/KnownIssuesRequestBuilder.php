@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\KnownIssues;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\Item\KnownIssues;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\KnownIssues\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\KnownIssues\Item\KnownIssueItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\KnownIssue;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\KnownIssueCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\Item\KnownIssues\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\Item\KnownIssues\Item\KnownIssueItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\KnownIssue;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\KnownIssueCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

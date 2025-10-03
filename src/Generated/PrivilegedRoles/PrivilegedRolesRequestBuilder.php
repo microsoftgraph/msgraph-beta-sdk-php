@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedRoles;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedRoles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedRole;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleCollectionResponse;
-use Microsoft\Graph\Beta\Generated\PrivilegedRoles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item\PrivilegedRoleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedRole;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedRoleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedRoles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedRoles\Item\PrivilegedRoleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\LastSevenDays;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Analytics\LastSevenDays;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

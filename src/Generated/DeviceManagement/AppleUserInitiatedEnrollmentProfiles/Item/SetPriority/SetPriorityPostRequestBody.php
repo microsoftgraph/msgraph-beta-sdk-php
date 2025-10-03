@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Item\SetPriority;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Item\SetPriority;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

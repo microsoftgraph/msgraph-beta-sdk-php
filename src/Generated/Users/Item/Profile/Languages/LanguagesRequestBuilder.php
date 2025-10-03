@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Languages;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Languages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\LanguageProficiency;
-use Microsoft\Graph\Beta\Generated\Models\LanguageProficiencyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Languages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Languages\Item\LanguageProficiencyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\LanguageProficiency;
+use Microsoft\\Graph\\Beta\\Generated\Models\LanguageProficiencyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Languages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Languages\Item\LanguageProficiencyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

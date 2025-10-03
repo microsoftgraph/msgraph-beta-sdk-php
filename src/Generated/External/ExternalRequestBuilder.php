@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External;
+namespace Microsoft\\Graph\\Beta\\Generated\External;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\AuthorizationSystems\AuthorizationSystemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\Connections\ConnectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\IndustryDataRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\External;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\AuthorizationSystems\AuthorizationSystemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\Connections\ConnectionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\IndustryDataRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExternalConnectors\External;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

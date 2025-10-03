@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

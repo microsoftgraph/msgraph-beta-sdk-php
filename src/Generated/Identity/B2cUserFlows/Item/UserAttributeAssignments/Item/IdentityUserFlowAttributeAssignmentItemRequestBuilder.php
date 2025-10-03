@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Item\UserAttribute\UserAttributeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttributeAssignment;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2cUserFlows\Item\UserAttributeAssignments\Item\UserAttribute\UserAttributeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityUserFlowAttributeAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

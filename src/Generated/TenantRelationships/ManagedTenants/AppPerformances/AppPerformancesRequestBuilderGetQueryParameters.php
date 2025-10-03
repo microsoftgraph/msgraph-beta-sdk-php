@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AppPerformances;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\AppPerformances;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

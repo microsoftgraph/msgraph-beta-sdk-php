@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\People\ProfileSourcesWithSourceId;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileSourcesWithSourceId;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

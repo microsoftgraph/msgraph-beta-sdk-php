@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserAttributeAssignments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\UserAttributeAssignments\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

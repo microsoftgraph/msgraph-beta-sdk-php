@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfile;
-use Microsoft\Graph\Beta\Generated\Models\OnPremisesPublishingProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\OnPremisesPublishingProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnPremisesPublishingProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnPremisesPublishingProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\OnPremisesPublishingProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

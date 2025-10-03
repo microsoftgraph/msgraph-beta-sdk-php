@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

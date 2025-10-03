@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CloudPC;
-use Microsoft\Graph\Beta\Generated\Models\CloudPCCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\GetProvisionedCloudPCsWithGroupIdWithServicePlanId\GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\CloudPCItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\RetrieveCloudPcCountByStatus\RetrieveCloudPcCountByStatusRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\ValidateBulkResize\ValidateBulkResizeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPC;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPCCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\GetProvisionedCloudPCsWithGroupIdWithServicePlanId\GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\CloudPCItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\RetrieveCloudPcCountByStatus\RetrieveCloudPcCountByStatusRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\ValidateBulkResize\ValidateBulkResizeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityProviderBaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\OnAuthenticationMethodLoadStart\GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp\IdentityProviders\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityProviderBaseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class IdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.identity.authenticationEventsFlows.item.graphExternalUsersSelfServiceSignUpEventsFlow.onAuthenticationMethodLoadStart.graphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.identityProviders.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.identity.authenticationEventsFlows.item.graphExternalUsersSelfServiceSignUpEventsFlow.onAuthenticationMethodLoadStart.graphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp.identityProviders.item collection
      * @param string $identityProviderBaseId The unique identifier of identityProviderBase
      * @return IdentityProviderBaseItemRequestBuilder
     */

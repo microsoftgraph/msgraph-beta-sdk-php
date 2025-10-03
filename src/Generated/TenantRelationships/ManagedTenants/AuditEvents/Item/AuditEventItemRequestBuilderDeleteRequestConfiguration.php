@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AuditEvents\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\AuditEvents\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

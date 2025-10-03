@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\Approval;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\Approval;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Approval;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\Approval\Steps\StepsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Approval;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\Approval\Steps\StepsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

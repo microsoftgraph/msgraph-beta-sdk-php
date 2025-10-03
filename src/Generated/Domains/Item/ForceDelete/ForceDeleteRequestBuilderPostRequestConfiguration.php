@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item\ForceDelete;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item\ForceDelete;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

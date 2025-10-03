@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors;
+namespace Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\Connectors;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

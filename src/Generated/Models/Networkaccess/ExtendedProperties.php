@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess;
 
-use Microsoft\Graph\Beta\Generated\Models\Dictionary;
+use Microsoft\\Graph\\Beta\\Generated\Models\Dictionary;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

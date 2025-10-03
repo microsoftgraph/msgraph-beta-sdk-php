@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\GraphApplication\GraphApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\GraphDevice\GraphDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\GraphOrgContact\GraphOrgContactRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\DirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\GraphDevice\GraphDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\GraphOrgContact\GraphOrgContactRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

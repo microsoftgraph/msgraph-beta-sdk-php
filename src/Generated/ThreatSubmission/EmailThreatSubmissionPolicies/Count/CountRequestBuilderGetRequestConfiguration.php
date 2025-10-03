@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ThreatSubmission\EmailThreatSubmissionPolicies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\ThreatSubmission\EmailThreatSubmissionPolicies\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

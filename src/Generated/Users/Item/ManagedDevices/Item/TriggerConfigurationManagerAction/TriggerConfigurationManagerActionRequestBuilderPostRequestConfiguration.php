@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\TriggerConfigurationManagerAction;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\TriggerConfigurationManagerAction;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

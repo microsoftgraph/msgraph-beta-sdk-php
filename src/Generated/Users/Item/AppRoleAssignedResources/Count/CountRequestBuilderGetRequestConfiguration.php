@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResources\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\AppRoleAssignedResources\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

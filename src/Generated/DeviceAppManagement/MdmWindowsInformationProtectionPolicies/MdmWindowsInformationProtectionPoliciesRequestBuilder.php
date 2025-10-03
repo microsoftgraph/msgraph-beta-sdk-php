@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies\HasPayloadLinks\HasPayloadLinksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies\Item\MdmWindowsInformationProtectionPolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MdmWindowsInformationProtectionPolicy;
-use Microsoft\Graph\Beta\Generated\Models\MdmWindowsInformationProtectionPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MdmWindowsInformationProtectionPolicies\Item\MdmWindowsInformationProtectionPolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MdmWindowsInformationProtectionPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\MdmWindowsInformationProtectionPolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

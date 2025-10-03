@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Cancel;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\Cancel;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

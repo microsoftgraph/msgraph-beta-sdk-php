@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\ContentVersions\ContentVersionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\Relationships\RelationshipsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsAppX;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\Categories\CategoriesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\ContentVersions\ContentVersionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWindowsAppX\Relationships\RelationshipsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsAppX;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

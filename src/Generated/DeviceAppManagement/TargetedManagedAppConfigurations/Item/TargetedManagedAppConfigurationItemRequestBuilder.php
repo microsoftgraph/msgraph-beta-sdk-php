@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Apps\AppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\ChangeSettings\ChangeSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\DeploymentSummary\DeploymentSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\TargetApps\TargetAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TargetedManagedAppConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Apps\AppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\ChangeSettings\ChangeSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\DeploymentSummary\DeploymentSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\Settings\SettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\TargetedManagedAppConfigurations\Item\TargetApps\TargetAppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TargetedManagedAppConfiguration;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

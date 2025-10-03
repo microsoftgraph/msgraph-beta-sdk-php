@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Security;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Security;
 
 use Microsoft\Kiota\Abstractions\Enum;
 

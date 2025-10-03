@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Approval;
-use Microsoft\Graph\Beta\Generated\Models\ApprovalCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\Item\ApprovalItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Approval;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApprovalCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleAssignmentApprovals\Item\ApprovalItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

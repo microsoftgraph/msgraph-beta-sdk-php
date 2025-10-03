@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Connectors\ConnectorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\GetCapabilities\GetCapabilitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Jobs\JobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\ResetDefaults\ResetDefaultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\RestoreFactoryDefaults\RestoreFactoryDefaultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Share\ShareRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Shares\SharesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\TaskTriggers\TaskTriggersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Printer;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\Connectors\ConnectorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\GetCapabilities\GetCapabilitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\Jobs\JobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\ResetDefaults\ResetDefaultsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\RestoreFactoryDefaults\RestoreFactoryDefaultsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\Share\ShareRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\Shares\SharesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\TaskTriggers\TaskTriggersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Printer;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

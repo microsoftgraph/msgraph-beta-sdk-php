@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

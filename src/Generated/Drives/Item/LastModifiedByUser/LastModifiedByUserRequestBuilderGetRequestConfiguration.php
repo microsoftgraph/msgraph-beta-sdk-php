@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\LastModifiedByUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\LastModifiedByUser;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

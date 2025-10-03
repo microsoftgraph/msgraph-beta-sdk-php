@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Permissions;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\Permissions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

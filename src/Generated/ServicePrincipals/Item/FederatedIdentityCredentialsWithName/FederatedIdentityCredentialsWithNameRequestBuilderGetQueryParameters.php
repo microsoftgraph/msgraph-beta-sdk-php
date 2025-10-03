@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentialsWithName;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\FederatedIdentityCredentialsWithName;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

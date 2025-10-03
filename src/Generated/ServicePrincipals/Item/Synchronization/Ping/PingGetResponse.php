@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Ping;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Ping;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

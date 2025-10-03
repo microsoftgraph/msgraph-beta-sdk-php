@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\Item\MentionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Mention;
-use Microsoft\Graph\Beta\Generated\Models\MentionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Threads\Item\Posts\Item\Mentions\Item\MentionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Mention;
+use Microsoft\\Graph\\Beta\\Generated\Models\MentionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

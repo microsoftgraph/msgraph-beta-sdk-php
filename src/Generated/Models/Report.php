@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -60,7 +60,7 @@ class Report implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the content property value. The http content that has the data
+     * Gets the content property value. Report content; details vary by report type.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -122,7 +122,7 @@ class Report implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the content property value. The http content that has the data
+     * Sets the content property value. Report content; details vary by report type.
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {

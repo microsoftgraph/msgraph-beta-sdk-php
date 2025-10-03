@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\GraphRoomList\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\GraphRoomList\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

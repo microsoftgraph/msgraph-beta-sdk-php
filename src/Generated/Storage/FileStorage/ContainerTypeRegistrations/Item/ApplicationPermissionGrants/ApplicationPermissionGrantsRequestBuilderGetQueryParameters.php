@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\HasActiveDeployments;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\HasActiveDeployments;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

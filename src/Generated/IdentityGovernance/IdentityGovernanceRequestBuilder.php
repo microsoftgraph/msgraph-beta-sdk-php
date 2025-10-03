@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\AccessReviewsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\EntitlementManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\LifecycleWorkflowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\PermissionsAnalyticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\PrivilegedAccessRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\RoleManagementAlertsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\TermsOfUseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\IdentityGovernance;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\AccessReviewsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AppConsent\AppConsentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\EntitlementManagementRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\LifecycleWorkflows\LifecycleWorkflowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsAnalytics\PermissionsAnalyticsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsManagement\PermissionsManagementRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\PrivilegedAccessRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\RoleManagementAlerts\RoleManagementAlertsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\TermsOfUse\TermsOfUseRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityGovernance\IdentityGovernance;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

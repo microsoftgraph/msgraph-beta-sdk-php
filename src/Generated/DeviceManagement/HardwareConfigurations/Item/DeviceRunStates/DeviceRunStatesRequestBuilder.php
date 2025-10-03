@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates\Item\HardwareConfigurationDeviceStateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\HardwareConfigurationDeviceState;
-use Microsoft\Graph\Beta\Generated\Models\HardwareConfigurationDeviceStateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates\Item\HardwareConfigurationDeviceStateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwareConfigurationDeviceState;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwareConfigurationDeviceStateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

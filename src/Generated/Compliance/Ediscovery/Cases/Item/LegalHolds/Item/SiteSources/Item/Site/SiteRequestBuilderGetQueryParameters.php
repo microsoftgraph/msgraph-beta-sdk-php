@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Item\Site;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\Item\Site;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\ActivityBasedTimeoutPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\ActivityBasedTimeoutPolicies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ActivityBasedTimeoutPolicy;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\ActivityBasedTimeoutPolicies\Item\AppliesTo\AppliesToRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ActivityBasedTimeoutPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\ActivityBasedTimeoutPolicies\Item\AppliesTo\AppliesToRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

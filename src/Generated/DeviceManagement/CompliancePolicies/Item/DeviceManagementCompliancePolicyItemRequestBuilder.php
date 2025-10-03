@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CompliancePolicies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\ScheduledActionsForRuleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\SetScheduledActions\SetScheduledActionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementCompliancePolicy;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CompliancePolicies\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CompliancePolicies\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\ScheduledActionsForRuleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CompliancePolicies\Item\SetScheduledActions\SetScheduledActionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CompliancePolicies\Item\Settings\SettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementCompliancePolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

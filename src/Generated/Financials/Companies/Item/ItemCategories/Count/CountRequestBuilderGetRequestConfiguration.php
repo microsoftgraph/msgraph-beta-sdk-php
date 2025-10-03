@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ItemCategories\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\ItemCategories\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

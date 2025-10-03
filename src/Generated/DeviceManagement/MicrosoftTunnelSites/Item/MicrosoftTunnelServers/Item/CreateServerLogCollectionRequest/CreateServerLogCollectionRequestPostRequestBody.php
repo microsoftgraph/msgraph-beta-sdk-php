@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\CreateServerLogCollectionRequest;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\CreateServerLogCollectionRequest;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;

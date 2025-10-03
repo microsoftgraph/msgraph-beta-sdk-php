@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Templates\DeviceTemplates\Item\CreateDeviceFromTemplate;
+namespace Microsoft\\Graph\\Beta\\Generated\Templates\DeviceTemplates\Item\CreateDeviceFromTemplate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

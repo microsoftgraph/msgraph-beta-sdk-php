@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetTeamsUserActivityTotalCountsWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetTeamsUserActivityTotalCountsWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

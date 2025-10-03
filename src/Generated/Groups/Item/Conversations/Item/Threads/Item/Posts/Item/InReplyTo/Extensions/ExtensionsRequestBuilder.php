@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\InReplyTo\Extensions;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\InReplyTo\Extensions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\InReplyTo\Extensions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\InReplyTo\Extensions\Item\ExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Extension;
-use Microsoft\Graph\Beta\Generated\Models\ExtensionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\InReplyTo\Extensions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Conversations\Item\Threads\Item\Posts\Item\InReplyTo\Extensions\Item\ExtensionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Extension;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExtensionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DeletePasswordSingleSignOnCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\DeletePasswordSingleSignOnCredentials;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

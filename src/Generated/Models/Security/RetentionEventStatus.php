@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Security;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Security;
 
-use Microsoft\Graph\Beta\Generated\Models\PublicError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PublicError;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

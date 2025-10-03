@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\DataDiscovery\CloudAppDiscovery\UploadedStreams\Item\MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\DataDiscovery\CloudAppDiscovery\UploadedStreams\Item\MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriod;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\Security\DiscoveredCloudAppDetail;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DiscoveredCloudAppDetail;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WebPart;
-use Microsoft\Graph\Beta\Generated\Models\WebPartCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts\Item\WebPartItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WebPart;
+use Microsoft\\Graph\\Beta\\Generated\Models\WebPartCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts\Item\WebPartItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

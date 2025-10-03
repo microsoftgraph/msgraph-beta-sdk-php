@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\WipeAndBlockManagedApps;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\WipeAndBlockManagedApps;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

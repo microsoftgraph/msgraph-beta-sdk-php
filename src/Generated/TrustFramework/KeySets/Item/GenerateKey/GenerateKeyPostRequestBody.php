@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GenerateKey;
+namespace Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\GenerateKey;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

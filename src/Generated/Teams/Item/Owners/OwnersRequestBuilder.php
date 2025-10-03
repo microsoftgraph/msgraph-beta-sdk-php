@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Owners;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Owners;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Owners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Owners\Item\UserItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Owners\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Owners\Item\UserItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

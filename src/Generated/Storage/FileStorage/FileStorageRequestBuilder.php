@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FileStorage;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\ContainersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegistrations\ContainerTypeRegistrationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypes\ContainerTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\DeletedContainersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\FileStorage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\ContainersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypeRegistrations\ContainerTypeRegistrationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypes\ContainerTypesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\DeletedContainersRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

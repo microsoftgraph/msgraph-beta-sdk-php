@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\AppDiagnosticsWithUpn\AppDiagnosticsWithUpnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\DownloadPowerliftAppDiagnostic\DownloadPowerliftAppDiagnosticRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ManagedDeviceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDevice;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDeviceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\AppDiagnosticsWithUpn\AppDiagnosticsWithUpnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\DownloadPowerliftAppDiagnostic\DownloadPowerliftAppDiagnosticRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\ManagedDeviceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

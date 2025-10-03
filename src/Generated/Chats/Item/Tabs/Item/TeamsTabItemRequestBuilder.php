@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Chats\Item\Tabs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Chats\Item\Tabs\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Chats\Item\Tabs\Item\TeamsApp\TeamsAppRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamsTab;
+use Microsoft\\Graph\\Beta\\Generated\Chats\Item\Tabs\Item\TeamsApp\TeamsAppRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsTab;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

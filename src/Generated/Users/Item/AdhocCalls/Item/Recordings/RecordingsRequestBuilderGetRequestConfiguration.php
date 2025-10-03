@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\AdhocCalls\Item\Recordings;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\AdhocCalls\Item\Recordings;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\FilesFolder;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\FilesFolder;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DriveItem;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\FilesFolder\Content\ContentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\FilesFolder\ContentStream\ContentStreamRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DriveItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\FilesFolder\Content\ContentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\FilesFolder\ContentStream\ContentStreamRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

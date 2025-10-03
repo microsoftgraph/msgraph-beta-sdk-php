@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\Assignments;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\Assignments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\Assignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\Assignments\Item\MobileAppAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppAssignment;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppAssignmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\Assignments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\Assignments\Item\MobileAppAssignmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppAssignmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

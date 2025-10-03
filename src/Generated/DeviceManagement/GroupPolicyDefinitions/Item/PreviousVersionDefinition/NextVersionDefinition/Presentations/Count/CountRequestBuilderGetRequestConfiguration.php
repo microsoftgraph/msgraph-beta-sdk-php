@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions\Item\PreviousVersionDefinition\NextVersionDefinition\Presentations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GroupPolicyDefinitions\Item\PreviousVersionDefinition\NextVersionDefinition\Presentations\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

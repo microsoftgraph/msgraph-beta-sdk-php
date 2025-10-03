@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetTeamsTeamActivityDetailWithDate;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetTeamsTeamActivityDetailWithDate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\SharePointGroups\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\SharePointGroups\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

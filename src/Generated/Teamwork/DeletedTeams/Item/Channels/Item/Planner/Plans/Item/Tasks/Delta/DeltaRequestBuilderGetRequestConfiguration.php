@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Planner\Plans\Item\Tasks\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Planner\Plans\Item\Tasks\Delta;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

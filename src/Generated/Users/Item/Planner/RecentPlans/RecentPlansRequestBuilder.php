@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\RecentPlans;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\RecentPlans;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerPlanCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RecentPlans\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RecentPlans\Item\PlannerPlanItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerPlanCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\RecentPlans\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\RecentPlans\Item\PlannerPlanItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

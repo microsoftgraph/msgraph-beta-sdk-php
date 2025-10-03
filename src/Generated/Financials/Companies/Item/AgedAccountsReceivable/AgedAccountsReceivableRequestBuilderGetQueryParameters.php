@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsReceivable;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\AgedAccountsReceivable;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

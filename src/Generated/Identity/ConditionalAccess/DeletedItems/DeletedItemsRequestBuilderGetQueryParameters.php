@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

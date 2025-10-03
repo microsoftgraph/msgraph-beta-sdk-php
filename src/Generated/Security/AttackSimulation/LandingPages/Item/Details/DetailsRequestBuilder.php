@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\LandingPages\Item\Details;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\LandingPages\Item\Details;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\LandingPageDetail;
-use Microsoft\Graph\Beta\Generated\Models\LandingPageDetailCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\LandingPages\Item\Details\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\LandingPages\Item\Details\Item\LandingPageDetailItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\LandingPageDetail;
+use Microsoft\\Graph\\Beta\\Generated\Models\LandingPageDetailCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\LandingPages\Item\Details\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\LandingPages\Item\Details\Item\LandingPageDetailItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\Definitions\Item\Instances\Item\Stages\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

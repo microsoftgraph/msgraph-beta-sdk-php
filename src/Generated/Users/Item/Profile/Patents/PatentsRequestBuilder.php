@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Patents;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ItemPatent;
-use Microsoft\Graph\Beta\Generated\Models\ItemPatentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Item\ItemPatentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemPatent;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemPatentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Patents\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Patents\Item\ItemPatentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

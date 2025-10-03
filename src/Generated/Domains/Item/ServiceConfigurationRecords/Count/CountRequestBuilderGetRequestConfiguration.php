@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item\ServiceConfigurationRecords\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

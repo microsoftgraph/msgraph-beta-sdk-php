@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\AppliesTo;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\FeatureRolloutPolicies\Item\AppliesTo;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

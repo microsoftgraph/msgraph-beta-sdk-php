@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\ExportJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Goals\ExportJobs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\ExportJobs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\ExportJobs\Item\GoalsExportJobItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GoalsExportJob;
-use Microsoft\Graph\Beta\Generated\Models\GoalsExportJobCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Goals\ExportJobs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Goals\ExportJobs\Item\GoalsExportJobItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GoalsExportJob;
+use Microsoft\\Graph\\Beta\\Generated\Models\GoalsExportJobCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

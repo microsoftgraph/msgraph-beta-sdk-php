@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\CallRecords\MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

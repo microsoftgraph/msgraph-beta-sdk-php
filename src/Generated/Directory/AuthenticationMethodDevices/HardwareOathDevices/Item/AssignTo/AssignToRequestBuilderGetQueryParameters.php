@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\AuthenticationMethodDevices\HardwareOathDevices\Item\AssignTo;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\AuthenticationMethodDevices\HardwareOathDevices\Item\AssignTo;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

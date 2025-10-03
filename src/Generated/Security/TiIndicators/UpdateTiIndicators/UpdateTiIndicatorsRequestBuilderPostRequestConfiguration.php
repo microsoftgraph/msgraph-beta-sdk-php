@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators\UpdateTiIndicators;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\UpdateTiIndicators;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

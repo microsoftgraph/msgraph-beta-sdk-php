@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\AssignTo\ServiceProvisioningErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\AssignTo\ServiceProvisioningErrors;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ConditionalAccessPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies\Item\ConditionalAccessPolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\ConditionalAccessPolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies\Item\ConditionalAccessPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

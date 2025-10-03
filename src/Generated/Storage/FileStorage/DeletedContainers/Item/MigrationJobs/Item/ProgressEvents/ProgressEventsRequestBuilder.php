@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\ProgressEvents;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\ProgressEvents;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SharePointMigrationEvent;
-use Microsoft\Graph\Beta\Generated\Models\SharePointMigrationEventCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\ProgressEvents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\ProgressEvents\Item\SharePointMigrationEventItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharePointMigrationEvent;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharePointMigrationEventCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\ProgressEvents\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\MigrationJobs\Item\ProgressEvents\Item\SharePointMigrationEventItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

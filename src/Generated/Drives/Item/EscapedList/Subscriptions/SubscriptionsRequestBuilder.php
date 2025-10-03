@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Subscriptions;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Subscriptions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Subscriptions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Subscriptions\GetVapidPublicKey\GetVapidPublicKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Subscriptions\Item\SubscriptionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Subscription;
-use Microsoft\Graph\Beta\Generated\Models\SubscriptionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Subscriptions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Subscriptions\GetVapidPublicKey\GetVapidPublicKeyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Subscriptions\Item\SubscriptionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Subscription;
+use Microsoft\\Graph\\Beta\\Generated\Models\SubscriptionCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

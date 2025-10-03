@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalPolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\Item\OperationApprovalPolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveApprovableOperations\RetrieveApprovableOperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveOperationsRequiringApproval\RetrieveOperationsRequiringApprovalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OperationApprovalPolicy;
-use Microsoft\Graph\Beta\Generated\Models\OperationApprovalPolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalPolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalPolicies\Item\OperationApprovalPolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveApprovableOperations\RetrieveApprovableOperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveOperationsRequiringApproval\RetrieveOperationsRequiringApprovalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OperationApprovalPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\OperationApprovalPolicyCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

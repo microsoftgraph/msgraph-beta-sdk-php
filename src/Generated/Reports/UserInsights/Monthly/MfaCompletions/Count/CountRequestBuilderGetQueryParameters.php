@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaCompletions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaCompletions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

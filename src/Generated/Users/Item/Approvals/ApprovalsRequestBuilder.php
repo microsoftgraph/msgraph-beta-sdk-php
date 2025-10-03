@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Approvals;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Approvals;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Approval;
-use Microsoft\Graph\Beta\Generated\Models\ApprovalCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\Item\ApprovalItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Approval;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApprovalCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Approvals\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Approvals\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Approvals\Item\ApprovalItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

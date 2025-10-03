@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\FilterByCurrentUserWithOn;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\FilterByCurrentUserWithOn;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\HealthMonitoring;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\HealthMonitoring;
 
 use Microsoft\Kiota\Abstractions\Enum;
 

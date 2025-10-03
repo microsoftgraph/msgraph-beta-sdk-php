@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ConfigurationPolicies\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

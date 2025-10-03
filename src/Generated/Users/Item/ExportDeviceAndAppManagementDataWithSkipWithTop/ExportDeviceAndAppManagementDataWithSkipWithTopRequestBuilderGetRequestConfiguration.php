@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ExportDeviceAndAppManagementDataWithSkipWithTop;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ExportDeviceAndAppManagementDataWithSkipWithTop;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

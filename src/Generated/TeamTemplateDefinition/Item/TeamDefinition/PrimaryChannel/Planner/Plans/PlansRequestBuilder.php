@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans;
+namespace Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerPlan;
-use Microsoft\Graph\Beta\Generated\Models\PlannerPlanCollectionResponse;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Item\PlannerPlanItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerPlan;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerPlanCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\Item\PlannerPlanItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

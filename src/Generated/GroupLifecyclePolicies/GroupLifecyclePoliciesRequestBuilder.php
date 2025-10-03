@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\GroupLifecyclePolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies\Item\GroupLifecyclePolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies\RenewGroup\RenewGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GroupLifecyclePolicy;
-use Microsoft\Graph\Beta\Generated\Models\GroupLifecyclePolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\GroupLifecyclePolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GroupLifecyclePolicies\Item\GroupLifecyclePolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GroupLifecyclePolicies\RenewGroup\RenewGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupLifecyclePolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupLifecyclePolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

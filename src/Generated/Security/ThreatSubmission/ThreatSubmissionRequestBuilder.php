@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\ThreatSubmissionRoot;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreats\EmailThreatsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreatSubmissionPolicies\EmailThreatSubmissionPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\FileThreats\FileThreatsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats\UrlThreatsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ThreatSubmissionRoot;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\EmailThreats\EmailThreatsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\EmailThreatSubmissionPolicies\EmailThreatSubmissionPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\FileThreats\FileThreatsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\UrlThreats\UrlThreatsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

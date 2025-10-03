@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Pages\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\CreatedByUser\CreatedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\GraphSitePage\GraphSitePageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\BaseSitePage;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Pages\Item\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Pages\Item\GraphSitePage\GraphSitePageRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Pages\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseSitePage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

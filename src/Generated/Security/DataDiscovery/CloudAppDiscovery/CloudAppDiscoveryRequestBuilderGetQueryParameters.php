@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\DataDiscovery\CloudAppDiscovery;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\DataDiscovery\CloudAppDiscovery;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

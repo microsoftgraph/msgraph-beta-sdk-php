@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationRepeatOffenders;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetAttackSimulationRepeatOffenders;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

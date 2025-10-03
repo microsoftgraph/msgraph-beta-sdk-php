@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BookingCurrencies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BookingCurrencies\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

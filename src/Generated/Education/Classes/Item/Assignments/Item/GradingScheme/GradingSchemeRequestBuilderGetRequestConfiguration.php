@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\GradingScheme;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\GradingScheme;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

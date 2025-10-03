@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserMfaSignInSummary\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\AuthenticationMethods\UserMfaSignInSummary\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

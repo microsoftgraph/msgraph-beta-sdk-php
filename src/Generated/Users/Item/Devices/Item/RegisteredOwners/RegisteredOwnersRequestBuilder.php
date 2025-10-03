@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphEndpoint\GraphEndpointRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphEndpoint\GraphEndpointRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\RegisteredOwners\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -66,7 +66,7 @@ class RegisteredOwnersRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.users.item.devices.item.registeredOwners.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.users.item.devices.item.registeredOwners.item collection
      * @param string $directoryObjectId The unique identifier of directoryObject
      * @return DirectoryObjectItemRequestBuilder
     */

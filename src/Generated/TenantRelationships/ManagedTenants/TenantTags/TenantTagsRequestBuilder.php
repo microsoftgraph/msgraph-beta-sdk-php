@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\TenantTags;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantTag;
-use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\TenantTagCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\TenantTagItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants\TenantTag;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants\TenantTagCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\TenantTags\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\TenantTags\Item\TenantTagItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

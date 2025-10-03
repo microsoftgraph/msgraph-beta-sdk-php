@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\BranchSite;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\BranchSiteCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\BranchSiteItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\BranchSite;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\BranchSiteCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\Item\BranchSiteItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

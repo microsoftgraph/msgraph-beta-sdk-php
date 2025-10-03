@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CertificateConnectorDetails\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetrics\GetHealthMetricsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetricTimeSeries\GetHealthMetricTimeSeriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CertificateConnectorDetails;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetrics\GetHealthMetricsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CertificateConnectorDetails\Item\GetHealthMetricTimeSeries\GetHealthMetricTimeSeriesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CertificateConnectorDetails;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

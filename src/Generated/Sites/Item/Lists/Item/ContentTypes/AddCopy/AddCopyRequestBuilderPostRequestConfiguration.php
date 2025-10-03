@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\AddCopy;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\ContentTypes\AddCopy;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

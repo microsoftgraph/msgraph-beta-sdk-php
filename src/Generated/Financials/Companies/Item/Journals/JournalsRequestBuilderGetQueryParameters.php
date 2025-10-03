@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Journals;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

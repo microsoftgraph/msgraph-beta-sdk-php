@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Devices\Item\TransitiveMemberOf;
+namespace Microsoft\\Graph\\Beta\\Generated\Devices\Item\TransitiveMemberOf;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Devices\Item\TransitiveMemberOf\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\Item\TransitiveMemberOf\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\Item\TransitiveMemberOf\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Devices\Item\TransitiveMemberOf\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\Item\TransitiveMemberOf\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\Item\TransitiveMemberOf\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\ValidateBulkResize;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\ValidateBulkResize;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

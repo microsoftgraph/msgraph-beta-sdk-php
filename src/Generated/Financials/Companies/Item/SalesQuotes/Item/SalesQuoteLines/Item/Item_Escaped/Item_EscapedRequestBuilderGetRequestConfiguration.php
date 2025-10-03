@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\Item\Item_Escaped;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\Item\Item_Escaped;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

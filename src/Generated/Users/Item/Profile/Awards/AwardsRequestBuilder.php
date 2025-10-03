@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Awards;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Awards;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PersonAward;
-use Microsoft\Graph\Beta\Generated\Models\PersonAwardCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Awards\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Awards\Item\PersonAwardItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PersonAward;
+use Microsoft\\Graph\\Beta\\Generated\Models\PersonAwardCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Awards\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Awards\Item\PersonAwardItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

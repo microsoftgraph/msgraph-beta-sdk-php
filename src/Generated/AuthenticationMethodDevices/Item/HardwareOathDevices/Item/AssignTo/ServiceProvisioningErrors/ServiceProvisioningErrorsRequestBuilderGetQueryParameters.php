@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices\Item\AssignTo\ServiceProvisioningErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices\Item\AssignTo\ServiceProvisioningErrors;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

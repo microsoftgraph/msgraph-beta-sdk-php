@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GetByIds;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GetByIds;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

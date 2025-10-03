@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\RegistrationsWithEmail;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Webinars\Item\Sessions\Item\RegistrationsWithEmail;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventRegistration;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventRegistration;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

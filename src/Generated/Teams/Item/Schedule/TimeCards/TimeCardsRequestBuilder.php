@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TimeCard;
-use Microsoft\Graph\Beta\Generated\Models\TimeCardCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\ClockIn\ClockInRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item\TimeCardItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TimeCard;
+use Microsoft\\Graph\\Beta\\Generated\Models\TimeCardCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards\ClockIn\ClockInRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards\Item\TimeCardItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

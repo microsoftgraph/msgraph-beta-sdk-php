@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\Audience\Exclusions\Item\MicrosoftGraphWindowsUpdatesAddMembers;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\UpdatePolicies\Item\Audience\Exclusions\Item\MicrosoftGraphWindowsUpdatesAddMembers;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

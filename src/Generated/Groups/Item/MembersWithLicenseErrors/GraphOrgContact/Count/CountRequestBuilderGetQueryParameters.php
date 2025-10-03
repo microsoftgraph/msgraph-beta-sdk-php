@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\GraphOrgContact\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\GraphOrgContact\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

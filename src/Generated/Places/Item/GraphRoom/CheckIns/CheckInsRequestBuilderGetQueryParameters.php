@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphRoom\CheckIns;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoom\CheckIns;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

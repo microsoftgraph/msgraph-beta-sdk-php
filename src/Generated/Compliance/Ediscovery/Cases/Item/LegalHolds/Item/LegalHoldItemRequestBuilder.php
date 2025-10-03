@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\SiteSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\UnifiedGroupSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\LegalHold;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\SiteSources\SiteSourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UnifiedGroupSources\UnifiedGroupSourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery\LegalHold;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

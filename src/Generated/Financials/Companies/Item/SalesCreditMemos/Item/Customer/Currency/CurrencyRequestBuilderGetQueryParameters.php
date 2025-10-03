@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\Customer\Currency;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesCreditMemos\Item\Customer\Currency;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

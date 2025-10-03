@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitors\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationMonitors\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

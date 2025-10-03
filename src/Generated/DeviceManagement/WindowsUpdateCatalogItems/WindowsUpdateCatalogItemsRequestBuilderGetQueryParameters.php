@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogItems;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsUpdateCatalogItems;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

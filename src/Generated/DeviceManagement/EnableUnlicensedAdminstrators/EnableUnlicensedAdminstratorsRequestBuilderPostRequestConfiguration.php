@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EnableUnlicensedAdminstrators;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\EnableUnlicensedAdminstrators;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

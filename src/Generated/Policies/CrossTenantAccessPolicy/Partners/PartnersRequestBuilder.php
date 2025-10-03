@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partners;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\CrossTenantAccessPolicy\Partners;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicyConfigurationPartner;
-use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicyConfigurationPartnerCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Partners\Item\CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CrossTenantAccessPolicyConfigurationPartner;
+use Microsoft\\Graph\\Beta\\Generated\Models\CrossTenantAccessPolicyConfigurationPartnerCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\CrossTenantAccessPolicy\Partners\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\CrossTenantAccessPolicy\Partners\Item\CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

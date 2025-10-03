@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Members;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Members;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ConversationMember;
-use Microsoft\Graph\Beta\Generated\Models\ConversationMemberCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Members\Add\AddRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Members\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Members\Item\ConversationMemberItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Members\Remove\RemoveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConversationMember;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConversationMemberCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Members\Add\AddRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Members\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Members\Item\ConversationMemberItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Members\Remove\RemoveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

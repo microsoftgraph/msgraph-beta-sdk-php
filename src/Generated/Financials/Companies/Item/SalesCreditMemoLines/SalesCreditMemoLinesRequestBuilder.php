@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemoLines;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesCreditMemoLines;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemoLines\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemoLines\Item\SalesCreditMemoLineItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SalesCreditMemoLineCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesCreditMemoLines\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesCreditMemoLines\Item\SalesCreditMemoLineItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SalesCreditMemoLineCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

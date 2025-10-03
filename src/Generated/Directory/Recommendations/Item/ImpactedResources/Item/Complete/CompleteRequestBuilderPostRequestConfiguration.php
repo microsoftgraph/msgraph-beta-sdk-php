@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\Complete;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\ImpactedResources\Item\Complete;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

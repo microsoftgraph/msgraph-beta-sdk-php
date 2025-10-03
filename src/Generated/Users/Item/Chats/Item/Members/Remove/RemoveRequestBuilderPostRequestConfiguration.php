@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Members\Remove;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Members\Remove;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

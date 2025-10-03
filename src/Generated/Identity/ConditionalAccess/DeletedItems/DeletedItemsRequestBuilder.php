@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems\NamedLocations\NamedLocationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems\Policies\PoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CaPoliciesDeletableRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems\NamedLocations\NamedLocationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems\Policies\PoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CaPoliciesDeletableRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

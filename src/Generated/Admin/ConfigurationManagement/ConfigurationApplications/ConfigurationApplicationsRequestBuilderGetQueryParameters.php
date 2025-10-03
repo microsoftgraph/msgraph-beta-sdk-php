@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationApplications;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationApplications;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Buckets\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Buckets\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

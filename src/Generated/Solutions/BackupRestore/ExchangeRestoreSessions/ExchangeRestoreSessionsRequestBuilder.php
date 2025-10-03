@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestoreSessions;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeRestoreSessions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ExchangeRestoreSession;
-use Microsoft\Graph\Beta\Generated\Models\ExchangeRestoreSessionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\Item\ExchangeRestoreSessionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExchangeRestoreSession;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExchangeRestoreSessionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\Item\ExchangeRestoreSessionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

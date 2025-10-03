@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\IntuneBrandingProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Item\IntuneBrandingProfileItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IntuneBrandingProfile;
-use Microsoft\Graph\Beta\Generated\Models\IntuneBrandingProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\IntuneBrandingProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\IntuneBrandingProfiles\Item\IntuneBrandingProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IntuneBrandingProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\IntuneBrandingProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

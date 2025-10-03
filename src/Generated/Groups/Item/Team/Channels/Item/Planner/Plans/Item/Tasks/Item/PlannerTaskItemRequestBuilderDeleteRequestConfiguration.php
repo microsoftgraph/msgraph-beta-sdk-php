@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Tasks\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Tasks\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

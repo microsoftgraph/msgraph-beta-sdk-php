@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\SubscribeToTone;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\SubscribeToTone;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

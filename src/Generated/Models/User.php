@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\UserCloudLicensing;
-use Microsoft\Graph\Beta\Generated\Models\Security\Security;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudLicensing\UserCloudLicensing;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

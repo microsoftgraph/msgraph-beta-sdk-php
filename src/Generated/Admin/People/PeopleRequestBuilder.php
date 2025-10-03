@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\People;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\People;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\People\ItemInsights\ItemInsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\NamePronunciation\NamePronunciationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\PhotoUpdateSettings\PhotoUpdateSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\ProfilePropertySettings\ProfilePropertySettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\ProfileSources\ProfileSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\ProfileSourcesWithSourceId\ProfileSourcesWithSourceIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\Pronouns\PronounsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PeopleAdminSettings;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\ItemInsights\ItemInsightsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\NamePronunciation\NamePronunciationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\PhotoUpdateSettings\PhotoUpdateSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfilePropertySettings\ProfilePropertySettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileSources\ProfileSourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileSourcesWithSourceId\ProfileSourcesWithSourceIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\Pronouns\PronounsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PeopleAdminSettings;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\FederatedIdentityCredentials;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FederatedIdentityCredential;
-use Microsoft\Graph\Beta\Generated\Models\FederatedIdentityCredentialCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\Item\FederatedIdentityCredentialItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\FederatedIdentityCredential;
+use Microsoft\\Graph\\Beta\\Generated\Models\FederatedIdentityCredentialCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\Item\FederatedIdentityCredentialItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

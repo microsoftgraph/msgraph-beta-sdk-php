@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Patents\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Patents\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

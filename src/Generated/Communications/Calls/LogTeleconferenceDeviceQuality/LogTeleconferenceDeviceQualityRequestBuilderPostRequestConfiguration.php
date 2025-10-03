@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\LogTeleconferenceDeviceQuality;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\LogTeleconferenceDeviceQuality;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

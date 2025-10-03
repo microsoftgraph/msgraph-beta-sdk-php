@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\TlsInspectionPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\TlsInspectionPolicies;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

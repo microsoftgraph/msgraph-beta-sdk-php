@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\Item\Steps;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\Item\Steps;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

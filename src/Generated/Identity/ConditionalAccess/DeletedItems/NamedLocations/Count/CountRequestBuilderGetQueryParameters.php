@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems\NamedLocations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems\NamedLocations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

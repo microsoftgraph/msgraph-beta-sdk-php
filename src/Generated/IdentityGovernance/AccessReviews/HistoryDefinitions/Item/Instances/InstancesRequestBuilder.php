@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\Instances;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\Instances;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\Instances\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\Instances\Item\AccessReviewHistoryInstanceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewHistoryInstance;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewHistoryInstanceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\Instances\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\Item\Instances\Item\AccessReviewHistoryInstanceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewHistoryInstance;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewHistoryInstanceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

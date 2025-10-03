@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Item\ServiceManagementDetails\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\DelegatedAdminCustomers\Item\ServiceManagementDetails\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

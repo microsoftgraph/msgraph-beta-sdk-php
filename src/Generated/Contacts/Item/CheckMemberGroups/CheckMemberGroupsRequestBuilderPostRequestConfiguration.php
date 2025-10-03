@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts\Item\CheckMemberGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\Contacts\Item\CheckMemberGroups;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

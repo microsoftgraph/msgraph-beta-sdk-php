@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\Item\LocalizedNotificationMessageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\LocalizedNotificationMessage;
-use Microsoft\Graph\Beta\Generated\Models\LocalizedNotificationMessageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\Item\LocalizedNotificationMessageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\LocalizedNotificationMessage;
+use Microsoft\\Graph\\Beta\\Generated\Models\LocalizedNotificationMessageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

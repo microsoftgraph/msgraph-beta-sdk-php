@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Certifications;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PersonCertification;
-use Microsoft\Graph\Beta\Generated\Models\PersonCertificationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications\Item\PersonCertificationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PersonCertification;
+use Microsoft\\Graph\\Beta\\Generated\Models\PersonCertificationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Certifications\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Certifications\Item\PersonCertificationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

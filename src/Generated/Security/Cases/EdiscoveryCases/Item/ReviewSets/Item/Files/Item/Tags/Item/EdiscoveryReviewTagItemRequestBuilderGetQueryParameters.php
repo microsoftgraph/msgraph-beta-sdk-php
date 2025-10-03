@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\Tags\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Files\Item\Tags\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

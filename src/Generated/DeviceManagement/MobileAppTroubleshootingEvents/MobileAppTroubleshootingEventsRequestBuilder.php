@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MobileAppTroubleshootingEvents;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MobileAppTroubleshootingEvents;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileAppTroubleshootingEvents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileAppTroubleshootingEvents\Item\MobileAppTroubleshootingEventItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppTroubleshootingEvent;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppTroubleshootingEventCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MobileAppTroubleshootingEvents\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MobileAppTroubleshootingEvents\Item\MobileAppTroubleshootingEventItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppTroubleshootingEvent;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppTroubleshootingEventCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

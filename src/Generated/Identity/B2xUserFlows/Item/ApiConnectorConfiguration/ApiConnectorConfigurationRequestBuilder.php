@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PostAttributeCollection\PostAttributeCollectionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PostFederationSignup\PostFederationSignupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance\PreTokenIssuanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserFlowApiConnectorConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PostAttributeCollection\PostAttributeCollectionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PostFederationSignup\PostFederationSignupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance\PreTokenIssuanceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserFlowApiConnectorConfiguration;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

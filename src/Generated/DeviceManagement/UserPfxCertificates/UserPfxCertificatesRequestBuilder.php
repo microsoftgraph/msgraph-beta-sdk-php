@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserPfxCertificates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\Item\UserPFXCertificateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserPFXCertificate;
-use Microsoft\Graph\Beta\Generated\Models\UserPFXCertificateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserPfxCertificates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserPfxCertificates\Item\UserPFXCertificateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserPFXCertificate;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserPFXCertificateCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

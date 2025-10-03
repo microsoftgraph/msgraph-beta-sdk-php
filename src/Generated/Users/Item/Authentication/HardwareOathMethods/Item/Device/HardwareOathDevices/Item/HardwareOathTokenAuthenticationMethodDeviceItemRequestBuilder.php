@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\HardwareOathTokenAuthenticationMethodDevice;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices\Item\AssignTo\AssignToRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwareOathTokenAuthenticationMethodDevice;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices\Item\AssignTo\AssignToRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

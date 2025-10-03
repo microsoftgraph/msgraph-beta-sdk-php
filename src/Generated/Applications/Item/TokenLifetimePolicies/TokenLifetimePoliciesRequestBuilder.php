@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenLifetimePolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Item\TokenLifetimePolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TokenLifetimePolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenLifetimePolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenLifetimePolicies\Item\TokenLifetimePolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenLifetimePolicies\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TokenLifetimePolicyCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.tokenLifetimePolicies.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.applications.item.tokenLifetimePolicies.item collection
      * @param string $tokenLifetimePolicyId The unique identifier of tokenLifetimePolicy
      * @return TokenLifetimePolicyItemRequestBuilder
     */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\AdhocCalls\Item\Transcripts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\AdhocCalls\Item\Transcripts\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates;
+namespace Microsoft\\Graph\\Beta\\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

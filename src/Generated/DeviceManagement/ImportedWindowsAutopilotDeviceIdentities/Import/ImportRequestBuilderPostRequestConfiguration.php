@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedWindowsAutopilotDeviceIdentities\Import;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ImportedWindowsAutopilotDeviceIdentities\Import;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\MyDayTasks;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerTaskCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks\Item\PlannerTaskItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerTaskCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\MyDayTasks\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\MyDayTasks\Item\PlannerTaskItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

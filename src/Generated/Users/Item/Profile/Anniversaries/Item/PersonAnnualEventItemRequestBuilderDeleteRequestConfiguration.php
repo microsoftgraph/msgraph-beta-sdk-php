@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Anniversaries\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Anniversaries\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

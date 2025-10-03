@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Excludes;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\PermissionGrantPolicies\Item\Excludes;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

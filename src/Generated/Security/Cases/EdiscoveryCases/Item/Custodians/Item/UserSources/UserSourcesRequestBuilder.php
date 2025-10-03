@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UserSources;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UserSources;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\UserSource;
-use Microsoft\Graph\Beta\Generated\Models\Security\UserSourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UserSources\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UserSources\Item\UserSourceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\UserSource;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\UserSourceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UserSources\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UserSources\Item\UserSourceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\LoginPages\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\LoginPages\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\TokenIssuancePolicies\Item\AppliesTo;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\TokenIssuancePolicies\Item\AppliesTo;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\TokenIssuancePolicies\Item\AppliesTo\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\TokenIssuancePolicies\Item\AppliesTo\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\TokenIssuancePolicies\Item\AppliesTo\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\TokenIssuancePolicies\Item\AppliesTo\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

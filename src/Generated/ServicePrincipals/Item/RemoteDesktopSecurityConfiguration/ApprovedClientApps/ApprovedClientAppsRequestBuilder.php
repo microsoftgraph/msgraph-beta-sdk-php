@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ApprovedClientApp;
-use Microsoft\Graph\Beta\Generated\Models\ApprovedClientAppCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps\Item\ApprovedClientAppItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApprovedClientApp;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApprovedClientAppCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\ApprovedClientApps\Item\ApprovedClientAppItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\ScheduledActionsForRule;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\Item\ScheduledActionsForRule;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

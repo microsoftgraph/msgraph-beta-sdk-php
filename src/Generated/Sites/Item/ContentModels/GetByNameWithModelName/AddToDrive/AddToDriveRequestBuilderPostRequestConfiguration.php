@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\GetByNameWithModelName\AddToDrive;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentModels\GetByNameWithModelName\AddToDrive;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

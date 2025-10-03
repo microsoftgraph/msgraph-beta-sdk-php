@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\MobileDeviceManagementPolicies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MobileDeviceManagementPolicy;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\IncludedGroups\IncludedGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileDeviceManagementPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\MobileDeviceManagementPolicies\Item\IncludedGroups\IncludedGroupsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

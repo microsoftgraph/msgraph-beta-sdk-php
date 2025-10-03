@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NotificationMessageTemplates\Item\LocalizedNotificationMessages\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

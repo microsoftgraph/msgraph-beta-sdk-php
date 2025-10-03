@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResourceScopeItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessPackageResourceScope;
-use Microsoft\Graph\Beta\Generated\Models\AccessPackageResourceScopeCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResourceScopeItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessPackageResourceScope;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessPackageResourceScopeCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

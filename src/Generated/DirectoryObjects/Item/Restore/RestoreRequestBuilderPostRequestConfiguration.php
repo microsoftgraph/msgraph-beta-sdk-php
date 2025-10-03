@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DirectoryObjects\Item\Restore;
+namespace Microsoft\\Graph\\Beta\\Generated\DirectoryObjects\Item\Restore;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

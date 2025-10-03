@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoices\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

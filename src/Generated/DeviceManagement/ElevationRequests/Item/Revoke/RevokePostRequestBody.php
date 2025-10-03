@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\Revoke;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item\Revoke;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

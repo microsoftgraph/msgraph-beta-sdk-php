@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\NoncustodialSources;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\NoncustodialSources;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryNoncustodialDataSourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\NoncustodialSources\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\NoncustodialSources\Item\EdiscoveryNoncustodialDataSourceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\EdiscoveryNoncustodialDataSourceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\NoncustodialSources\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\NoncustodialSources\Item\EdiscoveryNoncustodialDataSourceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

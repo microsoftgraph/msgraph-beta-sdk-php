@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DirectoryObjects\GetUserOwnedObjects;
+namespace Microsoft\\Graph\\Beta\\Generated\DirectoryObjects\GetUserOwnedObjects;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

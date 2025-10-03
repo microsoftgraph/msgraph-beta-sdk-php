@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

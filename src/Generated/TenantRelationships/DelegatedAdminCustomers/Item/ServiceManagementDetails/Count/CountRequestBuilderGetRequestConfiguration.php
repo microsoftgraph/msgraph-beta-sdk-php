@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Item\ServiceManagementDetails\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\DelegatedAdminCustomers\Item\ServiceManagementDetails\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

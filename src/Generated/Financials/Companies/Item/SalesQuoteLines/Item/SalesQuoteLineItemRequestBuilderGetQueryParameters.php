@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuoteLines\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuoteLines\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

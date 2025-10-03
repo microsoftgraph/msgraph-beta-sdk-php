@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\MicrosoftGraphSecurityExportReport;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Searches\Item\MicrosoftGraphSecurityExportReport;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\AdditionalOptions;
-use Microsoft\Graph\Beta\Generated\Models\Security\CloudAttachmentVersion;
-use Microsoft\Graph\Beta\Generated\Models\Security\DocumentVersion;
-use Microsoft\Graph\Beta\Generated\Models\Security\ExportCriteria;
-use Microsoft\Graph\Beta\Generated\Models\Security\ExportLocation;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\AdditionalOptions;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\CloudAttachmentVersion;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DocumentVersion;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ExportCriteria;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ExportLocation;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

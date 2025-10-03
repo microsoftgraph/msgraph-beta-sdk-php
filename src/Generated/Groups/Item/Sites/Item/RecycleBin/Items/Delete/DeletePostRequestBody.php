@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items\Delete;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\RecycleBin\Items\Delete;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

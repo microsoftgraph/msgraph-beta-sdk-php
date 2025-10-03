@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\Item\Starter\Replies\Item\Conversation;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingConversations\Item\Starter\Replies\Item\Conversation;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

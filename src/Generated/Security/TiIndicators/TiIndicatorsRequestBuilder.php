@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TiIndicator;
-use Microsoft\Graph\Beta\Generated\Models\TiIndicatorCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\TiIndicators\DeleteTiIndicators\DeleteTiIndicatorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\TiIndicators\DeleteTiIndicatorsByExternalId\DeleteTiIndicatorsByExternalIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item\TiIndicatorItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\TiIndicators\SubmitTiIndicators\SubmitTiIndicatorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\TiIndicators\UpdateTiIndicators\UpdateTiIndicatorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TiIndicator;
+use Microsoft\\Graph\\Beta\\Generated\Models\TiIndicatorCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\DeleteTiIndicators\DeleteTiIndicatorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\DeleteTiIndicatorsByExternalId\DeleteTiIndicatorsByExternalIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\Item\TiIndicatorItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\SubmitTiIndicators\SubmitTiIndicatorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\UpdateTiIndicators\UpdateTiIndicatorsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

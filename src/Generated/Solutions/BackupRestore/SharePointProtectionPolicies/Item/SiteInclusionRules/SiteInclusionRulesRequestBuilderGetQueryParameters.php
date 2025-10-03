@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteInclusionRules;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteInclusionRules;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\PolicySets;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\GetPolicySets\GetPolicySetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\PolicySetItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PolicySet;
-use Microsoft\Graph\Beta\Generated\Models\PolicySetCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\PolicySets\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\PolicySets\GetPolicySets\GetPolicySetsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\PolicySets\Item\PolicySetItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicySet;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicySetCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Activities;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Activities;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Activities\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ItemActivityOLD;
-use Microsoft\Graph\Beta\Generated\Models\ItemActivityOLDCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Activities\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemActivityOLD;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemActivityOLDCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

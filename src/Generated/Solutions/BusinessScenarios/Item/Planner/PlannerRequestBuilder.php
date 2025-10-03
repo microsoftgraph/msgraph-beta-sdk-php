@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\BusinessScenarioPlanner;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\GetPlan\GetPlanRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\PlanConfiguration\PlanConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\TaskConfiguration\TaskConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\TasksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BusinessScenarioPlanner;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner\GetPlan\GetPlanRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner\PlanConfiguration\PlanConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner\TaskConfiguration\TaskConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

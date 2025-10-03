@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsPayable\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\AgedAccountsPayable\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Oauth2PermissionGrants\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Oauth2PermissionGrants\Delta;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

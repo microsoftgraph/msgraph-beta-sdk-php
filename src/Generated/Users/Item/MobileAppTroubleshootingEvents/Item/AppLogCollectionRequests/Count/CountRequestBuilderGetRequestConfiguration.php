@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

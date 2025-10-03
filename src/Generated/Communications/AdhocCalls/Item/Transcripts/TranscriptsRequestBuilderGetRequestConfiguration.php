@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\Item\Transcripts;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\AdhocCalls\Item\Transcripts;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

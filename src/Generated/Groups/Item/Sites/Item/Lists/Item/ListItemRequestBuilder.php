@@ -1,21 +1,21 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Columns\ColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\ContentTypes\ContentTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\CreatedByUser\CreatedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Drive\DriveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\ItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Permissions\PermissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Subscriptions\SubscriptionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EscapedList;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Activities\ActivitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Columns\ColumnsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\ContentTypes\ContentTypesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Drive\DriveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Items\ItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Permissions\PermissionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Subscriptions\SubscriptionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EscapedList;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

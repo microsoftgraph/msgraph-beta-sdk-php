@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcConnections;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\CloudPcConnections;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcConnection;
-use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\CloudPcConnectionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcConnections\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcConnections\Item\CloudPcConnectionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants\CloudPcConnection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants\CloudPcConnectionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\CloudPcConnections\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\CloudPcConnections\Item\CloudPcConnectionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

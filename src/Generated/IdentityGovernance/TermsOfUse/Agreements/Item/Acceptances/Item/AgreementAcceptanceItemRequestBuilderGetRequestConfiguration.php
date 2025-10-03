@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Acceptances\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Acceptances\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

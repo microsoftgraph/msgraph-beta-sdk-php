@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\PageTemplates\Item\WebParts\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\PageTemplates\Item\WebParts\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

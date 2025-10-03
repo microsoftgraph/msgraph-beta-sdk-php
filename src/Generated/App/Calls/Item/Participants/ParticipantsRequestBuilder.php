@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Participants;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\Invite\InviteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\Item\ParticipantItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\MuteAll\MuteAllRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Participant;
-use Microsoft\Graph\Beta\Generated\Models\ParticipantCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Participants\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Participants\Invite\InviteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Participants\Item\ParticipantItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Participants\MuteAll\MuteAllRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Participant;
+use Microsoft\\Graph\\Beta\\Generated\Models\ParticipantCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

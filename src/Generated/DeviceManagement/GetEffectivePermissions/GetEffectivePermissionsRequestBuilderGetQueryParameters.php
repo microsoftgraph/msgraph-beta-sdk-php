@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissions;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GetEffectivePermissions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

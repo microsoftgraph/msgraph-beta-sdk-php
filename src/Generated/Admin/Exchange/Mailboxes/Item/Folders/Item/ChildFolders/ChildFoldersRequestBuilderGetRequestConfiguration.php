@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\Mailboxes\Item\Folders\Item\ChildFolders;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\Mailboxes\Item\Folders\Item\ChildFolders;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

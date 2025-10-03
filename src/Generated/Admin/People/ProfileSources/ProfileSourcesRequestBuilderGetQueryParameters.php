@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\People\ProfileSources;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileSources;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

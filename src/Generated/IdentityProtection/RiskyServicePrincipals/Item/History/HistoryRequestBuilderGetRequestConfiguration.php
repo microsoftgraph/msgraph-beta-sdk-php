@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\Item\History;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyServicePrincipals\Item\History;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

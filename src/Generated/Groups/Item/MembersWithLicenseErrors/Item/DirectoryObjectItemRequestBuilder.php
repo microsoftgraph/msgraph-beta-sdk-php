@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphApplication\GraphApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphDevice\GraphDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphOrgContact\GraphOrgContactRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphDevice\GraphDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphOrgContact\GraphOrgContactRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\MembersWithLicenseErrors\Item\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObject;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

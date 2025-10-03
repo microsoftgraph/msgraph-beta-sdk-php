@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\BulkAction;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\BulkAction;
 
-use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdatePolicyActionType;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsQualityUpdatePolicyActionType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceLines;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoiceLines;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceLines\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\SalesInvoiceLineItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SalesInvoiceLineCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoiceLines\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\SalesInvoiceLineItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SalesInvoiceLineCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

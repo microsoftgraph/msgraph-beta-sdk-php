@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypes\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypes\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

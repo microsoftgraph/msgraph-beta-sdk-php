@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenIssuancePolicies\Item;
 
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Item\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenIssuancePolicies\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Favorite;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Favorite;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

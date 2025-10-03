@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts;
 
 use DateTime;
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Alert;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\AlertCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\Item\AlertItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\Alert;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\AlertCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\Item\AlertItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

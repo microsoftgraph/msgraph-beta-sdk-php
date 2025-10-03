@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Certifications;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Certifications;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

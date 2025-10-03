@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\PolicyRule;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\PolicyRuleCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules\Item\PolicyRuleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\PolicyRule;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\PolicyRuleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules\Item\PolicyRuleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

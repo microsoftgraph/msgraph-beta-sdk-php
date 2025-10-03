@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\InboundSharedUserProfiles\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

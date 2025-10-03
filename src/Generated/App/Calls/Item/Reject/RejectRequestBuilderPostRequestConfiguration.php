@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\Reject;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Reject;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

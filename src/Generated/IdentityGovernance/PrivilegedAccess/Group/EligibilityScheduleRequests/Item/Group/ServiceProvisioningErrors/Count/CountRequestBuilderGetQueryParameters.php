@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilityScheduleRequests\Item\Group\ServiceProvisioningErrors\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilityScheduleRequests\Item\Group\ServiceProvisioningErrors\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

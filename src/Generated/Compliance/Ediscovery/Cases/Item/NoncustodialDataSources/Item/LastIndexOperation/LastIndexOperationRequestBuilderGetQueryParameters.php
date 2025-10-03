@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\LastIndexOperation;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\LastIndexOperation;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TeamsTemplates\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\TeamsTemplates\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

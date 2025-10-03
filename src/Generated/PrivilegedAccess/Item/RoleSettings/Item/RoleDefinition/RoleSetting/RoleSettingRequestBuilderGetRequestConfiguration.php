@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings\Item\RoleDefinition\RoleSetting;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\RoleSettings\Item\RoleDefinition\RoleSetting;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

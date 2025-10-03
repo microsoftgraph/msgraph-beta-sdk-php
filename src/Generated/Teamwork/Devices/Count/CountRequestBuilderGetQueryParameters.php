@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

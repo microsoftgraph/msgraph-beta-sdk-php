@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Collaboration;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Collaboration;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

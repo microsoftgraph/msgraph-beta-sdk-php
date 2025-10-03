@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\OutlineIcon;
+namespace Microsoft\\Graph\\Beta\\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\OutlineIcon;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

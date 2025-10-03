@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\ActivityBasedTimeoutPolicies\Item\AppliesTo\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\ActivityBasedTimeoutPolicies\Item\AppliesTo\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

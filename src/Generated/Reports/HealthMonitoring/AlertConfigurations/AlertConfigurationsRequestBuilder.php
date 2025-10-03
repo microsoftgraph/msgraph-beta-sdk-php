@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\AlertConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\HealthMonitoring\AlertConfigurations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\AlertConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\AlertConfigurationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\AlertConfigurations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\AlertConfigurations\Item\AlertConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\HealthMonitoring\AlertConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\HealthMonitoring\AlertConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\HealthMonitoring\AlertConfigurations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\HealthMonitoring\AlertConfigurations\Item\AlertConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

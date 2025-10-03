@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\Policies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\Policies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\PolicyLink;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\Policies\Item\Policy\PolicyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\PolicyLink;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\Policies\Item\Policy\PolicyRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -39,11 +39,11 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tlsInspectionPolicyLink object. Used to unlink a tlsInspectionPolicy from a filtering profile.
+     * Delete a threatIntelligencePolicyLink object.
      * @param PolicyLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-delete?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?PolicyLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,11 +54,11 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a tlsInspectionPolicyLink object.
+     * Read the properties and relationships of a threatIntelligencePolicyLink object.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-get?view=graph-rest-beta Find more info here
     */
     public function get(?PolicyLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -85,7 +85,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a tlsInspectionPolicyLink object. Used to unlink a tlsInspectionPolicy from a filtering profile.
+     * Delete a threatIntelligencePolicyLink object.
      * @param PolicyLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +103,7 @@ class PolicyLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a tlsInspectionPolicyLink object.
+     * Read the properties and relationships of a threatIntelligencePolicyLink object.
      * @param PolicyLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

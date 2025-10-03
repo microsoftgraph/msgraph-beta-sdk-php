@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\AppCredentialSignInActivities;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AppCredentialSignInActivity;
-use Microsoft\Graph\Beta\Generated\Models\AppCredentialSignInActivityCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities\Item\AppCredentialSignInActivityItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppCredentialSignInActivity;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppCredentialSignInActivityCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\AppCredentialSignInActivities\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\AppCredentialSignInActivities\Item\AppCredentialSignInActivityItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

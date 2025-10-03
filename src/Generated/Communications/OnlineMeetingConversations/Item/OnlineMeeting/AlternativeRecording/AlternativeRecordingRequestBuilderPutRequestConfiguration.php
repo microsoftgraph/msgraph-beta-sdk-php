@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\Item\OnlineMeeting\AlternativeRecording;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingConversations\Item\OnlineMeeting\AlternativeRecording;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

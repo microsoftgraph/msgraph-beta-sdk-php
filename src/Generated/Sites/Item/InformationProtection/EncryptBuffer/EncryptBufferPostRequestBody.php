@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\EncryptBuffer;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\InformationProtection\EncryptBuffer;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

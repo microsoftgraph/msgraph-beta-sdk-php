@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\Enable;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TenantAttachRBAC\Enable;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

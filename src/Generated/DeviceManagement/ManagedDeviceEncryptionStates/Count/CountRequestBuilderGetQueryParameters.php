@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices\Item\HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\HardwareOathTokenAuthenticationMethodDevice;
-use Microsoft\Graph\Beta\Generated\Models\HardwareOathTokenAuthenticationMethodDeviceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuthenticationMethodDevices\Item\HardwareOathDevices\Item\HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwareOathTokenAuthenticationMethodDevice;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwareOathTokenAuthenticationMethodDeviceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

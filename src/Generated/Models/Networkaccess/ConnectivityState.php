@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess;
 
 use Microsoft\Kiota\Abstractions\Enum;
 

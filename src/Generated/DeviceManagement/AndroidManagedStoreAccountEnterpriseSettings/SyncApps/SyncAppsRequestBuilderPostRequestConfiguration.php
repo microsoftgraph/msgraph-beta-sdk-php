@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\SyncApps;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\SyncApps;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

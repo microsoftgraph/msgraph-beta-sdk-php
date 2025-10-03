@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ServiceApps\Item\Activate;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ServiceApps\Item\Activate;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;

@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\EscapedReturn\ReturnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Excuse\ExcuseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Outcomes\OutcomesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Reassign\ReassignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Resources\ResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\SetUpResourcesFolder\SetUpResourcesFolderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Submit\SubmitRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\SubmittedResources\SubmittedResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Unsubmit\UnsubmitRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationSubmission;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\EscapedReturn\ReturnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Excuse\ExcuseRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Outcomes\OutcomesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Reassign\ReassignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Resources\ResourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\SetUpResourcesFolder\SetUpResourcesFolderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Submit\SubmitRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\SubmittedResources\SubmittedResourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Submissions\Item\Unsubmit\UnsubmitRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationSubmission;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

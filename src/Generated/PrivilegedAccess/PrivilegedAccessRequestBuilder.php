@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccess;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessCollectionResponse;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\PrivilegedAccessItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedAccess;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedAccessCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\PrivilegedAccessItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\MfaTelecomFraud;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\MfaTelecomFraud;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

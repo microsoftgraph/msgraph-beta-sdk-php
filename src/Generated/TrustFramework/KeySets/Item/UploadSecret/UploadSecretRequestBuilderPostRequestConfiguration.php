@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadSecret;
+namespace Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\UploadSecret;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

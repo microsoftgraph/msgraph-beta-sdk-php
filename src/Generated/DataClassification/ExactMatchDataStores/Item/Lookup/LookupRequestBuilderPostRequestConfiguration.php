@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Lookup;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Lookup;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

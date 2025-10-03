@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Chats\Item\CompleteMigration;
+namespace Microsoft\\Graph\\Beta\\Generated\Chats\Item\CompleteMigration;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

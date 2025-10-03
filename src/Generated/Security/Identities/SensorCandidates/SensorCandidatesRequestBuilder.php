@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\SensorCandidate;
-use Microsoft\Graph\Beta\Generated\Models\Security\SensorCandidateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates\Item\SensorCandidateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates\MicrosoftGraphSecurityActivate\MicrosoftGraphSecurityActivateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SensorCandidate;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SensorCandidateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidates\Item\SensorCandidateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidates\MicrosoftGraphSecurityActivate\MicrosoftGraphSecurityActivateRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

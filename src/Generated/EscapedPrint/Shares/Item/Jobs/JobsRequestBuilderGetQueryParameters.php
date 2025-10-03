@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

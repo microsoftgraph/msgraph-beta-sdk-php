@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsReceivable;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\AgedAccountsReceivable;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsReceivable\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsReceivable\Item\AgedAccountsReceivableItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AgedAccountsReceivableCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\AgedAccountsReceivable\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\AgedAccountsReceivable\Item\AgedAccountsReceivableItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AgedAccountsReceivableCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\IdentityProviders;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2cUserFlows\Item\IdentityProviders;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\Activities\Item\Activity;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Runs\Item\Activities\Item\Activity;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

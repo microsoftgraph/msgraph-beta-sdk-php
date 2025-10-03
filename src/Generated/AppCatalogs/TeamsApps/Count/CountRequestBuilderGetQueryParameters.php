@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\AppCatalogs\TeamsApps\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

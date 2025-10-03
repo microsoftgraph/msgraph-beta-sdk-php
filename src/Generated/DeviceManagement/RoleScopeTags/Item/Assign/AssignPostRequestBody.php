@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\Assign;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\RoleScopeTagAutoAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\RoleScopeTagAutoAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

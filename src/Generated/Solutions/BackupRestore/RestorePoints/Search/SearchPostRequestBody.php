@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\RestorePoints\Search;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\RestorePoints\Search;
 
-use Microsoft\Graph\Beta\Generated\Models\ArtifactQuery;
-use Microsoft\Graph\Beta\Generated\Models\RestorePointPreference;
-use Microsoft\Graph\Beta\Generated\Models\RestorePointTags;
-use Microsoft\Graph\Beta\Generated\Models\TimePeriod;
+use Microsoft\\Graph\\Beta\\Generated\Models\ArtifactQuery;
+use Microsoft\\Graph\\Beta\\Generated\Models\RestorePointPreference;
+use Microsoft\\Graph\\Beta\\Generated\Models\RestorePointTags;
+use Microsoft\\Graph\\Beta\\Generated\Models\TimePeriod;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

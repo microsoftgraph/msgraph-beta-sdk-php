@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaCompletions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaCompletions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

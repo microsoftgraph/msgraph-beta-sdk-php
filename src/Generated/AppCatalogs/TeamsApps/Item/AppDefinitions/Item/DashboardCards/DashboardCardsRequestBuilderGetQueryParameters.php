@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\DashboardCards;
+namespace Microsoft\\Graph\\Beta\\Generated\AppCatalogs\TeamsApps\Item\AppDefinitions\Item\DashboardCards;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

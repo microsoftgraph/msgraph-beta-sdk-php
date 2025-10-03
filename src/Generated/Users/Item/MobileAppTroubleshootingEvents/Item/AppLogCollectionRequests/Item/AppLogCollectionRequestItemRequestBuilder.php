@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AppLogCollectionRequest;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item\CreateDownloadUrl\CreateDownloadUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppLogCollectionRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MobileAppTroubleshootingEvents\Item\AppLogCollectionRequests\Item\CreateDownloadUrl\CreateDownloadUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -53,7 +53,7 @@ class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection property of AppLogUploadRequest.
+     * Indicates collection of App Log Upload Request.
      * @param AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppLogCollectionRequest|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection property of AppLogUploadRequest.
+     * Indicates collection of App Log Upload Request.
      * @param AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

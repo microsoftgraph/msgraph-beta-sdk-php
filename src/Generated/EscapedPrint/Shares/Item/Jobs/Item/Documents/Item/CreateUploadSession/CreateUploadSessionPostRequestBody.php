@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Documents\Item\CreateUploadSession;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Documents\Item\CreateUploadSession;
 
-use Microsoft\Graph\Beta\Generated\Models\PrintDocumentUploadProperties;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrintDocumentUploadProperties;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances;
+namespace Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

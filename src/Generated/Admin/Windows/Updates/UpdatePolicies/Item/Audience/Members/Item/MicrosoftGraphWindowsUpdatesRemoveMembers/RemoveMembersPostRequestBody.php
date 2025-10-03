@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\Audience\Members\Item\MicrosoftGraphWindowsUpdatesRemoveMembers;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\UpdatePolicies\Item\Audience\Members\Item\MicrosoftGraphWindowsUpdatesRemoveMembers;
 
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\UpdatableAsset;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

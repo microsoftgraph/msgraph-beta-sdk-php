@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

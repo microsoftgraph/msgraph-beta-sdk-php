@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits\GetByIds;
+namespace Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\GetByIds;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

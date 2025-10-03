@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeOffRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeOffRequests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TimeOffRequest;
-use Microsoft\Graph\Beta\Generated\Models\TimeOffRequestCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeOffRequests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeOffRequests\Item\TimeOffRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TimeOffRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\TimeOffRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeOffRequests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeOffRequests\Item\TimeOffRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

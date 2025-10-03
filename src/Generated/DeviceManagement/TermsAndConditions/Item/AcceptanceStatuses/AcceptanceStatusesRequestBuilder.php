@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\Item\TermsAndConditionsAcceptanceStatusItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TermsAndConditionsAcceptanceStatus;
-use Microsoft\Graph\Beta\Generated\Models\TermsAndConditionsAcceptanceStatusCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TermsAndConditions\Item\AcceptanceStatuses\Item\TermsAndConditionsAcceptanceStatusItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermsAndConditionsAcceptanceStatus;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermsAndConditionsAcceptanceStatusCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Catalog;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Deployment;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudience;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ResourceConnection;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\Catalog;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\Deployment;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\DeploymentAudience;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\Product;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\ResourceConnection;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\UpdatableAsset;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\UpdatePolicy;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Partner\SecurityScore\CustomerInsights\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Partner\SecurityScore\CustomerInsights\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

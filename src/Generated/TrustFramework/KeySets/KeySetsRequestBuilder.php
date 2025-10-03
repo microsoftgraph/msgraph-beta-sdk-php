@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets;
+namespace Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKeySet;
-use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKeySetCollectionResponse;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\TrustFrameworkKeySetItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TrustFrameworkKeySet;
+use Microsoft\\Graph\\Beta\\Generated\Models\TrustFrameworkKeySetCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\TrustFrameworkKeySetItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

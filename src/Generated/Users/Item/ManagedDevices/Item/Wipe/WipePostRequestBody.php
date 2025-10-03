@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Wipe;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\Wipe;
 
-use Microsoft\Graph\Beta\Generated\Models\ObliterationBehavior;
+use Microsoft\\Graph\\Beta\\Generated\Models\ObliterationBehavior;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

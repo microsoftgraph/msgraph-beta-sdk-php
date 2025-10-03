@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Bitlocker\RecoveryKeys\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\InformationProtection\Bitlocker\RecoveryKeys\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

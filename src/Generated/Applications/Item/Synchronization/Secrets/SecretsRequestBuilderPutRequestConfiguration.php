@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Secrets;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Secrets;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

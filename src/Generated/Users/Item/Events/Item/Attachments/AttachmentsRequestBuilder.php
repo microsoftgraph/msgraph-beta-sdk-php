@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Attachments;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Events\Item\Attachments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Attachment;
-use Microsoft\Graph\Beta\Generated\Models\AttachmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Attachments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Attachments\CreateUploadSession\CreateUploadSessionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\Attachments\Item\AttachmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Attachment;
+use Microsoft\\Graph\\Beta\\Generated\Models\AttachmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Events\Item\Attachments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Events\Item\Attachments\CreateUploadSession\CreateUploadSessionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Events\Item\Attachments\Item\AttachmentItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ValidateCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\ValidateCredentials;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

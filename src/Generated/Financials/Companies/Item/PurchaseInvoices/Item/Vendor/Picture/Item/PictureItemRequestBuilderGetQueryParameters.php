@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Vendor\Picture\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Vendor\Picture\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

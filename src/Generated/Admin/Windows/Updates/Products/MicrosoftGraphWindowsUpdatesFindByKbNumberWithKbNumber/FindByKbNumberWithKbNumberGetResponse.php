@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\Product;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

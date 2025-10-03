@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserPasswordResetsAndChangesSummary\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\AuthenticationMethods\UserPasswordResetsAndChangesSummary\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

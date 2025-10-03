@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CredentialUserRegistrationsSummaries;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\CredentialUserRegistrationsSummaries;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

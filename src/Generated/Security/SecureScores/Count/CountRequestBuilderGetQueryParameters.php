@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecureScores\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecureScores\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\GetLicensesForAppWithBundleId\GetLicensesForAppWithBundleIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Item\VppTokenItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\SyncLicenseCounts\SyncLicenseCountsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VppToken;
-use Microsoft\Graph\Beta\Generated\Models\VppTokenCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens\GetLicensesForAppWithBundleId\GetLicensesForAppWithBundleIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens\Item\VppTokenItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens\SyncLicenseCounts\SyncLicenseCountsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VppToken;
+use Microsoft\\Graph\\Beta\\Generated\Models\VppTokenCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

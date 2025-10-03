@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess;
 
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationContextClassReferences\AuthenticationContextClassReferencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrength\AuthenticationStrengthRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationStrengthsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems\DeletedItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Evaluate\EvaluateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\PoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\TemplatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationContextClassReferences\AuthenticationContextClassReferencesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationStrength\AuthenticationStrengthRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationStrengthsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems\DeletedItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\Evaluate\EvaluateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\Policies\PoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\Templates\TemplatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

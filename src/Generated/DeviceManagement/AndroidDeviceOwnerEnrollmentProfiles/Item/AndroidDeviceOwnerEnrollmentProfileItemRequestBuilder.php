@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\ClearEnrollmentTimeDeviceMembershipTarget\ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\CreateToken\CreateTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\RetrieveEnrollmentTimeDeviceMembershipTarget\RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\RevokeToken\RevokeTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\SetEnrollmentTimeDeviceMembershipTarget\SetEnrollmentTimeDeviceMembershipTargetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AndroidDeviceOwnerEnrollmentProfile;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\ClearEnrollmentTimeDeviceMembershipTarget\ClearEnrollmentTimeDeviceMembershipTargetRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\CreateToken\CreateTokenRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\RetrieveEnrollmentTimeDeviceMembershipTarget\RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\RevokeToken\RevokeTokenRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\Item\SetEnrollmentTimeDeviceMembershipTarget\SetEnrollmentTimeDeviceMembershipTargetRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidDeviceOwnerEnrollmentProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

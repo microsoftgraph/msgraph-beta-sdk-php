@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInResponses\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReflectCheckInResponses\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

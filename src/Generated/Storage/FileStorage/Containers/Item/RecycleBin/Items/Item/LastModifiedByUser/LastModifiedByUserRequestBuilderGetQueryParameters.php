@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Item\LastModifiedByUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Item\LastModifiedByUser;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

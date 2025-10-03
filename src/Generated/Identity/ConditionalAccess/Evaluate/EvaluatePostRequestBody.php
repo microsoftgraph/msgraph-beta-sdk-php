@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Evaluate;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\Evaluate;
 
-use Microsoft\Graph\Beta\Generated\Models\SignInConditions;
-use Microsoft\Graph\Beta\Generated\Models\SignInContext;
-use Microsoft\Graph\Beta\Generated\Models\SignInIdentity;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInConditions;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInContext;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInIdentity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

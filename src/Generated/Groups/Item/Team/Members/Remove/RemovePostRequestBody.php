@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Members\Remove;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Members\Remove;
 
-use Microsoft\Graph\Beta\Generated\Models\ConversationMember;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConversationMember;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

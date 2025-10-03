@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -81,7 +81,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Gets the networkAccessConfigurations property value. Reference to device configurations required for network connectivity
+     * Gets the networkAccessConfigurations property value. Reference to device configurations required for network connectivity. This collection can contain a maximum of 2 elements.
      * @return array<DeviceConfiguration>|null
     */
     public function getNetworkAccessConfigurations(): ?array {
@@ -144,7 +144,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Sets the networkAccessConfigurations property value. Reference to device configurations required for network connectivity
+     * Sets the networkAccessConfigurations property value. Reference to device configurations required for network connectivity. This collection can contain a maximum of 2 elements.
      * @param array<DeviceConfiguration>|null $value Value to set for the networkAccessConfigurations property.
     */
     public function setNetworkAccessConfigurations(?array $value): void {

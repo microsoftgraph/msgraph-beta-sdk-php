@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\ExecuteAction;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\ExecuteAction;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Invitations\InvitedUser\ServiceProvisioningErrors\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Invitations\InvitedUser\ServiceProvisioningErrors\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

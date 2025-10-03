@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\SwapShiftsChangeRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Schedule\SwapShiftsChangeRequests;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

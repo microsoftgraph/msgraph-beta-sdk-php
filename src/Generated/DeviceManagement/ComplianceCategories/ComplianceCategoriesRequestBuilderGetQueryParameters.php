@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComplianceCategories;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

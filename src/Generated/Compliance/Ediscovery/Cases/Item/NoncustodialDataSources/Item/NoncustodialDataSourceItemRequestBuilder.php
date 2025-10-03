@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\DataSource\DataSourceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\LastIndexOperation\LastIndexOperationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryApplyHold\MicrosoftGraphEdiscoveryApplyHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryRelease\MicrosoftGraphEdiscoveryReleaseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryRemoveHold\MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryUpdateIndex\MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\NoncustodialDataSource;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\DataSource\DataSourceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\LastIndexOperation\LastIndexOperationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryApplyHold\MicrosoftGraphEdiscoveryApplyHoldRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryRelease\MicrosoftGraphEdiscoveryReleaseRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryRemoveHold\MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\NoncustodialDataSources\Item\MicrosoftGraphEdiscoveryUpdateIndex\MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery\NoncustodialDataSource;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

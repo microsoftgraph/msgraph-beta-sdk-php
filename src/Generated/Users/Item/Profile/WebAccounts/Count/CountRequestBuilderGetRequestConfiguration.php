@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\WebAccounts\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\WebAccounts\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SiteProtectionUnitsBulkAdditionJobCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs\Item\SiteProtectionUnitsBulkAdditionJobItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SiteProtectionUnitsBulkAdditionJobCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs\Item\SiteProtectionUnitsBulkAdditionJobItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

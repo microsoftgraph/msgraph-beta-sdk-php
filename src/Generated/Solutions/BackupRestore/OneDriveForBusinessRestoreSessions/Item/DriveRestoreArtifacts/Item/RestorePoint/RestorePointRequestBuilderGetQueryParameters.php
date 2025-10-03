@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item\DriveRestoreArtifacts\Item\RestorePoint;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item\DriveRestoreArtifacts\Item\RestorePoint;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

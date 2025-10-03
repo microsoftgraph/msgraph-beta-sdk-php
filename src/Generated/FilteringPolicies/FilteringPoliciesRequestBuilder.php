@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\FilteringPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\FilteringPolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\FilteringPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\FilteringPolicies\Item\FilteringPolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\FilteringPolicy;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\FilteringPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\FilteringPolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\FilteringPolicies\Item\FilteringPolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\FilteringPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\FilteringPolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

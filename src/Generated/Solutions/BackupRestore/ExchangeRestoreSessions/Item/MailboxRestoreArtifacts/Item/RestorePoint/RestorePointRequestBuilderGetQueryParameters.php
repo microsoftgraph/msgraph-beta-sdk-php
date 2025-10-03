@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\Item\MailboxRestoreArtifacts\Item\RestorePoint;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\Item\MailboxRestoreArtifacts\Item\RestorePoint;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

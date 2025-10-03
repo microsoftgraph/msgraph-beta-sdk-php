@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\SensitiveTypes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

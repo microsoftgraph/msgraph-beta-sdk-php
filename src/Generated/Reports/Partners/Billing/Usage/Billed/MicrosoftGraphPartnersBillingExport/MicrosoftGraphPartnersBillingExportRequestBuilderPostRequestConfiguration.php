@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Usage\Billed\MicrosoftGraphPartnersBillingExport;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\Partners\Billing\Usage\Billed\MicrosoftGraphPartnersBillingExport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

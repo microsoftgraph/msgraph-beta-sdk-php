@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\TaskTriggers\Item\Definition;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\TaskTriggers\Item\Definition;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

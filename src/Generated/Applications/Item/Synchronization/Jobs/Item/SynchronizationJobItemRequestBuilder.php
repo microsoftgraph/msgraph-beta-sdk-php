@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\BulkUpload\BulkUploadRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Pause\PauseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ProvisionOnDemand\ProvisionOnDemandRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Restart\RestartRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Schema\SchemaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Start\StartRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\ValidateCredentials\ValidateCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SynchronizationJob;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\BulkUpload\BulkUploadRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\Pause\PauseRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\ProvisionOnDemand\ProvisionOnDemandRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\Restart\RestartRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\Schema\SchemaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\Start\StartRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\ValidateCredentials\ValidateCredentialsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SynchronizationJob;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

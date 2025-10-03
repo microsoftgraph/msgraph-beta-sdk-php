@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\Item\ColumnPositions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\ContentTypes\Item\ColumnPositions\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

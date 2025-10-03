@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users;
+namespace Microsoft\\Graph\\Beta\\Generated\Users;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\User;
-use Microsoft\Graph\Beta\Generated\Models\UserCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\GetManagedAppBlockedUsers\GetManagedAppBlockedUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\ValidatePassword\ValidatePasswordRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\User;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\GetManagedAppBlockedUsers\GetManagedAppBlockedUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\UserItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\ValidatePassword\ValidatePasswordRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

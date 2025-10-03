@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\Languages;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\Languages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\Languages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\Languages\Item\UserFlowLanguageConfigurationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserFlowLanguageConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\UserFlowLanguageConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\Languages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\Languages\Item\UserFlowLanguageConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserFlowLanguageConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserFlowLanguageConfigurationCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

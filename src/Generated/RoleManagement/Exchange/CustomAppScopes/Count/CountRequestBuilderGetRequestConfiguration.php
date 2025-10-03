@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\CustomAppScopes\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\CustomAppScopes\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\Instances\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Events\Item\Instances\Delta;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseDeltaFunctionResponse;
-use Microsoft\Graph\Beta\Generated\Models\Event;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseDeltaFunctionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\Event;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

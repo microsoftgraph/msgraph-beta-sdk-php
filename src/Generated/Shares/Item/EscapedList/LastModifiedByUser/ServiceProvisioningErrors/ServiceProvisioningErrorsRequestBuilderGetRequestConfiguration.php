@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\LastModifiedByUser\ServiceProvisioningErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\LastModifiedByUser\ServiceProvisioningErrors;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

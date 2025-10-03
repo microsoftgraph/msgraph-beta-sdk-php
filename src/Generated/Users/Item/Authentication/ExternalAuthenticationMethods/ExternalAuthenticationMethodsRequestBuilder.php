@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\ExternalAuthenticationMethods;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\ExternalAuthenticationMethods;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ExternalAuthenticationMethod;
-use Microsoft\Graph\Beta\Generated\Models\ExternalAuthenticationMethodCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\ExternalAuthenticationMethods\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\ExternalAuthenticationMethods\Item\ExternalAuthenticationMethodItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExternalAuthenticationMethod;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExternalAuthenticationMethodCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\ExternalAuthenticationMethods\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\ExternalAuthenticationMethods\Item\ExternalAuthenticationMethodItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

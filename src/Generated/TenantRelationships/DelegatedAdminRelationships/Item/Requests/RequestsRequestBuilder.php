@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Requests;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Requests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminRelationshipRequest;
-use Microsoft\Graph\Beta\Generated\Models\DelegatedAdminRelationshipRequestCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Requests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Requests\Item\DelegatedAdminRelationshipRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DelegatedAdminRelationshipRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\DelegatedAdminRelationshipRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Requests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\DelegatedAdminRelationships\Item\Requests\Item\DelegatedAdminRelationshipRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

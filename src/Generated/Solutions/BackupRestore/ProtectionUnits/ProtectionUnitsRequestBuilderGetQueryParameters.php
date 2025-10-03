@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ProtectionUnits;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ProtectionUnits;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Rules\DetectionRules;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Rules\DetectionRules;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\DetectionRule;
-use Microsoft\Graph\Beta\Generated\Models\Security\DetectionRuleCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Rules\DetectionRules\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Rules\DetectionRules\Item\DetectionRuleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DetectionRule;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DetectionRuleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Rules\DetectionRules\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Rules\DetectionRules\Item\DetectionRuleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

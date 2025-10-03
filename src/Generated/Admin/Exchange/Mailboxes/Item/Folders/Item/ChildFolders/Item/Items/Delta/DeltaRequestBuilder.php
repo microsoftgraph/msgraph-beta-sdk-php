@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\Mailboxes\Item\Folders\Item\ChildFolders\Item\Items\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\Mailboxes\Item\Folders\Item\ChildFolders\Item\Items\Delta;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

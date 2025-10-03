@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetFailedMobileAppsReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetFailedMobileAppsReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

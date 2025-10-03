@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\RoleManagementAlerts\Operations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\RoleManagementAlerts\Operations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

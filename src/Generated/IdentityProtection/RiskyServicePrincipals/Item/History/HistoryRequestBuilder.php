@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\Item\History;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyServicePrincipals\Item\History;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\Item\History\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\Item\History\Item\RiskyServicePrincipalHistoryItemItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RiskyServicePrincipalHistoryItem;
-use Microsoft\Graph\Beta\Generated\Models\RiskyServicePrincipalHistoryItemCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyServicePrincipals\Item\History\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyServicePrincipals\Item\History\Item\RiskyServicePrincipalHistoryItemItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RiskyServicePrincipalHistoryItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\RiskyServicePrincipalHistoryItemCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

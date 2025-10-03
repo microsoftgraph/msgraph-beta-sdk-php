@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\BucketTaskBoardFormat;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner\Tasks\Item\BucketTaskBoardFormat;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\IncomingChannels;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ChannelCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels\Item\ChannelItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChannelCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\IncomingChannels\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\IncomingChannels\Item\ChannelItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

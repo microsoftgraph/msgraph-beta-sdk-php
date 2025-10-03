@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccess;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\ResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignmentRequests\RoleAssignmentRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleDefinitions\RoleDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings\RoleSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedAccess;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\Resources\ResourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\RoleAssignmentRequests\RoleAssignmentRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\RoleAssignments\RoleAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\RoleDefinitions\RoleDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\RoleSettings\RoleSettingsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

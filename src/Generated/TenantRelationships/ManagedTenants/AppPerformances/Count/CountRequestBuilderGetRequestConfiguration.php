@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AppPerformances\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\AppPerformances\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

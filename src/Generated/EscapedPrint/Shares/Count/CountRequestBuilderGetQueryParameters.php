@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

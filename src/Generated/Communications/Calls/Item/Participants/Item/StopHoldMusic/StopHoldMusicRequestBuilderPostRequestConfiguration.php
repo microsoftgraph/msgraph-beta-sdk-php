@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\StopHoldMusic;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\Participants\Item\StopHoldMusic;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

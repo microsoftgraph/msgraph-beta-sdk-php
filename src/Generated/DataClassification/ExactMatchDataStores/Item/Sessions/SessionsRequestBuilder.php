@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\ExactMatchSessionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ExactMatchSession;
-use Microsoft\Graph\Beta\Generated\Models\ExactMatchSessionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\ExactMatchSessionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExactMatchSession;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExactMatchSessionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

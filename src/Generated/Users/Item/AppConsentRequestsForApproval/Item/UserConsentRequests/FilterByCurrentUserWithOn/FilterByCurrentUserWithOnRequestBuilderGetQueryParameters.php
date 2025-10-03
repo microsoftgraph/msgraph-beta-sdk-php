@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\FilterByCurrentUserWithOn;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\FilterByCurrentUserWithOn;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DeviceEnrollmentConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\SetPriority\SetPriorityRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceEnrollmentConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\SetPriority\SetPriorityRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

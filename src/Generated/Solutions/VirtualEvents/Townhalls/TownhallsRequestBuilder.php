@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventTownhall;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventTownhallCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\GetByUserIdAndRoleWithUserIdWithRole\GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\GetByUserRoleWithRole\GetByUserRoleWithRoleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\VirtualEventTownhallItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventTownhall;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventTownhallCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\GetByUserIdAndRoleWithUserIdWithRole\GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\GetByUserRoleWithRole\GetByUserRoleWithRoleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\Item\VirtualEventTownhallItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

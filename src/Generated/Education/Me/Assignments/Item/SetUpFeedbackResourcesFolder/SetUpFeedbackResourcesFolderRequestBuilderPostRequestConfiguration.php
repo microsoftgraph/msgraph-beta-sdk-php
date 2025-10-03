@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\SetUpFeedbackResourcesFolder;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\SetUpFeedbackResourcesFolder;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

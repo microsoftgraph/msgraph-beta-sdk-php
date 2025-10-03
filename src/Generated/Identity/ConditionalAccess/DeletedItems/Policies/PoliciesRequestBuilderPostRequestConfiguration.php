@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems\Policies;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems\Policies;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

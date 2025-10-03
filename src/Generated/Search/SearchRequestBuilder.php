@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Search;
+namespace Microsoft\\Graph\\Beta\\Generated\Search;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SearchEntity;
-use Microsoft\Graph\Beta\Generated\Search\Acronyms\AcronymsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Search\Bookmarks\BookmarksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Search\Qnas\QnasRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Search\Query\QueryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SearchEntity;
+use Microsoft\\Graph\\Beta\\Generated\Search\Acronyms\AcronymsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Search\Bookmarks\BookmarksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Search\Qnas\QnasRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Search\Query\QueryRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

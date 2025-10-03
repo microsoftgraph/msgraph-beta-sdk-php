@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Phones;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Phones;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ItemPhone;
-use Microsoft\Graph\Beta\Generated\Models\ItemPhoneCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Phones\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Phones\Item\ItemPhoneItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemPhone;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemPhoneCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Phones\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Phones\Item\ItemPhoneItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

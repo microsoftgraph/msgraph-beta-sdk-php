@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\RoleInfo\SelfDeactivate;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval\Item\RoleInfo\SelfDeactivate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedChats;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

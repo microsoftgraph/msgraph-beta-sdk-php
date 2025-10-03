@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\ContentSharingSessions;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\ContentSharingSessions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\AuthorizationSystems\Item\DataCollectionInfo;
+namespace Microsoft\\Graph\\Beta\\Generated\External\AuthorizationSystems\Item\DataCollectionInfo;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

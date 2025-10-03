@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\CloudPcProvisioningPolicyAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicyAssignment;
-use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicyAssignmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\CloudPcProvisioningPolicyAssignmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPcProvisioningPolicyAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPcProvisioningPolicyAssignmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

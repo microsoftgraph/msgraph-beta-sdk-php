@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicy\ConditionalAccessSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeOnPremisesPolicy\ConditionalAccessSettings;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

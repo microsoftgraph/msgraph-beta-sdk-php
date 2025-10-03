@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\Item\Resources\Item\DependentResources\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\Item\Resources\Item\DependentResources\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentResource;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationAssignmentResource;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -45,7 +45,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * A collection of assignment resources that depend on the parent educationAssignmentResource.
      * @param EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationAssignmentResource|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * A collection of assignment resources that depend on the parent educationAssignmentResource.
      * @param EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

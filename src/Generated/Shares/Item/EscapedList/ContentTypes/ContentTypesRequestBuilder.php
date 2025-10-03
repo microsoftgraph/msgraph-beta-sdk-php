@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ContentTypes;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ContentTypes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ContentType;
-use Microsoft\Graph\Beta\Generated\Models\ContentTypeCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ContentTypes\AddCopy\AddCopyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ContentTypes\AddCopyFromContentTypeHub\AddCopyFromContentTypeHubRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ContentTypes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ContentTypes\GetCompatibleHubContentTypes\GetCompatibleHubContentTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ContentTypes\Item\ContentTypeItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ContentType;
+use Microsoft\\Graph\\Beta\\Generated\Models\ContentTypeCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ContentTypes\AddCopy\AddCopyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ContentTypes\AddCopyFromContentTypeHub\AddCopyFromContentTypeHubRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ContentTypes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ContentTypes\GetCompatibleHubContentTypes\GetCompatibleHubContentTypesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ContentTypes\Item\ContentTypeItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\OutboundSharedUserProfileUserItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OutboundSharedUserProfile;
-use Microsoft\Graph\Beta\Generated\Models\OutboundSharedUserProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles\Item\OutboundSharedUserProfileUserItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OutboundSharedUserProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\OutboundSharedUserProfileCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

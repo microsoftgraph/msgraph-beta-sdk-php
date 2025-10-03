@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharingSessions\Item\PngOfCurrentSlide;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\ContentSharingSessions\Item\PngOfCurrentSlide;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

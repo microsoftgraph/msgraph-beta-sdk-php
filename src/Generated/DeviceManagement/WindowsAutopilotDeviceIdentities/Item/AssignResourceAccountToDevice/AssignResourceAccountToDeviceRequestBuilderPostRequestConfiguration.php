@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AssignResourceAccountToDevice;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AssignResourceAccountToDevice;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

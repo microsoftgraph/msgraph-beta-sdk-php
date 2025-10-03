@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Operations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamworkDeviceOperation;
-use Microsoft\Graph\Beta\Generated\Models\TeamworkDeviceOperationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations\Item\TeamworkDeviceOperationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkDeviceOperation;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkDeviceOperationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Operations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Operations\Item\TeamworkDeviceOperationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

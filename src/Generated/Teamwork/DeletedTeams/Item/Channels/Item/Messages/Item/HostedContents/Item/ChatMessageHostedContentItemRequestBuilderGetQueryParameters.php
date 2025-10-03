@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Messages\Item\HostedContents\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Messages\Item\HostedContents\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

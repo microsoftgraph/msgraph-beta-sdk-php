@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

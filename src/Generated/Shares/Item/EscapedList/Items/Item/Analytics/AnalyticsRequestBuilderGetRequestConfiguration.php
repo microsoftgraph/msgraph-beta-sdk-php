@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Analytics;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Items\Item\Analytics;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

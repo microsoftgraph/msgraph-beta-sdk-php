@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ExtendedProperties;
-use Microsoft\Graph\Beta\Generated\Models\Partner\Security\AdditionalDataDictionary;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\ExtendedProperties;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partner\Security\AdditionalDataDictionary;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

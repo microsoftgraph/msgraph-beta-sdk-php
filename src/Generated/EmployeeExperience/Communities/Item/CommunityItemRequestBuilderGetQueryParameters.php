@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Communities\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

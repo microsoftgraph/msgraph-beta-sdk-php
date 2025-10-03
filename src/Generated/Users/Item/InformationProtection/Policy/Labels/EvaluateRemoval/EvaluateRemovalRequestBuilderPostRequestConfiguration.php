@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Policy\Labels\EvaluateRemoval;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\InformationProtection\Policy\Labels\EvaluateRemoval;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

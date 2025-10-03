@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Item\LastModifiedByUser\ServiceProvisioningErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\RecycleBin\Items\Item\LastModifiedByUser\ServiceProvisioningErrors;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

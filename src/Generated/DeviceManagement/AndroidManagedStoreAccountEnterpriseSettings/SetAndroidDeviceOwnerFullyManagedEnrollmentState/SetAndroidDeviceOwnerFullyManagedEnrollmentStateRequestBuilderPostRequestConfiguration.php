@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\SetAndroidDeviceOwnerFullyManagedEnrollmentState;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\SetAndroidDeviceOwnerFullyManagedEnrollmentState;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

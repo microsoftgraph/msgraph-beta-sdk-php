@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\CertificateAuthorities\MutualTlsOauthConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\CertificateAuthorities\MutualTlsOauthConfigurations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\CertificateAuthorities\MutualTlsOauthConfigurations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\CertificateAuthorities\MutualTlsOauthConfigurations\Item\MutualTlsOauthConfigurationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MutualTlsOauthConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\MutualTlsOauthConfigurationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\CertificateAuthorities\MutualTlsOauthConfigurations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\CertificateAuthorities\MutualTlsOauthConfigurations\Item\MutualTlsOauthConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MutualTlsOauthConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\MutualTlsOauthConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

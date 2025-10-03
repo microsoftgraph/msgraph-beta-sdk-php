@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\BusinessFlowTemplates\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\BusinessFlowTemplates\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

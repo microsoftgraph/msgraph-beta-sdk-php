@@ -1,21 +1,21 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\CancelAndSend\CancelAndSendRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Currency\CurrencyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Customer\CustomerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Post\PostRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\PostAndSend\PostAndSendRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\SalesInvoiceLinesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\Send\SendRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SalesInvoice;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\Cancel\CancelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\CancelAndSend\CancelAndSendRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\Currency\CurrencyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\Customer\CustomerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\PaymentTerm\PaymentTermRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\Post\PostRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\PostAndSend\PostAndSendRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\SalesInvoiceLinesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\Send\SendRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SalesInvoice;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

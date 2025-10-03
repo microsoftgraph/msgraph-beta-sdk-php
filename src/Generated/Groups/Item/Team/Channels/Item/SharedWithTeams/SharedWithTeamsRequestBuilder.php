@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams\Item\SharedWithChannelTeamInfoItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SharedWithChannelTeamInfo;
-use Microsoft\Graph\Beta\Generated\Models\SharedWithChannelTeamInfoCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams\Item\SharedWithChannelTeamInfoItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharedWithChannelTeamInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharedWithChannelTeamInfoCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

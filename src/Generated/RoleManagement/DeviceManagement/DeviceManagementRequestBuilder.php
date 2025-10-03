@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RbacApplicationMultiple;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\ResourceNamespaces\ResourceNamespacesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\RoleDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RbacApplicationMultiple;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\ResourceNamespaces\ResourceNamespacesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\RoleAssignments\RoleAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\RoleDefinitions\RoleDefinitionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\GraphSitePage\WebParts;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Pages\Item\GraphSitePage\WebParts;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

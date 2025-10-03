@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

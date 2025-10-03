@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\TermStore;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\GetByPathWithPath\TermStore;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

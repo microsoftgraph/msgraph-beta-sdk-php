@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\ApplicableContent\Item\MatchedDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\ApplicableContent\Item\MatchedDevices;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\ApplicableContent\Item\MatchedDevices\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\ApplicableContent\Item\MatchedDevices\Item\ApplicableContentDeviceMatchDeviceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ApplicableContentDeviceMatch;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ApplicableContentDeviceMatchCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\ApplicableContent\Item\MatchedDevices\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\ApplicableContent\Item\MatchedDevices\Item\ApplicableContentDeviceMatchDeviceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\ApplicableContentDeviceMatch;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\ApplicableContentDeviceMatchCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

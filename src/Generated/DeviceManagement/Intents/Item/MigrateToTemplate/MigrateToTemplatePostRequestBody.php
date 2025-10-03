@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\MigrateToTemplate;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\MigrateToTemplate;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

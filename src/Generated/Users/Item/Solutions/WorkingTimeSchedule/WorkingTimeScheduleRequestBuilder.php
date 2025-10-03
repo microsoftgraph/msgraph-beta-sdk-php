@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Solutions\WorkingTimeSchedule;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Solutions\WorkingTimeSchedule;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WorkingTimeSchedule;
-use Microsoft\Graph\Beta\Generated\Users\Item\Solutions\WorkingTimeSchedule\EndWorkingTime\EndWorkingTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Solutions\WorkingTimeSchedule\StartWorkingTime\StartWorkingTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkingTimeSchedule;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Solutions\WorkingTimeSchedule\EndWorkingTime\EndWorkingTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Solutions\WorkingTimeSchedule\StartWorkingTime\StartWorkingTimeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

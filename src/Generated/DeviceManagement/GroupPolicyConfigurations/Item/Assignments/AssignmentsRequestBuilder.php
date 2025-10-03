@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\Item\GroupPolicyConfigurationAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GroupPolicyConfigurationAssignment;
-use Microsoft\Graph\Beta\Generated\Models\GroupPolicyConfigurationAssignmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GroupPolicyConfigurations\Item\Assignments\Item\GroupPolicyConfigurationAssignmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupPolicyConfigurationAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupPolicyConfigurationAssignmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

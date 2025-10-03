@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Sessions\Item\RegistrationsWithEmail;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\Item\Sessions\Item\RegistrationsWithEmail;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

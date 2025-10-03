@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\GroupLifecyclePolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\GroupLifecyclePolicies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceNamespace;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ImportResourceActions\ImportResourceActionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ResourceActions\ResourceActionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRbacResourceNamespace;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ImportResourceActions\ImportResourceActionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ResourceActions\ResourceActionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

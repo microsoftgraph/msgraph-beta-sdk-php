@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\GetGlobalScriptHighestAvailableVersion\GetGlobalScriptHighestAvailableVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\GetRemediationHistory\GetRemediationHistoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\RunSummary\RunSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\UpdateGlobalScript\UpdateGlobalScriptRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScript;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item\GetGlobalScriptHighestAvailableVersion\GetGlobalScriptHighestAvailableVersionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item\GetRemediationHistory\GetRemediationHistoryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item\RunSummary\RunSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceHealthScripts\Item\UpdateGlobalScript\UpdateGlobalScriptRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceHealthScript;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

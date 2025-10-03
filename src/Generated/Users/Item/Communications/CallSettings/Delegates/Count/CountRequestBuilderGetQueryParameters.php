@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Communications\CallSettings\Delegates\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Communications\CallSettings\Delegates\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

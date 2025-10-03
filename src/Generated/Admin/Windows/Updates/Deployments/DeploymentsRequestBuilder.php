@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Deployments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\DeploymentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Deployment;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Deployments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Deployments\Item\DeploymentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\Deployment;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\DeploymentCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

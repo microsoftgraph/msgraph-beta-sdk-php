@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\ApplicationsWithUniqueName;
+namespace Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\Item\ApplicationsWithUniqueName;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

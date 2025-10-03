@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Bundles\Item\ContentStream;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Bundles\Item\ContentStream;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

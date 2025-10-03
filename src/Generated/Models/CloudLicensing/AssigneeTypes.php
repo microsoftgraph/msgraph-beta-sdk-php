@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\CloudLicensing;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\CloudLicensing;
 
 use Microsoft\Kiota\Abstractions\Enum;
 

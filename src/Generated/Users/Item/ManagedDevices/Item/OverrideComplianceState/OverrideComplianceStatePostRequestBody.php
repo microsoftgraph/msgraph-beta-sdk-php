@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\OverrideComplianceState;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\OverrideComplianceState;
 
-use Microsoft\Graph\Beta\Generated\Models\AdministratorConfiguredDeviceComplianceState;
+use Microsoft\\Graph\\Beta\\Generated\Models\AdministratorConfiguredDeviceComplianceState;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

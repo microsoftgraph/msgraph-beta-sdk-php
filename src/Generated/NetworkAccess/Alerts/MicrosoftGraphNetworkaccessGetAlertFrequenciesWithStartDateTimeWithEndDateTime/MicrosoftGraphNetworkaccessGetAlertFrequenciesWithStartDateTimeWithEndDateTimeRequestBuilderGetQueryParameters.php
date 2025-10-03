@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTime;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTime;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

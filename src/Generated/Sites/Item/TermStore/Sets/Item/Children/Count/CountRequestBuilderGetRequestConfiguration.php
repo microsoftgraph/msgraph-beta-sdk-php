@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\Item\Children\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\TermStore\Sets\Item\Children\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

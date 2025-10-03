@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\EvaluateLabelJobs\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

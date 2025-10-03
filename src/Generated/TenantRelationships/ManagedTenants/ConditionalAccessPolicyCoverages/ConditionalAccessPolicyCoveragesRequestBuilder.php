@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ConditionalAccessPolicyCoverage;
-use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ConditionalAccessPolicyCoverageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Item\ConditionalAccessPolicyCoverageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants\ConditionalAccessPolicyCoverage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants\ConditionalAccessPolicyCoverageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Item\ConditionalAccessPolicyCoverageItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

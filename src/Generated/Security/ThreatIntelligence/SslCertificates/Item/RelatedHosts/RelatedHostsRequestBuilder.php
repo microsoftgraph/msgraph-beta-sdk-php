@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\HostCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts\Item\HostItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\HostCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts\Item\HostItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

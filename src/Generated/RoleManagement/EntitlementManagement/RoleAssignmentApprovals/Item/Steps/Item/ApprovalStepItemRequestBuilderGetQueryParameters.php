@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\Item\Steps\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\Item\Steps\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

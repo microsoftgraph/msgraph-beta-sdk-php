@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResources\Item\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceEnvironment;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResources\Item\AccessPackageResourceRoles\Item\AccessPackageResource\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceEnvironment;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

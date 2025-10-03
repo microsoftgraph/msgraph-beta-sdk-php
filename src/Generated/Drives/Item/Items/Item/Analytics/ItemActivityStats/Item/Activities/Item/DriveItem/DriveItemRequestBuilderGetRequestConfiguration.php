@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats\Item\Activities\Item\DriveItem;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats\Item\Activities\Item\DriveItem;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

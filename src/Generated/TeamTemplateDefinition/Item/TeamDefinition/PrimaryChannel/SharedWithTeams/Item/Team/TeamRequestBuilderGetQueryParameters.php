@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\SharedWithTeams\Item\Team;
+namespace Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\SharedWithTeams\Item\Team;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

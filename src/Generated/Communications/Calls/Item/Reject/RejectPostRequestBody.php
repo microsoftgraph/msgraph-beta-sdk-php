@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Reject;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\Reject;
 
-use Microsoft\Graph\Beta\Generated\Models\RejectReason;
+use Microsoft\\Graph\\Beta\\Generated\Models\RejectReason;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

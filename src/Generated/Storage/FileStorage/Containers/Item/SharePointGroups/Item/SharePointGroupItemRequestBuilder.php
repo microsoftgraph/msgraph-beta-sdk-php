@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SharePointGroup;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\Item\Members\MembersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharePointGroup;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\Item\Members\MembersRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

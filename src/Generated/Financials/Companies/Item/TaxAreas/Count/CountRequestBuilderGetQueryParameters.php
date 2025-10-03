@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxAreas\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\TaxAreas\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\JoinedGroups;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\GroupCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\EvaluateDynamicMembership\EvaluateDynamicMembershipRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\JoinedGroups\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\JoinedGroups\EvaluateDynamicMembership\EvaluateDynamicMembershipRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Item\GetSupportedProperties;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\Item\GetSupportedProperties;
 
-use Microsoft\Graph\Beta\Generated\Models\AssignmentFilterSupportedProperty;
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\AssignmentFilterSupportedProperty;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\SendVirtualAppointmentReminderSms;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\SendVirtualAppointmentReminderSms;
 
-use Microsoft\Graph\Beta\Generated\Models\AttendeeNotificationInfo;
-use Microsoft\Graph\Beta\Generated\Models\RemindBeforeTimeInMinutesType;
+use Microsoft\\Graph\\Beta\\Generated\Models\AttendeeNotificationInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\RemindBeforeTimeInMinutesType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

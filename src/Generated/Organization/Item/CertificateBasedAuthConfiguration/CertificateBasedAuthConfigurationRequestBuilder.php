@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\CertificateBasedAuthConfiguration;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CertificateBasedAuthConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\CertificateBasedAuthConfigurationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthConfiguration\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthConfiguration\Item\CertificateBasedAuthConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CertificateBasedAuthConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\CertificateBasedAuthConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\CertificateBasedAuthConfiguration\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\CertificateBasedAuthConfiguration\Item\CertificateBasedAuthConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

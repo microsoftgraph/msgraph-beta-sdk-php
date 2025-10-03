@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAndroidWorkProfileDeviceMigrationStatuses;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\RetrieveAndroidWorkProfileDeviceMigrationStatuses;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

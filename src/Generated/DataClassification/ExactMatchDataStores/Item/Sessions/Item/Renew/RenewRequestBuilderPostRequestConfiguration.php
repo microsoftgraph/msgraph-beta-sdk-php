@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Renew;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Renew;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

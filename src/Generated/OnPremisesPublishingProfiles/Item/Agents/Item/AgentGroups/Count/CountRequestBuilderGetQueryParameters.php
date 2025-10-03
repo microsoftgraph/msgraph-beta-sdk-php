@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agents\Item\AgentGroups\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\Agents\Item\AgentGroups\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

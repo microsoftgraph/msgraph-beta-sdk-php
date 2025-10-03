@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\TermsOfUse\Agreements\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Acceptances\AcceptancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\File\FileRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Files\FilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Agreement;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Acceptances\AcceptancesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\File\FileRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Files\FilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Agreement;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

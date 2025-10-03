@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventWebinarRegistrationConfiguration;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions\QuestionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventWebinarRegistrationConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions\QuestionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

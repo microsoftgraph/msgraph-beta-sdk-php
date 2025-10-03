@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\SharedEmailDomains;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

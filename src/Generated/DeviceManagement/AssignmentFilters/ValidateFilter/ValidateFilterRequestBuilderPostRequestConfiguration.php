@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\ValidateFilter;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\ValidateFilter;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

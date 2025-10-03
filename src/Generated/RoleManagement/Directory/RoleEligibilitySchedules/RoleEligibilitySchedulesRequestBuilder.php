@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySchedules;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\RoleEligibilitySchedules;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleEligibilitySchedule;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleEligibilityScheduleCollectionResponse;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySchedules\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySchedules\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySchedules\Item\UnifiedRoleEligibilityScheduleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleEligibilitySchedule;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleEligibilityScheduleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\RoleEligibilitySchedules\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\RoleEligibilitySchedules\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\RoleEligibilitySchedules\Item\UnifiedRoleEligibilityScheduleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\CreatedByUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\RecycleBin\CreatedByUser;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

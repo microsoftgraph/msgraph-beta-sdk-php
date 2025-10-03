@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\DayNotes;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\DayNotes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DayNote;
-use Microsoft\Graph\Beta\Generated\Models\DayNoteCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\DayNotes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\DayNotes\Item\DayNoteItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DayNote;
+use Microsoft\\Graph\\Beta\\Generated\Models\DayNoteCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\DayNotes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\DayNotes\Item\DayNoteItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

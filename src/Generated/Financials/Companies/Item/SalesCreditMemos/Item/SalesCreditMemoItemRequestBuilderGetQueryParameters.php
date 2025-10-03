@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesCreditMemos\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

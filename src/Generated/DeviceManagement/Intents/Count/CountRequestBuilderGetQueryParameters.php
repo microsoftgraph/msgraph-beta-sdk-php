@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

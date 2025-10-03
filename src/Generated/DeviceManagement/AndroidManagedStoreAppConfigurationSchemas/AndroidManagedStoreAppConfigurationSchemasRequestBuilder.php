@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Item\AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AndroidManagedStoreAppConfigurationSchema;
-use Microsoft\Graph\Beta\Generated\Models\AndroidManagedStoreAppConfigurationSchemaCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidManagedStoreAppConfigurationSchemas\Item\AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidManagedStoreAppConfigurationSchema;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidManagedStoreAppConfigurationSchemaCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

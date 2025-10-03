@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Onenote\SectionGroups\Item\Sections;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Onenote\SectionGroups\Item\Sections;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Onenote\SectionGroups\Item\Sections\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Onenote\SectionGroups\Item\Sections\Item\OnenoteSectionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OnenoteSection;
-use Microsoft\Graph\Beta\Generated\Models\OnenoteSectionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Onenote\SectionGroups\Item\Sections\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Onenote\SectionGroups\Item\Sections\Item\OnenoteSectionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnenoteSection;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnenoteSectionCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

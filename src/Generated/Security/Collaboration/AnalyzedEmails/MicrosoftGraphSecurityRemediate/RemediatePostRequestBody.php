@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails\MicrosoftGraphSecurityRemediate;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\AnalyzedEmails\MicrosoftGraphSecurityRemediate;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\AnalyzedEmail;
-use Microsoft\Graph\Beta\Generated\Models\Security\RemediationAction;
-use Microsoft\Graph\Beta\Generated\Models\Security\RemediationSeverity;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\AnalyzedEmail;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\RemediationAction;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\RemediationSeverity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

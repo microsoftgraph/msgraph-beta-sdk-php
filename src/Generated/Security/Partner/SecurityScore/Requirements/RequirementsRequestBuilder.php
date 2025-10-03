@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Partner\SecurityScore\Requirements;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Partner\SecurityScore\Requirements;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Partner\Security\SecurityRequirement;
-use Microsoft\Graph\Beta\Generated\Models\Partner\Security\SecurityRequirementCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Partner\SecurityScore\Requirements\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Partner\SecurityScore\Requirements\Item\SecurityRequirementItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partner\Security\SecurityRequirement;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partner\Security\SecurityRequirementCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Partner\SecurityScore\Requirements\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Partner\SecurityScore\Requirements\Item\SecurityRequirementItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\HostedContents;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\HostedContents;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Item\ChatMessageHostedContentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ChatMessageHostedContent;
-use Microsoft\Graph\Beta\Generated\Models\ChatMessageHostedContentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Item\ChatMessageHostedContentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatMessageHostedContent;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatMessageHostedContentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

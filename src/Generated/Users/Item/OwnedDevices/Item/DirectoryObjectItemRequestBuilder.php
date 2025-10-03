@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedDevices\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\GraphDevice\GraphDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\GraphEndpoint\GraphEndpointRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObject;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedDevices\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedDevices\Item\GraphDevice\GraphDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedDevices\Item\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

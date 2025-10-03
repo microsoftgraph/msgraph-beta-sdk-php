@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\WindowsPrivacyAccessControls;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\Item\WindowsPrivacyAccessControls;
 
-use Microsoft\Graph\Beta\Generated\Models\WindowsPrivacyDataAccessControlItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsPrivacyDataAccessControlItem;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\DownloadAppDiagnostics;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\DownloadAppDiagnostics;
 
-use Microsoft\Graph\Beta\Generated\Models\PowerliftDownloadRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\PowerliftDownloadRequest;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

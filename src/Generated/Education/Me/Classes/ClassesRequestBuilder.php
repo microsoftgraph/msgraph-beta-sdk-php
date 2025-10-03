@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Me\Classes;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Me\Classes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Me\Classes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Classes\Item\EducationClassItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationClassCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Classes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Classes\Item\EducationClassItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationClassCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

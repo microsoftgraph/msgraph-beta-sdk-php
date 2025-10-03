@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Record;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\Record;
 
-use Microsoft\Graph\Beta\Generated\Models\Prompt;
+use Microsoft\\Graph\\Beta\\Generated\Models\Prompt;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

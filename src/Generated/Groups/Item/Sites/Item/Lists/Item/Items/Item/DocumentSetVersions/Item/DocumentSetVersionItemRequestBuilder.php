@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\Item\Fields\FieldsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DocumentSetVersion;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\Item\Fields\FieldsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\Items\Item\DocumentSetVersions\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DocumentSetVersion;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

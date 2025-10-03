@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Ref;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\Ref;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

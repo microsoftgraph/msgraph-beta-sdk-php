@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Item\GroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GroupCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Item\GroupItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class AllowedGroupsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.print.printerShares.item.allowedGroups.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.print.printerShares.item.allowedGroups.item collection
      * @param string $groupId The unique identifier of group
      * @return GroupItemRequestBuilder
     */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredOwners\Item\GraphAppRoleAssignment;
+namespace Microsoft\\Graph\\Beta\\Generated\Devices\Item\RegisteredOwners\Item\GraphAppRoleAssignment;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

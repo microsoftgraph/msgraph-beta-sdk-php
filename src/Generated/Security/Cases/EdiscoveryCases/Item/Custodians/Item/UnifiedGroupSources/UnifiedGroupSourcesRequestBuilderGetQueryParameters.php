@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UnifiedGroupSources;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\Custodians\Item\UnifiedGroupSources;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

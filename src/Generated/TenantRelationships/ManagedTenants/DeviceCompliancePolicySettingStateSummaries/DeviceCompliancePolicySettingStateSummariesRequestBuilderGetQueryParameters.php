@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceCompliancePolicySettingStateSummaries;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\DeviceCompliancePolicySettingStateSummaries;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

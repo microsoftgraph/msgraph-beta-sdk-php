@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\CredentialUserRegistrationDetails;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CredentialUserRegistrationDetails;
-use Microsoft\Graph\Beta\Generated\Models\CredentialUserRegistrationDetailsCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\Item\CredentialUserRegistrationDetailsItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CredentialUserRegistrationDetails;
+use Microsoft\\Graph\\Beta\\Generated\Models\CredentialUserRegistrationDetailsCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\CredentialUserRegistrationDetails\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\CredentialUserRegistrationDetails\Item\CredentialUserRegistrationDetailsItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Item\Assign;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdateProfileAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsQualityUpdateProfileAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

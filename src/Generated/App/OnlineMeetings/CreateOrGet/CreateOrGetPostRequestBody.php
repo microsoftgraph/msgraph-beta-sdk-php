@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\CreateOrGet;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\CreateOrGet;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\ChatInfo;
-use Microsoft\Graph\Beta\Generated\Models\MeetingParticipants;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\MeetingParticipants;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

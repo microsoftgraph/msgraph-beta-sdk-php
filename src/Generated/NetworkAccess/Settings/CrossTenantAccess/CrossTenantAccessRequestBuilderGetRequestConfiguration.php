@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\CrossTenantAccess;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Settings\CrossTenantAccess;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

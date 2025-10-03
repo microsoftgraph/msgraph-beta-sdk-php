@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\IncludedGroups\Item\ServiceProvisioningErrors\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\MobileDeviceManagementPolicies\Item\IncludedGroups\Item\ServiceProvisioningErrors\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

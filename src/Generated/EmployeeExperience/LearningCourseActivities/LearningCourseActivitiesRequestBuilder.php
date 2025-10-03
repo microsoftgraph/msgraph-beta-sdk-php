@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\LearningCourseActivities;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\Item\LearningCourseActivityItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\LearningCourseActivity;
-use Microsoft\Graph\Beta\Generated\Models\LearningCourseActivityCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\LearningCourseActivities\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\LearningCourseActivities\Item\LearningCourseActivityItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\LearningCourseActivity;
+use Microsoft\\Graph\\Beta\\Generated\Models\LearningCourseActivityCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

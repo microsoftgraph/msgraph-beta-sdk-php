@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementPartners;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementPartners;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementPartners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementPartners\Item\DeviceManagementPartnerItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementPartner;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementPartnerCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementPartners\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementPartners\Item\DeviceManagementPartnerItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementPartner;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementPartnerCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

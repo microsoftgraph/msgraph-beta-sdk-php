@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstance;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\AccessReviewInstanceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewInstance;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewInstanceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\AccessReviewInstanceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

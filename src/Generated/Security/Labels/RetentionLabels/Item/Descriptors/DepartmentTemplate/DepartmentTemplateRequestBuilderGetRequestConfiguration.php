@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\Descriptors\DepartmentTemplate;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Labels\RetentionLabels\Item\Descriptors\DepartmentTemplate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

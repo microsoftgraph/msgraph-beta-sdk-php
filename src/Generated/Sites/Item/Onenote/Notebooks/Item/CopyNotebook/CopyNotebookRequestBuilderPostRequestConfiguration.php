@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\CopyNotebook;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Onenote\Notebooks\Item\CopyNotebook;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

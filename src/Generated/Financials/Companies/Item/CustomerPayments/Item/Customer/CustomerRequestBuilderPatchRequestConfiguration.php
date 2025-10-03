@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPayments\Item\Customer;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\CustomerPayments\Item\Customer;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

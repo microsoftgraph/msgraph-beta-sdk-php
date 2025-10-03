@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserConsentRequest;
-use Microsoft\Graph\Beta\Generated\Models\UserConsentRequestCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\UserConsentRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserConsentRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserConsentRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\AppConsentRequestsForApproval\Item\UserConsentRequests\Item\UserConsentRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordInfo;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwarePasswordInfo;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordInfo\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordInfo\Item\HardwarePasswordInfoItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\HardwarePasswordInfo;
-use Microsoft\Graph\Beta\Generated\Models\HardwarePasswordInfoCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwarePasswordInfo\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwarePasswordInfo\Item\HardwarePasswordInfoItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwarePasswordInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwarePasswordInfoCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

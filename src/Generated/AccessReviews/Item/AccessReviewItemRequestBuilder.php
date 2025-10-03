@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\InstancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions\MyDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\ResetDecisions\ResetDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Reviewers\ReviewersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\SendReminder\SendReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Stop\StopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessReview;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Decisions\DecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\InstancesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\MyDecisions\MyDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\ResetDecisions\ResetDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Reviewers\ReviewersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\SendReminder\SendReminderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Stop\StopRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReview;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

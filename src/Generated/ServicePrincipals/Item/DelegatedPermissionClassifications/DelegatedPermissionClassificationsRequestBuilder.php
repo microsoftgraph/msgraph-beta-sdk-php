@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DelegatedPermissionClassification;
-use Microsoft\Graph\Beta\Generated\Models\DelegatedPermissionClassificationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\Item\DelegatedPermissionClassificationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DelegatedPermissionClassification;
+use Microsoft\\Graph\\Beta\\Generated\Models\DelegatedPermissionClassificationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\Item\DelegatedPermissionClassificationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
