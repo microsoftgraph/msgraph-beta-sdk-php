@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows\Item\ProvisioningFlowItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\ProvisioningFlow;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\ProvisioningFlowCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows\Item\ProvisioningFlowItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\ProvisioningFlow;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\ProvisioningFlowCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

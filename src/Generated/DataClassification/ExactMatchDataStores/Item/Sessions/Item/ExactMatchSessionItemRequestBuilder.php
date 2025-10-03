@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Commit\CommitRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Renew\RenewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\UploadAgent\UploadAgentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ExactMatchSession;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Cancel\CancelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Commit\CommitRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\Renew\RenewRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Item\Sessions\Item\UploadAgent\UploadAgentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExactMatchSession;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Runs;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Runs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\Item\IndustryDataRunItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\MicrosoftGraphIndustryDataGetStatistics\MicrosoftGraphIndustryDataGetStatisticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\MicrosoftGraphIndustryDataStart\MicrosoftGraphIndustryDataStartRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRunCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Runs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Runs\Item\IndustryDataRunItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Runs\MicrosoftGraphIndustryDataGetStatistics\MicrosoftGraphIndustryDataGetStatisticsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Runs\MicrosoftGraphIndustryDataStart\MicrosoftGraphIndustryDataStartRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\IndustryDataRunCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

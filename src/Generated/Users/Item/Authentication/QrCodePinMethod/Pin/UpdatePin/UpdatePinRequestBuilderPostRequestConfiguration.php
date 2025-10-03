@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\QrCodePinMethod\Pin\UpdatePin;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\QrCodePinMethod\Pin\UpdatePin;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

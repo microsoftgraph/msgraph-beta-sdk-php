@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Contacts\Delta;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

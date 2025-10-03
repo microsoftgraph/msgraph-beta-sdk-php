@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AuditLogs\CustomSecurityAttributeAudits\CustomSecurityAttributeAuditsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignUps\SignUpsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AuditLogRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\CustomSecurityAttributeAudits\CustomSecurityAttributeAuditsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignUps\SignUpsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuditLogRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

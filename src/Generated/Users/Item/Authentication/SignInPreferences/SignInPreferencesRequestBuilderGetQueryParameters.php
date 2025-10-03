@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SignInPreferences;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\SignInPreferences;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

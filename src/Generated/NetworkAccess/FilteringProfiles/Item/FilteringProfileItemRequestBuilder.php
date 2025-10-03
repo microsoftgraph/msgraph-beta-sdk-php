@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\FilteringProfile;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies\ConditionalAccessPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\Policies\PoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\FilteringProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\ConditionalAccessPolicies\ConditionalAccessPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\Policies\PoliciesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

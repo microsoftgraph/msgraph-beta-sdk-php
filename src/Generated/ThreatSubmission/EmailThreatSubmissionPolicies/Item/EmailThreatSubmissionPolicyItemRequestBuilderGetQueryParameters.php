@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ThreatSubmission\EmailThreatSubmissionPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\ThreatSubmission\EmailThreatSubmissionPolicies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

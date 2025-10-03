@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assign;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfigurationAssignment;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppProvisioningConfigGroupAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\IosLobAppProvisioningConfigurationAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppProvisioningConfigGroupAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

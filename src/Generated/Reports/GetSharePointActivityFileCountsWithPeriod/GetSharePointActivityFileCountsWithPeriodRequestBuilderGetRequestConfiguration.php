@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetSharePointActivityFileCountsWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetSharePointActivityFileCountsWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

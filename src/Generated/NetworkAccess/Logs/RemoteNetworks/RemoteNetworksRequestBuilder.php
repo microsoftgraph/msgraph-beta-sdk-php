@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\RemoteNetworks;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\RemoteNetworks;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\RemoteNetworkHealthEvent;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\RemoteNetworkHealthEventCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\RemoteNetworks\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\RemoteNetworks\Item\RemoteNetworkHealthEventItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\RemoteNetworkHealthEvent;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\RemoteNetworkHealthEventCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\RemoteNetworks\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\RemoteNetworks\Item\RemoteNetworkHealthEventItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEvent;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\VirtualEventItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEvent;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\VirtualEventItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

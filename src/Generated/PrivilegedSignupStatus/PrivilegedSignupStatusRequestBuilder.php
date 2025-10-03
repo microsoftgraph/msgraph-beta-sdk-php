@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedSignupStatus;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedSignupStatusCollectionResponse;
-use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CanSignUp\CanSignUpRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CompleteSetup\CompleteSetupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\IsSignedUp\IsSignedUpRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\Item\PrivilegedSignupStatusItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\SignUp\SignUpRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedSignupStatus;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedSignupStatusCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\CanSignUp\CanSignUpRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\CompleteSetup\CompleteSetupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\IsSignedUp\IsSignedUpRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\Item\PrivilegedSignupStatusItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\SignUp\SignUpRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

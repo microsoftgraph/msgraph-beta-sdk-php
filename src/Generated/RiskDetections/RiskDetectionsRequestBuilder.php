@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RiskDetections;
+namespace Microsoft\\Graph\\Beta\\Generated\RiskDetections;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RiskDetection;
-use Microsoft\Graph\Beta\Generated\Models\RiskDetectionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\RiskDetections\Item\RiskDetectionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RiskDetection;
+use Microsoft\\Graph\\Beta\\Generated\Models\RiskDetectionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\RiskDetections\Item\RiskDetectionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -44,11 +44,11 @@ class RiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of riskDetection objects.
+     * Retrieve the properties of a riskDetection object.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskDetectionCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/riskdetection-get?view=graph-rest-beta Find more info here
     */
     public function get(?RiskDetectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +74,7 @@ class RiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a collection of riskDetection objects.
+     * Retrieve the properties of a riskDetection object.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DirectoryRoleTemplates\GetUserOwnedObjects;
+namespace Microsoft\\Graph\\Beta\\Generated\DirectoryRoleTemplates\GetUserOwnedObjects;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

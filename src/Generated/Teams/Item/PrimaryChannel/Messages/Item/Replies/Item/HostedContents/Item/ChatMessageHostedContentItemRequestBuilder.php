@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ChatMessageHostedContent;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Item\Value\ContentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatMessageHostedContent;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\HostedContents\Item\Value\ContentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

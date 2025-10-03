@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Planner\Plans\Item\Buckets\Item\Tasks\Item\ProgressTaskBoardFormat;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Planner\Plans\Item\Buckets\Item\Tasks\Item\ProgressTaskBoardFormat;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

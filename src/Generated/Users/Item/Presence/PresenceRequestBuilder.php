@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Presence;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearPresence\ClearPresenceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearUserPreferredPresence\ClearUserPreferredPresenceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetPresence\SetPresenceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetStatusMessage\SetStatusMessageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetUserPreferredPresence\SetUserPreferredPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Presence;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\ClearPresence\ClearPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\ClearUserPreferredPresence\ClearUserPreferredPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetPresence\SetPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetStatusMessage\SetStatusMessageRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetUserPreferredPresence\SetUserPreferredPresenceRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -85,11 +85,11 @@ class PresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set a presence status message for a user. An optional expiration date and time can be supplied.
+     * Get a user's presence information.
      * @param PresenceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Presence|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/presence-setstatusmessage?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-beta Find more info here
     */
     public function get(?PresenceRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -133,7 +133,7 @@ class PresenceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set a presence status message for a user. An optional expiration date and time can be supplied.
+     * Get a user's presence information.
      * @param PresenceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

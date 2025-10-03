@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\UpdateRequest;
+namespace Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignmentRequests\Item\UpdateRequest;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

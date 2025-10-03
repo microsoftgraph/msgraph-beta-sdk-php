@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\GetPresencesByUserId;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\GetPresencesByUserId;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

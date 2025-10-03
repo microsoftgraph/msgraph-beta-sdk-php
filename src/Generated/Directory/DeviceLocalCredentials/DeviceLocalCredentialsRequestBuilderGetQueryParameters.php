@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\DeviceLocalCredentials;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

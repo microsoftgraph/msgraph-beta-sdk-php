@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoiceLines\Item\Item_Escaped;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoiceLines\Item\Item_Escaped;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoiceLines\Item\Item_Escaped\ItemCategory\ItemCategoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoiceLines\Item\Item_Escaped\Picture\PictureRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Item;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoiceLines\Item\Item_Escaped\ItemCategory\ItemCategoryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoiceLines\Item\Item_Escaped\Picture\PictureRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Item;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Chats\Item\Messages\Item\Replies\ForwardToChat;
+namespace Microsoft\\Graph\\Beta\\Generated\Chats\Item\Messages\Item\Replies\ForwardToChat;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

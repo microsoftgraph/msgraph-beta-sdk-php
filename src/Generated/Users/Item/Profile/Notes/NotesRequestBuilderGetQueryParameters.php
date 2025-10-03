@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Notes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

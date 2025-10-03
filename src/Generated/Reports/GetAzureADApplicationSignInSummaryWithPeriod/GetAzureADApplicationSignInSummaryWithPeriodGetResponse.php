@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetAzureADApplicationSignInSummaryWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetAzureADApplicationSignInSummaryWithPeriod;
 
-use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInSummary;
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApplicationSignInSummary;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

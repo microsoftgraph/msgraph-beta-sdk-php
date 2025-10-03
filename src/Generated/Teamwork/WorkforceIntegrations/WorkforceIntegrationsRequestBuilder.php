@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\WorkforceIntegrations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WorkforceIntegration;
-use Microsoft\Graph\Beta\Generated\Models\WorkforceIntegrationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\Item\WorkforceIntegrationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkforceIntegration;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkforceIntegrationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\WorkforceIntegrations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\WorkforceIntegrations\Item\WorkforceIntegrationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

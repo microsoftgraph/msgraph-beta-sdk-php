@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DailyUserInsightMetricsRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\ActiveUsers\ActiveUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Authentications\AuthenticationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\InactiveUsers\InactiveUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\InactiveUsersByApplication\InactiveUsersByApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\MfaCompletions\MfaCompletionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\MfaTelecomFraud\MfaTelecomFraudRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\SignUps\SignUpsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Summary\SummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\UserCount\UserCountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DailyUserInsightMetricsRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\ActiveUsers\ActiveUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\Authentications\AuthenticationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\InactiveUsers\InactiveUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\InactiveUsersByApplication\InactiveUsersByApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\MfaCompletions\MfaCompletionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\MfaTelecomFraud\MfaTelecomFraudRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\SignUps\SignUpsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\Summary\SummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\UserCount\UserCountRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

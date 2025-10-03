@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\Search\Acronym;
-use Microsoft\Graph\Beta\Generated\Models\Search\Bookmark;
-use Microsoft\Graph\Beta\Generated\Models\Search\Qna;
+use Microsoft\\Graph\\Beta\\Generated\Models\Search\Acronym;
+use Microsoft\\Graph\\Beta\\Generated\Models\Search\Bookmark;
+use Microsoft\\Graph\\Beta\\Generated\Models\Search\Qna;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

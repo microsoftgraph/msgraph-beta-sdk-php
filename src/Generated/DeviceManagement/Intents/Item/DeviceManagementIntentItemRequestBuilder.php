@@ -1,25 +1,25 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\CompareWithTemplateId\CompareWithTemplateIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\CreateCopy\CreateCopyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSettingStateSummaries\DeviceSettingStateSummariesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceStates\DeviceStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceStateSummary\DeviceStateSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\GetCustomizedSettings\GetCustomizedSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\MigrateToTemplate\MigrateToTemplateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UpdateSettings\UpdateSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStates\UserStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStateSummary\UserStateSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntent;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\Categories\CategoriesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\CompareWithTemplateId\CompareWithTemplateIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\CreateCopy\CreateCopyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\DeviceSettingStateSummaries\DeviceSettingStateSummariesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\DeviceStates\DeviceStatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\DeviceStateSummary\DeviceStateSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\GetCustomizedSettings\GetCustomizedSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\MigrateToTemplate\MigrateToTemplateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\Settings\SettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\UpdateSettings\UpdateSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\UserStates\UserStatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\UserStateSummary\UserStateSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementIntent;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

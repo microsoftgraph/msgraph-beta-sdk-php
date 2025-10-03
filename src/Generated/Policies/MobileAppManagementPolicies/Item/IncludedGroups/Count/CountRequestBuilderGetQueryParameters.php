@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

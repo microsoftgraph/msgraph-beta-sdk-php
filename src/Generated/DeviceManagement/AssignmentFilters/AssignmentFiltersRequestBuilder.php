@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Enable\EnableRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetPlatformSupportedPropertiesWithPlatform\GetPlatformSupportedPropertiesWithPlatformRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetState\GetStateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Item\DeviceAndAppManagementAssignmentFilterItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\ValidateFilter\ValidateFilterRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilter;
-use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilterCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\Enable\EnableRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\GetPlatformSupportedPropertiesWithPlatform\GetPlatformSupportedPropertiesWithPlatformRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\GetState\GetStateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\Item\DeviceAndAppManagementAssignmentFilterItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\ValidateFilter\ValidateFilterRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceAndAppManagementAssignmentFilter;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceAndAppManagementAssignmentFilterCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

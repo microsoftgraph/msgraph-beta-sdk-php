@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAppleDeviceOSUpdateStatus;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\RetrieveAppleDeviceOSUpdateStatus;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

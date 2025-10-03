@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\GovernanceRoleSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\GovernanceRoleSettings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\Item\GovernanceRoleSettingItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleSetting;
-use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleSettingCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleSettings\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleSettings\Item\GovernanceRoleSettingItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GovernanceRoleSetting;
+use Microsoft\\Graph\\Beta\\Generated\Models\GovernanceRoleSettingCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

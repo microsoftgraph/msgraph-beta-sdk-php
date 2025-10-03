@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\DeletePasswordSingleSignOnCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\DeletePasswordSingleSignOnCredentials;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DomainJoinConnectors;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\Item\DeviceManagementDomainJoinConnectorItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementDomainJoinConnector;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementDomainJoinConnectorCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DomainJoinConnectors\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DomainJoinConnectors\Item\DeviceManagementDomainJoinConnectorItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementDomainJoinConnector;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementDomainJoinConnectorCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SolutionsRoot;
-use Microsoft\Graph\Beta\Generated\Solutions\Approval\ApprovalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\BackupRestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\BookingBusinessesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BookingCurrencies\BookingCurrenciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenariosWithUniqueName\BusinessScenariosWithUniqueNameRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\VirtualEventsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SolutionsRoot;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\Approval\ApprovalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\BackupRestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BookingBusinesses\BookingBusinessesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BookingCurrencies\BookingCurrenciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenariosWithUniqueName\BusinessScenariosWithUniqueNameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\VirtualEventsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

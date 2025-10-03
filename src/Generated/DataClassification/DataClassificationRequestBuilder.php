@@ -1,22 +1,22 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyExactMatches\ClassifyExactMatchesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFile\ClassifyFileRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\ClassifyFileJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\ClassifyTextJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\EvaluateDlpPoliciesJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\EvaluateLabelJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\ExactMatchDataStoresRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\ExactMatchUploadAgentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\Jobs\JobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes\SensitiveTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\SensitivityLabelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DataClassificationService;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyExactMatches\ClassifyExactMatchesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyFile\ClassifyFileRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyFileJobs\ClassifyFileJobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyTextJobs\ClassifyTextJobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\EvaluateDlpPoliciesJobs\EvaluateDlpPoliciesJobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\EvaluateLabelJobs\EvaluateLabelJobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\ExactMatchDataStoresRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchUploadAgents\ExactMatchUploadAgentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\Jobs\JobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\SensitiveTypes\SensitiveTypesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\SensitivityLabels\SensitivityLabelsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DataClassificationService;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

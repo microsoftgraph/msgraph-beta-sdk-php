@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\UpdateSoftware;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\UpdateSoftware;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

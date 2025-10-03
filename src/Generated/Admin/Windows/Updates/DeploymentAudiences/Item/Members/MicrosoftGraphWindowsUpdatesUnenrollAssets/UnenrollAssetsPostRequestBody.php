@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\MicrosoftGraphWindowsUpdatesUnenrollAssets;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\DeploymentAudiences\Item\Members\MicrosoftGraphWindowsUpdatesUnenrollAssets;
 
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdateCategory;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\UpdatableAsset;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\UpdateCategory;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\Item\Definition\DefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\Item\Trigger\TriggerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrintTask;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\Item\Definition\DefinitionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\Item\Trigger\TriggerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrintTask;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

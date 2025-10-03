@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\Replies;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Messages\Item\Replies;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

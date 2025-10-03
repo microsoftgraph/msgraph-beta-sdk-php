@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\ExportJobs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Goals\ExportJobs\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\ExportJobs\Item\Content\ContentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GoalsExportJob;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Goals\ExportJobs\Item\Content\ContentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GoalsExportJob;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

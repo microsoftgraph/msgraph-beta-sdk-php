@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetSharePointSiteUsageDetailWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetSharePointSiteUsageDetailWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

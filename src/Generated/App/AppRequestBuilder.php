@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App;
+namespace Microsoft\\Graph\\Beta\\Generated\App;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\App\Calls\CallsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\OnlineMeetingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CommsApplication;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\App\Calls\CallsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\OnlineMeetingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CommsApplication;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

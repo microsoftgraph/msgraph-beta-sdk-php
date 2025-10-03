@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveConnectionQualityReports;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveConnectionQualityReports;
 
-use Microsoft\Graph\Beta\Generated\Models\CloudPCConnectionQualityReportType;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPCConnectionQualityReportType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

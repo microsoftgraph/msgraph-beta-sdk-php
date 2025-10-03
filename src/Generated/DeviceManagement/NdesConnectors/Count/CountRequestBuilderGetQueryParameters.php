@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NdesConnectors\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

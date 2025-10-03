@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\ValidateFilter;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\ValidateFilter;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilter;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceAndAppManagementAssignmentFilter;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

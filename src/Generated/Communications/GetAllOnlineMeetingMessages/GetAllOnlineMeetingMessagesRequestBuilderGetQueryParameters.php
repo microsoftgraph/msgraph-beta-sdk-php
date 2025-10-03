@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\GetAllOnlineMeetingMessages;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\GetAllOnlineMeetingMessages;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

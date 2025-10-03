@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\MonthlyPrintUsageByUser\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

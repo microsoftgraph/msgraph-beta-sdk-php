@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\HealthIssues\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\HealthIssues\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

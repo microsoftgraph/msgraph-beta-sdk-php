@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagementEligibleDevices;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices\Item\ComanagementEligibleDeviceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ComanagementEligibleDevice;
-use Microsoft\Graph\Beta\Generated\Models\ComanagementEligibleDeviceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagementEligibleDevices\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagementEligibleDevices\Item\ComanagementEligibleDeviceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ComanagementEligibleDevice;
+use Microsoft\\Graph\\Beta\\Generated\Models\ComanagementEligibleDeviceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

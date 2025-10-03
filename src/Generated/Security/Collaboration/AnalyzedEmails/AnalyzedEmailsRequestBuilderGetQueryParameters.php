@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\AnalyzedEmails;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

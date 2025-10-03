@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\AllowedUsers\Ref;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\AllowedUsers\Ref;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

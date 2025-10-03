@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Submissions\Item\Resources\Item\DependentResources;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\Submissions\Item\Resources\Item\DependentResources;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get dependentResources from education
+ * List the dependent education submission resources for a given education submission resource.
 */
 class DependentResourcesRequestBuilderGetQueryParameters 
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Labels\RetentionLabels\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\RetentionLabel;
-use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\Descriptors\DescriptorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\DispositionReviewStagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\RetentionEventType\RetentionEventTypeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\RetentionLabel;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\RetentionLabels\Item\Descriptors\DescriptorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\DispositionReviewStagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\RetentionLabels\Item\RetentionEventType\RetentionEventTypeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

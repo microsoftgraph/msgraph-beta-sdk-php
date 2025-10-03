@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveWin32CatalogAppsUpdateReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\RetrieveWin32CatalogAppsUpdateReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

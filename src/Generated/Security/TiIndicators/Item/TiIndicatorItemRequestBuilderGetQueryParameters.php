@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

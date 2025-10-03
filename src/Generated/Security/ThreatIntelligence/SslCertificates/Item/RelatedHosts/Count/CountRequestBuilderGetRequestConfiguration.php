@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\SslCertificates\Item\RelatedHosts\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

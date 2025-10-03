@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Delta;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

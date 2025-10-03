@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\RetrieveManagedDevicesWithAppInstallationIssues;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\RetrieveManagedDevicesWithAppInstallationIssues;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

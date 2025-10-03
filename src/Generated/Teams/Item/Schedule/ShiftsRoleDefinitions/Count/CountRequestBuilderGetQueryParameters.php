@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\ShiftsRoleDefinitions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\ShiftsRoleDefinitions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

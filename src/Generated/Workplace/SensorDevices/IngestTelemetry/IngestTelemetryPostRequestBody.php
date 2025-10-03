@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Workplace\SensorDevices\IngestTelemetry;
+namespace Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices\IngestTelemetry;
 
-use Microsoft\Graph\Beta\Generated\Models\WorkplaceSensorDeviceTelemetry;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkplaceSensorDeviceTelemetry;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

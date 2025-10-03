@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Schools\Item\Users;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Schools\Item\Users;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Schools\Item\Users\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Schools\Item\Users\Item\EducationUserItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Schools\Item\Users\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationUserCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Schools\Item\Users\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Schools\Item\Users\Item\EducationUserItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Schools\Item\Users\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationUserCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.education.schools.item.users.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.education.schools.item.users.item collection
      * @param string $educationUserId The unique identifier of educationUser
      * @return EducationUserItemRequestBuilder
     */

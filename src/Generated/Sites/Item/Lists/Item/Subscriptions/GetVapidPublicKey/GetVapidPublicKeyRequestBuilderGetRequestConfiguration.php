@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Subscriptions\GetVapidPublicKey;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Subscriptions\GetVapidPublicKey;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

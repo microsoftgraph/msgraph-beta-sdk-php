@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\LogTeleconferenceDeviceQuality;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\LogTeleconferenceDeviceQuality;
 
-use Microsoft\Graph\Beta\Generated\Models\TeleconferenceDeviceQuality;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeleconferenceDeviceQuality;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

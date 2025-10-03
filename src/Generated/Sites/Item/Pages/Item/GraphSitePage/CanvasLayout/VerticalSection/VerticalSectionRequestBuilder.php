@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VerticalSection;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts\WebpartsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VerticalSection;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Pages\Item\GraphSitePage\CanvasLayout\VerticalSection\Webparts\WebpartsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Applications\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\ApplicationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Application;
-use Microsoft\Graph\Beta\Generated\Models\ApplicationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\ApplicationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Application;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApplicationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

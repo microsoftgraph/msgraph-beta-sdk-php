@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\ContentTypes\Item\CopyToDefaultContentLocation;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\ContentTypes\Item\CopyToDefaultContentLocation;
 
-use Microsoft\Graph\Beta\Generated\Models\ItemReference;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemReference;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\OnPremisesSynchronization\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

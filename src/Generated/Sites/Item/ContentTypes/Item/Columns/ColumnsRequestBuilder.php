@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\ContentTypes\Item\Columns;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentTypes\Item\Columns;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ColumnDefinition;
-use Microsoft\Graph\Beta\Generated\Models\ColumnDefinitionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Sites\Item\ContentTypes\Item\Columns\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ColumnDefinition;
+use Microsoft\\Graph\\Beta\\Generated\Models\ColumnDefinitionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentTypes\Item\Columns\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

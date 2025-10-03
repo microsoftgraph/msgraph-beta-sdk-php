@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item\Events;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item\Events;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item\Events\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item\Events\Item\MessageEventItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MessageEvent;
-use Microsoft\Graph\Beta\Generated\Models\MessageEventCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item\Events\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item\Events\Item\MessageEventItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MessageEvent;
+use Microsoft\\Graph\\Beta\\Generated\Models\MessageEventCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

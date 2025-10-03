@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\HealthOverviews\HealthOverviewsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Issues\IssuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\MessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ServiceAnnouncement;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\HealthOverviews\HealthOverviewsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Issues\IssuesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\MessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServiceAnnouncement;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

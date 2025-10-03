@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

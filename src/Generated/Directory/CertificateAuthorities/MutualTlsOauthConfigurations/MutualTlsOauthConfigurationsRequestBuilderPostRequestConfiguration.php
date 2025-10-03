@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\MutualTlsOauthConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\CertificateAuthorities\MutualTlsOauthConfigurations;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\IdentitySynchronization;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantPartners\Item\IdentitySynchronization;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

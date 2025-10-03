@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CanSignUp;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\CanSignUp;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

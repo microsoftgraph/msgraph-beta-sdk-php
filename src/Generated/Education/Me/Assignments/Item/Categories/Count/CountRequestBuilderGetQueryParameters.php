@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Categories\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Categories\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

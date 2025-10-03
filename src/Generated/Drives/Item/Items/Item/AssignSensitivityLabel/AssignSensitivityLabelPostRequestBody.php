@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\AssignSensitivityLabel;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\AssignSensitivityLabel;
 
-use Microsoft\Graph\Beta\Generated\Models\SensitivityLabelAssignmentMethod;
+use Microsoft\\Graph\\Beta\\Generated\Models\SensitivityLabelAssignmentMethod;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\ContactMergeSuggestions;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\ContactMergeSuggestions;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
