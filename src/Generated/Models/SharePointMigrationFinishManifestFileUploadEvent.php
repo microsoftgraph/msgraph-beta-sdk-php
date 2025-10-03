@@ -36,7 +36,7 @@ class SharePointMigrationFinishManifestFileUploadEvent extends SharePointMigrati
     }
 
     /**
-     * Gets the manifestFileName property value. The manifestFileName property
+     * Gets the manifestFileName property value. The exported manifest file name. Read-only.
      * @return string|null
     */
     public function getManifestFileName(): ?string {
@@ -57,7 +57,7 @@ class SharePointMigrationFinishManifestFileUploadEvent extends SharePointMigrati
     }
 
     /**
-     * Sets the manifestFileName property value. The manifestFileName property
+     * Sets the manifestFileName property value. The exported manifest file name. Read-only.
      * @param string|null $value Value to set for the manifestFileName property.
     */
     public function setManifestFileName(?string $value): void {

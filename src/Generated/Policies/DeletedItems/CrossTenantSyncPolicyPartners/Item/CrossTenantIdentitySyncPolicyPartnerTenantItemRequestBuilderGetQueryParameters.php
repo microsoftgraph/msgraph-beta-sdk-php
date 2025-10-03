@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantSyncPo
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a policyDeletableItem object, which might be one of the following deleted policy types:- crossTenantAccessPolicyConfigurationPartner- crossTenantIdentitySyncPolicyPartner
+ * Read the properties and relationships of a policyDeletableItem object, which might be one of the following deleted policy types:- crossTenantAccessPolicyConfigurationPartner- crossTenantIdentitySyncPolicyPartner- conditionalAccessPolicy- namedLocation
 */
 class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderGetQueryParameters 
 {

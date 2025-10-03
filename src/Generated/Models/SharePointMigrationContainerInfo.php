@@ -56,7 +56,7 @@ class SharePointMigrationContainerInfo implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the dataContainerUri property value. The dataContainerUri property
+     * Gets the dataContainerUri property value. A valid URL with a SAS token for accessing the Azure blob storage container that contains the file content. Read-only.
      * @return string|null
     */
     public function getDataContainerUri(): ?string {
@@ -68,7 +68,7 @@ class SharePointMigrationContainerInfo implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the encryptionKey property value. The encryptionKey property
+     * Gets the encryptionKey property value. Provides the AES-256-CBC encryption key if files stored in Azure blob containers are encrypted. The key is Base64-encoded. Read-only.
      * @return string|null
     */
     public function getEncryptionKey(): ?string {
@@ -94,7 +94,7 @@ class SharePointMigrationContainerInfo implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the metadataContainerUri property value. The metadataContainerUri property
+     * Gets the metadataContainerUri property value. A valid URL with a SAS token for accessing the Azure blob storage container that contains the file metadata. Read-only.
      * @return string|null
     */
     public function getMetadataContainerUri(): ?string {
@@ -146,7 +146,7 @@ class SharePointMigrationContainerInfo implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the dataContainerUri property value. The dataContainerUri property
+     * Sets the dataContainerUri property value. A valid URL with a SAS token for accessing the Azure blob storage container that contains the file content. Read-only.
      * @param string|null $value Value to set for the dataContainerUri property.
     */
     public function setDataContainerUri(?string $value): void {
@@ -154,7 +154,7 @@ class SharePointMigrationContainerInfo implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the encryptionKey property value. The encryptionKey property
+     * Sets the encryptionKey property value. Provides the AES-256-CBC encryption key if files stored in Azure blob containers are encrypted. The key is Base64-encoded. Read-only.
      * @param string|null $value Value to set for the encryptionKey property.
     */
     public function setEncryptionKey(?string $value): void {
@@ -162,7 +162,7 @@ class SharePointMigrationContainerInfo implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the metadataContainerUri property value. The metadataContainerUri property
+     * Sets the metadataContainerUri property value. A valid URL with a SAS token for accessing the Azure blob storage container that contains the file metadata. Read-only.
      * @param string|null $value Value to set for the metadataContainerUri property.
     */
     public function setMetadataContainerUri(?string $value): void {

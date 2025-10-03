@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get progressEvents from storage
+ * A collection of migration events that reflects the job status changes.
 */
 class ProgressEventsRequestBuilderGetQueryParameters 
 {

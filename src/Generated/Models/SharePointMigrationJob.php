@@ -50,7 +50,7 @@ class SharePointMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the progressEvents property value. The progressEvents property
+     * Gets the progressEvents property value. A collection of migration events that reflects the job status changes.
      * @return array<SharePointMigrationEvent>|null
     */
     public function getProgressEvents(): ?array {
@@ -82,7 +82,7 @@ class SharePointMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the progressEvents property value. The progressEvents property
+     * Sets the progressEvents property value. A collection of migration events that reflects the job status changes.
      * @param array<SharePointMigrationEvent>|null $value Value to set for the progressEvents property.
     */
     public function setProgressEvents(?array $value): void {

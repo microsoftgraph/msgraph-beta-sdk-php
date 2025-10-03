@@ -65,7 +65,7 @@ class SharePointMigrationJobErrorEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Gets the objectId property value. The objectId property
+     * Gets the objectId property value. The object ID. Read-only.
      * @return string|null
     */
     public function getObjectId(): ?string {
@@ -89,7 +89,7 @@ class SharePointMigrationJobErrorEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Gets the objectUrl property value. The objectUrl property
+     * Gets the objectUrl property value. The object URL. Read-only.
      * @return string|null
     */
     public function getObjectUrl(): ?string {
@@ -101,7 +101,7 @@ class SharePointMigrationJobErrorEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Gets the totalRetryCount property value. The totalRetryCount property
+     * Gets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @return int|null
     */
     public function getTotalRetryCount(): ?int {
@@ -143,7 +143,7 @@ class SharePointMigrationJobErrorEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Sets the objectId property value. The objectId property
+     * Sets the objectId property value. The object ID. Read-only.
      * @param string|null $value Value to set for the objectId property.
     */
     public function setObjectId(?string $value): void {
@@ -159,7 +159,7 @@ class SharePointMigrationJobErrorEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Sets the objectUrl property value. The objectUrl property
+     * Sets the objectUrl property value. The object URL. Read-only.
      * @param string|null $value Value to set for the objectUrl property.
     */
     public function setObjectUrl(?string $value): void {
@@ -167,7 +167,7 @@ class SharePointMigrationJobErrorEvent extends SharePointMigrationEvent implemen
     }
 
     /**
-     * Sets the totalRetryCount property value. The totalRetryCount property
+     * Sets the totalRetryCount property value. The current retry count of the job. Read-only.
      * @param int|null $value Value to set for the totalRetryCount property.
     */
     public function setTotalRetryCount(?int $value): void {
